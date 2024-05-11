@@ -1,0 +1,205 @@
+// website
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "Detailed Vehicle History (DVH)",
+  "url": "https://detailedvehiclehistory.com/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://detailedvehiclehistory.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+// Organization
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "Organization",
+    "url": [
+      "https://detailedvehiclehistory.com/vin-decoder",
+      "https://detailedvehiclehistory.com/classic-vin-decoder",
+      "https://detailedvehiclehistory.com/vin-check",
+      "https://detailedvehiclehistory.com/classic-vehicle-history",
+      "https://detailedvehiclehistory.com/license-plate-lookup",
+      "https://detailedvehiclehistory.com/window-sticker",
+      "https://detailedvehiclehistory.com/classic-window-stickers",
+      "https://detailedvehiclehistory.com/sample",
+      "https://detailedvehiclehistory.com/vin-check-rates",
+      "https://detailedvehiclehistory.com/dealers",
+      "https://detailedvehiclehistory.com/blog",
+      "https://detailedvehiclehistory.com/faq"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/DetailedVehicleHistory",
+      "https://twitter.com/DetailedVehicle",
+      "https://www.linkedin.com/company/search-detailed-vehicle-history/",
+      "https://www.instagram.com/detailedvehiclehistory/",
+      "https://www.youtube.com/channel/UCBVm1Oh-dC9Y_yoWh9B1Fow"
+    ],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "query-input": "required name=search_term_string",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://detailedvehiclehistory.com/?s={search_term_string}"
+      }
+    }
+  }
+</script>
+
+// breadcrum
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "item": {
+      "@id": "https://detailedvehiclehistory.com/",
+      "name": "detailedvehiclehistory.com"
+    },
+    "position":1
+  },{
+    "@type": "ListItem", 
+    "item": {
+      "@id": "https://detailedvehiclehistory.com/vin-decoder/",
+      "name": "Vin Decoder"
+    },
+    "position":2
+  },{
+    "@type": "ListItem", 
+    "item": {
+      "@id": "https://detailedvehiclehistory.com/vin-decoder/ford",
+      "name": "Ford Vin Decoder"
+    },
+    "position":3
+  }]
+}
+</script>
+
+// 3 newest article
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Detailed Vehicle History (DVH)",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2023/10/logo.png",
+        "width": "136",
+        "height": "70"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://detailedvehiclehistory.com/out-of-the-door-price"
+    },
+    "headline": "Out of the door Price When Buying A Car: What Does the Price Mean?",
+    "alternativeHeadline": "Out of the door Price When Buying A Car: What Does the Price Mean?",
+    "url": "https://detailedvehiclehistory.com/out-of-the-door-price",
+    "datePublished": "2024-05-09T15:10:00-0400",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/05/Out-of-the-door-Price-When-Buying-A-Car_-What-Does-the-Price-Mean_-1.png",
+      "width": "800",
+      "height": "600"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Sosthenes Ugochukwu",
+      "url": "https://detailedvehiclehistory.com/author/sosthenes"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Detailed Vehicle History (DVH)",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2023/10/logo.png",
+        "width": "136",
+        "height": "70"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://detailedvehiclehistory.com/msrp-vs-invoice-price"
+    },
+    "headline": "Difference Between MSRP vs. Invoice Price When Buying a Car",
+    "alternativeHeadline": "Difference Between MSRP vs. Invoice Price When Buying a Car",
+    "url": "https://detailedvehiclehistory.com/msrp-vs-invoice-price",
+    "datePublished": "2024-05-09T14:20:00-0400",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/05/Difference-Between-MSRP-vs.-Invoice-Price-When-Buying-a-Car.png",
+      "width": "800",
+      "height": "600"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Sosthenes Ugochukwu",
+      "url": "https://detailedvehiclehistory.com/author/sosthenes"
+    }
+  }
+]
+</script>
+
+// trim Only
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Vehicle",
+  "name": "{year} {make} {model} {trim} {style}",
+  "description": "{year} {make} {model} {trim}: Specs, Pricing, Rating",
+  "model": "{model}",
+  "vehicleModelDate": "{year}",
+  "vehicleConfiguration": "{trim} {style}",
+  "seatingCapacity": "{specifications.seating.number_of_seats}",
+  "vehicleTransmission": "{transmission.type}",
+  "cargoVolume": {
+    "@type": "QuantitativeValue",
+    "value": "{specifications.cargo_dimensions.cargo_volume_cu.ft}"
+    },
+    "manufacturer": {
+        "@type": "Organization",
+        "name": "{make}"
+    },
+  "width": "{specifications.exterior_dimensions.overall_width_in}",
+  "fuelCapacity": "{fuel.tank_capacity_gal}",
+  "height": "{specifications.exterior_dimensions.overall_height_in}",
+  "numberOfDoors": "{specifications.doors}",
+  "fuelType": "{fuel.type}",
+  "speed": "{engine.horsepower_hp}",
+  "brand": {
+      "@type": "Brand",
+      "name": "{make}"
+  },
+    "wheelbase": [
+      {
+        "@type": "QuantitativeValue",
+        "value": "{specifications.wheels.spare_wheel_size_in}",
+        "unitCode": "CM",
+        "name": "Spare Wheel Size"
+      },
+      {
+        "@type": "QuantitativeValue",
+        "value": "{specifications.tires.spare_tire_size}",
+        "unitCode": "CM",
+        "name": "Spare Tire Size"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "3.5",
+      "reviewCount": "11"
+    }
+}
+</script>
