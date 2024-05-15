@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Checks Report</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
-    <div id="section1" class="container flex gap_20 space-between">
+    <div id="section1" class="container flex flex_col_s gap_20 space-between">
         <div>
             <img src="asstets\Logo.png" class="logo"/>
             <h1 class="green m_0">Vehicle Checks Report</h1>
@@ -15,23 +16,23 @@
         </div>
         <div class="flex center">
             <div class="copyDownload flex">
-                <span><img src="asstets\copy-link-svgrepo-com 1.svg" />Copy Link</span>
+                <span class="bold"><img src="asstets\copy-link-svgrepo-com 1.svg" />Copy Link</span>
                 <span>|</span>
-                <span><img src="asstets\download.svg" />Download</span>
+                <span class="bold"><img src="asstets\download.svg" />Download</span>
             </div>
         </div>
     </div>
-    <div id="section2" class="container flex space-between">
-        <div class="flex gap_20">
+    <div id="section2" class="container flex space-between flex_col_ss gap_15_ss">
+        <div class="flex flex_col_s gap_20 center_m align_center">
             <img class="makeLogo" src="asstets/maserati.png" />
             <div class="flex_col justify_center gap_5">
                 <p class="bold p_big">2015 Maserati Ghibli S Q4</p>
-                <p>VIN: <span class="bold p_big">ZAM57RTA0F1135343</span></p>
+                <p class="p_big">VIN: <span class="bold">ZAM57RTA0F1135343</span></p>
             </div>
         </div>
-        <div class="flex gap_20 center">
+        <div class="flex flex_col_s gap_20 center gap_10_ss">
             <span class="bold">Scan to open report:</span>
-            <span><img src="asstets/barcode.png" /></span>
+            <span><img class="mr_20_m" src="asstets/barcode.png" /></span>
         </div>
     </div>
     <div id="section3" class="container grid flex box">
@@ -74,9 +75,9 @@
     </div>
     <span class="divider container"></span>
     <div id="section4" class="container pt_10">
-        <h2 class="mb_20">Vehicle Check Summary</h2>
-        <div class="flex">
-            <div class="col col1 flex_col gap_15">
+        <h2 class="heading_margins">Vehicle Check Summary</h2>
+        <div class="flex flex_col_m">
+            <div class="col col1 flex_col gap_15 m_w_full border_none_m">
                 <div class="box flex gap_10 p_10_15 align_center">
                     <img class="icon" src="asstets/car-repair-car-check.svg" />
                     <p>State Title Brand: <span class="red bold">1 Record(s) Available</span></p>
@@ -122,31 +123,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col col2 flex_col gap_15">
+            <div class="col col2 flex_col gap_15 m_w_full border_none_m">
                 <div class="center">
                     <img class="groupPeople" src="asstets/group-of-people-svgrepo-com 1.svg" />
-                    <h3>Number of Owners</h3>
+                    <h3 class="black">Number of Owners</h3>
                     <p>Calculated Owners: <span class="bold">4</span></p>
                 </div>
-                <div class="box p_20 flex_col gap_5">
+                <div class="box p_20 flex_col gap_10">
                     <p>Purchased: <span class="bold">2015</span></p>
                     <p>Location: <span class="bold">CA</span></p>
                     <p>Own from: <span class="bold">02/2015 - Present</span></p>
                     <p>Duration: <span class="bold">9 year(s) 3 month(s)</span></p>
                 </div>
-                <div class="box p_20 flex_col gap_5">
+                <div class="box p_20 flex_col gap_10">
                     <p>Purchased: <span class="bold">2015</span></p>
                     <p>Location: <span class="bold">CA</span></p>
                     <p>Own from: <span class="bold">02/2015 - Present</span></p>
                     <p>Duration: <span class="bold">9 year(s) 3 month(s)</span></p>
                 </div>
-                <div class="box p_20 flex_col gap_5">
+                <div class="box p_20 flex_col gap_10">
                     <p>Purchased: <span class="bold">2015</span></p>
                     <p>Location: <span class="bold">CA</span></p>
                     <p>Own from: <span class="bold">02/2015 - Present</span></p>
                     <p>Duration: <span class="bold">9 year(s) 3 month(s)</span></p>
                 </div>
-                <div class="box p_20 flex_col gap_5">
+                <div class="box p_20 flex_col gap_10">
                     <p>Purchased: <span class="bold">2015</span></p>
                     <p>Location: <span class="bold">CA</span></p>
                     <p>Own from: <span class="bold">02/2015 - Present</span></p>
@@ -156,12 +157,17 @@
         </div>
     </div>
     <div id="section5" class="container">
-        <h2 class="mb_20">Auction History</h2>
-        <div class="imagesContainer center">
-            <img class="carImage" src="asstets/car.jpg" />
+        <h2 class="heading_margins">Auction History</h2>
+        <div id="slider">
+            <button onclick="prec(1)"><img src="asstets/arrow-left-circle.svg"/></button>
+            <div class="img_slider" id="img_slider1">
+                <img class="carImage" src="asstets/car.jpg">
+                <img class="carImage" src="asstets/car-2.jpg">
+            </div>
+            <button onclick="succ(1)"><img src="asstets/arrow-right-circle.svg"/></button>
         </div>
-        <div class="flex">
-            <div class="col1 col w_50">
+        <div class="flex flex_col_m">
+            <div class="col1 col w_50 m_w_full">
                 <div class="dataContainer">
                     <h3 class="green">Title & Condition</h3>
                     <table class="w_full tableStyle1">
@@ -214,21 +220,21 @@
                     </table>
                 </div>
             </div>
-            <div class="col2 col w_50">
-                <div class="pl_20 pt_20">
-                    <div class="greenContainer flex gap_15 align_center p_10_20">
+            <div class="col2 col w_50 m_w_full p_0_m">
+                <div class="pl_20 pt_20 p_0_m customContainer">
+                    <div class="greenContainer flex gap_10_m align_center p_10_20 flex_col_m space-between">
                         <span class="flex align_center gap_10"><img src="asstets/car-energy-green-svgrepo-com 1.svg" /><p>Runs & Drives</p></span>
-                        <span>|</span>
+                        <span class="borderY"></span>
                         <span class="flex align_center gap_10"><img src="asstets/engine-motor-svgrepo-com (2).svg" /><p>Engine Starts</p></span>
-                        <span>|</span>
+                        <span class="borderY"></span>
                         <span class="flex align_center gap_10"><img src="asstets/keys-svgrepo-com 1.svg" /><p>Have Keys</p></span>
                     </div>
-                    <div class="greenContainer flex mv_20 space-between align_center p_15_20">
-                        <div>
-                            <p class="bold">Auction Status</p>
-                            <p>Price: <span class="bold">$16,200</span></p>
+                    <div class="greenContainer flex flex_col_m mv_20 space-between align_center p_25_20 gap_10">
+                        <div class="flex_col gap_10">
+                            <p class="bold p_big">Auction Status</p>
+                            <p class="p_big">Price: <span class="bold">$16,200</span></p>
                         </div>
-                        <p class="sold bold">Sold</p>
+                        <p class="statusBtn bold">Sold</p>
                     </div>
                 </div>
                 <div class="dataContainer2">
@@ -252,12 +258,17 @@
         </div>
     </div>
     <div id="section6" class="container">
-        <h2 class="mb_20">Sales History</h2>
-        <div class="imagesContainer center">
-            <img class="carImage" src="asstets/car-2.jpg" />
+        <h2 class="heading_margins">Sales History</h2>
+        <div id="slider">
+            <button onclick="prec(2)"><img src="asstets/arrow-left-circle.svg"/></button>
+            <div class="img_slider" id="img_slider2">
+                <img class="carImage" src="asstets/car.jpg">
+                <img class="carImage" src="asstets/car-2.jpg">
+            </div>
+            <button onclick="succ(2)"><img src="asstets/arrow-right-circle.svg"/></button>
         </div>
-        <div class="flex">
-            <div class="col1 col w_50">
+        <div class="flex flex_col_m">
+            <div class="col1 col w_50 m_w_full">
                 <div class="dataContainer">
                     <h3>Title & Condition</h3>
                     <table class="w_full tableStyle1">
@@ -289,21 +300,21 @@
                     </table>
                 </div>
             </div>
-            <div class="col2 col w_50">
-                <div class="pl_20 pt_20">
-                    <div class="greenContainer flex mb_20 space-between align_center p_15_20">
-                        <div>
-                            <p class="bold">Sales Status</p>
-                            <p>Price: <span class="bold">$22,999</span></p>
+            <div class="col2 col w_50 m_w_full">
+                <div class="pl_20 pt_20 p_0_m customContainer customContainer2">
+                    <div class="greenContainer flex flex_col_m mb_20 m_0_m space-between align_center p_25_20 gap_10_m">
+                        <div class="flex_col gap_10">
+                            <p class="bold p_big">Sales Status</p>
+                            <p class="p_big">Price: <span class="bold">$22,999</span></p>
                         </div>
-                        <p class="sold bold">On Approval</p>
+                        <p class="statusBtn bold">On Approval</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="section7" class="container">
-        <h2 class="mb_20 mt_25">Accident Information</h2>
+        <h2 class="heading_margins mt_25">Accident Information</h2>
         <table class="tableStyle2">
             <tr>
                 <th>No</th>
@@ -324,51 +335,51 @@
     </div>
     <span class="divider container"></span>
     <div id="section8" class="container">
-        <h2 class="mb_20 pt_5">Damage Verifications</h2>
+        <h2 class="heading_margins pt_5">Damage Verifications</h2>
         <table class="tableStyle2">
             <tr>
                 <th>1 Problem(s) Reported</th>
                 <th>Other Problem Areas Checked</th>
             </tr>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>No non-title fire damaged record</td>
             </tr>
             <tr>
-                <td>x</td>
+                <td class="icon alert"></td>
                 <td>No non-title hail damaged record</td>
             </tr>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>No non-title flood damaged record</td>
             </tr>
         </table> 
     </div>
     <span class="divider container"></span>
     <div id="section9" class="container">
-        <h2 class="mb_20 pt_5">State / Title Brand Verifications</h2>
+        <h2 class="heading_margins pt_5">State / Title Brand Verifications</h2>
         <table class="tableStyle2">
             <tr>
                 <th>1 Problem(s) Reported</th>
                 <th>Major State Title Areas Checked</th>
             </th>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>No non-title fire damaged record</td>
             </tr>
             <tr>
-                <td>x</td>
+                <td class="icon alert"></td>
                 <td>No non-title hail damaged record</td>
             </tr>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>No non-title flood damaged record</td>
             </tr>
         </table> 
     </div>
     <span class="divider container"></span>
     <div id="section10" class="container">
-        <h2 class="mb_20 pt_5">Odometer Verifications</h2>
+        <h2 class="heading_margins pt_5">Odometer Verifications</h2>
         <table class="tableStyle2">
             <tr>
                 <th>1 Problem(s) Reported</th>
@@ -376,17 +387,17 @@
                 <th>Date Reported</th>
             </tr>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>45 mi</td>
                 <td>01/14/2015</td>
             </tr>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>45 mi</td>
                 <td>01/14/2015</td>
             </tr>
             <tr>
-                <td>V</td>
+                <td class="icon check"></td>
                 <td>45 mi</td>
                 <td>01/14/2015</td>
             </tr>
@@ -394,77 +405,81 @@
     </div>
     <span class="divider container"></span>
     <div id="section11" class="container">
-        <h2 class="mb_20 pt_5">Inspection Records</h2>
+        <h2 class="heading_margins pt_5">Inspection Records</h2>
         <div class="noData box">No Inspection Records Found.</div>
     </div>
     <span class="divider container"></span>
     <div id="section12" class="container">
-        <h2 class="mb_20 pt_5">Service & Repair Information</h2>
+        <h2 class="heading_margins pt_5">Service & Repair Information</h2>
         <div class="noData box">No Inspection Records Found.</div>
     </div>
     <span class="divider container"></span>
     <div id="section13" class="container">
-        <h2 class="mb_20 pt_5">Event Verifications</h2>
-        <table class="tableStyle2">
-            <tr>
-                <th>1 Problem(s) Reported</th>
-                <th>Mileage</th>
-                <th>Date Reported</th>
-            </tr>
-            <tr>
-                <td>V</td>
-                <td>45 mi</td>
-                <td>01/14/2015</td>
-            </tr>
-            <tr>
-                <td>V</td>
-                <td>45 mi</td>
-                <td>01/14/2015</td>
-            </tr>
-            <tr>
-                <td>V</td>
-                <td>45 mi</td>
-                <td>01/14/2015</td>
-            </tr>
-        </table>
+        <h2 class="heading_margins pt_5">Event Verifications</h2>
+        <div class="">
+            <table class="tableStyle2">
+                <tr>
+                    <th>1 Problem(s) Reported</th>
+                    <th>Mileage</th>
+                    <th>Date Reported</th>
+                </tr>
+                <tr>
+                    <td class="icon check"></td>
+                    <td>45 mi</td>
+                    <td>01/14/2015</td>
+                </tr>
+                <tr>
+                    <td class="icon check"></td>
+                    <td>45 mi</td>
+                    <td>01/14/2015</td>
+                </tr>
+                <tr>
+                    <td class="icon info"></td>
+                    <td>45 mi</td>
+                    <td>01/14/2015</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <span class="divider container"></span>
     <div id="section14" class="container">
-        <h2 class="mb_20 pt_5">Detailed History Verifications</h2>
-        <table class="tableStyle2">
-            <tr>
-                <th>Event Date</th>
-                <th>Location</th>
-                <th>Odometer Reading</th>
-                <th>Data Source</th>
-                <th>Details</th>
-            </tr>
-            <tr>
-                <td>V</td>
-                <td>data</td>
-                <td>data</td>
-                <td>data</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>V</td>
-                <td>data</td>
-                <td>data</td>
-                <td>data</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>V</td>
-                <td>data</td>
-                <td>data</td>
-                <td>data</td>
-                <td>data</td>
-            </tr>
-        </table>
+        <h2 class="heading_margins pt_5">Detailed History Verifications</h2>
+        <div class="table_container">
+            <table class="tableStyle2">
+                <tr>
+                    <th>Event Date</th>
+                    <th>Location</th>
+                    <th>Odometer Reading</th>
+                    <th>Data Source</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td class="icon check"></td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                </tr>
+                <tr>
+                    <td class="icon check"></td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                </tr>
+                <tr>
+                    <td class="icon check"></td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                    <td>data</td>
+                </tr>
+            </table>
+        </div>
     </div>
     <span class="divider container"></span>
     <div id="section15" class="container">
-        <h2 class="mb_20 pt_5">Recalls</h2>
+        <h2 class="heading_margins pt_5">Recalls</h2>
         <div class="noData box">No Recalls found.</div>
     </div>
     <span class="divider"></span>

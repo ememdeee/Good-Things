@@ -1,4 +1,7 @@
 /* Starter */
+body{
+    margin: 0;
+}
 div {
     box-sizing: border-box;
 }
@@ -68,6 +71,9 @@ p, h1, h2, h3, h4, h5, h6{
 }
 .p_15_20{
     padding: 15px 20px;
+}
+.p_25_20{
+    padding: 25px 20px;
 }
 .p_h_20{
     padding-left: 20px;
@@ -157,10 +163,13 @@ p, h1, h2, h3, h4, h5, h6{
 .red{
     color: #D23535;
 }
-.sold{
-    padding: 20px;
+.statusBtn{
+    padding: 25px;
     background-color: #F8AD25;
     border-radius: 10px;
+}
+.scroll{
+    overflow: scroll;
 }
 
 /* responsiveness */
@@ -184,16 +193,45 @@ p, h1, h2, h3, h4, h5, h6{
     .m_align_left{
         text-align: left;
     }
+    .center_m{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .gap_0_m{
+        gap: 0;
+    }
+    .gap_10_m{
+        gap: 10px;
+    }
+    .mr_20_m{
+        margin-right: 20px;
+    }
+    .m_0_m{
+        margin: 0;
+    }
+    .p_0_m{
+        padding: 0 !important;
+    }
 }
-
 /* End Starter */
 body {
     font-family: "Montserrat", sans-serif;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #008751;
 }
 h2 {
     font-size: 42px;
     font-weight: 700;
     color: #008751;
+}
+.heading_margins{
+    margin-bottom: 25px;
 }
 h3 {
     font-size: 26px;
@@ -201,10 +239,14 @@ h3 {
     color: #008751;
 }
 p{
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 400;
 }
 .p_big{
-    font-size: 20px;
+    font-size: 24px;
+}
+.black{
+    color: #000;
 }
 .green {
     color: #008751;
@@ -229,18 +271,19 @@ p{
 }
 .copyDownload img{
     width: auto;
-    height: 18px;
+    height: 20px;
 }
 #section1{
     align-items: center;
-    padding: 20px 0px;
+    padding-top: 40px;
+    padding-bottom: 20px;
 }
 #section2{
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 #section2 .makeLogo{
     width: 90px;
-    height: 90px;
+    height: min-content;
 }
 #section3{
     padding: 20px 25px;
@@ -257,7 +300,7 @@ p{
 }
 .box{
     border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
 .grid{
@@ -287,12 +330,52 @@ p{
     padding-left: 20px;
 }
 #section5{
-    padding: 25px 0px;
+    padding: 30px 0px;
+}
+#slider{
+    width:80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+}
+.img_slider{
+    width:100%;
+}
+.img_slider img{
+    width:100%;
+    display: none;
+}
+.img_slider img:nth-child(1){
+    display:block;
+}
+#slider button{
+    width:70px;
+    height:70px;
+    cursor: pointer;
+    background:none;
+    z-index: 2;
+    border: none;
+    outline: none;
+    font-size:40px;
+    transition: all 0.1s ease-in-out;
+}
+#slider button img{
+    width: 100%;
+}
+#slider button:hover{
+    transform:scale(1.05);
+}
+#slider button:active{
+    transform:scale(0.95);
 }
 .carImage{
     border: 5px solid white;
     box-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
     border-radius: 20px;
+    width: 95%;
+    max-width: 800px;
 }
 .tableStyle1{
     border-spacing: 0 10px;
@@ -307,12 +390,12 @@ p{
     margin-bottom: 5px;
 }
 .dataContainer{
-    padding: 20px 20px 20px 0px;
+    padding: 25px 20px 25px 0px;
     border-right: 1px solid #DCDCDC;
     border-bottom: 1px solid #DCDCDC;
 }
 .dataContainer2{
-    padding: 20px 0px 20px 20px;
+    padding: 25px 0px 25px 20px;
     border-top: 1px solid #DCDCDC;
 }
 .greenContainer{
@@ -359,6 +442,7 @@ p{
 }
 .noData{
     padding: 10px 20px;
+    margin-bottom: 25px;
 }
 
 .footer{
@@ -369,10 +453,140 @@ p{
 .footer p{
     font-size: 16px;
 }
+.icon {
+    position: relative; /* Required to position the :before element */
+}
+.icon:before {
+    content: "";
+    width: 19px;
+    height: 19px;
+    background-size: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+}
+.check:before {
+    background-image: url('asstets/check.svg');
+}
+.alert:before {
+    background-image: url('asstets/alert-triangle.svg');
+}
+.info:before {
+    background-image: url('asstets/info.svg');
+}
+.borderY{
+    width: 2px;
+    background: white;
+    height: 30px;
+}
 
 @media (max-width: 767px){
+    #slider{
+        width: 100%;
+        gap: 0;
+    }
     .grid{
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
+    }
+    .border_none_m, .dataContainer{
+        border: none !important;
+    }
+    .borderY{
+        width: 100%;
+        max-width: 150px;
+        background: white;
+        height: 2px;
+    }
+    .none_m{
+        display: none;
+    }
+    .greenContainer{
+        width: max-content;
+    }
+    .customContainer{
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+    .table_container{
+        overflow: scroll;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: -5px;
+        margin-bottom: -5px;
+    }
+    .tableStyle1 td {
+        border-bottom: 1px solid #f4f4f4;
+        padding-bottom: 10px;
+    }
+    #section4 .col2{
+        padding: 30px 0px 0px 0px;
+    }
+    #section4 .col1{
+        padding: 0;
+    }
+    .dataContainer, .dataContainer2{
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .p_big {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+       font-size: 24px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    h6 {
+        font-size: 14px;
+    }
+    p {
+        font-size: 16px;
+    }
+}
+@media (max-width: 425px){
+    .customContainer{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 15px;
+    }
+    #slider button{
+        width: 50px;
+        height: 50px;
+    }
+}
+@media (max-width: 665px){
+    .flex_col_s{
+        flex-direction: column;
+    }
+}
+@media (max-width: 425px){
+    .flex_col_ss{
+        flex-direction: column;
+    }
+    .gap_10_ss{
+        gap: 10px;
+    }
+    .gap_15_ss{
+        gap: 15px;
     }
 }

@@ -1,9 +1,27 @@
-/* margin, padding */
+/* Starter */
+body{
+    margin: 0;
+}
+div {
+    box-sizing: border-box;
+}
+p, h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
 .m_0{
     margin: 0;
 }
+.m_5{
+    margin: 5px;
+}
+.mt_5{
+    margin-top: 5px;
+}
 .mt_20{
     margin-top: 20px;
+}
+.mt_25{
+    margin-top: 25px;
 }
 .ml_10{
     margin-left: 10px;
@@ -17,32 +35,118 @@
 .mr_5{
     margin-right: 5px;
 }
+.mb_20{
+    margin-bottom: 20px;
+}
 .p_10{
     padding: 10px;
+}
+.p_20{
+    padding: 20px;
+}
+.pt_5{
+    padding-top: 5px;
+}
+.pt_10{
+    padding-top: 10px;
+}
+.pt_20{
+    padding-top: 20px;
+}
+.pl_20{
+    padding-left: 20px;
+}
+.pb_20{
+    padding-bottom: 20px;
+}
+.pv_20{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.p_10_15{
+    padding: 10px 15px;
+}
+.p_10_20{
+    padding: 10px 20px;
+}
+.p_15_20{
+    padding: 15px 20px;
+}
+.p_25_20{
+    padding: 25px 20px;
+}
+.p_h_20{
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .mv_10{
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 }
+.mv_20{
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
 .container{
     max-width: 1140px;
     margin: auto;
 }
-.w-20{
+.w_20{
     width: 20%;
+}
+.w_30{
+    width: 30%;
+}
+.w_50{
+    width: 50%;
+}
+.w_70{
+    width: 70%;
+}
+.w_full{
+    width: 100%;
 }
 .relative{
     position: relative;
 }
 .flex{
     display: flex;
-    gap: 20px;
+}
+.flex_col{
+    display: flex;
+    flex-direction: column;
+}
+.wrap{
+    flex-wrap: wrap;
+}
+.space-between{
+    justify-content: space-between;
+}
+.center{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 .align_center{
     align-items: center;
 }
+.justify_center{
+    justify-content: center;
+}
 .gap_0{
     gap:0 !important;
+}
+.gap_5{
+    gap: 5px;
+}
+.gap_10{
+    gap: 10px;
+}
+.gap_15{
+    gap: 15px;
+}
+.gap_20{
+    gap: 20px;
 }
 
 /* font Size */
@@ -52,6 +156,20 @@
 
 .opacity_0{
     opacity: 0;
+}
+.bold{
+    font-weight: 700;
+}
+.red{
+    color: #D23535;
+}
+.statusBtn{
+    padding: 25px;
+    background-color: #F8AD25;
+    border-radius: 10px;
+}
+.scroll{
+    overflow: scroll;
 }
 
 /* responsiveness */
@@ -75,4 +193,25 @@
     .m_align_left{
         text-align: left;
     }
+    .center_m{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+    .gap_0_m{
+        gap: 0;
+    }
+    .gap_10_m{
+        gap: 10px;
+    }
+    .mr_20_m{
+        margin-right: 20px;
+    }
+    .m_0_m{
+        margin: 0;
+    }
+    .p_0_m{
+        padding: 0 !important;
+    }
 }
+/* End Starter */
