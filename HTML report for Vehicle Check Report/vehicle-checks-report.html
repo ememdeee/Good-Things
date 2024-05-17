@@ -23,14 +23,14 @@
         </div>
     </div>
     <div id="section2" class="container flex space-between flex_col_ss gap_15_ss">
-        <div class="flex flex_col_s gap_20 center_m align_center">
+        <div class="flex gap_20 gap_10_ss align_center ">
             <img class="makeLogo" src="asstets/maserati.png" />
             <div class="flex_col justify_center gap_5">
-                <p class="bold p_big">2015 Maserati Ghibli S Q4</p>
-                <p class="p_big">VIN: <span class="bold">ZAM57RTA0F1135343</span></p>
+                <p class="bold" id="vehicleName">2015 Maserati Ghibli S Q4</p>
+                <p id="vinData">VIN: <span class="bold">ZAM57RTA0F1135343</span></p>
             </div>
         </div>
-        <div class="flex flex_col_s gap_20 center gap_10_ss">
+        <div class="flex gap_20 gap_10_ss barcodeContainer">
             <span class="bold">Scan to open report:</span>
             <span><img class="mr_20_m" src="asstets/barcode.png" /></span>
         </div>
@@ -110,16 +110,16 @@
                     <div class="flex align_center gap_10">
                         <img src="asstets/car-repair-car-gear.svg" /><h3>Vehicle Use</h3>
                     </div>
-                    <p>There is indication of the below usage(s) for this vehicle.</p>
-                    <div class="flex vehicleUseList wrap">
-                        <span class="p_h_20 m_5">Personal</span>
-                        <span class="p_h_20 m_5 active">Lease</span>
-                        <span class="p_h_20 m_5">Rental</span>
-                        <span class="p_h_20 m_5">Taxi</span>
-                        <span class="p_h_20 m_5">Police</span>
-                        <span class="p_h_20 m_5 active">Fleet</span>
-                        <span class="p_h_20 m_5">Commercial</span>
-                        <span class="p_h_20 m_5">Goverment</span>
+                    <p class="grayText">There is indication of the below usage(s) for this vehicle.</p>
+                    <div class="flex vehicleUseList wrap grayText useList">
+                        <span class="useListData">Personal</span>
+                        <span class="useListData active">Lease</span>
+                        <span class="useListData">Rental</span>
+                        <span class="useListData">Taxi</span>
+                        <span class="useListData">Police</span>
+                        <span class="useListData active">Fleet</span>
+                        <span class="useListData">Commercial</span>
+                        <span class="useListData">Goverment</span>
                     </div>
                 </div>
             </div>
@@ -231,8 +231,8 @@
                     </div>
                     <div class="greenContainer flex flex_col_m mv_20 space-between align_center p_25_20 gap_10">
                         <div class="flex_col gap_10">
-                            <p class="bold p_big">Auction Status</p>
-                            <p class="p_big">Price: <span class="bold">$16,200</span></p>
+                            <p class="greenContainer_heading bold">Auction Status</p>
+                            <p class="greenContainer_heading">Price: <span class="bold">$16,200</span></p>
                         </div>
                         <p class="statusBtn bold">Sold</p>
                     </div>
@@ -304,8 +304,8 @@
                 <div class="pl_20 pt_20 p_0_m customContainer customContainer2">
                     <div class="greenContainer flex flex_col_m mb_20 m_0_m space-between align_center p_25_20 gap_10_m">
                         <div class="flex_col gap_10">
-                            <p class="bold p_big">Sales Status</p>
-                            <p class="p_big">Price: <span class="bold">$22,999</span></p>
+                            <p class="greenContainer_heading bold">Sales Status</p>
+                            <p class="greenContainer_heading">Price: <span class="bold">$22,999</span></p>
                         </div>
                         <p class="statusBtn bold">On Approval</p>
                     </div>
