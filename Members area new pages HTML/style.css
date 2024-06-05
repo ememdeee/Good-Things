@@ -7,6 +7,9 @@ body {
 p{
     margin: 0;
 }
+span{
+    font-weight: 500;
+}
 .bold{
     font-weight: 600;
 }
@@ -358,6 +361,40 @@ textarea#status{
 .insurance-claim-heading{
     padding-bottom: 40px;
 }
+/* Theft Check */
+.vin-input-container span{
+    margin-bottom: 20px;
+}
+.vehicle-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.vehicle-logo-container .vehicle-logo{
+    display: block;
+}
+.spesifications-container{
+    display: flex;
+    gap: 10px;
+}
+.spesifications-container .data-container{
+    margin-bottom: 10px;
+}
+.spesifications-container span {
+    font-weight: 500;
+}
+.spesifications-container .col {
+    width: 50%;
+}
+.spesifications-container .data {
+    display: block;
+}
+.spesifications-container .data.header {
+    color: #ABABAB;
+    margin-bottom: 8px;
+}
 @media only screen and (max-width: 767px) {
     .container{
         flex-direction: column;
@@ -439,7 +476,7 @@ textarea#status{
     }
     .my-report .button{
         padding: 15px 5px;
-        width: 47%;
+        width: 45%;
     }
     .my-report .button.hide{
         display: none;
