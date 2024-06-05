@@ -2,192 +2,17 @@
 <html>
 <head>
   <title>My Reports</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f2f2f2;
-    }
-
-    .container {
-      display: flex;
-    }
-
-    .sidebar {
-      width: 200px;
-      background-color: #4CAF50;
-      color: white;
-    }
-    
-    .sidebar h2 {
-        background-color: #3e8e41;
-        text-align: center;
-      margin: 0;
-      padding: 15px 20px;
-    }
-    .sidebar img {
-      width: 30px;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0px;
-    }
-    .sidebar a.active, .sidebar a:hover {
-        background-color: #3e8e41;
-    }
-    .sidebar a {
-      display: block;
-      padding: 15px;
-      font-weight: 600;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
-
-    .main {
-      flex: 1;
-      padding: 20px;
-      background-color: white;
-    }
-
-    .main h1 {
-      margin-top: 0;
-      color: #3e8e41;
-    }
-
-    table{
-        border: solid 1px #ABABAB;
-    }
-    tr td, tr th {
-        border-right: solid 1px #ABABAB;
-    }
-    td a{
-        color: #4CAF50;
-        display: block;
-        text-align: center;
-    }
-
-    .table-container {
-      border: solid 1px #ABABAB;
-      padding: 30px 10px 10px 10px;
-    }
-    .table-tab{
-        border-width: 1px 1px 0 1px;  /* top right bottom left */
-        border-style: solid;
-        border-color: #ABABAB;
-    }
-    .table-tab span{
-        padding: 15px;
-        display: inline-block;
-        font-size: 20px;
-        border-right: solid 1px #ABABAB;
-    }
-    .table-tab span.active{
-        background-color: #3e8e41;
-        color: white;
-    }
-
-    .table-container table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .table-container th, .table-container td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #ABABAB;
-    }
-
-    tr:nth-child(odd) td {
-      background-color: #f2f2f2;
-    }
-
-    .button {
-      padding: 8px 16px;
-      text-decoration: none;
-      background-color: #4CAF50;
-      color: white;
-      border-radius: 5px;
-      margin-right: 5px;
-      border: none;
-      cursor: pointer;
-    }
-    .button.hide{
-        visibility: hidden;
-    }
-    .button.download{
-        background-color: #3e8e41;
-    }
-    .button.vir{
-        background-color: #F8AD25;
-    }
-    .button.theft{
-        background-color: #f44336;
-    }
-    .button:hover {
-      background-color: #3e8e41;
-    }
-
-    .paginationTable{
-        height: fit-content;
-    }
-
-    .pagination-search{
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-    }
-
-    .search-container input {
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .pagination-bottom{
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: 20px;
-    }
-
-    .pagination {
-        margin-top: 40px;
-      text-align: center;
-    }
-
-    .page-indicator{
-        margin-top: 20px;
-    }
-
-    .pagination a {
-      padding: 5px 10px;
-      text-decoration: none;
-      color: black;
-      margin-right: 5px;
-    }
-
-    .pagination a:hover {
-      background-color: #ccc;
-    }
-
-    .pagination .active {
-      background-color: #4CAF50;
-      color: white;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="container">
-    <div class="sidebar">
-      <h2>WELCOME</h2>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-heading">
+        <h2>WELCOME</h2>
+        <img class="close" id="close-icon" src="assets\align-justify.svg" >
+      </div>
       <ul>
         <li>
             <a href="#">
@@ -251,8 +76,12 @@
         </li>
       </ul>
     </div>
-    <div class="main">
-      <h1>My Reports</h1>
+    <div class="overlay" id="overlay"></div>
+    <div class="main my-report">
+      <div class="heading-container">
+        <img class="hamburger" id="hamburger-icon" src="assets\align-justify.svg" >
+        <h1>My Reports</h1>
+      </div>
       <div class="table-tab">
           <span class="active">History Report</span>
           <span>Window Sticker</span>
@@ -285,112 +114,182 @@
           <tbody>
             <tr>
               <td>1</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>2</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir hide">View Insurance Report</button>
                 <button class="button theft hide">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>03/18/2024</td>
             </tr>
             <tr>
               <td>3</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>4</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir hide">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>5</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft hide">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>6</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>7</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>8</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>9</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
             <tr>
               <td>10</td>
-              <td>
+              <td class="buttons">
                 <button class="button vhr">Full Vehicle History</button>
                 <button class="button download">Download</button>
                 <button class="button vir">View Insurance Report</button>
                 <button class="button theft">Theft Status</button>
               </td>
-              <td><a href="#">KNMAT2MV6HP525659</a></td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
               <td>05/18/2024</td>
             </tr>
           </tbody>
@@ -407,5 +306,6 @@
       </div>
     </div>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Reports</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-heading">
+        <h2>WELCOME</h2>
+        <img class="close" id="close-icon" src="assets\align-justify.svg" >
+      </div>
+      <ul>
+        <li>
+            <a href="#">
+                <img src="assets\search.svg">
+                <span>Search Vehicle History</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\sticker-svgrepo-com.svg">
+                <span>Search Window Sticker</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="active">
+                <img src="assets\car-repair-car-svgrepo-com-1.svg">
+                <span>My Reports</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\robbery-svgrepo-com-1.svg">
+                <span>Theft Check</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\ph_flag.svg">
+                <span>Report a Stolen Vehicle</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\order-1-svgrepo-com-1.svg">
+                <span>Order Vehicle Reports</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\layers-svgrepo-com-1.svg">
+                <span>Order Window Stickers</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\help-question-svgrepo-com-1.svg">
+                <span>Help</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\refund-2-svgrepo-com-1.svg">
+                <span>Request Refund</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\account-svgrepo-com-1.svg">
+                <span>My Account</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="main my-report">
+      <div class="heading-container">
+        <img class="hamburger" id="hamburger-icon" src="assets\align-justify.svg" >
+        <h1>My Reports</h1>
+      </div>
+      <div class="table-tab">
+          <span class="active">History Report</span>
+          <span>Window Sticker</span>
+      </div>
+      <div class="table-container">
+        <div class="pagination-search">
+            <div class="paginationTable">
+                <span>Show</span>
+                <select name="page" id="page">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <span>Entries</span>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+            </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Action</th>
+              <th>VIN Number</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker hide">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>03/18/2024</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker hide">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td class="buttons">
+                <button class="button vhr">Full Window Sticker</button>
+                <button class="button regn-sticker">Regerate Sticker</button>
+                <button class="button download">Download</button>
+              </td>
+              <td>
+                <div class="vin-name-container">
+                  <img src="assets/nissan.png" class="vehicle-logo"> 
+                  <div class="vin-name">
+                    <p>Name</p>
+                    <a href="#">KNMAT2MV6HP525659</a></td>
+                  </div>
+              </div>
+              <td>05/18/2024</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination-bottom">
+            <div class="page-indicator">Showing 10 of 20 entries</div>
+            <div class="pagination">
+              <a href="#">Previous</a>
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">Next</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

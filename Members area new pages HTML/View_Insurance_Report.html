@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Reports</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-heading">
+        <h2>WELCOME</h2>
+        <img class="close" id="close-icon" src="assets\align-justify.svg" >
+      </div>
+      <ul>
+        <li>
+            <a href="#">
+                <img src="assets\search.svg">
+                <span>Search Vehicle History</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\sticker-svgrepo-com.svg">
+                <span>Search Window Sticker</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="active">
+                <img src="assets\car-repair-car-svgrepo-com-1.svg">
+                <span>My Reports</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\robbery-svgrepo-com-1.svg">
+                <span>Theft Check</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\ph_flag.svg">
+                <span>Report a Stolen Vehicle</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\order-1-svgrepo-com-1.svg">
+                <span>Order Vehicle Reports</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\layers-svgrepo-com-1.svg">
+                <span>Order Window Stickers</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\help-question-svgrepo-com-1.svg">
+                <span>Help</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\refund-2-svgrepo-com-1.svg">
+                <span>Request Refund</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="assets\account-svgrepo-com-1.svg">
+                <span>My Account</span>
+            </a>
+        </li>
+      </ul>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="main my-report">
+        <div class="heading-container">
+            <img class="hamburger" id="hamburger-icon" src="assets\align-justify.svg" >
+            <div class="flex flex_col">
+                <h1>Insurance Report</h1>
+                <p style="margin-top: 15px;">View an insurance report on this VIN to shield from potential scams and issues.</p>
+            </div>
+        </div>
+        <div class="insurance-data-container">
+            <div class="insurance-data col1">
+                <div class="accident_history flex space-between">
+                    <span class="bold">Accident History</span>
+                    <span class="bold">Yes</span>
+                </div>
+                <div class="damage_assessment">
+                    <p class="bold m_0 mb_20">Damage Assessment</p>
+                    <div class="damage-data">
+                        <div class="column col1">
+                            <p class="heading bold mb_20">Front</p>
+                            <label>Damage Type</label>
+                            <input class="input-field" type="text" placeholder="" value="Primary">
+                            <label>Damage Severity</label>
+                            <input class="input-field" type="text" placeholder="" value="Minor">
+                        </div>
+                        <div class="column col2">
+                            <p class="heading bold mb_20">Back</p>
+                            <label>Damage Type</label>
+                            <input class="input-field" type="text" placeholder="" value="Secondary">
+                            <label>Damage Severity</label>
+                            <input class="input-field" type="text" placeholder="" value="Minor">
+                        </div>
+                    </div>
+                    <span class="divider"></span>
+                    <div class="damage-data">
+                        <div class="column col1">
+                            <p class="heading bold mb_20">Left</p>
+                            <label>Damage Type</label>
+                            <input class="input-field" type="text" placeholder="" value="Primary">
+                            <label>Damage Severity</label>
+                            <input class="input-field" type="text" placeholder="" value="Minor">
+                        </div>
+                        <div class="column col2">
+                            <p class="heading bold mb_20">Right</p>
+                            <label>Damage Type</label>
+                            <input class="input-field" type="text" placeholder="" value="Secondary">
+                            <label>Damage Severity</label>
+                            <input class="input-field" type="text" placeholder="" value="Minor">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="insurance-data col2">
+                <div class="status-section">
+                    <p class="m_0 mb_20 bold">Write-off Status</p>
+                    <textarea name="status" id="status" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet est quam, sit amet ullamcorper enim rhoncus at. Duis sit amet ullamcorper ex. Sed congue, leo et pulvinar sodales, tellus lacus malesuada justo, in faucibus tortor lectus quis magna. </textarea>
+                </div>
+                <div class="odometer-reading">
+                    <div class="mb_20 flex space-between heading-toogle">
+                        <p class="m_0 bold">Odometer Reading</p>
+                        <div class="toogleContainer">
+                            <span class="indicator automatic">Miles</span>
+                            <label class="toogleSwitch"><input id="transmissionToggle" type="checkbox">
+                                <div></div>
+                            </label>
+                            <span class="indicator manual">Kilometers</span>
+                        </div>
+                    </div>
+                    <input class="input-field" type="text" placeholder="" value="75000">
+                </div>
+                <div class="vehicle-title-status">
+                    <p class="mb_20 m_0 bold">Odometer Reading</p>
+                    <input class="input-field" type="text" placeholder="" value="Rebuild title status">
+                </div>
+            </div>
+        </div>
+        <div class="insurance-claims-container">
+            <div class="insurance-claims col1">
+                <div class="insurance-claim-heading flex space-between">
+                    <span class="bold">Insurance Claims History</span>
+                    <span class="bold">Yes</span>
+                </div>
+                <textarea name="status" id="status" >roin aliquam lectus et ante gravida ornare. Quisque sit amet libero tempus, imperdiet nibh ac, mattis urna. Quisque sagittis metus a lacus iaculis tincidunt. Quisque viverra gravida faucibus. In auctor nibh vel justo placerat elementum. </textarea>
+            </div>
+            <div class="insurance-claims col2">
+                <!-- image is not ready for development -->
+            </div>
+        </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
