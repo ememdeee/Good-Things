@@ -90,16 +90,16 @@
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
                     <input style="margin-bottom: 0; margin-top: 10px;" class="input-field" type="text" placeholder="" value="ZPBUA1ZL0KLA05985">
-                    <button class="big-btn none">Check Vin</button>
-                    <span class="no_data flex none">
+                    <button class="big-btn">Check Vin</button>
+                    <span class="no_data flex">
                         <img src="assets/Check.svg">No theft records found for this VIN!
                     </span>
                 </div>
-                <div class="vehicle-logo-container">
+                <div class="vehicle-logo-container none">
                     <img src="assets/nissan.png" class="vehicle-logo"> 
                     <p class="bold m_0">2009 Lamborghini Urus</p>
                 </div>
-                <div class="vehicle-spesifications">
+                <div class="vehicle-spesifications none">
                     <span style="margin-bottom: 15px; display: block;">Vehicle Specifications</span>
                     <div class="spesifications-container">
                         <div class="col col1">
@@ -133,25 +133,16 @@
                     </div>
                 </div>
             </div>
-            <div class="insurance-data main-data col2">
+            <div class="insurance-data main-data col2 none">
                 <div class="status-section border-none-mobile">
                     <div class="stolen_form">
                         <p class="m_0 mb_20 bold">Stolen From</p>
-                        <div class="custom-dropdown">
-                            <div class="dropdown-selected input-field" id="dataSelected">
-                                <div class="logo-text">
-                                    <img src="assets/Nigeria.png" alt="Nigeria">
-                                    <span>Nigeria</span>
-                                </div>
-                                <img class="arrow" src="assets/triangle-black.svg" alt="arrow">
-                            </div>
-                            <div class="dropdown-options" id="selectData">
-                                <div data-value="Nigeria"><img src="assets/Nigeria.png" alt="Nigeria">Nigeria</div>
-                                <div data-value="Other1"><img src="assets/gray.png" alt="Other"> Other</div>
-                                <div data-value="Other2"><img src="assets/gray.png" alt="Other"> Other</div>
-                                <div data-value="Other3"><img src="assets/gray.png" alt="Other"> Other</div>
-                            </div>
-                        </div>
+                        <select class="input-field" name="page" id="page">
+                            <option value="Nigeria" selected>Nigeria</option>
+                            <option value="Other">Other</option>
+                            <option value="Other">Other</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
                     <div class="stolen_date">
                         <p class="m_0 mb_20 bold">Stolen Date</p>
