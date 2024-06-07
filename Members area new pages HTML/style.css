@@ -128,6 +128,7 @@ span{
     border-width: 1px 1px 0 1px;  /* top right bottom left */
     border-style: solid;
     border-color: #E8E8E8;
+    display: flex;
 }
 .content .table-tab span{
     cursor: pointer;
@@ -468,6 +469,11 @@ textarea#status{
     border-radius: 5px;
     width: 100%;
     max-width: 300px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+.big-btn:hover{
+    background: #327e35;
 }
 .vin-input-container .big-btn{
     margin-top: 20px;

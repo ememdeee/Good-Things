@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Error</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter|Open+Sans|Poppins|Montserrat&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+        transition: all 0.2s ease-in-out;
+        }
+        .stripeErrorContainer{
+            max-width: 1200px;
+            padding: 40px 0px;
+            display: flex;
+            flex-direction: row;
+            font-family: 'Inter', sans-serif;
+            margin: auto;
+        }
+        .stripeErrorContainer_col1{
+            padding: 20px 40px 20px 20px;
+            flex: 0.6;
+            background-color: white;
+        }
+        .stripeErrorContainer_col2{
+            flex: 0.4;
+        }
+        /* text */
+        .stripeErrorContainer h1{
+            font-size: 36px;
+            font-weight: 700;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            color: #0673BA;
+        }
+        .stripeErrorContainer p{
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            margin: 0;
+            color: #000;
+        }
+        .stripeErrorContainer .p-big{
+            font-size: 20px;
+        }
+        .flex{
+            display: flex;
+        }
+        .flex_center{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* proceed */
+        .stripeErrorContainer_col1_proceed{
+            border: solid 3px #000;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Adjust the gap between items */
+            padding: 0px 20px;
+        }
+        .stripeErrorContainer_col1_proceed_row1{
+            padding: 0px 20px;
+            font-size: 29px;
+            background-color: #fff;
+            margin-top: -20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+        .stripeErrorContainer_col1_proceed_row2{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .stripeErrorContainer_col1_proceed_row2 a{
+            display: flex;
+            flex: 0.5;
+            text-decoration: none;
+        }
+        .stripeErrorContainer_col1_proceed_row4{
+            margin-bottom: -23px;
+            margin-top: 25px;
+            padding: 0px 20px;
+            background-color: #fff;
+        }
+        .stripeErrorContainer_col1_proceed_box{
+            border-radius: 15px;
+            border: solid 1.5px #000;
+            padding: 20px;
+        }
+        .stripeErrorContainer_col1_proceed_box img{
+            width: 190px;
+        }
+        .paypal:hover {
+            border-color: #0673BA;
+            box-shadow: inset 0 0 45px -5px #0673ba69;
+        }
+        .gumroad:hover {
+            border-color: #df613b;
+            box-shadow: inset 0 0 45px -5px #df613b8e;
+        }
+        /* trustpilot col 1 */
+        .stripeErrorContainer_col1_trustPilot a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0px;
+            font-family: 'Poppins';
+            font-size: 22px;
+            text-decoration: none;
+            color: black;
+        }
+        /* testimonial col 1 */
+        .stripeErrorContainer_col1_testimonial{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding-top: 20px;
+        }
+        .testimonial-container {
+            width: 60%;
+            display: inline-block;
+            text-align: center;
+            padding: 0px 20px 20px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        }
+        .testimonial-container .testimonial_picture{
+            border-radius: 100px;
+            width: 65px;
+            margin-top: -30px;
+        }
+        .testimonial-container .testimonial_place_icon{
+            width: 28px;
+        }
+
+        .testimonial {
+            display: none;
+            gap: 5px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial.active {
+            display: flex;
+        }
+
+        #prevBtn, #nextBtn {
+            cursor: pointer;
+            padding: 0px 12px;
+            background-color: #0673BA;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            font-family: poppins;
+            font-weight: 600;
+            font-size: 26px;
+        }
+        #prevBtn:hover, #nextBtn:hover{
+            background-color: #0983d5;
+        }
+        p.testimonial_name{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16;
+            font-weight: 700;
+        }
+        p.testimonial_desc, p.testimonial_date{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+        /* col 2 */
+        .stripeErrorContainer_col2_formWrapper{
+            background-color: white;
+            padding: 30px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+            border-radius: 15px;
+        }
+        /* contact */
+        .stripeErrorContainer_col2_contact img{
+            width: 32px;
+        }
+        .stripeErrorContainer_col2_contact{
+            gap: 15px;
+            margin: 15px 0px;
+        }
+        .stripeErrorContainer_col2_livechat{
+            background-color: #F87004;
+            border-radius: 15px;
+            padding: 13px 20px;
+            color: white;
+            gap: 10px;
+            display: inline-flex;
+            margin-top: 5px;
+            margin-bottom: 25px
+        }
+        .stripeErrorContainer_col2_livechat:hover{
+            background-color: #fa7c14;
+        }
+        .stripeErrorContainer_col2_livechat p{
+            color: white;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .stripeErrorContainer_col2_livechat img{
+            width: 30px;
+            margin-bottom: -2px;
+        }
+        .stripeErrorContainer_col2_line {
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .line {
+            flex: 1;
+            border-top: 1px solid black;
+        }
+
+        .or {
+            margin: 0 10px;
+            font-weight: 700;
+            font-size: 19px;
+        }
+        /* form */
+        .stripeErrorContainer_col2_form input, 
+        .stripeErrorContainer_col2_form textarea, 
+        .stripeErrorContainer_col2_form button {
+            width: 100%;
+            padding: 17px 13px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 19px;
+            font-family: 'Open Sans', sans-serif;
+            border-radius: 10px;
+            border: 1px solid #787878;
+            color: #787878;
+        }
+        .form_text{
+            padding: 20px 0px 25px 0px;
+        }
+
+        .stripeErrorContainer_col2_form textarea {
+            resize: vertical; /* Allow vertical resizing of textarea */
+            height: 150px; /* Set a default height for larger message field */
+        }
+
+        .stripeErrorContainer_col2_form button {
+            background-color: #0673BA;
+            color: white;
+            border: none;
+            padding: 18px 15px;
+            cursor: pointer;
+            border-radius: 15px;
+            font-size: 22px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2;
+        }
+
+        .stripeErrorContainer_col2_form button:hover {
+            background-color: #0b80cd;
+        }
+        .spacer_1{
+            height: 55px;
+        }
+        .spacer_2{
+            height: 55px;
+        }
+        .spacer_3{
+            height: 20px;
+        }
+        .spacer_4{
+            height: 15px;
+        }
+        @media screen and (max-width: 768px) {
+            .stripeErrorContainer{
+                flex-direction: column;
+                padding: 20px 14px;
+            }
+            .stripeErrorContainer p {
+                font-size: 16px;
+            }
+            .stripeErrorContainer h1{
+                font-size: 22px;
+            }
+            .stripeErrorContainer_col1_proceed{
+                padding: 0px 15px;
+            }
+            .stripeErrorContainer_col1_proceed_row1{
+                font-size: 19px;
+                margin-top: -12px;
+            }
+            .stripeErrorContainer_col1_proceed_row4{
+                margin-top: 10px;
+                margin-bottom: -19px;
+            }
+            .stripeErrorContainer_col1_proceed_row4 img{
+                width: 38px;
+            }
+            .stripeErrorContainer_col1_trustPilot a{
+                padding: 15px 0px 35px 0px;
+            }
+            .spacer_1{
+                height: 25px;
+            }
+            .spacer_2 {
+                height: 42px;
+            }
+            .stripeErrorContainer_col1{
+                padding: 20px 0px;
+            }
+            .stripeErrorContainer_col1_proceed_row2{
+                gap: 10px;
+            }
+            .stripeErrorContainer_col1_proceed_box{
+                padding: 15px;
+            }
+            .stripeErrorContainer_col1_proceed_box img{
+                width: 90px;
+            }
+            .stripeErrorContainer_col1_proceed_box p{
+                font-size: 15px;
+            }
+            .img_trustpilot{
+                width: 100px;
+            }
+            .img_rating{
+                width: 130px;
+            }
+            .stripeErrorContainer_col1_trustPilot span, .or{
+                font-size: 15px;
+                font-weight: 400;
+            }
+            .testimonial-container{
+                width: 100%;
+                padding: 0px 5% 20px 5%;
+            }
+            #prevBtn {
+                position: absolute;
+                left: 0%;
+            }
+            #nextBtn {
+                position: absolute;
+                right: 0%;
+            }
+            .stripeErrorContainer .p-big{
+                font-size: 17px;
+                font-weight: 500;
+            }
+            .stripeErrorContainer_col2_contact{
+                gap: 8px;
+            }
+            .stripeErrorContainer_col2_contact img{
+                width: 25px;
+            }
+            .stripeErrorContainer_col2_livechat{
+                width: -webkit-fill-available;
+                justify-content: center;
+            }
+            .stripeErrorContainer_col2_form input, 
+            .stripeErrorContainer_col2_form textarea, 
+            .stripeErrorContainer_col2_form button {
+                font-size: 16px;
+            }
+        }
+        @media screen and (max-width: 375px) {
+            .stripeErrorContainer_col1_trustPilot a {
+                flex-direction: column;
+                padding-bottom: 25px;
+            }
+            .stripeErrorContainer{
+                padding: 0px 8px;
+            }
+        }
+    </style>
+    <script>
+        // testimonial col 1
+        let currentTestimonial = 0;
+    
+        function showTestimonial(index) {
+            const testimonials = document.getElementsByClassName('testimonial');
+            for (let i = 0; i < testimonials.length; i++) {
+                testimonials[i].classList.remove('active');
+            }
+            testimonials[index].classList.add('active');
+        }
+    
+        function showNextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % document.getElementsByClassName('testimonial').length;
+            showTestimonial(currentTestimonial);
+        }
+    
+        function showPrevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + document.getElementsByClassName('testimonial').length) % document.getElementsByClassName('testimonial').length;
+            showTestimonial(currentTestimonial);
+        }
+    </script>
+</head>
+<body>
+    <div class="stripeErrorContainer">
+        <div class="stripeErrorContainer_col1">
+            <img src="assets\mingcute_alert-fill.png" width="75px" alt="Danger" />
+            <h1>{stripe_error_message}</h1>
+            <div class="spacer_1"></div>
+            <p>Facing issues with payment? Check out different ways to pay below for a hassle-free purchase.</p>
+            <div class="spacer_2"></div>
+            <div class="stripeErrorContainer_col1_proceed">
+                <h2 class="stripeErrorContainer_col1_proceed_row1">Proceed to Pay with</h2>
+                <div class="stripeErrorContainer_col1_proceed_row2">
+                    <a href="#paypal">
+                        <div class="stripeErrorContainer_col1_proceed_box paypal">
+                            <img src="assets\Paypal.png" alt="Paypal" />
+                            <p style="margin-top: 10px;">Pay with your PayPal account or credit/debit card</p>
+                        </div>
+                    </a>
+                    <a href="#gumroad">
+                        <div class="stripeErrorContainer_col1_proceed_box gumroad">
+                            <img src="assets\gumroad.png" alt="Gumroad" />
+                            <p style="margin-top: 10px;">Pay with gumroad using credit/debit card.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="stripeErrorContainer_col1_proceed_row4">
+                    <a href="#"><img src="assets\fontisto_visa.png" alt="Visa" /></a>
+                    <a href="#"><img src="assets\fontisto_mastercard.png" alt="Mastercard" /></a>
+                    <a href="#"><img src="assets\fa_cc-discover.png" alt="Discover" /></a>
+                    <a href="#"><img src="assets\fontisto_american-express.png" alt="American Express" /></a>
+                </div>
+            </div>
+            <div class="spacer_3"></div>
+            <div class="stripeErrorContainer_col1_trustPilot">
+                <a href="https://www.trustpilot.com/review/detailedvehiclehistory.com">
+                    <div class="flex_center">
+                        <img class="img_trustpilot" src="assets\trustpilot.png" alt="TrustPilot" />
+                        <img class="img_rating" src="assets\rating.png" alt="TrustPilot" />
+                    </div>
+                    <span>Rated 4.8 out of 5</span>
+                </a>
+            </div>
+            <!-- testimonial col 1 -->
+            <div class="stripeErrorContainer_col1_testimonial">
+                <button id="prevBtn" onclick="showPrevTestimonial()"><</button>
+                <div class="testimonial-container">
+                    <div class="testimonial active">
+                        <img class="testimonial_picture" src="assets\testi 1.png" alt="Brianloh Seatt"/>
+                        <p class="testimonial_name">brianlohseatt.net</p>
+                        <div class="flex_center">
+                            <img class="testimonial_place_icon" src="assets\carbon_location.svg" alt="Location Icon"><span class="testimonial_place">US</span>
+                        </div>
+                        <p class="testimonial_desc">Quick and fair price. Good customer service. CSR followed up with me within one day to make sure everything was okay and asked if I had any questions about the window sticker.</p>
+                        <div class="spacer_4"></div>
+                        <p class="testimonial_date"><strong>Date of experience:</strong> June 28, 2023</p>
+                    </div>
+                    <div class="testimonial">
+                        <img class="testimonial_picture" src="assets\testi 1.png" alt="Brianloh Seatt"/>
+                        <p class="testimonial_name">2 brianlohseatt.net</p>
+                        <div class="flex_center">
+                            <img class="testimonial_place_icon" src="assets\carbon_location.svg" alt="Location Icon"><span class="testimonial_place">US</span>
+                        </div>
+                        <p class="testimonial_desc">2 Quick and fair price. Good customer service. CSR followed up with me within one day to make sure everything was okay and asked if I had any questions about the window sticker.</p>
+                        <div class="spacer_4"></div>
+                        <p class="testimonial_date"><strong>Date of experience:</strong> June 28, 2023</p>
+                    </div>
+                    <div class="testimonial">
+                        <img class="testimonial_picture" src="assets\testi 1.png" alt="Brianloh Seatt"/>
+                        <p class="testimonial_name">3 brianlohseatt.net</p>
+                        <div class="flex_center">
+                            <img class="testimonial_place_icon" src="assets\carbon_location.svg" alt="Location Icon"><span class="testimonial_place">US</span>
+                        </div>
+                        <p class="testimonial_desc">3 Quick and fair price. Good customer service. CSR followed up with me within one day to make sure everything was okay and asked if I had any questions about the window sticker.</p>
+                        <div class="spacer_4"></div>
+                        <p class="testimonial_date"><strong>Date of experience:</strong> June 28, 2023</p>
+                    </div>
+                </div>
+                <button id="nextBtn" onclick="showNextTestimonial()">></button>
+            </div>
+        </div>
+        <!-- col 2 -->
+        <div class="stripeErrorContainer_col2">
+            <div class="stripeErrorContainer_col2_formWrapper">
+                <p class="p-big">Need assistance? Have Questions?</p>
+                <a href="#email" style="text-decoration: none;">
+                    <div class="flex stripeErrorContainer_col2_contact">
+                        <img src="assets\email.svg" alt="Email Us"/>
+                        <p class="p-big">{sitename_email}</p>
+                    </div>
+                </a>
+                <a href="#phone" style="text-decoration: none;">
+                    <div class="flex stripeErrorContainer_col2_contact">
+                        <img src="assets\call.svg" alt="Call Us"/>
+                        <p class="p-big">{sitename_phone}</p>
+                    </div>
+                </a>
+                <a href="#livechat">
+                    <div class="flex stripeErrorContainer_col2_livechat">
+                        <img src="assets\icons_livechat.svg" />
+                        <p>Speak to us on Live Chat</p>
+                    </div>
+                </a>
+                <div class="stripeErrorContainer_col2_line">
+                    <div class="line"></div>
+                    <div class="or">OR</div>
+                    <div class="line"></div>
+                </div>
+                <p class="form_text p-big">Please fill out the form below and get in touch with us. We’ll be happy to assist you!</p>
+                <form class="stripeErrorContainer_col2_form">
+                    <input type="text" placeholder="Enter Full Name">
+                    <input type="email" placeholder="Enter Email Address">
+                    <input type="tel" placeholder="Enter Phone Number">
+                    <textarea placeholder="Message"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+

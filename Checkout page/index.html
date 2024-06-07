@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Error</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="myStarterCss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container flex">
+        <div class="w_50 checkoutCol col1">
+            <div class="header flex gap_5">
+                <img src="assets/DVH_SVG white 1.png">
+                <h1>Detailed Vehicle History</h1>
+            </div>
+            <p>2008 Honda Element</p>
+            <p>VIN:<span class="bold">5J6YH287X8L0001333</span></p>
+            <div class="data flex">
+                <div class="col1">
+                    <div class="flex">
+                        <img src="assets/alert-circle.svg">
+                        <div>
+                            <p>Accidet Check</p>
+                            <p class="bold red">Records available</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <img src="assets/alert-circle.svg">
+                        <div>
+                            <p>Ownership record</p>
+                            <p class="bold red">Multiple owners</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="flex">
+                        <img src="assets/check.svg">
+                        <div>
+                            <p>Lemon check</p>
+                            <p class="bold green">No record found</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <img src="assets/check.svg">
+                        <div>
+                            <p>Flood check</p>
+                            <p class="bold green">No record found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="auction flex">
+                <img src="assets/auction.png" alt="Auction Image">
+                <p class="bold">images found for this vehicle!</p>
+            </div>
+            <div class="coupon flex">
+                <input type="text">
+                <button>Apply</button>
+            </div>
+            <div class="price">
+                <div class="flex space-between package">
+                    <p>Package</p>
+                    <p class="bold">2 Premium Reports</p>
+                </div>
+                <div class="flex space-between discount">
+                    <p>Discount applied:</p>
+                    <p class="bold">0%</p>
+                </div>
+                <div class="flex space-between total">
+                    <p>Total Price</p>
+                    <p class="bold">$30.00</p>
+                </div>
+            </div>
+            <div class="testimoni">
+                <h2>What our customers say!</h2>
+                <div>Slider</div>
+            </div>
+        </div>
+        <div class="w_50 checkoutCol col2">
+            <div class="paymentMethod">
+                <p>Choose payment method</p>
+                <div class="tab-list">
+                    <span id="stripeBtn">Stripe</span>
+                    <span id="paypalBtn">Paypal</span>
+                    <span id="gumroadBtn">Gumroad</span>
+                </div>
+            </div>
+            <div class="stripe" id="stripe">
+                <div class="stripeChoices">
+                    <p>Pay with Credit Card or Bank Transfer</p>
+                    <div class="flex">
+                        <span id="creditCardBtn">Credit Card</span>
+                        <span id="bankTranferBtn">Bank Tranfer <img src="assets/Nigeria.png"></span>
+                    </div>
+                </div>
+                <div class="creditCard" id="creditCard">
+                    <p>Enter your card details</p>
+                    <form>
+                        <label>Name*</label>
+                        <input type="text" class="input">
+                        <input type="email" class="input">
+                        <div class="card">
+                            <label>Card Details</label>
+                            <input type="number" class="input">
+                            <div class="flex">
+                                <input type="number" class="input">
+                                <input type="number" class="input">
+                            </div>
+                        </div>
+                        <label>Postal Code</label>
+                        <input type="number" class="input">
+                        <label>Postal Code</label>
+                        <input type="number" class="input">
+                        <button type="submit" class="big-btn blue">Pay #30.00</button>
+                    </form>
+                </div>
+                <div class="bankTranfer" id="bankTranfer">
+                    <label>Name*</label>
+                    <input type="text" class="input">
+                    <label>Email*</label>
+                    <input type="email" class="input">
+                    <label>Bank account details</label>
+                    <div class="bankDetails">
+                        <table>
+                            <tr>
+                                <th>Bank Account No.:</th>
+                                <td>0049251093<img src="assets/copy.svg"></td>
+                            </tr>
+                            <tr>
+                                <th>Bank Name:</th>
+                                <td>Guarantee Trust Bank</td>
+                            </tr>
+                            <tr>
+                                <th>Account Holder Name:</th>
+                                <td>Adewale Oluwaseyi Peter</td>
+                            </tr>
+                            <tr>
+                                <th>Speak to Live Chat:</th>
+                                <td>+234 814 136 1434<img src="assets/WhatsApp.svg"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <a>Instructions to make a payment</a>
+                        <img src="assets/info.svg">
+                    </div>
+                    <button class="big-btn blue">Submit Money Tranfer Receipt</button>
+                    <button class="big-btn whatsApp">Submit Receipt through WhatsApp</button>
+                </div>
+                <div class="error_test">
+                    <p>Unfortunately there was an error while processing your payment. Please try again, or <a>contact support agent on live chat</a> if you continue to have problems.</p>
+                </div>
+            </div>
+            <div class="paypal" id="paypal">
+                <p>Click the button below to open PayPal window to make your payment</p>
+                <button class="big-btn">
+                    <img src="assets/paypal.svg">
+                </button>
+            </div>
+            <div class="gumroad" id="gumroad">
+                <p>Click the button below to open Gumroad window to make your payment</p>
+                <button class="big-btn blue">Pay $30.000</button>
+            </div>
+            <div class="trust">
+                <div class="flex">
+                    <img src="assets/lock.svg" alt="Locked">
+                    <p>Guaranteed safe & secure checkout</p>
+                </div>
+                <div class="flex">
+                    <img src="assets/secure.svg" alt="Locked">
+                    <p>SSL Secure Payment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
