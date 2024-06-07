@@ -94,9 +94,10 @@
                 <div class="damage_assessment">
                     <div class="mb_20 flex space-between heading-toogle">
                         <p class="m_0 bold">Damage Assessment</p>
-                        <div class="toogleContainer none">
+                        <span class="bold none" id="value">Yes</span>
+                        <div class="toogleContainer">
                             <span class="indicator automatic">Yes</span>
-                            <label class="toogleSwitch"><input id="damageToggle" type="checkbox">
+                            <label class="toogleSwitch"><input id="damageToggle" checked type="checkbox">
                                 <div></div>
                             </label>
                             <span class="indicator manual">No</span>
@@ -141,10 +142,10 @@
                 <div class="status-section">
                     <div class="mb_20 flex space-between heading-toogle insurance-status-heading">
                         <p class="m_0 bold">Write-off Status</p>
-                        <span class="bold" id="value">Yes</span>
-                        <div class="toogleContainer none">
+                        <span class="bold none" id="value">Yes</span>
+                        <div class="toogleContainer">
                             <span class="indicator automatic">Yes</span>
-                            <label class="toogleSwitch input"><input id="statusToggle" type="checkbox">
+                            <label class="toogleSwitch input"><input id="statusToggle" checked type="checkbox">
                                 <div></div>
                             </label>
                             <span class="indicator manual">No</span>
@@ -169,13 +170,13 @@
                 </div>
                 <div class="vehicle-title-status">
                     <p class="mb_20 m_0 bold">Vehicle Title Status</p>
-                    <select name="page" id="page" class="input-field none">
+                    <select name="page" id="page" class="input-field">
                         <option value="Rebuild title status">Rebuild title status</option>
                         <option value="Clean" selected>Clean</option>
                         <option value="Other">Other</option>
                         <option value="Other">Other</option>
                     </select>
-                    <input class="input-field input" type="text" placeholder="" value="Rebuild title status">
+                    <input class="input-field input none" type="text" placeholder="" value="Rebuild title status">
                 </div>
             </div>
         </div>
@@ -183,10 +184,10 @@
             <div class="insurance-claims col1">
                 <div class="mb_20 flex space-between heading-toogle insurance-claim-heading">
                     <p class="m_0 bold">Insurance Claims History</p>
-                    <span class="bold" id="value">Yes</span>
-                    <div class="toogleContainer none">
+                    <span class="bold none" id="value">Yes</span>
+                    <div class="toogleContainer">
                         <span class="indicator automatic">Yes</span>
-                        <label class="toogleSwitch input"><input id="claimsToggle" type="checkbox">
+                        <label class="toogleSwitch input"><input id="claimsToggle" checked type="checkbox">
                             <div></div>
                         </label>
                         <span class="indicator manual">No</span>

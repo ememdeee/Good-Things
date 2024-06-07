@@ -288,10 +288,17 @@ span{
 .damage-data{
     display: flex;
 }
+.disabled{
+    color: #E8E8E8 !important;
+}
+.disabled .input{
+    color: #E8E8E8 !important;
+}
 .damage-data .column{
     width: 50%;
     padding-top: 20px;
     padding-bottom: 20px;
+    box-sizing: border-box;
 }
 .damage-data .column.col1{
     padding-left: 0px;
@@ -323,6 +330,9 @@ span{
     width: -webkit-fill-available;
     border-radius: 5px;
 }
+.insurance-status-heading{
+    padding-bottom: 20px;
+}
 textarea#status{
     width: -webkit-fill-available;
     padding: 10px 5px;
@@ -343,7 +353,7 @@ textarea#status{
     border-bottom: 1px solid #CACCCF;
 }
 .vehicle-title-status{
-    padding: 40px 0px;
+    padding: 40px 0px 20px 0px;
 }
 .toogleContainer{
     display: flex;
@@ -388,7 +398,7 @@ textarea#status{
     padding-left: 0px;
 }
 .insurance-claim-heading{
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 /* Theft Check */
 .vin-input-container span{
