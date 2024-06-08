@@ -9,42 +9,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container flex">
-        <div class="w_50 checkoutCol col1">
-            <div class="header flex gap_5">
+    <div class="container">
+        <div class="checkoutCol col1">
+            <div class="header flex gap_5 mb_25 align_center">
                 <img src="assets/DVH_SVG white 1.png">
                 <h1>Detailed Vehicle History</h1>
             </div>
-            <p>2008 Honda Element</p>
-            <p>VIN:<span class="bold">5J6YH287X8L0001333</span></p>
+            <p class="f_24 mb_10">2008 Honda Element</p>
+            <p class="f_20 mb_20">VIN:<span class="bold">5J6YH287X8L0001333</span></p>
             <div class="data flex">
-                <div class="col1">
-                    <div class="flex">
+                <div class="col col1">
+                    <div class="record">
                         <img src="assets/alert-circle.svg">
-                        <div>
+                        <div class="record_data">
                             <p>Accidet Check</p>
                             <p class="bold red">Records available</p>
                         </div>
                     </div>
-                    <div class="flex">
+                    <div class="record">
                         <img src="assets/alert-circle.svg">
-                        <div>
+                        <div class="record_data">
                             <p>Ownership record</p>
                             <p class="bold red">Multiple owners</p>
                         </div>
                     </div>
                 </div>
-                <div class="col2">
-                    <div class="flex">
+                <div class="col col2">
+                    <div class="record">
                         <img src="assets/check.svg">
-                        <div>
+                        <div class="record_data">
                             <p>Lemon check</p>
                             <p class="bold green">No record found</p>
                         </div>
                     </div>
-                    <div class="flex">
+                    <div class="record">
                         <img src="assets/check.svg">
-                        <div>
+                        <div class="record_data">
                             <p>Flood check</p>
                             <p class="bold green">No record found</p>
                         </div>
@@ -53,11 +53,11 @@
             </div>
             <div class="auction flex">
                 <img src="assets/auction.png" alt="Auction Image">
-                <p class="bold">images found for this vehicle!</p>
+                <p class="bold">10+ images found for this vehicle!</p>
             </div>
-            <div class="coupon flex">
-                <input type="text">
-                <button>Apply</button>
+            <div class="coupon">
+                <input type="text" class="input" placeholder="Enter your coupon code">
+                <button class="bold">Apply</button>
             </div>
             <div class="price">
                 <div class="flex space-between package">
@@ -78,54 +78,53 @@
                 <div>Slider</div>
             </div>
         </div>
-        <div class="w_50 checkoutCol col2">
+        <div class="checkoutCol col2">
             <div class="paymentMethod">
-                <p>Choose payment method</p>
+                <p class="bold">Choose payment method</p>
                 <div class="tab-list">
-                    <span id="stripeBtn">Stripe</span>
+                    <span id="stripeBtn" class="active">Stripe</span>
                     <span id="paypalBtn">Paypal</span>
                     <span id="gumroadBtn">Gumroad</span>
                 </div>
             </div>
             <div class="stripe" id="stripe">
                 <div class="stripeChoices">
-                    <p>Pay with Credit Card or Bank Transfer</p>
-                    <div class="flex">
-                        <span id="creditCardBtn">Credit Card</span>
+                    <p class="bold">Pay with Credit Card or Bank Transfer</p>
+                    <div class="tab-list">
+                        <span id="creditCardBtn" class="active">Credit Card</span>
                         <span id="bankTranferBtn">Bank Tranfer <img src="assets/Nigeria.png"></span>
                     </div>
                 </div>
                 <div class="creditCard" id="creditCard">
-                    <p>Enter your card details</p>
+                    <p class="bold">Enter your card details</p>
                     <form>
                         <label>Name*</label>
-                        <input type="text" class="input">
-                        <input type="email" class="input">
+                        <input type="text" placeholder="Enter your name" class="input">
+                        <label>Email*</label>
+                        <input type="email" placeholder="Enter your email" value="fahad@empirepixel.com" class="input">
                         <div class="card">
                             <label>Card Details</label>
-                            <input type="number" class="input">
+                            <input type="number" class="input digit" placeholder="1234 1234 1234 1234">
                             <div class="flex">
-                                <input type="number" class="input">
-                                <input type="number" class="input">
+                                <input type="number" class="input expire" placeholder="MM/YY">
+                                <input type="number" class="input cvc" placeholder="CVC">
                             </div>
                         </div>
                         <label>Postal Code</label>
-                        <input type="number" class="input">
-                        <label>Postal Code</label>
-                        <input type="number" class="input">
+                        <input type="number" class="input" placeholder="Enter postal code">
                         <button type="submit" class="big-btn blue">Pay #30.00</button>
                     </form>
                 </div>
                 <div class="bankTranfer" id="bankTranfer">
                     <label>Name*</label>
-                    <input type="text" class="input">
+                    <input type="text" placeholder="Enter your name" class="input">
                     <label>Email*</label>
-                    <input type="email" class="input">
+                    <input type="email" placeholder="Enter your email" value="fahad@empirepixel.com" class="input">
                     <label>Bank account details</label>
                     <div class="bankDetails">
                         <table>
                             <tr>
-                                <th>Bank Account No.:</th>
+                                <th>Bank Account No:</th>
                                 <td>0049251093<img src="assets/copy.svg"></td>
                             </tr>
                             <tr>
@@ -142,33 +141,35 @@
                             </tr>
                         </table>
                     </div>
-                    <div>
-                        <a>Instructions to make a payment</a>
+                    <div class="instructions">
+                        <a class="bold">Instructions to make a payment</a>
                         <img src="assets/info.svg">
                     </div>
-                    <button class="big-btn blue">Submit Money Tranfer Receipt</button>
-                    <button class="big-btn whatsApp">Submit Receipt through WhatsApp</button>
+                    <div class="buttons">
+                        <button class="big-btn blue">Submit Money Tranfer Receipt</button>
+                        <button class="big-btn whatsApp">Submit Receipt through WhatsApp</button>
+                    </div>
                 </div>
                 <div class="error_test">
                     <p>Unfortunately there was an error while processing your payment. Please try again, or <a>contact support agent on live chat</a> if you continue to have problems.</p>
                 </div>
             </div>
             <div class="paypal" id="paypal">
-                <p>Click the button below to open PayPal window to make your payment</p>
-                <button class="big-btn">
+                <p class="bold">Click the button below to open PayPal window to make your payment</p>
+                <button class="big-btn yellow">
                     <img src="assets/paypal.svg">
                 </button>
             </div>
             <div class="gumroad" id="gumroad">
-                <p>Click the button below to open Gumroad window to make your payment</p>
+                <p class="bold">Click the button below to open Gumroad window to make your payment</p>
                 <button class="big-btn blue">Pay $30.000</button>
             </div>
             <div class="trust">
-                <div class="flex">
+                <div class="">
                     <img src="assets/lock.svg" alt="Locked">
                     <p>Guaranteed safe & secure checkout</p>
                 </div>
-                <div class="flex">
+                <div class="">
                     <img src="assets/secure.svg" alt="Locked">
                     <p>SSL Secure Payment</p>
                 </div>

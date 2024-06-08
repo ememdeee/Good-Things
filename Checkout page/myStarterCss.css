@@ -76,6 +76,9 @@ p, h1, h2, h3, h4, h5, h6{
 .mb_20 {
     margin-bottom: 20px;
 }
+.mb_25 {
+    margin-bottom: 25px;
+}
 
 /* Margin Left Classes */
 .ml_0 {
@@ -246,6 +249,12 @@ p, h1, h2, h3, h4, h5, h6{
     justify-content: center;
     align-items: center;
 }
+.align_top{
+    align-items: flex-start;
+}
+.align_bottom{
+    align-items: flex-end;
+}
 .align_center{
     align-items: center;
 }
@@ -269,8 +278,36 @@ p, h1, h2, h3, h4, h5, h6{
 }
 
 /* font Size */
-.f-14px{
+.f_14 {
     font-size: 14px;
+}
+
+.f_16 {
+    font-size: 16px;
+}
+
+.f_18 {
+    font-size: 18px;
+}
+
+.f_20 {
+    font-size: 20px;
+}
+
+.f_22 {
+    font-size: 22px;
+}
+
+.f_24 {
+    font-size: 24px;
+}
+
+.f_26 {
+    font-size: 26px;
+}
+
+.f_28 {
+    font-size: 28px;
 }
 
 .opacity_0{
