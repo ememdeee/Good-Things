@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Columns Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            max-width: 80%; /* The maximum width of the container */
+            margin: 0 auto; /* Center the container */
+            overflow: hidden; /* Hide any overflow */
+        }
+        .column {
+            flex: 1; /* Equally distribute the columns */
+            padding: 20px; /* Add padding for content inside */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+        .column-1 {
+            background-color: lightblue;
+            margin-left: -20%; /* Extend the background outside the container */
+            padding-left: 20%; /* Offset the content back inside the container */
+        }
+        .column-2 {
+            background-color: lightgreen;
+            margin-right: -20%; /* Extend the background outside the container */
+            padding-right: 20%; /* Offset the content back inside the container */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column column-1">
+            <h2>Column 1</h2>
+            <p>This column has a light blue background that extends outside the container frame.</p>
+        </div>
+        <div class="column column-2">
+            <h2>Column 2</h2>
+            <p>This column has a light green background that extends outside the container frame.</p>
+        </div>
+    </div>
+</body>
+</html>

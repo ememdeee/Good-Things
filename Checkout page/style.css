@@ -1,3 +1,7 @@
 body, .light_gray{
     background-color: #f1f0f5;
 }
+.checkoutCol{
+    box-sizing: border-box;
+    position: relative;
+}
