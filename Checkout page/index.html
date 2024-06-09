@@ -6,18 +6,19 @@
     <title>Stripe Error</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="myStarterCss.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;260;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="checkoutCol col1">
             <div class="header flex gap_5 mb_25 align_center">
+                <img src="assets/arrow-left.svg" class="back">
                 <img src="assets/DVH_SVG white 1.png">
                 <h1>Detailed Vehicle History</h1>
             </div>
             <p class="f_24 mb_10">2008 Honda Element</p>
             <p class="f_20 mb_20">VIN:<span class="bold">5J6YH287X8L0001333</span></p>
-            <div class="data flex">
+            <div class="data">
                 <div class="col col1">
                     <div class="record">
                         <img src="assets/alert-circle.svg">
@@ -56,7 +57,7 @@
                 <p class="bold">10+ images found for this vehicle!</p>
             </div>
             <div class="coupon">
-                <input type="text" class="input" placeholder="Enter your coupon code">
+                <input type="text" class="input" placeholder="Enter your coupon code" value="DVH20">
                 <button class="bold">Apply</button>
             </div>
             <div class="price">
@@ -66,16 +67,98 @@
                 </div>
                 <div class="flex space-between discount">
                     <p>Discount applied:</p>
-                    <p class="bold">0%</p>
+                    <p class="bold">20%</p>
                 </div>
                 <div class="flex space-between total">
                     <p>Total Price</p>
-                    <p class="bold">$30.00</p>
+                    <p class="bold finalPrice"><span class="initialPrice">$30.00</span>$26.00</p>
                 </div>
             </div>
+            <!-- testimonial -->
+            <!-- First Testimonial Slider -->
             <div class="testimoni">
                 <h2>What our customers say!</h2>
-                <div>Slider</div>
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <div class="slide active">
+                            <div class="slider-header flex">
+                                <img src="assets/testi1.svg" alt="Testimonial 1">
+                                <div class="identity flex flex_col">
+                                    <div class="flex">
+                                        <p>Chance Snyder</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <img src="assets/stars.svg" alt="Rating">
+                                </div>
+                            </div>
+                            <p class="slider-date">Date of experience: <span class="date">November 11, 2023</span></p>
+                            <p class="slider-testimonial">Great service to use when buying a used car! This website was recommended by several different articles,...</p>
+                        </div>
+                        <div class="slide">
+                            <div class="slider-header flex">
+                                <img src="assets/testi2.svg" alt="Testimonial 2">
+                                <div class="identity flex flex_col">
+                                    <div class="flex">
+                                        <p>Jane Doe</p>
+                                        <p>Canada</p>
+                                    </div>
+                                    <img src="assets/stars.svg" alt="Rating">
+                                </div>
+                            </div>
+                            <p class="slider-date">Date of experience: <span class="date">December 05, 2023</span></p>
+                            <p class="slider-testimonial">The team was incredibly helpful and made my experience seamless...</p>
+                        </div>
+                    </div>
+                    <div class="arrow left">&#9664;</div>
+                    <div class="arrow right">&#9654;</div>
+                    <div class="pagination">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Testimonial Slider -->
+            <div class="testimoni">
+                <h2>What our customers say!</h2>
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <div class="slide active">
+                            <div class="slider-header flex">
+                                <img src="assets/testi1.svg" alt="Testimonial 1">
+                                <div class="identity flex flex_col">
+                                    <div class="flex">
+                                        <p>Chance Snyder</p>
+                                        <p>United States</p>
+                                    </div>
+                                    <img src="assets/stars.svg" alt="Rating">
+                                </div>
+                            </div>
+                            <p class="slider-date">Date of experience: <span class="date">November 11, 2023</span></p>
+                            <p class="slider-testimonial">Great service to use when buying a used car! This website was recommended by several different articles,...</p>
+                        </div>
+                        <div class="slide">
+                            <div class="slider-header flex">
+                                <img src="assets/testi2.svg" alt="Testimonial 2">
+                                <div class="identity flex flex_col">
+                                    <div class="flex">
+                                        <p>Jane Doe</p>
+                                        <p>Canada</p>
+                                    </div>
+                                    <img src="assets/stars.svg" alt="Rating">
+                                </div>
+                            </div>
+                            <p class="slider-date">Date of experience: <span class="date">December 05, 2023</span></p>
+                            <p class="slider-testimonial">The team was incredibly helpful and made my experience seamless...</p>
+                        </div>
+                    </div>
+                    <div class="arrow left">&#9664;</div>
+                    <div class="arrow right">&#9654;</div>
+                    <div class="pagination">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="checkoutCol col2">
@@ -87,7 +170,7 @@
                     <span id="gumroadBtn">Gumroad</span>
                 </div>
             </div>
-            <div class="stripe" id="stripe">
+            <div class="stripe active" id="stripe">
                 <div class="stripeChoices">
                     <p class="bold">Pay with Credit Card or Bank Transfer</p>
                     <div class="tab-list">
@@ -95,7 +178,7 @@
                         <span id="bankTranferBtn">Bank Tranfer <img src="assets/Nigeria.png"></span>
                     </div>
                 </div>
-                <div class="creditCard" id="creditCard">
+                <div class="creditCard active" id="creditCard">
                     <p class="bold">Enter your card details</p>
                     <form>
                         <label>Name*</label>
@@ -104,7 +187,15 @@
                         <input type="email" placeholder="Enter your email" value="fahad@empirepixel.com" class="input">
                         <div class="card">
                             <label>Card Details</label>
-                            <input type="number" class="input digit" placeholder="1234 1234 1234 1234">
+                            <div class="digit_wrapper">
+                                <input type="number" class="input digit" placeholder="1234 1234 1234 1234">
+                                <div class="card-icon">
+                                    <img src="assets/mastercard 1.svg" class="mastercard">
+                                    <img src="assets/visa.svg" class="visa">
+                                    <img src="assets/american-express-svgrepo-com.svg" class="american-express">
+                                    <img src="assets/discover.svg" class="discover">
+                                </div>
+                            </div>
                             <div class="flex">
                                 <input type="number" class="input expire" placeholder="MM/YY">
                                 <input type="number" class="input cvc" placeholder="CVC">
@@ -112,7 +203,7 @@
                         </div>
                         <label>Postal Code</label>
                         <input type="number" class="input" placeholder="Enter postal code">
-                        <button type="submit" class="big-btn blue">Pay #30.00</button>
+                        <button type="submit" class="big-btn blue">Pay #26.00</button>
                     </form>
                 </div>
                 <div class="bankTranfer" id="bankTranfer">
@@ -162,7 +253,7 @@
             </div>
             <div class="gumroad" id="gumroad">
                 <p class="bold">Click the button below to open Gumroad window to make your payment</p>
-                <button class="big-btn blue">Pay $30.000</button>
+                <button class="big-btn blue">Pay $26.000</button>
             </div>
             <div class="trust">
                 <div class="">
@@ -176,6 +267,7 @@
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
 

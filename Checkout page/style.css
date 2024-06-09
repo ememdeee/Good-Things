@@ -38,11 +38,18 @@ body, .light_gray{
 .checkoutCol.col2{
     padding-left: 20px;
 }
+.header h1{
+    font-size: 28px;
+}
+.header .back{
+    margin-left: -10px;
+}
 .data{
     display: flex;
+    gap: 20px;
 }
 .data .col{
-    width: 50%;
+    width: auto;
 }
 .data .col .record:first-child{
     margin-bottom: 20px;
@@ -83,11 +90,21 @@ body, .light_gray{
     border: none;
     cursor: pointer;
 }
+.initialPrice{
+    font-weight: 500;
+    text-decoration: line-through;
+    color: #FF4D50;
+    margin-right: 10px;
+    font-size: 20px;
+}
 .price{
     padding: 25px 0px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+.total{
+    font-size: 24px;
 }
 .paymentMethod{
     display: flex;
@@ -98,6 +115,95 @@ body, .light_gray{
 }
 .testimoni{
     padding: 25px 0px;
+}
+/* Basic styling for the slider */
+.testimoni {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: none;
+    padding: 20px;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slider-header {
+    display: flex;
+    align-items: center;
+}
+
+.identity {
+    margin-left: 20px;
+}
+
+.slider-date {
+    margin-top: 10px;
+    color: gray;
+}
+
+.slider-testimonial {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Styling for navigation arrows */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+/* Styling for pagination circles */
+.pagination {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
 }
 
 .tab-list{
@@ -117,6 +223,8 @@ body, .light_gray{
     justify-content: center;
     gap: 5px;
     transition: all 300ms;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .tab-list span:hover{
     background-color: #e3e4e7;
@@ -142,6 +250,7 @@ body, .light_gray{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding-bottom: 20px;
 }
 .creditCard label, .bankTranfer label {
     display: block;
@@ -158,6 +267,32 @@ body, .light_gray{
 }
 .card .digit{
     border-radius: 8px 8px 0px 0px;
+}
+.digit_wrapper{
+    position: relative;
+    transition: all 300ms;
+}
+.card-icon {
+    position: absolute;
+    right: 10px; /* Position it to the right inside the input */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* So it doesn't interfere with clicking/typing */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 300ms;
+}
+.card-icon img{
+    width: auto;
+    height: 30px; /* Adjust based on your icon size */
+}
+.card-icon img.discover{
+    height: 40px; /* Adjust based on your icon size */
+}
+.digit_wrapper input:focus + .card-icon,
+.digit_wrapper input:not(:placeholder-shown) + .card-icon {
+    opacity: 0;
 }
 .card .expire{
     border-radius: 0px 0px 0px 8px;
@@ -181,6 +316,7 @@ body, .light_gray{
 }
 .bankDetails table th {
     text-align: left;
+    vertical-align: top; 
 }
 .bankDetails table td {
     text-align: left;
@@ -228,10 +364,20 @@ body, .light_gray{
     width: 100px;
     height: auto;
 }
+.stripe, .paypal, .gumroad, .creditCard, .bankTranfer{
+    display: none;
+}
+.active.stripe, .active.creditCard, .active.bankTranfer{
+    display: inherit;
+}
+.active.paypal, .active.gumroad{
+    display: flex;
+}
 .trust{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding: 20px 0px;
 }
 .trust div{
     display: flex;
@@ -281,7 +427,29 @@ body, .light_gray{
     .checkoutCol.col1{
         background: #1B4582;
     }
+    .header img {
+        max-height: 45px;
+    }
     .header h1{
         font-size: 20px;
+    }
+    .initialPrice{
+        font-size: 18px;
+        margin-right: 5px;
+    }
+    .total{
+        font-size: 20px;
+    }
+    .card-icon img{
+        width: auto;
+        height: 20px; /* Adjust based on your icon size */
+    }
+    .card-icon img.discover{
+        height: 25px; /* Adjust based on your icon size */
+    }
+}
+@media only screen and (max-width: 374px) {
+    .data{
+        gap: 0;
     }
 }
