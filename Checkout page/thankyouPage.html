@@ -5,26 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank you!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="myStarterCss.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;260;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="thankyou">
+    <nav>
+        <div class="wrapper">
+          <div class="logo"><a href="https://detailedvehiclehistory.com/"><img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2023/10/logo.png" height="70" width="136" alt="logo"/></a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><img src="assets/x_Black.svg"></label>
+              <li>
+              <a href="#" class="desktop-item with-icon">Products & services <img src="assets/chevron-down.svg" class="dropdownIcon"></a>
+              <input type="checkbox" id="showMega">
+              <label for="showMega" class="mobile-item">Products & services <img src="assets/chevron-down.svg" class="dropdownIcon"></label>
+              <div class="mega-box">
+                <div class="content">
+                  <div class="row">
+                    <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2023/08/r05.png" alt="top"/>
+                  </div>
+                  <div class="row">   
+                    <header>VIN Decoder </header>
+                    <ul class="mega-links">
+                      <li><a href="https://detailedvehiclehistory.com/vin-decoder">VIN Decoder<span>Decode VIN for any make to get vehicle specifications</span></a></li>
+                      <li><a href="https://detailedvehiclehistory.com/classic-vin-decoder">Classic VIN Decoder<span>Decode any classic VIN to get vehicle data</span></a></li>
+                      <li><a href="https://detailedvehiclehistory.com/vin-check">VIN Check<span>Check any VIN to access vehicle data and past records</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <header>Vehicle History Report</header>
+                    <ul class="mega-links">
+                      <li><a href="https://detailedvehiclehistory.com/vin-check">Lookup Vehicle History<span>Lookup vehicle history records for all type of vehicles</span></a></li>
+                      <li><a href="https://detailedvehiclehistory.com/classic-vehicle-history">Classic Vehicle History<span><span>Get vehicle history report for classic vehicles (older than 1981)</span></span></a></li>
+                      <li><a href="https://detailedvehiclehistory.com/license-plate-lookup">License Plate Lookup<span>Lookup any US license plate to access vehicle records</span></a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <header>Window Sticker</header>
+                    <ul class="mega-links">
+                      <li><a href="https://detailedvehiclehistory.com/window-sticker">Window sticker by VIN<span>Learn about vehicle's features, options, and packages with a window sticker</span></a></li>
+                      <li><a href="https://detailedvehiclehistory.com/classic-window-stickers"> Classic car build sheets<span>Learn about classic car features, options, and packages with a buildsheet.</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li><a href="https://detailedvehiclehistory.com/sample">Sample reports</a></li>
+            <li><a href="https://detailedvehiclehistory.com/vin-check-rates">Pricing</a></li>
+             <li><a href="https://detailedvehiclehistory.com/dealers">Dealers</a></li>
+             <li class="show-login"><a href="https://detailedvehiclehistory.com/members/login" id = "login_url">Login</a></li>
+             <li class="show-login"><a href="https://detailedvehiclehistory.com/members/signup" id= "signup_url">Sign up</a></li>
+          </ul>
+          <div class="multi-button">
+        <button><a 
+        style="color:#0055B3;"
+        href="https://detailedvehiclehistory.com/members/login" id = "login_url">Login</a></button>
+        <button><a 
+        style="color:#0055B3;"
+        href="https://detailedvehiclehistory.com/members/signup" id= "signup_url">Sign up</a></button>
+      </div>
+          <label for="menu-btn" class="btn menu-btn"><img src="assets/hamburger.svg"></label>
+        </div>
+    </nav>   
     <div class="container flex_col">
         <img src="assets/checklist.svg">
         <div class="thankyouMassage">
-            <p class="bold">Thank you for submitting your money transfer receipt.</p>
+            <p class="bold heading">Thank you for submitting your money transfer receipt.</p>
             <p>We're currently verifying your payment. Once complete, you'll receive confirmation via email or message. Feel free to log in to your account. Once verification is done, your account will be credited.</p>
         </div>
         <div class="loginMassage">
             <p class="bold">Your account has been created, to login to your account click "Login"</p>
             <p>For easy access your account credentials have been sent to your email.</p>
-            <button class="big-btn blue">Login</button>
+            <button class="big-btn med-size blue">Login</button>
         </div>
         <div class="helpMassage">
             <p class="bold">Need help? Speak to us on livechat or Chat with us on Whatsapp</p>
-            <div class="flex">
-                <button class="big-btn blue">Live Chat</button>
-                <button class="big-btn whatsApp">Contact on WhatsApp</button>
+            <div class="buttons">
+                <button class="big-btn med-size blue">Live Chat</button>
+                <button class="big-btn med-size whatsApp">Contact on WhatsApp</button>
             </div>
         </div>
     </div>

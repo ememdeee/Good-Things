@@ -475,6 +475,45 @@ body.checkout, .light_gray{
     min-height: inherit;
     padding: 10px;
 }
+/* Thankyou Page */
+.thankyou .container{
+    text-align: center;
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 60px;
+}
+.thankyou .container img{
+    max-width: 100px;
+    align-self: center;
+}
+.thankyouMassage{
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.thankyouMassage .heading{
+    font-size: 28px;
+}
+.loginMassage{
+    padding: 40px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.helpMassage{
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: solid 1px #A1A1A1;
+}
+.helpMassage .buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
 /* btn */
 .big-btn{
     width: -webkit-fill-available;
@@ -487,8 +526,12 @@ body.checkout, .light_gray{
     font-size: 17px;
     cursor: pointer;
 }
+.med-size{
+    max-width: 280px;
+    align-self: center;
+}
 @media only screen and (max-width: 767px) {
-    body{
+    body.checkout{
         background: #f1f0f5;
     }
     .container{
@@ -529,6 +572,16 @@ body.checkout, .light_gray{
     }
     .testimonialMobile{
         display: block;
+    }
+    .thankyou .container{
+        text-align: center;
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 40px;
+    }
+    .helpMassage .buttons{
+        flex-direction: column;
     }
 }
 @media only screen and (max-width: 374px) {
