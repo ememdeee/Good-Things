@@ -75,7 +75,14 @@ body.checkout, .light_gray{
     align-items: center;
     padding: 25px 0px;
 }
-
+.auctionImage{
+    border-radius: 8px;
+}
+.auctionText{
+    font-weight: 700;
+    width: 200px; 
+    word-break: break-word;
+}
 .coupon{
     display: flex;
     gap: 15px;
@@ -588,4 +595,24 @@ body.checkout, .light_gray{
     .data{
         gap: 0;
     }
+}
+
+
+/* other */
+/* For Chrome, Safari, Edge, and Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+/* General styling to ensure uniform appearance */
+input[type='number'] {
+    appearance: textfield;
+    /* You can add other styles here, like border, width, etc. */
 }
