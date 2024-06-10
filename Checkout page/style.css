@@ -5,7 +5,10 @@ p{
     font-weight: 500;
     line-height: 1.5;
 }
-body, .light_gray{
+body{
+    background: #f1f0f5;
+}
+body.checkout, .light_gray{
     background: linear-gradient(to right, #1B4582 50%, #f1f0f5 50%);
 }
 .blue{
@@ -43,6 +46,7 @@ body, .light_gray{
 }
 .header .back{
     margin-left: -10px;
+    cursor: pointer;
 }
 .data{
     display: flex;
@@ -118,7 +122,6 @@ body, .light_gray{
 }
 /* Basic styling for the slider */
 .testimoni {
-    text-align: center;
     margin: 20px auto;
     max-width: 600px;
 }
@@ -126,21 +129,21 @@ body, .light_gray{
 .slider-wrapper {
     position: relative;
     overflow: hidden;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    margin: 0px auto;
 }
 
 .slider {
     display: flex;
+    justify-content: center;
     transition: transform 0.5s ease-in-out;
 }
 
 .slide {
-    min-width: 100%;
+    /* min-width: 100%; */
+    max-width: 500px;
     box-sizing: border-box;
     display: none;
-    padding: 20px;
+    padding: 20px 30px;
 }
 
 .slide.active {
@@ -149,21 +152,33 @@ body, .light_gray{
 
 .slider-header {
     display: flex;
-    align-items: center;
 }
 
 .identity {
     margin-left: 20px;
+    align-items: flex-start;
 }
-
+.testimonial_name{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    row-gap: 0px;
+}
+.date{
+    font-weight: 500;
+}
 .slider-date {
     margin-top: 10px;
-    color: gray;
+    text-align: left;
 }
 
 .slider-testimonial {
     margin-top: 10px;
     font-style: italic;
+    text-align: left;
+}
+.rating{
+    max-height: 22px;
 }
 
 /* Styling for navigation arrows */
@@ -171,21 +186,20 @@ body, .light_gray{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 10px;
     cursor: pointer;
-    border-radius: 50%;
 }
 
 .arrow.left {
-    left: 10px;
+    left: 0px;
 }
 
 .arrow.right {
-    right: 10px;
+    right: 0px;
 }
-
+.testimonialMobile{
+    display: none;
+    border-top: solid 1px #D1D1D1;
+}
 /* Styling for pagination circles */
 .pagination {
     text-align: center;
@@ -193,17 +207,17 @@ body, .light_gray{
 }
 
 .dot {
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     margin: 0 5px;
-    background-color: #bbb;
+    background-color: #CAD8FF;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
 }
 
 .dot.active {
-    background-color: #717171;
+    background-color: #1955FF;
 }
 
 .tab-list{
@@ -252,11 +266,11 @@ body, .light_gray{
     gap: 15px;
     padding-bottom: 20px;
 }
-.creditCard label, .bankTranfer label {
+.creditCard label, .bankTranfer label, .popup label {
     display: block;
     margin-bottom: 5px;
 }
-.creditCard input, .bankTranfer input {
+.creditCard input, .bankTranfer input, .popup input{
     margin-bottom: 10px;
 }
 .creditCard .card input {
@@ -388,6 +402,65 @@ body, .light_gray{
     width: 30px;
     height: auto;
 }
+.popup{
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 0px 10px;
+    display: none;
+}
+.popup.active{
+    display: flex;
+}
+.popup .overlay{
+    background: #1e1e1e54;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+.popup .window{
+    background: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px 20px;
+    border-radius: 8px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+.popup .window button {
+    margin-top: 20px;
+}
+.date-input{
+    position: relative;
+    margin-bottom: 10px;
+}
+.date-input input{
+    margin-bottom: 0px;
+}
+.dateIcon {
+    position: absolute;
+    right: 10px; /* Position from the right edge of the input */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    pointer-events: none; /* Allow clicking through the icon */
+    width: 20px; /* Adjust width to fit your needs */
+    height: 20px; /* Adjust height to fit your needs */
+}
+.close{
+    background: #1B4582;
+    border-radius: 5px;
+    padding: 3px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+}
 /* form input */
 .input{
     background-color: white;
@@ -397,6 +470,10 @@ body, .light_gray{
     border: 1px solid #CBCBD3;
     width: -webkit-fill-available;
     font-size: 16px;
+}
+[type="file"].input{
+    min-height: inherit;
+    padding: 10px;
 }
 /* btn */
 .big-btn{
@@ -446,6 +523,12 @@ body, .light_gray{
     }
     .card-icon img.discover{
         height: 25px; /* Adjust based on your icon size */
+    }
+    .testimonialDesktop{
+        display: none;
+    }
+    .testimonialMobile{
+        display: block;
     }
 }
 @media only screen and (max-width: 374px) {

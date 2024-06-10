@@ -96,4 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         showSlide(currentSlideIndex); // Initialize the first slide
     });
+
+    // popup
+    const tranferReceiptPopup = document.getElementById('tranferReceiptPopup');
+    const receiptOverlay = document.getElementById('receiptOverlay');
+    const receiptCloseIcon = document.getElementById('close-icon');
+    const receiptTrigger = document.getElementById('submitReceiptOnline');
+    
+    const toggleReceiptPopup = function () {
+        tranferReceiptPopup.classList.toggle('active');
+    };
+
+    receiptOverlay.addEventListener('click', toggleReceiptPopup);
+    receiptCloseIcon.addEventListener('click', toggleReceiptPopup);
+    receiptTrigger.addEventListener('click', toggleReceiptPopup);
 });
