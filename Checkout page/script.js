@@ -110,4 +110,33 @@ document.addEventListener('DOMContentLoaded', () => {
     receiptOverlay.addEventListener('click', toggleReceiptPopup);
     receiptCloseIcon.addEventListener('click', toggleReceiptPopup);
     receiptTrigger.addEventListener('click', toggleReceiptPopup);
+
+    // validate input field
+
+    const letterOnlyInputs = document.querySelectorAll('.lettersOnly');
+    const capitalizeOnlyInputs = document.querySelectorAll('.capitalize');
+
+    // Iterate over each input field and attach the event listener
+    letterOnlyInputs.forEach((inputField) => {
+        inputField.addEventListener('keydown', (event) => {
+            // Regular expression to allow only letters (a-z, A-Z)
+            const regex = /^[a-zA-Z]$/;
+
+            // Get the character from the key event
+            const char = event.key;
+
+            // Check if the key is not a letter and is not one of the allowed control keys
+            if (!regex.test(char) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+                event.preventDefault(); // Prevent input
+            }
+        });
+    });
+    // Iterate over each input field and attach the event listener
+    capitalizeOnlyInputs.forEach((inputField) => {
+        inputField.addEventListener('input', (event) => {
+            // Capitalize the input value
+            inputField.value = inputField.value.toUpperCase();
+        });
+    });
+
 });

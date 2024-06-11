@@ -36,10 +36,10 @@ body.checkout, .light_gray{
 }
 .checkoutCol.col1{
     color: white;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 .checkoutCol.col2{
-    padding-left: 20px;
+    padding-left: 30px;
 }
 .header h1{
     font-size: 28px;
@@ -232,8 +232,11 @@ body.checkout, .light_gray{
     border-radius: 8px;
     display: flex;
     overflow: hidden;
+    justify-content: end;
 }
 .tab-list span{
+    width: 100%;
+    width: -moz-available;
     width: -webkit-fill-available;
     text-align: center;
     cursor: pointer;
@@ -325,10 +328,22 @@ body.checkout, .light_gray{
     border-width: 0px 1px 1px 0px;
     width: 50%;
 }
+.cvc_wrapper{
+    position: relative;
+}
+img.cvcIcon{
+    position: absolute;
+    right: 10px; /* Position it to the right inside the input */
+    top: calc(50% - 2px);
+    transform: translateY(-50%);
+    pointer-events: none; /* So it doesn't interfere with clicking/typing */
+}
 .creditCard button{
     margin-top: 15px;
 }
 .bankDetails table {
+    width: 100%;
+    width: -moz-available;
     width: -webkit-fill-available;
     border-radius: 8px;
     background: white;
@@ -337,13 +352,23 @@ body.checkout, .light_gray{
 }
 .bankDetails table th {
     text-align: left;
-    vertical-align: top; 
+    vertical-align: top;
+    font-weight: 500;
 }
 .bankDetails table td {
     text-align: left;
     display: flex;
     align-items: center;
     gap: 5px;
+    font-weight: 700;
+}
+.bankDetails table td a{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    text-decoration: underline;
 }
 .bankDetails table td img {
     width: 25px;
@@ -388,10 +413,10 @@ body.checkout, .light_gray{
 .stripe, .paypal, .gumroad, .creditCard, .bankTranfer{
     display: none;
 }
-.active.stripe, .active.creditCard, .active.bankTranfer{
+.active.stripe, .active.bankTranfer{
     display: inherit;
 }
-.active.paypal, .active.gumroad{
+.active.paypal, .active.gumroad, .active.creditCard{
     display: flex;
 }
 .trust{
@@ -475,6 +500,8 @@ body.checkout, .light_gray{
     padding: 5px 10px;
     border-radius: 8px;
     border: 1px solid #CBCBD3;
+    width: 100%;
+    width: -moz-available;
     width: -webkit-fill-available;
     font-size: 16px;
 }
@@ -523,6 +550,8 @@ body.checkout, .light_gray{
 }
 /* btn */
 .big-btn{
+    width: 100%;
+    width: -moz-available;
     width: -webkit-fill-available;
     font-weight: 700;
     border: none;
@@ -589,6 +618,9 @@ body.checkout, .light_gray{
     }
     .helpMassage .buttons{
         flex-direction: column;
+    }
+    img.cvcIcon{
+        max-height: 16px;
     }
 }
 @media only screen and (max-width: 374px) {

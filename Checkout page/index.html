@@ -23,7 +23,7 @@
                     <div class="record">
                         <img src="assets/alert-circle.svg">
                         <div class="record_data">
-                            <p>Accidet Check</p>
+                            <p>Accident check</p>
                             <p class="bold red">Records available</p>
                         </div>
                     </div>
@@ -132,18 +132,18 @@
                     <p class="bold">Pay with Credit Card or Bank Transfer</p>
                     <div class="tab-list">
                         <span id="creditCardBtn" class="active">Credit Card</span>
-                        <span id="bankTranferBtn">Bank Tranfer <img src="assets/Nigeria.png"></span>
+                        <span id="bankTranferBtn">Bank Transfer <img src="assets/Nigeria.png"></span>
                     </div>
                 </div>
                 <div class="creditCard active" id="creditCard">
                     <p class="bold">Enter your card details</p>
                     <form>
                         <label>Name*</label>
-                        <input type="text" placeholder="Enter your name" class="input">
+                        <input type="text" placeholder="Enter your name" class="input lettersOnly">
                         <label>Email*</label>
                         <input type="email" placeholder="Enter your email" value="fahad@empirepixel.com" class="input">
                         <div class="card">
-                            <label>Card Details</label>
+                            <label>Card Details*</label>
                             <div class="digit_wrapper">
                                 <input type="number" class="input digit" placeholder="1234 1234 1234 1234">
                                 <div class="card-icon">
@@ -153,19 +153,20 @@
                                     <img src="assets/discover.svg" class="discover">
                                 </div>
                             </div>
-                            <div class="flex">
+                            <div class="flex relative">
                                 <input type="text" class="input expire" placeholder="MM/YY">
                                 <input type="number" class="input cvc" placeholder="CVC">
+                                <img class="cvcIcon" src="assets/CVC.svg">
                             </div>
                         </div>
-                        <label>Postal Code</label>
+                        <label>Postal Code*</label>
                         <input type="text" class="input" placeholder="Enter postal code">
-                        <button type="submit" class="big-btn blue">Pay #26.00</button>
+                        <button type="submit" class="big-btn blue">Pay $26.00</button>
                     </form>
                 </div>
                 <div class="bankTranfer" id="bankTranfer">
                     <label>Name*</label>
-                    <input type="text" placeholder="Enter your name" class="input">
+                    <input type="text" placeholder="Enter your name" class="input lettersOnly">
                     <label>Email*</label>
                     <input type="email" placeholder="Enter your email" value="fahad@empirepixel.com" class="input">
                     <label>Bank account details</label>
@@ -185,7 +186,7 @@
                             </tr>
                             <tr>
                                 <th>Speak to Live Chat:</th>
-                                <td>+234 814 136 1434<img src="assets/WhatsApp.svg"></td>
+                                <td><a href="#">+234 814 136 1434<img src="assets/WhatsApp.svg"></a></td>
                             </tr>
                         </table>
                     </div>
@@ -210,7 +211,7 @@
             </div>
             <div class="gumroad" id="gumroad">
                 <p class="bold">Click the button below to open Gumroad window to make your payment</p>
-                <button class="big-btn blue">Pay $26.000</button>
+                <button class="big-btn blue">Pay $26.00</button>
             </div>
             <div class="trust">
                 <div class="">
@@ -219,7 +220,7 @@
                 </div>
                 <div class="">
                     <img src="assets/secure.svg" alt="Locked">
-                    <p>SSL Secure Payment</p>
+                    <p>SSL secure payment</p>
                 </div>
             </div>
             <!-- Second Testimonial Slider -->
@@ -270,20 +271,18 @@
         <div class="window">
             <img class="close" id="close-icon" src="assets\x.svg" >
             <label>VIN*</label>
-            <input type="text" class="input" placeholder="Enter your VIN" value="5NPE24AF9FH146743">
+            <input type="text" class="input capitalize" placeholder="Enter your VIN" value="5NPE24AF9FH146743">
             <label>Name*</label>
-            <input type="text" placeholder="Enter your name" class="input">
+            <input type="text" placeholder="Enter your name" class="input lettersOnly">
             <label>Email*</label>
             <input type="email" placeholder="Enter your email" value="fahad@empirepixel.com" class="input">
             <label>Amount of money</label>
             <input type="number" placeholder="Enter the amount of money transferred" class="input">
             <label>Transfer date</label>
-            <div class="date-input">
-                <input type="text" placeholder="DD-MM-YY" class="input">
-                <img src="assets/calendar.svg" class="dateIcon">
-            </div>
+            <input type="date" placeholder="DD-MM-YY" class="input">
+            <!-- <div class="date-input"><img src="assets/calendar.svg" class="dateIcon"></div> -->
             <label>Receipt of transfer</label>
-            <input type="file" placeholder="DD-MM-YY" class="input">
+            <input type="file" class="input">
             <button class="big-btn blue">Submit</button>
         </div>
         <div id="receiptOverlay" class="overlay"></div>

@@ -12,6 +12,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
   }
   
   .wrapper .logo{
@@ -152,6 +153,9 @@ nav{
     border: none;
     background-color: inherit;
   }
+  .multi-button button a{
+    text-decoration: none;
+  }
   .multi-button button:hover {
     background-color: #ddd;
   }
@@ -161,8 +165,16 @@ nav{
   .multi-button button:last-child {
     border-radius: 0 50px 50px 0;
   }
-  
+  .show-login{
+    display: none;
+  }
+  .with-icon{
+    padding-right: 30px !important;
+  }
   @media screen and (max-width: 970px) {
+    .show-login{
+      display: inherit;
+    }
       .wrapper .logo{
       z-index: 0!important;
   }
@@ -294,4 +306,15 @@ nav{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+  }
+  .overlayMobile{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: transparent;
+  }
+  #menu-btn:checked ~ .overlayMobile{
+    display: block;
   }
