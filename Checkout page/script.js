@@ -115,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const letterOnlyInputs = document.querySelectorAll('.lettersOnly');
     const capitalizeOnlyInputs = document.querySelectorAll('.capitalize');
+    const numberOnlyInputs = document.querySelectorAll('.numberOnly');
+    const expireInputs = document.querySelectorAll('.expire');
+    const cvcInputs = document.querySelectorAll('.cvc');
 
     // Iterate over each input field and attach the event listener
     letterOnlyInputs.forEach((inputField) => {
@@ -139,4 +142,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    numberOnlyInputs.forEach((inputField) => {
+        inputField.addEventListener('keydown', (event) => {
+            // Regular expression to allow only numbers (0-9)
+            const regex = /^[0-9]$/;
+
+            // Get the character from the key event
+            const char = event.key;
+
+            // Check if the key is not a number and is not one of the allowed control keys
+            if (!regex.test(char) && !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+                event.preventDefault(); // Prevent input
+            }
+        });
+    });
+
+    expireInputs.forEach((inputField) => {
+        inputField.addEventListener('input', (event) => {
+            // Get the input value
+            let value = event.target.value;
+            
+            // Allow only numbers and "/"
+            value = value.replace(/[^\d/]/g, '');
+
+            // If the length of the value is 3 and the last character is not "/", automatically add "/"
+            if (value.length === 3 && value.charAt(2) !== '/') {
+                value = value.substring(0, 2) + '/' + value.charAt(2);
+            }
+
+            // Limit the input to 4 characters
+            value = value.substring(0, 5);
+
+            // Update the input value
+            event.target.value = value;
+        });
+    });
+    
+    cvcInputs.forEach((inputField) => {
+        inputField.addEventListener('input', (event) => {
+            // Get the input value
+            let value = event.target.value;
+            
+            // Allow only numbers
+            value = value.replace(/[^\d]/g, '');
+
+            // Limit the input to 3 characters
+            value = value.substring(0, 3);
+
+            // Update the input value
+            event.target.value = value;
+        });
+    });
 });

@@ -28,11 +28,15 @@ body.checkout, .light_gray{
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 60px;
+    max-width: 1440px !important;
+    margin: auto;
+    justify-content: space-evenly;
 }
 .checkoutCol{
     box-sizing: border-box;
     position: relative;
-    min-width: 50%;
+    width: 50%;
+    max-width: 550px;
 }
 .checkoutCol.col1{
     color: white;
@@ -575,10 +579,12 @@ img.cvcIcon{
         padding: 0;
     }
     .checkoutCol{
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+        width: 100%;
+        max-width: inherit;
     }
     .checkoutCol.col1{
         background: #1B4582;
