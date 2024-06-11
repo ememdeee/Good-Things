@@ -383,8 +383,39 @@ img.cvcIcon{
     display: flex;
     gap: 10px;
     align-items: center;
-    text-decoration: underline;
     cursor: pointer;
+    position: relative;
+}
+.instructions a{
+    text-decoration: underline;
+}
+.instructionsWrapper{
+    display: none;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 44px;
+    box-shadow:
+  0px 0px 2.2px rgba(0, 0, 0, 0.02),
+  0px 0px 5.3px rgba(0, 0, 0, 0.028),
+  0px 0px 10px rgba(0, 0, 0, 0.035),
+  0px 0px 17.9px rgba(0, 0, 0, 0.042),
+  0px 0px 33.4px rgba(0, 0, 0, 0.05),
+  0px 0px 80px rgba(0, 0, 0, 0.07)
+;
+}
+.instructionsWrapper.active{
+    display: block;
+}
+.instructionsWrapper ul {
+    list-style-type: decimal; /* This makes the list use numbers */
+    margin-left: 20px; /* Adds some left margin for better readability */
+    padding-left: 0; /* Removes default padding */
+}
+
+.instructionsWrapper li {
+    margin-bottom: 10px; /* Adds some space between list items */
 }
 .bankTranfer .buttons{
     padding: 20px 0px;
@@ -632,6 +663,9 @@ img.cvcIcon{
 @media only screen and (max-width: 374px) {
     .data{
         gap: 0;
+    }
+    .instructionsWrapper{
+        bottom: 60px;
     }
 }
 

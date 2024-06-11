@@ -193,4 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
             event.target.value = value;
         });
     });
+
+    // Instruction popup
+    const instructionsElements = document.querySelectorAll('.instructionsElement');
+    const instructionsWrapper = document.getElementById('instructionsWrapper');
+    
+    // Define the function to toggle the instruction popup
+    const toggleInstructionPopup = function () {
+        instructionsWrapper.classList.toggle('active');
+    };
+    
+    // Add a click event listener to each 'instructionsElement'
+    instructionsElements.forEach(element => {
+        element.addEventListener('click', toggleInstructionPopup);
+    });
 });
