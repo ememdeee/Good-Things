@@ -164,9 +164,15 @@ body.checkout, .light_gray{
 .slider-header {
     display: flex;
 }
+.slider-header .profilePict{
+    width: 54px;
+    height: 54px;
+    border-radius: 100px;
+    display: none;
+}
 
 .identity {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     align-items: flex-start;
 }
 .testimonial_name{
@@ -187,9 +193,17 @@ body.checkout, .light_gray{
     margin-top: 10px;
     font-style: italic;
     text-align: left;
+    height: 75px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 .rating{
     max-height: 22px;
+}
+.testimonialMobile .rating{
+    filter: invert(1) brightness(0);
 }
 
 /* Styling for navigation arrows */
