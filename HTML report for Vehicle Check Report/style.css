@@ -279,6 +279,9 @@ p{
     justify-content: center;
     align-items: center;
 }
+.copyDownload .btn{
+    cursor: pointer;
+}
 .copyDownload img{
     width: auto;
     height: 20px;
@@ -377,6 +380,7 @@ p{
 .arrowSlider{
     width: 100%;
     max-width: 50px;
+    cursor: pointer;
 }
 #slider button img{
     width: 100%;
@@ -519,8 +523,92 @@ p{
     padding-left: 20px;
     padding-right: 20px;
 }
+/* new section data */
+#section_specs{
+    gap: 15px;
+    display: flex;
+}
+#section_specs .col{
+    width: 100%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#section_specs .data_wrapper > label, #section_specs .data_wrapper > ul{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.data_wrapper{
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e2e2;
+}
+#section_specs .data_header{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#section_specs .data_list{
+    margin: 0;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    padding-left: 30px !important;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+.accordion-checkbox{
+    display: none;
+}
 
+ /* Default state - content hidden on mobile */
+#section_specs .accordion-checkbox:not(:checked) ~ ul.data_list {
+    max-height: 0px;
+    opacity: 0;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+/* Toggled state - show content when checked */
+#section_specs .accordion-checkbox:checked ~ .data_list {
+    opacity: 1;
+    max-height: 400px;
+}
+
+/* Arrow rotation */
+.accordion-checkbox:checked ~ .data_header img {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(180deg);
+}
+.accordion-checkbox:not(:checked) ~ .data_header img {
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(0deg);
+}
 @media (max-width: 767px){
+     /* Revert logic for the data toogle in mobile to hide it initially */
+    #section_specs .accordion-checkbox:not(:checked) ~ ul.data_list {
+        opacity: 1;
+        max-height: 400px;
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+    }
+    #section_specs .accordion-checkbox:checked ~ .data_list {
+        max-height: 0px;
+        opacity: 0;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    .accordion-checkbox:not(:checked) ~ .data_header img {
+        transform: rotate(180deg);
+    }
+    .accordion-checkbox:checked ~ .data_header img {
+        transform: rotate(0deg);
+    }
     .arrowSlider{
         max-width: 40px;
     }
@@ -643,5 +731,11 @@ p{
     }
     #vinData{
         font-size: 14px;
+    }
+    #section_specs{
+        flex-direction: column;
+    }
+    #section_specs .col{
+        max-width: inherit;
     }
 }
