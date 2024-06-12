@@ -548,11 +548,17 @@ p{
     display: block;
     padding-top: 10px;
     padding-bottom: 10px;
-    background: #f7f7f7;
+    background: #008751;
+    color: white;
+    font-weight: 600;
     border-bottom: 1px solid #e2e2e2;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+}
+#section_specs .data_header img{
+    filter: invert(1);
 }
 #section_specs .data_list{
     margin: 0;
