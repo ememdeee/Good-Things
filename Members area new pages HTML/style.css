@@ -130,14 +130,23 @@ span{
     border-color: #E8E8E8;
     display: flex;
 }
-.content .table-tab span{
+.content .table-tab .decodes{
+    display: none !important;
+}
+.pointer{
     cursor: pointer;
+}
+.pointer-none{
+    pointer-events: none;
 }
 .content .table-tab span{
     padding: 15px;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     font-size: 20px;
     border-right: solid 1px #E8E8E8;
+    cursor: pointer;
+    text-align: center;
 }
 .content .table-tab span.active{
     background-color: #3e8e41;
@@ -200,8 +209,21 @@ span{
     margin-bottom: 20px;
 }
 
+.content .search-container {
+    position: relative;
+}
+.content .search-container img {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+}
 .content .search-container input {
     padding: 8px;
+    padding-left: 35px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -646,8 +668,10 @@ textarea#status{
         padding: 10px 0px;
     }
     .content .button{
-        padding: 15px 5px;
-        width: 45%;
+        padding: 10px 5px;
+        width: calc(50% - 10px);
+        margin: 0;
+        min-height: 52px;
     }
     .content .button.hide{
         display: none;
@@ -662,6 +686,14 @@ textarea#status{
         display: flex;
         gap: 10px;
         align-items: center;
+    }
+    .content .table-tab span{
+        font-size: 14px;
+        width: 100%;
+        justify-content: center;
+    }
+    .content .table-tab .decodes{
+        display: flex !important;
     }
 
     /* Insurenec */
@@ -696,6 +728,9 @@ textarea#status{
         padding-left: 0px;
         padding-right: 0px;
     }
+    .insurance-claims.attatch-image.col2{
+        padding-top: 0;
+    }
     /* Report Stolen */
     .stolen_date .form{
         gap: 5px;
@@ -721,5 +756,8 @@ textarea#status{
     .heading-toogle{
         flex-direction: column;
         gap: 20px;
+    }
+    .vin-name a{
+        font-size: 14px;
     }
 }

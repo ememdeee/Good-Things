@@ -88,8 +88,15 @@
         <div class="insurance-data-container">
             <div class="insurance-data main-data col1">
                 <div class="accident_history flex space-between">
-                    <span class="bold">Accident History</span>
-                    <span class="bold">Yes</span>
+                    <p class="m_0 bold">Accident History</p>
+                    <span class="bold none" id="value">Yes</span>
+                    <div class="toogleContainer">
+                        <span class="indicator automatic">Yes</span>
+                        <label class="toogleSwitch input"><input id="accidentToggle" checked type="checkbox">
+                            <div></div>
+                        </label>
+                        <span class="indicator manual">No</span>
+                    </div>
                 </div>
                 <div class="damage_assessment">
                     <div class="mb_20 flex space-between heading-toogle">
@@ -197,8 +204,12 @@
                     <textarea name="status" id="status" class="input" >Write the details about the claims</textarea>
                 </div>
             </div>
-            <div class="insurance-claims col2">
-                <!-- image is not ready for development -->
+            <div class="insurance-claims attatch-image col2">
+                <label for="insuranceImage" class="pointer">
+                    <img src="assets/dummy_insuranceImage.jpg">
+                </label>
+                <input type="file" name="insuranceImage" id="insuranceImage" class="none">
+                <button class="big-btn">Submit</button>
             </div>
         </div>
     </div>

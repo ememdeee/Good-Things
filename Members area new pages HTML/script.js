@@ -41,62 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // const damageToggle = document.getElementById("damageToggle");
-    // const claimsToggle = document.getElementById("claimsToggle");
-    // const damageDataSection = document.querySelectorAll(".damage-data");
-    // const claimnsDataSection = document.querySelectorAll(".claims-data");
-    // const damageDataInputs = document.querySelectorAll(".damage-data .input");
-    // const claimsDataInputs = document.querySelectorAll(".claims-data .input");
-
-    // function toggleDammage() {
-    //     const damageIsChecked = damageToggle.checked;
-
-    //     // Disable/Enable inputs based on the toggle state
-    //     damageDataInputs.forEach(input => {
-    //         input.disabled = damageIsChecked;
-    //     });
-
-    //     // Add/Remove red background color based on the toggle state
-    //     if (damageIsChecked) {
-    //         damageDataSection.forEach(section => {
-    //             section.classList.add("disabled");
-    //         });
-    //     } else {
-    //         damageDataSection.forEach(section => {
-    //             section.classList.remove("disabled");
-    //         });
-    //     }
-    // }
-    // function toggleClaims() {
-    //     const claimsIsChecked = claimsToggle.checked;
-
-    //     // Disable/Enable inputs based on the toggle state
-    //     claimsDataInputs.forEach(input => {
-    //         input.disabled = claimsIsChecked;
-    //     });
-
-    //     // Add/Remove red background color based on the toggle state
-    //     if (claimsIsChecked) {
-    //         claimnsDataSection.forEach(section => {
-    //             section.classList.add("disabled");
-    //         });
-    //     } else {
-    //         claimnsDataSection.forEach(section => {
-    //             section.classList.remove("disabled");
-    //         });
-    //     }
-    // }
-
-    // // Initial state check
-    // toggleDammage();
-    // toggleClaims();
-
-    // // Add event listener for the toggle change
-    // damageToggle.addEventListener("change", toggleDammage);
-    // claimsToggle.addEventListener("change", toggleClaims);
-
-    // optimize
-    // Get all toggles and their corresponding sections
     const toggles = [
         { toggle: document.getElementById("damageToggle"), sectionClass: "damage-data" },
         { toggle: document.getElementById("claimsToggle"), sectionClass: "claims-data" },
