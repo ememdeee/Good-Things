@@ -9,16 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<main id="content" class="site-main">
-
-	<?php if ( apply_filters( 'hello_elementor_page_title', true ) ) : ?>
-		<header class="page-header">
-			<h1 class="entry-title"><?php echo esc_html__( 'The page can&rsquo;t be found.', 'hello-elementor' ); ?></h1>
-		</header>
-	<?php endif; ?>
-
-	<div class="page-content">
-		<p><?php echo esc_html__( 'It looks like nothing was found at this location.', 'hello-elementor' ); ?></p>
-	</div>
-
+<main id="content" class="site-main 404" style="text-align: center;display: flex;justify-content: center;align-items: center;flex-direction: column;min-height: 90vh;">
+    <div class="error-404" style="font-size: 100px; font-weight: bold;color: #898989;margin-top: -50px;">404</div>
+    <p class="description" style="font-size: 20px; margin: 20px 0;"><?php esc_html_e( 'Oops! The page you are looking for doesn’t exist. You can enter your VIN number below to generate window sticker.', 'hello-elementor' ); ?></p>
+    <p>{form here}</p>
 </main>
