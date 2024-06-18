@@ -26,7 +26,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  * 3. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
  */
-html {
+ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -65,32 +65,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 2rem;
-}
-
-h4 {
-  font-size: 2rem;
-}
-
-h5 {
-  font-size: 2rem;
-}
-
-h6 {
+h2, h3, h4, h5, h6 {
   font-size: 2rem;
 }
 
 p {
   margin-block-start: 0;
   margin-block-end: 0.9rem;
+}
+
+/* Tablet (portrait and landscape) */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2rem; /* Slightly smaller for tablets */
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Mobile (portrait and landscape) */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem; /* Smaller for mobile */
+  }
+
+  h2, h3, h4, h5, h6 {
+    font-size: 1.5rem;
+  }
 }
 
 /* Grouping content
