@@ -43,28 +43,89 @@ body, h1, h2, h3, h4, h5, h6, p, figure, table{
     overflow: hidden;
 }
 
-/* form */
-.main-form label{
-	display: none !important;
+/* custom */
+.form_submit_btn, button, .kb-buttons-wrap span.kb-button, .kb-buttons-wrap a.kb-button{
+	background-color: #e5e7eb; 
+	color: black; 
+	border: none; 
+	border-radius: 15px;
+	padding: 10px 20px; 
+	font-size: 16px; 
+	cursor: pointer; 
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+	transition: all 0.3s ease;
 }
-.main-form input{
+
+.form_submit_btn:hover, 
+button:hover, .kb-buttons-wrap span.kb-button:hover, .kb-buttons-wrap a.kb-button:hover{
+    background-color: #d8d8da; /* Darker shade on hover/focus */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+	outline-color: #ccc;
+	color: black;
+}
+.form_submit_btn:active{
+    background-color: #d8d8da; /* Even darker shade when active */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Revert to original shadow */
+}
+button.search_by_toggle_active, button:focus, .form_submit_btn:focus, .kb-buttons-wrap span.kb-button:focus, .kb-buttons-wrap a.kb-button:focus{
+	background-color: #444;
+	color: white;
+}
+
+/* Input field */
+.input_field{
 	border-radius: 15px !important;
     border: 1px solid #ccc !important;
     padding: 10px 15px !important;
-    font-size: 16px !important;
-    width: 100% ;
+    font-size: 16px;
+    width: 100%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-	margin-top: 20px;
+	margin-top: 10px
 }
-.main-form button{
-	background-color: #e5e7eb !important;
-    color: black !important;
-    border: none;
-    border-radius: 15px !important;
-    padding: 5px 20px !important;
-    font-size: 16px !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease !important;
+.input_field:hover {
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.input_field:focus {
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.input_field::placeholder {
+	color: black;
+}
+.input_container{
+	display: none;
+	flex-wrap: wrap;
+	gap: 5px;
+	padding-bottom: 22px;
+    padding-top: 8px;
+	justify-content: center;
+}
+.input_container.input_container_active{
+	display: flex;
+}
+.input_container_vin .input_field, .input_container_ymm .input_field{
+	width: calc(33% - 1px);
+}
+.input_container_plate .input_field{
+	width: calc(50% - 2.5px);
+}
+.errorText_form{
+	height: 0px;
+	margin-top: -3px;
+}
+.form_container{
+	padding-top: 30px;
+    padding-bottom: 30px;
+	max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search_vin_wrapper{
+	text-align: center;
+}
+@media (max-width: 768px) {
+	.input_container_vin .input_field, .input_container_ymm .input_field{
+		width: 100%;
+	}
 }
