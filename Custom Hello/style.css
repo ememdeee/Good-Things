@@ -26,6 +26,12 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  * 3. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
  */
+ :root {
+  --primary-color: #1955FF;
+  --secondary-color: #2ecc71;
+  --tertiary-color: #004EA2;
+  --quaternary-color: #e5e5e5;
+}
  html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -45,7 +51,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #333333;
+  color: black;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -613,8 +619,8 @@ li {
 
 /* custom */
 .form_submit_btn, button, .kb-buttons-wrap span.kb-button, .kb-buttons-wrap a.kb-button{
-	background-color: #e5e7eb; 
-	color: black; 
+	background-color: var(--primary-color);
+	color: white; 
 	border: none; 
 	border-radius: 15px;
 	padding: 10px 20px; 
@@ -624,32 +630,40 @@ li {
 	transition: all 0.3s ease;
 }
 
-.form_submit_btn:hover, 
-button:hover, .kb-buttons-wrap span.kb-button:hover, .kb-buttons-wrap a.kb-button:hover{
-    background-color: #d8d8da; /* Darker shade on hover/focus */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+.form_submit_btn:hover, button:hover, .kb-buttons-wrap span.kb-button:hover, .kb-buttons-wrap a.kb-button:hover, button.search_by_toggle_active:hover{
+  background-color: var(--tertiary-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 	outline-color: #ccc;
-	color: black;
+	color: white;
 }
 .form_submit_btn:active{
-    background-color: #d8d8da; /* Even darker shade when active */
+    background-color: var(--tertiary-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Revert to original shadow */
 }
+.search_by-toogle{
+	background-color: var(--quaternary-color);
+	color: black;
+}
+.search_by-toogle:hover{
+	background-color: #dadada;
+	color: black;
+}
 button.search_by_toggle_active, button:focus, .form_submit_btn:focus, .kb-buttons-wrap span.kb-button:focus, .kb-buttons-wrap a.kb-button:focus{
-	background-color: #444;
+	background-color: var(--primary-color);
 	color: white;
 }
 
 /* Input field */
 .input_field{
-	border-radius: 15px !important;
-    border: 1px solid #ccc !important;
-    padding: 10px 15px !important;
-    font-size: 16px;
-    width: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-	margin-top: 10px
+  border-radius: 15px !important;
+  border: 1px solid #ccc !important;
+  padding: 10px 15px !important;
+  font-size: 16px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  min-height: 46px;
 }
 .input_field:hover {
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

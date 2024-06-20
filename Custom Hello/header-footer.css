@@ -334,12 +334,14 @@ footer .site-navigation ul.menu a {
     justify-content: flex-end;
 }
 #site-header {
-    background-color: #e5e7eb;
+    background-color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: inherit;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .site-header .site-branding a{
 	display: flex;
@@ -379,16 +381,19 @@ footer .site-navigation ul.menu a {
 
 /* Hover effects */
 .site-navigation a:hover {
-    background-color: #555; /* Slightly lighter background on hover */
-    color: #ddd; /* Lighter text color on hover */
+    background-color: var(--quaternary-color);
 }
 
 /* Active page item */
 .current-menu-item a {
-    background-color: #444; /* Dark background for the active page */
+    background-color: var(--primary-color);
     color: #fff; /* Ensure text is readable */
     font-weight: bold; /* Bold text for the active item */
     border-radius: 5px; /* Rounded corners */
+}
+
+.current-menu-item a:hover {
+    background-color: var(--tertiary-color);
 }
 
 .nav-toggle {
