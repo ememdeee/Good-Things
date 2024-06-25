@@ -4,12 +4,12 @@
 /* General header styling */
 #site-header {
     background-color: white;
-    padding: 10px 20px;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: inherit;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .site-header .site-branding a{
@@ -18,7 +18,7 @@
     justify-content: center;
 }
 .site-branding img {
-	max-height: 45px;
+	max-height: 55px;
     width: auto;
 }
 #site-header .site-main{

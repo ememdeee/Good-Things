@@ -89,7 +89,12 @@
             <div class="stolen-data main-data col1 customCol">
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
-                    <input style="margin-bottom: 0; margin-top: 10px;" class="input-field" type="text" placeholder="" value="ZPBUA1ZL0KLA05985">
+                    <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter VIN Number" value="ZPBUA1ZL0KLA05985">
+                </div>
+                <span class="spacer space-25"></span>
+                <div class="vin-input-container flex flex_col">
+                    <span class="bold">License Plate Number</span>
+                    <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter License Plate Number" value="ZPBUA1ZL0KLA05985">
                 </div>
                 <div class="stolen_status flex space-between">
                     <span class="bold">Reported as stolen</span>
@@ -124,6 +129,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="stolen-data main-data col2">
                 <div class="attatch-image">
                     <div class="image-status flex space-between">
                         <span class="bold">Attach Police Report</span>
@@ -133,13 +140,10 @@
                         <img src="assets/dummy_image.jpg">
                     </label>
                     <input type="file" name="policeReport" id="policeReport" class="none">
-                    <button class="big-btn">Submit Details</button>
                 </div>
             </div>
-            <div class="stolen-data main-data col2 none">
-                <!-- empty -->
-            </div>
         </div>
+        <button class="big-btn center">Submit Details</button>
     </div>
   </div>
   <script src="script.js"></script>

@@ -53,6 +53,16 @@ $header_nav_menu = wp_nav_menu( [
 				echo $header_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?>
 			</nav>
+			<script>
+				const navToggle = document.getElementById('nav-toggle');
+				const siteNavigation = document.querySelector('.site-navigation');
+
+				// Toggle the active class on the navigation menu when the toggle button is clicked
+				navToggle.addEventListener('click', function () {
+					siteNavigation.classList.toggle('active');
+				});
+			</script>
 		<?php endif; ?>
 	</div>
 </header>
+<?php echo do_shortcode('[banner]'); // Render the shortcode ?>

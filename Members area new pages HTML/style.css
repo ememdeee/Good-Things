@@ -33,6 +33,12 @@ span{
 .mb_20{
     margin-bottom: 20px !important;
 }
+span.spacer{
+    display: block;
+}
+span.space-25{
+    height: 25px;
+}
 .container {
     display: flex;
     max-width: 2000px;
@@ -496,6 +502,11 @@ textarea#status{
 }
 .big-btn:hover{
     background: #327e35;
+}
+.big-btn.center{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 .vin-input-container .big-btn{
     margin-top: 20px;
