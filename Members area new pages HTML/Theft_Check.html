@@ -85,56 +85,84 @@
                 <p style="margin-top: 15px;">Check if any vehicle has been stolen/reported stolen.</p>
             </div>
         </div>
-        <div class="theft-data-container flex">
-            <div class="insurance-data main-data col1">
+        <div class="theft-data-container section1 flex">
+            <div class="theft-data main-data col1 border-none-mobile padding-none-mobile">
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
-                    <input style="margin-bottom: 0; margin-top: 10px;" class="input-field" type="text" placeholder="" value="ZPBUA1ZL0KLA05985">
-                    <button class="big-btn none">Check Vin</button>
-                    <span class="no_data flex none">
-                        <img src="assets/Check.svg">No theft records found for this VIN!
-                    </span>
+                    <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter VIN Number" value="ZPBUA1ZL0KLA05985">
+                    <div class="check-theft none">
+                        <button class="big-btn">Check Vin</button>
+                        <span class="no_data flex">
+                            <img src="assets/Check.svg">No theft records found for this VIN!
+                        </span>
+                    </div>
                 </div>
-                <div class="vehicle-logo-container">
-                    <img src="assets/nissan.png" class="vehicle-logo"> 
-                    <p class="bold m_0">2009 Lamborghini Urus</p>
+                <span class="spacer space-25"></span>
+                <div class="vin-input-container flex flex_col">
+                    <span class="bold">License Plate Number</span>
+                    <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter License Plate Number" value="">
                 </div>
-                <div class="vehicle-spesifications">
-                    <span style="margin-bottom: 15px; display: block;">Vehicle Specifications</span>
-                    <div class="spesifications-container">
-                        <div class="col col1">
-                            <div class="data-container">
-                                <span class="data header">Engine</span>
-                                <span class="data value">V-Shaped 8-Cyl. 4 L</span>
+                <div class="stolen_status border-none flex space-between">
+                    <span class="bold">Reported as stolen</span>
+                    <span class="bold">Yes</span>
+                </div>
+            </div>
+            <div class="theft-data main-data col2 border-none-mobile padding-none-mobile">
+                <div class="border-none-mobile">
+                    <div class="vehicle-logo-container">
+                        <img src="assets/nissan.png" class="vehicle-logo"> 
+                        <p class="bold m_0">2009 Lamborghini Urus</p>
+                    </div>
+                    <div class="vehicle-spesifications">
+                        <span class="bold" style="margin-bottom: 15px; display: block;">Vehicle Specifications</span>
+                        <div class="spesifications-container">
+                            <div class="col col1">
+                                <div class="data-container">
+                                    <span class="data header">Engine</span>
+                                    <span class="data value">V-Shaped 8-Cyl. 4 L</span>
+                                </div>
+                                <div class="data-container">
+                                    <span class="data header">Doors</span>
+                                    <span class="data value">4</span>
+                                </div>
+                                <div class="data-container">
+                                    <span class="data header">Vehicle Type</span>
+                                    <span class="data value">MPV</span>
+                                </div>
                             </div>
-                            <div class="data-container">
-                                <span class="data header">Doors</span>
-                                <span class="data value">4</span>
-                            </div>
-                            <div class="data-container">
-                                <span class="data header">Vehicle Type</span>
-                                <span class="data value">MPV</span>
-                            </div>
-                        </div>
-                        <div class="col col2">
-                            <div class="data-container">
-                                <span class="data header">Fuel Type</span>
-                                <span class="data value">Gasoline</span>
-                            </div>
-                            <div class="data-container">
-                                <span class="data header">Body Type</span>
-                                <span class="data value">SUV 4D</span>
-                            </div>
-                            <div class="data-container">
-                                <span class="data header">Manufacturer</span>
-                                <span class="data value">Automobili Lamborghini Spa</span>
+                            <div class="col col2">
+                                <div class="data-container">
+                                    <span class="data header">Fuel Type</span>
+                                    <span class="data value">Gasoline</span>
+                                </div>
+                                <div class="data-container">
+                                    <span class="data header">Body Type</span>
+                                    <span class="data value">SUV 4D</span>
+                                </div>
+                                <div class="data-container">
+                                    <span class="data header">Manufacturer</span>
+                                    <span class="data value">Automobili Lamborghini Spa</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="insurance-data main-data col2">
-                <div class="status-section border-none-mobile">
+        </div>
+        <div class="theft-data-container section2 flex">
+            <div class="theft-data main-data col1 padding-none-mobile">
+                <div class="border-none">
+                    <div class="stolen_date">
+                        <p class="m_0 bold">Stolen Date</p>
+                        <span class="spacer space-20"></span>
+                        <div class="form">
+                            <input class="input-field" type="number" value="31">
+                            <input class="input-field" type="number" value="05">
+                            <input class="input-field" type="number" value="2024">
+                            <img src="assets/calendar.svg">
+                        </div>
+                    </div>
+                    <span class="spacer space-20"></span>
                     <div class="stolen_form">
                         <p class="m_0 mb_20 bold">Stolen From</p>
                         <div class="custom-dropdown">
@@ -153,18 +181,68 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stolen_date">
-                        <p class="m_0 mb_20 bold">Stolen Date</p>
-                        <div class="form">
-                            <input class="input-field" type="number" value="31">
-                            <input class="input-field" type="number" value="05">
-                            <input class="input-field" type="number" value="2024">
-                            <img src="assets/calendar.svg">
+                    <span class="spacer space-20"></span>
+                    <div class="city">
+                        <span class="bold">City</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="city" id="city" class="input-field" type="text" placeholder="Enter City" value="Ikoyi">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="state">
+                        <span class="bold">State</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="state" id="state" class="input-field" type="text" placeholder="Enter State" value="Lagos">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="address">
+                        <span class="bold">Stolen Address</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="address" id="address" class="input-field" type="text" placeholder="Enter Address" value="230, Awolowo Rd.">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="Year">
+                        <span class="bold">Year</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="year" id="year" class="input-field" type="text" placeholder="Enter Year" value="2009">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="make">
+                        <span class="bold">Make</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="make" id="make" class="input-field" type="text" placeholder="Enter Make" value="Lamborghini">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="model">
+                        <span class="bold">Model</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="model" id="model" class="input-field" type="text" placeholder="Enter Model" value="Urus">
+                    </div>
+                </div>
+            </div>
+            <div class="theft-data main-data col2 border-none-mobile">
+                <div class="status-section">
+                    <div class="color">
+                        <span class="bold">Vehicle Color</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="color" id="color" class="input-field" type="text" placeholder="Enter Color" value="Yellow">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="items">
+                        <span class="bold">Items Stolen with Vehicle</span>
+                        <span class="spacer space-20"></span>
+                        <div class="textarea-container">
+                            <textarea name="items" id="items" class="input" maxlength="300" placeholder="Write the details about the claims">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed arcu libero. Phasellus luctus et quam non pretium. Nulla convallis laoreet nisi eget fermentum. Cras dapibus lacus non justo condimentum, in varius erat tempus. Vivamus molestie molestie arcu eget mollis.</textarea>
+                            <span class="textarea-indicator" id="items-indicator">0/300</span>
+                        </div>
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="theft-details">
+                        <span class="bold">Theft Details and Descriptions</span>
+                        <span class="spacer space-20"></span>
+                        <div class="textarea-container">
+                            <textarea name="theft-details" id="theft-details" class="input" maxlength="300" placeholder="Enter Theft Details and Descriptions">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed arcu libero. Phasellus luctus et quam non pretium. Nulla convallis laoreet nisi eget fermentum. Cras dapibus lacus non justo condimentum, in varius erat tempus. Vivamus molestie molestie arcu eget mollis.</textarea>
+                            <span class="textarea-indicator" id="theft-details-indicator">0/300</span>
                         </div>
                     </div>
                 </div>
                 <div class="police-report">
-                    <p class="mb_20 m_0 bold">Police Report</p>
+                    <div class="flex space-between">
+                        <p class="mb_20 m_0 bold">Police Report</p>
+                        <span class="bold">Not available</span>
+                    </div>
                     <button class="big-btn">View Police Report</button>
                 </div>
             </div>

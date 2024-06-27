@@ -69,7 +69,9 @@ span.space-25{
 .sidebar img {
     width: 30px;
 }
-
+.border-none{ /* 6/27/2024 */
+    border: none !important;
+}
 .sidebar ul {
     list-style: none;
     padding: 0;
@@ -112,6 +114,9 @@ span.space-25{
 }
 .main-data.col1{
     padding-left: 0;
+}
+.main-data.col2{ /* 6/27/2024 */
+    padding-right: 0;
 }
 .content h1 {
     margin: 0;
@@ -459,15 +464,29 @@ textarea{
 .vin-input-container span{
     margin-bottom: 20px;
 }
+.theft-data{ /* 6/27/2024 */
+    width: 50%;
+    padding: 0px 20px;
+}
+.theft-data-container .theft-data.col2{ /* 6/27/2024 */
+    border-left: 1px solid #CACCCF;
+}
 .no_data{
     gap: 10px;
 }
-.vehicle-logo-container {
+.theft-data-container.section1{ /* 6/27/2024 */
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+.theft-data-container.section2{ /* 6/27/2024 */
+    padding-top: 40px;
+}
+.vehicle-logo-container {  /* 6/27/2024 */
     display: flex;
     align-items: center;
     gap: 15px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 .vehicle-logo-container .vehicle-logo{
     display: block;
@@ -741,7 +760,7 @@ textarea{
         padding-left: 0;
         padding-right: 0;
     }
-    .insurance-data, .insurance-claims{
+    .insurance-data, .insurance-claims, .theft-data{ /* 6/27/2024 */
         width: -webkit-fill-available;
     }
     .insurance-data-container, .theft-data-container, .report-stolen-container{
@@ -785,12 +804,19 @@ textarea{
     .stolen-data.col1{
         border: none;
     }
-    .border-none-mobile{
-        border: none;
+    .border-none-mobile{ /* 6/27/2024 */
+        border: none !important;
+    }
+    .padding-none-mobile{ /* 6/27/2024 */
+        padding: 0 !important;
     }
     .attatch-image img{
         margin-left: auto;
         margin-right: auto;
+    }
+    .theft-data-container.section2 .theft-data.main-data.col2{ /* 6/27/2024 */
+        padding-left: 0px;
+        padding-top: 20px;
     }
 }
 @media only screen and (max-width: 380px) {
