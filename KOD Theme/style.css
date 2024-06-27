@@ -27,7 +27,7 @@
  * 3. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
  */
  :root {
-  --primary-color: #1955FF;
+  --primary-color: #157796;
   --secondary-color: #2ecc71;
   --tertiary-color: #004EA2;
   --quaternary-color: #e5e5e5;
