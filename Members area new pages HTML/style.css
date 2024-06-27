@@ -33,6 +33,20 @@ span{
 .mb_20{
     margin-bottom: 20px !important;
 }
+span.line{
+    background-color:#E8E8E8;
+    height: 1px;
+    display: block;
+}
+span.spacer{
+    display: block;
+}
+span.space-20{
+    height: 20px;
+}
+span.space-25{
+    height: 25px;
+}
 .container {
     display: flex;
     max-width: 2000px;
@@ -301,6 +315,9 @@ span{
     width: 50%;
     padding: 20px;
 }
+.report-stolen-container .stolen-data{
+    padding-bottom: 0px;
+}
 .insurance-data.col2{
     border-left: 1px solid #E8E8E8;
 }
@@ -356,20 +373,35 @@ span{
 .insurance-status-heading{
     padding-bottom: 20px;
 }
-textarea#status{
+textarea{
     width: -webkit-fill-available;
     padding: 10px 5px;
     border-radius: 5px;
     height: 150px;
     border: 1px solid #CACCCF;
     font-size: 14px;
+    resize: none;
+}
+.textarea-container {
+    position: relative;
+    display: inline-block;
+    width: 100%; /* or a specific width if needed */
+}
+.textarea-indicator {
+    position: absolute;
+    bottom: 10px; /* Positioning from the bottom */
+    right: 10px; /* Positioning from the right */
+    font-size: 15px;
+    color: #666;
 }
 .status-section{
     padding-bottom: 40px;
     border-bottom: 1px solid #CACCCF;
 }
 .report-stolen-container .status-section{
+    border-bottom: none;
     padding-top: 40px;
+    padding-bottom: 0px;
 }
 .odometer-reading{
     padding: 40px 0px;
@@ -464,10 +496,6 @@ textarea#status{
     width: 100% !important;
     max-width: 820px;
 }
-.stolen_date p{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 .stolen_date .form{
     gap: 10px;
     display: flex;
@@ -481,6 +509,9 @@ textarea#status{
 }
 .police-report{
     padding: 40px 0px;
+}
+.attatch-police-report.disabled{
+    display: none;
 }
 .big-btn{
     background: #3e8e41;
@@ -496,6 +527,11 @@ textarea#status{
 }
 .big-btn:hover{
     background: #327e35;
+}
+.big-btn.center{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 .vin-input-container .big-btn{
     margin-top: 20px;
@@ -519,6 +555,9 @@ textarea#status{
     padding-top: 40px;
     padding-bottom: 40px;
 }
+.report-stolen-container .col1{
+    border-right: 1px solid #E8E8E8;
+}
 .image-status{
     padding-top: 40px;
     padding-bottom: 20px;
@@ -528,6 +567,7 @@ textarea#status{
     max-width: 550px;
     margin-top: 10px;
     margin-bottom: 15px;
+    display: block;
 }
 /* dropdown */
 .custom-dropdown img.arrow{
@@ -747,6 +787,10 @@ textarea#status{
     }
     .border-none-mobile{
         border: none;
+    }
+    .attatch-image img{
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 @media only screen and (max-width: 380px) {

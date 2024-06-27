@@ -700,12 +700,15 @@ li {
 	background-color: #dadada;
 	color: black;
 }
+<<<<<<< HEAD
 .search_by-toogle .desktop{
   display: inherit;
 }
 .search_by-toogle .mobile{
   display: none;
 }
+=======
+>>>>>>> 3d897bf061c6c4c59f05d1f49972f3939f36d983
 button.search_by_toggle_active, button:focus, .form_submit_btn:focus, .kb-buttons-wrap span.kb-button:focus, .kb-buttons-wrap a.kb-button:focus{
 	background-color: var(--primary-color);
 	color: white;
@@ -815,6 +818,7 @@ button.search_by_toggle_active, button:focus, .form_submit_btn:focus, .kb-button
 	.input_container_vin .email_input, .input_container_vin .phone_input{
 		width: calc(50% - 2.5px);
 	}
+<<<<<<< HEAD
   .input_field::placeholder {
     font-size: 14px;
   }
@@ -827,4 +831,6 @@ button.search_by_toggle_active, button:focus, .form_submit_btn:focus, .kb-button
   .search_by-toogle .mobile{
     display: inherit;
   }
+=======
+>>>>>>> 3d897bf061c6c4c59f05d1f49972f3939f36d983
 }

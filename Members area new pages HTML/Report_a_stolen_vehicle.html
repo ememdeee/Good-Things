@@ -86,16 +86,32 @@
             </div>
         </div>
         <div class="report-stolen-container flex">
-            <div class="stolen-data main-data col1 customCol">
+            <div class="stolen-data main-data col1">
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
-                    <input style="margin-bottom: 0; margin-top: 10px;" class="input-field" type="text" placeholder="" value="ZPBUA1ZL0KLA05985">
+                    <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter VIN Number" value="ZPBUA1ZL0KLA05985">
+                </div>
+                <span class="spacer space-25"></span>
+                <div class="vin-input-container flex flex_col">
+                    <span class="bold">License Plate Number</span>
+                    <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter License Plate Number" value="">
                 </div>
                 <div class="stolen_status flex space-between">
                     <span class="bold">Reported as stolen</span>
                     <span class="bold">Yes</span>
                 </div>
                 <div class="status-section">
+                    <div class="stolen_date">
+                        <p class="m_0 bold">Stolen Date</p>
+                        <span class="spacer space-20"></span>
+                        <div class="form">
+                            <input class="input-field" type="number" value="31">
+                            <input class="input-field" type="number" value="05">
+                            <input class="input-field" type="number" value="2024">
+                            <img src="assets/calendar.svg">
+                        </div>
+                    </div>
+                    <span class="spacer space-20"></span>
                     <div class="stolen_form">
                         <p class="m_0 mb_20 bold">Stolen From</p>
                         <div class="custom-dropdown">
@@ -114,32 +130,85 @@
                             </div>
                         </div>
                     </div>
-                    <div class="stolen_date">
-                        <p class="m_0 mb_20 bold">Stolen Date</p>
-                        <div class="form">
-                            <input class="input-field" type="number" value="31">
-                            <input class="input-field" type="number" value="05">
-                            <input class="input-field" type="number" value="2024">
-                            <img src="assets/calendar.svg">
-                        </div>
+                    <span class="spacer space-20"></span>
+                    <div class="city">
+                        <span class="bold">City</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="city" id="city" class="input-field" type="text" placeholder="Enter City" value="">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="state">
+                        <span class="bold">State</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="state" id="state" class="input-field" type="text" placeholder="Enter State" value="">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="address">
+                        <span class="bold">Stolen Address</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="address" id="address" class="input-field" type="text" placeholder="Enter Address" value="">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="Year">
+                        <span class="bold">Year</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="year" id="year" class="input-field" type="text" placeholder="Enter Year" value="">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="make">
+                        <span class="bold">Make</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="make" id="make" class="input-field" type="text" placeholder="Enter Make" value="">
+                    </div>
+                    <span class="spacer space-20"></span>
+                    <div class="model">
+                        <span class="bold">Model</span>
+                        <input style="margin-bottom: 0; margin-top: 10px;" name="model" id="model" class="input-field" type="text" placeholder="Enter Model" value="">
                     </div>
                 </div>
-                <div class="attatch-image">
-                    <div class="image-status flex space-between">
-                        <span class="bold">Attach Police Report</span>
-                        <span class="bold">Yes</span>
+            </div>
+            <div class="stolen-data main-data col2">
+                <div class="color">
+                    <span class="bold">Color</span>
+                    <input style="margin-bottom: 0; margin-top: 10px;" name="color" id="color" class="input-field" type="text" placeholder="Enter Color" value="">
+                </div>
+                <span class="spacer space-20"></span>
+                <div class="items">
+                    <span class="bold">Items Stolen with Vehicle</span>
+                    <span class="spacer space-20"></span>
+                    <div class="textarea-container">
+                        <textarea name="items" id="items" class="input" maxlength="300" placeholder="Write the details about the claims"></textarea>
+                        <span class="textarea-indicator" id="items-indicator">0/300</span>
                     </div>
-                    <label for="policeReport" class="pointer">
+                </div>
+                <span class="spacer space-20"></span>
+                <div class="theft-details">
+                    <span class="bold">Theft Details and Descriptions</span>
+                    <span class="spacer space-20"></span>
+                    <div class="textarea-container">
+                        <textarea name="theft-details" id="theft-details" class="input" maxlength="300" placeholder="Enter Theft Details and Descriptions"></textarea>
+                        <span class="textarea-indicator" id="theft-details-indicator">0/300</span>
+                    </div>
+                </div>
+                <span class="spacer space-20"></span>
+                <span class="spacer space-20"></span>
+                <span class="line"></span>
+                <div class="attatch-image">
+                    <div class="image-status mb_20 flex space-between heading-toogle">
+                        <p class="m_0 bold">Attach Police Report</p>
+                        <div class="toogleContainer">
+                            <span class="indicator automatic">Yes</span>
+                            <label class="toogleSwitch"><input id="attatchPoliceReport" type="checkbox">
+                                <div></div>
+                            </label>
+                            <span class="indicator manual">No</span>
+                        </div>
+                    </div>
+                    <label for="policeReport" class="pointer attatch-police-report">
                         <img src="assets/dummy_image.jpg">
                     </label>
                     <input type="file" name="policeReport" id="policeReport" class="none">
-                    <button class="big-btn">Submit Details</button>
                 </div>
             </div>
-            <div class="stolen-data main-data col2 none">
-                <!-- empty -->
-            </div>
         </div>
+        <span class="spacer space-20"></span>
+        <span class="spacer space-20"></span>
+        <button class="big-btn center">Submit Details</button>
     </div>
   </div>
   <script src="script.js"></script>

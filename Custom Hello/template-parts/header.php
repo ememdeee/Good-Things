@@ -65,3 +65,4 @@ $header_nav_menu = wp_nav_menu( [
 		<?php endif; ?>
 	</div>
 </header>
+<?php echo do_shortcode('[banner]'); // Render the shortcode ?>

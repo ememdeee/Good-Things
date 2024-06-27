@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const toggles = [
         { toggle: document.getElementById("damageToggle"), sectionClass: "damage-data" },
         { toggle: document.getElementById("claimsToggle"), sectionClass: "claims-data" },
-        { toggle: document.getElementById("statusToggle"), sectionClass: "status-data" }
+        { toggle: document.getElementById("statusToggle"), sectionClass: "status-data" },
+        { toggle: document.getElementById("attatchPoliceReport"), sectionClass: "attatch-police-report" }
     ];
 
     // Generic toggle function to handle enabling/disabling and styling
@@ -60,9 +61,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initial state check and add event listeners
     toggles.forEach(({ toggle, sectionClass }) => {
-        toggleSection(toggle, sectionClass);
-        toggle.addEventListener("change", () => toggleSection(toggle, sectionClass));
+        if (toggle) {
+            toggleSection(toggle, sectionClass);
+            toggle.addEventListener("change", () => toggleSection(toggle, sectionClass));
+        }
     });
 
+    // Function to update the character count with safety checks for report stolen page
+    function updateCharacterCount(textareaId, indicatorId) {
+        const textarea = document.getElementById(textareaId);
+        const indicator = document.getElementById(indicatorId);
+
+        // Check if both the textarea and indicator exist
+        if (textarea && indicator) {
+            const maxLength = textarea.getAttribute('maxlength');
+
+            textarea.addEventListener('input', () => {
+                const currentLength = textarea.value.length;
+                indicator.textContent = `${currentLength}/${maxLength}`;
+            });
+
+            // Trigger the input event once to initialize the indicator
+            textarea.dispatchEvent(new Event('input'));
+        }
+    }
+
+    // Initialize the character count indicators for each textarea
+    updateCharacterCount('items', 'items-indicator');
+    updateCharacterCount('theft-details', 'theft-details-indicator');
 });
 
