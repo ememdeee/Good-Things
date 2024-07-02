@@ -791,6 +791,9 @@ textarea{
         padding-top: 0;
     }
     /* Report Stolen */
+    .police-report, .check-theft{ /* 7/2/2024 */
+        text-align: center;
+    }
     .stolen_date .form{
         gap: 5px;
     }
@@ -809,6 +812,9 @@ textarea{
     }
     .padding-none-mobile{ /* 6/27/2024 */
         padding: 0 !important;
+    }
+    .attatch-image{ /* 7/2/2024 */
+        text-align: center;
     }
     .attatch-image img{
         margin-left: auto;
