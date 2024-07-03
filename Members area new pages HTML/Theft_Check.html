@@ -90,7 +90,7 @@
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
                     <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter VIN Number" value="ZPBUA1ZL0KLA05985">
-                    <div class="check-theft none">
+                    <div class="check-theft none" id="check-theft">
                         <button class="big-btn">Check Vin</button>
                         <span class="no_data flex">
                             <img src="assets/Check.svg">No theft records found for this VIN!
@@ -98,16 +98,16 @@
                     </div>
                 </div>
                 <span class="spacer space-25"></span>
-                <div class="vin-input-container flex flex_col">
+                <div class="vin-input-container flex flex_col theft-dynamic-data">
                     <span class="bold">License Plate Number</span>
                     <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter License Plate Number" value="">
                 </div>
-                <div class="stolen_status border-none flex space-between">
+                <div class="stolen_status border-none flex space-between theft-dynamic-data">
                     <span class="bold">Reported as stolen</span>
                     <span class="bold">Yes</span>
                 </div>
             </div>
-            <div class="theft-data main-data col2 border-none-mobile padding-none-mobile">
+            <div class="theft-data main-data col2 border-none-mobile padding-none-mobile theft-dynamic-data">
                 <div class="border-none-mobile">
                     <div class="vehicle-logo-container">
                         <img src="assets/nissan.png" class="vehicle-logo"> 
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <div class="theft-data-container section2 flex">
+        <div class="theft-data-container section2 flex theft-dynamic-data">
             <div class="theft-data main-data col1 padding-none-mobile">
                 <div class="border-none">
                     <div class="stolen_date">
