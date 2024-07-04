@@ -1,93 +1,67 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const sidebar = document.getElementById('sidebar');
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const closeIcon = document.getElementById('close-icon');
-    const overlay = document.getElementById('overlay');
+// Function to open the popup
+function openPopup() {
+    document.getElementById('popup').style.display = 'flex';
+}
 
-    const toggleSidebar = function () {
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-    };
+// Function to close the popup
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}
 
-    hamburgerIcon.addEventListener('click', toggleSidebar);
-    closeIcon.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', toggleSidebar);
+function checkTheftByVin() {
+    let dataAvailability = true;
 
-    // dropdown
-    if (document.getElementById('dataSelected')) {
-        document.getElementById('dataSelected').addEventListener('click', function() {
-            document.getElementById('selectData').classList.toggle('show');
-        });
+    const button = document.getElementById("checkVin");
+    const noData = document.getElementById("no_data");
+    const btnSection = document.getElementById("check-theft");
 
-        document.querySelectorAll('.dropdown-options div').forEach(function(option) {
-            option.addEventListener('click', function() {
-                var logoText = document.querySelector('.dropdown-selected .logo-text');
-                if (logoText) {
-                    logoText.innerHTML = this.innerHTML;
-                    document.getElementById('selectData').classList.remove('show');
-                } else {
-                    console.error('Logo text element not found');
-                }
+    button.innerHTML = "Please Wait...";
+    button.disabled = true;
+
+    noData.classList.add("none");
+
+    setTimeout(() => {
+        if (dataAvailability === true) {
+            btnSection.classList.add("none");
+
+            const theftDynamicDatas = document.querySelectorAll(".theft-dynamic-data");
+
+            theftDynamicDatas.forEach((theftDynamicData) => {
+                theftDynamicData.classList.remove("none");
             });
-        });
-    }
-
-    window.addEventListener('click', function(e) {
-        if (!e.target.closest('.custom-dropdown')) {
-            var dropdowns = document.querySelectorAll('.dropdown-options');
-            dropdowns.forEach(function(dropdown) {
-                dropdown.classList.remove('show');
-            });
+        } else {
+            button.innerHTML = button.getAttribute("aria-label");
+            noData.classList.remove("none");
         }
-    });
+        button.disabled = true;
+    }, 5000); // 5 seconds delay
+}
 
-    const toggles = [
-        { toggle: document.getElementById("damageToggle"), sectionClass: "damage-data" },
-        { toggle: document.getElementById("claimsToggle"), sectionClass: "claims-data" },
-        { toggle: document.getElementById("statusToggle"), sectionClass: "status-data" },
-        { toggle: document.getElementById("attatchPoliceReport"), sectionClass: "attatch-police-report" }
-    ];
+// Function to simulate data submission
+function reportThefData() {
+    let dataFormat = true; 
 
-    // Generic toggle function to handle enabling/disabling and styling
-    function toggleSection(toggle, sectionClass) {
-        const isChecked = toggle.checked;
-        const sections = document.querySelectorAll(`.${sectionClass}`);
-        const inputs = document.querySelectorAll(`.${sectionClass} .input`);
+    const button = document.getElementById("submitData");
+    const popupTitle = document.getElementById("popupTitle");
+    const popupDesc = document.getElementById("popupDesc");
+    const popupBtn = document.getElementById("popupBtn");
 
-        // Disable/Enable inputs and add/remove 'disabled' class based on the toggle state
-        inputs.forEach(input => input.disabled = isChecked);
-        sections.forEach(section => section.classList.toggle("disabled", isChecked));
-    }
+    button.innerHTML = "Please Wait...";
+    button.disabled = true; 
 
-    // Initial state check and add event listeners
-    toggles.forEach(({ toggle, sectionClass }) => {
-        if (toggle) {
-            toggleSection(toggle, sectionClass);
-            toggle.addEventListener("change", () => toggleSection(toggle, sectionClass));
+    setTimeout(() => {
+        if (dataFormat === true) {
+            popupTitle.innerHTML = "Data Submitted!";
+            popupDesc.innerHTML = "Your data has been successfully submitted to the database. Thank you for your contribution!";
+            popupBtn.style.backgroundColor = "#4CAF50";
+        } else {
+            popupTitle.innerHTML = "Submission Failed!";
+            popupDesc.innerHTML = "Some fields are missing or incorrect: one, two, three. Please fill in all required fields and try again.";
+            popupBtn.style.backgroundColor = "#f44336";
         }
-    });
-
-    // Function to update the character count with safety checks for report stolen page
-    function updateCharacterCount(textareaId, indicatorId) {
-        const textarea = document.getElementById(textareaId);
-        const indicator = document.getElementById(indicatorId);
-
-        // Check if both the textarea and indicator exist
-        if (textarea && indicator) {
-            const maxLength = textarea.getAttribute('maxlength');
-
-            textarea.addEventListener('input', () => {
-                const currentLength = textarea.value.length;
-                indicator.textContent = `${currentLength}/${maxLength}`;
-            });
-
-            // Trigger the input event once to initialize the indicator
-            textarea.dispatchEvent(new Event('input'));
-        }
-    }
-
-    // Initialize the character count indicators for each textarea
-    updateCharacterCount('items', 'items-indicator');
-    updateCharacterCount('theft-details', 'theft-details-indicator');
-});
-
+        
+        openPopup(); 
+        button.innerHTML = button.getAttribute("aria-label");
+        button.disabled = false; 
+    }, 5000); // 5 seconds delay
+}

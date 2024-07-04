@@ -85,29 +85,29 @@
                 <p style="margin-top: 15px;">Check if any vehicle has been stolen/reported stolen.</p>
             </div>
         </div>
-        <div class="theft-data-container section1 flex" id="vin-input-container">
+        <div class="theft-data-container section1 flex border-none" id="vin-input-container">
             <div class="theft-data main-data col1 border-none-mobile padding-none-mobile">
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
                     <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter VIN Number" value="ZPBUA1ZL0KLA05985">
-                    <div class="check-theft none" id="check-theft">
-                        <button class="big-btn">Check Vin</button>
-                        <span class="no_data flex">
+                    <div class="check-theft" id="check-theft">
+                        <button class="big-btn" id="checkVin" aria-label="Check Vin" onclick="checkTheftByVin()">Check Vin</button>
+                        <span class="no_data flex none" id="no_data">
                             <img src="assets/Check.svg">No theft records found for this VIN!
                         </span>
                     </div>
                 </div>
                 <span class="spacer space-25"></span>
-                <div class="vin-input-container flex flex_col theft-dynamic-data">
+                <div class="vin-input-container flex flex_col theft-dynamic-data none">
                     <span class="bold">License Plate Number</span>
                     <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter License Plate Number" value="">
                 </div>
-                <div class="stolen_status border-none flex space-between theft-dynamic-data">
+                <div class="stolen_status border-none flex space-between none">
                     <span class="bold">Reported as stolen</span>
                     <span class="bold">Yes</span>
                 </div>
             </div>
-            <div class="theft-data main-data col2 border-none-mobile padding-none-mobile theft-dynamic-data">
+            <div class="theft-data main-data col2 border-none-mobile padding-none-mobile theft-dynamic-data none">
                 <div class="border-none-mobile">
                     <div class="vehicle-logo-container">
                         <img src="assets/nissan.png" class="vehicle-logo"> 
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </div>
-        <div class="theft-data-container section2 flex theft-dynamic-data">
+        <div class="theft-data-container section2 flex theft-dynamic-data none">
             <div class="theft-data main-data col1 padding-none-mobile">
                 <div class="border-none">
                     <div class="stolen_date">

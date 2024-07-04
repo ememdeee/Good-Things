@@ -90,9 +90,9 @@
                 <div class="vin-input-container flex flex_col">
                     <span class="bold">Vehicle Identification Number (VIN)</span>
                     <input style="margin-bottom: 0; margin-top: 0px;" class="input-field" type="text" placeholder="Enter VIN Number" value="ZPBUA1ZL0KLA05985">
-                    <div class="check-theft">
-                        <button class="big-btn">Check Vin</button>
-                        <span class="no_data flex">
+                    <div class="check-theft" id="check-theft">
+                        <button class="big-btn" id="checkVin" aria-label="Check Vin" onclick="checkTheftByVin()">Check Vin</button>
+                        <span class="no_data flex none" id="no_data">
                             <img src="assets/Check.svg">No theft records found for this VIN!
                         </span>
                     </div>

@@ -208,7 +208,42 @@
         </div>
         <span class="spacer space-20"></span>
         <span class="spacer space-20"></span>
-        <button class="big-btn center">Submit Details</button>
+        <button class="big-btn center" id="submitData" onclick="reportThefData()" aria-label="Submit Details">Submit Details</button>
+        <!-- Popup Overlay -->
+        <div id="popup" style="
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensures the popup is on top */
+        ">
+            <div style="
+                background-color: white;
+                padding: 20px;
+                border-radius: 5px;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                max-width: 500px;
+                width: 90%;
+            ">
+                <h2 id="popupTitle">Popup Title</h2>
+                <p id="popupDesc">This is a simple popup example!</p>
+                <button onclick="closePopup()" id="popupBtn" style="
+                    cursor: pointer;
+                    padding: 10px 20px;
+                    background-color: #f44336;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                ">Close</button>
+            </div>
+        </div>
     </div>
   </div>
   <script src="script.js"></script>
