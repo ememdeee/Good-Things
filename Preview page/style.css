@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+}
+.topBar{
+    padding: 14px;
+    font-size: 26px;
+}
+.content{
+    display: flex;
+}
+.data{
+    width: 65%;
+}
+.row_1{
+    display: flex;
+}
+.row_1 .vehicle{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.row_1 .vehicleIntro{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.row_1 .vehicleIntro img{
+    width: 100%;
+    max-width: 65px;
+}
+.row_1 .vehicleIntro span{
+    width: 100%;
+    font-weight: 700;
+}
+.row_1 .addToGarage{
+    display: flex;
+}
+.row_1 .vehicleSpesification{
+    width: 150%;
+}
+.row_2{
+    display: flex;
+}
+.row_2 .checks{
+    width: 100%;
+}
+.row_2 .auction{
+    width: 150%;
+}
+.checkout{
+    width: 35%;
+    background: #EBF0FD;
+}
+/* colors */
+.error{
+    color: #BC1B1D;
+}
+@media (max-width: 991px) {
+
+}
