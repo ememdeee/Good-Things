@@ -1,9 +1,46 @@
 body{
     margin: 0;
 }
+button{
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.2s;
+}
+button.transparent{
+    background: transparent;
+    border: 1px solid #004EA2;
+    color: #004EA2;
+}
+button.transparent:hover{
+    background: #004EA2;
+    color: white;
+    border: 1px solid white;
+}
+button.blue{
+    background: #004EA2;
+    border: 1px solid #004EA2;
+    color: white;
+}
+button.blue:hover{
+    background: #1572d4;
+    border: 1px solid #1572d4;
+    color: white;
+}
+button.full{
+    width: 100%;
+}
+img{
+    width: 100%;
+}
+.border-left-md{
+    border-left: solid 1px #D1D1D1;
+}
 .topBar{
     padding: 14px;
-    font-size: 26px;
+    font-size: 24px;
+    border-bottom: 1px solid #D1D1D1;
 }
 .content{
     display: flex;
@@ -19,6 +56,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    justify-content: space-between;
 }
 .row_1 .vehicleIntro{
     width: 100%;
@@ -33,12 +71,39 @@ body{
 .row_1 .vehicleIntro span{
     width: 100%;
     font-weight: 700;
+    font-size: 24px;
 }
 .row_1 .addToGarage{
     display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.row_1 .alert{
+    width: 27px;
+    height: 27px;
 }
 .row_1 .vehicleSpesification{
     width: 150%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.row_1 .spesification{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.row_1 .specData{
+    width: calc(50% - 6px);
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+}
+.row_1 .lessMore{
+    font-size: 18px;
+    text-decoration: underline;
+    color: #1B4582;
+    cursor: pointer;
 }
 .row_2{
     display: flex;
@@ -46,17 +111,190 @@ body{
 .row_2 .checks{
     width: 100%;
 }
+.row_2 .checkData{
+    background-color: #E7E7E7;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.row_2 .checkData .col1{
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+.row_2 .checkDataHeading{
+    font-size: 17px;
+    font-weight: 700;
+}
+.row_2 .checkDataDesc{
+    font-size: 17px;
+    font-weight: 700;
+    color: #BC1B1D;
+}
+.row_2 .checkData .redAlert, .row_2 .checkData .col2{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.row_2 .unlock{
+    color: #1B4582;
+    text-decoration: underline;
+}
+.row_2 .redAlertIcon{
+    width: 24px;
+    height: 24px;
+}
+.row_2 .key{
+    width: 20px;
+    height: 20px;
+}
 .row_2 .auction{
     width: 150%;
+}
+.row_2 .redBox{
+    display: flex;
+    background-color: #FFEEEE;
+    border-radius: 8px;
+    border: 1px solid #FF4D50;
+    padding: 8px;
+    gap: 10px;
+    align-items: center;
+}
+.row_2 .redBox p{
+    margin: 0;
+    font-size: 17px;
+}
+.row_2 .auctionData{
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    row-gap: 15px;
 }
 .checkout{
     width: 35%;
     background: #EBF0FD;
 }
-/* colors */
+.row_3 .marketTabs{
+    display: flex;
+    gap: 10px;
+}
+.row_3 .dataContainer{
+    display: none;
+    gap: 10px;
+}
+.row_3 .dataContainer.active{
+    display: flex;
+    flex-direction: column;
+}
+.row_3 .alert{
+    width: 20px;
+    height: 20px;
+}
+.row_3 .title{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.row_3 .row{
+    display: flex;
+    gap: 15px;
+}
+.row_3 .progress-bar{
+    width: 100%;
+    height: 35px;
+    background: white;
+    box-shadow: 0px 0px 8px 0px #82828252;
+    border-radius: 8px;
+    max-width: 600px;
+    overflow: hidden;
+}
+.row_3 .progress{
+    background: linear-gradient(168.35deg, #283968 0%, #003D78 49.2%, #0D1E44 99.43%);
+    height: 100%;
+}
+/* colors, other, and fonts */
 .error{
     color: #BC1B1D;
 }
-@media (max-width: 991px) {
+.heading{
+    font-size: 20px;
+    font-weight: 700;
+}
+.bold{
+    font-weight: 700;
+}
+.btnIcon{
+    width: 20px;
+    height: 20px;
+}
+.tab{
+    color: #847EA0;
+    font-size: 17px;
+    background: transparent;
+    border-radius: 8px;
+    padding: 10px 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #0095ff00;
 
+}
+.tab:hover {
+    border: 1px solid #1151804a;
+}
+.tab.active{
+    background: linear-gradient(168.35deg, #0093FF 0%, #014D96 49.2%, #000F25 99.43%);
+    color: white;
+    font-size: 17px;
+}
+.tab.active:hover {
+    border: 1px solid #000000;
+}
+@media (max-width: 991px) {
+    .topBar{
+        font-size: 18px;
+    }
+    .checkout{
+        display: none;
+    }
+    .data{
+        width: 100%;
+    }
+    .row_1{
+        flex-direction: column;
+    }
+    .row_1 .vehicle{
+        flex-direction: row;
+    }
+    .row_1 .vehicleIntro{
+        flex-direction: column;
+        align-items: flex-start;
+        width: 30%;
+    }
+    .row_1 .vehicleIntro span{
+        font-size: 18px;
+    }
+    .row_1 .spesification{
+        flex-direction: column;
+        gap: 8px;
+    }
+    .row_1 .specData{
+        width: 100%;
+        gap: 8px;
+    }
+    .row_1 .vehicleSpesification{
+        width: 100%;
+    }
+    .row_2{
+        flex-direction: column-reverse;
+    }
+    .row_2 .auction{
+        width: 100%;
+    }
+    .border-left-md{
+        border-left: none;
+    }
 }

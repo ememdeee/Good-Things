@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="topBar"><span class="error">We have found 17 historical records for this VIN:</span> 1FTEX1CM6CFC81700</div>
+        <div class="topBar"><span class="error">We have found 17 historical records for this VIN:</span> <b id="vin">1FTEX1CM6CFC81700</b></div>
         <div class="content">
             <div class="data">
                 <div class="row_1">
@@ -19,18 +19,78 @@
                             <span>2012 Ford F-150</span>
                         </div>
                         <div class="addToGarage">
-                            <button>Add to garage</button>
-                            <img src="asset/alert-circle.svg">
+                            <button class="transparent full">Add to garage</button>
+                            <img class="alert" src="asset/alert-circle.svg">
                         </div>
                     </div>
-                    <div class="vehicleSpesification">Vehicle specifications</div>
+                    <div class="vehicleSpesification border-left-md">
+                        <span class="specHeading heading">Vehicle specifications</span>
+                        <div class="spesification">
+                            <span class="specData" id="trim">Trim:<b class="value">STX / XL / XLT</b></span>
+                            <span class="specData" id="bodyType:">Body Type:<b class="value">Extended Cab 4D</b></span>
+                            <span class="specData" id="engine">Engine:<b class="value">3.7L V6 SMPI Flex Fuel</b></span>
+                            <span class="specData" id="manufacturerCountry">Manufacturer Country:<b class="value">United States</b></span>
+                            <span class="specData" id="transmission">Transmission:<b class="value">Manual</b></span>
+                            <span class="specData" id="vehicleType">Vehicle Type:<b class="value">Pickup - Fullsize</b></span>
+                        </div>
+                        <div onclick="showSpecData()" class="lessMore">View 17 full specifications</div>
+                    </div>
                 </div>
                 <div class="row_2">
-                    <div class="checks">Important vehicle checks</div>
-                    <div class="auction">Auction Image</div>
+                    <div class="checks">
+                        <span class="checksHeading heading">Important vehicle checks</span>
+                        <div class="checksContainer">
+                            <div class="checkData">
+                                <div class="col1">
+                                    <span class="checkDataHeading">Ownership history</span>
+                                    <div class="redAlert">
+                                        <img class="redAlertIcon" src="asset/alert-red.svg">
+                                        <span class="checkDataDesc">Multiple Owners!</span>
+                                    </div>
+                                </div>
+                                <div class="col2">
+                                    <img class="key" src="asset/unlock.svg">
+                                    <span class="unlock">Unlock now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auction border-left-md">
+                        <img src="asset/dummyCar.png" />
+                        <div class="redBox">
+                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                            <p>This vehicle was previously listed for sale. Reveal past sales listing records, including 10+ photos.</p>
+                        </div>
+                        <div class="auctionData">
+                            <span>Odometer: <span class="error bold">73,229 mi</span></span>
+                            <span>Sales type: <span class="error bold">Classified</span></span>
+                            <span>City: <span class="error bold">435 W Main St, Anoka MN 55303</span></span>
+                        </div>
+                        <button class="blue">Get full vehicle history report <img class="btnIcon" src="asset/arrow-right.svg" /></button>
+                    </div>
                 </div>
                 <div class="row_3">
-                    <div>Market value data</div>
+                    <div class="heading">Market value data</div>
+                    <div class="marketTabs">
+                        <span class="tab active">Retail Value</span>
+                        <span class="tab">Private Value</span>
+                        <span class="tab">Trade-in</span>
+                    </div>
+                    <div class="marketData">
+                        <div id="retailValue" class="dataContainer active">
+                            <div class="row">
+                                <div class="title">Rough <img class="alert" src="asset/alert-circle-black.svg"/></div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%;"></div>
+                                </div>
+                            </div>
+                            <div>Average</div>
+                            <div>Clean</div>
+                            <div>Outstanding</div>
+                        </div>
+                        <div id="privateValue" class="dataContainer">privateValue</div>
+                        <div id="tradeIn" class="dataContainer">tradeIn</div>
+                    </div>
                 </div>
                 <div class="row_4">
                     <div>What we check for?</div>
@@ -93,7 +153,9 @@
                     <div>Trailering</div>
                 </div>
             </div>
-            <div class="checkout">checkout</div>
+            <div class="checkout">
+                <p>Checkout</p>
+            </div>
         </div>
     </div>
 </body>
