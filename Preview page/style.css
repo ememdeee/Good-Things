@@ -198,6 +198,7 @@ img{
     display: flex;
     align-items: center;
     gap: 10px;
+    min-width: 120px;
 }
 .row_3 .row{
     display: flex;
@@ -210,11 +211,50 @@ img{
     box-shadow: 0px 0px 8px 0px #82828252;
     border-radius: 8px;
     max-width: 600px;
+    text-align: center;
+    position: relative;
     overflow: hidden;
 }
 .row_3 .progress{
     background: linear-gradient(168.35deg, #283968 0%, #003D78 49.2%, #0D1E44 99.43%);
     height: 100%;
+}
+.row_3 .value{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #003D78;
+    font-weight: 700;
+}
+.row_4 .grid-container{
+    display: grid;
+    gap: 10px;
+}
+.row_4 .grid-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.row_4 .checkIcon {
+    width: 20px;
+}
+/* Desktop layout: 4 columns */
+@media (min-width: 768px) {
+    .row_4 .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Mobile layout: 2 columns */
+@media (max-width: 767px) {
+    .row_4 .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 /* colors, other, and fonts */
 .error{
