@@ -71,7 +71,7 @@
                 </div>
                 <div class="row_3">
                     <div class="heading">Market value data</div>
-                    <div class="marketTabs">
+                    <div class="marketTabs tabList">
                         <span class="tab active">Retail Value</span>
                         <span class="tab">Private Value</span>
                         <span class="tab">Trade-in</span>
@@ -137,61 +137,412 @@
                     </div>
                 </div>
                 <div class="row_5">
-                    <div>The importance of checking the history of a vehicle with full vehicle history report!</div>
+                    <div class="intro">
+                        <p class="heading">The importance of checking the history of a vehicle with full vehicle history report!</p>
+                        <p>In today's market, purchasing a used car comes with its fair share of risks. Protect yourself from potential scams and uncertainties by utilizing our meticulously crafted vehicle history reports.</p>
+                        <p class="title">2015 Mercedes-Benz SL Class</p>
+                        <p class="vin">VIN: WDDJK6FA2FF035099</p>
+                    </div>
+                    <div class="listing">
+                        <div class=" col listing1">
+                            <p class="listingTitle success">List in auction 2 months prior it listed online</p>
+                            <img class="listingImg" src="asset/car_1.png" />
+                            <p>Auction date: <b>07/14/2020</b></p>
+                            <p>Location:: <b>Knoxville (TN)</b></p>
+                            <p>Odometer: <b>32,936</b></p>
+                            <p>Title type: <b>SC</b></p>
+                            <p>Primary damage: <b>Front end</b></p>
+                            <p>Auction sold price: <b>$19,100</b></p>
+                        </div>
+                        <div class="col listing2">
+                            <p class="listingTitle error">Actual vehicle listing after repairs</p>
+                            <img class="listingImg" src="asset/car_2.png" />
+                            <p>Sale date: <b>09/16/2020</b></p>
+                            <p>Location: <b>Long Island (NY)</b></p>
+                            <p>Odometer: <b>32,975</b></p>
+                            <p>Seller type: <b>Classified</b></p>
+                            <p>Retail value: <b>$38,263</b></p>
+                            <p>Sold price: <b>$27,750</b></p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="blue withIcon">Get full vehicle history report <img class="btnIcon" src="asset/arrow-right.svg" /></button>
+                        <button class="transparent_noBorder withIcon">View sample report <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                    <p><span class="error">Disclaimer: </span>Every vehicle is unique, and so is the data available. Please keep in mind, not all reports will have all the details mentioned. It all depends on the specific history of each vehicle.</p>
                 </div>
                 <div class="row_6">
-                    <div>Window Stickers</div>
+                    <div class="col text">
+                        <p class="heading">Window Stickers</p>
+                        <p>We provide detailed OEM window stickers for all manufacturers worldwide.</p>
+                        <div class="list">
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Instantly conveys vehicle information to buyers</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Instantly conveys vehicle information to buyers</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Instantly conveys vehicle information to buyers</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Instantly conveys vehicle information to buyers</span>
+                            </p>
+                        </div>
+                        <button class="blue">Get prepaid credits</button>
+                        <button class="transparent_noBorder withIcon">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                    <div class="col image">
+                        <img src="asset/window-sticker.png" />
+                    </div>
                 </div>
                 <div class="row_7">
-                    <div>Full vehicle specifications</div>
+                    <p class="heading">Full vehicle specifications</p>
+                    <div class="spesificationsTabs tabList">
+                        <span class="tab active">Retail Value</span>
+                        <span class="tab">Private Value</span>
+                        <span class="tab">Trade-in</span>
+                    </div>
                 </div>
                 <div class="row_8">
-                    <div>Engine</div>
+                    <div id="price" class="specContainer">
+                        <div class="col col1">
+                            <p class="spesificationHeader">
+                                <img class="spesificationIcon" src="asset/price.svg" />
+                                <span class="spesificationTitle">Price</span>
+                            </p>
+                            <div class="tableContainer">
+                                <table>
+                                    <tr>
+                                        <td class="title">Base MSRP</td>
+                                        <td class="value">31,105 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <p class="spesificationHeader hiddenHeaderr">
+                                <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                <span class="spesificationTitle">Other</span>
+                            </p>
+                            <div class="tableContainer border-left-md">
+                                <table>
+                                    <tr>
+                                        <td class="title">Invoice price</td>
+                                        <td class="value">28,362 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Total price</td>
+                                        <td class="value">32,100 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="price" class="specContainer">
+                        <div class="col col1">
+                            <p class="spesificationHeader">
+                                <img class="spesificationIcon" src="asset/price.svg" />
+                                <span class="spesificationTitle">Price</span>
+                            </p>
+                            <div class="tableContainer">
+                                <table>
+                                    <tr>
+                                        <td class="title">Base MSRP</td>
+                                        <td class="value">31,105 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <p class="spesificationHeader hiddenHeaderr">
+                                <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                <span class="spesificationTitle">Other</span>
+                            </p>
+                            <div class="tableContainer border-left-md">
+                                <table>
+                                    <tr>
+                                        <td class="title">Invoice price</td>
+                                        <td class="value">28,362 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Total price</td>
+                                        <td class="value">32,100 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="price" class="specContainer">
+                        <div class="col col1">
+                            <p class="spesificationHeader">
+                                <img class="spesificationIcon" src="asset/price.svg" />
+                                <span class="spesificationTitle">Price</span>
+                            </p>
+                            <div class="tableContainer">
+                                <table>
+                                    <tr>
+                                        <td class="title">Base MSRP</td>
+                                        <td class="value">31,105 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <p class="spesificationHeader hiddenHeaderr">
+                                <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                <span class="spesificationTitle">Other</span>
+                            </p>
+                            <div class="tableContainer border-left-md">
+                                <table>
+                                    <tr>
+                                        <td class="title">Invoice price</td>
+                                        <td class="value">28,362 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Total price</td>
+                                        <td class="value">32,100 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="price" class="specContainer">
+                        <div class="col col1">
+                            <p class="spesificationHeader">
+                                <img class="spesificationIcon" src="asset/price.svg" />
+                                <span class="spesificationTitle">Price</span>
+                            </p>
+                            <div class="tableContainer">
+                                <table>
+                                    <tr>
+                                        <td class="title">Base MSRP</td>
+                                        <td class="value">31,105 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <p class="spesificationHeader hiddenHeaderr">
+                                <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                <span class="spesificationTitle">Other</span>
+                            </p>
+                            <div class="tableContainer border-left-md">
+                                <table>
+                                    <tr>
+                                        <td class="title">Invoice price</td>
+                                        <td class="value">28,362 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Total price</td>
+                                        <td class="value">32,100 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="price" class="specContainer">
+                        <div class="col col1">
+                            <p class="spesificationHeader">
+                                <img class="spesificationIcon" src="asset/price.svg" />
+                                <span class="spesificationTitle">Price</span>
+                            </p>
+                            <div class="tableContainer">
+                                <table>
+                                    <tr>
+                                        <td class="title">Base MSRP</td>
+                                        <td class="value">31,105 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <p class="spesificationHeader hiddenHeaderr">
+                                <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                <span class="spesificationTitle">Other</span>
+                            </p>
+                            <div class="tableContainer border-left-md">
+                                <table>
+                                    <tr>
+                                        <td class="title">Invoice price</td>
+                                        <td class="value">28,362 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Total price</td>
+                                        <td class="value">32,100 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="price" class="specContainer">
+                        <div class="col col1">
+                            <p class="spesificationHeader">
+                                <img class="spesificationIcon" src="asset/price.svg" />
+                                <span class="spesificationTitle">Price</span>
+                            </p>
+                            <div class="tableContainer">
+                                <table>
+                                    <tr>
+                                        <td class="title">Base MSRP</td>
+                                        <td class="value">31,105 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Delivery charges</td>
+                                        <td class="value">995 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <p class="spesificationHeader hiddenHeaderr">
+                                <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                <span class="spesificationTitle">Other</span>
+                            </p>
+                            <div class="tableContainer border-left-md">
+                                <table>
+                                    <tr>
+                                        <td class="title">Invoice price</td>
+                                        <td class="value">28,362 USD</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="title">Total price</td>
+                                        <td class="value">32,100 USD</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row_9">
-                    <div>Transmission</div>
+                    <div class="images">
+                        <img src="asset/SSL1.svg" />
+                        <img src="asset/SSL2.svg" />
+                    </div>
+                    <p>This website utilizes some of the most advanced techniques to protect your information and personal data including technical, administrative and even physical safeguards against unauthorized access misuse improper disclosure. All of your information is encrypted and transmitted using a Secure Sockets (SSL) protocol.</p>
                 </div>
                 <div class="row_10">
-                    <div>Fuel</div>
-                </div>
-                <div class="row_11">
-                    <div>Mileage (MPG)</div>
-                </div>
-                <div class="row_12">
-                    <div>Doors</div>
-                </div>
-                <div class="row_13">
-                    <div>Tires</div>
-                </div>
-                <div class="row_14">
-                    <div>Suspensions</div>
-                </div>
-                <div class="row_15">
-                    <div>Braking</div>
-                </div>
-                <div class="row_16">
-                    <div></div>
-                </div>
-                <div class="row_17">
-                    <div>Electrical</div>
-                </div>
-                <div class="row_18">
-                    <div>Exterior dimensions</div>
-                </div>
-                <div class="row_19">
-                    <div>Interior dimensions</div>
-                </div>
-                <div class="row_20">
-                    <div>Weights</div>
-                </div>
-                <div class="row_21">
-                    <div>Cargo dimensions</div>
-                </div>
-                <div class="row_22">
-                    <div>steering</div>
-                </div>
-                <div class="row_23">
-                    <div>Trailering</div>
+                    <div>© 2024 Detailed Vehicle History All rights reserved.</div>
                 </div>
             </div>
             <div class="checkout">

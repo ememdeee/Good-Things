@@ -1,4 +1,4 @@
-body{
+body, p{
     margin: 0;
 }
 button{
@@ -7,16 +7,22 @@ button{
     font-size: 16px;
     outline: none;
     transition: all 0.2s;
+    cursor: pointer;
 }
 button.transparent{
     background: transparent;
     border: 1px solid #004EA2;
     color: #004EA2;
 }
+button.transparent_noBorder{
+    background: transparent;
+    border: none;
+    color: #004EA2;
+}
 button.transparent:hover{
-    background: #004EA2;
+    background: #1572d4;
     color: white;
-    border: 1px solid white;
+    border: 1px solid #1572d4;
 }
 button.blue{
     background: #004EA2;
@@ -30,6 +36,14 @@ button.blue:hover{
 }
 button.full{
     width: 100%;
+}
+button.withIcon{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+button.transparent:hover .btnIcon{
+    filter: brightness(10);
 }
 img{
     width: 100%;
@@ -177,10 +191,6 @@ img{
     width: 35%;
     background: #EBF0FD;
 }
-.row_3 .marketTabs{
-    display: flex;
-    gap: 10px;
-}
 .row_3 .dataContainer{
     display: none;
     gap: 10px;
@@ -232,16 +242,12 @@ img{
     gap: 10px;
 }
 .row_4 .grid-item {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    padding: 20px;
+    /* background-color: #f0f0f0; */
+    padding: 0px;
     text-align: center;
     display: flex;
     align-items: center;
     gap: 5px;
-}
-.row_4 .checkIcon {
-    width: 20px;
 }
 /* Desktop layout: 4 columns */
 @media (min-width: 768px) {
@@ -256,9 +262,101 @@ img{
         grid-template-columns: repeat(2, 1fr);
     }
 }
+.row_5 .listing {
+    display: flex;
+}
+.row_5 .col {
+    width: 100%;
+}
+.row_5 .listingImg {
+    border-radius: 8px;
+    border: 3px solid;
+}
+.row_5 .listing1 .listingImg {
+    border-color: #00B57A;
+}
+.row_5 .listing2 .listingImg {
+    border-color: #BC1B1D;
+}
+.row_5 .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.row_6{
+    display: flex;
+}
+.row_6 .col{
+    width: 50%;
+}
+.row_6 .listItem{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.row_6 .transparent_noBorder{
+    padding-left: 0;
+}
+.row_6 .image img{
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px 2px #0000004D inset;
+}
+.row_8 .specContainer{
+    display: flex;
+    border-bottom: 1px solid #D1D1D1;
+}
+.row_8 .spesificationHeader{
+    display: flex;
+    align-items: center;
+}
+.row_8 .hiddenHeader{
+    visibility: hidden;
+}
+.row_8 .spesificationIcon{
+    width: 25px;
+}
+.row_8 .spesificationTitle{
+    font-size: 18px;
+}
+.row_8 .spesificationData{
+    display: flex;
+}
+.row_8 .col{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.row_8 .tableContainer{
+    height: 100%;
+}
+.row_8 table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.row_8 td{
+    width: 50%;
+}
+.row_8 .value{
+    font-weight: 700;
+}
+.row_9 .images{
+    display: flex;
+    gap: 20px;
+}
+.row_9 img{
+    width: 60px;
+}
+.row_10{
+    padding: 20px 14px;
+    text-align: center;
+    border-top: 1px solid #D1D1D1;
+}
 /* colors, other, and fonts */
 .error{
     color: #BC1B1D;
+}
+.success{
+    color: #00B57A;
 }
 .heading{
     font-size: 20px;
@@ -270,6 +368,14 @@ img{
 .btnIcon{
     width: 20px;
     height: 20px;
+    transition: all 0.2s;
+}
+.checkIcon {
+    width: 20px;
+}
+.tabList{
+    display: flex;
+    gap: 10px;
 }
 .tab{
     color: #847EA0;
@@ -280,7 +386,6 @@ img{
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid #0095ff00;
-
 }
 .tab:hover {
     border: 1px solid #1151804a;
@@ -292,6 +397,12 @@ img{
 }
 .tab.active:hover {
     border: 1px solid #000000;
+}
+.hidden{
+    visibility: hidden !important;
+}
+.none{
+    display: none !important;
 }
 @media (max-width: 991px) {
     .topBar{
@@ -336,5 +447,20 @@ img{
     }
     .border-left-md{
         border-left: none;
+    }
+    .row_8 .hiddenHeader{
+        display: none;
+    }
+    .row_8 .col{
+        width: 100%;
+    }
+    .row_8 .specContainer{
+        flex-direction: column;
+    }
+    .row_8 .specContainer .col:nth-of-type(2) .spesificationHeader{
+        border-top: solid 1px #D1D1D1;
+    }
+    .none-sm{
+        display: none !important;
     }
 }
