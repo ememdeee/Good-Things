@@ -464,3 +464,44 @@ img{
         display: none !important;
     }
 }
+
+
+
+/* checkout */
+/* .packageOption{
+    display: flex;
+    gap: 8px;
+} */
+.packageOption {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr); 
+}
+.credit{
+    border: 1px solid #252525;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.1s;
+}
+/* Change background when the radio button inside .credit is checked */
+label:has(input[type="radio"]:checked) .credit {
+    background-image: url('asset/activeCredit.jpg'); /* Background image when checked */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    border: 2px solid #1B4582;
+}
+.saving{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.saveTag{
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #00B57A;
+    color: white;
+}
+.saveCost{
+    color: #BC1B1D;
+    font-weight: 700;
+}
