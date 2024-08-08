@@ -1,5 +1,14 @@
 body, p{
     margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+}
+h1, h2, h3, h4, h5, .heading{
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+}
+div{
+    box-sizing: border-box;
 }
 button{
     border-radius: 8px;
@@ -64,6 +73,7 @@ img{
 }
 .row_1{
     display: flex;
+    padding: 15px 0px;
 }
 .row_1 .vehicle{
     width: 100%;
@@ -71,6 +81,7 @@ img{
     flex-direction: column;
     gap: 15px;
     justify-content: space-between;
+    padding: 0px 15px;
 }
 .row_1 .vehicleIntro{
     width: 100%;
@@ -97,15 +108,16 @@ img{
     height: 27px;
 }
 .row_1 .vehicleSpesification{
-    width: 150%;
+    width: 200%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    padding: 0px 15px;
 }
 .row_1 .spesification{
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 5px;
 }
 .row_1 .specData{
     width: calc(50% - 6px);
@@ -121,9 +133,23 @@ img{
 }
 .row_2{
     display: flex;
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    padding: 20px 0px;
+
 }
 .row_2 .checks{
     width: 100%;
+    padding: 0px 15px;
+}
+.row_2 .checksContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.row_2 .checksHeading{
+    margin-bottom: 15px;
+    display: block;
 }
 .row_2 .checkData{
     background-color: #E7E7E7;
@@ -133,6 +159,8 @@ img{
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    max-width: 400px;
+    width: 100%;
 }
 .row_2 .checkData .col1{
     display: flex;
@@ -166,7 +194,11 @@ img{
     height: 20px;
 }
 .row_2 .auction{
-    width: 150%;
+    width: 200%;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 .row_2 .redBox{
     display: flex;
@@ -183,9 +215,11 @@ img{
 }
 .row_2 .auctionData{
     display: flex;
-    gap: 100px;
     flex-wrap: wrap;
-    row-gap: 15px;
+    gap: 15px;
+}
+.row_2 .auctionvalue{
+    width: calc(50% - 7.5px);
 }
 .checkout{
     width: 35%;
@@ -408,9 +442,6 @@ img{
     .topBar{
         font-size: 18px;
     }
-    .checkout{
-        display: none;
-    }
     .data{
         width: 100%;
     }
@@ -445,6 +476,9 @@ img{
     .row_2 .auction{
         width: 100%;
     }
+    .row_2 .auctionvalue{
+        width: 100%;
+    }
     .border-left-md{
         border-left: none;
     }
@@ -462,6 +496,12 @@ img{
     }
     .none-sm{
         display: none !important;
+    }
+    .content{
+        flex-direction: column;
+    }
+    .data, .checkout{
+        width: 100%;
     }
 }
 
@@ -504,4 +544,29 @@ label:has(input[type="radio"]:checked) .credit {
 .saveCost{
     color: #BC1B1D;
     font-weight: 700;
+}
+.getCopy{
+    display: flex;
+}
+.couponContainer{
+    display: flex;
+}
+.invoice{
+    border-top: 1px solid #D1D1D1;
+}
+.invoiceValue{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.reportFormat{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #D1D1D1;
+}
+.reportFormat img{
+    width: auto;
+    height: 53px;
 }
