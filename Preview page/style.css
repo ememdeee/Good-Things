@@ -125,6 +125,19 @@ img{
     display: flex;
     gap: 10px;
     align-items: center;
+    position: relative;
+}
+.row_1 .alertContainer{
+    position: relative;
+}
+.row_1 .garagePopup{
+    position: absolute;
+    top: calc(100% + 10px);
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 0px 8px 2px #00000017;
+    min-width: 270px;
 }
 .row_1 .alert{
     width: 27px;
@@ -883,6 +896,9 @@ label:has(input[type="radio"]:checked) .credit {
     }
     .row_1 .addToGarage{
         align-items: flex-start;
+    }
+    .row_1 .garagePopup{
+        right: 0;
     }
     .row_1 .alert{
         margin-top: 9px;

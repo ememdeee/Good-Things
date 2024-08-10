@@ -6,6 +6,15 @@ function showSpecData(){
 
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // garage Alart Btn
+    document.getElementById("garageAlertIcon").addEventListener("click", function() {
+        const garagePopup = document.getElementById("garageAlertPopup");
+        if (garagePopup.style.display === "block") {
+            garagePopup.style.display = "none";
+        } else {
+            garagePopup.style.display = "block";
+        }
+    });
     // Testimonial data
     const testimonials = [
         {
