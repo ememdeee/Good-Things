@@ -74,6 +74,12 @@ button.black:hover{
 img{
     width: 100%;
 }
+.desktop{
+    display: block;
+}
+.mobile{
+    display: none;
+}
 .border-left-md{
     border-left: solid 1px #D1D1D1;
 }
@@ -245,6 +251,9 @@ img{
 .checkout{
     background: #EBF0FD;
     padding: 15px;
+    box-shadow: inset 0px 0px 8px 2px #0000004D;
+    position: sticky;
+    top: 0;
 }
 .row_3{
     border-bottom: 1px solid #D1D1D1;
@@ -667,6 +676,7 @@ label:has(input[type="radio"]:checked) .credit {
 .getCopy input[type="checkbox"]:checked {
     background-color: #007bff; /* Background color when checked */
     border-color: #007bff; /* Border color when checked */
+    border: none;
 }
 .getCopy input[type="checkbox"]:checked::before {
     content: "\2713"; /* Checkmark */
@@ -989,5 +999,11 @@ label:has(input[type="radio"]:checked) .credit {
     .getCopy input[type="checkbox"]{
         transform: scale(1);
         -webkit-transform: scale(1);
+    }
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: block;
     }
 }
