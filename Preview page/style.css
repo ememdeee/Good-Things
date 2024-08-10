@@ -142,6 +142,7 @@ img{
 .row_1 .alert{
     width: 27px;
     height: 27px;
+    cursor: pointer;
 }
 .row_1 .vehicleSpesification{
     width: 200%;
