@@ -22,20 +22,40 @@ function add_schema_org_json_ld() {
     
     // echo "|||";
     $position = 1;
-    $url = "https://detailedvehiclehistory.com";
+    $url = $domain = "https://detailedvehiclehistory.com";
     // Define the breadcrumbs
     $breadcrumbs = array();
+
+    // custom_1 breadcrumb for dvh/country/vin-check
+    $custom_1 = ["georgia", "uganda", "south-africa", "jamaica", "ghana", "united-arab-emirates", "oman", "sweden", "qatar", "saudi-arabia", "austria", "luxembourg", "germany", "switzerland", "belgium", "lebanon", "albania", "france", "nigeria", "italy", "russia", "bahrain", "taiwan", "ireland", "brazil", "mexico", "ukraine", "dominican-republic", "costa-rica", "bulgaria", "finland", "uk", "mauritius", "portugal", "kenya", "croatia", "romania", "iraq", "israel", "cambodia", "new-zealand", "puerto-rico", "belarus", "greece", "moldova", "spain", "jordan", "el-salvador", "lithuania", "estonia", "nicaragua", "honduras", "argentina", "bahamas", "senegal", "azerbaijan", "colombia", "yemen", "chile", "sudan", "poland", "armenia", "kazakhstan", "bolivia"];
+
     for ($i = 0; $i < count($urlParts); $i++) {
       if ($position !== 1) {
-        $name = str_replace('-', ' ', $urlParts[$i]);
-        $name = ucwords($name); // Capitalize each word
-        $url = $url . "/" . $urlParts[$i];
+
+        // custom breadcrumb for custom_1
+        if (in_array($urlParts[1], $custom_1) && $urlParts[2] == "vin-check") {
+          echo "MMDaaa";
+          if ($position == 2){
+            $name = "Vin Check";
+            $url = $url . "/" . "vin-check";
+          }elseif ($position == 3){
+            $name = str_replace('-', ' ', $urlParts[1]);
+            $name = ucwords($name); // Capitalize each word
+            $url = $domain . "/" . $currentURL;
+          }
+        }
+        else{
+          $name = str_replace('-', ' ', $urlParts[$i]);
+          $name = ucwords($name); // Capitalize each word
+          $url = $url . "/" . $urlParts[$i];
+        }
       } else {
         $name = "Detailed Vehicle History (DVH)";
       }
-    //   echo "Position: " . $position . "\n";
-    //   echo $url . "\n";
-    //   echo $name . "\n";
+      // echo "Position: " . $position . "\n";
+      // echo $url . "\n";
+      // echo $name . "\n";
+      // echo $urlParts[$i] . "\n";
       $breadcrumbs[] = array(
         "@type" => "ListItem",
         "item" => array(
