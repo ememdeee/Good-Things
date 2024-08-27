@@ -13,6 +13,9 @@ div{
 .con{
     padding: 20px 15px;
 }
+a.btn{
+    text-decoration: none;
+}
 button{
     border-radius: 8px;
     padding: 12px 20px;
@@ -20,6 +23,8 @@ button{
     outline: none;
     transition: all 0.2s;
     cursor: pointer;
+    width: fit-content;
+    text-decoration: none;
 }
 button.big{
     font-size: 20px;
@@ -269,6 +274,15 @@ img{
     position: sticky;
     top: 0;
 }
+.desktop .checkout{
+    max-height: 100vh; 
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.desktop .checkout::-webkit-scrollbar{
+    display: none;
+}
 .row_3{
     border-bottom: 1px solid #D1D1D1;
 }
@@ -336,6 +350,7 @@ img{
     display: flex;
     align-items: center;
     gap: 10px;
+    text-align: left;
 }
 /* Desktop layout: 4 columns */
 @media (min-width: 768px) {
@@ -594,18 +609,6 @@ div.row_8{
 .packageOption label {
     width: calc(50% - 4px);
 }
-.credit{
-    border: 1px solid #252525;
-    background: white;
-    border-radius: 8px;
-    transition: all 0.1s;
-    display: flex;
-    align-items: flex-start;
-    gap: 3px;
-    padding: 12px 12px 12px 4px;
-    height: 100%;
-    font-size: 18px;
-}
 .credit.subscription{
     font-size: 20px;
 }
@@ -640,11 +643,67 @@ div.row_8{
     padding: 5px 10px;
 }
 /* Change background when the radio button inside .credit is checked */
-label:has(input[type="radio"]:checked) .credit {
-    background-image: url('asset/activeCredit.jpg'); /* Background image when checked */
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
+/* label:has(input[type="radio"]:checked) .credit {
+    background-image: url('asset/activeCredit.jpg'); 
+    background-size: cover;
+    background-position: center; 
     border: 2px solid #1B4582;
+} */
+/* .credit{
+    border: 2px solid #00000087;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.1s;
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+    padding: 12px 12px 12px 4px;
+    height: 100%;
+    font-size: 18px;
+} */
+.credit {
+    position: relative; /* Enable positioning for the pseudo-element */
+    border: 2px solid #00000087;
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for border and other properties */
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+    padding: 12px 12px 12px 4px;
+    height: 100%;
+    font-size: 18px;
+    overflow: hidden; /* Hide overflow for smooth transition of background */
+}
+
+.credit::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('asset/credit.jpg'); /* Default background image */
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
+    z-index: 0;
+    opacity: 0; /* Fully visible by default */
+    border-radius: 8px; /* Match the border radius */
+}
+
+label:has(input[type="radio"]:checked) .credit::before {
+    background-image: url('asset/activeCredit.jpg'); /* Change background image when checked */
+    opacity: 1; /* Ensure it's fully visible */
+}
+
+label:has(input[type="radio"]:checked) .credit::before {
+    opacity: 1; /* Fade out when the radio is unchecked */
+}
+
+.credit > * {
+    position: relative; /* Ensure content appears above the pseudo-element */
+    z-index: 1;
 }
 .checkout .saving{
     display: flex;
@@ -738,6 +797,12 @@ label:has(input[type="radio"]:checked) .credit {
     font-size: 24px;
     font-weight: 700;
     padding-top: 5px;
+}
+.invoiceValue.summary .discount{
+    color: red;
+    font-size: 18px;
+    text-decoration: line-through;
+    font-weight: 400;
 }
 .reportFormat{
     display: flex;
