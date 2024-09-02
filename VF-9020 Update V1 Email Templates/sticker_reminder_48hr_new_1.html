@@ -149,388 +149,6 @@
                           </tbody>
                       </table>
                       
-                      
-                      
-                      <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4_1" style="margin-bottom: 10px;"
-			role="presentation"
-			 width="100%">
-			<tbody>
-				<tr>
-					<td>
-						<table align="center" border="0" cellpadding="0" cellspacing="0"
-							class="row-content stack" role="presentation"
-							style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;">
-							<tbody>
-								<tr>
-									<td class="column column-1"
-										style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-left: 50px; padding-right: 50px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-										width="100%">
-										<table border="0" cellpadding="0" cellspacing="0"
-											class="text_block block-1" role="presentation"
-											style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-											width="100%">
-											<tr>
-												<td class="pad"
-													style="padding-bottom:0px;padding-left:10px;padding-right:10px;padding-top:0px;">
-													<div
-														style="font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-														<div class=""
-															style="font-size: 16px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; line-height: 130%; color: #101112;">
-													{{#if saleshistory_status}}
-                              
-													<p class="text-mobile" style="margin: 0; font-size: 18px; text-align: center; line-height: 130%;">
-													
-														{{#if salehistory_imgstatus}}
-                                                            We found sales history records and images for this vehicle
-														{{/if}}
-										
-														{{#unless salehistory_imgstatus}}
-                                                            We found sales history records for this vehicle
-														{{/unless}}
-													</p>
-													{{/if}}
-													
-													{{#unless saleshistory_status}}
-																							{{#if auction_status}}
-														<p class="text-mobile" style="margin: 0; font-size: 18px; text-align: center; line-height: 130%;">
-														{{#if auction_imgstatus}}
-															We found auction records and images for this vehicle 
-														{{/if}}
-														
-														{{#unless auction_imgstatus}}
-															We found auction records for this vehicle
-														{{/unless}}
-																 </p>
-													   {{/if}}
-													 {{/unless}}
-														
-														</div>
-													</div>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
-
-
-
-		  
-			{{#if saleshistory_status}}
-			<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4_2"
-				role="presentation"
-				 width="100%">
-				<tbody>
-					<tr>
-						<td>
-							<table align="center" border="0" cellpadding="0" cellspacing="0"
-								class="row-content stack" role="presentation"
-								style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;">
-								<tbody>
-									<tr>
-										<td class="column column-1"
-											style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 10px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-											width="100%">
-											<table border="0" cellpadding="10" cellspacing="0"
-												class="text_block block-1" role="presentation"
-												style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-												width="100%">
-												<tr>
-													<td style="padding: 0;">
-														<div
-															style="font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-															<div class=""
-																style="color:#101112;direction:ltr;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:130%;text-align:left;mso-line-height-alt:19.2px;">
-
-																{{#if salehistory_imgstatus}}
-																<table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
-																	<tr>
-																
-																		<td class="column-dir" width="50%">
-																			<table cellspacing="0" cellpadding="10" border="0" width="100%">
-																				<tr>
-																
-																					<td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
-																						<strong>Seller Type:</strong><br /><span
-																							style="color:#0474c3;">{{seller_type}}</span>
-																					</td>
-																				</tr>
-																				<tr>
-																					<td class="m-pl-15" style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																						<strong>Odometer:</strong><br /><span
-																							style="color:#0474c3;">{{odometer}}</span>
-																					</td>
-																				</tr>
-																				<tr>
-																					<td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-																						<strong>City:</strong></span><br /><span
-																							style="color:#0474c3;">{{city}}</span>
-																					</td>
-																				</tr>
-																			</table>
-																		</td>
-																		<td class="column-dir" width="50%" style="text-align: center; background: #ffffff">
-																			<a href="{{home_url}}vin-check/preview?offer=vhr51&vin={{vin}}&email={{user_email}}"><img src="{{saleshistory_image}}" width="80%" height="80%" style="padding: 10px" alt="" /></a>
-																		</td>
-																	</tr>
-																</table>
-																{{/if}}
-
-																{{#unless salehistory_imgstatus}}
-																<table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
-																	<tr>
-																		<td class="column-dir" width="100%">
-																			<table cellspacing="0" cellpadding="6" border="0" width="100%">
-																				<tr>
-																
-																					<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
-																						<h4><strong>Seller Type:</strong>
-																						</h4>
-																					</td>
-																
-																					<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																						<span style="color:#0474c3">{{seller_type}}</span>
-
-																					</td>
-																				</tr>
-																				<tr>
-																					<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																						<h4><strong>Odometer:</strong>
-																						</h4>
-																					</td>
-																					<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-																						<span style="color:#0474c3;">{{odometer}}</span>
-																					</td>
-																				</tr>
-																				<tr>
-																					<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-																						<h4><strong>City:</strong>
-																						</h4>
-																					</td>
-																					<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																						<span style="color:#0474c3;">{{city}}</span>
-																					</td>
-																				</tr>
-																			</table>
-																		</td>
-																	</tr>
-																</table>
-																{{/unless}}
-
-															</div>
-														</div>
-													</td>
-												</tr>
-											</table>
-											<table border="0" cellpadding="10" cellspacing="0"
-												class="heading_block block-2" role="presentation"
-												style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
-												width="100%">
-												<tr>
-													<td class="pad">
-										   
-													</td>
-												</tr>
-											</table>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			{{/if}}
-
-			{{#unless saleshistory_status}}
-				{{#if auction_status}}
-				<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4_3"
-				role="presentation"
-				 width="100%">
-					<tbody>
-						<tr>
-							<td>
-								<table align="center" border="0" cellpadding="0" cellspacing="0"
-									class="row-content stack" role="presentation"
-									style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;"
-									>
-									<tbody>
-										<tr>
-											<td class="column column-1"
-												style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 10px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-												width="100%">
-												<table border="0" cellpadding="10" cellspacing="0"
-													class="text_block block-1" role="presentation"
-													style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-													width="100%">
-													<tr>
-														<td style="padding: 0;">
-															<div
-																style="font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-																<div class=""
-																	style="color:#101112;direction:ltr;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:130%;text-align:left;mso-line-height-alt:19.2px;">
-
-																	{{#if auction_imgstatus}}
-																	<table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
-																	<tr>
-																
-																		<td class="column-dir" width="50%">
-																			<table cellspacing="0" cellpadding="10" border="0" width="100%">
-																				{{#if auction_titleType_status}}
-																				<tr>
-																					<td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
-																						<strong>Odometer:</strong><br /><span
-																							style="color:#0474c3;">{{auction_odometer}}</span>
-																					</td>
-																				</tr>
-																				{{/if}}
-																				{{#unless auction_titleType_status}}
-																				{{#if auction_lossType_status}}
-																				<tr>
-																					<td class="m-pl-15" style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																						<strong>Title Type:</strong><br /><span
-																							style="color:#0474c3;">{{auction_titleType}}</span>
-																					</td>
-																				</tr>
-																				<tr>
-																					<td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-																						<strong>Loss Type:</strong></span><br /><span
-																							style="color:#0474c3;">{{auction_lossType}}</span>
-																					</td>
-																				</tr>
-																				{{/if}}
-																				{{/unless}}   
-																												   
-																				{{#if auction_color_status}}
-																				<tr>
-																					<td class="m-pl-15" style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																						<strong>Color:</strong></span><br /><span
-																							style="color:#0474c3;">{{auction_color}}</span>
-																					</td>
-																				</tr>
-																				{{/if}}
-																				{{#unless auction_color_status}}
-																				{{#if auction_location_status}}
-																				<tr>
-																					<td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-																						<strong>Location:</strong></span><br /><span
-																							style="color:#0474c3;">{{auction_location}}</span>
-																					</td>
-																				</tr>
-																				{{/if}}
-																			</table>
-																			{{/unless}}
-																		</td>
-																		<td class="column-dir" width="50%" style="text-align: center; background: #ffffff">
-																			<a href="{{home_url}}vin-check/preview?offer=vhr51&vin={{vin}}&email={{user_email}}"><img src="{{auction_image}}" width="80%" height="80%" style="padding: 10px" alt="" /></a>
-																		</td>
-																	</tr>
-																</table>
-																	{{/if}}
-
-																	{{#unless auction_imgstatus}}
-																	
-																	<table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
-																		<tr>
-																			<td class="column-dir" width="100%">
-																				<table cellspacing="0" cellpadding="6" border="0" width="100%">
-																					<tr>
-																	
-																						<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
-																							<h4><strong>Odometer:</strong>
-																							</h4>
-																						</td>
-																	
-																						<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-																							<span style="color:#0474c3;">{{odometer}}</span>
-																						</td>
-																					</tr>
-												 {{#if auction_titleType_status}}
-												   <tr>
-													 <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-													   <h4><strong>Title Type:</strong></h4>
-													 </td>
-													 <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-													   <span style="color:#0474c3;">{{auction_titleType}}</span>
-													 </td>
-													</tr>
-												  {{/if}}
-											   {{#unless auction_titleType_status}}
-													{{#if auction_lossType_status}}
-														<tr>
-														  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-															<h4><strong>Loss Type:</strong></h4>
-														  </td>
-														  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-															<span style="color:#0474c3;">{{auction_lossType}}</span>
-														  </td>
-														</tr>           
-													{{/if}}
-											   {{/unless}}   
-																				  
-											   {{#if auction_color_status}}
-												  <tr>
-													<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-													  <h4><strong>Color:</strong></h4>
-													</td>
-													<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-													  <span style="color:#0474c3;">{{auction_color}}</span>
-													</td>
-												   </tr>
-												 {{/if}}
-												 
-												{{#unless auction_color_status}}
-												  {{#if auction_location_status}}
-												   <tr>
-													<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
-													  <h4><strong>Location:</strong></h4>
-													</td>
-													<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
-													  <span style="color:#0474c3;">{{auction_location}}</span>
-													</td>
-												   </tr>                         
-													{{/if}}
-											   {{/unless}}
-																				</table>
-																			</td>
-																		</tr>
-																	</table>
-																	{{/unless}}
-
-																</div>
-															</div>
-														</td>
-													</tr>
-												</table>
-												<table border="0" cellpadding="10" cellspacing="0"
-													class="heading_block block-2" role="presentation"
-													style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
-													width="100%">
-													<tr>
-														<td class="pad">
-													
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				{{/if}}
-			{{/unless}}
-                      
-                      
-                      
                       <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
                           <tbody>
                               <tr>
@@ -558,7 +176,7 @@
             <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-radius: 0; color: #000000; background-color: #f5f5f5; width: 680px; margin: 0 auto;" width="680">
               <tbody>
                 <tr>
-                  <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-left: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
+                  <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-left: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="33%">
                   <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
                     <tbody>
                       <tr>
@@ -571,7 +189,7 @@
                     </tbody>
                   </table>
                   </td>
-                  <td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
+                  <td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="33%">
                   <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
                     <tbody>
                       <tr>
@@ -584,6 +202,19 @@
                     </tbody>
                   </table>
                   </td>
+				  <td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="33%">
+					<table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
+					  <tbody>
+						<tr>
+						  <td class="pad p-b-15" style="padding-bottom:15px;padding-left:25px;padding-right:10px;padding-top:15px;">
+						  <div style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:700;letter-spacing:0px;line-height:130%;text-align:left;mso-line-height-alt:19.2px;">
+						  <p style="margin: 0;">Model: {{model}}</p>
+						  </div>
+						  </td>
+						</tr>
+					  </tbody>
+					</table>
+					</td>
                 </tr>
               </tbody>
             </table>
@@ -598,20 +229,7 @@
             <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-radius: 0; color: #000000; background-color: #fcede5; width: 680px; margin: 0 auto;" width="680">
               <tbody>
                 <tr>
-                  <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-left: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
-                  <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
-                    <tbody>
-                      <tr>
-                        <td class="pad" style="padding-bottom:15px;padding-left:25px;padding-right:10px;padding-top:15px;">
-                        <div style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:700;letter-spacing:0px;line-height:130%;text-align:left;mso-line-height-alt:19.2px;">
-                        <p style="margin: 0;">Model: {{model}}</p>
-                        </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  </td>
-                  <td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="50%">
+                  <td class="column column-2" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 0px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
                   <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
                     <tbody>
                       <tr>
@@ -740,6 +358,519 @@
         </tbody>
       </table>
 
+	                        
+	  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4_1" style="margin-bottom: 10px;"
+	  role="presentation"
+	   width="100%">
+	  <tbody>
+		  <tr>
+			  <td>
+				  <table align="center" border="0" cellpadding="0" cellspacing="0"
+					  class="row-content stack" role="presentation"
+					  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;">
+					  <tbody>
+						  <tr>
+							  <td class="column column-1"
+								  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-left: 50px; padding-right: 50px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
+								  width="100%">
+								  <table border="0" cellpadding="0" cellspacing="0"
+									  class="text_block block-1" role="presentation"
+									  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
+									  width="100%">
+									  <tr>
+										  <td class="pad"
+											  style="padding-bottom:0px;padding-left:10px;padding-right:10px;padding-top:0px;">
+											  <div
+												  style="font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+												  <div class=""
+													  style="font-size: 16px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; line-height: 130%; color: #101112;">
+											  {{#if saleshistory_status}}
+						
+											  <p class="text-mobile" style="margin: 0; font-size: 18px; text-align: center; line-height: 130%;">
+											  
+												  {{#if salehistory_imgstatus}}
+													  We found sales history records and images for this vehicle
+												  {{/if}}
+								  
+												  {{#unless salehistory_imgstatus}}
+													  We found sales history records for this vehicle
+												  {{/unless}}
+											  </p>
+											  {{/if}}
+											  
+											  {{#unless saleshistory_status}}
+																					  {{#if auction_status}}
+												  <p class="text-mobile" style="margin: 0; font-size: 18px; text-align: center; line-height: 130%;">
+												  {{#if auction_imgstatus}}
+													  We found auction records and images for this vehicle 
+												  {{/if}}
+												  
+												  {{#unless auction_imgstatus}}
+													  We found auction records for this vehicle
+												  {{/unless}}
+														   </p>
+												 {{/if}}
+											   {{/unless}}
+												  
+												  </div>
+											  </div>
+										  </td>
+									  </tr>
+								  </table>
+							  </td>
+						  </tr>
+					  </tbody>
+				  </table>
+			  </td>
+		  </tr>
+	  </tbody>
+			  </table>
+
+	  {{#if saleshistory_status}}
+	  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4_2"
+		  role="presentation"
+		   width="100%">
+		  <tbody>
+			  <tr>
+				  <td>
+					  <table align="center" border="0" cellpadding="0" cellspacing="0"
+						  class="row-content stack" role="presentation"
+						  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;">
+						  <tbody>
+							  <tr>
+								  <td class="column column-1"
+									  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 10px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
+									  width="100%">
+									  <table border="0" cellpadding="10" cellspacing="0"
+										  class="text_block block-1" role="presentation"
+										  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
+										  width="100%">
+										  <tr>
+											  <td style="padding: 0;">
+												  <div
+													  style="font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+													  <div class=""
+														  style="color:#101112;direction:ltr;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:130%;text-align:left;mso-line-height-alt:19.2px;">
+
+														  {{#if salehistory_imgstatus}}
+														  <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
+															  <tr>
+														  
+																  <td class="column-dir" width="50%">
+																	  <table cellspacing="0" cellpadding="10" border="0" width="100%">
+																		  <tr>
+														  
+																			  <td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
+																				  <strong>Seller Type:</strong><br /><span
+																					  style="color:#0474c3;">{{seller_type}}</span>
+																			  </td>
+																		  </tr>
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																				  <strong>Odometer:</strong><br /><span
+																					  style="color:#0474c3;">{{odometer}}</span>
+																			  </td>
+																		  </tr>
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+																				  <strong>City:</strong></span><br /><span
+																					  style="color:#0474c3;">{{city}}</span>
+																			  </td>
+																		  </tr>
+																	  </table>
+																  </td>
+																  <td class="column-dir" width="50%" style="text-align: center; background: #ffffff">
+																	  <a href="{{home_url}}vin-check/preview?offer=vhr51&vin={{vin}}&email={{user_email}}"><img src="{{saleshistory_image}}" width="80%" height="80%" style="padding: 10px" alt="" /></a>
+																  </td>
+															  </tr>
+														  </table>
+														  {{/if}}
+
+														  {{#unless salehistory_imgstatus}}
+														  <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
+															  <tr>
+																  <td class="column-dir" width="100%">
+																	  <table cellspacing="0" cellpadding="6" border="0" width="100%">
+																		  <tr>
+														  
+																			  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
+																				  <h4><strong>Seller Type:</strong>
+																				  </h4>
+																			  </td>
+														  
+																			  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																				  <span style="color:#0474c3">{{seller_type}}</span>
+
+																			  </td>
+																		  </tr>
+																		  <tr>
+																			  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																				  <h4><strong>Odometer:</strong>
+																				  </h4>
+																			  </td>
+																			  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+																				  <span style="color:#0474c3;">{{odometer}}</span>
+																			  </td>
+																		  </tr>
+																		  <tr>
+																			  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+																				  <h4><strong>City:</strong>
+																				  </h4>
+																			  </td>
+																			  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																				  <span style="color:#0474c3;">{{city}}</span>
+																			  </td>
+																		  </tr>
+																	  </table>
+																  </td>
+															  </tr>
+														  </table>
+														  {{/unless}}
+
+													  </div>
+												  </div>
+											  </td>
+										  </tr>
+									  </table>
+									  <table border="0" cellpadding="10" cellspacing="0"
+										  class="heading_block block-2" role="presentation"
+										  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
+										  width="100%">
+										  <tr>
+											  <td class="pad">
+									 
+											  </td>
+										  </tr>
+									  </table>
+								  </td>
+							  </tr>
+						  </tbody>
+					  </table>
+				  </td>
+			  </tr>
+		  </tbody>
+	  </table>
+	  {{/if}}
+
+	  {{#unless saleshistory_status}}
+		  {{#if auction_status}}
+		  <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4_3"
+		  role="presentation"
+		   width="100%">
+			  <tbody>
+				  <tr>
+					  <td>
+						  <table align="center" border="0" cellpadding="0" cellspacing="0"
+							  class="row-content stack" role="presentation"
+							  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;"
+							  >
+							  <tbody>
+								  <tr>
+									  <td class="column column-1"
+										  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 10px; padding-top: 0px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
+										  width="100%">
+										  <table border="0" cellpadding="10" cellspacing="0"
+											  class="text_block block-1" role="presentation"
+											  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
+											  width="100%">
+											  <tr>
+												  <td style="padding: 0;">
+													  <div
+														  style="font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+														  <div class=""
+															  style="color:#101112;direction:ltr;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:130%;text-align:left;mso-line-height-alt:19.2px;">
+
+															  {{#if auction_imgstatus}}
+															  <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
+															  <tr>
+														  
+																  <td class="column-dir" width="50%">
+																	  <table cellspacing="0" cellpadding="10" border="0" width="100%">
+																		  {{#if auction_titleType_status}}
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
+																				  <strong>Odometer:</strong><br /><span
+																					  style="color:#0474c3;">{{auction_odometer}}</span>
+																			  </td>
+																		  </tr>
+																		  {{/if}}
+																		  {{#unless auction_titleType_status}}
+																		  {{#if auction_lossType_status}}
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																				  <strong>Title Type:</strong><br /><span
+																					  style="color:#0474c3;">{{auction_titleType}}</span>
+																			  </td>
+																		  </tr>
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+																				  <strong>Loss Type:</strong></span><br /><span
+																					  style="color:#0474c3;">{{auction_lossType}}</span>
+																			  </td>
+																		  </tr>
+																		  {{/if}}
+																		  {{/unless}}   
+																											 
+																		  {{#if auction_color_status}}
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																				  <strong>Color:</strong></span><br /><span
+																					  style="color:#0474c3;">{{auction_color}}</span>
+																			  </td>
+																		  </tr>
+																		  {{/if}}
+																		  {{#unless auction_color_status}}
+																		  {{#if auction_location_status}}
+																		  <tr>
+																			  <td class="m-pl-15" style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+																				  <strong>Location:</strong></span><br /><span
+																					  style="color:#0474c3;">{{auction_location}}</span>
+																			  </td>
+																		  </tr>
+																		  {{/if}}
+																	  </table>
+																	  {{/unless}}
+																  </td>
+																  <td class="column-dir" width="50%" style="text-align: center; background: #ffffff">
+																	  <a href="{{home_url}}vin-check/preview?offer=vhr51&vin={{vin}}&email={{user_email}}"><img src="{{auction_image}}" width="80%" height="80%" style="padding: 10px" alt="" /></a>
+																  </td>
+															  </tr>
+														  </table>
+															  {{/if}}
+
+															  {{#unless auction_imgstatus}}
+															  
+															  <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border: 2px solid #f2f2f2">
+																  <tr>
+																	  <td class="column-dir" width="100%">
+																		  <table cellspacing="0" cellpadding="6" border="0" width="100%">
+																			  <tr>
+															  
+																				  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;" width="50%">
+																					  <h4><strong>Odometer:</strong>
+																					  </h4>
+																				  </td>
+															  
+																				  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+																					  <span style="color:#0474c3;">{{odometer}}</span>
+																				  </td>
+																			  </tr>
+										   {{#if auction_titleType_status}}
+											 <tr>
+											   <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+												 <h4><strong>Title Type:</strong></h4>
+											   </td>
+											   <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+												 <span style="color:#0474c3;">{{auction_titleType}}</span>
+											   </td>
+											  </tr>
+											{{/if}}
+										 {{#unless auction_titleType_status}}
+											  {{#if auction_lossType_status}}
+												  <tr>
+													<td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+													  <h4><strong>Loss Type:</strong></h4>
+													</td>
+													<td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+													  <span style="color:#0474c3;">{{auction_lossType}}</span>
+													</td>
+												  </tr>           
+											  {{/if}}
+										 {{/unless}}   
+																			
+										 {{#if auction_color_status}}
+											<tr>
+											  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+												<h4><strong>Color:</strong></h4>
+											  </td>
+											  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+												<span style="color:#0474c3;">{{auction_color}}</span>
+											  </td>
+											 </tr>
+										   {{/if}}
+										   
+										  {{#unless auction_color_status}}
+											{{#if auction_location_status}}
+											 <tr>
+											  <td style="background: #f0f0f0; padding: 10px 10px 10px 25px;">
+												<h4><strong>Location:</strong></h4>
+											  </td>
+											  <td style="background: #f9f9f9; padding: 10px 10px 10px 25px;">
+												<span style="color:#0474c3;">{{auction_location}}</span>
+											  </td>
+											 </tr>                         
+											  {{/if}}
+										 {{/unless}}
+																		  </table>
+																	  </td>
+																  </tr>
+															  </table>
+															  {{/unless}}
+
+														  </div>
+													  </div>
+												  </td>
+											  </tr>
+										  </table>
+										  <table border="0" cellpadding="10" cellspacing="0"
+											  class="heading_block block-2" role="presentation"
+											  style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
+											  width="100%">
+											  <tr>
+												  <td class="pad">
+											  
+												  </td>
+											  </tr>
+										  </table>
+									  </td>
+								  </tr>
+							  </tbody>
+						  </table>
+					  </td>
+				  </tr>
+			  </tbody>
+		  </table>
+		  {{/if}}
+	  {{/unless}}
+
+	<div class="data indigoDecode" style="background-color: #f0f0f0;display: flex;gap: 20px;width:100%;max-width: 680px;margin: 0 auto;padding:20px 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+		<div class="col col1" style="width: 50%;">
+			<div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
+				<img src="https://app.detailedvehiclehistory.com/public/landing/custom_checkout/assets/alert-circle.svg">
+				<div class="record_data">
+					<p style="margin: 0;">Accident check</p>
+					<p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
+				</div>
+			</div>
+			<div class="record" style="display: flex;align-items: flex-start;gap: 10px;">
+				<img src="https://app.detailedvehiclehistory.com/public/landing/custom_checkout/assets/alert-circle.svg">
+				<div class="record_data">
+					<p style="margin: 0;">Ownership record</p>
+					<p style="margin: 0;color: #D23535;font-weight: 700;">Multiple owners</p>
+				</div>
+			</div>
+		</div>
+		<div class="col col2" style="width: 50%;">
+			<div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
+				<img src="https://app.detailedvehiclehistory.com/public/landing/custom_checkout/assets/check_circle.svg">
+				<div class="record_data">
+					<p style="margin: 0;">Lemon check</p>
+					<p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
+				</div>
+			</div>
+			<div class="record" style="display: flex;align-items: flex-start;gap: 10px;">
+				<img src="https://app.detailedvehiclehistory.com/public/landing/custom_checkout/assets/check_circle.svg">
+				<div class="record_data">
+					<p style="margin: 0;">Flood check</p>
+					<p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-11 table"
+	role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin-top: 15px;" width="100%">
+	<tbody>
+		<tr>
+			<td>
+				<table align="center" border="0" cellpadding="0" cellspacing="0"
+					class="row-content stack" role="presentation"
+					style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fcede5; border-radius: 10px; color: #000; width: 680px; margin: 0 auto;"
+					width="680">
+					<tbody>
+						<tr>
+							<td class="column column-1"
+								style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
+								width="100%">
+								<table border="0" cellpadding="10" cellspacing="0"
+									class="paragraph_block block-1" role="presentation"
+									style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
+									width="100%">
+									<tbody>
+										<tr>
+											<td class="pad">
+												<div
+													style="color:#101112;direction:ltr;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:130%;text-align:center;mso-line-height-alt:19.2px;">
+													<p style="margin: 0; margin-bottom: 2px;">
+														<strong class="h-mobile">Grab this vehicle's history record</strong></p>
+
+													<p class="text-mobile" style="margin: 0;">With our special 20 percent coupon.</p>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-12"
+	role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+	<tbody>
+		<tr>
+			<td>
+				<table align="center" border="0" cellpadding="0" cellspacing="0"
+					class="row-content stack" role="presentation"
+					style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff; border-radius: 0; color: #000; width: 680px; margin: 0 auto;"
+					width="680">
+					<tbody>
+						<tr>
+							<td class="column column-1"
+								style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
+								width="100%">
+								<table border="0" cellpadding="10" cellspacing="0"
+									class="button_block block-1" role="presentation"
+									style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
+									width="100%">
+									<tbody>
+										<tr>
+											<td class="pad">
+												<div align="center" class="alignment">
+													<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://detailedvehiclehistory.com/" style="height:42px;width:189px;v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#2f5bff"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#ffffff; font-family:Tahoma, sans-serif; font-size:16px"><![endif]--><a
+														href="{{home_url}}vin-check/preview?offer=email20&vin={{vin}}&email={{user_email}}"
+														style="text-decoration:none;display:inline-block;color:#ffffff;background-color:#2f5bff;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:5px;padding-bottom:5px;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"
+														target="_blank"><span
+															style="padding-left:30px;padding-right:30px;font-size:16px;display:inline-block;letter-spacing:normal;"><span
+																style="word-break: break-word; line-height: 32px;">View History Report</span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<table border="0" cellpadding="0" cellspacing="0"
+									class="button_block block-2" role="presentation"
+									style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;"
+									width="100%">
+									<tbody>
+										<tr>
+											<td class="pad" style="text-align:center;">
+												<div align="center" class="alignment">
+													<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://detailedvehiclehistory.com/sample" style="height:32px;width:196px;v-text-anchor:middle;" arcsize="13%" stroke="false" fill="false"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#2f5bff; font-family:Tahoma, sans-serif; font-size:16px"><![endif]--><a
+														href="{{home_url}}sample"
+														style="text-decoration:none;display:inline-block;color:#2f5bff;background-color:transparent;border-radius:4px;width:auto;border-top:0px solid transparent;font-weight:400;border-right:0px solid transparent;border-bottom:0px solid transparent;border-left:0px solid transparent;padding-top:0px;padding-bottom:0px;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;text-align:center;mso-border-alt:none;word-break:keep-all;"
+														target="_blank"><span
+															style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;letter-spacing:normal;"><span
+																style="word-break: break-word; line-height: 32px;"><u>View Other Reports</u></span></span></a><!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
       <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-6" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tbody>
           <tr>
@@ -790,7 +921,7 @@
 												<td class="pad">
 												<div style="color:#101112;direction:ltr;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:13px;font-weight:500;letter-spacing:0px;line-height:17px;text-align:center;mso-line-height-alt:14.399999999999999px;">
 												<p style="margin: 0;">Phone: <a href="call:{{company_phone}}" style="text-decoration:none;color: #101112;">{{company_phone}}</a><br />
-												Email: <a href="mailto:{{company_email}}" style="text-decoration:none;color: #101112;">{{company_email}}</a><br />
+												Email: <a href="/cdn-cgi/l/email-protection#037878606c6e73626d7a5c666e626a6f7e7e" style="text-decoration:none;color: #101112;">{{company_email}}</a><br />
 												Address: {{address}}</p>
 												</div>
 												</td>
@@ -809,5 +940,5 @@
     </tr>
   </tbody>
 </table>
-</body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 <!-- End --></html>
