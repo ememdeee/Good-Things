@@ -6,11 +6,6 @@
     <title>Starter Page</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
-
-    <!-- Work Sans / Mona Sans and Roboto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -21,7 +16,10 @@
                     <div class="vehicle">
                         <div class="vehicleIntro">
                             <img src="asset\ford.png">
-                            <span>2012 Ford F-150</span>
+                            <span>
+                                <span style="display: block;">2012 Ford</span>
+                                <span>F-150</span>
+                            </span>
                         </div>
                         <div class="addToGarage">
                             <button class="transparent full">Add to garage</button>
@@ -49,107 +47,123 @@
                         <span class="checksHeading heading">Important vehicle checks</span>
                         <div class="checksContainer">
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Ownership history</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Multiple Owners!</span>
+                                <span class="checkDataHeading">Ownership history</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Flood damage check</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Reveal records!</span>
+                                <span class="checkDataHeading">Flood damage check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Title brand check</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Multiple Owners!</span>
+                                <span class="checkDataHeading">Title brand check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Odometer rollback</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Reveal records!</span>
+                                <span class="checkDataHeading">Odometer rollback</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Accident check</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Reveal records!</span>
+                                <span class="checkDataHeading">Accident check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Lemon check</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Reveal records!</span>
+                                <span class="checkDataHeading">Lemon check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Theft record</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Reveal records!</span>
+                                <span class="checkDataHeading">Theft record</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="checkData">
-                                <div class="col1">
-                                    <span class="checkDataHeading">Vehicle recalls</span>
-                                    <div class="redAlert">
-                                        <img class="redAlertIcon" src="asset/alert-red.svg">
-                                        <span class="checkDataDesc">Reveal records!</span>
+                                <span class="checkDataHeading">Vehicle recalls</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col2">
-                                    <img class="key" src="asset/unlock.svg">
-                                    <span class="unlock">Unlock now</span>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>                        
@@ -416,7 +430,7 @@
                             <button class="transparent_noBorder withIcon">View sample report <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                         </a>
                     </div>
-                    <p><span class="error">Disclaimer: </span>Every vehicle is unique, and so is the data available. Please keep in mind, not all reports will have all the details mentioned. It all depends on the specific history of each vehicle.</p>
+                    <p class="disclaimer"><span class="error">Disclaimer: </span>Every vehicle is unique, and so is the data available. Please keep in mind, not all reports will have all the details mentioned. It all depends on the specific history of each vehicle.</p>
                 </div>
                 <div class="row_6 con">
                     <div class="col text">
@@ -447,7 +461,7 @@
                         <img src="asset/window-sticker.png" />
                     </div>
                 </div>
-                <div class="row_7 con">
+                <div class="row_7 con" id="spesification">
                     <p class="heading">Full vehicle specifications</p>
                     <div class="spesificationsTabs tabList">
                         <span class="tab active" data-target="imperialData">Imperial</span>
@@ -1233,16 +1247,6 @@
                         <span class="specContainer">Metric</span>
                     </div>
                 </div>
-                <div class="row_9 con">
-                    <div class="images">
-                        <img src="asset/SSL1.svg" />
-                        <img src="asset/SSL2.svg" />
-                    </div>
-                    <p>This website utilizes some of the most advanced techniques to protect your information and personal data including technical, administrative and even physical safeguards against unauthorized access misuse improper disclosure. All of your information is encrypted and transmitted using a Secure Sockets (SSL) protocol.</p>
-                </div>
-                <div class="row_10">
-                    <div>© 2024 Detailed Vehicle History All rights reserved.</div>
-                </div>
             </div>
             <div class="checkoutContainer desktop">
                 <div class="checkout">
@@ -1385,6 +1389,17 @@
                 </div>
             </div>
         </div>
+        <div class="row_9 con">
+            <div class="images">
+                <img src="asset/SSL1.svg" />
+                <img src="asset/SSL2.svg" />
+            </div>
+            <p>This website utilizes some of the most advanced techniques to protect your information and personal data including technical, administrative and even physical safeguards against unauthorized access misuse improper disclosure. All of your information is encrypted and transmitted using a Secure Sockets (SSL) protocol.</p>
+        </div>
+        <div class="row_10">
+            <div>© 2024 Detailed Vehicle History All rights reserved.</div>
+        </div>
     </div>
+    <div class="overlay"></div>
 </body>
 </html>

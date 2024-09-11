@@ -1,11 +1,41 @@
+@font-face {
+    font-family: 'SF Pro Display Reguler';
+    src: url('asset/SF-Pro-Display-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SF Pro Display Bold';
+    src: url('asset/SF-Pro-Display-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mona Sans Reguler';
+    src: url('asset/MonaSans-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Mona Sans Bold';
+    src: url('asset/MonaSans-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
 body, p{
+    font-family: 'SF Pro Display Reguler', sans-serif;
     margin: 0;
-    font-family: "Roboto", sans-serif;
     font-weight: 400;
 }
-h1, h2, h3, h4, h5, .heading{
-    font-family: "Work Sans", sans-serif;
+b{
+    font-family: 'SF Pro Display Bold', sans-serif;
+}
+h1, h2, h3, h4, h5{
+    font-family: "Mona Sans Reguler", sans-serif;
     font-weight: 500;
+}
+.monaSans{
+    font-family: "Mona Sans Reguler", sans-serif;
 }
 div{
     box-sizing: border-box;
@@ -92,6 +122,8 @@ img{
     padding: 14px;
     font-size: 24px;
     border-bottom: 1px solid #D1D1D1;
+    font-family: "Mona Sans Reguler", sans-serif;
+    font-weight: 500;
 }
 .content{
     display: flex;
@@ -116,6 +148,7 @@ img{
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: "Mona Sans Reguler", sans-serif;
 }
 .row_1 .vehicleIntro img{
     width: 100%;
@@ -162,9 +195,9 @@ img{
     gap: 5px;
 }
 .row_1 .specData{
-    width: calc(50% - 6px);
+    width: calc(50% - 2.5px);
     display: flex;
-    gap: 10px;
+    gap: 3px;
     font-size: 16px;
 }
 .row_1 .lessMore{
@@ -198,11 +231,11 @@ img{
     border-radius: 8px;
     display: flex;
     gap: 10px;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px;
     max-width: 400px;
     width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
 }
 .row_2 .checkData .col1{
     display: flex;
@@ -213,6 +246,13 @@ img{
     font-size: 17px;
     font-weight: 700;
 }
+.row_2 .checkDataContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
 .row_2 .checkDataDesc{
     font-size: 17px;
     font-weight: 700;
@@ -222,6 +262,9 @@ img{
     display: flex;
     gap: 8px;
     align-items: center;
+}
+.row_2 .checkData .col2{
+    cursor: pointer;
 }
 .row_2 .unlock{
     color: #1B4582;
@@ -322,16 +365,15 @@ img{
     text-align: center;
     position: relative;
     overflow: hidden;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 .row_3 .progress{
     background: linear-gradient(168.35deg, #283968 0%, #003D78 49.2%, #0D1E44 99.43%);
     height: 100%;
 }
 .row_3 .value{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: #003D78;
     font-weight: 700;
 }
@@ -416,6 +458,9 @@ img{
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.row_5 .disclaimer {
+    font-size: 14px;
 }
 .row_6{
     display: flex;
@@ -546,8 +591,9 @@ div.row_8{
     color: #00B57A;
 }
 .heading{
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 700;
+    font-family: "Mona Sans Bold", sans-serif;
 }
 .bold{
     font-weight: 700;
@@ -572,7 +618,8 @@ div.row_8{
     padding: 10px 13px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid #0095ff00;
+    border: 1px solid transparent;
+    font-weight: 500;
 }
 .tab:hover {
     border: 1px solid #1151804a;
@@ -580,9 +627,10 @@ div.row_8{
 .tab.active{
     background: linear-gradient(168.35deg, #0093FF 0%, #014D96 49.2%, #000F25 99.43%);
     color: white;
+    border: none;
 }
 .tab.active:hover {
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
 }
 .hidden{
     visibility: hidden !important;
@@ -663,7 +711,7 @@ div.row_8{
 } */
 .credit {
     position: relative; /* Enable positioning for the pseudo-element */
-    border: 2px solid #00000087;
+    border: 2px solid #1B4582;
     background: white;
     border-radius: 8px;
     transition: all 0.3s ease-in-out; /* Smooth transition for border and other properties */
@@ -689,12 +737,12 @@ div.row_8{
     transition: opacity 0.5s ease-in-out; /* Smooth opacity transition */
     z-index: 0;
     opacity: 0; /* Fully visible by default */
-    border-radius: 8px; /* Match the border radius */
 }
 
 label:has(input[type="radio"]:checked) .credit::before {
-    background-image: url('asset/activeCredit.jpg'); /* Change background image when checked */
+    background-image: url('asset/activePackage.png'); /* Change background image when checked */
     opacity: 1; /* Ensure it's fully visible */
+    box-shadow: inset 0 0 10px rgb(3 58 181 / 50%);
 }
 
 label:has(input[type="radio"]:checked) .credit::before {
@@ -759,6 +807,26 @@ label:has(input[type="radio"]:checked) .credit::before {
     text-align: center;
     line-height: 20px;
 }
+/* Add this CSS to your stylesheet */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 1000; /* Ensure it's on top of all content */
+    transition: opacity 0.5s ease; /* Smooth fade-out effect */
+    opacity: 0; /* Initial opacity */
+}
+.overlay.show {
+    opacity: 1; /* Fade-out effect */
+}
+.overlay.remove {
+    opacity: 0; /* Fade-out effect */
+}
+
 .coupon{
     margin-bottom: 15px;
 }
@@ -797,6 +865,7 @@ label:has(input[type="radio"]:checked) .credit::before {
     font-size: 24px;
     font-weight: 700;
     padding-top: 5px;
+    font-family: "Mona Sans Bold", sans-serif;
 }
 .invoiceValue.summary .discount{
     color: red;
@@ -927,7 +996,7 @@ label:has(input[type="radio"]:checked) .credit::before {
 
 @media (max-width: 991px) {
     .heading{
-        font-size: 20px;
+        font-size: 19px;
     }
     .topBar{
         font-size: 18px;
@@ -945,6 +1014,7 @@ label:has(input[type="radio"]:checked) .credit::before {
         flex-direction: column;
         align-items: flex-start;
         width: 30%;
+        gap: 0;
     }
     .row_1 .vehicleIntro span{
         font-size: 18px;
@@ -955,7 +1025,6 @@ label:has(input[type="radio"]:checked) .credit::before {
     }
     .row_1 .specData{
         width: 100%;
-        gap: 8px;
     }
     .row_1 .vehicleSpesification{
         width: 100%;
@@ -1014,10 +1083,14 @@ label:has(input[type="radio"]:checked) .credit::before {
     .row_5 .buttons{
         flex-direction: column;
         gap: 10px;
+        align-items: center;
     }
     .row_6{
         flex-direction: column;
         gap: 15px;
+    }
+    .row_6 button{
+        align-self: center;
     }
     .row_8 .hiddenHeader{
         display: none;
@@ -1040,6 +1113,10 @@ label:has(input[type="radio"]:checked) .credit::before {
     .row_8 .col2 .spesificationHeader, .row_8 .col2 .tableContainer{
         padding-left: 0px;
     }
+    .row_9, .row_9 .images{
+        justify-content: center;
+        text-align: center;
+    }
     .none-sm{
         display: none !important;
     }
@@ -1051,7 +1128,7 @@ label:has(input[type="radio"]:checked) .credit::before {
     }
     .tab{
         font-size: 16px;
-        padding: 8px 5px;
+        padding: 8px 9px;
     }
     .tabList{
         gap: 5px;
@@ -1087,5 +1164,11 @@ label:has(input[type="radio"]:checked) .credit::before {
     }
     .mobile{
         display: block;
+        position: relative;
+    }
+}
+@media (max-width: 851px) {
+    .row_2 .checkData{
+        max-width: inherit;
     }
 }

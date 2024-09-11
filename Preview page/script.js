@@ -1,8 +1,60 @@
 console.log("Hello");
 
-function showSpecData(){
+function showSpecData() {
     console.log("show");
+    
+    // Select the section with id "spesification"
+    const specSection = document.getElementById("spesification");
+    
+    if (specSection) {
+        // Scroll smoothly to the section
+        specSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        console.error("Section with id 'spesification' not found.");
+    }
 }
+
+function toCheckout() {
+    // Determine the screen width
+    const screenWidth = window.innerWidth;
+
+    // Determine the checkout container class based on screen width
+    let checkoutContainer;
+    if (screenWidth > 991) {
+        checkoutContainer = document.querySelector('.checkoutContainer.desktop');
+    } else {
+        checkoutContainer = document.querySelector('.checkoutContainer.mobile');
+    }
+
+    if (checkoutContainer) {
+        // Scroll to the checkout container smoothly
+        checkoutContainer.scrollIntoView({ behavior: 'smooth' });
+
+        // Create and append the overlay
+        const overlay = document.querySelector('.overlay');
+        overlay.classList.add('show');
+
+        // Save the original z-index of the checkout container
+        const originalZIndex = window.getComputedStyle(checkoutContainer).zIndex;
+
+        // Set the z-index of the checkout container
+        checkoutContainer.style.zIndex = '99999999999';
+
+        // Remove the overlay after 1-2 seconds
+        setTimeout(() => {
+            overlay.classList.remove('show'); // Start fade-out
+
+            // Wait for the opacity transition to complete before removing the overlay
+            setTimeout(() => {
+                // Restore the original z-index of the checkout container
+                checkoutContainer.style.zIndex = originalZIndex;
+            }, 500); // Match the CSS transition duration
+        }, 1500); // Overlay duration
+    } else {
+        console.error("Checkout container not found.");
+    }
+}
+
 
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
