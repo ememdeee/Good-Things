@@ -183,7 +183,7 @@ img{
     cursor: pointer;
 }
 .row_1 .vehicleSpesification{
-    width: 200%;
+    width: 170%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -199,6 +199,7 @@ img{
     display: flex;
     gap: 3px;
     font-size: 16px;
+    flex-wrap: wrap;
 }
 .row_1 .lessMore{
     font-size: 18px;
@@ -279,7 +280,7 @@ img{
     height: 20px;
 }
 .row_2 .auction{
-    width: 200%;
+    width: 170%;
     padding: 0px 15px;
     display: flex;
     flex-direction: column;
@@ -994,6 +995,14 @@ label:has(input[type="radio"]:checked) .credit::before {
     background-color: #1955FF;
 }
 
+@media (min-width: 992px) and (max-width: 1200px) {
+    .row_2 .checkData{
+        max-width: 300px;
+    }
+    .packageOption label {
+        width: 100%;
+    }
+}
 @media (max-width: 991px) {
     .heading{
         font-size: 19px;
@@ -1146,8 +1155,8 @@ label:has(input[type="radio"]:checked) .credit::before {
         gap: 2px;
         padding: 6px 6px 6px 2px;
     }
-    .checkout .details{
-        font-size: 16px;
+    .checkout .details, .packageData p{
+        font-size: 15px;
     }
     .credit.subscription{
         font-size: 16px;
