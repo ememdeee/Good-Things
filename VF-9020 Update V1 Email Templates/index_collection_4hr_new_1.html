@@ -3,7 +3,7 @@
     xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head class="test">
-    <title>We found the records for your {{year}} {{make}} {{model}}.</title>
+    <title>We found the records for your {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}.</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]--><!--[if !mso]><!-->
@@ -251,8 +251,7 @@
                                                                 <td class="pad">
                                                                     <h1
                                                                         style="margin: 0; color: #101112;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; font-size: 38px; font-weight: 700; letter-spacing: normal; line-height: 130%; text-align: center; margin-top: 0; margin-bottom: 0;">
-                                                                        <span class="tinyMce-placeholder">{{year}}
-                                                                            {{make}} {{model}}</span></h1>
+                                                                        <span class="tinyMce-placeholder">{{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}</span></h1>
                                                                 </td>
                                                             </tr>
                                                         </tbody>

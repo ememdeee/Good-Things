@@ -110,10 +110,16 @@ img{
     width: 100%;
 }
 .desktop{
-    display: block;
+    display: block !important;
 }
 .mobile{
-    display: none;
+    display: none !important;
+}
+.desktop-flex{
+    display: flex !important;
+}
+.mobile-flex{
+    display: none !important;
 }
 .border-left-md{
     border-left: solid 1px #D1D1D1;
@@ -176,11 +182,17 @@ img{
     padding: 10px;
     box-shadow: 0px 0px 8px 2px #00000017;
     min-width: 270px;
+    z-index: 1;
 }
 .row_1 .alert{
     width: 27px;
     height: 27px;
     cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+.row_1 .alert.active{
+    box-shadow: 0px 0px 15px #004ea282;
 }
 .row_1 .vehicleSpesification{
     width: 170%;
@@ -285,6 +297,7 @@ img{
     display: flex;
     flex-direction: column;
     gap: 15px;
+    height: fit-content;
 }
 .row_2 .redBox{
     display: flex;
@@ -373,6 +386,7 @@ img{
 .row_3 .progress{
     background: linear-gradient(168.35deg, #283968 0%, #003D78 49.2%, #0D1E44 99.43%);
     height: 100%;
+    border-radius: 50px 0px 0 50px;
 }
 .row_3 .value{
     color: #003D78;
@@ -466,6 +480,8 @@ img{
 .row_6{
     display: flex;
     border-bottom: 1px solid #D1D1D1;
+    align-items: center;
+    gap: 5px;
 }
 .row_6 .description{
     margin-top: 10px;
@@ -494,7 +510,7 @@ img{
 .row_6 .transparent_noBorder{
     padding-left: 0;
 }
-.row_6 .image img{
+.row_6 .image .wsImage{
     border-radius: 8px;
     box-shadow: 0px 0px 8px 2px #0000004D inset;
 }
@@ -877,14 +893,15 @@ label:has(input[type="radio"]:checked) .credit::before {
 .reportFormat{
     display: flex;
     gap: 10px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-bottom: 1px solid #D1D1D1;
     padding: 15px 0;
+    flex-wrap: wrap;
 }
 .reportFormat img{
     width: 30%;
-    height: auto;
+    height: 56px;
     max-width: 185px
 }
 .sliderContainer {
@@ -995,6 +1012,12 @@ label:has(input[type="radio"]:checked) .credit::before {
     background-color: #1955FF;
 }
 
+@media (min-width: 992px) {
+    .row_2 .auction{
+        position: sticky;
+        top: 15px;
+    }
+}
 @media (min-width: 992px) and (max-width: 1200px) {
     .row_2 .checkData{
         max-width: 300px;
@@ -1144,9 +1167,6 @@ label:has(input[type="radio"]:checked) .credit::before {
     }
 
     /* checkout */
-    .reportFormat{
-        flex-direction: column;
-    }
     .reportFormat img{
         width: 100% !important;
     }
@@ -1169,11 +1189,17 @@ label:has(input[type="radio"]:checked) .credit::before {
         -webkit-transform: scale(1);
     }
     .desktop{
-        display: none;
+        display: none !important;
     }
     .mobile{
-        display: block;
+        display: block !important;
         position: relative;
+    }
+    .desktop-flex{
+        display: none !important;
+    }
+    .mobile-flex{
+        display: flex !important;
     }
 }
 @media (max-width: 851px) {

@@ -142,7 +142,7 @@
                               <tr>
                                   <td class="pad" style="padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:15px;">
                                   <div class="heading h-mobile" style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:24px;font-weight:700;letter-spacing:0px;line-height:130%;text-align:center;mso-line-height-alt:28.799999999999997px;">
-                                  <p style="margin: 0;">Psst! A window sticker for {{year}} {{make}} {{model}} {{trim}} is waiting!</p>
+                                  <p style="margin: 0;">Psst! A window sticker for {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}} {{trim}} is waiting!</p>
                                   </div>
                                   </td>
                               </tr>

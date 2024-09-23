@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-quillbot-parent="jM5nm-CAVlLzp4socz6Ai" lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
-  <title>Classic Window sticker for {{year}} {{make}} {{model}}</title>
+  <title>Classic Window sticker for {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}</title>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900" rel="stylesheet" type="text/css" />
   <style type="text/css">* {
@@ -142,7 +142,7 @@
                               <tr>
                                   <td class="pad" style="padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:15px;">
                                   <div class="heading h-mobile" style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:24px;font-weight:700;letter-spacing:0px;line-height:130%;text-align:center;mso-line-height-alt:28.799999999999997px;">
-                                  <p style="margin: 0;">Window sticker for {{year}} {{make}} {{model}}</p>
+                                  <p style="margin: 0;">Window sticker for {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}</p>
                                   </div>
                                   </td>
                               </tr>
@@ -328,7 +328,7 @@
                                     <tr>
                                         <td class="pad" style="padding-bottom:10px;padding-left:10px;padding-right:15px;">
                                         <div class="text-mobile" style="color:#000000;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:150%;text-align:center;mso-line-height-alt:24px;">
-                                        <p style="margin: 0;">Are you curious about the detailed history data about the vehicle, including past history, damages, services, recalls, mileage, and auction records? We've found history records for your {{year}} {{make}} {{model}} and can provide the following information:</p>
+                                        <p style="margin: 0;">Are you curious about the detailed history data about the vehicle, including past history, damages, services, recalls, mileage, and auction records? We've found history records for your {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}} and can provide the following information:</p>
                                         </div>
                                         </td>
                                     </tr>

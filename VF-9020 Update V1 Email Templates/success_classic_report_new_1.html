@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-quillbot-parent="TnN54vgXbBf4JwX5dTGOG" lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
-	<title>Classic Vehicle History Report for {{year}} {{make}} {{model}}</title>
+	<title>Classic Vehicle History Report for {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}</title>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900" rel="stylesheet" type="text/css" />
   <style type="text/css">* {
@@ -157,7 +157,7 @@
 										<tbody>
 											<tr>
 												<td class="pad">
-												<h1 class="h-mobile" style="margin: 0; color: #000000; direction: ltr; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: normal; line-height: 130%; text-align: center; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 28.799999999999997px;">Vehicle History Report for the {{year}} {{make}} {{model}}</h1>
+												<h1 class="h-mobile" style="margin: 0; color: #000000; direction: ltr; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; font-size: 24px; font-weight: 700; letter-spacing: normal; line-height: 130%; text-align: center; margin-top: 0; margin-bottom: 0; mso-line-height-alt: 28.799999999999997px;">Vehicle History Report for the {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}</h1>
 												</td>
 											</tr>
 										</tbody>

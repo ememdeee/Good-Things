@@ -3,7 +3,7 @@
     xmlns:v="urn:schemas-microsoft-com:vml">
 
 <head>
-    <title>Historical records for {{year}} {{make}} {{model}}</title>
+    <title>Historical records for {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
@@ -212,8 +212,7 @@
                                                                     <div class="heading h-mobile"
                                                                         style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:24px;font-weight:700;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:28.799999999999997px;">
                                                                         <p style="margin: 0;">Historical records are
-                                                                            available for your {{year}} {{make}}
-                                                                            {{model}}.</p>
+                                                                            available for your {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}.</p>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -1277,7 +1276,7 @@
                                                                 <td class="pad">
                                                                     <div
                                                                         style="color:#ffffff;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:19.2px;"> <!-- color custom each domain -->
-                                                                        <p class="text-mobile" style="margin: 0;">This {{year}} {{make}} {{model}} has a lot of records that we think you should know. Grab this car's history with a <strong style="color: #F2B200;">50-percent coupon</strong> on us. Uncover the full history of this {{year}} {{make}} {{model}}.</p> <!-- color custom each domain -->
+                                                                        <p class="text-mobile" style="margin: 0;">This {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}} has a lot of records that we think you should know. Grab this car's history with a <strong style="color: #F2B200;">50-percent coupon</strong> on us. Uncover the full history of this {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}.</p> <!-- color custom each domain -->
                                                                     </div>
                                                                 </td>
                                                             </tr>

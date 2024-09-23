@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             garagePopup.style.display = "block";
         }
+        document.getElementById("garageAlertIcon").classList.toggle("active");
     });
     // Testimonial data
     const testimonials = [
