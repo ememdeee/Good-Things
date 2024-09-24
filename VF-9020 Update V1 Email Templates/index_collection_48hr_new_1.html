@@ -359,7 +359,7 @@
                                                                                 <td class="column-dir" width="50%"
                                                                                     style="text-align: center; background: #ffffff">
                                                                                     <a
-                                                                                        href="{{home_url}}vin-check/preview?offer=vhr51&vin={{vin}}&email={{user_email}}"><img
+                                                                                        href="{{home_url}}vin-check/preview?offer=email50&vin={{vin}}&email={{user_email}}"><img
                                                                                             src="{{saleshistory_image}}"
                                                                                             width="80%" height="80%"
                                                                                             style="padding: 10px"
@@ -541,7 +541,7 @@
                                                                                 <td class="column-dir" width="50%"
                                                                                     style="text-align: center; background: #ffffff">
                                                                                     <a
-                                                                                        href="{{home_url}}vin-check/preview?offer=vhr51&vin={{vin}}&email={{user_email}}"><img
+                                                                                        href="{{home_url}}vin-check/preview?offer=email50&vin={{vin}}&email={{user_email}}"><img
                                                                                             src="{{auction_image}}"
                                                                                             width="80%" height="80%"
                                                                                             style="padding: 10px"
@@ -1083,40 +1083,120 @@
                             </tr>
                         </tbody>
                     </table>
-<div class="data indigoDecode" style="display: flex;gap: 20px;width:100%;max-width: 680px;margin: 0 auto;padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-    <div class="col col1" style="width: 50%;">
-        <div class="record" style="display: flex;align-items: flex-start;gap: 0px;margin-bottom: 20px;">
-            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle.svg" style="margin-right: 10px;">
-            <div class="record_data">
-                <p style="margin: 0;">Accident check</p>
-                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-            </div>
-        </div>
-        <div class="record" style="display: flex;align-items: flex-start;gap: 0px;">
-            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle.svg" style="margin-right: 10px;">
-            <div class="record_data">
-                <p style="margin: 0;">Ownership record</p>
-                <p style="margin: 0;color: #D23535;font-weight: 700;">Multiple owners</p>
-            </div>
-        </div>
-    </div>
-    <div class="col col2" style="width: 50%;">
-        <div class="record" style="display: flex;align-items: flex-start;gap: 0px;margin-bottom: 20px;">
-            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.svg" style="margin-right: 10px;">
-            <div class="record_data">
-                <p style="margin: 0;">Lemon check</p>
-                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-            </div>
-        </div>
-        <div class="record" style="display: flex;align-items: flex-start;gap: 0px;">
-            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.svg" style="margin-right: 10px;">
-            <div class="record_data">
-                <p style="margin: 0;">Flood check</p>
-                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-            </div>
-        </div>
-    </div>
-</div>
+                    {{#if indigo_decode_status}}
+
+                    <div class="data indigoDecode"
+                        style="display: flex;gap: 20px;width:100%;max-width: 680px;margin: 0 auto;padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+                    
+                        <div class="col col1" style="width: 60%;">
+                    
+                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
+                    
+                                <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle-1.png" style="
+                            height: 24px;
+                        ">
+                    
+                                <div class="record_data">
+                    
+                                    <p style="margin: 0;">Accident check</p>
+                    
+                                    {{#if accident_check}}
+                    
+                                    <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
+                    
+                                    {{/if}}
+                                    {{#unless accident_check}}
+                    
+                                    <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
+                    
+                                    {{/unless}}
+                    
+                                </div>
+                    
+                            </div>
+                    
+                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;">
+                    
+                                <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle-1.png" style="
+                            height: 24px;
+                        ">
+                    
+                                <div class="record_data">
+                    
+                                    <p style="margin: 0;">Ownership record</p>
+                    
+                                    {{#if one_owner}}
+                    
+                                    <p style="margin: 0;color:#00B57A ;font-weight: 700;">One Owner</p>
+                    
+                                    {{/if}}
+                                    {{#unless one_owner}}
+                    
+                                    <p style="margin: 0;color: #D23535;font-weight: 700;">Multiple Owners</p>
+                    
+                                    {{/unless}}
+                    
+                                </div>
+                    
+                            </div>
+                    
+                        </div>
+                    
+                        <div class="col col2" style="width: 50%;">
+                    
+                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
+                            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.png" style="
+                            height: 24px;
+                        ">
+                    
+                            <div class="record_data">
+                    
+                                <p style="margin: 0;">Lemon check</p>
+                    
+                                {{#if lemon_check}}
+                    
+                                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
+                    
+                                {{/if}}
+                                {{#unless lemon_check}}
+                    
+                                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
+                    
+                                {{/unless}}
+                    
+                            </div>
+                    
+                        </div>
+                    
+                        <div class="record" style="display: flex;align-items: flex-start;gap: 10px; 
+                        height: 24px;
+                    ">
+                            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.png" style="
+                            height: 24px;
+                        ">
+                            <div class="record_data">
+                    
+                                <p style="margin: 0;">Flood check</p>
+                                {{#if flood_check}}
+                    
+                                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
+                    
+                                {{/if}}
+                                {{#unless flood_check}}
+                    
+                                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
+                    
+                                {{/unless}}
+                    
+                            </div>
+                    
+                        </div>
+                    
+                    </div>
+                    
+                    </div>
+                    
+                    {{/if}}
                     <!-- <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-6 table" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 				<tbody>
 					<tr>
