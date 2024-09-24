@@ -55,18 +55,56 @@ function toCheckout() {
     }
 }
 
+function updatePrice(credit, pricePerCredit) {
+    const discount = 0.20; // 20% discount
+    const totalPrice = pricePerCredit - (pricePerCredit * discount);
 
+    // Get all elements with class .pricePerCredit
+    const pricePerCreditElements = document.querySelectorAll('.pricePerCredit');
+    // Get all elements with class .totalCredits
+    const totalCreditsElements = document.querySelectorAll('.totalCredits');
+    // Get all elements with class .totalPrice
+    const totalPriceElements = document.querySelectorAll('.totalPrice');
+
+    // Update innerHTML for pricePerCreditElement
+    pricePerCreditElements.forEach(element => {
+        element.innerHTML = "$" + pricePerCredit.toFixed(2); // Ensure 2 decimal places for price
+    });
+
+    // Update innerHTML for totalCreditsElement
+    totalCreditsElements.forEach(element => {
+        element.innerHTML = credit;
+    });
+
+    // Update innerHTML for totalPriceElement
+    totalPriceElements.forEach(element => {
+        element.innerHTML = "$" + totalPrice.toFixed(2); // Ensure 2 decimal places for total price
+    });
+}
 // Wait until the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // garage Alart Btn
-    document.getElementById("garageAlertIcon").addEventListener("click", function() {
-        const garagePopup = document.getElementById("garageAlertPopup");
-        if (garagePopup.style.display === "block") {
-            garagePopup.style.display = "none";
-        } else {
-            garagePopup.style.display = "block";
-        }
-        document.getElementById("garageAlertIcon").classList.toggle("active");
+    // Alart popup Toogling
+    const alertIcons = document.querySelectorAll('.popupAlert');
+    alertIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            // First, hide any active popups and remove 'active' class from all icons
+            alertIcons.forEach(otherIcon => {
+                const otherPopup = otherIcon.nextElementSibling;
+                if (otherPopup !== this.nextElementSibling) {
+                    otherPopup.style.display = "none";
+                    otherIcon.classList.remove('active');
+                }
+            });
+    
+            // Then, toggle the clicked popup and the active class
+            const popup = this.nextElementSibling;
+            if (popup.style.display === "none" || popup.style.display === "") {
+                popup.style.display = "block";
+            } else {
+                popup.style.display = "none";
+            }
+            this.classList.toggle('active');
+        });
     });
     // Testimonial data
     const testimonials = [

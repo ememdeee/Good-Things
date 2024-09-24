@@ -174,7 +174,7 @@ img{
 .row_1 .alertContainer{
     position: relative;
 }
-.row_1 .garagePopup{
+.infoPopup{
     position: absolute;
     top: calc(100% + 10px);
     background-color: white;
@@ -183,15 +183,18 @@ img{
     box-shadow: 0px 0px 8px 2px #00000017;
     min-width: 270px;
     z-index: 1;
+    font-size: 16px;
 }
 .row_1 .alert{
     width: 27px;
     height: 27px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: all 0.2s;
 }
-.row_1 .alert.active{
+.popupAlert{
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 50%;
+}
+.popupAlert.active{
     box-shadow: 0px 0px 15px #004ea282;
 }
 .row_1 .vehicleSpesification{
@@ -361,6 +364,7 @@ img{
     align-items: center;
     gap: 10px;
     min-width: 150px;
+    position: relative;
 }
 .row_3 .tabList {
     margin: 15px 0px;
@@ -775,6 +779,7 @@ label:has(input[type="radio"]:checked) .credit::before {
     gap: 8px;
     align-items: center;
     flex-wrap: wrap;
+    align-items: baseline;
 }
 .checkout .saveTag{
     border-radius: 8px;
@@ -867,7 +872,6 @@ label:has(input[type="radio"]:checked) .credit::before {
 .invoice{
     border-top: 1px solid #D1D1D1;
     padding-top: 15px;
-    padding-bottom: 15px;
     font-size: 18px;
     display: flex;
     flex-direction: column;
@@ -889,6 +893,21 @@ label:has(input[type="radio"]:checked) .credit::before {
     font-size: 18px;
     text-decoration: line-through;
     font-weight: 400;
+}
+.saving .fix{
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 5px;
+    font-family: "Mona Sans Bold", sans-serif;
+}
+.saving .discount{
+    color: red;
+    font-size: 16px;
+    text-decoration: line-through;
+    font-weight: 700;
+}
+.proceedCheckout{
+    margin-top: 15px;
 }
 .reportFormat{
     display: flex;
