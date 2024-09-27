@@ -21,9 +21,9 @@ function toCheckout() {
     // Determine the checkout container class based on screen width
     let checkoutContainer;
     if (screenWidth > 991) {
-        checkoutContainer = document.querySelector('.checkoutContainer.desktop');
+        checkoutContainer = document.querySelector('.checkoutContainer.desktop .checkout');
     } else {
-        checkoutContainer = document.querySelector('.checkoutContainer.mobile');
+        checkoutContainer = document.querySelector('.checkoutContainer.mobile .checkout');
     }
 
     if (checkoutContainer) {

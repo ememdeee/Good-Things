@@ -22,6 +22,29 @@
     font-weight: normal;
     font-style: normal;
 }
+/* Separate styles for the body */
+html {
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(136, 136, 136, 0.4) transparent; /* More transparent */
+    overflow-y: scroll;
+}
+
+html::-webkit-scrollbar {
+    width: 1px; /* Set the scrollbar width to 1px */
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 136, 136, 0.4); /* Transparent scrollbar handle */
+    border-radius: 10px; /* Optional: rounded scrollbar edges */
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+html::-webkit-scrollbar-button {
+    display: none; /* Hides the top and bottom scrollbar arrows */
+}
 body, p{
     font-family: 'SF Pro Display Reguler', sans-serif;
     margin: 0;
@@ -333,8 +356,10 @@ img{
     box-shadow: inset 0px 0px 8px 2px #0000004D;
     position: sticky;
     top: 0;
+    display: flex;
+    flex-direction: column;
 }
-.desktop .checkout{
+/* .desktop .checkout{
     max-height: 100vh; 
     overflow-y: scroll; 
     scrollbar-width: none; 
@@ -342,6 +367,31 @@ img{
 }
 .desktop .checkout::-webkit-scrollbar{
     display: none;
+} */
+.desktop .checkout {
+    max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(136, 136, 136, 0.4) transparent; /* More transparent */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+.desktop .checkout::-webkit-scrollbar {
+    width: 1px; /* Set the scrollbar width to 1px */
+}
+
+.desktop .checkout::-webkit-scrollbar-thumb {
+    background-color: rgba(136, 136, 136, 0.4); /* Transparent scrollbar handle */
+    border-radius: 10px; /* Optional: rounded scrollbar edges */
+}
+
+.desktop .checkout::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+/* Remove arrows (WebKit browsers) */
+.desktop .checkout::-webkit-scrollbar-button {
+    display: none; /* Hides the top and bottom scrollbar arrows */
 }
 .row_3{
     border-bottom: 1px solid #D1D1D1;
@@ -1206,6 +1256,11 @@ label:has(input[type="radio"]:checked) .credit::before {
     .getCopy input[type="checkbox"]{
         transform: scale(1);
         -webkit-transform: scale(1);
+    }
+    .reportFormat{
+        order: 1;
+        border-top: 1px solid #D1D1D1;
+        border-bottom: none;
     }
     .desktop{
         display: none !important;

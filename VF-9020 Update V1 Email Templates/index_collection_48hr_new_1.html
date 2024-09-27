@@ -669,533 +669,191 @@
                     {{/if}}
                     {{/unless}}
 
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2 table"
-                        role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                        <tbody>
-                            <tr>
-                                <td>
-
-                                    <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-3"
-                                        role="presentation"
-                                        style="padding-bottom: 17px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                        width="100%">
-                                        <tbody>
-                                            <tr>
-                                                <td class="pad"
-                                                    style="padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:0px;">
-                                                    <div
-                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:19.2px;">
-                                                        <p style="margin: 0;">We've found history records for the VIN:
-                                                            {{vin}}.</p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table align="center" border="0" cellpadding="0" cellspacing="0"
-                                        class="row-content stack" role="presentation"
-                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-radius: 0; color: #000000; background-color: #fcede5; width: 680.00px; margin: 0 auto;"
-                                        width="680.00">
-                                        <tbody>
-                                            <tr>
-                                                <td class="column column-1"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-left: 20px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:5px;padding-right:60px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        {{#if vpic_status}}
-                                                                        {{#if doors_status}}
-                                                                        <p style="margin: 0;"><strong>Doors:
-                                                                            </strong><span
-                                                                                class="value">{{doors}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if vindecipher_status}}
-                                                                        {{#if bodyType_status}}
-                                                                        <p style="margin: 0;"><strong>Body Type:
-                                                                            </strong><span
-                                                                                class="value">{{bodyType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if europe_status}}
-                                                                        {{#if engine_status}}
-                                                                        <p style="margin: 0;"><strong>Engine:
-                                                                            </strong><span
-                                                                                class="value">{{engine}}</span></p>
-                                                                        {{/if}}
-                                                                        {{#unless engine_status}}
-                                                                        <p style="margin: 0;"><strong>Vehicle Class:
-                                                                            </strong><span
-                                                                                class="value">{{vehicleClass}}</span>
-                                                                        </p>
-                                                                        {{/unless}}
-                                                                        {{/if}}
-                                                                        {{#if classic_status}}
-                                                                        {{#if transmission_status}}
-                                                                        <p style="margin: 0;"><strong>Transmission Type:
-                                                                            </strong><span
-                                                                                class="value">{{transmission}}</span>
-                                                                        </p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if usdecode_status}}
-                                                                        {{#if engine_status}}
-                                                                        <p style="margin: 0;"><strong>Engine:
-                                                                            </strong><span
-                                                                                class="value">{{engine}}</span></p>
-                                                                        {{/if}}
-                                                                        {{#unless engine_status}}
-                                                                        <p style="margin: 0;"><strong>Vehicle Type:
-                                                                            </strong><span
-                                                                                class="value">{{vehicleType}}</span></p>
-                                                                        {{/unless}}
-                                                                        {{/if}}
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                                <td class="column column-2"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:15px;padding-right:10px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        <p style="margin: 0;"><strong>Number of owners:
-                                                                            </strong>Record available</p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3 table"
-                        role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table align="center" border="0" cellpadding="0" cellspacing="0"
-                                        class="row-content stack" role="presentation"
-                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f9f7f7; border-radius: 0; color: #000000; width: 680.00px; margin: 0 auto;"
-                                        width="680.00">
-                                        <tbody>
-                                            <tr>
-                                                <td class="column column-1"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-left: 15px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:10px;padding-right:60px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        {{#if vpic_status}}
-                                                                        {{#if fuelType_status}}
-                                                                        <p style="margin: 0;"><strong>Fuel Type:
-                                                                            </strong><span
-                                                                                class="value">{{fuelType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if vindecipher_status}}
-                                                                        {{#if vehicleType_status}}
-                                                                        <p style="margin: 0;"><strong>Vehicle Type:
-                                                                            </strong><span
-                                                                                class="value">{{vehicleType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if europe_status}}
-                                                                        {{#if vehicleType_status}}
-                                                                        <p style="margin: 0;"><strong>Vehicle Type:
-                                                                            </strong><span
-                                                                                class="value">{{vehicleType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if classic_status}}
-                                                                        {{#if fuelType_status}}
-                                                                        <p style="margin: 0;"><strong>Fuel Type:
-                                                                            </strong><span
-                                                                                class="value">{{fuelType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if usdecode_status}}
-                                                                        {{#if manufacturer_status}}
-                                                                        <p style="margin: 0;"><strong>Manufacturer:
-                                                                            </strong><span
-                                                                                class="value">{{manufacturer}}</span>
-                                                                        </p>
-                                                                        {{/if}}
-                                                                        {{#unless manufacturer_status}}
-                                                                        <p style="margin: 0;"><strong>Made in:
-                                                                            </strong><span class="value">{{made}}</span>
-                                                                        </p>
-                                                                        {{/unless}}
-                                                                        {{/if}}
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                                <td class="column column-2"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:15px;padding-right:10px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        <p style="margin: 0;"><strong>Title history:
-                                                                            </strong><span class="value">Records
-                                                                                available</span></p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-4 table"
-                        role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-size: auto;"
-                        width="100%">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table align="center" border="0" cellpadding="0" cellspacing="0"
-                                        class="row-content stack" role="presentation"
-                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-size: auto; border-radius: 0; color: #000000; background-color: #fcede5; width: 680.00px; margin: 0 auto;"
-                                        width="680.00">
-                                        <tbody>
-                                            <tr>
-                                                <td class="column column-1"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-left: 15px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="10" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        {{#if vpic_status}}
-                                                                        {{#if vehicleType_status}}
-                                                                        <p style="margin: 0;"><strong>Vehicle Type:
-                                                                            </strong><span
-                                                                                class="value">{{vehicleType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if vindecipher_status}}
-                                                                        {{#if fuelType_status}}
-                                                                        <p style="margin: 0;"><strong>Fuel Type:
-                                                                            </strong><span
-                                                                                class="value">{{fuelType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if europe_status}}
-                                                                        {{#if manufacturer_status}}
-                                                                        <p style="margin: 0;"><strong>Manufacturer:
-                                                                            </strong><span
-                                                                                class="value">{{manufacturer}}</span>
-                                                                        </p>
-                                                                        {{/if}}
-                                                                        {{#unless manufacturer_status}}
-                                                                        <p style="margin: 0;"><strong>Made in:
-                                                                            </strong><span class="value">{{made}}</span>
-                                                                        </p>
-                                                                        {{/unless}}
-                                                                        {{/if}}
-                                                                        {{#if usdecode_status}}
-                                                                        {{#if bodyType_status}}
-                                                                        <p style="margin: 0;"><strong>Body Type:
-                                                                            </strong><span
-                                                                                class="value">{{bodyType}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                                <td class="column column-2"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:15px;padding-right:10px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        <p style="margin: 0;"><strong>Lien history:
-                                                                            </strong><span class="value">Records
-                                                                                available</span></p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-5 table"
-                        role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <table align="center" border="0" cellpadding="0" cellspacing="0"
-                                        class="row-content stack" role="presentation"
-                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #f9f7f7; border-radius: 0; color: #000000; width: 680.00px; margin: 0 auto;"
-                                        width="680.00">
-                                        <tbody>
-                                            <tr>
-                                                <td class="column column-1"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-left: 15px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:10px;padding-right:60px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        {{#if vpic_status}}
-                                                                        {{#if manufacturer_status}}
-                                                                        <p style="margin: 0;"><strong>Manufacturer:
-                                                                            </strong><span
-                                                                                class="value">{{manufacturer}}</span>
-                                                                        </p>
-                                                                        {{/if}}
-                                                                        {{#unless manufacturer_status}}
-                                                                        <p style="margin: 0;"><strong>Made:
-                                                                            </strong><span class="value">{{made}}</span>
-                                                                        </p>
-                                                                        {{/unless}}
-                                                                        {{/if}}
-                                                                        {{#if vindecipher_status}}
-                                                                        {{#if drive_status}}
-                                                                        <p style="margin: 0;"><strong>Drive:
-                                                                            </strong><span
-                                                                                class="value">{{drive}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if europe_status}}
-                                                                        {{#if transmission_status}}
-                                                                        <p style="margin: 0;"><strong>Transmission Type:
-                                                                            </strong><span
-                                                                                class="value">{{transmission}}</span>
-                                                                        </p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                        {{#if usdecode_status}}
-                                                                        {{#if drive_status}}
-                                                                        <p style="margin: 0;"><strong>Drive:
-                                                                            </strong><span
-                                                                                class="value">{{drive}}</span></p>
-                                                                        {{/if}}
-                                                                        {{/if}}
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                                <td class="column column-2"
-                                                    style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: middle; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;"
-                                                    width="50%">
-                                                    <table border="0" cellpadding="0" cellspacing="0"
-                                                        class="paragraph_block block-1" role="presentation"
-                                                        style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;"
-                                                        width="100%">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="pad m-p-0"
-                                                                    style="padding-bottom:10px;padding-left:15px;padding-right:10px;padding-top:10px;">
-                                                                    <div
-                                                                        style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:left;mso-line-height-alt:19.2px;">
-                                                                        <p style="margin: 0;"><strong>Accident history:
-                                                                            </strong><span class="value">Records
-                                                                                available</span></p>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    {{#if indigo_decode_status}}
-
-                    <div class="data indigoDecode"
-                        style="display: flex;gap: 20px;width:100%;max-width: 680px;margin: 0 auto;padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-                    
-                        <div class="col col1" style="width: 60%;">
-                    
-                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
-                    
-                                <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle-1.png" style="
-                            height: 24px;
-                        ">
-                    
-                                <div class="record_data">
-                    
-                                    <p style="margin: 0;">Accident check</p>
-                    
-                                    {{#if accident_check}}
-                    
-                                    <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-                    
-                                    {{/if}}
-                                    {{#unless accident_check}}
-                    
-                                    <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-                    
-                                    {{/unless}}
-                    
-                                </div>
-                    
-                            </div>
-                    
-                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;">
-                    
-                                <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle-1.png" style="
-                            height: 24px;
-                        ">
-                    
-                                <div class="record_data">
-                    
-                                    <p style="margin: 0;">Ownership record</p>
-                    
-                                    {{#if one_owner}}
-                    
-                                    <p style="margin: 0;color:#00B57A ;font-weight: 700;">One Owner</p>
-                    
-                                    {{/if}}
-                                    {{#unless one_owner}}
-                    
-                                    <p style="margin: 0;color: #D23535;font-weight: 700;">Multiple Owners</p>
-                    
-                                    {{/unless}}
-                    
-                                </div>
-                    
-                            </div>
-                    
-                        </div>
-                    
-                        <div class="col col2" style="width: 50%;">
-                    
-                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
-                            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.png" style="
-                            height: 24px;
-                        ">
-                    
-                            <div class="record_data">
-                    
-                                <p style="margin: 0;">Lemon check</p>
-                    
-                                {{#if lemon_check}}
-                    
-                                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-                    
+                    <div style="width: 100%; max-width: 680px; margin: 0 auto; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; font-size: 16px; line-height: 1.2; color: #101112;">
+                        <p style="text-align: center; margin: 0 0 20px;">We've found history records for the VIN: {{vin}}.</p>
+                        
+                        <div style="display: table; width: 100%; border-collapse: separate; border-spacing: 0;">
+                          <div style="display: table-row;">
+                            <div style="display: table-cell; width: 50%; padding: 10px; background-color: #fcede5;">
+                              {{#if vpic_status}}
+                                {{#if doors_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Doors: </strong><span>{{doors}}</span></p>
                                 {{/if}}
-                                {{#unless lemon_check}}
-                    
-                                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-                    
-                                {{/unless}}
-                    
-                            </div>
-                    
-                        </div>
-                    
-                        <div class="record" style="display: flex;align-items: flex-start;gap: 10px; 
-                        height: 24px;
-                    ">
-                            <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.png" style="
-                            height: 24px;
-                        ">
-                            <div class="record_data">
-                    
-                                <p style="margin: 0;">Flood check</p>
-                                {{#if flood_check}}
-                    
-                                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-                    
+                              {{/if}}
+                              {{#if vindecipher_status}}
+                                {{#if bodyType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Body Type: </strong><span>{{bodyType}}</span></p>
                                 {{/if}}
-                                {{#unless flood_check}}
-                    
-                                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-                    
+                              {{/if}}
+                              {{#if europe_status}}
+                                {{#if engine_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Engine: </strong><span>{{engine}}</span></p>
+                                {{/if}}
+                                {{#unless engine_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Vehicle Class: </strong><span>{{vehicleClass}}</span></p>
                                 {{/unless}}
-                    
+                              {{/if}}
+                              {{#if classic_status}}
+                                {{#if transmission_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Transmission Type: </strong><span>{{transmission}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if usdecode_status}}
+                                {{#if engine_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Engine: </strong><span>{{engine}}</span></p>
+                                {{/if}}
+                                {{#unless engine_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Vehicle Type: </strong><span>{{vehicleType}}</span></p>
+                                {{/unless}}
+                              {{/if}}
                             </div>
-                    
+                            
+                            <div style="display: table-cell; width: 50%; padding: 10px; background-color: #f9f7f7;">
+                              {{#if vpic_status}}
+                                {{#if fuelType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Fuel Type: </strong><span>{{fuelType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if vindecipher_status}}
+                                {{#if vehicleType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Vehicle Type: </strong><span>{{vehicleType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if europe_status}}
+                                {{#if vehicleType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Vehicle Type: </strong><span>{{vehicleType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if classic_status}}
+                                {{#if fuelType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Fuel Type: </strong><span>{{fuelType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if usdecode_status}}
+                                {{#if manufacturer_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Manufacturer: </strong><span>{{manufacturer}}</span></p>
+                                {{/if}}
+                                {{#unless manufacturer_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Made in: </strong><span>{{made}}</span></p>
+                                {{/unless}}
+                              {{/if}}
+                            </div>
+                          </div>
+                          
+                          <div style="display: table-row;">
+                            <div style="display: table-cell; width: 50%; padding: 10px; background-color: #fcede5;">
+                              {{#if vpic_status}}
+                                {{#if vehicleType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Vehicle Type: </strong><span>{{vehicleType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if vindecipher_status}}
+                                {{#if fuelType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Fuel Type: </strong><span>{{fuelType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if europe_status}}
+                                {{#if manufacturer_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Manufacturer: </strong><span>{{manufacturer}}</span></p>
+                                {{/if}}
+                                {{#unless manufacturer_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Made in: </strong><span>{{made}}</span></p>
+                                {{/unless}}
+                              {{/if}}
+                              {{#if usdecode_status}}
+                                {{#if bodyType_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Body Type: </strong><span>{{bodyType}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                            </div>
+                            
+                            <div style="display: table-cell; width: 50%; padding: 10px; background-color: #f9f7f7;">
+                              {{#if vpic_status}}
+                                {{#if manufacturer_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Manufacturer: </strong><span>{{manufacturer}}</span></p>
+                                {{/if}}
+                                {{#unless manufacturer_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Made: </strong><span>{{made}}</span></p>
+                                {{/unless}}
+                              {{/if}}
+                              {{#if vindecipher_status}}
+                                {{#if drive_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Drive: </strong><span>{{drive}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if europe_status}}
+                                {{#if transmission_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Transmission Type: </strong><span>{{transmission}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                              {{#if usdecode_status}}
+                                {{#if drive_status}}
+                                  <p style="margin: 0 0 10px;"><strong>Drive: </strong><span>{{drive}}</span></p>
+                                {{/if}}
+                              {{/if}}
+                            </div>
+                          </div>
                         </div>
-                    
                     </div>
                     
-                    </div>
-                    
-                    {{/if}}
+{{#if indigo_decode_status}}
+<div style="width: 100%; max-width: 680px; margin: 0 auto; padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+  <div style="display: flex; width: 100%;">
+    <div style="width: 60%; padding-right: 10px;">
+      <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+        <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle-1.png" style="height: 24px; margin-right: 10px;">
+        <div>
+          <p style="margin: 0;">Accident check</p>
+          {{#if accident_check}}
+          <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+          {{/if}}
+          {{#unless accident_check}}
+          <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+          {{/unless}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: flex-start;">
+        <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/alert-circle-1.png" style="height: 24px; margin-right: 10px;">
+        <div>
+          <p style="margin: 0;">Ownership record</p>
+          {{#if one_owner}}
+          <p style="margin: 0; color: #00B57A; font-weight: 700;">One Owner</p>
+          {{/if}}
+          {{#unless one_owner}}
+          <p style="margin: 0; color: #D23535; font-weight: 700;">Multiple Owners</p>
+          {{/unless}}
+        </div>
+      </div>
+    </div>
+    <div style="width: 40%;">
+      <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+        <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.png" style="height: 24px; margin-right: 10px;">
+        <div>
+          <p style="margin: 0;">Lemon check</p>
+          {{#if lemon_check}}
+          <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+          {{/if}}
+          {{#unless lemon_check}}
+          <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+          {{/unless}}
+        </div>
+      </div>
+      <div style="display: flex; align-items: flex-start;">
+        <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/09/check_circle.png" style="height: 24px; margin-right: 10px;">
+        <div>
+          <p style="margin: 0;">Flood check</p>
+          {{#if flood_check}}
+          <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+          {{/if}}
+          {{#unless flood_check}}
+          <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+          {{/unless}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
                     <!-- <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-6 table" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 				<tbody>
 					<tr>
