@@ -798,60 +798,80 @@
                     
 {{#if indigo_decode_status}}
 <div style="width: 100%; max-width: 680px; margin: 0 auto; padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-  <div style="display: flex; width: 100%;">
+<div style="display: flex; width: 100%;">
     <div style="width: 60%; padding-right: 10px;">
-      <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
-        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="alert circle" style="height: 24px; margin-right: 10px;">
+    <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+        {{#if accident_check}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+        {{/if}}
+        {{#unless accident_check}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+        {{/unless}}
         <div>
-          <p style="margin: 0;">Accident check</p>
-          {{#if accident_check}}
-          <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
-          {{/if}}
-          {{#unless accident_check}}
-          <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
-          {{/unless}}
+        <p style="margin: 0;">Accident check</p>
+        {{#if accident_check}}
+        <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+        {{/if}}
+        {{#unless accident_check}}
+        <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+        {{/unless}}
         </div>
-      </div>
-      <div style="display: flex; align-items: flex-start;">
-        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="alert circle" style="height: 24px; margin-right: 10px;">
+    </div>
+    <div style="display: flex; align-items: flex-start;">
+        {{#if one_owner}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+        {{/if}}
+        {{#unless one_owner}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+        {{/unless}}
         <div>
-          <p style="margin: 0;">Ownership record</p>
-          {{#if one_owner}}
-          <p style="margin: 0; color: #00B57A; font-weight: 700;">One Owner</p>
-          {{/if}}
-          {{#unless one_owner}}
-          <p style="margin: 0; color: #D23535; font-weight: 700;">Multiple Owners</p>
-          {{/unless}}
+        <p style="margin: 0;">Ownership record</p>
+        {{#if one_owner}}
+        <p style="margin: 0; color: #00B57A; font-weight: 700;">One Owner</p>
+        {{/if}}
+        {{#unless one_owner}}
+        <p style="margin: 0; color: #D23535; font-weight: 700;">Multiple Owners</p>
+        {{/unless}}
         </div>
-      </div>
+    </div>
     </div>
     <div style="width: 40%;">
-      <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
-        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle icon" style="height: 24px; margin-right: 10px;">
+    <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+        {{#if lemon_check}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+        {{/if}}
+        {{#unless lemon_check}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+        {{/unless}}
         <div>
-          <p style="margin: 0;">Lemon check</p>
-          {{#if lemon_check}}
-          <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
-          {{/if}}
-          {{#unless lemon_check}}
-          <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
-          {{/unless}}
+        <p style="margin: 0;">Lemon check</p>
+        {{#if lemon_check}}
+        <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+        {{/if}}
+        {{#unless lemon_check}}
+        <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+        {{/unless}}
         </div>
-      </div>
-      <div style="display: flex; align-items: flex-start;">
-        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle icon" style="height: 24px; margin-right: 10px;">
-        <div>
-          <p style="margin: 0;">Flood check</p>
-          {{#if flood_check}}
-          <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
-          {{/if}}
-          {{#unless flood_check}}
-          <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
-          {{/unless}}
-        </div>
-      </div>
     </div>
-  </div>
+    <div style="display: flex; align-items: flex-start;">
+        {{#if flood_check}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+        {{/if}}
+        {{#unless flood_check}}
+        <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+        {{/unless}}
+        <div>
+        <p style="margin: 0;">Flood check</p>
+        {{#if flood_check}}
+        <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+        {{/if}}
+        {{#unless flood_check}}
+        <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+        {{/unless}}
+        </div>
+    </div>
+    </div>
+</div>
 </div>
 {{/if}}
                     <!-- <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-6 table" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
@@ -1013,7 +1033,7 @@
                                                                 <td class="pad">
                                                                     <div
                                                                         style="color:#ffffff;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:19.2px;"> <!-- color custom each domain -->
-                                                                        <p class="text-mobile" style="margin: 0;">This {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}} has a lot of records that we think you should know. Grab this car's history with a <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/50-percent-orange.png" alt="50 percent orange" style="width: 106px; object-fit: contain; vertical-align: middle;" alt="50-Percent"> on us. Uncover the full history of this {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}.</p> <!-- color custom each domain -->
+                                                                        <p class="text-mobile" style="margin: 0;">This {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}} has a lot of records that we think you should know. Grab this car's history with a <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/50-percent-orange.png" alt="50 percent Coupon" style="width: 106px; object-fit: contain; vertical-align: middle;" alt="50-Percent Coupon"> on us. Uncover the full history of this {{#if year}}{{year}}{{/if}}{{#if make}} {{make}}{{/if}}{{#if model}} {{model}}{{/if}} {{#unless year}}{{#unless make}}{{#unless model}}Vehicle{{/unless}}{{/unless}}{{/unless}}.</p> <!-- color custom each domain -->
                                                                     </div>
                                                                 </td>
                                                             </tr>

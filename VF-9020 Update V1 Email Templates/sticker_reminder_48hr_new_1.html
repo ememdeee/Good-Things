@@ -306,7 +306,7 @@
 													<p style="margin: 0; margin-bottom: 2px;">
 														<strong class="h-mobile">Grab this vehicle's history record</strong></p>
 
-													<p class="text-mobile" style="margin: 0;">With our special <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/20-percent.png" alt="20 percent" style="width: 33px;" alt="20-Percent"> coupon.</p>
+													<p class="text-mobile" style="margin: 0;">With our special <img src="https://loganpaulrace.com/wp-content/uploads/2024/10/50-percent.png" alt="50 percent" style="width: 33px;" alt="20-Percent"> coupon.</p>
 												</div>
 											</td>
 										</tr>
@@ -724,7 +724,12 @@
 <div style="display: flex; width: 100%;">
 	<div style="width: 60%; padding-right: 10px;">
 	<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+		{{#if accident_check}}
 		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless accident_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Accident check</p>
 		{{#if accident_check}}
@@ -736,7 +741,12 @@
 		</div>
 	</div>
 	<div style="display: flex; align-items: flex-start;">
+		{{#if one_owner}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless one_owner}}
 		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Ownership record</p>
 		{{#if one_owner}}
@@ -750,7 +760,12 @@
 	</div>
 	<div style="width: 40%;">
 	<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
-		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="check circle" style="height: 24px; margin-right: 10px;">
+		{{#if lemon_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless lemon_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Lemon check</p>
 		{{#if lemon_check}}
@@ -762,7 +777,12 @@
 		</div>
 	</div>
 	<div style="display: flex; align-items: flex-start;">
-		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="check circle" style="height: 24px; margin-right: 10px;">
+		{{#if flood_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless flood_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Flood check</p>
 		{{#if flood_check}}

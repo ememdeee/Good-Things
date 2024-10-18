@@ -154,7 +154,7 @@
                               <tr>
                                   <td class="pad" style="padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:15px;">
                                   <div style="color:#101112;direction:ltr;font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:130%;text-align:center;mso-line-height-alt:19.2px;">
-                                  <p style="margin: 0;">Want to see all vehicle specifications from the manufacturer? Grab a copy of your original window sticker today!</p>
+                                  <p style="margin: 0;">Want to see all vehicle specifications from the manufacturer? Grab a copy of your original window sticker!</p>
                                   </div>
                                   </td>
                               </tr>
@@ -725,7 +725,12 @@
 <div style="display: flex; width: 100%;">
 	<div style="width: 60%; padding-right: 10px;">
 	<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
-		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="alert circle" style="height: 24px; margin-right: 10px;">
+		{{#if accident_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless accident_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Accident check</p>
 		{{#if accident_check}}
@@ -737,7 +742,12 @@
 		</div>
 	</div>
 	<div style="display: flex; align-items: flex-start;">
-		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="alert circle" style="height: 24px; margin-right: 10px;">
+		{{#if one_owner}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless one_owner}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Ownership record</p>
 		{{#if one_owner}}
@@ -751,7 +761,12 @@
 	</div>
 	<div style="width: 40%;">
 	<div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
-		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="check circle" style="height: 24px; margin-right: 10px;">
+		{{#if lemon_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless lemon_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Lemon check</p>
 		{{#if lemon_check}}
@@ -763,7 +778,12 @@
 		</div>
 	</div>
 	<div style="display: flex; align-items: flex-start;">
-		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="check circle" style="height: 24px; margin-right: 10px;">
+		{{#if flood_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+		{{/if}}
+		{{#unless flood_check}}
+		<img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+		{{/unless}}
 		<div>
 		<p style="margin: 0;">Flood check</p>
 		{{#if flood_check}}

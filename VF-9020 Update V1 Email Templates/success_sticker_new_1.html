@@ -342,116 +342,84 @@
             </tr>
         </tbody>
     </table>
-     {{#if indigo_decode_status}}
-
-                    <div class="data indigoDecode"
-                        style="display: flex;gap: 20px;width:100%;max-width: 680px;margin: 0 auto;padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
-                    
-                        <div class="col col1" style="width: 60%;">
-                    
-                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
-                    
-                                <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png"> alt="alert circle"
-                    
-                                <div class="record_data">
-                    
-                                    <p style="margin: 0;">Accident check</p>
-                    
-                                    {{#if accident_check}}
-                    
-                                    <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-                    
-                                    {{/if}}
-                                    {{#unless accident_check}}
-                    
-                                    <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-                    
-                                    {{/unless}}
-                    
-                                </div>
-                    
-                            </div>
-                    
-                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;">
-                    
-                                <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png"> alt="alert circle"
-                    
-                                <div class="record_data">
-                    
-                                    <p style="margin: 0;">Ownership record</p>
-                    
-                                    {{#if one_owner}}
-                    
-                                    <p style="margin: 0;color:#00B57A ;font-weight: 700;">One Owner</p>
-                    
-                                    {{/if}}
-                                    {{#unless one_owner}}
-                    
-                                    <p style="margin: 0;color: #D23535;font-weight: 700;">Multiple Owners</p>
-                    
-                                    {{/unless}}
-                    
-                                </div>
-                    
-                            </div>
-                    
-                        </div>
-                    
-                        <div class="col col2" style="width: 50%;">
-                    
-                            <div class="record" style="display: flex;align-items: flex-start;gap: 10px;margin-bottom: 20px;">
-                            <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="check circle" style="
-                            height: 24px;
-                        ">
-                    
-                            <div class="record_data">
-                    
-                                <p style="margin: 0;">Lemon check</p>
-                    
-                                {{#if lemon_check}}
-                    
-                                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-                    
-                                {{/if}}
-                                {{#unless lemon_check}}
-                    
-                                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-                    
-                                {{/unless}}
-                    
-                            </div>
-                    
-                        </div>
-                    
-                        <div class="record" style="display: flex;align-items: flex-start;gap: 10px; 
-                        height: 24px;
-                    ">
-                            <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="check circle" style="
-                            height: 24px;
-                        ">
-                            <div class="record_data">
-                    
-                                <p style="margin: 0;">Flood check</p>
-                                {{#if flood_check}}
-                    
-                                <p style="margin: 0;color: #D23535;font-weight: 700;">Records available</p>
-                    
-                                {{/if}}
-                                {{#unless flood_check}}
-                    
-                                <p style="margin: 0;color:#00B57A;font-weight: 700;">No record found</p>
-                    
-                                {{/unless}}
-                    
-                            </div>
-                    
-                        </div>
-                    
-                    </div>
-                    
-                    </div>
-                    
-                    {{/if}}
+{{#if indigo_decode_status}}
+<div style="width: 100%; max-width: 680px; margin: 0 auto; padding: 15px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;">
+<div style="display: flex; width: 100%;">
+  <div style="width: 60%; padding-right: 10px;">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+    {{#if accident_check}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+    {{/if}}
+    {{#unless accident_check}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+    {{/unless}}
+    <div>
+    <p style="margin: 0;">Accident check</p>
+    {{#if accident_check}}
+    <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+    {{/if}}
+    {{#unless accident_check}}
+    <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+    {{/unless}}
+    </div>
+  </div>
+  <div style="display: flex; align-items: flex-start;">
+    {{#if one_owner}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+    {{/if}}
+    {{#unless one_owner}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+    {{/unless}}
+    <div>
+    <p style="margin: 0;">Ownership record</p>
+    {{#if one_owner}}
+    <p style="margin: 0; color: #00B57A; font-weight: 700;">One Owner</p>
+    {{/if}}
+    {{#unless one_owner}}
+    <p style="margin: 0; color: #D23535; font-weight: 700;">Multiple Owners</p>
+    {{/unless}}
+    </div>
+  </div>
+  </div>
+  <div style="width: 40%;">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+    {{#if lemon_check}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+    {{/if}}
+    {{#unless lemon_check}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+    {{/unless}}
+    <div>
+    <p style="margin: 0;">Lemon check</p>
+    {{#if lemon_check}}
+    <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+    {{/if}}
+    {{#unless lemon_check}}
+    <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+    {{/unless}}
+    </div>
+  </div>
+  <div style="display: flex; align-items: flex-start;">
+    {{#if flood_check}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/alert-circle.png" alt="Alert circle" style="height: 24px; margin-right: 10px;">
+    {{/if}}
+    {{#unless flood_check}}
+    <img src="https://loganpaulrace.com/wp-content/uploads/2024/09/check_circle.png" alt="circle" style="height: 24px; margin-right: 10px;">
+    {{/unless}}
+    <div>
+    <p style="margin: 0;">Flood check</p>
+    {{#if flood_check}}
+    <p style="margin: 0; color: #D23535; font-weight: 700;">Records available</p>
+    {{/if}}
+    {{#unless flood_check}}
+    <p style="margin: 0; color: #00B57A; font-weight: 700;">No record found</p>
+    {{/unless}}
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+{{/if}}
 
     <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
         <tbody>
