@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle History Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-white text-black">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-80 bg-[#63E3CC] fixed left-0 top-0 bottom-0 p-4 overflow-y-auto">
+            <div class="bg-[#5185E3] p-4 rounded-lg mb-4">
+                <h2 class="text-xl font-bold text-white mb-2 text-center">
+                    Upgrade this report to premium!
+                </h2>
+                <div class="bg-white p-2 rounded-lg flex flex-col">
+                    <div class="bg-gray-100 p-2 rounded mb-2 flex flex-col items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-8 text-gray-600">
+                            <rect width="20" height="12" x="2" y="6" rx="2"/>
+                            <path d="M12 12h.01"/>
+                            <path d="M4 12h.01"/>
+                            <path d="M20 12h.01"/>
+                            <path d="M2 9h20"/>
+                        </svg>
+                        <div class="w-full text-center mt-1 overflow-hidden">
+                            <span class="inline-block tracking-widest font-serif text-black" style="font-size: 1.2rem; line-height: 1; letter-spacing: 0.1em;">
+                                5TDDZRFHXKS730863
+                            </span>
+                        </div>
+                    </div>
+                    <button class="bg-[#63E3CC] text-white px-4 py-2 rounded-md text-sm font-bold w-full">
+                        Upgrade
+                    </button>
+                </div>
+            </div>
+            <nav class="bg-white rounded-lg overflow-hidden">
+                <div class="bg-[#5185E3] p-4 text-white font-bold">
+                    Overview and safety ratings
+                </div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Quick summary</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Vehicle specifications</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Basic vehicle history check</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Depreciation analysis</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Market analysis</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Days listed for sale</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Mileage analysis</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Equipment details</div>
+                <div class="p-4 text-black hover:bg-gray-100 cursor-pointer">Recalls</div>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 ml-80">
+            <!-- Header -->
+            <header class="bg-white text-black p-4 flex justify-between border-b border-gray-200">
+                <div class="flex items-start space-x-4">
+                    <div class="bg-red-600 rounded flex items-center justify-center" style="width: 120px; height: 120px; min-width: 120px;">
+                        <img 
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/toyota-logo-8Oo0Ue9aqXNXGQZTZZZZDxWbFGxUzz.png" 
+                            alt="Toyota Logo" 
+                            class="w-24 h-12 object-contain"
+                        />
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold mb-0">VEHICLE HISTORY REPORT</h1>
+                        <h2 class="text-2xl font-bold mt-0 mb-2">2019 TOYOTA HIGHLANDER BODY</h2>
+                        <p class="text-sm text-gray-600">Estimated Mileage: <span class="font-bold">59,609 mi</span></p>
+                        <p class="text-sm text-gray-600">VIN Number: <span class="font-bold">5TDDZRFHXKS73086</span></p>
+                        <p class="text-sm text-gray-600">Report Generated: <span class="font-bold">09-03-2024</span></p>
+                    </div>
+                </div>
+                <div class="flex flex-col items-end space-y-4">
+                    <button class="bg-white border border-gray-200 text-black px-4 py-2 rounded-full text-sm font-bold flex items-center space-x-2">
+                        <span>Scan to open report:</span>
+                        <img src="/placeholder.svg?height=40&width=40" alt="QR Code" class="w-10 h-10" />
+                    </button>
+                    <div class="flex space-x-2 self-start">
+                        <button class="bg-[#63E3CC] text-black px-4 py-2 rounded-md text-sm font-bold flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                            Copy link
+                        </button>
+                        <button class="bg-[#5185E3] text-white px-4 py-2 rounded-md text-sm font-bold flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main content area -->
+            <main class="p-8">
+                <!-- Vehicle Details and Safety Ratings -->
+                <div class="flex space-x-8">
+                    <div class="w-1/2">
+                        <h3 class="text-xl font-bold mb-4">Vehicle Details</h3>
+                        <div class="grid grid-cols-2 gap-0.5">
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Trim</p>
+                                <p class="font-bold text-sm">Ltd</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Fuel Type</p>
+                                <p class="font-bold text-sm">Gas</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Transmission</p>
+                                <p class="font-bold text-sm">Automatic</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Drive Type</p>
+                                <p class="font-bold text-sm">AWD</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Doors</p>
+                                <p class="font-bold text-sm">5</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Body Type</p>
+                                <p class="font-bold text-sm">SUV</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Vehicle Type</p>
+                                <p class="font-bold text-sm">MPV</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Consumer Complaints</p>
+                                <p class="font-bold text-sm">343</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">Market Value</p>
+                                <p class="font-bold text-sm">$28,528</p>
+                            </div>
+                            <div class="border border-gray-200 p-2">
+                                <p class="text-xs text-gray-500">MSRP</p>
+                                <p class="font-bold text-sm">$44,390</p>
+                            </div>
+                            <div class="border border-gray-200 p-2 col-span-2">
+                                <p class="text-xs text-gray-500">Country of Manufacture</p>
+                                <p class="font-bold text-sm">Toyota Motor Manufacturing, Indiana, Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-1/2">
+                        <h3 class="text-xl font-bold mb-4">Safety Ratings</h3>
+                        <div class="grid grid-cols-1 gap-0.5">
+                            <div class="border border-gray-200 p-2 flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-gray-500">Overall</p>
+                                    <p class="font-bold text-sm">Rating</p>
+                                </div>
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-2 flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-gray-500">Frontal Crash</p>
+                                    <p class="font-bold text-sm">Rating</p>
+                                </div>
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-2 flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-gray-500">Side Crash</p>
+                                    <p class="font-bold text-sm">Rating</p>
+                                </div>
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-2 flex justify-between items-center">
+                                <div>
+                                    <p class="text-xs text-gray-500">Rollover</p>
+                                    <p class="font-bold text-sm">Rating</p>
+                                </div>
+                                <div class="flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-300" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                </div>
+                            </div>
+                            <div class="border border-gray-200 p-2 flex flex-col items-center">
+                                <p class="text-xs text-gray-500 mb-2 text-center">
+                                    * Star Rating range from 1 to 5 stars (★★★★★) with 5 being the highest.
+                                </p>
+                                <p class="text-xs text-gray-500 mt-2 text-center">
+                                    Source: National Highway Traffic Safety Administration (NHTSA)
+                                </p>
+                                <p class="text-xs text-gray-500 text-center">
+                                    www.safecar.gov or 1-888-327-4236
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upsell Section -->
+                <div class="mt-8 bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Basic Vehicle History Check</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <div class="flex-grow">
+                                <p class="font-semibold">Multiple Owners?</p>
+                                <div class="flex items-center">
+                                    <p class="text-red-500 font-bold mr-2">Yes</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-500">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2">
+                                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+                            </svg>
+                            <div class="flex-grow">
+                                <p class="font-semibold">Vehicle Usage Record:</p>
+                                <div class="flex items-center">
+                                    <p class="text-red-500 font-bold mr-2">Record(s) found!</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-500">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <div class="flex-grow">
+                                <p class="font-semibold">Title Verification:</p>
+                                <div class="flex items-center">
+                                    <p class="text-red-500 font-bold mr-2">Issues found with title</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-500">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 mr-2">
+                                <path d="M14 16H9m10 0h3v-3.15a1 1 0 00-.84-.99L16 11l-2.7-3.6a1 1 0 00-.8-.4H5.24a2 2 0 00-1.8 1.1l-.8 1.63A6 6 0 002 12.42V16h2"></path>
+                                <circle cx="6.5" cy="16.5" r="2.5"></circle>
+                                <circle cx="16.5" cy="16.5" r="2.5"></circle>
+                            </svg>
+                            <div class="flex-grow">
+                                <p class="font-semibold">Accident records?</p>
+                                <div class="flex items-center">
+                                    <p class="text-red-500 font-bold mr-2">Issues found with title</p>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-yellow-500">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-md text-lg font-bold w-full">
+                        Get premium report to check issues
+                    </button>
+                </div>
+
+                <!-- New Auction History Section -->
+                <div class="mt-8 border border-red-500 rounded-lg overflow-hidden">
+                    <div class="bg-red-50 p-6 flex flex-col md:flex-row items-start space-y-6 md:space-y-0 md:space-x-6">
+                        <div class="w-full md:w-1/3">
+                            <img 
+                                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%201000006201-TNo1vhGVgPjDXahiII31wSyMkUktza.png" 
+                                alt="Blurred vehicle image" 
+                                class="w-full h-auto rounded-lg"
+                            />
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <div class="flex items-center space-x-2 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-red-500">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <h4 class="text-2xl font-bold text-red-500">ATTENTION!</h4>
+                            </div>
+                            <p class="mb-4">
+                                This vehicle was previously listed for sale at auction. Reveal full auction record, including 10+ photos.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">Odometer:</p>
+                                    <p class="font-bold text-red-500">6991</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Loss Type:</p>
+                                    <p class="font-bold text-red-500">N/A</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Location:</p>
+                                    <p class="font-bold text-red-500">Somerville (NJ)</p>
+                                </div>
+                            </div>
+                            <button class="bg-blue-500 text-white px-6 py-3 rounded-md text-lg font-bold w-full">
+                                Reveal full auction records
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Specifications -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">Vehicle Specifications</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-6">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-blue-500 mb-2">MSRP</h4>
+                                <p><span class="font-semibold">Destination Charge:</span> $1,120</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-blue-500 mb-2">INTERIOR DIMENSIONS</h4>
+                                <p><span class="font-semibold">Cargo Volume:</span> 13.8 cu ft</p>
+                                <p><span class="font-semibold">Seating Capacity:</span> 7</p>
+                                <p><span class="font-semibold">Doors:</span> 4</p>
+                                <p><span class="font-semibold">Rows:</span> 3</p>
+                                <p><span class="font-semibold">Front Leg Room:</span> 44.2 in</p>
+                                <p><span class="font-semibold">Front Shoulder Room:</span> 59.3 in</p>
+                                <p><span class="font-semibold">Rear Leg Room:</span> 38.4 in</p>
+                                <p><span class="font-semibold">Rear Shoulder Room:</span> 59.6 in</p>
+                                <p><span class="font-semibold">Third Row Headroom:</span> 35.9 in</p>
+                                <p><span class="font-semibold">Third Row Legroom:</span> 27.7 in</p>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-blue-500 mb-2">EXTERIOR DIMENSIONS</h4>
+                                <p><span class="font-semibold">Ground Clearance:</span> 13.8 cu ft</p>
+                                <p><span class="font-semibold">Height:</span> 70.1 in</p>
+                                <p><span class="font-semibold">Length:</span> 192.5 in</p>
+                                <p><span class="font-semibold">Wheelbase:</span> 109.8 in</p>
+                                <p><span class="font-semibold">Width:</span> 75.8 in</p>
+                                <p><span class="font-semibold">Curb Weight:</span> 4655 lbs</p>
+                                <p><span class="font-semibold">Fuel Tank Capacity:</span> 19.2 gal</p>
+                                <p><span class="font-semibold">Gross Vehicle Weight Rating:</span> 6000 lbs</p>
+                                <p><span class="font-semibold">Max Payload:</span> 1280 lbs</p>
+                                <p><span class="font-semibold">Max Towing Capacity:</span> 5000 lbs</p>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-blue-500 mb-2">MPG (MILES PER GALLON)</h4>
+                                <div class="flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-teal-400 mr-4">
+                                        <line x1="3" y1="22" x2="15" y2="22"></line>
+                                        <line x1="4" y1="9" x2="14" y2="9"></line>
+                                        <path d="M14 22V4a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v18"></path>
+                                        <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path>
+                                    </svg>
+                                    <div>
+                                        <p><span class="font-semibold">Highway MPG:</span> 26</p>
+                                        <p><span class="font-semibold">City MPG:</span> 19</p>
+                                        <p><span class="font-semibold">Combined MPG:</span> 22.0</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h4 class="text-lg font-semibold text-blue-500 mb-2">ENGINE, TRANSMISSION, FUEL</h4>
+                                <p><span class="font-semibold">Engine:</span> 3.5L V6 295hp 263ft. lbs.</p>
+                                <p><span class="font-semibold">Engine Power:</span> 295 HP at 6600 RPM</p>
+                                <p><span class="font-semibold">Engine Torque:</span> 263 ft-lbs at 4700 RPM</p>
+                                <p><span class="font-semibold">Cylinders:</span> 6</p>
+                                <p><span class="font-semibold">Fuel Type:</span> Gas</p>
+                                <p><span class="font-semibold">Axle Ratio:</span> 3.0</p>
+                                <p><span class="font-semibold">Acceleration:</span> N/A</p>
+                                <p><span class="font-semibold">Transmission Type:</span> Automatic</p>
+                                <p><span class="font-semibold">Transmission:</span> 8-Speed Automatic w/ Sequential Shift Mode</p>
+                                <p><span class="font-semibold">Fuel Tank Capacity:</span> 19.2 gal</p>
+                                <p><span class="font-semibold">Engine Torque 2:</span> 5000 lbs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Window Sticker Section -->
+                    <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+                        <h4 class="text-2xl font-bold mb-4">Get the Full Picture Before Buying or Selling a Car!</h4>
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4 mb-4 md:mb-0">
+                                <p class="mb-4">
+                                    A window sticker provides you with the complete breakdown of a vehicle's original features, including
+                                    standard and optional equipment, plus the manufacturer's pricing. Whether you're a buyer
+                                    ensuring the car has the right features, or a seller showcasing the vehicle's true value, a window sticker
+                                    gives you the confidence you need.
+                                </p>
+                                <p class="font-bold mb-4">Get your window sticker now and make informed decisions!</p>
+                                <div class="flex items-center space-x-4">
+                                    <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-bold">
+                                        Check availability
+                                    </button>
+                                    <img src="/placeholder.svg?height=80&width=80" alt="100% Money Back Guarantee" class="w-20 h-20" />
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 flex items-center justify-center">
+                                <img 
+                                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3HGGK5H68KM740380-Vhm1BCOOkdOFrR0zZyw6keInGJmujI.png" 
+                                    alt="2019 Honda Fit LX Window Sticker" 
+                                    class="max-w-full h-auto rounded-lg shadow-lg md:max-h-64 object-contain"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vehicle Value Comparison Section -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">Vehicle Value Comparison</h3>
+                    <div class="bg-[#63E3CC] text-white p-4 rounded-t-lg">
+                        <h4 class="text-lg font-semibold mb-2">TYPICAL SIMILAR VEHICLES</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-semibold text-blue-500 mb-2">This Vehicle</h5>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Value</p>
+                                        <p class="font-bold">$28,528</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">1 Year from Now</p>
+                                        <p class="font-bold">$27,438 (-$1,090)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">3 Years from Now</p>
+                                        <p class="font-bold">$25,380 (-$3,148)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">5 Years from Now</p>
+                                        <p class="font-bold">$23,477 (-$5,051)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-semibold text-blue-500 mb-2">2019 Toyota Highlander</h5>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Value</p>
+                                        <p class="font-bold">$28,520</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">1 Year from Now</p>
+                                        <p class="font-bold">$27,423 (-$1,097)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">3 Years from Now</p>
+                                        <p class="font-bold">$25,355 (-$3,165)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">5 Years from Now</p>
+                                        <p class="font-bold">$23,442 (-$5,078)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#63E3CC] text-white p-4 rounded-b-lg mt-4">
+                        <h4 class="text-lg font-semibold mb-2">COMPETITOR VEHICLES</h4>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-semibold text-blue-500 mb-2">2019 Jeep Grand Cherokee</h5>
+                                <div class="grid grid-cols-1 gap-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Value</p>
+                                        <p class="font-bold">$24,764</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">1 Year from Now</p>
+                                        <p class="font-bold">$23,691 (-$1,073)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">3 Years from Now</p>
+                                        <p class="font-bold">$21,682 (-$3,082)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">5 Years from Now</p>
+                                        <p class="font-bold">$19,844 (-$4,920)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-semibold text-blue-500 mb-2">2019 Jeep Wrangler Unlimited</h5>
+                                <div class="grid grid-cols-1 gap-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Value</p>
+                                        <p class="font-bold">$31,315</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">1 Year from Now</p>
+                                        <p class="font-bold">$30,198 (-$1,117)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">3 Years from Now</p>
+                                        <p class="font-bold">$28,083 (-$3,232)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">5 Years from Now</p>
+                                        <p class="font-bold">$26,116 (-$5,199)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-semibold text-blue-500 mb-2">2019 Ford Explorer</h5>
+                                <div class="grid grid-cols-1 gap-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Value</p>
+                                        <p class="font-bold">$24,100</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">1 Year from Now</p>
+                                        <p class="font-bold">$22,978 (-$1,122)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">3 Years from Now</p>
+                                        <p class="font-bold">$20,887 (-$3,213)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">5 Years from Now</p>
+                                        <p class="font-bold">$18,987 (-$5,113)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graph Section -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-4">Vehicle Value Projection</h3>
+                    <div class="bg-white p-4 rounded-lg shadow-lg">
+                        <canvas id="vehicleValueProjection" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Market Analysis Section -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold mb-6">Market Analysis</h3>
+                    <div class="bg-blue-500 text-white p-6 rounded-lg">
+                        <h4 class="text-xl font-bold mb-4">TYPICAL SIMILAR VEHICLES</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-bold text-blue-500 mb-4">This Vehicle</h5>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Estimated Mileage</p>
+                                        <p class="font-bold text-lg">59,609 mi</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Estimated Market Value</p>
+                                        <p class="font-bold text-lg">$28,511</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-bold text-blue-500 mb-4">2019 Toyota Highlander</h5>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Current Value</p>
+                                        <p class="font-bold text-lg">$28,520</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Mileage</p>
+                                        <p class="font-bold text-lg">15,996 more than this vehicle</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Market Value</p>
+                                        <p class="font-bold text-lg">$1,520 less than this vehicle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="text-xl font-bold mt-8 mb-4">COMPETITOR VEHICLES</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-bold text-blue-500 mb-4">2019 Jeep Grand Cherokee</h5>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Price</p>
+                                        <p class="font-bold text-lg">$23,358</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Mileage</p>
+                                        <p class="font-bold text-lg">14,754 more than this vehicle</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Market Value</p>
+                                        <p class="font-bold text-lg">$4,674 less than this vehicle</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-bold text-blue-500 mb-4">2019 Jeep Wrangler Unlimited</h5>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Price</p>
+                                        <p class="font-bold text-lg">$31,416</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Mileage</p>
+                                        <p class="font-bold text-lg">3,341 more than this vehicle</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Market Value</p>
+                                        <p class="font-bold text-lg">$3,143 more than this vehicle</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white text-black p-4 rounded-lg">
+                                <h5 class="text-lg font-bold text-blue-500 mb-4">2019 Ford Explorer</h5>
+                                <div class="grid grid-cols-1 gap-4">
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Price</p>
+                                        <p class="font-bold text-lg">$21,584</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Mileage</p>
+                                        <p class="font-bold text-lg">18,853 more than this vehicle</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Average Market Value</p>
+                                        <p class="font-bold text-lg">$6,453 less than this vehicle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Times to Buy or Sell Section -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold mb-6">Best Times to Buy or Sell</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <canvas id="bestTimesToBuyOrSell" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Days Listed for Sale Section -->
+                <div class="mt-8 bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-2 text-blue-500">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Days listed for sale:
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Similar vehicles sell in <span class="font-bold">39 days</span>. The average vehicle typically sells in <span class="font-bold">36 days</span>.
+                    </p>
+                    <p class="text-lg italic">
+                        The longer a vehicle stays on the market, the more negotiating leverage you may have.
+                    </p>
+                </div>
+
+                <!-- New Sales Records Section -->
+                <div class="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
+                    <div class="flex flex-col md:flex-row items-start space-y-6 md:space-y-0 md:space-x-6">
+                        <div class="w-full md:w-1/3">
+                            <img 
+                                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Group%201000006201-EfNZalYu3SdLIMXEAJKKj3dlxNgTUw.png" 
+                                alt="Blurred vehicle image"
+                                class="w-full h-auto rounded-lg"
+                            />
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <div class="flex items-center space-x-2 mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-blue-500">
+                                    <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                                <h4 class="text-2xl font-bold text-blue-500">Alert! Sales records found</h4>
+                            </div>
+                            <p class="mb-4">
+                                This vehicle was previously listed for sale. Reveal past sales listing records, including 10+
+                                photos.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                <div>
+                                    <p class="text-sm text-gray-600">Odometer:</p>
+                                    <p class="font-bold text-blue-500">6991</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Sales Type:</p>
+                                    <p class="font-bold text-blue-500">Classified</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-600">Location:</p>
+                                    <p class="font-bold text-blue-500">Somerville (NJ)</p>
+                                </div>
+                            </div>
+                            <button class="bg-blue-500 text-white px-6 py-3 rounded-md text-lg font-bold w-full">
+                                Reveal sales listing records
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mileage Information Section -->
+                <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">Mileage Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-2">Estimated Mileage</h4>
+                            <p class="text-3xl font-bold">59,609 mi</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold mb-2">Estimated miles driven per year</h4>
+                            <p class="text-3xl font-bold">10,513 miles</p>
+                            <p class="text-sm text-gray-600">for the average 2019 Toyota Highlander.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Details Section -->
+                <div class="mt-8">
+                    <h3 class="text-2xl font-bold mb-6">Equipment Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="equipmentDetails">
+                        <!-- Equipment details will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Recall Information Section -->
+                <div class="mt-8 bg-red-50 border border-red-200 rounded-lg p-6">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 mr-2 text-red-500">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        Recall Information
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-semibold">Nov 5, 2020 - FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP</h4>
+                            <p><strong>Report received date:</strong> Nov 5, 2020</p>
+                            <p><strong>Owner notified date:</strong> Owners Notified - Jan 21, 2021</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold">Recall summary</h5>
+                            <p>Toyota Motor Engineering & Manufacturing (Toyota) is recalling certain 2018-2019 4Runner, 2019-2020 Avalon, 2019 Corolla Hatchback, 2017-2019 Highlander, 2018-2020 Camry, 2020 Corolla, 2018-2019 Land Cruiser, 2017-2020 Tacoma, 2019-2020 RAV4, 2019-2020 Sequoia, 2017-2020 Sienna, 2019-2020 Tundra, 2018-2020 Lexus ES350, 2017 Lexus GS200t, 2017-2019 Lexus GS350, 2019 Lexus GS300, 2018-2020 Lexus LC500h, 2019-2020 Lexus LS500, 2018-2019 Lexus GX460, 2017 Lexus IS200t, 2019 Lexus IS300, 2019 Lexus IS350, 2018-2020 Lexus LC500, 2018 Lexus LS500, 2019 Lexus LS500h, 2018-2019 Lexus LX570, 2017 Lexus RC200t, 2019 Lexus RC300, RC350, 2017 and 2019-2020 Lexus RX350, 2018-2020 RX350L, 2019 Lexus UX200, 2018-2019 Lexus NX300 vehicles. The low-pressure fuel pump inside the fuel tank may fail.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold">Consequence</h5>
+                            <p>If the fuel pump fails, the engine can stall while driving, increasing the risk of a crash.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold">Remedy</h5>
+                            <p>Toyota will notify owners, and dealers will replace the fuel pump assembly with an improved one, free of charge. Owners of specific models were notified that remedy parts were available starting January 21, 2021. Owners of other models will be notified as remedy parts become available. Remedy parts should be available for all affected vehicles by late March 2021. Owners may contact Toyota customer service at 1-888-270-9371 or Lexus customer service at 1-800-255-3987. Note: This recall is an expansion of recall 20V-012. Toyota's number for this recall is 20TA02. Lexus' number for this recall is 20LA01.</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold">Notes</h5>
+                            <p>Owners may also contact the National Highway Traffic Safety Administration Vehicle Safety Hotline at 1-888-327-4236 (TTY 1-800-424-9153), or go to www.safercar.gov.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Equipment Details
+        const equipmentDetails = {
+            'AIR CONDITIONING': [
+                'Air filtration',
+                'Automatic climate control',
+                'Dual zone climate control',
+                'Front air conditioning',
+                'Front air conditioning zones: dual',
+                'Rear air conditioning: automatic climate control',
+                'Rear air conditioning zones: single',
+                'Rear vents: second row',
+            ],
+            'MIRRORS': [
+                'Auto-dimming rearview mirror',
+                'Driver side mirror: heated',
+                'Passenger side mirror: heated',
+                'Side mirrors: driver side auto-dimming',
+                'Side mirrors: heated',
+                'Side mirrors: integrated turn signals',
+            ],
+            'AIRBAGS': [
+                'Airbag deactivation: occupant sensing passenger',
+                'Front airbags: dual',
+                'Front side airbags',
+                'Knee airbags: driver',
+                'Side curtain airbags: front',
+                'Side curtain airbags: rear',
+                'Side-curtain airbag rollover sensor',
+            ],
+            // ... (other categories)
+        };
+
+        const equipmentDetailsContainer = document.getElementById('equipmentDetails');
+
+        Object.entries(equipmentDetails).forEach(([category, features]) => {
+            const categoryElement = document.createElement('div');
+            categoryElement.className = 'bg-gray-100 p-4 rounded-lg';
+            categoryElement.innerHTML = `
+                <h4 class="text-lg font-semibold mb-2">${category}</h4>
+                <ul class="list-disc list-inside mb-2">
+                    ${features.slice(0, 3).map(feature => `<li class="text-sm">${feature}</li>`).join('')}
+                </ul>
+                ${features.length > 3 ? `
+                    <button class="text-blue-500 text-sm font-semibold flex items-center view-more" data-category="${category}">
+                        View more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-1">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                ` : ''}
+            `;
+            equipmentDetailsContainer.appendChild(categoryElement);
+        });
+
+        equipmentDetailsContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('view-more') || e.target.closest('.view-more')) {
+                const button = e.target.classList.contains('view-more') ? e.target : e.target.closest('.view-more');
+                const category = button.dataset.category;
+                const categoryElement = button.closest('.bg-gray-100');
+                const featuresList = categoryElement.querySelector('ul');
+                const isExpanded = button.textContent.trim() === 'View less';
+
+                if (isExpanded) {
+                    featuresList.innerHTML = equipmentDetails[category].slice(0, 3).map(feature => `<li class="text-sm">${feature}</li>`).join('');
+                    button.innerHTML = `
+                        View more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-1">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    `;
+                } else {
+                    featuresList.innerHTML = equipmentDetails[category].map(feature => `<li class="text-sm">${feature}</li>`).join('');
+                    button.innerHTML = `
+                        View less
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 ml-1">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    `;
+                }
+            }
+        });
+
+        // Vehicle Value Projection Chart
+        const projectionData = [
+            { date: 'Sep 2024', 'This Vehicle': 28528, '2019 Toyota Highlander': 28520, '2019 Jeep Grand Cherokee': 24764, '2019 Jeep Wrangler Unlimited': 31315, '2019 Ford Explorer': 24100 },
+            { date: 'Mar 2026', 'This Vehicle': 27983, '2019 Toyota Highlander': 27975, '2019 Jeep Grand Cherokee': 24269, '2019 Jeep Wrangler Unlimited': 30689, '2019 Ford Explorer': 23618 },
+            { date: 'Sep 2027', 'This Vehicle': 26893, '2019 Toyota Highlander': 26885, '2019 Jeep Grand Cherokee': 23318, '2019 Jeep Wrangler Unlimited': 29492, '2019 Ford Explorer': 22693 },
+            { date: 'Mar 2029', 'This Vehicle': 25803, '2019 Toyota Highlander': 25796, '2019 Jeep Grand Cherokee': 22367, '2019 Jeep Wrangler Unlimited': 28295, '2019 Ford Explorer': 21768 },
+        ];
+
+        const ctx = document.getElementById('vehicleValueProjection').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: projectionData.map(d => d.date),
+                datasets: [
+                    {
+                        label: 'This Vehicle',
+                        data: projectionData.map(d => d['This Vehicle']),
+                        borderColor: '#FFD700',
+                        fill: false
+                    },
+                    {
+                        label: '2019 Toyota Highlander',
+                        data: projectionData.map(d => d['2019 Toyota Highlander']),
+                        borderColor: '#8884d8',
+                        fill: false
+                    },
+                    {
+                        label: '2019 Jeep Grand Cherokee',
+                        data: projectionData.map(d => d['2019 Jeep Grand Cherokee']),
+                        borderColor: '#FF69B4',
+                        fill: false
+                    },
+                    {
+                        label: '2019 Jeep Wrangler Unlimited',
+                        data: projectionData.map(d => d['2019 Jeep Wrangler Unlimited']),
+                        borderColor: '#FFA500',
+                        fill: false
+                    },
+                    {
+                        label: '2019 Ford Explorer',
+                        data: projectionData.map(d => d['2019 Ford Explorer']),
+                        borderColor: '#00FF00',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Vehicle Value Projection'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                }
+            }
+        });
+
+        // Best Times to Buy or Sell Chart
+        const bestTimesToBuyOrSellData = [
+            { month: 'Jan', buy: 50, sell: -130 },
+            { month: 'Feb', buy: 60, sell: 0 },
+            { month: 'Mar', buy: 250, sell: 0 },
+            { month: 'Apr', buy: 480, sell: 0 },
+            { month: 'May', buy: 440, sell: 0 },
+            { month: 'Jun', buy: 120, sell: 0 },
+            { month: 'Jul', buy: 30, sell: 0 },
+            { month: 'Aug', buy: 0, sell: 0 },
+            { month: 'Sep',buy: 0, sell: -130 },
+            { month: 'Oct', buy: 0, sell: -240 },
+            { month: 'Nov', buy: 0, sell: -490 },
+            { month: 'Dec', buy: 0, sell: -520 },
+        ];
+
+        const ctx2 = document.getElementById('bestTimesToBuyOrSell').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: bestTimesToBuyOrSellData.map(d => d.month),
+                datasets: [
+                    {
+                        label: 'Good Months to Buy',
+                        data: bestTimesToBuyOrSellData.map(d => d.buy),
+                        backgroundColor: '#8884d8'
+                    },
+                    {
+                        label: 'Good Months to Sell',
+                        data: bestTimesToBuyOrSellData.map(d => d.sell),
+                        backgroundColor: '#63E3CC'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Best Times to Buy or Sell'
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
