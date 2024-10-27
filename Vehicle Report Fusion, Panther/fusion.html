@@ -10,39 +10,42 @@
     <!-- chart for IDEAL Time To Buy or Sell -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @media (max-width: 767px) {
-            .sidebar {
-                position: fixed;
-                bottom: -80vh;
-                left: 0;
-                right: 0;
-                height: 80vh;
-                transition: bottom 0.3s ease-in-out;
-                width: 95%;
-                margin: 0 auto;
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
-                box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
-                z-index: 50;
-            }
-            .sidebar.open {
-                bottom: 70px;
-            }
-            .toggle-sidebar {
-                display: flex;
-                position: fixed;
-                bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1000;
-            }
-            .main-content {
-                margin-left: 0 !important;
-            }
-        }
+      .fusion .panther, .panther .fusion{
+        display: none;
+      }
+      @media (max-width: 767px) {
+          .sidebar {
+              position: fixed;
+              bottom: -80vh;
+              left: 0;
+              right: 0;
+              height: 80vh;
+              transition: bottom 0.3s ease-in-out;
+              width: 95%;
+              margin: 0 auto;
+              border-top-left-radius: 20px;
+              border-top-right-radius: 20px;
+              box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+              z-index: 50;
+          }
+          .sidebar.open {
+              bottom: 70px;
+          }
+          .toggle-sidebar {
+              display: flex;
+              position: fixed;
+              bottom: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              z-index: 1000;
+          }
+          .main-content {
+              margin-left: 0 !important;
+          }
+      }
     </style>
 </head>
-<body class="bg-white text-black max-w-7xl mx-auto">
+<body class="bg-white text-black max-w-7xl mx-auto panther">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar w-80 bg-white fixed p-4 overflow-y-auto fit h-fit">
@@ -107,7 +110,7 @@
                     <img src="assets/barcode.png" alt="QR Code" class="w-20">
                   </div>
                   <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">
-                    <button class="bg-[#63E3CC] text-black px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto">
+                    <button class="bg-[#63E3CC] text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                       </svg>
@@ -123,7 +126,7 @@
                 </div>
             </section>
 
-            <section class="font-sans p-5 bg-white">
+            <section class="font-sans p-5 bg-white fusion">
                 <div class="flex flex-wrap gap-5">
                   <div class="flex-1 min-w-[300px]">
                     <div class="grid grid-cols-2 gap-[1px] bg-gray-200 border border-gray-200">
@@ -218,7 +221,45 @@
                   </div>
                 </div>
             </section>
-            <section class="p-4 sm:p-6">
+
+            <section class="bg-white p-5 panther">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[1px] bg-gray-200 border border-gray-200">
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Trim</p>
+                  <p class="font-semibold m-0 text-base">Limited Platinum</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Engine Type</p>
+                  <p class="font-semibold m-0 text-base">3.5L V-6</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Transmission</p>
+                  <p class="font-semibold m-0 text-base">Automatic</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Drive Type</p>
+                  <p class="font-semibold m-0 text-base">AWD</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Fuel Type</p>
+                  <p class="font-semibold m-0 text-base">Gas</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Body Type</p>
+                  <p class="font-semibold m-0 text-base">SUV</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">MSRP</p>
+                  <p class="font-semibold m-0 text-base">$47,510</p>
+                </div>
+                <div class="bg-gray-50 p-2.5">
+                  <p class="text-gray-500 m-0 text-sm">Doors</p>
+                  <p class="font-semibold m-0 text-base">4</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="p-5">
                 <div class="bg-gray-50 p-4 sm:p-6">
                     <h2 class="text-lg sm:text-xl font-bold mb-4">BASIC VEHICLE HISTORY CHECK</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -346,6 +387,90 @@
                     <button class="bg-white text-black py-2 px-4 font-semibold text-sm sm:text-base">Unlock premium report to check issues</button>
                     </div>
                 </div>
+            </section>
+
+            <section class="bg-white p-5 panther">
+              <h2 class="text-2xl font-bold mb-4">SAFETY RATINGS</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div class="space-y-2">
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Driver's Rating</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Overall Front Rating</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Overall Rollover Rating</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Side - Pole</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Passenger's Rating</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Overall Side Rating</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Overall Rating</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 p-2.5 border">
+                    <p class="font-semibold">Side Barrier Rating Driver</p>
+                    <div class="flex text-yellow-400 mt-2">
+                      <span class="sr-only">5 out of 5 stars</span>
+                      <!-- Star placeholder -->
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                      <!-- Repeat star placeholder 4 more times -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500 mt-4">* Star Rating range from 1 to 5 stars (★★★★★) with 5 being the highest.</p>
+              <p class="text-sm text-gray-500">Source: National Highway Traffic Safety Administration (NHTSA) www.safecar.gov or 1-888-327-4236</p>
             </section>
 
             <section class="p-4 md:p-6">
