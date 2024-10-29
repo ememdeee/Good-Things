@@ -16,7 +16,7 @@
       @media (max-width: 767px) {
           .sidebar {
               position: fixed;
-              bottom: -80vh;
+              bottom: -100vh;
               left: 0;
               right: 0;
               height: 80vh;
@@ -29,7 +29,7 @@
               z-index: 50;
           }
           .sidebar.open {
-              bottom: 70px;
+              bottom: 0px;
           }
           .toggle-sidebar {
               display: flex;
@@ -48,7 +48,7 @@
 <body class="bg-white text-black max-w-7xl mx-auto fusion">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <div id="sidebar" class="sidebar w-80 bg-white fixed p-4 overflow-y-auto fit h-fit">
+        <div id="sidebar" class="sidebar w-80 bg-white fixed p-4 overflow-y-auto max-h-screen fit h-fit">
             <div class="bg-gray-50 border p-2">
                 <div class="hidden md:block bg-[#5185E3] p-4 rounded-lg mb-4">
                     <h2 class="text-xl font-bold text-white mb-2 text-center">
@@ -65,24 +65,29 @@
                         </button>
                     </div>
                 </div>
-                <nav class="bg-white rounded-lg border overflow-hidden">
-                    <div class="bg-[#5185E3] text-white md:p-4 p-2 md:text-left text-center cursor-pointer">Overview and safety ratings</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Quick summary</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Vehicle specifications</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Basic vehicle history check</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Depreciation analysis</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Market analysis</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Days listed for sale</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Mileage analysis</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Equipment details</div>
-                    <div class="md:p-4 p-2 md:text-left text-center text-black hover:bg-gray-100 cursor-pointer">Recalls</div>
-                </nav>
+                <nav id="sidebarNav" class="bg-white rounded-lg border overflow-hidden">
+                  <div target="overview-and-safety-ratings" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer fusion">Overview and safety ratings</div>
+                  <div target="vehicle-specifications" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Vehicle specifications</div>
+                  <div target="basic-vehicle-history-check" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Basic vehicle history check</div>
+                  <div target="depreciation-analysis" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Depreciation analysis</div>
+                  <div target="market-analysis" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer fusion">Market analysis</div>
+                  <div target="days-listed-for-sale" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer premium">Days listed for sale</div>
+                  <div target="mileage-analysis" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer fusion">Mileage analysis</div>
+                  <div target="equipment-details" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer not_fusionPanther">Equipment details</div>
+                  <div target="recalls" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Recalls</div>
+                  <div target="stolen-vehicle-check" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer premium">Theft Check</div>
+                  <div target="safety-ratings" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther">Safety Ratings</div>
+                  <div target="color" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Color</div>
+                  <div target="vehicle-media" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther">Media</div>
+                  <div target="repair-cost" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther">Repair Cost</div>
+                  <div target="maintenance" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther not_fusionPanther">Maintenance</div>
+              </nav>
             </div>
         </div>
 
         <!-- Toggle Sidebar Button -->
-        <button id="toggleSidebar" class="toggle-sidebar bg-[#5185E3] text-white px-4 py-2 rounded-full text-sm font-bold hidden">
-            Overview
+        <button id="toggleSidebar" class="toggle-sidebar bg-[#5185E3] text-white px-4 py-2 rounded-full text-sm font-bold fixed left-16 bottom-4 z-50">
+          Overview
         </button>
 
         <script>
@@ -101,10 +106,33 @@
                   mainContent.classList.add('ml-80');
               }
           }
+
+          function scrollToSection(targetId) {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+
+          function closeSidebarOnMobile() {
+            if (window.innerWidth <= 767) {
+              sidebar.classList.remove('open');
+            }
+          }
       
           toggleSidebar.addEventListener('click', () => {
               sidebar.classList.toggle('open');
           });
+
+          sidebarNav.addEventListener('click', (event) => {
+          const target = event.target.closest('[target]');
+          if (target) {
+            event.preventDefault();
+            const targetId = target.getAttribute('target');
+            scrollToSection(targetId);
+            closeSidebarOnMobile();
+          }
+        });
       
           window.addEventListener('resize', updateLayout);
           updateLayout();
@@ -129,8 +157,8 @@
                     <p class="text-sm text-gray-500">Report Generated: <span class="font-semibold">09-03-2024</span></p>
                   </div>
                 </div>
-                <div class="flex flex-col items-start sm:items-end space-y-4 mt-4 sm:mt-0 w-full sm:w-auto">
-                  <div class="flex flex-col gap-2 sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 bg-white border-gray-200 px-6 py-3 w-full sm:w-auto">
+                <div class="flex flex-col items-start sm:items-end space-y-4 mt-0 w-full sm:w-auto">
+                  <div class="hidden sm:flex flex-col gap-2 sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 bg-white border-gray-200 px-6 py-3 w-full sm:w-auto">
                     <span class="text-sm font-semibold">Scan to open report:</span>
                     <img src="assets/barcode.png" alt="QR Code" class="w-20">
                   </div>
@@ -151,7 +179,7 @@
                 </div>
             </section>
 
-            <section class="p-4 md:p-6 bg-white fusion">
+            <section id="overview-and-safety-ratings" class="p-4 md:p-6 bg-white fusion">
                 <div class="flex flex-wrap gap-5">
                   <div class="flex-1 min-w-[300px]">
                     <div class="grid grid-cols-2 gap-1">
@@ -229,7 +257,7 @@
                       <p class="text-xs mt-2 text-gray-500">* Star Rating range from 1 to 5 stars (★★★★★) with 5 being the highest.</p>
                       <p class="text-xs text-gray-500">Source: National Highway Traffic Safety Administration (NHTSA) www.safecar.gov or 1-888-327-4236</p>
                     </div>
-                    <div class="bg-white border border-gray-200 rounded p-4">
+                    <div id="mileage-analysis" class="bg-white border border-gray-200 rounded p-4">
                       <h2 class="text-xl font-bold mb-4">MILEAGE ANALYSIS</h2>
                       <div class="bg-gray-50 border border-gray-200 rounded p-4 mb-4">
                         <p class="text-gray-500 mb-2 text-sm">Estimated Mileage</p>
@@ -284,7 +312,7 @@
               </div>
             </section>
 
-            <section class="p-4 md:p-6">
+            <section id="basic-vehicle-history-check" class="p-4 md:p-6">
                 <div class="bg-gray-50 p-4 sm:p-6 border">
                     <h2 class="text-lg sm:text-xl font-bold mb-4">BASIC VEHICLE HISTORY CHECK</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -439,7 +467,7 @@
               </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6 premium">
+            <section id="days-listed-for-sale" class="bg-white p-4 md:p-6 premium">
               <h2 class="text-2xl font-bold mb-6">SALES LISTING RECORDS</h2>
               <div class="space-y-4">
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
@@ -580,7 +608,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="auction-accordion-1" class="hidden">
+                  <div id="auction-accordion-1" class="">
                     <div class="p-4 bg-white">
                       <div class="relative w-full pb-[75%] mb-4">
                         <div id="slider-1" class="absolute inset-0">
@@ -749,7 +777,7 @@
               </script>
             </section>
 
-            <section class="bg-white p-4 md:p-6 premium">
+            <section id="stolen-vehicle-check" class="bg-white p-4 md:p-6 premium">
               <h2 class="text-2xl font-bold mb-6">STOLEN VEHICLE CHECK</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-2 border p-2">
                 <div class="bg-gray-50 p-2.5 border">
@@ -775,7 +803,7 @@
               </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6 panther">
+            <section id="safety-ratings" class="bg-white p-4 md:p-6 panther">
               <h2 class="text-2xl font-bold mb-4">SAFETY RATINGS</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
                 <div class="space-y-2">
@@ -892,7 +920,7 @@
               <p class="text-sm text-gray-500">Source: National Highway Traffic Safety Administration (NHTSA) www.safecar.gov or 1-888-327-4236</p>
             </section>
 
-            <section class="bg-white p-4 md:p-6">
+            <section id="vehicle-specifications" class="bg-white p-4 md:p-6">
               <h2 class="text-xl md:text-2xl font-bold mb-4">VEHICLE SPECIFICATIONS</h2>
 
               <div class="inline-flex rounded-md shadow-sm mb-4 panther not_fusionPanther" role="group">
@@ -1040,7 +1068,7 @@
                 toggleUnit(imperialBtn, metricBtn, imperialSection, metricSection);
               </script>
             </section>
-            <section class="p-4 md:p-6">
+            <section id="depreciation-analysis" class="p-4 md:p-6">
               <h2 class="text-xl md:text-2xl font-bold mb-4">Vehicle Market Value Comparison</h2>
                 <div class="w-full m-auto bg-gray-50 border p-4 md:p-6">
                     <canvas id="vehicleChart"></canvas>
@@ -1147,9 +1175,8 @@
                 </script>
             </section>
 
-            <section class="bg-white p-4 md:p-6 fusion">
+            <section id="market-analysis" class="bg-white p-4 md:p-6 fusion">
                 <h2 class="text-2xl font-bold mb-4">VEHICLE MARKET VALUE ANALYSIS</h2>
-                
                 <div class="grid md:grid-cols-2 gap-4 mb-6">
                   <div class="bg-gray-50 border p-4 rounded-lg h-fit">
                     <h3 class="text-lg font-semibold text-teal-500 mb-2">THIS VEHICLE</h3>
@@ -1347,7 +1374,7 @@
               </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6">
+            <section id="color" class="bg-white p-4 md:p-6">
               <h2 class="text-2xl font-bold mb-4">COLOR OPTIONS</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border p-2">
                 <div class="bg-gray-50 rounded-lg p-4">
@@ -1448,8 +1475,8 @@
 
             <section class="p-4 md:p-6">
                 <div class="bg-white border border-blue-200 rounded-lg p-4 md:p-6 relative">
-                    <div class="absolute top-2 right-2 bg-red-600 text-white py-1 px-3 rounded-md">
-                    <span class="text-sm font-bold">Get 20% off</span>
+                    <div class="md:absolute w-fit mb-2 md:mb-0 top-2 right-2 bg-red-600 text-white py-1 px-3 rounded-md">
+                      <span class="text-sm font-bold">Get 20% off</span>
                     </div>
                 
                     <h2 class="text-2xl font-bold mb-4">Want to learn about the options, packages and features?</h2>
@@ -1509,7 +1536,7 @@
                 </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6 panther">
+            <section id="vehicle-media" class="bg-white p-4 md:p-6 panther">
               <h2 class="text-2xl font-bold mb-2">VEHICLE MEDIA</h2>
               <div class="p-2 border">
                 <div id="exterior" class="bg-gray-50 p-2">
@@ -1695,7 +1722,7 @@
               });
             </script>
 
-            <section class="bg-white p-4 md:p-6 not_fusionPanther">
+            <section id="equipment-details" class="bg-white p-4 md:p-6 not_fusionPanther">
               <h2 class="text-2xl font-bold mb-6">EQUIPMENT DETAILS</h2>
               
               <div class="flex flex-col md:flex-row gap-4">
@@ -1763,7 +1790,7 @@
               </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6 panther">
+            <section id="repair-cost" class="bg-white p-4 md:p-6 panther">
               <h2 class="text-2xl font-bold mb-6">VEHICLE REPAIR COSTS</h2>
               <div class="space-y-4">
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
@@ -1776,100 +1803,213 @@
                   <div id="repair-accordion-0" class="">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
-                        <table class="w-full text-sm border">
-                          <thead>
+                        <table class="w-full text-sm border whitespace-nowrap">
+                          <thead class="sm:hidden">
                             <tr>
-                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
+                              <th class="px-2 py-2 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider text-xs" colspan="3">
                                 Independent
                               </th>
-                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider" colspan="3">
+                            </tr>
+                            <tr>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Part</th>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Labor</th>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <thead class="sm:hidden mt-4">
+                            <tr>
+                              <th class="px-2 py-2 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider text-xs" colspan="3">
                                 Dealer
                               </th>
                             </tr>
                             <tr>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Part</th>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Labor</th>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Total</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Part</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Labor</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Total</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Part</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Labor</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Total</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
                             <tr class="border-b border-gray-200 bg-gray-50">
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$1,095</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$526</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$1,621</span>
                               </td>
                             </tr>
                             <tr>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$1,011</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$466</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$1,477</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <!-- Desktop version -->
+                          <thead class="hidden sm:table-header-group">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider text-sm" colspan="3">
+                                Independent
+                              </th>
+                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider text-sm" colspan="3">
+                                Dealer
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Part</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Labor</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Total</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Part</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Labor</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody class="hidden sm:table-row-group">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$1,053</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$496</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$1,549</span>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$1,095</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$526</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$1,621</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$1,011</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$466</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$1,477</span>
                               </td>
@@ -1892,101 +2032,213 @@
                   <div id="repair-accordion-1" class="hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
-                      <p class="mt-4 text-sm">AC recharge involves refilling the refrigerant in your vehicle's air conditioning system. This is a common maintenance task that can significantly improve AC performance.</p>
-                        <table class="w-full text-sm border">
-                          <thead>
+                        <table class="w-full text-sm border whitespace-nowrap">
+                          <thead class="sm:hidden">
                             <tr>
-                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
+                              <th class="px-2 py-2 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider text-xs" colspan="3">
                                 Independent
                               </th>
-                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider" colspan="3">
+                            </tr>
+                            <tr>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Part</th>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Labor</th>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <thead class="sm:hidden mt-4">
+                            <tr>
+                              <th class="px-2 py-2 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider text-xs" colspan="3">
                                 Dealer
                               </th>
                             </tr>
                             <tr>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Part</th>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Labor</th>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Total</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Part</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Labor</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Total</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Part</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Labor</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Total</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
                             <tr class="border-b border-gray-200 bg-gray-50">
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$1,095</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$526</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$1,621</span>
                               </td>
                             </tr>
                             <tr>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$1,011</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$466</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$1,477</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <!-- Desktop version -->
+                          <thead class="hidden sm:table-header-group">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider text-sm" colspan="3">
+                                Independent
+                              </th>
+                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider text-sm" colspan="3">
+                                Dealer
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Part</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Labor</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Total</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Part</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Labor</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody class="hidden sm:table-row-group">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$1,053</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$496</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$1,549</span>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$1,095</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$526</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$1,621</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$1,011</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$466</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$1,477</span>
                               </td>
@@ -2009,100 +2261,213 @@
                   <div id="repair-accordion-2" class="hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
-                        <table class="w-full text-sm border">
-                          <thead>
+                        <table class="w-full text-sm border whitespace-nowrap">
+                          <thead class="sm:hidden">
                             <tr>
-                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
+                              <th class="px-2 py-2 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider text-xs" colspan="3">
                                 Independent
                               </th>
-                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider" colspan="3">
+                            </tr>
+                            <tr>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Part</th>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Labor</th>
+                              <th class="px-2 py-1 text-center bg-blue-400 text-white font-medium text-xs">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <thead class="sm:hidden mt-4">
+                            <tr>
+                              <th class="px-2 py-2 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider text-xs" colspan="3">
                                 Dealer
                               </th>
                             </tr>
                             <tr>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Part</th>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Labor</th>
-                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Total</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Part</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Labor</th>
-                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Total</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Part</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Labor</th>
+                              <th class="px-2 py-1 text-center bg-teal-400 text-white font-medium text-xs">Total</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
                             <tr class="border-b border-gray-200 bg-gray-50">
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$1,095</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$526</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
                                 <span class="text-gray-700">$1,621</span>
                               </td>
                             </tr>
                             <tr>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
-                                <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
-                              </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$1,011</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$466</span>
                               </td>
-                              <td class="px-4 py-3 text-center">
+                              <td class="px-2 py-2 text-center text-xs">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$1,477</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <!-- Desktop version -->
+                          <thead class="hidden sm:table-header-group">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider text-sm" colspan="3">
+                                Independent
+                              </th>
+                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider text-sm" colspan="3">
+                                Dealer
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Part</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Labor</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium text-sm">Total</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Part</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Labor</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium text-sm">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody class="hidden sm:table-row-group">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$1,053</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$496</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="text-gray-700">$1,549</span>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-gray-200 bg-gray-50">
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$1,095</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$526</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">High:</span>
+                                <span class="text-gray-700">$1,621</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">-</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$1,011</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
+                                <span class="font-medium text-gray-500">Low:</span>
+                                <span class="text-gray-700">$466</span>
+                              </td>
+                              <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
                                 <span class="text-gray-700">$1,477</span>
                               </td>
@@ -2117,7 +2482,7 @@
               </div>
             </section>
             
-            <section class="bg-white p-4 md:p-6 panther not_fusionPanther">
+            <section id="maintenance" class="bg-white p-4 md:p-6 panther not_fusionPanther">
               <h2 class="text-2xl font-bold mb-6">VEHICLE MAINTENANCE</h2>
               <div class="space-y-4">
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
@@ -2130,8 +2495,47 @@
                   <div id="maintenance-accordion-0" class="">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
-                        <table class="w-full text-sm border">
-                          <thead>
+                        <table class="w-full text-sm border whitespace-nowrap">
+                          <thead class="sm:hidden">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
+                                Severe
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">High</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Low</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Average</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$83</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$50</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$67</td>
+                            </tr>
+                          </tbody>
+                          <thead class="sm:hidden mt-4">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider" colspan="3">
+                                Normal
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">High</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Low</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Average</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$37</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$22</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$30</td>
+                            </tr>
+                          </tbody>
+                          <!-- Desktop version -->
+                          <thead class="hidden sm:table-header-group">
                             <tr>
                               <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
                                 Severe
@@ -2149,7 +2553,7 @@
                               <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Average</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="hidden sm:table-row-group">
                             <tr class="border-b border-gray-200">
                               <td class="px-4 py-3 text-center font-semibold text-gray-700">$83</td>
                               <td class="px-4 py-3 text-center font-semibold text-gray-700">$50</td>
@@ -2202,8 +2606,47 @@
                   <div id="maintenance-accordion-1" class="hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
-                        <table class="w-full text-sm border">
-                          <thead>
+                        <table class="w-full text-sm border whitespace-nowrap">
+                          <thead class="sm:hidden">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
+                                Severe
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">High</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Low</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Average</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$83</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$50</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$67</td>
+                            </tr>
+                          </tbody>
+                          <thead class="sm:hidden mt-4">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider" colspan="3">
+                                Normal
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">High</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Low</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Average</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$37</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$22</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$30</td>
+                            </tr>
+                          </tbody>
+                          <!-- Desktop version -->
+                          <thead class="hidden sm:table-header-group">
                             <tr>
                               <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
                                 Severe
@@ -2221,7 +2664,7 @@
                               <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Average</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="hidden sm:table-row-group">
                             <tr class="border-b border-gray-200">
                               <td class="px-4 py-3 text-center font-semibold text-gray-700">$83</td>
                               <td class="px-4 py-3 text-center font-semibold text-gray-700">$50</td>
@@ -2275,8 +2718,47 @@
                   <div id="maintenance-accordion-2" class="hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
-                        <table class="w-full text-sm border">
-                          <thead>
+                        <table class="w-full text-sm border whitespace-nowrap">
+                          <thead class="sm:hidden">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
+                                Severe
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">High</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Low</th>
+                              <th class="px-4 py-2 text-center bg-blue-400 text-white font-medium">Average</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$83</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$50</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$67</td>
+                            </tr>
+                          </tbody>
+                          <thead class="sm:hidden mt-4">
+                            <tr>
+                              <th class="px-4 py-3 text-center text-white bg-teal-500 font-semibold uppercase tracking-wider" colspan="3">
+                                Normal
+                              </th>
+                            </tr>
+                            <tr>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">High</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Low</th>
+                              <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Average</th>
+                            </tr>
+                          </thead>
+                          <tbody class="sm:hidden">
+                            <tr class="border-b border-gray-200">
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$37</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$22</td>
+                              <td class="px-4 py-3 text-center font-semibold text-gray-700">$30</td>
+                            </tr>
+                          </tbody>
+                          <!-- Desktop version -->
+                          <thead class="hidden sm:table-header-group">
                             <tr>
                               <th class="px-4 py-3 text-center text-white bg-blue-500 font-semibold uppercase tracking-wider" colspan="3">
                                 Severe
@@ -2294,7 +2776,7 @@
                               <th class="px-4 py-2 text-center bg-teal-400 text-white font-medium">Average</th>
                             </tr>
                           </thead>
-                          <tbody>
+                          <tbody class="hidden sm:table-row-group">
                             <tr class="border-b border-gray-200">
                               <td class="px-4 py-3 text-center font-semibold text-gray-700">$83</td>
                               <td class="px-4 py-3 text-center font-semibold text-gray-700">$50</td>
@@ -2340,7 +2822,7 @@
               </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6">
+            <section id="recalls" class="bg-white p-4 md:p-6">
                 <h2 class="text-2xl font-bold mb-6">RECALLS</h2>
                 <div class="space-y-4">
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
