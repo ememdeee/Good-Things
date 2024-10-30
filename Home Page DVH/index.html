@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Vehicle History Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black max-w-7xl mx-auto">
+    <h1>Hellos</h1>
+    <section class="px-4 py-12 mx-auto max-w-7xl">
+        <h1 class="mb-12 text-4xl font-bold text-center">Why check Vehicle History?</h1>
+        
+        <div class="grid gap-8 md:grid-cols-2">
+          <!-- For Buyers -->
+          <div class="p-8 rounded-lg bg-slate-50">
+            <h2 class="mb-4 text-2xl font-semibold">For Buyers</h2>
+            <p class="mb-6 text-gray-600">
+              Did you know that buyers who check a vehicle's history are 70% less likely to face major issues after purchase? A check helps to easily spot hidden accidents or title problems, view market value for better negotiations, and save money long-term.
+            </p>
+            <div class="relative h-80 overflow-hidden rounded-lg">
+              <img 
+                src="assets/girl.png" 
+                alt="Vehicle history report details showing various checks"
+                class="object-cover w-full h-full"
+              >
+            </div>
+          </div>
+      
+          <!-- For Sellers -->
+          <div class="p-8 rounded-lg bg-slate-50">
+            <h2 class="mb-4 text-2xl font-semibold">For Sellers</h2>
+            <p class="mb-6 text-gray-600">
+              Sellers benefit, too. Cars with detailed checks and window stickers often sell 15% higher and more quickly. When customers see detailed vehicle specifications, features, options, and packages on window stickers, they are less likely to contest pricing, which can result in quicker sales.
+            </p>
+            <div class="relative h-80 overflow-hidden rounded-lg">
+              <img 
+                src="assets/girls.png" 
+                alt="Vehicle specification details and window sticker information"
+                class="object-cover w-full h-full"
+              >
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="p-8 bg-yellow-50">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-[300px,1fr] gap-8 items-center">
+          <!-- Left Side -->
+          <div>
+            <h2 class="text-2xl font-bold mb-6">Here is what to expect:</h2>
+            <ul class="space-y-4 text-gray-600">
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Uncover hidden issues before you buy
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Verify mileage and ownership history
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Check for accidents, repairs, and recalls
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Exclusive auction photos and historical data
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Check service and repair history
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Verify odometer records and mileage history
+              </li>
+              <li class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+                Check for liens and loans
+              </li>
+            </ul>
+          </div>
+      
+          <!-- Right Side -->
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 h-fit">
+            <!-- Odometer Rollback -->
+            <div class="p-4 bg-white rounded-lg shadow-sm border">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-semibold">Odometer Rollback</h3>
+              </div>
+              <p class="text-red-500">The vehicle has mileage discrepancy.</p>
+            </div>
+      
+            <!-- Ownership History -->
+            <div class="p-4 bg-white rounded-lg shadow-sm border">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-semibold">Ownership History</h3>
+              </div>
+              <p class="text-red-500">5 ownership record(s) found.</p>
+            </div>
+      
+            <!-- Accident History -->
+            <div class="p-4 bg-white rounded-lg shadow-sm border">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-semibold">Accident History</h3>
+              </div>
+              <p class="text-red-500">3 accident record(s) found.</p>
+            </div>
+      
+            <!-- Auction & Sales History -->
+            <div class="p-4 bg-white rounded-lg shadow-sm border">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-semibold">Auction & Sales history</h3>
+              </div>
+              <p class="text-red-500">2 record(s) found with 10+ images.</p>
+            </div>
+      
+            <!-- Lien/Loan History -->
+            <div class="p-4 bg-white rounded-lg shadow-sm border">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-semibold">Lien/Loan History</h3>
+              </div>
+              <p class="text-red-500">The vehicle has 2 lien or loan record(s).</p>
+            </div>
+      
+            <!-- Service & Repair History -->
+            <div class="p-4 bg-white rounded-lg shadow-sm border">
+              <div class="flex items-center gap-2 mb-2">
+                <h3 class="font-semibold">Service & Repair History</h3>
+              </div>
+              <p class="text-red-500">The vehicle has 2 service & repair record(s).</p>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+</html>
