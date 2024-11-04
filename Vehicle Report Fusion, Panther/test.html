@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle History Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- chart for IDEAL Time To Buy or Sell -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .fusion .panther, .panther .fusion, .premium .basic, .basic .premium, .fusionPanther .not_fusionPanther{
+        display: none;
+      }
+      @media (max-width: 767px) {
+          .sidebar {
+              position: fixed;
+              bottom: -100vh;
+              left: 0;
+              right: 0;
+              height: 80vh;
+              transition: bottom 0.3s ease-in-out;
+              width: 95%;
+              margin: 0 auto;
+              border-top-left-radius: 20px;
+              border-top-right-radius: 20px;
+              box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+              z-index: 50;
+          }
+          .sidebar.open {
+              bottom: 0px;
+          }
+          .toggle-sidebar {
+              display: flex;
+              position: fixed;
+              bottom: 20px;
+              left: 50%;
+              transform: translateX(-50%);
+              z-index: 1000;
+          }
+          .main-content {
+              margin-left: 0 !important;
+          }
+      }
+    </style>
+</head>
+<body class="bg-white text-black max-w-7xl mx-auto">
+    <section id="vehicle-media" class="bg-white p-4 md:p-6 panther">
+        <h2 class="text-2xl font-bold mb-2">VEHICLE MEDIA</h2>
+        <div class="p-2 border">
+          <div id="exterior" class="bg-gray-50 p-2">
+            <div class="mb-2 flex items-center">
+              <span class="text-blue-600 font-semibold">EXTERIOR IMAGES</span>
+              <div class="flex gap-1 bg-blue-600 p-1 rounded-md ml-2 w-fit">
+                <img class="w-5 h-5" src="assets/image-icon.svg" />
+                <span class="text-white px-2 text-sm" id="imageCount"></span>
+              </div>
+            </div>
+            <div class="relative">
+              <div id="imageSlider" class="overflow-hidden w-full">
+                <div id="imageWrapper" class="flex transition-transform duration-300 ease-in-out">
+                  <!-- Images will be inserted here by JavaScript -->
+                </div>
+              </div>
+              <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                &lt;
+              </button>
+              <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                &gt;
+              </button>
+            </div>
+          </div>
+          <div id="interior" class="bg-gray-50 p-2">
+            <div class="mb-2 flex items-center">
+              <span class="text-blue-600 font-semibold">INTERIOR IMAGES</span>
+              <div class="flex gap-1 bg-blue-600 p-1 rounded-md ml-2 w-fit">
+                <img class="w-5 h-5" src="assets/image-icon.svg" />
+                <span class="text-white px-2 text-sm" id="imageCount"></span>
+              </div>
+            </div>
+            <div class="relative">
+              <div id="imageSlider" class="overflow-hidden w-full">
+                <div id="imageWrapper" class="flex transition-transform duration-300 ease-in-out">
+                  <!-- Images will be inserted here by JavaScript -->
+                </div>
+              </div>
+              <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                &lt;
+              </button>
+              <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                &gt;
+              </button>
+            </div>
+          </div>
+          <div id="color" class="bg-gray-50 p-2">
+            <div class="mb-2 flex items-center">
+              <span class="text-blue-600 font-semibold">COLOR</span>
+              <div class="flex gap-1 bg-blue-600 p-1 rounded-md ml-2 w-fit">
+                <img class="w-5 h-5" src="assets/image-icon.svg" />
+                <span class="text-white px-2 text-sm" id="imageCount"></span>
+              </div>
+            </div>
+            <div class="relative">
+              <div id="imageSlider" class="overflow-hidden w-full">
+                <div id="imageWrapper" class="flex transition-transform duration-300 ease-in-out">
+                  <!-- Images will be inserted here by JavaScript -->
+                </div>
+              </div>
+              <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                &lt;
+              </button>
+              <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        // Arrays of image URLs for each slider
+        const sliderData = {
+          exterior: {
+            images: [
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png'
+            ],
+            currentIndex: 0
+          },
+          interior: {
+            images: [
+              'assets/interior.png',
+              'assets/interior.png',
+              'assets/interior.png',
+              'assets/interior.png',
+              'assets/interior.png',
+              'assets/interior.png',
+              'assets/interior.png',
+              'assets/interior.png'
+            ],
+            currentIndex: 0
+          },
+          color: {
+            images: [
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png',
+              'assets/exterior.png'
+            ],
+            currentIndex: 0
+          }
+        };
+      
+        function initializeSlider(sliderId) {
+          const slider = document.getElementById(sliderId);
+          const imageWrapper = slider.querySelector('#imageWrapper');
+          const prevBtn = slider.querySelector('#prevBtn');
+          const nextBtn = slider.querySelector('#nextBtn');
+          const imageCount = slider.querySelector('#imageCount');
+          const images = sliderData[sliderId].images;
+      
+          // Populate the slider with images
+          images.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${sliderId.charAt(0).toUpperCase() + sliderId.slice(1)} Image ${index + 1}`;
+            img.className = 'w-full h-full object-cover flex-shrink-0';
+            imageWrapper.appendChild(img);
+          });
+      
+          // Update image count
+          imageCount.textContent = images.length;
+      
+          function updateSlider() {
+            const offset = -sliderData[sliderId].currentIndex * 100;
+            imageWrapper.style.transform = `translateX(${offset}%)`;
+          }
+      
+          prevBtn.addEventListener('click', () => {
+            sliderData[sliderId].currentIndex = (sliderData[sliderId].currentIndex - 1 + images.length) % images.length;
+            updateSlider();
+          });
+      
+          nextBtn.addEventListener('click', () => {
+            sliderData[sliderId].currentIndex = (sliderData[sliderId].currentIndex + 1) % images.length;
+            updateSlider();
+          });
+      
+          // Touch swipe functionality
+          let touchStartX = 0;
+          let touchEndX = 0;
+      
+          imageWrapper.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          }, false);
+      
+          imageWrapper.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX) nextBtn.click();
+            if (touchEndX > touchStartX) prevBtn.click();
+          }, false);
+      
+          // Initialize the slider
+          updateSlider();
+        }
+      
+        // Initialize all sliders
+        initializeSlider('exterior');
+        initializeSlider('interior');
+        initializeSlider('color');
+      
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          const activeSlider = document.activeElement.closest('.bg-gray-50');
+          if (activeSlider) {
+            const prevBtn = activeSlider.querySelector('#prevBtn');
+            const nextBtn = activeSlider.querySelector('#nextBtn');
+            if (e.key === 'ArrowLeft') prevBtn.click();
+            if (e.key === 'ArrowRight') nextBtn.click();
+          }
+        });
+      </script>
+</body>
+</html>
