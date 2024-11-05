@@ -13,131 +13,163 @@
       .fusion .panther, .panther .fusion, .premium .basic, .basic .premium, .fusionPanther .not_fusionPanther{
         display: none;
       }
-      @media (max-width: 767px) {
-          .sidebar {
-              position: fixed;
-              bottom: -100vh;
-              left: 0;
-              right: 0;
-              height: 80vh;
-              transition: bottom 0.3s ease-in-out;
-              width: 95%;
-              margin: 0 auto;
-              border-top-left-radius: 20px;
-              border-top-right-radius: 20px;
-              box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
-              z-index: 50;
-          }
-          .sidebar.open {
-              bottom: 0px;
-          }
-          .toggle-sidebar {
-              display: flex;
-              position: fixed;
-              bottom: 20px;
-              left: 50%;
-              transform: translateX(-50%);
-              z-index: 1000;
-          }
-          .main-content {
-              margin-left: 0 !important;
-          }
+      body.popup {
+        overflow: hidden;
       }
+
+      /* made sidebarNav scrollbar small */
+      /* Webkit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* IE and Edge */
+.custom-scrollbar {
+  -ms-overflow-style: none;
+}
+
+.custom-scrollbar::-ms-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-ms-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-ms-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
     </style>
 </head>
 <body class="bg-white text-black max-w-7xl mx-auto">
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <div id="sidebar" class="sidebar w-80 bg-white fixed p-4 overflow-y-auto max-h-screen fit h-fit">
-            <div class="bg-gray-50 border p-2">
-                <div class="hidden md:block bg-[#5185E3] p-4 rounded-lg mb-4">
-                    <h2 class="text-xl font-bold text-white mb-2 text-center">
-                        Upgrade this report to premium!
-                    </h2>
-                    <div class="bg-white p-2 rounded-lg flex flex-col">
-                        <div class="w-full text-center mt-1 overflow-hidden mb-2">
-                            <span class="inline-block font-mono text-lg md:text-xl lg:text-xl tracking-wider">
-                                5TDDZRFHXKS730863
-                            </span>
-                        </div>
-                        <button class="bg-[#63E3CC] text-white px-4 py-2 rounded-md text-sm font-bold w-full">
-                            Upgrade
-                        </button>
-                    </div>
+        <div id="sidebar" class="sidebar fixed inset-y-0 z-50 w-full md:w-80 bg-white transition-transform duration-300 ease-in-out transform translate-y-full md:translate-y-0 [&.open]:translate-y-0 rounded-t-3xl md:rounded-none shadow-lg md:shadow-none h-fit md:top-0 top-auto">
+            <div class="md:h-screen h-fit border md:border-none flex flex-col rounded-2xl overflow-hidden">
+                <!-- Mobile Header - Only visible on mobile -->
+                <div class="flex-shrink-0 flex items-center justify-between p-4 md:hidden border-b">
+                  <h2 class="text-lg font-semibold">Navigation</h2>
+                  <button id="closeSidebar" class="p-2 hover:bg-gray-100 rounded-lg">
+                      <!-- Placeholder for close icon -->
+                      <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                  </button>
                 </div>
-                <nav id="sidebarNav" class="bg-white rounded-lg border overflow-hidden">
-                    <div target="overview-and-safety-ratings" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer fusion">Overview and safety ratings</div>
-                    <div target="vehicle-specifications" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Vehicle specifications</div>
-                    <div target="basic-vehicle-history-check" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Basic vehicle history check</div>
-                    <div target="depreciation-analysis" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Depreciation analysis</div>
-                    <div target="market-analysis" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer fusion">Market analysis</div>
-                    <div target="days-listed-for-sale" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer premium">Days listed for sale</div>
-                    <div target="mileage-analysis" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer fusion">Mileage analysis</div>
-                    <div target="equipment-details" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer not_fusionPanther">Equipment details</div>
-                    <div target="recalls" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Recalls</div>
-                    <div target="stolen-vehicle-check" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer premium">Theft Check</div>
-                    <div target="safety-ratings" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther">Safety Ratings</div>
-                    <div target="color-option" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer">Color</div>
-                    <div target="vehicle-media" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther">Media</div>
-                    <div target="repair-cost" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther">Repair Cost</div>
-                    <div target="maintenance" class="hover:bg-[#5185E3] hover:text-white text-black md:p-4 p-2 md:text-left text-center cursor-pointer panther not_fusionPanther">Maintenance</div>
+
+                <!-- Desktop Upgrade Section - Only visible on desktop -->
+                <div class="flex-shrink-0 hidden md:block bg-[#5185E3] p-3 rounded-lg mx-4 mt-4 mb-0">
+                  <h2 class="text-base font-bold text-white mb-2">
+                      Upgrade this report to premium!
+                  </h2>
+                  <div class="bg-white p-2 rounded-lg flex items-center justify-between">
+                      <span class="font-mono text-sm lg:text-base tracking-wider truncate mr-2">
+                          5TDDZRFHXKS730863
+                      </span>
+                      <button class="bg-[#63E3CC] text-white px-3 py-1 rounded-md text-sm font-bold whitespace-nowrap">
+                          Upgrade
+                      </button>
+                  </div>
+                </div>
+
+                <!-- Navigation Items -->
+                <nav id="sidebarNav" class="md:border md:rounded-lg overflow-y-auto p-2 md:p-3 md:m-4 max-h-[90vh] lg:max-h-full custom-scrollbar">
+                    <div class="space-y-1">
+                        <div target="overview-and-safety-ratings" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 fusion">
+                            <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                            <span class="text-sm">Overview and safety ratings</span>
+                        </div>
+
+                        <div target="basic-vehicle-history-check" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Basic vehicle history check</span>
+                        </div>
+
+                        <div target="days-listed-for-sale" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 premium">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Days listed for sale</span>
+                        </div>
+
+                        <div target="stolen-vehicle-check" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 premium">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Theft Check</span>
+                        </div>
+
+                        <div target="safety-ratings" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 panther">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Safety Ratings</span>
+                        </div>
+                      
+                        <div target="vehicle-specifications" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200">
+                            <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                            <span class="text-sm">Vehicle specifications</span>
+                        </div>
+                        <div target="depreciation-analysis" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200">
+                            <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                            <span class="text-sm">Depreciation analysis</span>
+                        </div>
+
+                        <div target="market-analysis" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 fusion">
+                            <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                            <span class="text-sm">Market analysis</span>
+                        </div>
+
+                        <div target="color-option" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Color</span>
+                        </div>
+
+                        <div target="vehicle-media" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 panther">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Media</span>
+                        </div>
+
+                        <div target="equipment-details" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 not_fusionPanther">
+                            <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                            <span class="text-sm">Equipment details</span>
+                        </div>
+
+                        <div target="repair-cost" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 panther">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Repair Cost</span>
+                        </div>
+
+                        <div target="maintenance" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 panther not_fusionPanther">
+                          <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                          <span class="text-sm">Maintenance</span>
+                        </div>
+
+                        <div target="recalls" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200">
+                            <div class="w-5 h-5 bg-blue-400 rounded flex-shrink-0"></div>
+                            <span class="text-sm">Recalls</span>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </div>
 
         <!-- Toggle Sidebar Button -->
-        <button id="toggleSidebar" class="toggle-sidebar bg-[#5185E3] text-white px-4 py-2 rounded-full text-sm font-bold fixed left-16 bottom-4 z-50">
-          Overview
+
+        <button id="toggleSidebar" class="toggle-sidebar bg-[#5185E3] text-white px-4 py-2 rounded-md text-sm font-bold fixed left-1/2 transform -translate-x-1/2 bottom-4 z-40 min-w-[120px] flex items-center justify-center hidden">
+          <i class="ri-eye-line mr-2">icon</i>
+          <div id="toggleSidebarText">
+              Overview
+          </div>
         </button>
-
-        <script>
-          const sidebar = document.getElementById('sidebar');
-          const toggleSidebar = document.getElementById('toggleSidebar');
-          const mainContent = document.getElementById('mainContent');
-      
-          function updateLayout() {
-              if (window.innerWidth <= 767) {
-                  toggleSidebar.classList.remove('hidden');
-                  mainContent.classList.remove('ml-80');
-                  sidebar.classList.add('rounded-t-3xl', 'shadow-lg');
-              } else {
-                  toggleSidebar.classList.add('hidden');
-                  sidebar.classList.remove('open', 'rounded-t-3xl', 'shadow-lg');
-                  mainContent.classList.add('ml-80');
-              }
-          }
-
-          function scrollToSection(targetId) {
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-
-          function closeSidebarOnMobile() {
-            if (window.innerWidth <= 767) {
-              sidebar.classList.remove('open');
-            }
-          }
-      
-          toggleSidebar.addEventListener('click', () => {
-              sidebar.classList.toggle('open');
-          });
-
-          sidebarNav.addEventListener('click', (event) => {
-          const target = event.target.closest('[target]');
-          if (target) {
-            event.preventDefault();
-            const targetId = target.getAttribute('target');
-            scrollToSection(targetId);
-            closeSidebarOnMobile();
-          }
-        });
-      
-          window.addEventListener('resize', updateLayout);
-          updateLayout();
-        </script>
-
         <!-- Main Content -->
         <div id="mainContent" class="main-content flex-1 ml-80">
             <section class="bg-white text-black p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-start border-b border-gray-200">
@@ -163,13 +195,13 @@
                     <img src="assets/barcode.png" alt="QR Code" class="w-20">
                   </div>
                   <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">
-                    <button class="bg-[#63E3CC] text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto">
+                    <button class="bg-[#63E3CC] hover:bg-[#4ED1BA] transition duration-300 ease-in-out text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                       </svg>
                       Copy link
                     </button>
-                    <button class="bg-[#5185E3] text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto">
+                    <button class="bg-[#5185E3] hover:bg-[#4070D0] transition duration-300 ease-in-out text-white px-4 py-2 rounded-md text-sm font-semibold flex items-center justify-center w-full sm:w-auto">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                       </svg>
@@ -340,7 +372,7 @@
                 <div class="bg-gray-50 p-4 sm:p-6 border">
                     <h2 class="text-lg sm:text-xl font-bold mb-4">BASIC VEHICLE HISTORY CHECK</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm">
+                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="flex items-center">
                         <div class="w-8 h-8 mr-2">
                             <img src="assets/people.svg" />
@@ -354,7 +386,7 @@
                             <img src="assets/yellow-alert.svg" />
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm">
+                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="flex items-center">
                         <div class="w-8 h-8 mr-2">
                             <img src="assets/solar_key-broken.svg" />
@@ -368,7 +400,7 @@
                             <img src="assets/yellow-alert.svg" />
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm">
+                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="flex items-center">
                         <div class="w-8 h-8 mr-2">
                             <img src="assets/icon-park-outline_protect.svg" />
@@ -382,7 +414,7 @@
                             <img src="assets/yellow-alert.svg" />
                         </div>
                     </div>
-                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm">
+                    <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="flex items-center">
                         <div class="w-8 h-8 mr-2">
                             <img src="assets/crash.svg" />
@@ -400,56 +432,56 @@
                 
                     <h2 class="text-lg sm:text-xl font-bold mb-4">PREMIUM VEHICLE HISTORY CHECKS</h2>
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Ownership History & Map</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Title Check</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Lien/Loan Records</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Accident & Damage History</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Odometer Rollback</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Theft Records</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
                         <p class="font-semibold mb-1 text-sm sm:text-base">Service & Repair History</p>
                         <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
                     </div>
-                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="w-8 h-8 mx-auto mb-2">
                             <img src="assets/yellow-alert.svg" />
                         </div>
@@ -461,7 +493,7 @@
                     <div class="bg-gradient-to-r from-yellow-400 to-pink-500 p-4 sm:p-6 text-white rounded-lg text-center">
                     <h3 class="text-base sm:text-lg font-bold mb-2">EXCLUSIVE FOR UNLIMITED VIN CHECK SUBSCRIBERS:</h3>
                     <p class="mb-4 text-sm sm:text-base">Get 50% off all premium vehicle history reports just for you! Unlock deeper insights at half the price.</p>
-                    <button class="bg-white text-black py-2 px-4 font-semibold text-sm sm:text-base">Unlock premium report to check issues</button>
+                    <button class="bg-white text-black py-2 px-4 font-semibold text-sm sm:text-base shadow-sm hover:bg-gray-100 hover:shadow-md transition-all duration-300 ease-in-out">Unlock premium report to check issues</button>
                     </div>
                 </div>
             </section>
@@ -484,7 +516,7 @@
                     <p><span class="font-semibold">Loss Type:</span> N/A</p>
                     <p><span class="font-semibold">Location:</span> <span class="text-red-500">Somerville (NJ)</span></p>
                   </div>
-                  <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded">
+                  <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-[#4070D0] transition duration-300 ease-in-out">
                     Reveal full auction records
                   </button>
                 </div>
@@ -495,11 +527,8 @@
               <h2 class="text-2xl font-bold mb-6">SALES LISTING RECORDS</h2>
               <div class="space-y-4">
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
-                  <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(0, 'auction')">
+                  <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
                     <span class="font-semibold text-left">Record 1</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
                   </button>
                   <div id="auction-accordion-0">
                     <div class="p-4 bg-white">
@@ -520,34 +549,34 @@
                       </div>
                       <!-- Summary Section -->
                       <div class="bg-gray-50 border p-4 rounded-lg mb-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                          <div class="text-center sm:text-left">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                          <div class="flex-grow flex-shrink-0 basis-auto min-w-[120px] text-center sm:text-left">
                             <p class="text-sm text-gray-600">Listing Price</p>
                             <p class="text-lg font-bold">$7,200</p>
                           </div>
-                          <div class="text-center sm:text-left">
+                          <div class="flex-grow flex-shrink-0 basis-auto min-w-[120px] text-center sm:text-left">
                             <p class="text-sm text-gray-600">Sale Status</p>
                             <p class="text-lg">-</p>
                           </div>
-                          <div class="text-center sm:text-left">
+                          <div class="flex-grow flex-shrink-0 basis-auto min-w-[120px] text-center sm:text-left">
                             <p class="text-sm text-gray-600">Seller Type</p>
                             <p class="text-lg font-semibold">Auction</p>
                           </div>
                         </div>
                         <div class="flex flex-wrap justify-center sm:justify-start gap-2">
-                          <div class="flex items-center bg-white border px-3 py-1 rounded-full text-sm">
+                          <div class="flex items-center bg-white hover:bg-gray-100 transition-colors duration-300 ease-in-out cursor-pointer border px-3 py-1 rounded-full text-sm">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
                             </svg>
                             <span>Has Keys</span>
                           </div>
-                          <div class="flex items-center bg-blue-100 border px-3 py-1 rounded-full text-sm text-blue-800">
+                          <div class="flex items-center bg-blue-100 hover:bg-blue-200 transition-colors duration-300 ease-in-out cursor-pointer border px-3 py-1 rounded-full text-sm text-blue-800">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                             <span>Runs & Drives</span>
                           </div>
-                          <div class="flex items-center bg-white border px-3 py-1 rounded-full text-sm">
+                          <div class="flex items-center bg-white hover:bg-gray-100 transition-colors duration-300 ease-in-out cursor-pointer border px-3 py-1 rounded-full text-sm">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
@@ -626,11 +655,8 @@
                 </div>
                 
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
-                  <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(1, 'auction')">
+                  <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
                     <span class="font-semibold text-left">Record 2</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
                   </button>
                   <div id="auction-accordion-1" class="">
                     <div class="p-4 bg-white">
@@ -651,34 +677,34 @@
                       </div>
                       <!-- Summary Section -->
                       <div class="bg-gray-50 border p-4 rounded-lg mb-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                          <div class="text-center sm:text-left">
+                        <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                          <div class="flex-grow flex-shrink-0 basis-auto min-w-[120px] text-center sm:text-left">
                             <p class="text-sm text-gray-600">Listing Price</p>
                             <p class="text-lg font-bold">$7,200</p>
                           </div>
-                          <div class="text-center sm:text-left">
+                          <div class="flex-grow flex-shrink-0 basis-auto min-w-[120px] text-center sm:text-left">
                             <p class="text-sm text-gray-600">Sale Status</p>
                             <p class="text-lg">-</p>
                           </div>
-                          <div class="text-center sm:text-left">
+                          <div class="flex-grow flex-shrink-0 basis-auto min-w-[120px] text-center sm:text-left">
                             <p class="text-sm text-gray-600">Seller Type</p>
                             <p class="text-lg font-semibold">Auction</p>
                           </div>
                         </div>
                         <div class="flex flex-wrap justify-center sm:justify-start gap-2">
-                          <div class="flex items-center bg-white border px-3 py-1 rounded-full text-sm">
+                          <div class="flex items-center bg-white hover:bg-gray-100 transition-colors duration-300 ease-in-out cursor-pointer border px-3 py-1 rounded-full text-sm">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
                             </svg>
                             <span>Has Keys</span>
                           </div>
-                          <div class="flex items-center bg-blue-100 border px-3 py-1 rounded-full text-sm text-blue-800">
+                          <div class="flex items-center bg-blue-100 hover:bg-blue-200 transition-colors duration-300 ease-in-out cursor-pointer border px-3 py-1 rounded-full text-sm text-blue-800">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
                             <span>Runs & Drives</span>
                           </div>
-                          <div class="flex items-center bg-white border px-3 py-1 rounded-full text-sm">
+                          <div class="flex items-center bg-white hover:bg-gray-100 transition-colors duration-300 ease-in-out cursor-pointer border px-3 py-1 rounded-full text-sm">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                             </svg>
@@ -1094,109 +1120,103 @@
             </section>
             <section id="depreciation-analysis" class="p-4 md:p-6">
               <h2 class="text-xl md:text-2xl font-bold mb-4">Vehicle Market Value Comparison</h2>
-                <div class="w-full m-auto bg-gray-50 border p-4 md:p-6">
-                    <canvas id="vehicleChart"></canvas>
+              <div class="w-full m-auto bg-gray-50 border p-4 md:p-6">
+                <div class="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
+                  <canvas id="vehicleChart"></canvas>
                 </div>
+              </div>
             
-                <script>
-                    const ctxVehicleChart = document.getElementById('vehicleChart').getContext('2d');
-                    
-                    const dataVehicleChart = {
-                        labels: ['Sep 2024', 'Mar 2026', 'Sep 2027', 'Sep 2029'],
-                        datasets: [
-                            {
-                                label: 'This Vehicle',
-                                data: [31148, 27000, 28000, 25700],
-                                backgroundColor: 'rgba(255, 206, 86, 0.7)',
-                            },
-                            {
-                                label: '2019 Toyota Highlander',
-                                data: [28401, 26800, 25000, 23200],
-                                backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                            },
-                            {
-                                label: '2019 Jeep Grand Cherokee',
-                                data: [28152, 26700, 24800, 23000],
-                                backgroundColor: 'rgba(153, 102, 255, 0.7)',
-                            },
-                            {
-                                label: '2019 Jeep Wrangler Unlimited',
-                                data: [24200, 23400, 22200, 19400],
-                                backgroundColor: 'rgba(255, 159, 64, 0.7)',
-                            },
-                            {
-                                label: '2019 Ford Explorer',
-                                data: [23970, 22700, 20500, 18500],
-                                backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                            }
-                        ]
-                    };
+              <script>
+                const ctxVehicleChart = document.getElementById('vehicleChart').getContext('2d');
+                
+                const dataVehicleChart = {
+                    labels: ['Sep 2024', 'Mar 2026', 'Sep 2027', 'Sep 2029'],
+                    datasets: [
+                        {
+                            label: 'This Vehicle',
+                            data: [31148, 27000, 28000, 25700],
+                            backgroundColor: 'rgba(255, 206, 86, 0.7)',
+                        },
+                        {
+                            label: '2019 Toyota Highlander',
+                            data: [28401, 26800, 25000, 23200],
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                        },
+                        {
+                            label: '2019 Jeep Grand Cherokee',
+                            data: [28152, 26700, 24800, 23000],
+                            backgroundColor: 'rgba(153, 102, 255, 0.7)',
+                        },
+                        {
+                            label: '2019 Jeep Wrangler Unlimited',
+                            data: [24200, 23400, 22200, 19400],
+                            backgroundColor: 'rgba(255, 159, 64, 0.7)',
+                        },
+                        {
+                            label: '2019 Ford Explorer',
+                            data: [23970, 22700, 20500, 18500],
+                            backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                        }
+                    ]
+                };
             
-                    const configVehicleChart = {
-                        type: 'bar',
-                        data: dataVehicleChart,
-                        options: {
-                            responsive: true,
-                            scales: {
-                                x: {
-                                    stacked: false,
-                                },
-                                y: {
-                                    beginAtZero: false,
-                                    min: 18000,
-                                    max: 32000,
-                                    ticks: {
-                                        callback: function(value) {
-                                            return '$' + value.toLocaleString();
-                                        }
-                                    }
-                                }
+                const configVehicleChart = {
+                    type: 'bar',
+                    data: dataVehicleChart,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false, // This is crucial for proper sizing
+                        scales: {
+                            x: {
+                                stacked: false,
                             },
-                            plugins: {
-                                tooltip: {
-                                    callbacks: {
-                                        label: function(context) {
-                                            let label = context.dataset.label || '';
-                                            if (label) {
-                                                label += ': ';
-                                            }
-                                            if (context.parsed.y !== null) {
-                                                label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
-                                            }
-                                            return label;
-                                        }
+                            y: {
+                                beginAtZero: false,
+                                min: 18000,
+                                max: 32000,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value.toLocaleString();
                                     }
-                                },
-                                legend: {
-                                    position: 'bottom',
-                                },
-                                title: {
-                                    display: false,
-                                    text: 'Vehicle Value Comparison'
                                 }
                             }
                         },
-                    };
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            },
+                            legend: {
+                                position: 'bottom',
+                            },
+                            title: {
+                                display: false,
+                                text: 'Vehicle Value Comparison'
+                            }
+                        }
+                    },
+                };
             
-                    const myVehicleChart = new Chart(ctxVehicleChart, configVehicleChart);
+                const myVehicleChart = new Chart(ctxVehicleChart, configVehicleChart);
             
-                    // Function to update chart data
-                    function updateVehicleChartData(newData) {
-                        myVehicleChart.data.datasets.forEach((dataset, i) => {
-                            dataset.data = newData[i];
-                        });
-                        myVehicleChart.update();
-                    }
-            
-                    // Example of how to update the chart data
-                    // updateVehicleChartData([
-                    //     [31148, 27000, 28000, 25700],
-                    //     [28401, 26800, 25000, 23200],
-                    //     [28152, 26700, 24800, 23000],
-                    //     [24200, 23400, 22200, 19400],
-                    //     [23970, 22700, 20500, 18500]
-                    // ]);
-                </script>
+                // Function to update chart data
+                function updateVehicleChartData(newData) {
+                    myVehicleChart.data.datasets.forEach((dataset, i) => {
+                        dataset.data = newData[i];
+                    });
+                    myVehicleChart.update();
+                }
+              </script>
             </section>
 
             <section id="market-analysis" class="bg-white p-4 md:p-6 fusion">
@@ -1498,66 +1518,97 @@
             </section>
 
             <section class="p-4 md:p-6">
-                <div class="bg-white border border-blue-200 rounded-lg p-4 md:p-6 relative">
-                    <div class="md:absolute w-fit mb-2 md:mb-0 top-2 right-2 bg-red-600 text-white py-1 px-3 rounded-md">
-                      <span class="text-sm font-bold">Get 20% off</span>
-                    </div>
-                
-                    <h2 class="text-2xl font-bold mb-4">Want to learn about the options, packages and features?</h2>
-                
-                    <div class="flex flex-col md:flex-row gap-6">
-                    <div class="md:w-1/2">
-                        <p class="mb-4">
-                        Window sticker provides you with the complete breakdown of a vehicle's original features, including standard and optional equipment, plus the manufacturer's pricing. Whether you're a buyer ensuring the car has the right features, or a seller showcasing the vehicle's true value, a window sticker gives you the confidence you need.
-                        </p>
-                
-                        <p class="font-bold mb-4">Get your window sticker now and make informed decisions!</p>
-                
-                        <div class="flex flex-col sm:flex-row gap-4 mb-4">
-                        <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded">
-                            Buy Window Sticker
-                        </button>
-                        <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded border border-blue-500">
-                            View sample
-                        </button>
-                        </div>
-                
-                        <div class="flex gap-4 text-sm text-gray-600">
-                        <div class="flex items-center">
-                            <div class="w-5 h-5 mr-2">
-                                <img src="assets/octicon_download-24.svg" />
-                            </div>
-                            Downloadable PDF
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-5 h-5 mr-2">
-                                <img src="assets/fluent_tap-double.svg" />
-                            </div>
-                            Instant Access
-                        </div>
-                        </div>
-                    </div>
-                
-                    <div class="md:w-1/2">
-                        <div class="rounded-lg p-4 aspect-[4/3]">
-                            <img src="assets/3HGGK5H68KM740380.png" />
-                        </div>
-                    </div>
-                    </div>
-                
-                    <div class="mt-8">
-                    <h3 class="text-xl font-bold mb-4">What people think about us!</h3>
-                    <div class="bg-gray-100 p-4 rounded-lg">
-                        <p class="italic mb-2">
-                        "Awesome Experience. The customer service here is amazing. I was helped immediately by one of the representatives. They guided me in finding a widow sticker that I desperately needed. They made sure that I had the window sticker that I needed. If you ever need a window sticker I would definitely recommend Detailed Vehicle History. Thanks again!!!!"
-                        </p>
-                        <div class="flex justify-between items-center">
-                        <p class="font-bold">- Shane (United States)</p>
-                        <img src="assets/trustPilot.png" />
-                        </div>
-                    </div>
-                    </div>
+              <div class="bg-white border border-blue-200 rounded-lg p-4 md:p-6 relative">
+                <!-- Discount Banner -->
+                <div class="absolute top-0 left-0 right-auto md:right-0 md:left-auto bg-gradient-to-br from-red-500 to-red-600 text-white py-3 px-4 md:px-6 rounded-b-lg md:rounded-none md:rounded-bl-lg shadow-lg">
+                  <div class="relative">
+                    <span class="text-lg md:text-xl font-bold block">Get 20% off</span>
+                    <span class="block text-xs md:text-sm">Limited Time Offer!</span>
+                    <div class="absolute -top-1 -left-2 w-12 h-12 border-4 border-yellow-300 rounded-full opacity-75 animate-ping"></div>
+                  </div>
                 </div>
+            
+                <!-- Main Content -->
+                <div class="mt-16 md:mt-4"> <!-- Added margin-top to account for banner -->
+                  <h2 class="text-xl md:text-2xl font-bold mb-4 md:pr-36">Want to learn about the options, packages and features?</h2>
+            
+                  <div class="flex flex-col md:flex-row gap-3 md:gap-6">
+                    <div class="md:w-1/2">
+                      <p class="mb-4 text-sm md:text-base">
+                        Window sticker provides you with the complete breakdown of a vehicle's original features, including standard and optional equipment, plus the manufacturer's pricing. Whether you're a buyer ensuring the car has the right features, or a seller showcasing the vehicle's true value, a window sticker gives you the confidence you need.
+                      </p>
+            
+                      <p class="font-bold md:mb-4 text-sm md:text-base">Get your window sticker now and make informed decisions!</p>
+            
+                      <div class="hidden md:flex flex-col sm:flex-row gap-3 mb-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded transition-colors">
+                          Buy Window Sticker
+                        </button>
+                        <button class="bg-white hover:bg-gray-100 text-blue-500 font-bold py-2.5 px-4 rounded border border-blue-500 transition-colors">
+                          View sample
+                        </button>
+                      </div>
+            
+                      <div class="hidden md:flex flex-wrap gap-4 text-xs md:text-sm text-gray-600">
+                        <div class="flex items-center">
+                          <div class="w-5 h-5 mr-2">
+                            <img src="assets/octicon_download-24.svg" alt="Download icon" />
+                          </div>
+                          Downloadable PDF
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-5 h-5 mr-2">
+                            <img src="assets/fluent_tap-double.svg" alt="Instant access icon" />
+                          </div>
+                          Instant Access
+                        </div>
+                      </div>
+                    </div>
+            
+                    <div class="md:w-1/2">
+                      <div class="rounded-lg p-2 md:p-4 aspect-[4/3]">
+                        <img src="assets/3HGGK5H68KM740380.png" alt="Window sticker sample" class="w-full h-full object-contain" />
+                      </div>
+                      <div class="flex md:hidden flex-col sm:flex-row gap-3 my-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4 rounded transition-colors">
+                          Buy Window Sticker
+                        </button>
+                        <button class="bg-white hover:bg-gray-100 text-blue-500 font-bold py-2.5 px-4 rounded border border-blue-500 transition-colors">
+                          View sample
+                        </button>
+                      </div>
+            
+                      <div class="flex md:hidden flex-wrap gap-4 text-xs md:text-sm text-gray-600">
+                        <div class="flex items-center">
+                          <div class="w-5 h-5 mr-2">
+                            <img src="assets/octicon_download-24.svg" alt="Download icon" />
+                          </div>
+                          Downloadable PDF
+                        </div>
+                        <div class="flex items-center">
+                          <div class="w-5 h-5 mr-2">
+                            <img src="assets/fluent_tap-double.svg" alt="Instant access icon" />
+                          </div>
+                          Instant Access
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <div class="mt-8">
+                    <h3 class="text-lg md:text-xl font-bold mb-4">What people think about us!</h3>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                      <p class="italic mb-2 text-sm md:text-base">
+                        "Awesome Experience. The customer service here is amazing. I was helped immediately by one of the representatives. They guided me in finding a widow sticker that I desperately needed. They made sure that I had the window sticker that I needed. If you ever need a window sticker I would definitely recommend Detailed Vehicle History. Thanks again!!!!"
+                      </p>
+                      <div class="flex justify-between items-center">
+                        <p class="font-bold text-sm md:text-base">- Shane (United States)</p>
+                        <img src="assets/trustPilot.png" alt="TrustPilot logo" class="h-6 md:h-8" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </section>
 
             <section id="vehicle-media" class="bg-white p-4 md:p-6 panther">
@@ -1577,10 +1628,10 @@
                         <!-- Images will be inserted here by JavaScript -->
                       </div>
                     </div>
-                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-all duration-300 focus:outline-none">
                       &lt;
                     </button>
-                    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-all duration-300 focus:outline-none">
                       &gt;
                     </button>
                   </div>
@@ -1599,10 +1650,10 @@
                         <!-- Images will be inserted here by JavaScript -->
                       </div>
                     </div>
-                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-all duration-300 focus:outline-none">
                       &lt;
                     </button>
-                    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-all duration-300 focus:outline-none">
                       &gt;
                     </button>
                   </div>
@@ -1621,10 +1672,10 @@
                         <!-- Images will be inserted here by JavaScript -->
                       </div>
                     </div>
-                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                    <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-r hover:bg-opacity-75 transition-all duration-300 focus:outline-none">
                       &lt;
                     </button>
-                    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-opacity duration-300 focus:outline-none">
+                    <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-l hover:bg-opacity-75 transition-all duration-300 focus:outline-none">
                       &gt;
                     </button>
                   </div>
@@ -1751,7 +1802,7 @@
               
               <div class="flex flex-col md:flex-row gap-4">
                 <div class="w-full md:w-1/2 space-y-4">
-                  <div class="bg-gray-100 rounded-lg p-4">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
                     <h3 class="text-lg font-semibold text-blue-600 mb-3">AIR CONDITIONING</h3>
                     <ul class="list-disc list-inside space-y-1">
                       <li>Air filtration</li>
@@ -1764,7 +1815,7 @@
                     </ul>
                   </div>
                   
-                  <div class="bg-gray-100 rounded-lg p-4">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
                     <h3 class="text-lg font-semibold text-blue-600 mb-3">AIRBAGS</h3>
                     <ul class="list-disc list-inside space-y-1">
                       <li>Airbag deactivation: occupant sensing passenger</li>
@@ -1780,7 +1831,7 @@
                 </div>
                 
                 <div class="w-full md:w-1/2 space-y-4">
-                  <div class="bg-gray-100 rounded-lg p-4">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
                     <h3 class="text-lg font-semibold text-blue-600 mb-3">MIRRORS</h3>
                     <ul class="list-disc list-inside space-y-1">
                       <li>Side mirror adjustments: manual folding</li>
@@ -1790,7 +1841,7 @@
                     </ul>
                   </div>
                   
-                  <div class="bg-gray-100 rounded-lg p-4">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
                     <h3 class="text-lg font-semibold text-blue-600 mb-3">ROOF</h3>
                     <ul class="list-disc list-inside space-y-1">
                       <li>Moonroof / Sunroof: anti-trapping</li>
@@ -1800,7 +1851,7 @@
                     </ul>
                   </div>
                   
-                  <div class="bg-gray-100 rounded-lg p-4">
+                  <div class="bg-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 ease-in-out">
                     <h3 class="text-lg font-semibold text-blue-600 mb-3">SAFETY</h3>
                     <ul class="list-disc list-inside space-y-1">
                       <li>Automatic emergency braking: front</li>
@@ -1820,11 +1871,11 @@
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                   <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(0, 'repair')">
                     <span class="font-semibold text-left">ABS Module Replacement</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="repair-accordion-0" class="">
+                  <div id="repair-accordion-0" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
                         <table class="w-full text-sm border whitespace-nowrap">
@@ -2045,15 +2096,15 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                   <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(1, 'repair')">
                     <span class="font-semibold text-left">AC Line Replacement</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="repair-accordion-1" class="hidden">
+                  <div id="repair-accordion-1" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
                         <table class="w-full text-sm border whitespace-nowrap">
@@ -2274,15 +2325,15 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                   <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(2, 'repair')">
                     <span class="font-semibold text-left">Air Conditioning - Recharge</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="repair-accordion-2" class="hidden">
+                  <div id="repair-accordion-2" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
                         <table class="w-full text-sm border whitespace-nowrap">
@@ -2499,7 +2550,7 @@
                           </tbody>
                         </table>
                       </div>
-                      <p class="mt-4 text-sm">AC recharge involves refilling the refrigerant in your vehicle's air conditioning system. This is a common maintenance task that can significantly improve AC performance.</p>
+                      <p class="mt-4 text-sm">The ABS Module is a critical component of your vehicle's braking system. Replacement costs can vary significantly between independent shops and dealerships.</p>
                     </div>
                   </div>
                 </div>
@@ -2512,11 +2563,11 @@
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                   <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(0, 'maintenance')">
                     <span class="font-semibold text-left">When mileage reaches 5,000 mi</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="maintenance-accordion-0" class="">
+                  <div id="maintenance-accordion-0" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
                         <table class="w-full text-sm border whitespace-nowrap">
@@ -2624,12 +2675,12 @@
                 </div>
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                   <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(1, 'maintenance')">
-                    <span class="font-semibold text-left">AWhen mileage reaches 10,000 mi</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <span class="font-semibold text-left">When mileage reaches 10,000 mi</span>
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="maintenance-accordion-1" class="hidden">
+                  <div id="maintenance-accordion-1" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
                         <table class="w-full text-sm border whitespace-nowrap">
@@ -2735,15 +2786,14 @@
                     </div>
                   </div>
                 </div>
-                
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
                   <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(2, 'maintenance')">
                     <span class="font-semibold text-left">When mileage reaches 15,000 mi</span>
-                    <svg class="w-5 h-5 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="maintenance-accordion-2" class="hidden">
+                  <div id="maintenance-accordion-2" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                     <div class="p-4 bg-white">
                       <div class="overflow-x-auto">
                         <table class="w-full text-sm border whitespace-nowrap">
@@ -2848,7 +2898,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>                
               </div>
             </section>
 
@@ -2856,73 +2906,82 @@
                 <h2 class="text-2xl font-bold mb-6">RECALLS</h2>
                 <div class="space-y-4">
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(0)">
+                    <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(0, 'recall')">
                       <span class="font-semibold text-left">Nov 5, 2020 - FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP</span>
-                      <svg class="w-5 h-5 text-gray-500 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                      <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div id="accordion-0" class="p-4 bg-white">
-                      <div class="space-y-4">
-                        <div>
+                    <div id="accordion-0" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                      <div class="p-4 bg-white">
+                        <div class="space-y-4">
+                          <div>
                             <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
-                              <img src="assets/iconoir_calendar.svg" />
+                              <img src="assets/iconoir_calendar.svg" alt="Calendar icon" />
                               Report Details
                             </h4>
                             <div class="flex justify-between text-sm">
-                                <p><span class="font-semibold">Report received date:</span> Nov 5, 2020</p>
-                                <p><span class="font-semibold">Owner notified date:</span> Owners Notified - Jan 21, 2021</p>
+                              <p><span class="font-semibold">Report received date:</span> Nov 5, 2020</p>
+                              <p><span class="font-semibold">Owner notified date:</span> Owners Notified - Jan 21, 2021</p>
                             </div>
-                        </div>
-                        
-                        <div>
-                          <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
-                            <img src="assets/blue_oui_alert.svg" />
-                            Recall summary
-                          </h4>
-                          <p class="text-sm">Toyota Motor Engineering & Manufacturing (Toyota) is recalling certain 2018-2019 4Runner, 2019-2020 Avalon, 2019 Corolla Hatchback, 2017-2019 Highlander, 2018-2020 Camry, 2020 Corolla, 2018-2019 Land Cruiser, 2017-2020 Tacoma, 2019-2020 RAV4, 2019-2020 Sequoia, 2017-2020 Sienna, 2018-2020 Tundra, 2018-2020 Lexus ES350, 2017 Lexus GS200t, 2017-2019 Lexus GS350, 2018 Lexus GS300, 2018-2020 Lexus GS500h, 2018-2020 Lexus IS300, 2018-2019 Lexus IS350, 2017 Lexus IS200t, 2019 Lexus IS300, 2018 Lexus IS350, 2018-2020 Lexus LC500, 2018 Lexus LS500, 2018 Lexus LS500h, 2018-2019 Lexus LX570, 2017 Lexus RC200t, 2018 Lexus RC300, RC350, 2017 and 2019-2020 Lexus RX350, 2018-2020 RX350L, 2019 Lexus UX200, 2018-2019 Lexus NX300 vehicles.</p>
-                          <p class="text-sm mt-2">The low-pressure fuel pump inside the fuel tank may fail.</p>
-                        </div>
-                        
-                        <div>
-                          <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
-                            <img src="assets/line-md_document-report.svg">
-                            Consequence</h4>
-                          <p class="text-sm">If the fuel pump fails, the engine can stall while driving, increasing the risk of a crash.</p>
-                        </div>
-                        
-                        <div>
-                          <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
-                            <img src="assets/carbon_tools.svg">
-                            Remedy</h4>
-                          <p class="text-sm">Toyota will notify owners, and dealers will replace the fuel pump assembly with an improved one, free of charge. Owners of specific models were notified that remedy parts were available starting January 21, 2021. Owners of other models will be notified as remedy parts become available. Remedy parts should be available for all affected vehicles by late March 2021. Owners may contact Toyota customer service at 1-888-270-9371 or Lexus customer service at 1-800-255-3987. Note: This recall is an expansion of recall 20V-012. Toyota's number for this recall is 20TA02. Lexus' number for this recall is 20LA01.</p>
-                        </div>
-                        
-                        <div>
-                          <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
-                            <img src="assets/blue-alert.svg">
-                            Additional Information</h4>
-                          <p class="text-sm">Owners may also contact the National Highway Traffic Safety Administration Vehicle Safety Hotline at 1-888-327-4236 (TTY 1-800-424-9153), or go to www.safercar.gov.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/blue_oui_alert.svg" alt="Alert icon" />
+                              Recall summary
+                            </h4>
+                            <p class="text-sm">Toyota Motor Engineering & Manufacturing (Toyota) is recalling certain 2018-2019 4Runner, 2019-2020 Avalon, 2019 Corolla Hatchback, 2017-2019 Highlander, 2018-2020 Camry, 2020 Corolla, 2018-2019 Land Cruiser, 2017-2020 Tacoma, 2019-2020 RAV4, 2019-2020 Sequoia, 2017-2020 Sienna, 2018-2020 Tundra, 2018-2020 Lexus ES350, 2017 Lexus GS200t, 2017-2019 Lexus GS350, 2018 Lexus GS300, 2018-2020 Lexus GS500h, 2018-2020 Lexus IS300, 2018-2019 Lexus IS350, 2017 Lexus IS200t, 2019 Lexus IS300, 2018 Lexus IS350, 2018-2020 Lexus LC500, 2018 Lexus LS500, 2018 Lexus LS500h, 2018-2019 Lexus LX570, 2017 Lexus RC200t, 2018 Lexus RC300, RC350, 2017 and 2019-2020 Lexus RX350, 2018-2020 RX350L, 2019 Lexus UX200, 2018-2019 Lexus NX300 vehicles.</p>
+                            <p class="text-sm mt-2">The low-pressure fuel pump inside the fuel tank may fail.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/line-md_document-report.svg" alt="Document report icon" />
+                              Consequence
+                            </h4>
+                            <p class="text-sm">If the fuel pump fails, the engine can stall while driving, increasing the risk of a crash.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/carbon_tools.svg" alt="Tools icon" />
+                              Remedy
+                            </h4>
+                            <p class="text-sm">Toyota will notify owners, and dealers will replace the fuel pump assembly with an improved one, free of charge. Owners of specific models were notified that remedy parts were available starting January 21, 2021. Owners of other models will be notified as remedy parts become available. Remedy parts should be available for all affected vehicles by late March 2021. Owners may contact Toyota customer service at 1-888-270-9371 or Lexus customer service at 1-800-255-3987. Note: This recall is an expansion of recall 20V-012. Toyota's number for this recall is 20TA02. Lexus' number for this recall is 20LA01.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/blue-alert.svg" alt="Blue alert icon" />
+                              Additional Information
+                            </h4>
+                            <p class="text-sm">Owners may also contact the National Highway Traffic Safety Administration Vehicle Safety Hotline at 1-888-327-4236 (TTY 1-800-424-9153), or go to www.safercar.gov.</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
               
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(1)">
+                    <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(1, 'recall')">
                       <span class="font-semibold text-left">Jan 14, 2020 - FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP</span>
-                      <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                      <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div id="accordion-1" class="p-4 bg-white hidden">
-                      <div class="p-4">Dummy content for Jan 14, 2020 recall</div>
+                    <div id="accordion-1" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                      <div class="p-4 bg-white">
+                        <div class="p-4">Dummy content for Jan 14, 2020 recall</div>
+                      </div>
                     </div>
                   </div>
               
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(2)">
+                    <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(2, 'recall')">
                       <span class="font-semibold text-left">Apr 1, 2019 - EQUIPMENT:OTHER:LABELS</span>
-                      <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                      <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
-                    <div id="accordion-2" class="p-4 bg-white hidden">
-                      <div class="p-4">Dummy content for Apr 1, 2019 recall</div>
+                    <div id="accordion-2" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                      <div class="p-4 bg-white">
+                        <div class="p-4">Dummy content for Apr 1, 2019 recall</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2944,27 +3003,35 @@
                   default:
                     prefix = 'accordion-';
                 }
-            
+
                 const content = document.getElementById(`${prefix}${index}`);
                 const allContents = document.querySelectorAll(`[id^="${prefix}"]`);
                 const allButtons = document.querySelectorAll(`button[onclick^="toggleAccordion(${index}"]`);
                 
                 allContents.forEach((item) => {
                   if (item !== content) {
-                    item.classList.add('hidden');
+                    item.classList.remove('max-h-[1000px]', 'opacity-100');
+                    item.classList.add('max-h-0', 'opacity-0');
                   }
                 });
-            
+
                 allButtons.forEach((button) => {
                   if (button.getAttribute('onclick') !== `toggleAccordion(${index}, '${type}')`) {
                     button.querySelector('svg').classList.remove('rotate-180');
                   }
                 });
-            
-                content.classList.toggle('hidden');
-                allButtons[0].querySelector('svg').classList.toggle('rotate-180');
+
+                content.classList.toggle('max-h-0');
+                content.classList.toggle('max-h-[1000px]');
+                content.classList.toggle('opacity-0');
+                content.classList.toggle('opacity-100');
+
+                // Update this line to target the specific button's SVG
+                const clickedButton = document.querySelector(`button[onclick="toggleAccordion(${index}, '${type}')"]`);
+                clickedButton.querySelector('svg').classList.toggle('rotate-180');
               }
             </script>
+            <!-- Edit Milage Popup -->
             <section class="relative">
               <!-- Trigger button -->
               <!-- <button onclick="editMileage()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
@@ -2972,7 +3039,7 @@
               </button> -->
             
               <!-- Popup -->
-              <div id="mileagePopup" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden transition-opacity duration-300 ease-out opacity-0 flex items-center justify-center p-3">
+              <div id="mileagePopup" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden transition-opacity duration-300 ease-out opacity-0 flex items-center justify-center p-3 z-50">
                 <div class="relative p-5 border w-96 shadow-lg rounded-md bg-white">
                   <div class="mt-3 text-center">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Mileage</h3>
@@ -3047,5 +3114,191 @@
             </section>
         </div>
     </div>
+    <script>
+      // Sidebar Script
+        const sidebar = document.getElementById('sidebar');
+        const toggleSidebar = document.getElementById('toggleSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const mainContent = document.getElementById('mainContent');
+        const sidebarNav = document.getElementById('sidebarNav');
+    
+        function updateLayout() {
+            if (window.innerWidth <= 767) {
+                toggleSidebar.classList.remove('hidden');
+                mainContent.classList.remove('ml-80');
+            } else {
+                toggleSidebar.classList.add('hidden');
+                sidebar.classList.remove('open');
+                mainContent.classList.add('ml-80');
+            }
+        }
+
+        function scrollToSection(targetId) {
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+
+        function closeSidebarOnMobile() {
+          if (window.innerWidth <= 767) {
+            sidebar.classList.remove('open');
+            document.body.classList.remove('popup');
+          }
+        }
+    
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('popup');
+        });
+
+        toggleSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            document.body.classList.toggle('popup');
+        });
+
+        sidebarNav.addEventListener('click', (event) => {
+        const target = event.target.closest('[target]');
+        if (target) {
+          event.preventDefault();
+          const targetId = target.getAttribute('target');
+          scrollToSection(targetId);
+          closeSidebarOnMobile();
+        }
+      });
+    
+      window.addEventListener('resize', updateLayout);
+      updateLayout();
+    </script>
+    <script>
+      const navItems = sidebarNav.querySelectorAll('[target]');
+      let currentActiveSection = null;
+
+      function setActiveNavItem(id) {
+        // Remove active state from all nav items first
+        navItems.forEach(item => {
+          item.classList.remove('bg-[#5185E3]', 'text-white');
+        });
+
+        // If we have a new active section, highlight its nav item and update button text
+        if (id) {
+          const activeNavItem = Array.from(navItems).find(
+            item => item.getAttribute('target') === id
+          );
+          if (activeNavItem) {
+            activeNavItem.classList.add('bg-[#5185E3]', 'text-white');
+            currentActiveSection = id;
+            updateToggleButtonText(activeNavItem.textContent);
+          }
+        }
+      }
+
+      function updateToggleButtonText(text) {
+        const toggleSidebarText = document.getElementById('toggleSidebarText')
+        const maxLength = 20 // Adjust this value based on your needs
+        
+        // Word-aware truncation
+        const words = text.trim().split(/\s+/)
+        let result = words[0] // Always include at least the first word
+        let currentLength = words[0].length
+        
+        for (let i = 1; i < words.length; i++) {
+          if ((currentLength + words[i].length + 4) <= maxLength) { // +4 accounts for space and ...
+            result += ' ' + words[i]
+            currentLength += words[i].length + 1 // +1 for space
+          } else {
+            result += '...'
+            break
+          }
+        }
+        
+        toggleSidebarText.textContent = result
+      }
+
+      // Modified observer options for better detection of large sections
+      const observerOptions = {
+        root: null,
+        rootMargin: '-10% 0px -10% 0px', // Reduced margin for better detection
+        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5] // Multiple thresholds for smoother detection
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        // Sort entries by their intersection ratio
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        // Get the most visible section
+        const mostVisibleEntry = visibleEntries[0];
+
+        if (mostVisibleEntry) {
+          const newId = mostVisibleEntry.target.id;
+          if (currentActiveSection !== newId) {
+            setActiveNavItem(newId);
+          }
+        }
+      }, observerOptions);
+
+      // Get all sections that match the navigation targets
+      const sections = Array.from(navItems).map(item => {
+        const targetId = item.getAttribute('target');
+        const section = document.getElementById(targetId);
+        if (!section) {
+          console.warn(`Section with id "${targetId}" not found`);
+        }
+        return section;
+      }).filter(Boolean);
+
+      // Start observing each section
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // Handle initial state and scroll position
+      function updateActiveSection() {
+        const viewportHeight = window.innerHeight;
+        let maxVisibility = 0;
+        let mostVisibleSection = null;
+
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const visibility = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+          
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisibleSection = section;
+          }
+        });
+
+        if (mostVisibleSection) {
+          setActiveNavItem(mostVisibleSection.id);
+        }
+      }
+
+      // Set initial active section
+      updateActiveSection();
+
+      // Update active section on scroll (with debounce)
+      let scrollTimeout;
+      window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+          window.cancelAnimationFrame(scrollTimeout);
+        }
+        scrollTimeout = window.requestAnimationFrame(() => {
+          updateActiveSection();
+        });
+      });
+
+      // Update active section when window is resized
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        if (resizeTimeout) {
+          window.cancelAnimationFrame(resizeTimeout);
+        }
+        resizeTimeout = window.requestAnimationFrame(() => {
+          updateActiveSection();
+        });
+      });
+    </script>
 </body>
 </html>
