@@ -746,10 +746,6 @@ video {
   margin-top: 2rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -842,12 +838,12 @@ video {
   max-height: 90vh;
 }
 
-.min-h-screen {
-  min-height: 100vh;
-}
-
 .min-h-\[80px\] {
   min-height: 80px;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-12 {
@@ -1431,11 +1427,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .pb-3 {

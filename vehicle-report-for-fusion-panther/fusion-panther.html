@@ -6,7 +6,6 @@
     <title>Vehicle History Report</title>
     <link href="output.css" rel="stylesheet">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
     <!-- chart for IDEAL Time To Buy or Sell -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -47,7 +46,7 @@
                             <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/overview.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                            <span class="text-sm">Overview and safety ratings</span>
+                            <span class="text-sm">Overview & safety ratings</span>
                         </div>
 
                         <div target="basic-vehicle-history-checks" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
@@ -55,7 +54,7 @@
                             <img src="assets/solar_card-search-broken.svg" alt="Card search icon" class="car w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             <img src="assets/Basic-Motorcycle-History-Check.svg" alt="Card search icon" class="motorcycle w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                           </div>
-                          <span class="text-sm">Basic <span class="car">vehicle</span><span class="motorcycle">motorcycle</span> history check</span>
+                          <span class="text-sm">Basic <span class="car">vehicle</span><span class="motorcycle">motorcycle</span> checks</span>
                         </div>
 
                         <div target="premium-vehicle-history-checks" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
@@ -63,7 +62,7 @@
                             <img src="assets/icon-park-solid_history-query.svg" alt="Card search icon" class="car w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             <img src="assets/Premium-Motorcycle-History-Check.svg" alt="Card search icon" class="motorcycle w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                           </div>
-                          <span class="text-sm">Premium <span class="car">vehicle</span><span class="motorcycle">motorcycle</span> history check</span>
+                          <span class="text-sm">Premium <span class="car">vehicle</span><span class="motorcycle">motorcycle</span> checks</span>
                         </div>
 
                         <div target="auction" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group not_fusionPanther basic">
@@ -73,25 +72,25 @@
                           <span class="text-sm">Auction</span>
                         </div>
 
-                        <div target="days-listed-for-sale" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group premium">
+                        <div target="sales-listing-records" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group premium">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/material-symbols_car-tag-outline-rounded.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Days listed for sale</span>
+                          <span class="text-sm">Sales listing records</span>
                         </div>
 
                         <div target="stolen-vehicle-check" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group premium">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/mdi_robber-mask.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Theft Check</span>
+                          <span class="text-sm">Stolen vehicle check</span>
                         </div>
 
                         <div target="safety-ratings" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group panther">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/safety-ratings.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Safety Ratings</span>
+                          <span class="text-sm">Safety ratings</span>
                         </div>
                       
                         <div target="vehicle-specifications" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
@@ -102,11 +101,18 @@
                             <span class="text-sm"><span class="car">Vehicle</span><span class="motorcycle">Motorcycle</span> specifications</span>
                         </div>
 
+                        <div target="value-decline-assessment" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                            <div class="w-5 h-5 flex-shrink-0">
+                              <img src="assets/value-decline-assessment.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
+                            </div>
+                            <span class="text-sm">Value decline assessment</span>
+                        </div>
+
                         <div target="vehicle-market-value-comparison" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
                             <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/icon-park-outline_market-analysis.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                            <span class="text-sm">Market Comparison</span>
+                            <span class="text-sm">Market comparison</span>
                         </div>
 
                         <div target="market-analysis" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group fusion">
@@ -120,14 +126,21 @@
                           <div class="w-5 h-5 flex-shrink-0">
                             <img src="assets/Value-decline-assessment.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                           </div>
-                          <span class="text-sm">Depreciation analysis</span>
+                          <span class="text-sm">Ideal time to buy or sell</span>
                         </div>
 
-                        <div target="color-option" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                        <div target="color-option" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group panther">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/Color-options.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Color</span>
+                          <span class="text-sm">Color options</span>
+                        </div>
+
+                        <div target="estimated-sale-duration" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                          <div class="w-5 h-5 flex-shrink-0">
+                              <img src="assets/Estimated-sale-duration.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
+                            </div>
+                          <span class="text-sm">Estimated sale duration</span>
                         </div>
 
                         <div target="window-sticker" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
@@ -141,7 +154,7 @@
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/Vehicle-media.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Media</span>
+                          <span class="text-sm">Vehicle media</span>
                         </div>
 
                         <div target="equipment-details" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group not_fusionPanther">
@@ -155,14 +168,14 @@
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/Vehicle-repair-costs.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Repair Cost</span>
+                          <span class="text-sm">Vehicle repair cost</span>
                         </div>
 
                         <div target="maintenance" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group panther not_fusionPanther">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/material-symbols_car-repair-outline-rounded.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
-                          <span class="text-sm">Maintenance</span>
+                          <span class="text-sm">Vehicle maintenance</span>
                         </div>
 
                         <div target="recalls" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
@@ -195,7 +208,7 @@
                   </div>
                   <div>
                     <h1 class="text-sm font-semibold text-gray-500 mb-1">VEHICLE HISTORY REPORT</h1>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-2">2019 TOYOTA HIGHLANDER BODY</h2>
+                    <h2 class="text-xl sm:text-2xl font-bold mb-2">2019 TOYOTA HIGHLANDER LIMITED PLATINUM</h2>
                     <div class="flex flex-wrap items-center space-x-2 mb-1">
                       <span class="text-sm text-gray-500">Estimated Mileage:</span>
                       <span class="text-sm font-semibold"><span class="mileageMirror" id="mileageData">59,609</span> mi</span>
@@ -239,7 +252,7 @@
                       </div>
                       <div class="bg-gray-50 border flex items-center justify-center px-3 py-4">
                         <div class="text-center">
-                          <p class="m-0 text-sm">Fuel Type:</p>
+                          <p class="m-0 text-sm">Fuel Type</p>
                           <p class="font-semibold m-0 text-base">Gas</p>
                         </div>
                       </div>
@@ -251,7 +264,7 @@
                       </div>
                       <div class="bg-gray-50 border flex items-center justify-center px-3 py-4">
                         <div class="text-center">
-                          <p class="m-0 text-sm">Engine:</p>
+                          <p class="m-0 text-sm">Engine</p>
                           <p class="font-semibold m-0 text-base">3.5L V6 295hp</p>
                         </div>
                       </div>
@@ -387,7 +400,7 @@
             <section class="p-4 md:p-6">
                 <div class="bg-gray-50 p-4 sm:p-6 border">
                   <div id="basic-vehicle-history-checks">
-                    <h2 class="text-lg sm:text-xl font-bold mb-4">BASIC VEHICLE HISTORY CHECK</h2>
+                    <h2 class="text-lg sm:text-xl font-bold mb-4">BASIC VEHICLE HISTORY CHECKS</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div class="bg-white rounded-lg p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
                         <div class="flex items-center">
@@ -395,7 +408,7 @@
                             <img src="assets/people.svg" />
                         </div>
                         <div>
-                            <p class="font-semibold">Multiple Owners?</p>
+                            <p class="font-semibold">Multiple Owners:</p>
                             <p class="text-red-500 font-semibold text-sm">Record(s) found!</p>
                         </div>
                         </div>
@@ -437,7 +450,7 @@
                             <img src="assets/crash.svg" />
                         </div>
                         <div>
-                            <p class="font-semibold">Accident records?</p>
+                            <p class="font-semibold">Accident records:</p>
                             <p class="text-green-500 font-semibold text-sm">No record(s) found!</p>
                         </div>
                         </div>
@@ -451,69 +464,101 @@
                     <div id="premium-vehicle-history-checks">
                       <h2 class="text-lg sm:text-xl font-bold mb-4">PREMIUM VEHICLE HISTORY CHECKS</h2>
                       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Ownership History & Map</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Ownership History & Map</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Title Check</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Title Check</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Lien/Loan Records</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Lien/Loan Records</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Accident & Damage History</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Accident & Damage History</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Odometer Rollback</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Odometer Rollback</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Theft Records</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Theft Records</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Service & Repair History</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Service & Repair History</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
-                        <div class="bg-white p-4 rounded-lg shadow-sm text-center hover:shadow-md transition-shadow duration-300 ease-in-out">
-                            <div class="w-8 h-8 mx-auto mb-2">
-                                <img src="assets/yellow-alert.svg" />
+                        <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 ease-in-out">
+                          <div class="h-full flex flex-col items-center p-4">
+                            <div class="w-8 h-8 mb-2 flex-shrink-0">
+                              <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <p class="font-semibold mb-1 text-sm sm:text-base">Lemon Check</p>
-                            <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                              <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Lemon Check</p>
+                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                 
                     <div class="bg-gradient-to-r from-yellow-400 to-pink-500 p-4 sm:p-6 text-white rounded-lg text-center">
                       <h3 class="text-base sm:text-lg font-bold mb-2">EXCLUSIVE FOR UNLIMITED VIN CHECK SUBSCRIBERS:</h3>
-                      <p class="mb-4 text-sm sm:text-base">Get 50% off all premium vehicle history reports just for you! Unlock deeper insights at half the price.</p>
-                      <button class="bg-white text-black py-2 px-4 font-semibold text-sm sm:text-base shadow-sm hover:bg-gray-100 hover:shadow-md transition-all duration-300 ease-in-out">Unlock premium report to check issues</button>
+                      <p class="mb-4 text-sm sm:text-base">Get 50% off for all premium vehicle history reports just for you! Unlock deeper insights at half the price.</p>
+                      <button class="bg-white text-black py-2 px-4 font-semibold text-sm sm:text-base shadow-sm hover:bg-gray-100 hover:shadow-md transition-all duration-300 ease-in-out">Unlock premium report to check hidden issues!</button>
                     </div>
                 </div>
             </section>
@@ -543,7 +588,7 @@
               </div>
             </section>
 
-            <section id="days-listed-for-sale" class="bg-white p-4 md:p-6 premium">
+            <section id="sales-listing-records" class="bg-white p-4 md:p-6 premium">
               <h2 class="text-2xl font-bold mb-6">SALES LISTING RECORDS</h2>
               <div class="space-y-4">
                 <div class="border border-gray-200 rounded-lg overflow-hidden">
@@ -1003,112 +1048,204 @@
               </div>
                 
               <div id="imperialSection" class="flex flex-col md:flex-row gap-4 border p-2">
-                  <div class="w-full md:w-1/2 space-y-4">
+                <div class="w-full md:w-1/2 space-y-4">
+                    <div class="rounded-lg p-4 bg-gray-50">
+                        <h3 class="text-lg font-semibold text-blue-600 mb-2">INTERIOR DIMENSIONS</h3>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                          <p class="font-semibold">Cargo Volume:</p>
+                          <p>13.8 cu ft</p>
+                          <p class="font-semibold">Seating Capacity:</p>
+                          <p>7</p>
+                          <p class="font-semibold">Doors:</p>
+                          <p>4</p>
+                          <p class="font-semibold">Rows:</p>
+                          <p>3</p>
+                          <p class="font-semibold">Front Leg Room:</p>
+                          <p>44.2 in</p>
+                          <p class="font-semibold">Front Shoulder Room:</p>
+                          <p>59.3 in</p>
+                          <p class="font-semibold">Rear Leg Room:</p>
+                          <p>38.4 in</p>
+                          <p class="font-semibold">Rear Shoulder Room:</p>
+                          <p>59.6 in</p>
+                          <p class="font-semibold">3rd Row Headroom:</p>
+                          <p>35.9 in</p>
+                          <p class="font-semibold">3rd Row Legroom:</p>
+                          <p>27.7 in</p>
+                        </div>
+                      </div>
                       <div class="rounded-lg p-4 bg-gray-50">
-                          <h3 class="text-lg font-semibold text-blue-600 mb-2">INTERIOR DIMENSIONS</h3>
-                          <div class="grid grid-cols-2 gap-2 text-sm">
-                            <p class="font-semibold">Cargo Volume:</p>
-                            <p>13.8 cu ft</p>
-                            <p class="font-semibold">Seating Capacity:</p>
-                            <p>7</p>
-                            <p class="font-semibold">Doors:</p>
-                            <p>4</p>
-                            <p class="font-semibold">Rows:</p>
-                            <p>3</p>
-                            <p class="font-semibold">Front Leg Room:</p>
-                            <p>44.2 in</p>
-                            <p class="font-semibold">Front Shoulder Room:</p>
-                            <p>59.3 in</p>
-                            <p class="font-semibold">Rear Leg Room:</p>
-                            <p>38.4 in</p>
-                            <p class="font-semibold">Rear Shoulder Room:</p>
-                            <p>59.6 in</p>
-                            <p class="font-semibold">3rd Row Headroom:</p>
-                            <p>35.9 in</p>
-                            <p class="font-semibold">3rd Row Legroom:</p>
-                            <p>27.7 in</p>
+                        <h3 class="text-lg font-semibold text-blue-600 mb-2">EXTERIOR DIMENSIONS</h3>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                          <p class="font-semibold">Ground Clearance:</p>
+                          <p>13.8 cu ft</p>
+                          <p class="font-semibold">Height:</p>
+                          <p>70.1 in</p>
+                          <p class="font-semibold">Length:</p>
+                          <p>192.5 in</p>
+                          <p class="font-semibold">Wheelbase:</p>
+                          <p>109.8 in</p>
+                          <p class="font-semibold">Width:</p>
+                          <p>75.8 in</p>
+                          <p class="font-semibold">Curb Weight:</p>
+                          <p>4655 lbs</p>
+                          <p class="font-semibold">Fuel Tank Capacity:</p>
+                          <p>19.2 gal</p>
+                          <p class="font-semibold">Gross Vehicle Weight Rating:</p>
+                          <p>6000 lbs</p>
+                          <p class="font-semibold">Max Payload:</p>
+                          <p>1200 lbs</p>
+                          <p class="font-semibold">Max Towing Capacity:</p>
+                          <p>5000 lbs</p>
+                        </div>
+                      </div>
+                </div>
+                <div class="w-full md:w-1/2 space-y-4">
+                    <div class="rounded-lg p-4 bg-gray-50">
+                        <h3 class="text-lg font-semibold text-blue-600 mb-2">MPG (MILES PER GALLON)</h3>
+                        <div class="flex items-center justify-between mb-4">
+                          <div class="text-center">
+                            <p class="font-semibold">Highway MPG:</p>
+                            <p class="text-2xl font-bold">26</p>
+                          </div>
+                          <div class="w-28 h-28">
+                            <img src="assets/maki_fuel.svg" />
+                          </div>
+                          <div class="text-center">
+                            <p class="font-semibold">City MPG:</p>
+                            <p class="text-2xl font-bold">19</p>
                           </div>
                         </div>
-                        <div class="rounded-lg p-4 bg-gray-50">
-                          <h3 class="text-lg font-semibold text-blue-600 mb-2">EXTERIOR DIMENSIONS</h3>
-                          <div class="grid grid-cols-2 gap-2 text-sm">
-                            <p class="font-semibold">Ground Clearance:</p>
-                            <p>13.8 cu ft</p>
-                            <p class="font-semibold">Height:</p>
-                            <p>70.1 in</p>
-                            <p class="font-semibold">Length:</p>
-                            <p>192.5 in</p>
-                            <p class="font-semibold">Wheelbase:</p>
-                            <p>109.8 in</p>
-                            <p class="font-semibold">Width:</p>
-                            <p>75.8 in</p>
-                            <p class="font-semibold">Curb Weight:</p>
-                            <p>4655 lbs</p>
-                            <p class="font-semibold">Fuel Tank Capacity:</p>
-                            <p>19.2 gal</p>
-                            <p class="font-semibold">Gross Vehicle Weight Rating:</p>
-                            <p>6000 lbs</p>
-                            <p class="font-semibold">Max Payload:</p>
-                            <p>1200 lbs</p>
-                            <p class="font-semibold">Max Towing Capacity:</p>
-                            <p>5000 lbs</p>
-                          </div>
-                        </div>
-                  </div>
-                  <div class="w-full md:w-1/2 space-y-4">
+                        <p class="text-center font-semibold">Combined MPG: 22.0</p>
+                      </div>
                       <div class="rounded-lg p-4 bg-gray-50">
-                          <h3 class="text-lg font-semibold text-blue-600 mb-2">MPG (MILES PER GALLON)</h3>
-                          <div class="flex items-center justify-between mb-4">
-                            <div class="text-center">
-                              <p class="font-semibold">Highway MPG:</p>
-                              <p class="text-2xl font-bold">26</p>
-                            </div>
-                            <div class="w-28 h-28">
-                              <img src="assets/maki_fuel.svg" />
-                            </div>
-                            <div class="text-center">
-                              <p class="font-semibold">City MPG:</p>
-                              <p class="text-2xl font-bold">19</p>
-                            </div>
-                          </div>
-                          <p class="text-center font-semibold">Combined MPG: 22.0</p>
+                        <h3 class="text-lg font-semibold text-blue-600 mb-2">ENGINE, TRANSMISSION, FUEL</h3>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                          <p class="font-semibold">Engine:</p>
+                          <p>3.5L V6 295hp 263ft. lbs.</p>
+                          <p class="font-semibold">Engine Power:</p>
+                          <p>295 HP at 6600 RPM</p>
+                          <p class="font-semibold">Engine Torque:</p>
+                          <p>263 ft-lbs at 4700 RPM</p>
+                          <p class="font-semibold">Cylinders:</p>
+                          <p>6</p>
+                          <p class="font-semibold">Fuel Type:</p>
+                          <p>Gas</p>
+                          <p class="font-semibold">Axle Ratio:</p>
+                          <p>3.0</p>
+                          <p class="font-semibold">Acceleration (0-60mph):</p>
+                          <p>N/A</p>
+                          <p class="font-semibold">Transmission Type:</p>
+                          <p>Automatic</p>
+                          <p class="font-semibold">Transmission:</p>
+                          <p>8-Speed Automatic w/ Sequential Shift Mode</p>
+                          <p class="font-semibold">Fuel Tank Capacity:</p>
+                          <p>19.2 gal</p>
+                          <p class="font-semibold">Engine Torque:</p>
+                          <p>5000 lbs</p>
                         </div>
-                        <div class="rounded-lg p-4 bg-gray-50">
-                          <h3 class="text-lg font-semibold text-blue-600 mb-2">ENGINE, TRANSMISSION, FUEL</h3>
-                          <div class="grid grid-cols-2 gap-2 text-sm">
-                            <p class="font-semibold">Engine:</p>
-                            <p>3.5L V6 295hp 263ft. lbs.</p>
-                            <p class="font-semibold">Engine Power:</p>
-                            <p>295 HP at 6600 RPM</p>
-                            <p class="font-semibold">Engine Torque:</p>
-                            <p>263 ft-lbs at 4700 RPM</p>
-                            <p class="font-semibold">Cylinders:</p>
-                            <p>6</p>
-                            <p class="font-semibold">Fuel Type:</p>
-                            <p>Gas</p>
-                            <p class="font-semibold">Axle Ratio:</p>
-                            <p>3.0</p>
-                            <p class="font-semibold">Acceleration (0-60mph):</p>
-                            <p>N/A</p>
-                            <p class="font-semibold">Transmission Type:</p>
-                            <p>Automatic</p>
-                            <p class="font-semibold">Transmission:</p>
-                            <p>8-Speed Automatic w/ Sequential Shift Mode</p>
-                            <p class="font-semibold">Fuel Tank Capacity:</p>
-                            <p>19.2 gal</p>
-                            <p class="font-semibold">Engine Torque:</p>
-                            <p>5000 lbs</p>
-                          </div>
-                        </div>
-                  </div>
+                      </div>
+                </div>
               </div>
               <div id="metricSection" class="hidden flex-col md:flex-row gap-4 border p-2">
-                <div class="w-full space-y-4">
+                <div class="w-full md:w-1/2 space-y-4">
                   <div class="rounded-lg p-4 bg-gray-50">
-                    <h3 class="text-lg font-semibold text-blue-600 mb-2">Silence is golden.</h3>
-                  </div>
+                      <h3 class="text-lg font-semibold text-blue-600 mb-2">INTERIOR DIMENSIONS (* this is only to differentiate the tabs)</h3>
+                      <div class="grid grid-cols-2 gap-2 text-sm">
+                        <p class="font-semibold">Cargo Volume:</p>
+                        <p>13.8 cu ft</p>
+                        <p class="font-semibold">Seating Capacity:</p>
+                        <p>7</p>
+                        <p class="font-semibold">Doors:</p>
+                        <p>4</p>
+                        <p class="font-semibold">Rows:</p>
+                        <p>3</p>
+                        <p class="font-semibold">Front Leg Room:</p>
+                        <p>44.2 in</p>
+                        <p class="font-semibold">Front Shoulder Room:</p>
+                        <p>59.3 in</p>
+                        <p class="font-semibold">Rear Leg Room:</p>
+                        <p>38.4 in</p>
+                        <p class="font-semibold">Rear Shoulder Room:</p>
+                        <p>59.6 in</p>
+                        <p class="font-semibold">3rd Row Headroom:</p>
+                        <p>35.9 in</p>
+                        <p class="font-semibold">3rd Row Legroom:</p>
+                        <p>27.7 in</p>
+                      </div>
+                    </div>
+                    <div class="rounded-lg p-4 bg-gray-50">
+                      <h3 class="text-lg font-semibold text-blue-600 mb-2">EXTERIOR DIMENSIONS</h3>
+                      <div class="grid grid-cols-2 gap-2 text-sm">
+                        <p class="font-semibold">Ground Clearance:</p>
+                        <p>13.8 cu ft</p>
+                        <p class="font-semibold">Height:</p>
+                        <p>70.1 in</p>
+                        <p class="font-semibold">Length:</p>
+                        <p>192.5 in</p>
+                        <p class="font-semibold">Wheelbase:</p>
+                        <p>109.8 in</p>
+                        <p class="font-semibold">Width:</p>
+                        <p>75.8 in</p>
+                        <p class="font-semibold">Curb Weight:</p>
+                        <p>4655 lbs</p>
+                        <p class="font-semibold">Fuel Tank Capacity:</p>
+                        <p>19.2 gal</p>
+                        <p class="font-semibold">Gross Vehicle Weight Rating:</p>
+                        <p>6000 lbs</p>
+                        <p class="font-semibold">Max Payload:</p>
+                        <p>1200 lbs</p>
+                        <p class="font-semibold">Max Towing Capacity:</p>
+                        <p>5000 lbs</p>
+                      </div>
+                    </div>
               </div>
-
+              <div class="w-full md:w-1/2 space-y-4">
+                  <div class="rounded-lg p-4 bg-gray-50">
+                      <h3 class="text-lg font-semibold text-blue-600 mb-2">MPG (MILES PER GALLON)</h3>
+                      <div class="flex items-center justify-between mb-4">
+                        <div class="text-center">
+                          <p class="font-semibold">Highway MPG:</p>
+                          <p class="text-2xl font-bold">26</p>
+                        </div>
+                        <div class="w-28 h-28">
+                          <img src="assets/maki_fuel.svg" />
+                        </div>
+                        <div class="text-center">
+                          <p class="font-semibold">City MPG:</p>
+                          <p class="text-2xl font-bold">19</p>
+                        </div>
+                      </div>
+                      <p class="text-center font-semibold">Combined MPG: 22.0</p>
+                    </div>
+                    <div class="rounded-lg p-4 bg-gray-50">
+                      <h3 class="text-lg font-semibold text-blue-600 mb-2">ENGINE, TRANSMISSION, FUEL</h3>
+                      <div class="grid grid-cols-2 gap-2 text-sm">
+                        <p class="font-semibold">Engine:</p>
+                        <p>3.5L V6 295hp 263ft. lbs.</p>
+                        <p class="font-semibold">Engine Power:</p>
+                        <p>295 HP at 6600 RPM</p>
+                        <p class="font-semibold">Engine Torque:</p>
+                        <p>263 ft-lbs at 4700 RPM</p>
+                        <p class="font-semibold">Cylinders:</p>
+                        <p>6</p>
+                        <p class="font-semibold">Fuel Type:</p>
+                        <p>Gas</p>
+                        <p class="font-semibold">Axle Ratio:</p>
+                        <p>3.0</p>
+                        <p class="font-semibold">Acceleration (0-60mph):</p>
+                        <p>N/A</p>
+                        <p class="font-semibold">Transmission Type:</p>
+                        <p>Automatic</p>
+                        <p class="font-semibold">Transmission:</p>
+                        <p>8-Speed Automatic w/ Sequential Shift Mode</p>
+                        <p class="font-semibold">Fuel Tank Capacity:</p>
+                        <p>19.2 gal</p>
+                        <p class="font-semibold">Engine Torque:</p>
+                        <p>5000 lbs</p>
+                      </div>
+                    </div>
+                </div>
               </div>
               <script>
                 const imperialBtn = document.getElementById('imperial');
@@ -1138,8 +1275,134 @@
                 toggleUnit(imperialBtn, metricBtn, imperialSection, metricSection);
               </script>
             </section>
+
+            <section id="value-decline-assessment" class="bg-white p-4 md:p-6 fusion">
+              <h2 class="text-2xl font-bold mb-4">VALUE DECLINE ASSESSMENT</h2>
+              <p class="mb-6">A comparison of the 2019 Toyota Highlander Body value decline in relation to similar vehicles on the market.</p>
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
+                  <div class="bg-gray-50 border p-4 rounded-lg h-fit">
+                      <h3 class="text-lg font-semibold text-teal-500 mb-2">THIS VEHICLE</h3>
+                      <h4 class="text-xl font-bold text-blue-600 mb-2">2019 Toyota Highlander Body</h4>
+                      <div class="flex justify-between">
+                          <div>
+                              <p class="text-sm text-gray-600">Current Value</p>
+                              <p class="font-semibold">$28,528</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">1 Year from Now</p>
+                              <p class="font-semibold">$27,438 (-$1,090)</p>
+                          </div>
+                      </div>
+                      <div class="flex justify-between mt-2">
+                          <div>
+                              <p class="text-sm text-gray-600">3 Years from Now</p>
+                              <p class="font-semibold">$25,380 (-$3,148)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">5 Years from Now</p>
+                              <p class="font-semibold">$23,477 (-$5,051)</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="bg-gray-50 border p-4 rounded-lg h-fit">
+                      <h3 class="text-lg font-semibold text-teal-500 mb-2">TYPICAL SIMILAR VEHICLES</h3>
+                      <h4 class="text-xl font-bold text-blue-600 mb-2">2019 Toyota Highlander</h4>
+                      <div class="flex justify-between">
+                          <div>
+                              <p class="text-sm text-gray-600">Current Value</p>
+                              <p class="font-semibold">$28,520</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">1 Year from Now</p>
+                              <p class="font-semibold">$27,423 (-$1,097)</p>
+                          </div>
+                      </div>
+                      <div class="flex justify-between mt-2">
+                          <div>
+                              <p class="text-sm text-gray-600">3 Years from Now</p>
+                              <p class="font-semibold">$25,355 (-$3,165)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">5 Years from Now</p>
+                              <p class="font-semibold">$23,442 (-$5,078)</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <h3 class="text-lg font-semibold text-teal-500 mb-4">COMPARISON OF SIMILAR VEHICLES IN THE MARKET</h3>
+              <div class="grid md:grid-cols-3 gap-4">
+                  <div class="bg-gray-50 border p-4 rounded-lg">
+                      <h4 class="text-lg font-bold text-blue-600 mb-2">2019 Jeep Grand Cherokee</h4>
+                      <div class="space-y-2">
+                          <div>
+                              <p class="text-sm text-gray-600">Current Value</p>
+                              <p class="font-semibold">$24,764</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">1 Year from Now</p>
+                              <p class="font-semibold">$23,691 (-$1,073)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">3 Years from Now</p>
+                              <p class="font-semibold">$21,682 (-$3,082)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">5 Years from Now</p>
+                              <p class="font-semibold">$19,844 (-$4,920)</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="bg-gray-50 border p-4 rounded-lg">
+                      <h4 class="text-lg font-bold text-blue-600 mb-2">2019 Jeep Wrangler Unlimited</h4>
+                      <div class="space-y-2">
+                          <div>
+                              <p class="text-sm text-gray-600">Current Value</p>
+                              <p class="font-semibold">$31,315</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">1 Year from Now</p>
+                              <p class="font-semibold">$30,198 (-$1,117)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">3 Years from Now</p>
+                              <p class="font-semibold">$28,083 (-$3,232)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">5 Years from Now</p>
+                              <p class="font-semibold">$26,116 (-$5,199)</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="bg-gray-50 border p-4 rounded-lg">
+                      <h4 class="text-lg font-bold text-blue-600 mb-2">2019 Ford Explorer</h4>
+                      <div class="space-y-2">
+                          <div>
+                              <p class="text-sm text-gray-600">Current Value</p>
+                              <p class="font-semibold">$24,100</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">1 Year from Now</p>
+                              <p class="font-semibold">$22,978 (-$1,122)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">3 Years from Now</p>
+                              <p class="font-semibold">$20,887 (-$3,213)</p>
+                          </div>
+                          <div>
+                              <p class="text-sm text-gray-600">5 Years from Now</p>
+                              <p class="font-semibold">$18,987 (-$5,113)</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </section>
+
             <section id="vehicle-market-value-comparison" class="p-4 md:p-6">
-              <h2 class="text-xl md:text-2xl font-bold mb-4">Vehicle Market Value Comparison</h2>
+              <h2 class="text-xl md:text-2xl font-bold mb-4">VEHICLE MARKET VALUE COMPARISON</h2>
               <div class="w-full m-auto bg-gray-50 border p-4 md:p-6">
                 <div class="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
                   <canvas id="vehicleChart"></canvas>
@@ -1210,7 +1473,7 @@
                                             label += ': ';
                                         }
                                         if (context.parsed.y !== null) {
-                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                                            label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(context.parsed.y);
                                         }
                                         return label;
                                     }
@@ -1267,7 +1530,7 @@
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Mileage</p>
-                        <p class="font-semibold">15,996 more than this vehicle</p>
+                        <p class="font-semibold">15,996 mi more than this vehicle</p>
                       </div>
                       <div class="col-span-2">
                         <p class="text-sm text-gray-600">Average Market Value</p>
@@ -1288,7 +1551,7 @@
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Mileage</p>
-                        <p class="font-semibold">14,754 more than this vehicle</p>
+                        <p class="font-semibold">14,754 mi more than this vehicle</p>
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Market Value</p>
@@ -1306,7 +1569,7 @@
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Mileage</p>
-                        <p class="font-semibold">3,341 more than this vehicle</p>
+                        <p class="font-semibold">3,341 mi more than this vehicle</p>
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Market Value</p>
@@ -1324,7 +1587,7 @@
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Mileage</p>
-                        <p class="font-semibold">18,853 more than this vehicle</p>
+                        <p class="font-semibold">18,853 mi more than this vehicle</p>
                       </div>
                       <div>
                         <p class="text-sm text-gray-600">Average Market Value</p>
@@ -1372,73 +1635,97 @@
                       </div>
                   
                       <script>
-                          const ctx = document.getElementById('radarChart').getContext('2d');
-                          
-                          const data = {
-                              labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                              datasets: [{
-                                  label: 'Sales',
-                                  data: [200, 150, 300, 400, 350, 200, 150, 100, 150, 200, 350, 400],
-                                  fill: true,
-                                  backgroundColor: 'rgba(136, 132, 216, 0.2)',
-                                  borderColor: 'rgb(136, 132, 216)',
-                                  pointBackgroundColor: 'rgb(136, 132, 216)',
-                                  pointBorderColor: '#fff',
-                                  pointHoverBackgroundColor: '#fff',
-                                  pointHoverBorderColor: 'rgb(136, 132, 216)'
-                              }]
-                          };
-                  
-                          const config = {
-                              type: 'radar',
-                              data: data,
-                              options: {
-                                  elements: {
-                                      line: {
-                                          borderWidth: 3
-                                      }
-                                  },
-                                  scales: {
-                                      r: {
-                                          angleLines: {
-                                              display: true
-                                          },
-                                          suggestedMin: 0,
-                                          suggestedMax: 500,
-                                          ticks: {
-                                              display: false // This hides the numerical labels
-                                          }
-                                      }
-                                  },
-                                  plugins: {
-                                      tooltip: {
-                                          callbacks: {
-                                              label: function(context) {
-                                                  return `Sell: $${context.parsed.r}`;
-                                              }
-                                          }
-                                      }
-                                  }
-                              },
-                          };
-                  
-                          const myChart = new Chart(ctx, config);
-                  
-                          // Function to update chart data
-                          function updateChartData(newData) {
-                              myChart.data.datasets[0].data = newData;
-                              myChart.update();
-                          }
-                  
-                          // Example of how to update the chart data
-                          // updateChartData([250, 200, 350, 450, 300, 250, 200, 150, 200, 250, 400, 450]);
-                      </script>
+                        const ctx = document.getElementById('radarChart').getContext('2d');
+                        
+                        const data = {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            datasets: [
+                                {
+                                    label: 'Good Months to Sell',
+                                    data: [200, 350, 400, 450, 400, 350, 300, 250, 200, 200, 200, 200],
+                                    fill: true,
+                                    backgroundColor: 'rgba(20, 184, 166, 0.2)', // teal-500 with opacity
+                                    borderColor: 'rgb(20, 184, 166)', // teal-500
+                                    pointBackgroundColor: 'rgb(20, 184, 166)',
+                                    pointBorderColor: '#fff',
+                                    pointHoverBackgroundColor: '#fff',
+                                    pointHoverBorderColor: 'rgb(20, 184, 166)'
+                                },
+                                {
+                                    label: 'Good Months to Buy',
+                                    data: [400, 350, 300, 250, 300, 350, 400, 450, 400, 350, 300, 250],
+                                    fill: true,
+                                    backgroundColor: 'rgba(96, 165, 250, 0.2)', // blue-400 with opacity
+                                    borderColor: 'rgb(96, 165, 250)', // blue-400
+                                    pointBackgroundColor: 'rgb(96, 165, 250)',
+                                    pointBorderColor: '#fff',
+                                    pointHoverBackgroundColor: '#fff',
+                                    pointHoverBorderColor: 'rgb(96, 165, 250)'
+                                }
+                            ]
+                        };
+                    
+                        const config = {
+                            type: 'radar',
+                            data: data,
+                            options: {
+                                elements: {
+                                    line: {
+                                        borderWidth: 3
+                                    }
+                                },
+                                scales: {
+                                    r: {
+                                        angleLines: {
+                                            display: true
+                                        },
+                                        suggestedMin: 0,
+                                        suggestedMax: 500,
+                                        ticks: {
+                                            display: false // This hides the numerical labels
+                                        }
+                                    }
+                                },
+                                plugins: {
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                const label = context.dataset.label || '';
+                                                if (label) {
+                                                    return `${label}: $${context.parsed.r}`;
+                                                }
+                                                return `$${context.parsed.r}`;
+                                            }
+                                        }
+                                    },
+                                    legend: {
+                                        display: false // Hide the legend as it's already provided in the HTML
+                                    }
+                                }
+                            },
+                        };
+                    
+                        const myChart = new Chart(ctx, config);
+                    
+                        // Function to update chart data
+                        function updateChartData(sellData, buyData) {
+                            myChart.data.datasets[0].data = sellData;
+                            myChart.data.datasets[1].data = buyData;
+                            myChart.update();
+                        }
+                    
+                        // Example of how to update the chart data
+                        // updateChartData(
+                        //     [250, 400, 450, 500, 450, 400, 350, 300, 250, 250, 250, 250],
+                        //     [450, 400, 350, 300, 350, 400, 450, 500, 450, 400, 350, 300]
+                        // );
+                    </script>
                   </div>
                 </div>
               </div>
             </section>
 
-            <section id="color-option" class="bg-white p-4 md:p-6">
+            <section id="color-option" class="bg-white p-4 md:p-6 panther">
               <h2 class="text-2xl font-bold mb-4">COLOR OPTIONS</h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border p-2">
                 <div class="bg-gray-50 rounded-lg p-4">
@@ -1502,7 +1789,7 @@
               </div>
             </section>
 
-            <section class="bg-white p-4 md:p-6">
+            <section id="estimated-sale-duration" class="bg-white p-4 md:p-6">
               <div class="fusion">
                 <h2 class="text-2xl font-bold mb-4">ESTIMATED SALE DURATION</h2>
                 <div class="bg-gray-100 p-4 rounded-lg mb-4">
@@ -1915,43 +2202,43 @@
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                             <tr class="border-b border-gray-200 bg-gray-50">
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                             <tr>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                           </tbody>
@@ -2034,15 +2321,15 @@
                             <tr class="grid grid-cols-6 border-b border-gray-200">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
@@ -2060,15 +2347,15 @@
                             <tr class="grid grid-cols-6 border-b border-gray-200 bg-gray-50">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
@@ -2086,15 +2373,15 @@
                             <tr class="grid grid-cols-6">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
@@ -2144,43 +2431,43 @@
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                             <tr class="border-b border-gray-200 bg-gray-50">
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                             <tr>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                           </tbody>
@@ -2263,15 +2550,15 @@
                             <tr class="grid grid-cols-6 border-b border-gray-200">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
@@ -2289,15 +2576,15 @@
                             <tr class="grid grid-cols-6 border-b border-gray-200 bg-gray-50">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
@@ -2315,15 +2602,15 @@
                             <tr class="grid grid-cols-6">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
@@ -2373,43 +2660,43 @@
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                             <tr class="border-b border-gray-200 bg-gray-50">
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                             <tr>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
                           </tbody>
@@ -2492,15 +2779,15 @@
                             <tr class="grid grid-cols-6 border-b border-gray-200">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Avg.:</span>
@@ -2518,15 +2805,15 @@
                             <tr class="grid grid-cols-6 border-b border-gray-200 bg-gray-50">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">High:</span>
@@ -2544,15 +2831,15 @@
                             <tr class="grid grid-cols-6">
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
-                                <span class="text-gray-700">-</span>
+                                <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
                                 <span class="font-medium text-gray-500">Low:</span>
@@ -2927,7 +3214,7 @@
                 <div class="space-y-4">
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
                     <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(0, 'recall')">
-                      <span class="font-semibold text-left">Nov 5, 2020 - FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP</span>
+                      <span class="font-semibold text-left">Nov 5, 2020 - FUEL SYSTEM, GASOLINE, DELIVERY, FUEL PUMP</span>
                       <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="accordion-0" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
@@ -2983,74 +3270,117 @@
               
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
                     <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(1, 'recall')">
-                      <span class="font-semibold text-left">Jan 14, 2020 - FUEL SYSTEM, GASOLINE:DELIVERY:FUEL PUMP</span>
+                      <span class="font-semibold text-left">Jan 14, 2020 - FUEL SYSTEM, GASOLINE, DELIVERY, FUEL PUMP</span>
                       <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="accordion-1" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                       <div class="p-4 bg-white">
-                        <div class="p-4">Dummy content for Jan 14, 2020 recall</div>
+                        <div class="space-y-4">
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/iconoir_calendar.svg" alt="Calendar icon" />
+                              Report Details
+                            </h4>
+                            <div class="flex justify-between text-sm">
+                              <p><span class="font-semibold">Report received date:</span> Nov 5, 2020</p>
+                              <p><span class="font-semibold">Owner notified date:</span> Owners Notified - Jan 21, 2021</p>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/blue_oui_alert.svg" alt="Alert icon" />
+                              Recall summary
+                            </h4>
+                            <p class="text-sm">Toyota Motor Engineering & Manufacturing (Toyota) is recalling certain 2018-2019 4Runner, 2019-2020 Avalon, 2019 Corolla Hatchback, 2017-2019 Highlander, 2018-2020 Camry, 2020 Corolla, 2018-2019 Land Cruiser, 2017-2020 Tacoma, 2019-2020 RAV4, 2019-2020 Sequoia, 2017-2020 Sienna, 2018-2020 Tundra, 2018-2020 Lexus ES350, 2017 Lexus GS200t, 2017-2019 Lexus GS350, 2018 Lexus GS300, 2018-2020 Lexus GS500h, 2018-2020 Lexus IS300, 2018-2019 Lexus IS350, 2017 Lexus IS200t, 2019 Lexus IS300, 2018 Lexus IS350, 2018-2020 Lexus LC500, 2018 Lexus LS500, 2018 Lexus LS500h, 2018-2019 Lexus LX570, 2017 Lexus RC200t, 2018 Lexus RC300, RC350, 2017 and 2019-2020 Lexus RX350, 2018-2020 RX350L, 2019 Lexus UX200, 2018-2019 Lexus NX300 vehicles.</p>
+                            <p class="text-sm mt-2">The low-pressure fuel pump inside the fuel tank may fail.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/line-md_document-report.svg" alt="Document report icon" />
+                              Consequence
+                            </h4>
+                            <p class="text-sm">If the fuel pump fails, the engine can stall while driving, increasing the risk of a crash.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/carbon_tools.svg" alt="Tools icon" />
+                              Remedy
+                            </h4>
+                            <p class="text-sm">Toyota will notify owners, and dealers will replace the fuel pump assembly with an improved one, free of charge. Owners of specific models were notified that remedy parts were available starting January 21, 2021. Owners of other models will be notified as remedy parts become available. Remedy parts should be available for all affected vehicles by late March 2021. Owners may contact Toyota customer service at 1-888-270-9371 or Lexus customer service at 1-800-255-3987. Note: This recall is an expansion of recall 20V-012. Toyota's number for this recall is 20TA02. Lexus' number for this recall is 20LA01.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/blue-alert.svg" alt="Blue alert icon" />
+                              Additional Information
+                            </h4>
+                            <p class="text-sm">Owners may also contact the National Highway Traffic Safety Administration Vehicle Safety Hotline at 1-888-327-4236 (TTY 1-800-424-9153), or go to www.safercar.gov.</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
               
                   <div class="border border-gray-200 rounded-lg overflow-hidden">
                     <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors duration-200" onclick="toggleAccordion(2, 'recall')">
-                      <span class="font-semibold text-left">Apr 1, 2019 - EQUIPMENT:OTHER:LABELS</span>
+                      <span class="font-semibold text-left">Apr 1, 2019 - EQUIPMENT, OTHER, LABELS</span>
                       <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div id="accordion-2" class="transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                       <div class="p-4 bg-white">
-                        <div class="p-4">Dummy content for Apr 1, 2019 recall</div>
+                        <div class="space-y-4">
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/iconoir_calendar.svg" alt="Calendar icon" />
+                              Report Details
+                            </h4>
+                            <div class="flex justify-between text-sm">
+                              <p><span class="font-semibold">Report received date:</span> Nov 5, 2020</p>
+                              <p><span class="font-semibold">Owner notified date:</span> Owners Notified - Jan 21, 2021</p>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/blue_oui_alert.svg" alt="Alert icon" />
+                              Recall summary
+                            </h4>
+                            <p class="text-sm">Toyota Motor Engineering & Manufacturing (Toyota) is recalling certain 2018-2019 4Runner, 2019-2020 Avalon, 2019 Corolla Hatchback, 2017-2019 Highlander, 2018-2020 Camry, 2020 Corolla, 2018-2019 Land Cruiser, 2017-2020 Tacoma, 2019-2020 RAV4, 2019-2020 Sequoia, 2017-2020 Sienna, 2018-2020 Tundra, 2018-2020 Lexus ES350, 2017 Lexus GS200t, 2017-2019 Lexus GS350, 2018 Lexus GS300, 2018-2020 Lexus GS500h, 2018-2020 Lexus IS300, 2018-2019 Lexus IS350, 2017 Lexus IS200t, 2019 Lexus IS300, 2018 Lexus IS350, 2018-2020 Lexus LC500, 2018 Lexus LS500, 2018 Lexus LS500h, 2018-2019 Lexus LX570, 2017 Lexus RC200t, 2018 Lexus RC300, RC350, 2017 and 2019-2020 Lexus RX350, 2018-2020 RX350L, 2019 Lexus UX200, 2018-2019 Lexus NX300 vehicles.</p>
+                            <p class="text-sm mt-2">The low-pressure fuel pump inside the fuel tank may fail.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/line-md_document-report.svg" alt="Document report icon" />
+                              Consequence
+                            </h4>
+                            <p class="text-sm">If the fuel pump fails, the engine can stall while driving, increasing the risk of a crash.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/carbon_tools.svg" alt="Tools icon" />
+                              Remedy
+                            </h4>
+                            <p class="text-sm">Toyota will notify owners, and dealers will replace the fuel pump assembly with an improved one, free of charge. Owners of specific models were notified that remedy parts were available starting January 21, 2021. Owners of other models will be notified as remedy parts become available. Remedy parts should be available for all affected vehicles by late March 2021. Owners may contact Toyota customer service at 1-888-270-9371 or Lexus customer service at 1-800-255-3987. Note: This recall is an expansion of recall 20V-012. Toyota's number for this recall is 20TA02. Lexus' number for this recall is 20LA01.</p>
+                          </div>
+                          
+                          <div>
+                            <h4 class="font-semibold text-blue-600 mb-2 flex items-center gap-1">
+                              <img src="assets/blue-alert.svg" alt="Blue alert icon" />
+                              Additional Information
+                            </h4>
+                            <p class="text-sm">Owners may also contact the National Highway Traffic Safety Administration Vehicle Safety Hotline at 1-888-327-4236 (TTY 1-800-424-9153), or go to www.safercar.gov.</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
             </section>
-            <!-- script for accordion -->
-            <script>
-              function toggleAccordion(index, type = 'recall') {
-                let prefix;
-                switch (type) {
-                  case 'repair':
-                    prefix = 'repair-accordion-';
-                    break;
-                  case 'maintenance':
-                    prefix = 'maintenance-accordion-';
-                    break;
-                  case 'auction':
-                    prefix = 'auction-accordion-';
-                    break;
-                  default:
-                    prefix = 'accordion-';
-                }
-
-                const content = document.getElementById(`${prefix}${index}`);
-                const allContents = document.querySelectorAll(`[id^="${prefix}"]`);
-                const allButtons = document.querySelectorAll(`button[onclick^="toggleAccordion(${index}"]`);
-                
-                allContents.forEach((item) => {
-                  if (item !== content) {
-                    item.classList.remove('max-h-[1000px]', 'opacity-100');
-                    item.classList.add('max-h-0', 'opacity-0');
-                  }
-                });
-
-                allButtons.forEach((button) => {
-                  if (button.getAttribute('onclick') !== `toggleAccordion(${index}, '${type}')`) {
-                    button.querySelector('svg').classList.remove('rotate-180');
-                  }
-                });
-
-                content.classList.toggle('max-h-0');
-                content.classList.toggle('max-h-[1000px]');
-                content.classList.toggle('opacity-0');
-                content.classList.toggle('opacity-100');
-
-                // Update this line to target the specific button's SVG
-                const clickedButton = document.querySelector(`button[onclick="toggleAccordion(${index}, '${type}')"]`);
-                clickedButton.querySelector('svg').classList.toggle('rotate-180');
-              }
-            </script>
             <!-- Edit Milage Popup -->
             <section class="relative">
               <!-- <button onclick="editMileage()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
@@ -3142,7 +3472,7 @@
         const sidebarNav = document.getElementById('sidebarNav');
     
         function updateLayout() {
-            if (window.innerWidth <= 767) {
+            if (document.documentElement.clientWidth <= 767) {
                 toggleSidebar.classList.remove('hidden');
                 mainContent.classList.remove('ml-80');
             } else {
@@ -3160,7 +3490,7 @@
         }
 
         function closeSidebarOnMobile() {
-          if (window.innerWidth <= 767) {
+          if (document.documentElement.clientWidth <= 767) {
             sidebar.classList.remove('open');
             document.body.classList.remove('popup');
           }
@@ -3192,13 +3522,27 @@
     <script>
       const navItems = sidebarNav.querySelectorAll('[target]');
       let currentActiveSection = null;
-
-      function setActiveNavItem(id) {
+      let lastUpdateTime = 0;
+      let lastKnownSection = null;
+      const updateInterval = 400; // Increased from 200ms to 400ms for more stability
+      const changeThreshold = 0.6; // Requires 60% visibility to trigger a change
+    
+      function setActiveNavItem(id, force = false) {
+        // Don't update if it's the same section and not forced
+        if (id === currentActiveSection && !force) return;
+    
+        // Implement a minimum time between changes
+        const now = Date.now();
+        if (!force && now - lastUpdateTime < updateInterval) return;
+    
+        // Store the last known good section
+        if (id) lastKnownSection = id;
+    
         // Remove active state from all nav items first
         navItems.forEach(item => {
           item.classList.remove('bg-[#5185E3]', 'text-white', 'active');
         });
-
+    
         // If we have a new active section, highlight its nav item and update button text
         if (id) {
           const activeNavItem = Array.from(navItems).find(
@@ -3207,57 +3551,77 @@
           if (activeNavItem) {
             activeNavItem.classList.add('bg-[#5185E3]', 'text-white', 'active');
             currentActiveSection = id;
-            updateToggleButtonText(activeNavItem.textContent);
+            
+            // Use transition for smooth text changes
+            const toggleSidebarText = document.getElementById('toggleSidebarText');
+            if (toggleSidebarText) {
+              toggleSidebarText.style.transition = 'opacity 0.2s ease-in-out';
+              toggleSidebarText.style.opacity = '0';
+              
+              setTimeout(() => {
+                updateToggleButtonText(activeNavItem.textContent);
+                toggleSidebarText.style.opacity = '1';
+              }, 200);
+            }
           }
         }
-      }
-
-      function updateToggleButtonText(text) {
-        const toggleSidebarText = document.getElementById('toggleSidebarText')
-        const maxLength = 20 // Adjust this value based on your needs
         
-        // Word-aware truncation
-        const words = text.trim().split(/\s+/)
-        let result = words[0] // Always include at least the first word
-        let currentLength = words[0].length
+        lastUpdateTime = now;
+      }
+    
+      function updateToggleButtonText(text) {
+        const toggleSidebarText = document.getElementById('toggleSidebarText');
+        if (!toggleSidebarText) return;
+        
+        const maxLength = 20;
+        const words = text.trim().split(/\s+/);
+        let result = words[0];
+        let currentLength = words[0].length;
         
         for (let i = 1; i < words.length; i++) {
-          if ((currentLength + words[i].length + 4) <= maxLength) { // +4 accounts for space and ...
-            result += ' ' + words[i]
-            currentLength += words[i].length + 1 // +1 for space
+          if ((currentLength + words[i].length + 4) <= maxLength) {
+            result += ' ' + words[i];
+            currentLength += words[i].length + 1;
           } else {
-            result += '...'
-            break
+            result += '...';
+            break;
           }
         }
         
-        toggleSidebarText.textContent = result
+        toggleSidebarText.textContent = result;
       }
-
-      // Modified observer options for better detection of large sections
+    
       const observerOptions = {
         root: null,
-        rootMargin: '-10% 0px -10% 0px', // Reduced margin for better detection
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5] // Multiple thresholds for smoother detection
+        rootMargin: '-25% 0px -25% 0px', // Increased margin for more stable detection
+        threshold: [0, 0.25, 0.5, 0.75, 1]
       };
-
+    
+      let scrollStabilityTimeout = null;
       const observer = new IntersectionObserver(entries => {
-        // Sort entries by their intersection ratio
-        const visibleEntries = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        // Get the most visible section
-        const mostVisibleEntry = visibleEntries[0];
-
-        if (mostVisibleEntry) {
-          const newId = mostVisibleEntry.target.id;
-          if (currentActiveSection !== newId) {
-            setActiveNavItem(newId);
-          }
+        // Clear any pending stability timeout
+        if (scrollStabilityTimeout) {
+          clearTimeout(scrollStabilityTimeout);
         }
+    
+        // Wait for scroll to stabilize
+        scrollStabilityTimeout = setTimeout(() => {
+          const visibleEntries = entries
+            .filter(entry => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+    
+          const mostVisibleEntry = visibleEntries[0];
+    
+          if (mostVisibleEntry && mostVisibleEntry.intersectionRatio > changeThreshold) {
+            const newId = mostVisibleEntry.target.id;
+            setActiveNavItem(newId);
+          } else if (lastKnownSection) {
+            // Revert to last known good section if nothing is sufficiently visible
+            setActiveNavItem(lastKnownSection);
+          }
+        }, 150); // Wait 150ms for scroll to stabilize
       }, observerOptions);
-
+    
       // Get all sections that match the navigation targets
       const sections = Array.from(navItems).map(item => {
         const targetId = item.getAttribute('target');
@@ -3267,57 +3631,118 @@
         }
         return section;
       }).filter(Boolean);
-
+    
       // Start observing each section
       sections.forEach(section => {
         observer.observe(section);
       });
-
-      // Handle initial state and scroll position
-      function updateActiveSection() {
+    
+      // Improved scroll handler with better debouncing
+      let scrollTimeout;
+      let isScrolling = false;
+    
+      window.addEventListener('scroll', () => {
+        isScrolling = true;
+        
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+    
+        scrollTimeout = setTimeout(() => {
+          if (!isScrolling) return;
+          
+          const viewportHeight = window.innerHeight;
+          let maxVisibility = 0;
+          let mostVisibleSection = null;
+    
+          sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const visibility = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+            const visibilityRatio = visibility / Math.min(rect.height, viewportHeight);
+            
+            if (visibilityRatio > maxVisibility) {
+              maxVisibility = visibilityRatio;
+              mostVisibleSection = section;
+            }
+          });
+    
+          if (mostVisibleSection && maxVisibility > changeThreshold) {
+            setActiveNavItem(mostVisibleSection.id);
+          } else if (lastKnownSection) {
+            setActiveNavItem(lastKnownSection);
+          }
+    
+          isScrolling = false;
+        }, 100);
+      }, { passive: true });
+    
+      // Handle initial state
+      window.addEventListener('load', () => {
+        updateActiveSection(true);
+      });
+    
+      function updateActiveSection(force = false) {
         const viewportHeight = window.innerHeight;
         let maxVisibility = 0;
         let mostVisibleSection = null;
-
+    
         sections.forEach(section => {
           const rect = section.getBoundingClientRect();
           const visibility = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+          const visibilityRatio = visibility / Math.min(rect.height, viewportHeight);
           
-          if (visibility > maxVisibility) {
-            maxVisibility = visibility;
+          if (visibilityRatio > maxVisibility) {
+            maxVisibility = visibilityRatio;
             mostVisibleSection = section;
           }
         });
-
+    
         if (mostVisibleSection) {
-          setActiveNavItem(mostVisibleSection.id);
+          setActiveNavItem(mostVisibleSection.id, force);
         }
       }
-
-      // Set initial active section
-      updateActiveSection();
-
-      // Update active section on scroll (with debounce)
-      let scrollTimeout;
-      window.addEventListener('scroll', () => {
-        if (scrollTimeout) {
-          window.cancelAnimationFrame(scrollTimeout);
-        }
-        scrollTimeout = window.requestAnimationFrame(() => {
-          updateActiveSection();
-        });
-      });
-
-      // Update active section when window is resized
+    
+      // Update on resize with debouncing
       let resizeTimeout;
       window.addEventListener('resize', () => {
         if (resizeTimeout) {
-          window.cancelAnimationFrame(resizeTimeout);
+          clearTimeout(resizeTimeout);
         }
-        resizeTimeout = window.requestAnimationFrame(() => {
+        resizeTimeout = setTimeout(() => {
           updateActiveSection();
-        });
-      });
+        }, 250);
+      }, { passive: true });
+    </script>
+    <!-- script for accordion -->
+    <script>
+      function toggleAccordion(index, type = 'recall') {
+        let prefix;
+        switch (type) {
+          case 'repair':
+            prefix = 'repair-accordion-';
+            break;
+          case 'maintenance':
+            prefix = 'maintenance-accordion-';
+            break;
+          case 'auction':
+            prefix = 'auction-accordion-';
+            break;
+          default:
+            prefix = 'accordion-';
+        }
+    
+        const content = document.getElementById(`${prefix}${index}`);
+        
+        // Toggle the clicked accordion
+        content.classList.toggle('max-h-0');
+        content.classList.toggle('max-h-[1000px]');
+        content.classList.toggle('opacity-0');
+        content.classList.toggle('opacity-100');
+    
+        // Toggle the rotation of the clicked button's SVG
+        const clickedButton = document.querySelector(`button[onclick="toggleAccordion(${index}, '${type}')"]`);
+        clickedButton.querySelector('svg').classList.toggle('rotate-180');
+      }
     </script>
 </body>
 </html>
