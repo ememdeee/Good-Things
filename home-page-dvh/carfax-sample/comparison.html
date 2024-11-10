@@ -41,12 +41,23 @@
             font-weight: bold;
             margin-bottom: 10px;
             color: #444;
+            padding: 0 20px;
         }
         .responsive-iframe {
             flex: 1;
             border: 1px solid #ccc;
             border-radius: 4px;
             overflow: hidden;
+            position: relative;
+        }
+        .iframe-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: -17px; /* Hide scrollbar */
+            bottom: 0;
+            overflow-y: scroll;
+            overflow-x: hidden;
         }
         iframe {
             width: 100%;
@@ -57,9 +68,14 @@
             .comparison {
                 flex-direction: column;
             }
-        }
-        #iframeCarfax html{
-            overflow-x: hidden;
+            .container {
+                padding: 20px 0;
+            }
+            .responsive-iframe {
+                border-left: none;
+                border-right: none;
+                border-radius: 0;
+            }
         }
     </style>
 </head>
@@ -70,13 +86,17 @@
             <div class="frame-container">
                 <div class="frame-title">Carfax Sample</div>
                 <div class="responsive-iframe">
-                    <iframe id="iframeCarfax" src="https://detailedvehiclehistory.com/carfax-sample/" title="Carfax Sample"></iframe>
+                    <div class="iframe-wrapper">
+                        <iframe src="https://detailedvehiclehistory.com/carfax-sample/" title="Carfax Sample"></iframe>
+                    </div>
                 </div>
             </div>
             <div class="frame-container">
                 <div class="frame-title">Detailed Vehicle History</div>
                 <div class="responsive-iframe">
-                    <iframe src="https://detailedvehiclehistory.com/report/vin/3FA6P0RU9HR306143" title="Detailed Vehicle History"></iframe>
+                    <div class="iframe-wrapper">
+                        <iframe src="https://detailedvehiclehistory.com/report/vin/3FA6P0RU9HR306143" title="Detailed Vehicle History"></iframe>
+                    </div>
                 </div>
             </div>
         </div>

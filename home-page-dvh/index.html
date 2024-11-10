@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detailed Vehicle History Report</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link href="dvh-homepage.css" rel="stylesheet"> -->
+    <!-- <link href="input.css" rel="stylesheet"> -->
+    <link href="dvh-homepage.css" rel="stylesheet">
 </head>
-<body class="bg-white text-black max-w-7xl mx-auto">
+<body class="text-black max-w-7xl mx-auto" style="font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont">
+      <!-- Background div -->
+  <div 
+      class="absolute top-0 left-0 w-full h-[200vh] -z-10 bg-gradient"
+  ></div>
+  <style>
+    .bg-gradient {
+      background-image: url('assets/bg-gradient.svg');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
   <section id="hero" class="py-12 px-4">
     <div class="mx-auto">
       <!-- Main Content -->
@@ -36,13 +48,41 @@
           </p>
 
           <!-- Form Card -->
-          <div class="bg-white">
+          <div>
             <?php
             // Output the shortcode directly in a PHP template
             echo do_shortcode('[site_form type="vhr" color="#1955FF" vintxt="Search VIN" lptxt="Search License Plate" ymmtxt="Search YMM" color="#1955FF"]');
             ?>
-            <div class="py-4">
+            <div class="py-4 mb-2">
               <a href="/window-sticker" class="text-blue-600 hover:text-blue-800 underline text-lg font-semibold transition-colors duration-300">Grab Window Sticker</a>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <!-- Google Play Store -->
+              <a href="https://play.google.com/store/apps/details?id=com.vehiclehistory.dvh&utm_source=google&utm_medium=organic&utm_campaign=app_download_android&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="w-40 md:w-44 transition-transform hover:scale-105">
+                  <img 
+                      src="assets/googlePlay.png" 
+                      alt="Get it on Google Play" 
+                      class="w-full h-auto"
+                  >
+              </a>
+      
+              <!-- Apple App Store -->
+              <a href="https://apps.apple.com/app/vin-decoder-vehicle-history/id1576559330?utm_source=google&utm_medium=organic&utm_campaign=app_download_iOS&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="w-40 md:w-44 transition-transform hover:scale-105">
+                  <img 
+                      src="assets/appStore.png" 
+                      alt="Download on the App Store" 
+                      class="w-full h-auto"
+                  >
+              </a>
+      
+              <!-- Windows Store -->
+              <a href="https://detailedvehiclehistory.com/downloads/vin-decoder-app/VIN-Decoder.exe?utm_source=google&utm_medium=organic&utm_campaign=app_download_windows&utm_id=app_download" class="w-40 md:w-44 transition-transform hover:scale-105" target="_blank">
+                  <img 
+                      src="assets/windows.png" 
+                      alt="Get it on Windows" 
+                      class="w-full h-auto"
+                  >
+              </a>
             </div>
           </div>
         </div>
@@ -115,15 +155,15 @@
   
       <!-- Logo Grid -->
       <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center justify-items-center">
-        <img src="assets/north-america.png" alt="Featured company logo" class="h-14 w-auto">
-        <img src="assets/business-times-journal.png" alt="Featured company logo" class="h-14 w-auto">
-        <img src="assets/the-america-watch.png" alt="Featured company logo" class="h-14 w-auto">
-        <img src="assets/canada-business-today.png" alt="Featured company logo" class="h-14 w-auto">
+        <img src="assets/north-america.webp" alt="Featured company logo" class="h-14 w-auto">
+        <img src="assets/business-times-journal.webp" alt="Featured company logo" class="h-14 w-auto">
+        <img src="assets/the-america-watch.webp" alt="Featured company logo" class="h-14 w-auto">
+        <img src="assets/canada-business-today.webp" alt="Featured company logo" class="h-14 w-auto">
       </div>
     </div>
   </section>
     
-    <section class="py-12 px-4">
+    <section class="py-12 px-4 pb-6">
       <h1 class="mb-12 text-4xl font-bold text-center">Why check Vehicle History?</h1>
       
       <div class="grid gap-10 md:grid-cols-2">
@@ -135,7 +175,7 @@
           </p>
           <div class="relative h-80 overflow-hidden rounded-lg">
             <img 
-              src="assets/girl.png" 
+              src="assets/girl.webp" 
               alt="Vehicle history report details showing various checks"
               class="object-cover w-full h-full"
             >
@@ -150,7 +190,7 @@
           </p>
           <div class="relative h-80 overflow-hidden rounded-lg">
             <img 
-              src="assets/girls.png" 
+              src="assets/girls.webp" 
               alt="Vehicle specification details and window sticker information"
               class="object-cover w-full h-full"
             >
@@ -159,7 +199,7 @@
       </div>
   </section>
 
-    <section class="py-12 px-4">
+    <section class="py-6 px-4">
         <div class="mx-auto grid md:grid-cols-[360px,1fr] gap-8 items-center py-6 px-4 md:p-8 bg-[#FFFAF2] rounded-lg shadow-sm">
           <!-- Left Side -->
           <div>
@@ -249,7 +289,7 @@
         </div>
     </section>
     
-    <section class="py-12 px-4">
+    <section class="py-12 px-4 pt-6">
       <div class="bg-blue-50 py-6 px-4 md:p-8 mx-auto grid gap-4 lg:grid-cols-[1fr,auto,1fr,1fr] md:grid-cols-[1fr,auto,1fr] grid-cols-1 rounded-lg shadow-sm">
         <!-- False Listing Column -->
         <div class="bg-white rounded-xl p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg">
@@ -257,9 +297,9 @@
           <div class="relative mb-4">
             <div class="rounded-lg overflow-hidden">
               <img 
-                src="assets/Dealer-Listing-Subaru-Outback-2020.jpg" 
+                src="assets/redImage.webp" 
                 alt="Light hail damage special vehicle"
-                class="w-full h-full object-cover border-4 border-red-500"
+                class="w-full h-full object-cover"
               >
             </div>
           </div>
@@ -279,7 +319,7 @@
           <div class="relative mb-4">
             <div class="rounded-lg overflow-hidden">
               <img 
-                src="assets/greenImage.png" 
+                src="assets/greenImage.webp" 
                 alt="The vehicle data"
                 class="w-full h-full object-cover"
               >
@@ -340,7 +380,7 @@
         <!-- Steps -->
         <div class="relative mb-10">
           <!-- Vertical Line -->
-          <div class="absolute left-6 top-8 bottom-8 w-0.5 bg-blue-100"></div>
+          <div id="lineHeight" class="absolute left-6 top-8 bottom-8 w-0.5 bg-blue-100"></div>
     
           <!-- Step 1 -->
           <div class="relative flex gap-6 mb-8 group">
@@ -395,8 +435,8 @@
               </div>
             </div>
             <div>
-              <h3 class="text-xl font-semibold mb-2">Step 4: Access Your Report</h3>
-              <p class="text-gray-700">
+              <h3 id="hTrackHeight" class="text-xl font-semibold mb-2">Step 4: Access Your Report</h3>
+              <p id="pTrackHeight" class="text-gray-700">
                 Access your vehicle history report and print it easily via the website or our mobile app.
               </p>
             </div>
@@ -410,6 +450,50 @@
           </button>
         </div>
       </div>
+      <script>
+        // Function to log the height of the pTrackHeight element and adjust lineHeight
+        function adjustHeights() {
+          const pTrackElement = document.getElementById('pTrackHeight');
+          const hTrackElement = document.getElementById('hTrackHeight');
+          const lineElement = document.getElementById('lineHeight');
+
+          if (pTrackElement && hTrackElement && lineElement) {
+              const hTrackHeight = hTrackElement.offsetHeight;
+              const pTrackHeight = pTrackElement.offsetHeight;
+              // console.log('pTrackHeight:', pTrackHeight + 'px');
+
+              if (pTrackHeight > 46) {
+                  const newLineHeight = Math.max(0, lineElement.offsetHeight - (pTrackHeight - 46));
+                  lineElement.style.height = newLineHeight + 'px';
+                  // console.log('Height for Text colapsed:', pTrackHeight - 46 + 'px');
+                  // console.log('Adjusted lineHeight:', newLineHeight + 'px');
+              } else {
+                  // console.log('pTrackHeight is not more than 46px, no adjustment needed');
+              };
+
+              if (hTrackHeight > 28) {
+                  const newLineHeight = Math.max(0, lineElement.offsetHeight - (hTrackHeight - 28));
+                  lineElement.style.height = newLineHeight + 'px';
+                  // console.log('Height for Heading colapsed:', hTrackHeight - 28 + 'px');
+                  // console.log('Adjusted lineHeight:', newLineHeight + 'px');
+              } else {
+                  // console.log('hTrackHeight is not more than 28px, no adjustment needed');
+              };
+          } else {
+              // console.log('One or both elements not found');
+          }
+        }
+
+        // Adjust heights on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            adjustHeights();
+        });
+
+        // Adjust heights on window resize
+        window.addEventListener('resize', function() {
+            adjustHeights();
+        });
+      </script>
     </section>
 
       <section class="py-12 px-4">
@@ -569,7 +653,7 @@
               Get VIN History Report
             </button>
             <a href="https://detailedvehiclehistory.com/sample" target="_blank">
-              <button class="px-6 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 transition-colors">
+              <button class="w-full px-6 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-50 transition-colors">
                 Learn more with a Sample Report
               </button>
             </a>
@@ -1132,7 +1216,7 @@
       </section>
       <style>
         .custom-bg{
-          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask4185%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%26quot%3b%23SvgjsRadialGradient4186%26quot%3b)'%3e%3c/rect%3e%3cpath d='M31.74 425.04L96.69 462.54L96.69 537.54L31.74 575.04L-33.21 537.54L-33.21 462.54zM96.69 537.54L161.65 575.04L161.65 650.04L96.69 687.54L31.74 650.04L31.74 575.04zM356.51 87.54L421.46 125.04L421.46 200.04L356.51 237.54L291.56 200.04L291.56 125.04zM486.42 312.54L551.37 350.04L551.37 425.04L486.42 462.54L421.46 425.04L421.46 350.04zM616.32 312.54L681.28 350.04L681.28 425.04L616.32 462.54L551.37 425.04L551.37 350.04zM746.23 537.54L811.19 575.04L811.19 650.04L746.23 687.54L681.28 650.04L681.28 575.04zM1135.95 87.54L1200.91 125.04L1200.91 200.04L1135.95 237.54L1071 200.04L1071 125.04zM1200.91 -24.96L1265.86 12.54L1265.86 87.54L1200.91 125.04L1135.95 87.54L1135.95 12.54zM1460.72 200.04L1525.68 237.54L1525.68 312.54L1460.72 350.04L1395.77 312.54L1395.77 237.54z' stroke='rgba(239%2c 239%2c 239%2c 0.42)' stroke-width='2'%3e%3c/path%3e%3cpath d='M24.24 425.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM89.19 462.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM89.19 537.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM24.24 575.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM-40.71 537.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM-40.71 462.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM154.15 575.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM154.15 650.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM89.19 687.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM24.24 650.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM349.01 87.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM413.96 125.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM413.96 200.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM349.01 237.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM284.06 200.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM284.06 125.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM478.92 312.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM543.87 350.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM543.87 425.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM478.92 462.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM413.96 425.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM413.96 350.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM608.82 312.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM673.78 350.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM673.78 425.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM608.82 462.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM738.73 537.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM803.69 575.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM803.69 650.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM738.73 687.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM673.78 650.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM673.78 575.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1128.45 87.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1193.41 125.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1193.41 200.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1128.45 237.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1063.5 200.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1063.5 125.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1193.41 -24.96 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1258.36 12.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1258.36 87.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1128.45 12.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1453.22 200.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1518.18 237.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1518.18 312.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1453.22 350.04 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1388.27 312.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0zM1388.27 237.54 a7.5 7.5 0 1 0 15 0 a7.5 7.5 0 1 0 -15 0z' fill='rgba(239%2c 239%2c 239%2c 0.42)'%3e%3c/path%3e%3cpath d='M63.02 206.27L106.33 231.27L106.33 281.27L63.02 306.27L19.72 281.27L19.72 231.27zM19.72 281.27L63.02 306.27L63.02 356.27L19.72 381.27L-23.58 356.27L-23.58 306.27zM19.72 431.27L63.02 456.27L63.02 506.27L19.72 531.27L-23.58 506.27L-23.58 456.27zM106.33 -18.73L149.63 6.27L149.63 56.27L106.33 81.27L63.02 56.27L63.02 6.27zM106.33 131.27L149.63 156.27L149.63 206.27L106.33 231.27L63.02 206.27L63.02 156.27zM149.63 356.27L192.93 381.27L192.93 431.27L149.63 456.27L106.33 431.27L106.33 381.27zM149.63 506.27L192.93 531.27L192.93 581.27L149.63 606.27L106.33 581.27L106.33 531.27zM236.23 56.27L279.53 81.27L279.53 131.27L236.23 156.27L192.93 131.27L192.93 81.27zM192.93 131.27L236.23 156.27L236.23 206.27L192.93 231.27L149.63 206.27L149.63 156.27zM236.23 206.27L279.53 231.27L279.53 281.27L236.23 306.27L192.93 281.27L192.93 231.27zM322.84 56.27L366.14 81.27L366.14 131.27L322.84 156.27L279.53 131.27L279.53 81.27zM322.84 206.27L366.14 231.27L366.14 281.27L322.84 306.27L279.53 281.27L279.53 231.27zM279.53 281.27L322.84 306.27L322.84 356.27L279.53 381.27L236.23 356.27L236.23 306.27zM322.84 506.27L366.14 531.27L366.14 581.27L322.84 606.27L279.53 581.27L279.53 531.27zM409.44 56.27L452.75 81.27L452.75 131.27L409.44 156.27L366.14 131.27L366.14 81.27zM409.44 206.27L452.75 231.27L452.75 281.27L409.44 306.27L366.14 281.27L366.14 231.27zM409.44 356.27L452.75 381.27L452.75 431.27L409.44 456.27L366.14 431.27L366.14 381.27zM452.75 -18.73L496.05 6.27L496.05 56.27L452.75 81.27L409.44 56.27L409.44 6.27zM496.05 56.27L539.35 81.27L539.35 131.27L496.05 156.27L452.75 131.27L452.75 81.27zM452.75 131.27L496.05 156.27L496.05 206.27L452.75 231.27L409.44 206.27L409.44 156.27zM496.05 206.27L539.35 231.27L539.35 281.27L496.05 306.27L452.75 281.27L452.75 231.27zM452.75 281.27L496.05 306.27L496.05 356.27L452.75 381.27L409.44 356.27L409.44 306.27zM539.35 131.27L582.65 156.27L582.65 206.27L539.35 231.27L496.05 206.27L496.05 156.27zM582.65 206.27L625.96 231.27L625.96 281.27L582.65 306.27L539.35 281.27L539.35 231.27zM582.65 356.27L625.96 381.27L625.96 431.27L582.65 456.27L539.35 431.27L539.35 381.27zM625.96 -18.73L669.26 6.27L669.26 56.27L625.96 81.27L582.65 56.27L582.65 6.27zM669.26 56.27L712.56 81.27L712.56 131.27L669.26 156.27L625.96 131.27L625.96 81.27zM625.96 281.27L669.26 306.27L669.26 356.27L625.96 381.27L582.65 356.27L582.65 306.27zM669.26 356.27L712.56 381.27L712.56 431.27L669.26 456.27L625.96 431.27L625.96 381.27zM755.86 506.27L799.17 531.27L799.17 581.27L755.86 606.27L712.56 581.27L712.56 531.27zM842.47 206.27L885.77 231.27L885.77 281.27L842.47 306.27L799.17 281.27L799.17 231.27zM842.47 506.27L885.77 531.27L885.77 581.27L842.47 606.27L799.17 581.27L799.17 531.27zM929.07 206.27L972.38 231.27L972.38 281.27L929.07 306.27L885.77 281.27L885.77 231.27zM885.77 281.27L929.07 306.27L929.07 356.27L885.77 381.27L842.47 356.27L842.47 306.27zM972.38 -18.73L1015.68 6.27L1015.68 56.27L972.38 81.27L929.07 56.27L929.07 6.27zM972.38 131.27L1015.68 156.27L1015.68 206.27L972.38 231.27L929.07 206.27L929.07 156.27zM1102.28 356.27L1145.59 381.27L1145.59 431.27L1102.28 456.27L1058.98 431.27L1058.98 381.27zM1058.98 431.27L1102.28 456.27L1102.28 506.27L1058.98 531.27L1015.68 506.27L1015.68 456.27zM1188.89 56.27L1232.19 81.27L1232.19 131.27L1188.89 156.27L1145.59 131.27L1145.59 81.27zM1145.59 131.27L1188.89 156.27L1188.89 206.27L1145.59 231.27L1102.28 206.27L1102.28 156.27zM1145.59 281.27L1188.89 306.27L1188.89 356.27L1145.59 381.27L1102.28 356.27L1102.28 306.27zM1145.59 431.27L1188.89 456.27L1188.89 506.27L1145.59 531.27L1102.28 506.27L1102.28 456.27zM1188.89 506.27L1232.19 531.27L1232.19 581.27L1188.89 606.27L1145.59 581.27L1145.59 531.27zM1232.19 -18.73L1275.49 6.27L1275.49 56.27L1232.19 81.27L1188.89 56.27L1188.89 6.27zM1275.49 56.27L1318.8 81.27L1318.8 131.27L1275.49 156.27L1232.19 131.27L1232.19 81.27zM1232.19 281.27L1275.49 306.27L1275.49 356.27L1232.19 381.27L1188.89 356.27L1188.89 306.27zM1232.19 431.27L1275.49 456.27L1275.49 506.27L1232.19 531.27L1188.89 506.27L1188.89 456.27zM1362.1 56.27L1405.4 81.27L1405.4 131.27L1362.1 156.27L1318.8 131.27L1318.8 81.27zM1318.8 281.27L1362.1 306.27L1362.1 356.27L1318.8 381.27L1275.49 356.27L1275.49 306.27zM1405.4 -18.73L1448.7 6.27L1448.7 56.27L1405.4 81.27L1362.1 56.27L1362.1 6.27zM1448.7 206.27L1492.01 231.27L1492.01 281.27L1448.7 306.27L1405.4 281.27L1405.4 231.27zM1405.4 281.27L1448.7 306.27L1448.7 356.27L1405.4 381.27L1362.1 356.27L1362.1 306.27z' stroke='rgba(227%2c 227%2c 227%2c 0.4)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask4185'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cradialGradient cx='50%25' cy='50%25' r='772.53' gradientUnits='userSpaceOnUse' id='SvgjsRadialGradient4186'%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(253%2c 253%2c 253%2c 1)' offset='1'%3e%3c/stop%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e");
+          background-image: url("assets/Vehicle-Background-Check.svg");
         }
       </style>
 
@@ -1141,7 +1225,7 @@
           <!-- Header -->
           <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-6">What our Customers say?</h2>
-            <div class="flex items-center justify-center gap-2 mb-2">
+            <div class="flex items-center justify-center flex-wrap gap-2 mb-2">
               <span class="font-semibold">Excellent</span>
               <div class="flex gap-0.5">
                 <img src="assets/Stars-5-Trustpilot.svg" alt="TrustPilot" />
@@ -1156,145 +1240,145 @@
             <!-- Review 1 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Michael" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial.webp" alt="Michael" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Michael</h3>
                   <div class="text-sm text-gray-500">September 13, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">Recently bought a used 7 year old MB sedan. The dealer had limited info about the specific car and affordable option/ costs at original sale. Read favorable newspaper article about Detailed Vehicle History. Within a few minutes the window sticker came back, it was amazingly detailed, showed all the specific options/ costs and looked just like the original window sticker. Would definitely recommend this invaluable service to others.</p>
+              <p class="pt-4 text-gray-700 text-sm">Recently bought a used 7 year old MB sedan. The dealer had limited info about the specific car and affordable option/ costs at original sale. Read favorable newspaper article about Detailed Vehicle History. Within a few minutes the window sticker came back, it was amazingly detailed, showed all the specific options/ costs and looked just like the original window sticker. Would definitely recommend this invaluable service to others.</p>
             </div>
 
             <!-- Review 2 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Robert W. Gorge" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial2.webp" alt="Robert W. Gorge" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Robert W. Gorge</h3>
                   <div class="text-sm text-gray-500">August 23, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">I was unaware there was an alternative to Carfax. DVH suggested DVH and I couldn't be more pleased. The process was easy, the price reasonable and the report was issued promptly. Sam Adams was very helpful on the chat feature when I had a few questions. The report is accurate in every respect and will be useful to me in selling the vehicle.</p>
+              <p class="pt-4 text-gray-700 text-sm">I was unaware there was an alternative to Carfax. DVH suggested DVH and I couldn't be more pleased. The process was easy, the price reasonable and the report was issued promptly. Sam Adams was very helpful on the chat feature when I had a few questions. The report is accurate in every respect and will be useful to me in selling the vehicle.</p>
             </div>
 
             <!-- Review 3 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Mark Jackson" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial3.webp" alt="Mark Jackson" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Mark Jackson</h3>
                   <div class="text-sm text-gray-500">July 07, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">Excellent actually helpful chat support! I didn't get a real time discount code to calculate at check out and hesitated to use chat support but this was Excellent service! Helpful, Prompt and to the point w/o a bunch of intro thank you and sales pitch garbage! Got the window sticker the dealer was unable to provide due to computer system breach and Canadian delivery to first owner but had it in hand in just a few minutes at a reasonable cost.</p>
+              <p class="pt-4 text-gray-700 text-sm">Excellent actually helpful chat support! I didn't get a real time discount code to calculate at check out and hesitated to use chat support but this was Excellent service! Helpful, Prompt and to the point w/o a bunch of intro thank you and sales pitch garbage! Got the window sticker the dealer was unable to provide due to computer system breach and Canadian delivery to first owner but had it in hand in just a few minutes at a reasonable cost.</p>
             </div>
 
             <!-- Review 4 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Alan Wilcox" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial4.webp" alt="Alan Wilcox" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Alan Wilcox</h3>
                   <div class="text-sm text-gray-500">August 20, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">I wanted the window sticker for the 2014 GMC Terrain that I recently bought. Detailed Vehicle History made it simple. I entered my VIN, paid the $15, and got my window sticker. I noticed that it did not have the exterior or interior colors on it. DVH had me a new window sticker with the correct colors the next day. Very satisfied with their service. I would not hesitate to buy another one from them.</p>
+              <p class="pt-4 text-gray-700 text-sm">I wanted the window sticker for the 2014 GMC Terrain that I recently bought. Detailed Vehicle History made it simple. I entered my VIN, paid the $15, and got my window sticker. I noticed that it did not have the exterior or interior colors on it. DVH had me a new window sticker with the correct colors the next day. Very satisfied with their service. I would not hesitate to buy another one from them.</p>
             </div>
 
             <!-- Review 5 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Eric Keller" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial5.webp" alt="Eric Keller" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Eric Keller</h3>
                   <div class="text-sm text-gray-500">August 20, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">Richard Langridge was very helpful when I needed to get my window sticker information from his company Detailed Vehicle History. He stayed with me and made sure I was helped every step of the way.</p>
+              <p class="pt-4 text-gray-700 text-sm">Richard Langridge was very helpful when I needed to get my window sticker information from his company Detailed Vehicle History. He stayed with me and made sure I was helped every step of the way.</p>
             </div>
 
             <!-- Review 6 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Thomas Mcalister" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial6.webp" alt="Thomas Mcalister" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Thomas Mcalister</h3>
                   <div class="text-sm text-gray-500">August 17, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">This is an easy way to find information about a vehicle that you are trying to purchase or sell. This site also give you personal services that help guide you through the process of gaining this information.</p>
+              <p class="pt-4 text-gray-700 text-sm">This is an easy way to find information about a vehicle that you are trying to purchase or sell. This site also give you personal services that help guide you through the process of gaining this information.</p>
             </div>
 
             <!-- Review 7 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="John H" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial7.webp" alt="John H" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">John H</h3>
                   <div class="text-sm text-gray-500">September 09, 2024 • CA</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">What an excellent and easy to use system to get a Window Sticker for your car in Canada. Very detailed and the cost was very minimal.</p>
+              <p class="pt-4 text-gray-700 text-sm">What an excellent and easy to use system to get a Window Sticker for your car in Canada. Very detailed and the cost was very minimal.</p>
             </div>
 
             <!-- Review 8 -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial.png" alt="Brian Averbeck" class="w-12 h-12 rounded-full">
+                <img src="assets/testimonial8.webp" alt="Brian Averbeck" class="w-12 h-12 rounded-full">
                 <div>
                   <h3 class="font-semibold">Brian Averbeck</h3>
                   <div class="text-sm text-gray-500">August 14, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
-              <div class="w-full flex items-center justify-center my-4 relative">
+              <div class="w-full flex items-center justify-center relative">
                 <div class="absolute left-0 right-0 translate-x-6">
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="text-gray-700 text-sm">Accessing the report was a little complicated by my anyway, but customer service was extremely quick to respond and emailed me a copy of the window sticker within a few minutes. The window sticker was exactly as I expected and felt it was a good value for the cost.</p>
+              <p class="pt-4 text-gray-700 text-sm">Accessing the report was a little complicated by my anyway, but customer service was extremely quick to respond and emailed me a copy of the window sticker within a few minutes. The window sticker was exactly as I expected and felt it was a good value for the cost.</p>
             </div>
           </div>
 
@@ -1913,7 +1997,7 @@
             <!-- Blog Post 1 -->
             <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border">
               <img 
-                src="assets/blog.png" 
+                src="assets/blog.webp" 
                 alt="People discussing used car purchase" 
                 class="w-full h-48 object-cover"
               >
@@ -1932,7 +2016,7 @@
             <!-- Blog Post 2 -->
             <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border">
               <img 
-                src="assets/blog.png" 
+                src="assets/blog.webp" 
                 alt="People discussing used car purchase" 
                 class="w-full h-48 object-cover"
               >
@@ -1951,7 +2035,7 @@
             <!-- Blog Post 3 -->
             <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border">
               <img 
-                src="assets/blog.png" 
+                src="assets/blog.webp" 
                 alt="People discussing used car purchase" 
                 class="w-full h-48 object-cover"
               >
@@ -1991,7 +2075,7 @@
                 aria-expanded="true"
                 aria-controls="faq-1"
               >
-                <span class="font-semibold">What is a VIN?</span>
+                <h3 class="font-semibold">What is a VIN?</h3>
                 <span class="text-blue-600 text-2xl transition-transform duration-200 rotate-45">+</span>
               </button>
               <div 
@@ -1999,9 +2083,9 @@
                 class="overflow-hidden transition-all duration-200 max-h-[1000px]"
                 aria-hidden="false"
               >
-                <div class="p-4 pt-0 text-gray-700">
+                <p class="p-4 pt-0 text-gray-700">
                   A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every vehicle. It serves as the vehicle's fingerprint, providing essential information about its make, model, year, and manufacturing details. You can find the VIN on the dashboard, near the windshield, or inside the driver's door jamb.
-                </div>
+                </p>
               </div>
             </div>
       
@@ -2013,7 +2097,7 @@
                 aria-expanded="false"
                 aria-controls="faq-2"
               >
-                <span class="font-semibold">What information is included in a car history report?</span>
+                <h3 class="font-semibold">What information is included in a car history report?</h3>
                 <span class="text-blue-600 text-2xl transition-transform duration-200">+</span>
               </button>
               <div 
@@ -2021,9 +2105,9 @@
                 class="overflow-hidden transition-all duration-200 max-h-0"
                 aria-hidden="true"
               >
-                <div class="p-4 pt-0 text-gray-700">
+                <p class="p-4 pt-0 text-gray-700">
                   A car history report includes detailed information about the vehicle's past, including accident history, service records, ownership changes, mileage readings, and title status. It also shows if the vehicle has been involved in any major incidents or has outstanding liens.
-                </div>
+                </p>
               </div>
             </div>
       
@@ -2035,7 +2119,7 @@
                 aria-expanded="false"
                 aria-controls="faq-3"
               >
-                <span class="font-semibold">What are the benefits of a vehicle report?</span>
+                <h3 class="font-semibold">What are the benefits of a vehicle report?</h3>
                 <span class="text-blue-600 text-2xl transition-transform duration-200">+</span>
               </button>
               <div 
@@ -2043,9 +2127,9 @@
                 class="overflow-hidden transition-all duration-200 max-h-0"
                 aria-hidden="true"
               >
-                <div class="p-4 pt-0 text-gray-700">
+                <p class="p-4 pt-0 text-gray-700">
                   A vehicle report helps you make informed decisions by revealing potential issues, verifying mileage accuracy, confirming ownership history, and identifying any previous damage or accidents. This information can help you avoid costly surprises and negotiate a fair price.
-                </div>
+                </p>
               </div>
             </div>
       
@@ -2057,7 +2141,7 @@
                 aria-expanded="false"
                 aria-controls="faq-4"
               >
-                <span class="font-semibold">Is there a free car history report?</span>
+                <h3 class="font-semibold">Is there a free car history report?</h3>
                 <span class="text-blue-600 text-2xl transition-transform duration-200">+</span>
               </button>
               <div 
@@ -2065,9 +2149,9 @@
                 class="overflow-hidden transition-all duration-200 max-h-0"
                 aria-hidden="true"
               >
-                <div class="p-4 pt-0 text-gray-700">
+                <p class="p-4 pt-0 text-gray-700">
                   While some basic vehicle information may be available for free, comprehensive vehicle history reports typically require a fee. This is because they compile data from multiple sources and provide detailed information about the vehicle's past.
-                </div>
+                </p>
               </div>
             </div>
       
@@ -2079,7 +2163,7 @@
                 aria-expanded="false"
                 aria-controls="faq-5"
               >
-                <span class="font-semibold">How can I get car facts by VIN?</span>
+                <h3 class="font-semibold">How can I get car facts by VIN?</h3>
                 <span class="text-blue-600 text-2xl transition-transform duration-200">+</span>
               </button>
               <div 
@@ -2087,9 +2171,9 @@
                 class="overflow-hidden transition-all duration-200 max-h-0"
                 aria-hidden="true"
               >
-                <div class="p-4 pt-0 text-gray-700">
+                <p class="p-4 pt-0 text-gray-700">
                   Simply enter your 17-digit VIN in our search tool, and we'll provide you with a comprehensive report about the vehicle. Our database includes information from multiple reliable sources to give you the most accurate vehicle history.
-                </div>
+                </p>
               </div>
             </div>
       
@@ -2101,7 +2185,7 @@
                 aria-expanded="false"
                 aria-controls="faq-6"
               >
-                <span class="font-semibold">Is there a cheaper alternative to Carfax?</span>
+                <h3 class="font-semibold">Is there a cheaper alternative to Carfax?</h3>
                 <span class="text-blue-600 text-2xl transition-transform duration-200">+</span>
               </button>
               <div 
@@ -2109,9 +2193,9 @@
                 class="overflow-hidden transition-all duration-200 max-h-0"
                 aria-hidden="true"
               >
-                <div class="p-4 pt-0 text-gray-700">
+                <p class="p-4 pt-0 text-gray-700">
                   Yes, our vehicle history reports provide comprehensive information at a more affordable price than Carfax. We offer the same detailed vehicle history information, including accidents, ownership, and maintenance records, at a competitive rate.
-                </div>
+                </p>
               </div>
             </div>
           </div>
@@ -2139,13 +2223,13 @@
           }
       
           // Initialize the first accordion as open
-          document.addEventListener('DOMContentLoaded', function() {
-            const firstAccordion = document.querySelector('.overflow-hidden');
-            if (firstAccordion) {
-              const content = firstAccordion.querySelector('div[id^="faq-"]');
-              content.style.maxHeight = content.scrollHeight + 'px';
-            }
-          });
+          // document.addEventListener('DOMContentLoaded', function() {
+          //   const firstAccordion = document.querySelector('.overflow-hidden');
+          //   if (firstAccordion) {
+          //     const content = firstAccordion.querySelector('div[id^="faq-"]');
+          //     content.style.maxHeight = content.scrollHeight + 'px';
+          //   }
+          // });
         </script>
       </section>
       <script>
