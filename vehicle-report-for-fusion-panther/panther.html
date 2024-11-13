@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle History Report</title>
     <link href="output.css" rel="stylesheet">
+    <!-- <link href="input.css" rel="stylesheet"> -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
     <!-- chart for IDEAL Time To Buy or Sell -->
@@ -49,7 +50,7 @@
                             <span class="text-sm">Overview & safety ratings</span>
                         </div>
 
-                        <div target="basic-vehicle-history-checks" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                        <div target="basic-vehicle-history-checks" name="Basic checks" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
                           <div class="w-5 h-5 flex-shrink-0">
                             <img src="assets/solar_card-search-broken.svg" alt="Card search icon" class="car w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             <img src="assets/Basic-Motorcycle-History-Check.svg" alt="Card search icon" class="motorcycle w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
@@ -57,7 +58,7 @@
                           <span class="text-sm">Basic <span class="car">vehicle</span><span class="motorcycle">motorcycle</span> checks</span>
                         </div>
 
-                        <div target="premium-vehicle-history-checks" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                        <div target="premium-vehicle-history-checks" name="Premium checks" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
                           <div class="w-5 h-5 flex-shrink-0">
                             <img src="assets/icon-park-solid_history-query.svg" alt="Card search icon" class="car w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             <img src="assets/Premium-Motorcycle-History-Check.svg" alt="Card search icon" class="motorcycle w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
@@ -86,14 +87,14 @@
                           <span class="text-sm">Stolen vehicle check</span>
                         </div>
 
-                        <div target="safety-ratings" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group panther">
+                        <div target="safety-ratings" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group panther not_fusionPanther">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/safety-ratings.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
                           <span class="text-sm">Safety ratings</span>
                         </div>
                       
-                        <div target="vehicle-specifications" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                        <div target="vehicle-specifications" name="Specifications" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
                             <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/mingcute_car-door-line.svg" alt="Card search icon" class="car w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                               <img src="assets/Motorcycle-Specifications.svg" alt="Card search icon" class="motorcycle w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
@@ -101,7 +102,7 @@
                             <span class="text-sm"><span class="car">Vehicle</span><span class="motorcycle">Motorcycle</span> specifications</span>
                         </div>
 
-                        <div target="value-decline-assessment" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                        <div target="value-decline-assessment" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group fusion">
                             <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/value-decline-assessment.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
@@ -124,7 +125,7 @@
 
                         <div target="ideal-time-to-buy-or-sale" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group fusion">
                           <div class="w-5 h-5 flex-shrink-0">
-                            <img src="assets/Value-decline-assessment.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
+                            <img src="assets/ideal-time-to-buy-and-sell.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                           </div>
                           <span class="text-sm">Ideal time to buy or sell</span>
                         </div>
@@ -136,7 +137,7 @@
                           <span class="text-sm">Color options</span>
                         </div>
 
-                        <div target="estimated-sale-duration" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group">
+                        <div target="estimated-sale-duration" class="flex items-center gap-3 p-3 hover:bg-[#5185E3] hover:text-white text-black rounded-lg cursor-pointer transition-colors duration-200 group fusion">
                           <div class="w-5 h-5 flex-shrink-0">
                               <img src="assets/Estimated-sale-duration.svg" alt="Card search icon" class="w-full h-full transition-filter duration-200 group-hover:brightness-0 group-hover:invert group-[.active]:brightness-0 group-[.active]:invert"/>
                             </div>
@@ -361,7 +362,7 @@
             </section>
 
             <section class="bg-white p-4 md:p-6 not_fusionPanther panther">
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
                 <div class="bg-gray-50 p-2.5 border">
                   <p class="m-0 text-sm">Trim</p>
                   <p class="font-semibold m-0 text-base">Limited Platinum</p>
@@ -469,9 +470,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Ownership History & Map</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -480,9 +481,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Title Check</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -491,9 +492,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Lien/Loan Records</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -502,9 +503,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Accident & Damage History</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -513,9 +514,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Odometer Rollback</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -524,9 +525,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Theft Records</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -535,9 +536,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Service & Repair History</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -546,9 +547,9 @@
                             <div class="w-8 h-8 mb-2 flex-shrink-0">
                               <img src="assets/yellow-alert.svg" alt="Alert icon" class="w-full h-full object-contain" />
                             </div>
-                            <div class="flex-1 flex flex-col items-center justify-between min-h-[80px]">
+                            <div class="flex-1 flex flex-col items-center justify-between">
                               <p class="font-semibold text-sm sm:text-base text-center mb-2 line-clamp-2">Lemon Check</p>
-                              <p class="text-red-500 text-xs sm:text-sm">Reveal Records!</p>
+                              <p class="text-red-500 text-xs sm:text-sm text-center">Reveal Records!</p>
                             </div>
                           </div>
                         </div>
@@ -894,7 +895,7 @@
 
             <section id="stolen-vehicle-check" class="bg-white p-4 md:p-6 premium">
               <h2 class="text-2xl font-bold mb-6">STOLEN VEHICLE CHECK</h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-2 border p-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 border p-2">
                 <div class="bg-gray-50 p-2.5 border">
                   <h3 class="font-semibold text-blue-500 mb-2">REPORTED AS STOLEN?</h3>
                   <p class="">Yes</p>
@@ -918,9 +919,9 @@
               </div>
             </section>
 
-            <section id="safety-ratings" class="bg-white p-4 md:p-6 panther">
+            <section id="safety-ratings" class="bg-white p-4 md:p-6 panther not_fusionPanther">
               <h2 class="text-2xl font-bold mb-4">SAFETY RATINGS</h2>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <div class="space-y-2">
                   <div class="bg-gray-50 p-2.5 border">
                     <p class="font-semibold">Driver's Rating</p>
@@ -1332,7 +1333,7 @@
               </div>
               
               <h3 class="text-lg font-semibold text-teal-500 mb-4">COMPARISON OF SIMILAR VEHICLES IN THE MARKET</h3>
-              <div class="grid md:grid-cols-3 gap-4">
+              <div class="grid sm:grid-cols-3 gap-4">
                   <div class="bg-gray-50 border p-4 rounded-lg">
                       <h4 class="text-lg font-bold text-blue-600 mb-2">2019 Jeep Grand Cherokee</h4>
                       <div class="space-y-2">
@@ -1541,7 +1542,7 @@
                 </div>
                 
                 <h3 class="text-lg font-semibold text-teal-500 mb-4">COMPARISON OF SIMILAR VEHICLES IN THE MARKET</h3>
-                <div class="grid md:grid-cols-3 gap-4">
+                <div class="grid sm:grid-cols-3 gap-4">
                   <div class="bg-gray-50 border p-4 rounded-lg">
                     <h4 class="text-lg font-bold text-blue-600 mb-2">2019 Jeep Grand Cherokee</h4>
                     <div class="space-y-2">
@@ -1789,8 +1790,8 @@
               </div>
             </section>
 
-            <section id="estimated-sale-duration" class="bg-white p-4 md:p-6">
-              <div class="fusion">
+            <section class="bg-white p-4 md:p-6">
+              <div id="estimated-sale-duration" class="fusion">
                 <h2 class="text-2xl font-bold mb-4">ESTIMATED SALE DURATION</h2>
                 <div class="bg-gray-100 p-4 rounded-lg mb-4">
                   <p class="text-sm text-gray-600 mb-2">Estimated sale duration:</p>
@@ -2201,15 +2202,15 @@
                           <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
@@ -2257,15 +2258,15 @@
                           <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
@@ -2320,27 +2321,27 @@
                           <tbody class="hidden sm:contents">
                             <tr class="grid grid-cols-6 border-b border-gray-200">
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
@@ -2430,15 +2431,15 @@
                           <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
@@ -2486,15 +2487,15 @@
                           <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
@@ -2549,27 +2550,27 @@
                           <tbody class="hidden sm:contents">
                             <tr class="grid grid-cols-6 border-b border-gray-200">
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
@@ -2659,15 +2660,15 @@
                           <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                             </tr>
@@ -2715,15 +2716,15 @@
                           <tbody class="sm:hidden">
                             <tr class="border-b border-gray-200">
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
                               <td class="px-2 py-2 text-center text-xs">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
@@ -2778,27 +2779,27 @@
                           <tbody class="hidden sm:contents">
                             <tr class="grid grid-cols-6 border-b border-gray-200">
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,053</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$496</span>
                               </td>
                               <td class="px-4 py-3 text-center text-sm">
-                                <span class="font-medium text-gray-500">Avg.:</span>
+                                <span class="font-medium text-gray-500">Avg:</span>
                                 <span class="text-gray-700">$1,549</span>
                               </td>
                             </tr>
@@ -3472,7 +3473,7 @@
         const sidebarNav = document.getElementById('sidebarNav');
     
         function updateLayout() {
-            if (document.documentElement.clientWidth <= 767) {
+            if (document.documentElement.clientWidth < 800) {
                 toggleSidebar.classList.remove('hidden');
                 mainContent.classList.remove('ml-80');
             } else {
@@ -3490,7 +3491,7 @@
         }
 
         function closeSidebarOnMobile() {
-          if (document.documentElement.clientWidth <= 767) {
+          if (document.documentElement.clientWidth < 800) {
             sidebar.classList.remove('open');
             document.body.classList.remove('popup');
           }
@@ -3559,7 +3560,8 @@
               toggleSidebarText.style.opacity = '0';
               
               setTimeout(() => {
-                updateToggleButtonText(activeNavItem.textContent);
+                const navItemText = activeNavItem.getAttribute('name') || activeNavItem.textContent;
+                updateToggleButtonText(navItemText);
                 toggleSidebarText.style.opacity = '1';
               }, 200);
             }

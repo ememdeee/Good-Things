@@ -1903,6 +1903,10 @@ body {
     height: 400px;
   }
 
+  .sm\:min-h-\[80px\] {
+    min-height: 80px;
+  }
+
   .sm\:w-auto {
     width: auto;
   }
@@ -1913,6 +1917,10 @@ body {
 
   .sm\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .sm\:flex-row {
@@ -1979,7 +1987,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
   .md\:left-auto {
     left: auto;
   }

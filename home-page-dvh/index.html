@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detailed Vehicle History Report</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <!-- <link href="input.css" rel="stylesheet"> -->
     <link href="dvh-homepage.css" rel="stylesheet">
 </head>
@@ -54,34 +54,34 @@
             echo do_shortcode('[site_form type="vhr" color="#1955FF" vintxt="Search VIN" lptxt="Search License Plate" ymmtxt="Search YMM" color="#1955FF"]');
             ?>
             <div class="py-4 mb-2">
-              <a href="/window-sticker" class="text-blue-600 hover:text-blue-800 underline text-lg font-semibold transition-colors duration-300">Grab Window Sticker</a>
+              <a href="/window-sticker" target="_blank" class="text-blue-600 hover:text-blue-800 underline text-lg font-semibold transition-colors duration-300">Grab Window Sticker</a>
             </div>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div class="flex flex-nowrap justify-center items-center gap-2 sm:gap-4">
               <!-- Google Play Store -->
-              <a href="https://play.google.com/store/apps/details?id=com.vehiclehistory.dvh&utm_source=google&utm_medium=organic&utm_campaign=app_download_android&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="w-40 md:w-44 transition-transform hover:scale-105">
-                  <img 
-                      src="assets/googlePlay.png" 
-                      alt="Get it on Google Play" 
-                      class="w-full h-auto"
-                  >
+              <a href="https://play.google.com/store/apps/details?id=com.vehiclehistory.dvh&utm_source=google&utm_medium=organic&utm_campaign=app_download_android&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="flex-1 max-w-[120px] sm:max-w-[160px] transition-transform hover:scale-105">
+                <img 
+                  src="assets/googlePlay.png" 
+                  alt="Get it on Google Play" 
+                  class="w-full h-auto"
+                >
               </a>
-      
+            
               <!-- Apple App Store -->
-              <a href="https://apps.apple.com/app/vin-decoder-vehicle-history/id1576559330?utm_source=google&utm_medium=organic&utm_campaign=app_download_iOS&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="w-40 md:w-44 transition-transform hover:scale-105">
-                  <img 
-                      src="assets/appStore.png" 
-                      alt="Download on the App Store" 
-                      class="w-full h-auto"
-                  >
+              <a href="https://apps.apple.com/app/vin-decoder-vehicle-history/id1576559330?utm_source=google&utm_medium=organic&utm_campaign=app_download_iOS&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="flex-1 max-w-[120px] sm:max-w-[160px] transition-transform hover:scale-105">
+                <img 
+                  src="assets/appStore.png" 
+                  alt="Download on the App Store" 
+                  class="w-full h-auto"
+                >
               </a>
-      
+            
               <!-- Windows Store -->
-              <a href="https://detailedvehiclehistory.com/downloads/vin-decoder-app/VIN-Decoder.exe?utm_source=google&utm_medium=organic&utm_campaign=app_download_windows&utm_id=app_download" class="w-40 md:w-44 transition-transform hover:scale-105" target="_blank">
-                  <img 
-                      src="assets/windows.png" 
-                      alt="Get it on Windows" 
-                      class="w-full h-auto"
-                  >
+              <a href="https://detailedvehiclehistory.com/downloads/vin-decoder-app/VIN-Decoder.exe?utm_source=google&utm_medium=organic&utm_campaign=app_download_windows&utm_id=app_download" class="flex-1 max-w-[120px] sm:max-w-[160px] transition-transform hover:scale-105" target="_blank">
+                <img 
+                  src="assets/windows.png" 
+                  alt="Get it on Windows" 
+                  class="w-full h-auto"
+                >
               </a>
             </div>
           </div>
@@ -97,23 +97,32 @@
         
           <div class="flex flex-col md:flex-row gap-2 justify-center">
             <!-- Carfax Report Card -->
-            <div class="bg-white rounded-lg p-2 shadow-sm border border-gray-200 flex flex-col w-full gap-2 justify-between">
+            <!-- Desktop version -->
+            <div class="hidden md:flex bg-white rounded-lg p-2 shadow-sm border border-gray-200 flex-col w-full gap-2 justify-between">
               <div class="flex justify-between items-center gap-2">
                 <h3 class="text-gray-800 font-bold text-base">CARFAX report</h3>
                 <span class="text-base font-bold">$49.99</span>
               </div>
-              <!-- for mobile -->
-              <a class="block md:hidden" href="https://detailedvehiclehistory.com/carfax-sample/" target="_blank">
+              <a href="https://detailedvehiclehistory.com/carfax-sample/comparison.html" target="_blank">
                 <button class="mt-auto w-full py-2 px-4 border border-gray-300 rounded-lg text-gray-800 hover:bg-gray-50 transition-colors text-sm">
                   View Report
                 </button>
               </a>
-              <!-- for desktop -->
-              <a class="hidden md:block" href="https://detailedvehiclehistory.com/carfax-sample/comparison.html" target="_blank">
-                <button class="mt-auto w-full py-2 px-4 border border-gray-300 rounded-lg text-gray-800 hover:bg-gray-50 transition-colors text-sm">
-                  View Report
-                </button>
-              </a>
+            </div>
+
+            <!-- Mobile version -->
+            <div class="md:hidden bg-white rounded-lg p-2 shadow-sm border border-gray-200 flex flex-row w-full relative justify-between gap-1">
+              <div class="flex flex-col gap-2 justify-between">
+                <h3 class="text-gray-800 font-bold text-base">CARFAX report</h3>
+                <a href="https://detailedvehiclehistory.com/carfax-sample/" target="_blank">
+                  <button class="w-full py-2 px-4 border border-gray-300 rounded-lg text-gray-800 hover:bg-gray-50 transition-colors text-sm">
+                    View Report
+                  </button>
+                </a>
+              </div>
+              <div class="flex text-center flex-col gap-1 self-center">
+                <span class="text-xl font-bold">$49.99</span>
+              </div>
             </div>
         
             <!-- Detailed Vehicle History Card -->
@@ -122,13 +131,13 @@
                 <h3 class="font-bold text-base text-blue-600">Detailed Vehicle History</h3>
                 <!-- for mobile -->
                 <a class="block md:hidden" href="https://detailedvehiclehistory.com/report/vin/3FA6P0RU9HR306143" target="_blank">
-                  <button class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                  <button class="w-full py-2 px-4 border bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
                     View Detailed Report
                   </button>
                 </a>
                 <!-- for desktop -->
                 <a class="hidden md:block" href="https://detailedvehiclehistory.com/carfax-sample/comparison.html" target="_blank">
-                  <button class="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                  <button class="w-full py-2 px-4 border bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
                     View Detailed Report
                   </button>
                 </a>
@@ -680,7 +689,7 @@
               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-tr-xl rounded-br-xl w-1 h-5 bg-gray-300 group-hover:bg-blue-600 transition-colors"></div>
               <div class="flex flex-col sm:flex-row align-baseline justify-between sm:items-center mb-3 gap-1">
                 <h3 class="text-lg font-semibold">Cars</h3>
-                <a href="https://detailedvehiclehistory.com/report/vin/1G1JA5SH4E4153457" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
+                <a href="https://detailedvehiclehistory.com/report/vin/1G1JA5SH4E4153457" target="_blank" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
                   View Sample Report
                   <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -697,7 +706,7 @@
               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-tr-xl rounded-br-xl w-1 h-5 bg-gray-300 group-hover:bg-blue-600 transition-colors"></div>
               <div class="flex flex-col sm:flex-row align-baseline justify-between sm:items-center mb-3 gap-1">
                 <h3 class="text-lg font-semibold">Classic Cars</h3>
-                <a href="https://detailedvehiclehistory.com/report/vin/252677X172255" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
+                <a href="https://detailedvehiclehistory.com/report/vin/252677X172255" target="_blank" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
                   View Sample Report
                   <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -714,7 +723,7 @@
               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-tr-xl rounded-br-xl w-1 h-5 bg-gray-300 group-hover:bg-blue-600 transition-colors"></div>
               <div class="flex flex-col sm:flex-row align-baseline justify-between sm:items-center mb-3 gap-1">
                 <h3 class="text-lg font-semibold">Motorcycles</h3>
-                <a href="https://detailedvehiclehistory.com/report/vin/1HD1KRC10HB628632" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
+                <a href="https://detailedvehiclehistory.com/report/vin/1HD1KRC10HB628632" target="_blank" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
                   View Sample Report
                   <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -731,7 +740,7 @@
               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-tr-xl rounded-br-xl w-1 h-5 bg-gray-300 group-hover:bg-blue-600 transition-colors"></div>
               <div class="flex flex-col sm:flex-row align-baseline justify-between sm:items-center mb-3 gap-1">
                 <h3 class="text-lg font-semibold">Heavy Duty Trucks</h3>
-                <a href="https://detailedvehiclehistory.com/report/vin/1FUGGLDV6DLFA2220" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
+                <a href="https://detailedvehiclehistory.com/report/vin/1FUGGLDV6DLFA2220" target="_blank" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
                   View Sample Report
                   <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -748,7 +757,7 @@
               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-tr-xl rounded-br-xl w-1 h-5 bg-gray-300 group-hover:bg-blue-600 transition-colors"></div>
               <div class="flex flex-col sm:flex-row align-baseline justify-between sm:items-center mb-3 gap-1">
                 <h3 class="text-lg font-semibold">RV</h3>
-                <a href="https://detailedvehiclehistory.com/report/vin/4CH7HT524VM002236" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
+                <a href="https://detailedvehiclehistory.com/report/vin/4CH7HT524VM002236" target="_blank" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
                   View Sample Report
                   <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -765,7 +774,7 @@
               <div class="absolute left-0 top-1/2 transform -translate-y-1/2 rounded-tr-xl rounded-br-xl w-1 h-5 bg-gray-300 group-hover:bg-blue-600 transition-colors"></div>
               <div class="flex flex-col sm:flex-row align-baseline justify-between sm:items-center mb-3 gap-1">
                 <h3 class="text-lg font-semibold">Trailers</h3>
-                <a href="https://detailedvehiclehistory.com/report/vin/1NFRL372560200157" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
+                <a href="https://detailedvehiclehistory.com/report/vin/1NFRL372560200157" target="_blank" class="hover:text-gray-500 text-blue-600 transition-colors inline-flex items-center">
                   View Sample Report
                   <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -825,7 +834,7 @@
       
             <!-- Auction Records -->
             <div class="bg-yellow-50 rounded-lg p-6 md:p-10 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-              <h3 class="text-xl font-semibold mb-3">Auction Records That Tell ALL</h3>
+              <h3 class="text-xl font-semibold mb-3">Auction Records That Tell All</h3>
               <p class="text-gray-700">
                 If a vehicle's been through an auction, we've got the details! From sale prices to damages and up to 10 photos, we provide the inside scoop you need.
               </p>
@@ -1487,203 +1496,203 @@
       
           <!-- States Grid -->
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/alabama" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/alabama" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Alabama</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/alaska" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/alaska" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Alaska</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/arizona" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/arizona" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Arizona</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/arkansas" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/arkansas" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Arkansas</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/california" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/california" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>California</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/colorado" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/colorado" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Colorado</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/connecticut" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/connecticut" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Connecticut</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/delaware" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/delaware" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Delaware</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/florida" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/florida" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Florida</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/georgia" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/georgia" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Georgia</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/hawaii" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/hawaii" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Hawaii</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/idaho" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/idaho" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Idaho</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/illinois" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/illinois" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Illinois</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/indiana" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/indiana" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Indiana</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/iowa" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/iowa" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Iowa</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/kansas" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/kansas" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Kansas</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/kentucky" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/kentucky" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Kentucky</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/louisiana" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/louisiana" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Louisiana</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/maine" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/maine" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Maine</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/maryland" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/maryland" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Maryland</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/massachusetts" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/massachusetts" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Massachusetts</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/michigan" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/michigan" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Michigan</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/minnesota" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/minnesota" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Minnesota</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/mississippi" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/mississippi" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mississippi</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/missouri" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/missouri" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Missouri</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/montana" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/montana" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Montana</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/nebraska" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/nebraska" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Nebraska</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/nevada" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/nevada" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Nevada</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-hampshire" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-hampshire" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>New Hampshire</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-jersey" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-jersey" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>New Jersey</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-mexico" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-mexico" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>New Mexico</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-york" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/new-york" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>New York</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/north-carolina" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/north-carolina" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>North Carolina</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/north-dakota" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/north-dakota" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>North Dakota</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/ohio" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/ohio" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Ohio</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/oklahoma" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/oklahoma" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Oklahoma</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/oregon" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/oregon" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Oregon</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/pennsylvania" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/pennsylvania" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Pennsylvania</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/rhode-island" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/rhode-island" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Rhode Island</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/south-carolina" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/south-carolina" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>South Carolina</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/south-dakota" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/south-dakota" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>South Dakota</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/tennessee" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/tennessee" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Tennessee</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/texas" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/texas" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Texas</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/utah" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/utah" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Utah</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/vermont" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/vermont" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Vermont</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/virginia" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/virginia" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Virginia</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/washington" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/washington" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Washington</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/west-virginia" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/west-virginia" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>West Virginia</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/wisconsin" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/wisconsin" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Wisconsin</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/license-plate-lookup/wyoming" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/license-plate-lookup/wyoming" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Wyoming</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
@@ -1699,239 +1708,239 @@
       
           <!-- Makes Grid -->
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-            <a href="https://detailedvehiclehistory.com/vin-decoder/acura" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/acura" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Acura</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/alfa-romeo" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/alfa-romeo" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Alfa Romeo</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/am-general" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/am-general" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>AM General</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/aston-martin" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/aston-martin" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Aston Martin</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/audi" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/audi" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Audi</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/bentley" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/bentley" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Bentley</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/bmw" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/bmw" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>BMW</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/buick" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/buick" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Buick</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/cadillac" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/cadillac" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Cadillac</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/chevrolet" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/chevrolet" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Chevrolet</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/chrysler" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/chrysler" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Chrysler</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/daewoo" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/daewoo" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Daewoo</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/dodge" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/dodge" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Dodge</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/ferrari" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/ferrari" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Ferrari</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/fiat" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/fiat" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Fiat</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/fisker" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/fisker" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Fisker</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/ford" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/ford" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Ford</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/genesis" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/genesis" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Genesis</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/gmc" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/gmc" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>GMC</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/honda" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/honda" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Honda</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/hummer" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/hummer" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Hummer</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/hyundai" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/hyundai" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Hyundai</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/infiniti" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/infiniti" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Infiniti</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/isuzu" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/isuzu" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Isuzu</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/jaguar" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/jaguar" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Jaguar</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/jeep" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/jeep" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Jeep</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/kia" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/kia" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>KIA</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/lamborghini" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/lamborghini" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Lamborghini</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/land-rover" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/land-rover" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Land Rover</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/lexus" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/lexus" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Lexus</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/lincoln" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/lincoln" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Lincoln</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/lotus" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/lotus" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Lotus</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/maserati" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/maserati" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Maserati</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/maybach" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/maybach" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Maybach</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/mazda" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/mazda" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mazda</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/mclaren" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/mclaren" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mclaren</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/mercedes-benz" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/mercedes-benz" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mercedes-Benz</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/mercury" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/mercury" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mercury</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/mini" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/mini" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mini</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/mitsubishi" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/mitsubishi" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Mitsubishi</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/nissan" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/nissan" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Nissan</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/oldsmobile" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/oldsmobile" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Oldsmobile</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/panoz" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/panoz" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Panoz</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/plymouth" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/plymouth" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Plymouth</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/polestar" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/polestar" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Polestar</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/pontiac" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/pontiac" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Pontiac</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/porsche" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/porsche" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Porsche</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/ram" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/ram" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>RAM</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/rolls-royce" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/rolls-royce" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Rolls-Royce</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/saab" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/saab" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Saab</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/saturn" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/saturn" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Saturn</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/scion" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/scion" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Scion</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/smart" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/smart" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Smart</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/subaru" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/subaru" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Subaru</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/suzuki" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/suzuki" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Suzuki</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/tesla" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/tesla" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Tesla</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/toyota" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/toyota" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Toyota</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/volkswagen" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/volkswagen" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Volkswagen</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/vin-decoder/volvo" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/vin-decoder/volvo" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Volvo</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
@@ -1952,29 +1961,29 @@
           <!-- Vehicle Types Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Row 1 -->
-            <a href="https://detailedvehiclehistory.com/motorcycle-vin-check" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/motorcycle-vin-check" target="_blank" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Motorcycle VIN Check</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/rv-vin-lookup" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/rv-vin-lookup" target="_blank" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>RV VIN Check</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/classic-vin-decoder" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/classic-vin-decoder" target="_blank" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Classic Car VIN Check</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
       
             <!-- Row 2 -->
-            <a href="https://detailedvehiclehistory.com/atv-vin-check" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/atv-vin-check" target="_blank" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>ATV VIN Check</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/truck-vin-lookup" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/truck-vin-lookup" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Trucks VIN Check</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
-            <a href="https://detailedvehiclehistory.com/trailer-vin-lookup" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+            <a href="https://detailedvehiclehistory.com/trailer-vin-lookup" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Trailers VIN Checks</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
             </a>
@@ -2001,7 +2010,7 @@
                 <p class="text-gray-700 mb-4">
                   Essential advice to help you make a smart purchase when shopping for a pre-owned vehicle.
                 </p>
-                <a href="#" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
+                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
                   Read more
                   <span class="ml-1">›</span>
                 </a>
@@ -2020,7 +2029,7 @@
                 <p class="text-gray-700 mb-4">
                   Essential advice to help you make a smart purchase when shopping for a pre-owned vehicle.
                 </p>
-                <a href="#" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
+                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
                   Read more
                   <span class="ml-1">›</span>
                 </a>
@@ -2039,7 +2048,7 @@
                 <p class="text-gray-700 mb-4">
                   Essential advice to help you make a smart purchase when shopping for a pre-owned vehicle.
                 </p>
-                <a href="#" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
+                <a href="#" target="_blank" class="text-blue-600 hover:text-blue-700 inline-flex items-center">
                   Read more
                   <span class="ml-1">›</span>
                 </a>
