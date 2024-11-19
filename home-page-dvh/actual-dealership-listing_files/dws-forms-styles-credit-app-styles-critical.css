@@ -1,0 +1,128 @@
+.dws-forms-credit-app .dws-forms-sales-representative {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.dws-forms-credit-app .dws-credit-app-tab-container ul.nav-tabs {
+  margin-left: 0;
+}
+.dws-forms-credit-app .tab-container {
+  max-width: 740px;
+  padding: 0;
+  width: auto;
+}
+.dws-forms-credit-app #dwsTabContent {
+  padding: 20px;
+}
+@media (max-width: 991px) {
+  .dws-forms-credit-app .tab-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .dws-forms-credit-app .upload-file-widget-containers {
+    max-width: 100%;
+    padding: 0 15px !important;
+  }
+  .dws-forms-credit-app .dws-forms-accept-terms .dws-forms-form-check {
+    padding-left: 27px;
+  }
+}
+@media (max-width: 767px) {
+  .dws-forms-credit-app #dwsTabContent {
+    padding: 20px 0;
+  }
+}
+.dws-forms-credit-app .nav-tabs .nav-link {
+  background: #CCC;
+  border: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: 1px solid #ccc;
+  color: #333;
+  font-size: 0.875em;
+  line-height: 1.57em;
+  padding: 0.57em 1.14em;
+  font-weight: 500;
+  margin-right: 0;
+}
+.dws-forms-credit-app .nav-tabs .nav-item.active,
+.dws-forms-credit-app .nav-tabs .nav-link.active {
+  background-color: #fff;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item {
+  background-color: transparent;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .accordion-button,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .accordion-button,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .accordion-button,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .accordion-button {
+  background-color: transparent;
+  border: none;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .accordion-button:after,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .accordion-button:after,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .accordion-button:after,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .accordion-button:after {
+  content: '';
+  background-image: none;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .accordion-button:after,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .accordion-button:after,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .accordion-button:after,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .accordion-button:after {
+  content: '';
+  background-image: none;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .accordion-button:focus,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .accordion-button:focus,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .accordion-button:focus,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .accordion-button:focus {
+  box-shadow: none !important;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .accordion-button label,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .accordion-button label,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .accordion-button label,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .accordion-button label {
+  font-weight: 400;
+  font-size: 12px;
+  color: #0038FF;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .accordion-button:not(.collapsed),
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .accordion-button:not(.collapsed),
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .accordion-button:not(.collapsed),
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .dws-forms-accordion-button,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .dws-forms-accordion-button,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .dws-forms-accordion-button,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .dws-forms-accordion-button {
+  width: auto;
+  padding: 0;
+  margin: 0.5em 0 0.5em 1.25rem;
+}
+.dws-forms-credit-app .dws-forms-additional-employment-section-container .accordion-item .dws-forms-accordion-button:after,
+.dws-forms-credit-app .dws-forms-previous-employment-section-container .accordion-item .dws-forms-accordion-button:after,
+.dws-forms-credit-app .dws-forms-co-buyer-additional-employment-section-container .accordion-item .dws-forms-accordion-button:after,
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container .accordion-item .dws-forms-accordion-button:after {
+  display: none;
+}
+.dws-forms-credit-app .dws-forms-previous-employment-section-container {
+  padding-bottom: 1em;
+}
+.dws-forms-credit-app .dws-forms-co-buyer-previous-employment-section-container {
+  padding-bottom: 1em;
+}
+.dws-forms-active .dws-forms-wrapper.dws-forms-credit-app .dws-forms-additional-employment-section-container .dws-forms-section.dws-forms-section-additional-employment-information,
+.dws-forms-active .dws-forms-wrapper.dws-forms-credit-app .dws-forms-previous-employment-section-container .dws-forms-section.dws-forms-section-additional-employment-information,
+.dws-forms-active .dws-forms-wrapper.dws-forms-credit-app .dws-forms-additional-employment-section-container .dws-forms-section.dws-forms-section-previous-employment-information,
+.dws-forms-active .dws-forms-wrapper.dws-forms-credit-app .dws-forms-previous-employment-section-container .dws-forms-section.dws-forms-section-previous-employment-information {
+  padding: 0;
+  margin-bottom: 15px;
+}
+.dws-forms-active .dws-forms-wrapper.dws-forms-credit-app .dws-forms-accordion-section {
+  max-width: 730px;
+  margin: 0 auto;
+}

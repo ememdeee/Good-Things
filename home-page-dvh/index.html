@@ -53,9 +53,58 @@
             // Output the shortcode directly in a PHP template
             echo do_shortcode('[site_form type="vhr" color="#1955FF" vintxt="Search VIN" lptxt="Search License Plate" ymmtxt="Search YMM" color="#1955FF"]');
             ?>
-            <div class="py-4 mb-2">
-              <a href="/window-sticker" target="_blank" class="text-blue-600 hover:text-blue-800 underline text-lg font-semibold transition-colors duration-300">Grab Window Sticker</a>
+            <div class="pt-4 pb-2 md:pb-3">
+              <div class="flex flex-col sm:flex-row justify-between items-start space-y-2 sm:space-y-0 sm:space-x-4">
+                <button id="vinInfoBtn" class="font-bold text-gray-900 transition duration-300">
+                  Where can I find the VIN?
+                </button>
+                <span class="hidden sm:inline text-gray-500">|</span>
+                <a href="/report/vin/2T1BURHE0FC320645" target="_blank" class="font-bold text-gray-900 transition duration-300">
+                  View Sample
+                </a>
+                <span class="hidden sm:inline text-gray-500">|</span>
+                <a href="/vin-check-rates" target="_blank" id="btn3Text" class="font-bold text-gray-900 transition duration-300">
+                  No VIN/Plate? Get Credits
+                </a>
+              </div>
+            
+              <!-- Popup -->
+              <div id="popupVin" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-20">
+                <div class="bg-white p-3 md:p-6 rounded-lg shadow-xl max-w-2xl w-full m-4 relative">
+                  <button id="closePopupVin" class="text-gray-500 hover:text-gray-700 absolute right-3 top-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </button>
+                  <img src="https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2021/01/how-to-find-the-vin-number.jpg" alt="VIN location" class="w-full h-auto">
+                </div>
+              </div>
+            
+              <script>
+                const vinInfoBtn = document.getElementById('vinInfoBtn');
+                const popup = document.getElementById('popupVin');
+                const closePopup = document.getElementById('closePopupVin');
+            
+                function showPopup() {
+                  popup.classList.remove('hidden');
+                  popup.classList.add('flex');
+                }
+            
+                function hidePopup() {
+                  popup.classList.add('hidden');
+                  popup.classList.remove('flex');
+                }
+            
+                vinInfoBtn.addEventListener('click', showPopup);
+                closePopup.addEventListener('click', hidePopup);
+                popup.addEventListener('click', (e) => {
+                  if (e.target === popup) hidePopup();
+                });
+              </script>
             </div>
+            <p class="pt-2 md:pt-3 pb-4 mb-2 text-lg">
+              Want to learn about vehicles features, options & packages? <a href="/window-sticker" target="_blank" class="text-blue-600 hover:text-blue-800 underline font-semibold transition-colors duration-300">Window Sticker Lookup</a>
+            </p>
             <div class="flex flex-nowrap justify-center items-center gap-2 sm:gap-4">
               <!-- Google Play Store -->
               <a href="https://play.google.com/store/apps/details?id=com.vehiclehistory.dvh&utm_source=google&utm_medium=organic&utm_campaign=app_download_android&utm_id=app_download&_gl=1*17o00yv*_gcl_au*NTI3NTkzNjA1LjE3MjkzNjAyMDA.*_ga*ODIzODEzNjMwLjE3MjkzNjAyMDA.*_ga_7Q0W2FSCKP*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuNjAuMC4w*_ga_NBT91WK5CH*MTczMTE0NzAwNi4xNy4xLjE3MzExNDc3NDcuMC4wLjA." target="_blank" class="flex-1 max-w-[120px] sm:max-w-[160px] transition-transform hover:scale-105">
@@ -158,7 +207,7 @@
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold mb-4">Featured in</h2>
         <p class="text-gray-700">
-          Over 1 million vehicles decoded and trusted by people in more than 100 countries.
+          Over millions vehicles decoded and trusted by people in more than 100 countries.
         </p>
       </div>
   
@@ -179,7 +228,7 @@
         <!-- For Buyers -->
         <div class="py-6 px-4 md:p-8 rounded-lg bg-[#F2F6FF] shadow-sm transition-shadow duration-300 hover:shadow-lg">
           <h2 class="mb-4 text-2xl font-semibold">For Buyers</h2>
-          <p class="mb-6 text-gray-700">
+          <p class="mb-6 text-gray-700 font-sans">
             Did you know that buyers who check a vehicle's history are 70% less likely to face major issues after purchase? A check helps to easily spot hidden accidents or title problems, view market value for better negotiations, and save money long-term.
           </p>
           <div class="relative h-80 overflow-hidden rounded-lg">
@@ -194,7 +243,7 @@
         <!-- For Sellers -->
         <div class="py-6 px-4 md:p-8 rounded-lg bg-[#F5F2FF] shadow-sm transition-shadow duration-300 hover:shadow-lg">
           <h2 class="mb-4 text-2xl font-semibold">For Sellers</h2>
-          <p class="mb-6 text-gray-700">
+          <p class="mb-6 text-gray-700 font-sans">
             Sellers benefit, too. Cars with detailed checks and window stickers often sell 15% higher and more quickly. When customers see detailed vehicle specifications, features, options, and packages on window stickers, they are less likely to contest pricing, which can result in quicker sales.
           </p>
           <div class="relative h-80 overflow-hidden rounded-lg">
@@ -302,7 +351,7 @@
       <div class="bg-blue-50 py-6 px-4 md:p-8 mx-auto grid gap-4 lg:grid-cols-[1fr,auto,1fr,1fr] md:grid-cols-[1fr,auto,1fr] grid-cols-1 rounded-lg shadow-sm">
         <!-- False Listing Column -->
         <div class="bg-white rounded-xl p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-          <h2 class="text-red-500 font-semibold mb-4">False Listing</h2>
+          <h2 class="text-red-500 font-semibold mb-4">Dealership Listing</h2>
           <div class="relative mb-4">
             <div class="rounded-lg overflow-hidden">
               <img 
@@ -324,7 +373,7 @@
 
         <!-- Vehicle History Report Column -->
         <div class="bg-white rounded-xl p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-          <h2 class="text-emerald-500 font-semibold mb-4">Vehicle History Report</h2>
+          <h2 class="text-emerald-500 font-semibold mb-4">Actual Vehicle History</h2>
           <div class="relative mb-4">
             <div class="rounded-lg overflow-hidden">
               <img 
@@ -357,11 +406,11 @@
         <!-- Warning Column -->
         <div class="pb-4 lg:pb-0 lg:pl-4 order-first lg:order-3 lg:col-span-1 md:col-span-3">
           <h2 class="text-2xl font-bold mb-4">Not everything you see Online is TRUE!</h2>
-          <p class="text-gray-700 mb-8">
+          <p class="text-gray-700 lg:mb-8">
             Dealerships cover up problems with vehicles. Our VIN check reports can save you thousands of dollars from vehicles with undisclosed issues like this.
           </p>
-          <div class="space-y-4 max-w-56">
-            <a href="https://www.theinternetcarlot.com/inventory/subaru/outback/298326hra71133j/" target="_blank" class="block">
+          <div class="space-y-4 max-w-56 hidden lg:block">
+            <a href="https://detailedvehiclehistory.com/actual-dealership-listing/" target="_blank" class="block">
               <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
                 View Dealer Listing
               </button>
@@ -372,6 +421,18 @@
               </button>
             </a>
           </div>
+        </div>
+        <div class="md:col-span-3 justify-center gap-4 mt-4 flex flex-wrap lg:hidden">
+          <a href="https://detailedvehiclehistory.com/actual-dealership-listing/" target="_blank" class="block">
+            <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+              View Dealer Listing
+            </button>
+          </a>
+          <a href="https://detailedvehiclehistory.com/report/vin/4S4BSAJC6K3298326" target="_blank" class="block">
+            <button class="w-full border border-blue-600 text-blue-600 py-3 px-4 rounded-lg hover:bg-blue-100 transition-colors">
+              View History Report
+            </button>
+          </a>
         </div>
       </div>
     </section>
@@ -401,7 +462,7 @@
             <div>
               <h3 class="text-xl font-semibold mb-2">Step 1: Enter the VIN or Search by License Plate</h3>
               <p class="text-gray-700">
-                Locate your Vehicle Identification Number (VIN) or Licence plate number and enter it into our search bar.
+                Locate your Vehicle Identification Number (VIN) or License plate number and enter it into our search bar.
               </p>
             </div>
           </div>
@@ -446,7 +507,7 @@
             <div>
               <h3 id="hTrackHeight" class="text-xl font-semibold mb-2">Step 4: Access Your Report</h3>
               <p id="pTrackHeight" class="text-gray-700">
-                Access your vehicle history report and print it easily via the website or our mobile app.
+                Access your vehicle history report instantly from members area, download PDF or print it easily.
               </p>
             </div>
           </div>
@@ -675,10 +736,8 @@
           <!-- Header -->
           <div class="text-center mb-12">
             <h2 class="text-3xl font-bold mb-4">Reports for All Vehicle Types</h2>
-            <p class="text-gray-700">
-              We offer 
-              <a href="https://detailedvehiclehistory.com/blog/how-to-decode-classic-car-vin-numbers" target="_blank" class="text-blue-600 hover:underline">classic car history checks</a>
-              and detailed reports for motorcycles, trucks, RVs, and more.
+            <p class="text-gray-700 max-w-3xl mx-auto">
+              We offer reports for all vehicle types, from vehicles manufactured after 1981 to classic car history checks, get detailed reports for motorcycles, trucks, trailers, RVs and more.
             </p>
           </div>
       
@@ -697,7 +756,7 @@
                 </a>
               </div>
               <p class="text-gray-700 mb-4">
-                View detailed reports on standard passenger vehicles to help you assess their condition and ownership history.
+                Checkout this car has a branded title, one accident record, and one damage record. It was owned by 5 owners. It has 5 lien or loan records and it was being titled to an insurance company too.
               </p>
             </div>
       
@@ -714,7 +773,7 @@
                 </a>
               </div>
               <p class="text-gray-700 mb-4">
-                Verify the authenticity, reliability, and true value of any classic vehicle with a simple VIN check.
+                This classic has a branded title, one accident record, and two damage records. It also has two auction records.
               </p>
             </div>
       
@@ -731,7 +790,7 @@
                 </a>
               </div>
               <p class="text-gray-700 mb-4">
-                Thorough checks to ensure the safety and reliability of your two-wheeled investment.
+                The motorcycle has a branded title, a mileage discrepancy, and one accident record with damage. It also has two lien or loan records and four specific event reports. It was also previously listed for sale online.
               </p>
             </div>
       
@@ -748,7 +807,7 @@
                 </a>
               </div>
               <p class="text-gray-700 mb-4">
-                Be sure of the performance and reliability of heavy-duty trucks with the help of a report.
+                This truck has a branded title, one accident and damage record, and 13 open recalls. It also has two lien or loan records, two specific event reports, and one auction record.
               </p>
             </div>
       
@@ -765,7 +824,7 @@
                 </a>
               </div>
               <p class="text-gray-700 mb-4">
-                Buying a recreational vehicle without a vehicle history report can help you pick the best one.
+                RV has a branded title, one damage record, and one lien or loan record. It also has two specific event reports and one auction record.
               </p>
             </div>
       
@@ -782,7 +841,7 @@
                 </a>
               </div>
               <p class="text-gray-700 mb-4">
-                View reports that provide information on ownership history and any liens or damages associated with the trailer.
+                This trailer has a branded title, three accident records, two damage records, and one lien or loan record. It also has one specific event reported.
               </p>
             </div>
           </div>
@@ -834,7 +893,7 @@
       
             <!-- Auction Records -->
             <div class="bg-yellow-50 rounded-lg p-6 md:p-10 shadow-sm transition-shadow duration-300 hover:shadow-lg">
-              <h3 class="text-xl font-semibold mb-3">Auction Records That Tell All</h3>
+              <h3 class="text-xl font-semibold mb-3">Auction Records That Reveal All</h3>
               <p class="text-gray-700">
                 If a vehicle's been through an auction, we've got the details! From sale prices to damages and up to 10 photos, we provide the inside scoop you need.
               </p>
@@ -1244,10 +1303,46 @@
               <img src="assets/Trustpilot.svg" alt="Trustpilot" class="h-5">
             </div>
           </div>
-
+      
           <!-- Reviews Grid -->
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <!-- Review 1 -->
+            <!-- Review 1 (Vivek Malkan) -->
+            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="flex gap-3 mb-4 items-start">
+                <img src="assets/Vivek-Malkan-Testimonial.png" alt="Vivek Malkan" class="w-12 h-12 rounded-full">
+                <div>
+                  <h3 class="font-semibold">Vivek Malkan</h3>
+                  <div class="text-sm text-gray-500">May 02, 2024 • US</div>
+                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-center relative">
+                <div class="absolute left-0 right-0 translate-x-6">
+                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
+                </div>
+              </div>
+              <p class="pt-4 text-gray-700 text-sm">I was looking online to get a copy of my car's window sticker. I came to this website and entered my car's vin number, and instantaneously I received my vehicles history and window sticker. The process was really smooth and efficient and it got me exactly what I was looking for. Once, I received the reports, I wad then contacted by their team, personally via a phone call to make sure I was happy with their service and received what I wanted. This kind of after-sales service is make differentiates a great company from the rest!</p>
+            </div>
+      
+            <!-- Review 2 (Martin Acuña bermudez) -->
+            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="flex gap-3 mb-4 items-start">
+                <img src="assets/Martin-Acuna-bermudez-Testimonial.png" alt="Martin Acuña bermudez" class="w-12 h-12 rounded-full">
+                <div>
+                  <h3 class="font-semibold">Martin Acuña bermudez</h3>
+                  <div class="text-sm text-gray-500">June 10, 2024 • MX</div>
+                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-center relative">
+                <div class="absolute left-0 right-0 translate-x-6">
+                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
+                </div>
+              </div>
+              <p class="pt-4 text-gray-700 text-sm">I am thoroughly impressed with Detailed Vehicle History for their exceptional service. The comprehensive report I received was on par with industry leaders, yet offered at a fraction of the cost. The efficiency and expertise displayed by the live chat agent were remarkable, providing immediate and knowledgeable assistance without any delay. This level of customer service and value has solidified my decision to exclusively use Detailed Vehicle History for all future vehicle history report needs.</p>
+            </div>
+      
+            <!-- Review 3 (Michael) -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
                 <img src="assets/testimonial.webp" alt="Michael" class="w-12 h-12 rounded-full">
@@ -1264,85 +1359,13 @@
               </div>
               <p class="pt-4 text-gray-700 text-sm">Recently bought a used 7 year old MB sedan. The dealer had limited info about the specific car and affordable option/ costs at original sale. Read favorable newspaper article about Detailed Vehicle History. Within a few minutes the window sticker came back, it was amazingly detailed, showed all the specific options/ costs and looked just like the original window sticker. Would definitely recommend this invaluable service to others.</p>
             </div>
-
-            <!-- Review 2 -->
+      
+            <!-- Review 4 (Ha Duong) -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial2.webp" alt="Robert W. Gorge" class="w-12 h-12 rounded-full">
+                <img src="assets/haDuong-testimonial.png" alt="Ha Duong" class="w-12 h-12 rounded-full">
                 <div>
-                  <h3 class="font-semibold">Robert W. Gorge</h3>
-                  <div class="text-sm text-gray-500">August 23, 2024 • US</div>
-                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
-                </div>
-              </div>
-              <div class="w-full flex items-center justify-center relative">
-                <div class="absolute left-0 right-0 translate-x-6">
-                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
-                </div>
-              </div>
-              <p class="pt-4 text-gray-700 text-sm">I was unaware there was an alternative to Carfax. DVH suggested DVH and I couldn't be more pleased. The process was easy, the price reasonable and the report was issued promptly. Sam Adams was very helpful on the chat feature when I had a few questions. The report is accurate in every respect and will be useful to me in selling the vehicle.</p>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial3.webp" alt="Mark Jackson" class="w-12 h-12 rounded-full">
-                <div>
-                  <h3 class="font-semibold">Mark Jackson</h3>
-                  <div class="text-sm text-gray-500">July 07, 2024 • US</div>
-                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
-                </div>
-              </div>
-              <div class="w-full flex items-center justify-center relative">
-                <div class="absolute left-0 right-0 translate-x-6">
-                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
-                </div>
-              </div>
-              <p class="pt-4 text-gray-700 text-sm">Excellent actually helpful chat support! I didn't get a real time discount code to calculate at check out and hesitated to use chat support but this was Excellent service! Helpful, Prompt and to the point w/o a bunch of intro thank you and sales pitch garbage! Got the window sticker the dealer was unable to provide due to computer system breach and Canadian delivery to first owner but had it in hand in just a few minutes at a reasonable cost.</p>
-            </div>
-
-            <!-- Review 4 -->
-            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial4.webp" alt="Alan Wilcox" class="w-12 h-12 rounded-full">
-                <div>
-                  <h3 class="font-semibold">Alan Wilcox</h3>
-                  <div class="text-sm text-gray-500">August 20, 2024 • US</div>
-                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
-                </div>
-              </div>
-              <div class="w-full flex items-center justify-center relative">
-                <div class="absolute left-0 right-0 translate-x-6">
-                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
-                </div>
-              </div>
-              <p class="pt-4 text-gray-700 text-sm">I wanted the window sticker for the 2014 GMC Terrain that I recently bought. Detailed Vehicle History made it simple. I entered my VIN, paid the $15, and got my window sticker. I noticed that it did not have the exterior or interior colors on it. DVH had me a new window sticker with the correct colors the next day. Very satisfied with their service. I would not hesitate to buy another one from them.</p>
-            </div>
-
-            <!-- Review 5 -->
-            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial5.webp" alt="Eric Keller" class="w-12 h-12 rounded-full">
-                <div>
-                  <h3 class="font-semibold">Eric Keller</h3>
-                  <div class="text-sm text-gray-500">August 20, 2024 • US</div>
-                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
-                </div>
-              </div>
-              <div class="w-full flex items-center justify-center relative">
-                <div class="absolute left-0 right-0 translate-x-6">
-                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
-                </div>
-              </div>
-              <p class="pt-4 text-gray-700 text-sm">Richard Langridge was very helpful when I needed to get my window sticker information from his company Detailed Vehicle History. He stayed with me and made sure I was helped every step of the way.</p>
-            </div>
-
-            <!-- Review 6 -->
-            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial6.webp" alt="Thomas Mcalister" class="w-12 h-12 rounded-full">
-                <div>
-                  <h3 class="font-semibold">Thomas Mcalister</h3>
+                  <h3 class="font-semibold">Ha Duong</h3>
                   <div class="text-sm text-gray-500">August 17, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
@@ -1352,16 +1375,17 @@
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="pt-4 text-gray-700 text-sm">This is an easy way to find information about a vehicle that you are trying to purchase or sell. This site also give you personal services that help guide you through the process of gaining this information.</p>
+              <p class="pt-4 text-gray-700 text-sm">I had ordered a window sticker and vehicle history reports for my car. Detailed Vehicle History company helped me to get the report very detailed and accurate at very low price if you compare with carfax, and the window sticker report was very accurately and fast. I am highly recommend this Detailed Vehicle History company for your vehicle history report at very price
+                </p>
             </div>
-
-            <!-- Review 7 -->
+      
+            <!-- Review 5 (Constantin Colodezni) -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial7.webp" alt="John H" class="w-12 h-12 rounded-full">
+                <img src="assets/ConstantinColodezni-Tetimonial.png" alt="Constantin Colodezni" class="w-12 h-12 rounded-full">
                 <div>
-                  <h3 class="font-semibold">John H</h3>
-                  <div class="text-sm text-gray-500">September 09, 2024 • CA</div>
+                  <h3 class="font-semibold">Constantin Colodezni</h3>
+                  <div class="text-sm text-gray-500">May 7, 2024 • CA</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
@@ -1370,16 +1394,16 @@
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="pt-4 text-gray-700 text-sm">What an excellent and easy to use system to get a Window Sticker for your car in Canada. Very detailed and the cost was very minimal.</p>
+              <p class="pt-4 text-gray-700 text-sm">I was pleasantly surprised by the simplicity and effectiveness of this service for checking the history of my motorcycle. With just the VIN number, Detailed Vehicle History provided me with comprehensive information that was well worth it. It's an easy recommendation for any motorcycle owner looking for detailed insights into their vehicle's history.</p>
             </div>
-
-            <!-- Review 8 -->
+      
+            <!-- Review 6 (DE LOS SANTOS JR, CARLOS L) -->
             <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
               <div class="flex gap-3 mb-4 items-start">
-                <img src="assets/testimonial8.webp" alt="Brian Averbeck" class="w-12 h-12 rounded-full">
+                <img src="assets/DE-LOS-SANTOS-JR-CARLOS-TESTIMONIAL.png" alt="DE LOS SANTOS JR, CARLOS L" class="w-12 h-12 rounded-full">
                 <div>
-                  <h3 class="font-semibold">Brian Averbeck</h3>
-                  <div class="text-sm text-gray-500">August 14, 2024 • US</div>
+                  <h3 class="font-semibold">DE LOS SANTOS JR, CARLOS L</h3>
+                  <div class="text-sm text-gray-500">May 26, 2024 • US</div>
                   <div class="text-green-500 text-2xl leading-none">★★★★★</div>
                 </div>
               </div>
@@ -1388,10 +1412,46 @@
                   <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
                 </div>
               </div>
-              <p class="pt-4 text-gray-700 text-sm">Accessing the report was a little complicated by my anyway, but customer service was extremely quick to respond and emailed me a copy of the window sticker within a few minutes. The window sticker was exactly as I expected and felt it was a good value for the cost.</p>
+              <p class="pt-4 text-gray-700 text-sm">I'd like to thank detailed vehicle history for getting me my OEM window sticker it was so easy and seamless and very inexpensive I was looking everywhere and couldn't find any sites or ask people no one knew how to get my OEM window sticker but they made it so easy for me I highly recommend them!</p>
+            </div>
+      
+            <!-- Review 7 (Phil D) -->
+            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="flex gap-3 mb-4 items-start">
+                <img src="assets/Phil-D-Testimonial.png" alt="Phil D" class="w-12 h-12 rounded-full">
+                <div>
+                  <h3 class="font-semibold">Phil D</h3>
+                  <div class="text-sm text-gray-500">May 17, 2024 • US</div>
+                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-center relative">
+                <div class="absolute left-0 right-0 translate-x-6">
+                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
+                </div>
+              </div>
+              <p class="pt-4 text-gray-700 text-sm">Incredibly efficient service! One of those rare cases where you get exactly what is advertised. I went onto the DVH website and was able to obtain a window sticker for a 25 year old Porsche within a few minutes. Highly recommended!</p>
+            </div>
+      
+            <!-- Review 8 (Mr. Ed) -->
+            <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div class="flex gap-3 mb-4 items-start">
+                <img src="assets/MrEd-Testimonial.png" alt="Mr. Ed" class="w-12 h-12 rounded-full">
+                <div>
+                  <h3 class="font-semibold">Mr. Ed</h3>
+                  <div class="text-sm text-gray-500">August 16, 2024 • US</div>
+                  <div class="text-green-500 text-2xl leading-none">★★★★★</div>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-center relative">
+                <div class="absolute left-0 right-0 translate-x-6">
+                  <div class="w-[calc(100%+24px)] h-[1px] -ml-6 bg-gradient-to-r from-transparent via-[#d1d1d1] to-transparent" style="background-image: repeating-linear-gradient(to right, #d1d1d1 0%, #d1d1d1 50%, transparent 50%, transparent 100%); background-size: 15px 1px;"></div>
+                </div>
+              </div>
+              <p class="pt-4 text-gray-700 text-sm">Dealership would/could not provide the Monroney label. Other sites noted it was unavailable for my 2003 BMW M5. DVH had it at a great price. Nailed it in fact.</p>
             </div>
           </div>
-
+      
           <!-- Button -->
           <div class="text-center">
             <a href="https://www.trustpilot.com/review/detailedvehiclehistory.com" target="_blank">
@@ -1495,7 +1555,7 @@
           </div>
       
           <!-- States Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 font-sans">
             <a href="https://detailedvehiclehistory.com/license-plate-lookup/alabama" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Alabama</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
@@ -1707,7 +1767,7 @@
           </div>
       
           <!-- Makes Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 font-sans">
             <a href="https://detailedvehiclehistory.com/vin-decoder/acura" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Acura</span>
               <img width="8px" height="8px" src="assets/chevron-right-solid.svg" alt="Check">
@@ -1959,7 +2019,7 @@
           </div>
       
           <!-- Vehicle Types Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-sans">
             <!-- Row 1 -->
             <a href="https://detailedvehiclehistory.com/motorcycle-vin-check" target="_blank" target="_blank" class="flex items-center justify-between px-3 py-2 border rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
               <span>Motorcycle VIN Check</span>
@@ -2088,7 +2148,7 @@
                 aria-hidden="false"
               >
                 <p class="p-4 pt-0 text-gray-700">
-                  A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every vehicle. It serves as the vehicle's fingerprint, providing essential information about its make, model, year, and manufacturing details. You can find the VIN on the dashboard, near the windshield, or inside the driver's door jamb.
+                  A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every vehicle. It serves as the vehicle's fingerprint, providing essential information about its make, model, year, and manufacturing details. You can find the VIN on the dashboard, near the windshield, or inside the driver's door jamb. Usually vehicles manufactured after 1981 have with VIN which is 17 character long, but vehicles which are manufactured before 1981 also known as classic vehicles or vintage cars have a VIN ranging from 5-13 characters.
                 </p>
               </div>
             </div>
@@ -2176,7 +2236,7 @@
                 aria-hidden="true"
               >
                 <p class="p-4 pt-0 text-gray-700">
-                  Simply enter your 17-digit VIN in our search tool, and we'll provide you with a comprehensive report about the vehicle. Our database includes information from multiple reliable sources to give you the most accurate vehicle history.
+                  Simply enter your VIN in our search tool, and we'll provide you with a comprehensive report about the vehicle. Our database includes information from multiple reliable sources to give you the most accurate vehicle history.
                 </p>
               </div>
             </div>

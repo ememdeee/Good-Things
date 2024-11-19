@@ -1,0 +1,77 @@
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field {
+  max-width: 764px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field.dws-fields-wrapper {
+  max-width: 740px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-form-label,
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-checkbox-container {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-form-control {
+  border-radius: 5px;
+  background: #F9F9F9;
+  font-size: 0.75em;
+  /* computed based on font-size */
+  height: 2.66em;
+  line-height: 1.375em;
+  padding: 0 12px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-vehicle-interested-field-vehicle-keyword .dws-field-wrap {
+  border-radius: 5px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-search-icons {
+  display: inline;
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+  padding: 0.25em 0.8em;
+  border-left: 1px solid #ccc;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-search-icons label {
+  color: #333333;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-search-icons .dropdown-menu .dropdown-item {
+  font-size: 12px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dropdown #dws-forms-price-field {
+  font-size: inherit;
+  border-left: none;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-field-wrap {
+  position: relative;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-icon-search-container {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-magnifying-icon {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-vehicle-interested-field .dws-forms-vehicle-interested-search-field {
+  padding-left: 30px;
+}
+.dws-forms-credit-app .dropdown-list-of-vehicles-container ul.dropdown-list-of-vehicles {
+  max-width: 610px;
+  overflow-x: hidden;
+}
+.dws-forms-credit-app .dropdown-list-of-vehicles-container .close-vehicle-dropdown-list {
+  top: -15px;
+  right: 18px;
+  font-size: 0.75em;
+  text-decoration: none;
+}
+.dws-forms-credit-app .dropdown-list-of-vehicles-container .search-results-vehicle-container {
+  padding: 12px 5px;
+}
+.dws-forms-credit-app .dropdown-list-of-vehicles-container .search-results-vehicle-details .search-results-vehicle-title {
+  font-size: 0.875em;
+  line-height: 1.7;
+  color: #333;
+}
+.dws-forms-credit-app .dropdown-list-of-vehicles-container .search-results-vehicle-details .search-results-vehicle-options.row {
+  color: #444444;
+}

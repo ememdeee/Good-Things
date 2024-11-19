@@ -1,0 +1,121 @@
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsPreviousAddressSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    var _a, _b;
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        var hasPreviousAddressField = this.form.find('[name="previous_address_checker"]');
+                        var hasCoBuyerPreviousAddressField = this.form.find('[name="co_buyer_previous_address_enabled"]');
+                        // reset previous address in form data
+                        if ((_a = this.form.data('form-data').applicant) === null || _a === void 0 ? void 0 : _a.previousAddresses) {
+                            delete this.form.data('form-data').applicant.previousAddresses;
+                        }
+                        if ((_b = this.form.data('form-data').coApplicant) === null || _b === void 0 ? void 0 : _b.previousAddresses) {
+                            delete this.form.data('form-data').coApplicant.previousAddresses;
+                        }
+                        if (hasPreviousAddressField.length > 0 && hasCoBuyerPreviousAddressField.length > 0 && (hasPreviousAddressField.prop('checked') || hasCoBuyerPreviousAddressField.prop('checked'))) {
+                            this.addPreviousAddressToFormData();
+                        }
+                    }
+                }
+                addPreviousAddressToFormData(isCoBuyer = false) {
+                    var $ = jQuery;
+                    if (isCoBuyer) {
+                        var previousAddressSection = this.form.find('.dws-forms-section-co-buyer-previous-addresses[data-form-previous-fields-index]');
+                    }
+                    else {
+                        var previousAddressSection = this.form.find('.dws-forms-section-previous-addresses[data-form-previous-fields-index]');
+                    }
+                    if (previousAddressSection.length > 0) {
+                        var previousAddressList = [];
+                        previousAddressSection.each((index, element) => {
+                            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+                            var section = $(element);
+                            var sectionPreviousStreetContainer = section.find('.dws-forms-previous-street');
+                            if (section.css('display') != 'none' && sectionPreviousStreetContainer.css('display') != 'none') {
+                                if (isCoBuyer) {
+                                    var street = (_a = section.find('[name="co_buyer_previous_street"]').val()) !== null && _a !== void 0 ? _a : null;
+                                    var city = (_b = section.find('[name="co_buyer_previous_city"]').val()) !== null && _b !== void 0 ? _b : null;
+                                    var state = (_c = section.find('[name="co_buyer_previous_state"]').val()) !== null && _c !== void 0 ? _c : null;
+                                    var zip = (_d = section.find('[name="co_buyer_previous_zip_code"]').val()) !== null && _d !== void 0 ? _d : null;
+                                    var housingType = typeof section.find('[name="co_buyer_previous_housing_type"]').val() !== 'undefined' && section.find('[name="co_buyer_previous_housing_type"]').val() !== null && section.find('[name="co_buyer_previous_housing_type"]').val() != '' ? section.find('[name="co_buyer_previous_housing_type"]').val() : 3;
+                                    var monthlyMorgage = (_e = section.find('[name="co_buyer_previous_monthly_rent_mortgage_amount"]').val()) !== null && _e !== void 0 ? _e : null;
+                                    var yearsAtAddress = (_f = section.find('[name="co_buyer_previous_years_residing"]').val()) !== null && _f !== void 0 ? _f : null;
+                                    var monthsAtAddress = (_g = section.find('[name="co_buyer_previous_months_residing"]').val()) !== null && _g !== void 0 ? _g : null;
+                                }
+                                else {
+                                    var street = (_h = section.find('[name="previous_street"]').val()) !== null && _h !== void 0 ? _h : null;
+                                    var city = (_j = section.find('[name="previous_city"]').val()) !== null && _j !== void 0 ? _j : null;
+                                    var state = (_k = section.find('[name="previous_state"]').val()) !== null && _k !== void 0 ? _k : null;
+                                    var zip = (_l = section.find('[name="previous_zip_code"]').val()) !== null && _l !== void 0 ? _l : null;
+                                    var housingType = typeof section.find('[name="previous_housing_type"]').val() !== 'undefined' && section.find('[name="previous_housing_type"]').val() !== null && section.find('[name="previous_housing_type"]').val() != '' ? section.find('[name="previous_housing_type"]').val() : 3;
+                                    var monthlyMorgage = (_m = section.find('[name="previous_monthly_rent_mortgage_amount"]').val()) !== null && _m !== void 0 ? _m : null;
+                                    var yearsAtAddress = (_o = section.find('[name="previous_years_residing"]').val()) !== null && _o !== void 0 ? _o : null;
+                                    var monthsAtAddress = (_p = section.find('[name="previous_months_residing"]').val()) !== null && _p !== void 0 ? _p : null;
+                                }
+                                if (!street && !city && !state && !zip && !monthlyMorgage && !yearsAtAddress && !monthsAtAddress) {
+                                    return;
+                                }
+                                var previousAddress = {
+                                    addressStatusId: 2,
+                                    streetAddress: street,
+                                    city: city,
+                                    state: state,
+                                    zip: zip,
+                                };
+                                if (housingType) {
+                                    previousAddress.addressTypeId = $.isNumeric(housingType) ? parseInt(housingType) : housingType;
+                                }
+                                if (monthlyMorgage) {
+                                    var sanitizedMoneyValue = DealerCenter.WebSite.Plugins.DWS_Input_Price_Format.sanitizedMoneyValue(monthlyMorgage);
+                                    previousAddress.homePayment = $.isNumeric(sanitizedMoneyValue) ? parseFloat(sanitizedMoneyValue) : monthlyMorgage;
+                                }
+                                if (yearsAtAddress) {
+                                    previousAddress.residenceYears = $.isNumeric(yearsAtAddress) ? parseInt(yearsAtAddress) : yearsAtAddress;
+                                }
+                                if (monthsAtAddress) {
+                                    previousAddress.residenceMonths = $.isNumeric(monthsAtAddress) ? parseInt(monthsAtAddress) : monthsAtAddress;
+                                }
+                                // check all previous employment properties if null
+                                for (var key in previousAddress) {
+                                    if (!previousAddress[key]) {
+                                        // remove property in previous employment
+                                        delete previousAddress[key];
+                                    }
+                                }
+                                previousAddressList.push(previousAddress);
+                            }
+                        });
+                        if (previousAddressList.length > 0) {
+                            if (isCoBuyer) {
+                                // set previous address in form data
+                                this.addToFormData('coApplicant.previousAddresses', previousAddressList, this.form);
+                            }
+                            else {
+                                // set previous address in form data
+                                this.addToFormData('applicant.previousAddresses', previousAddressList, this.form);
+                            }
+                        }
+                    }
+                    if (!isCoBuyer) {
+                        this.addPreviousAddressToFormData(true);
+                    }
+                }
+            }
+            Plugins.DWSFormsPreviousAddressSectionDataPreProcessing = DWSFormsPreviousAddressSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

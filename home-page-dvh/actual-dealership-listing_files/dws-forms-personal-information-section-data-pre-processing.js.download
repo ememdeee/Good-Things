@@ -1,0 +1,37 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsPersonalInformationSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(field, form) {
+                    super();
+                    this.field = field;
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        if (this.field.data('form-json-field-map') == 'applicant.name.firstName') {
+                            var employmentSection = this.form.find('.dws-forms-section-employment-information');
+                            var previousAddressCheckboxSection = this.form.find('[name="previous_address_checker"]');
+                            var additionalEmploymentSection = this.form.find('.dws-forms-section-additional-employment-information');
+                            var referencesSection = this.form.find('.dws-forms-section-references');
+                            // if one of the variables are more than 1
+                            if (employmentSection.length > 0 || previousAddressCheckboxSection.length > 0 || additionalEmploymentSection.length > 0 || referencesSection.length > 0) {
+                                this.addToFormData('hasAdditionalApplicantDetail', true, this.form);
+                            }
+                        }
+                    }
+                }
+            }
+            Plugins.DWSFormsPersonalInformationSectionDataPreProcessing = DWSFormsPersonalInformationSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

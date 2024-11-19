@@ -1,0 +1,19 @@
+.dws-forms-section-customer-vehicle-information #dws-forms-payoff-amount-input {
+  border-left: 0;
+}
+.dws-forms-section-customer-vehicle-information .input-group-text,
+.dws-forms-section-customer-vehicle-information .input-group-addon {
+  border-right: 0;
+}
+.dws-forms-section-customer-vehicle-information .dws-forms-type-of-services {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+}
+.dws-forms-section-customer-vehicle-information .dws-forms-type-of-services label {
+  color: #666;
+  font-size: 0.875em;
+  font-weight: 300;
+  line-height: 1.57142857;
+  margin-bottom: 16px;
+}

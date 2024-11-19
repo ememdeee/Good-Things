@@ -1,0 +1,54 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsResidentialInformationSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form, field = null) {
+                    super();
+                    this.field = field;
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        // if field json field map equals residential address
+                        if (this.field.data('form-json-field-map') == 'applicant.address.streetAddress') {
+                            this.addToFormData('applicant.address.addressStatusId', 1, this.form);
+                            // check form if housing type field exists
+                            var housingType = this.form.find('[name="housing_type"]');
+                            if (!housingType.length) {
+                                // set default value in form data
+                                this.addToFormData('applicant.address.addressTypeId', 3, this.form);
+                            }
+                            var hasCoBuyerField = this.form.find('[name="has_co_buyer_option"]');
+                            if (hasCoBuyerField.length && hasCoBuyerField.prop('checked')) {
+                                this.addToFormData('coApplicant.address.addressStatusId', 1, this.form);
+                                if (!housingType.length) {
+                                    this.addToFormData('coApplicant.address.addressTypeId', 3, this.form);
+                                }
+                            }
+                        }
+                    }
+                }
+                setFieldsToComment() {
+                    var landlordMortgageNameField = this.form.find('[name="landlord_mortgage_name"]');
+                    if (landlordMortgageNameField.length && landlordMortgageNameField.val() != '') {
+                        this.addToFormDataComment('Landlord Mortgage', landlordMortgageNameField.val(), this.form);
+                    }
+                    var landlordMortgagePhoneNumberField = this.form.find('[name="landlord_mortgage_phone_number"]');
+                    if (landlordMortgagePhoneNumberField.length && landlordMortgagePhoneNumberField.val() != '') {
+                        this.addToFormDataComment('Mortgage Contact', landlordMortgagePhoneNumberField.val(), this.form);
+                    }
+                }
+            }
+            Plugins.DWSFormsResidentialInformationSectionDataPreProcessing = DWSFormsResidentialInformationSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

@@ -1,0 +1,33 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWS_Input_Mask {
+                constructor() { }
+                static maskPhoneNumber(element, form_id) {
+                    var phoneInput = jQuery(element, form_id);
+                    var placeholder = phoneInput.attr('placeholder') || '';
+                    phoneInput.mask('(000) 000-0000', { clearIfNotMatch: true });
+                    phoneInput.each(function () {
+                        jQuery(this).focusin(function () {
+                            jQuery(this).delay(700).queue(function () {
+                                jQuery(this).attr('placeholder', '(___) ___-____');
+                                jQuery(this).dequeue();
+                            });
+                        });
+                        jQuery(this).focusout(function () {
+                            jQuery(this).delay(300).queue(function () {
+                                jQuery(this).attr('placeholder', placeholder);
+                                jQuery(this).dequeue();
+                            });
+                        });
+                    });
+                }
+            }
+            Plugins.DWS_Input_Mask = DWS_Input_Mask;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

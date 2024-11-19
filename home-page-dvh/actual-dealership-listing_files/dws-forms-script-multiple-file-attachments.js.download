@@ -1,0 +1,171 @@
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsScriptMulipleFileAttachments extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.fileUrls = [];
+                    this.form = form;
+                    this.dcCompanyId = form.data('form-data').dcCompanyId;
+                    this.inqueryType = form.data('form-data').inquiryType;
+                }
+                init() {
+                    var $ = jQuery;
+                    let that = this;
+                    var form = this.form;
+                    var totalFileCountPendingUpload = form.find("#total-file-count-pending-upload");
+                    var totalFileCountInUploadProgress = form.find("#current-file-count-in-upload-progress");
+                    var totalFileSuccessFullyUploaded = form.find("#total-file-successfully-uploaded");
+                    var fileUpload = form.find('#fileupload');
+                    fileUpload.fileupload({
+                        type: 'POST',
+                        url: '/api/dealerwebsite/form/upload',
+                        dropzone: form.find('#dropzone'),
+                        cache: false,
+                        autoUpload: false,
+                        acceptFileTypes: /(\.|\/)(jpe?g|png|csv|xlsx|pdf|doc|docx)$/i,
+                        maxFileSize: 10000000,
+                        disableImagePreview: true,
+                        downloadTemplateId: null,
+                        async: false,
+                        progress: function (e, data) {
+                            var progress = parseInt(data.loaded / data.total * 100, 10);
+                            data.context.find('.progress-bar').css('width', progress + '%');
+                        },
+                        done: function (e, data) {
+                            data.context.find(".upload-btn").remove();
+                        }
+                    }).on('fileuploadadd', function (e, data) {
+                        var maxFiles = 5;
+                        var maxFileSize = 5000000;
+                        var fileCount = parseInt(totalFileCountPendingUpload.val());
+                        var filetype = fileUpload.fileupload('option').acceptFileTypes;
+                        var fileIsAlreadyAdded = false;
+                        var filesArray = [];
+                        if ($(".template-upload").length > 0) {
+                            $(".template-upload").each(function () {
+                                let fileName = $(this).find("p.name").text();
+                                filesArray.push(fileName);
+                            });
+                            var valueIndexPos = filesArray.indexOf(data.files[0].name);
+                            if (valueIndexPos >= 0) {
+                                fileIsAlreadyAdded = true;
+                            }
+                        }
+                        fileCount = fileCount + 1;
+                        if (fileCount > maxFiles) {
+                            let errorElement = $("<span></span>").text("The maximum number of files allowed is " + maxFiles);
+                            $(".upload-file-errors").empty().append(errorElement);
+                            return false;
+                        }
+                        else if (!filetype.test(data.files[0].name)) {
+                            let errorElement = $("<span></span>").text("File type not allowed, supported file types are: .doc, .jpg, .jpeg, .png, .csv, .xlsx, .pdf, .docx");
+                            $(".upload-file-errors").empty().append(errorElement);
+                            return false;
+                        }
+                        else if (data.files[0].size > maxFileSize) {
+                            let errorElement = $("<span></span>").text("Allowed file size exceeded. (Max. 5 MB)");
+                            $(".upload-file-errors").empty().append(errorElement);
+                            return false;
+                        }
+                        else if (fileIsAlreadyAdded) {
+                            let errorElement = $("<span></span>").text("File is already added.");
+                            $(".upload-file-errors").empty().append(errorElement);
+                            return false;
+                        }
+                        else {
+                            $(".upload-file-errors").empty();
+                        }
+                        totalFileCountPendingUpload.val(fileCount);
+                    }).on('fileuploadadded', function (e, data) {
+                        var fileName = data.files != null ? data.files[0].name : "";
+                        totalFileSuccessFullyUploaded.val(0);
+                        totalFileCountInUploadProgress.val(totalFileCountPendingUpload.val());
+                        form.find("#start-the-upload").on("customSubmitEvent.file-" + fileName, function (event, obj) {
+                            data.headers = { 'X-CSRF-TOKEN': obj.token };
+                            data.formData = {
+                                dcCompanyId: that.dcCompanyId,
+                                inquiryType: that.inqueryType
+                            };
+                            data.submit().done(function (result, textStatus, jqXHR) {
+                                var responseJSON = result;
+                                var appendFileUploadMessageJqObj = $(".append-file-upload-message");
+                                var template = '';
+                                var headingMessage = 'File upload failed for "' + fileName + '". Please retry uploading file.';
+                                var uploadStatus = 'file-upload-failed';
+                                if (typeof responseJSON != "undefined" && responseJSON != null) {
+                                    if (responseJSON.success == true) {
+                                        that.fileUrls.push(responseJSON.fileUrl);
+                                        //Update the count of the total successfull uploaded file
+                                        let totalFileSuccessFullyUploadedInt = parseInt(totalFileSuccessFullyUploaded.val());
+                                        totalFileSuccessFullyUploadedInt = totalFileSuccessFullyUploadedInt + 1;
+                                        totalFileSuccessFullyUploaded.val(totalFileSuccessFullyUploadedInt);
+                                        headingMessage = 'File upload successful for "' + fileName + '"';
+                                        uploadStatus = 'file-upload-success';
+                                    }
+                                }
+                                if (uploadStatus == 'file-upload-failed') {
+                                    template = `
+                                <div class="template-download ${uploadStatus}">
+                                    <div>
+                                        ${headingMessage}
+                                    </div>
+                                </div>
+                            `;
+                                    appendFileUploadMessageJqObj.append(template);
+                                }
+                                $("#start-the-upload").off('customSubmitEvent.file-' + fileName);
+                                let totalFileCountPendingUploadInt = parseInt(totalFileCountPendingUpload.val());
+                                totalFileCountPendingUploadInt = totalFileCountPendingUploadInt - 1;
+                                totalFileCountPendingUpload.val(totalFileCountPendingUploadInt);
+                            });
+                        });
+                        $(data.context).attr("data-file", fileName);
+                    });
+                    form.find("#dws-trigger-click-upload").on("click", function (event, obj) {
+                        form.find(".template-upload .progress-bar").removeClass("hide-progress-bar");
+                        form.find("#start-the-upload").trigger("customSubmitEvent", [{ token: obj.token }]);
+                    });
+                    form.find('#dropzone').bind('dragover', function () {
+                        $(this).addClass('drag-over');
+                    });
+                    form.find('#dropzone').bind('dragleave', function () {
+                        $(this).removeClass('drag-over');
+                    });
+                    form.find('#dropzone').bind('drop', function () {
+                        $(this).removeClass('drag-over');
+                    });
+                    form.find(".files").on("click", "button.upload-btn", function (e) {
+                        let self = $(this);
+                        that.removeCustomSubmitEvent(self);
+                    });
+                }
+                removeCustomSubmitEvent(btn) {
+                    var $ = jQuery;
+                    var form = this.form;
+                    var file = $(btn).closest('.template-upload-row').attr('data-file');
+                    form.find("#start-the-upload").off('customSubmitEvent.file-' + file);
+                    let totalFileCountPendingUpload = form.find("#total-file-count-pending-upload");
+                    let totalFileCountPendingUploadInt = parseInt(totalFileCountPendingUpload.val());
+                    totalFileCountPendingUploadInt = totalFileCountPendingUploadInt - 1;
+                    totalFileCountPendingUpload.val(totalFileCountPendingUploadInt);
+                    let totalFileCountInUploadProgress = form.find("#current-file-count-in-upload-progress");
+                    let totalFileCountInUploadProgressInt = parseInt(totalFileCountInUploadProgress.val());
+                    totalFileCountInUploadProgressInt = totalFileCountInUploadProgressInt - 1;
+                    totalFileCountInUploadProgress.val(totalFileCountInUploadProgressInt);
+                    $(btn).closest('.template-upload-row').remove();
+                }
+                addFilesToPayload() {
+                    console.log('Adding file attachments to payload...');
+                    if (this.fileUrls.length > 0) {
+                        this.addToFormData('fileAttachments', this.fileUrls, this.form);
+                    }
+                }
+            }
+            Plugins.DWSFormsScriptMulipleFileAttachments = DWSFormsScriptMulipleFileAttachments;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

@@ -1,0 +1,61 @@
+.dws-forms-section.dws-forms-section-attachments {
+  max-width: 764px;
+  margin-bottom: 0;
+}
+.dws-forms-section.dws-forms-section-attachments.dws-fields-wrapper {
+  max-width: 740px;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-forms-form-label {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-forms-form-control {
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  background-color: #F9F9F9;
+  font-size: 0.75em;
+  /* computed based on font-size */
+  height: 2.66em;
+  line-height: 1.375em;
+  padding: 0 12px;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-upload-instruction {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-forms-file-attachments label {
+  align-items: center;
+  background: #eeeeee;
+  border-radius: 8px;
+  border: 1px dashed #CCCCCC;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  padding: 24px 16px;
+  width: 100%;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-forms-file-attachments label i {
+  color: #ccc;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 0.91666667;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-forms-file-attachments label span {
+  color: #666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.83333333;
+}
+.dws-forms-section.dws-forms-section-attachments .dws-forms-file-attachments input[type="file"] {
+  display: none;
+  height: 100px;
+  opacity: 0;
+  width: 100%;
+}
+.dws-forms-wrapper .dws-forms-section.dws-forms-section-attachments {
+  padding-bottom: 0;
+}
+.dws-forms-wrapper .dws-forms-section.dws-forms-section-attachments .dws-forms-file-attachments {
+  margin-bottom: 0;
+}

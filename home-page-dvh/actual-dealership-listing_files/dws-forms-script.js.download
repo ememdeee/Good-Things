@@ -1,0 +1,654 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsScript {
+                /**
+                 * Initialize class
+                 * @param form
+                 * @returns {}
+                 */
+                constructor(form) {
+                    var $ = jQuery;
+                    // set form property
+                    this.form = form;
+                    this.formThankYouMessage = jQuery('#' + form.attr('id') + '-thank-you-message');
+                    this.formErrorMessageWrapper = form.find('.dws-forms-error-wrapper');
+                    this.formValidationErrorMessageWrapper = form.find('.dws-forms-validation-error-wrapper');
+                    console.log('DWSFormsScript constructor: ' + this.form.attr('id'));
+                    // initialize form
+                    this.initForm();
+                }
+                /**
+                 * Initialize form
+                 * @param form
+                 * @returns {}
+                 */
+                initForm() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    // check if form has data, if not, set to empty object
+                    if (!form.data('form-data')) {
+                        form.data('form-data', {});
+                    }
+                    // check if form.data('form-data').session.applicantCid is set, if not, set to current user cid cookie
+                    if (!form.data('form-data').session || !form.data('form-data').session.applicantCid) {
+                        // set applicantCid in form-data object to current user cid cookie
+                        form.data('form-data').session.applicantCid = DWSFormsScript.getCookie('cid');
+                    }
+                    // check if form.data('form-data').session.applicantSid is set, if not, set to current user sid cookie
+                    if (!form.data('form-data').session || !form.data('form-data').session.applicantSid) {
+                        // set applicantSid in form-data object to current user sid cookie
+                        form.data('form-data').session.applicantSid = DWSFormsScript.getCookie('sid');
+                    }
+                    // console log form data
+                    console.log(form.data('form-data'));
+                    // initialize file upload plugin
+                    var hasFileAttachmentsSection = form.find('.dws-forms-section-file-attachments').length > 0;
+                    if (hasFileAttachmentsSection) {
+                        var uploadPlugin = new DealerCenter.WebSite.Plugins.DWSFormsScriptMulipleFileAttachments(form);
+                        uploadPlugin.init();
+                    }
+                    var coverLetterFile = document.querySelector('#dws-forms-cover-letter-file-input');
+                    // get cover letter file type
+                    if (coverLetterFile) {
+                        coverLetterFile.addEventListener('change', (e) => {
+                            // Get the selected file
+                            const file = e.target.files[0];
+                            // check the file type if its docx or pdf
+                            const fileType = file.type;
+                            const validFileTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                            if (!validFileTypes.includes(fileType)) {
+                                // set input file type to invalid
+                                // set text to invalid-feedback
+                                coverLetterFile.nextElementSibling.textContent = 'File Type Not Supported. Supported file types are .docx, .pdf';
+                                coverLetterFile.setCustomValidity('File Type Not Supported. Supported file types are .docx, .pdf');
+                                coverLetterFile.reportValidity();
+                            }
+                            else {
+                                coverLetterFile.setCustomValidity('');
+                                coverLetterFile.reportValidity();
+                            }
+                        });
+                    }
+                    // set function on click of submit button
+                    form.find('.dws-forms-button-submit').on('click', (event) => __awaiter(this, void 0, void 0, function* () {
+                        // cancel click
+                        event.preventDefault();
+                        console.log('submit button clicked');
+                        // hide error message wrapper
+                        this.formErrorMessageWrapper.hide();
+                        // hide validation error message wrapper
+                        this.formValidationErrorMessageWrapper.hide();
+                        try {
+                            var submitBtn = form.find('.dws-forms-button-submit');
+                            // disable submit button
+                            this.setLoadingBtn(submitBtn);
+                            // check and mark fields with invalid pseudo class
+                            let countInvalidFields = yield this.markInvalidFormFields();
+                            // if there are invalid fields, then show error message and return
+                            if (countInvalidFields > 0) {
+                                console.log('invalid field input found.');
+                                this.showSubmissionValidationErrorMessage();
+                                return;
+                            }
+                            else {
+                                // map form fields to form-data object
+                                yield this.mapFormFields();
+                                // set reCAPTCHA token in form-data object
+                                yield this.setReCaptchaToken();
+                                // get CSRF token
+                                let csrfToken = yield this.getCsrfToken();
+                                if (!form.data('form-data').isThirdParty) {
+                                    // set referer and traffic source from cookies
+                                    this.setRefererAndTrafficSource();
+                                }
+                                // trigger file upload if there are files to upload
+                                yield this.uploadFiles(hasFileAttachmentsSection, uploadPlugin, csrfToken);
+                                // do submit form process
+                                let submitResult = yield this.submitForm(csrfToken);
+                                // if submitResult statusCode is OK, then hide form, reset fields and show formThankYouMessage
+                                if (('statusCode' in submitResult) && (submitResult.statusCode == 'OK')) {
+                                    // show thank you message
+                                    this.showThankYouMessage();
+                                    // check if testimonial form, then store testimonial to DWS admin
+                                    var formData = form.data('form-data');
+                                    if (formData.inquiryType == 14 && formData.secondaryInquiryType == null) {
+                                        // initialize testimonial functionality class
+                                        var testimonialFunctionality = new DealerCenter.WebSite.Plugins.DWSFormsTestimonialsFunctionality(formData);
+                                        // store testimonial to DWS admin
+                                        testimonialFunctionality.store_testimonial_to_dws_admin();
+                                    }
+                                    // check if inquiry type is FollowVehicle
+                                    if (formData.secondaryInquiryType == 'FollowVehicle') {
+                                        // on submit create cookie for followed vehicles
+                                        var followedVehicles = DWSFormsScript.getCookie("dws-followed-vehicles");
+                                        var allStockNumbers;
+                                        if (followedVehicles == "") {
+                                            allStockNumbers = new Array();
+                                        }
+                                        else {
+                                            allStockNumbers = followedVehicles.split(",");
+                                        }
+                                        var stock_numbers = form.find('.dws-forms-stock-number .dws-forms-value').text();
+                                        // check if the vehicle is already followed
+                                        if ($.inArray(stock_numbers, allStockNumbers) !== -1) {
+                                            return;
+                                        }
+                                        else {
+                                            allStockNumbers.push(stock_numbers);
+                                            DWSFormsScript.setCookie("dws-followed-vehicles", allStockNumbers);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch (e) {
+                            console.error(e);
+                            console.log('submit process failed.');
+                            // show error message
+                            this.showSubmissionErrorMessage();
+                        }
+                        finally {
+                            // enable submit button
+                            this.setLoadingBtn(submitBtn, false);
+                        }
+                    }));
+                }
+                /**
+                 * Method to get and set referer and traffic source from cookies
+                 */
+                setRefererAndTrafficSource() {
+                    console.log('setting referer and traffic source...');
+                    var form = this.form;
+                    // get referer and traffic source from cookies
+                    var referer = '';
+                    var trafficSource = decodeURIComponent(DWSFormsScript.getCookie('dws-trs'));
+                    if (trafficSource != '') {
+                        var trafficSourceObj = JSON.parse(trafficSource);
+                        referer = trafficSourceObj.RF;
+                    }
+                    var trafficSourceFromScript = decodeURIComponent(DWSFormsScript.getCookie('dws-ts-js'));
+                    if ((form.data('form-data').inquiryType == 28 && form.data('form-data').secondaryInquiryType == 'RequestMileage') ||
+                        (form.data('form-data').inquiryType == 29 && form.data('form-data').secondaryInquiryType == 'RequestPrice') ||
+                        (form.data('form-data').inquiryType == 26 && form.data('form-data').secondaryInquiryType == 'RequestVIN')) {
+                        form.data('form-data').session.referrer = form.data('form-data').session.referrer;
+                    }
+                    else {
+                        form.data('form-data').session.referrer = referer != '' ? referer : null;
+                    }
+                    form.data('form-data').session.sourceMedian = trafficSourceFromScript != '' ? trafficSourceFromScript : null;
+                }
+                /**
+                 * Method to upload files
+                 * @param hasFileAttachmentsSection
+                 * @param uploadPlugin
+                 * @param csrfToken
+                 * @returns {Promise<void>}
+                 */
+                uploadFiles(hasFileAttachmentsSection, uploadPlugin, csrfToken) {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('checking if files need to be uploaded...');
+                    // check if form has file attachments section
+                    if (hasFileAttachmentsSection) {
+                        // check if there are files to upload
+                        if (form.find('#total-file-count-pending-upload').length > 0 && parseInt(form.find('#total-file-count-pending-upload').val()) > 0) {
+                            // trigger file upload
+                            return new Promise((resolve, reject) => {
+                                console.log('triggering file upload...');
+                                form.find('#dws-trigger-click-upload').trigger("click", [{ token: csrfToken }]);
+                                if (form.find('#total-file-successfully-uploaded').length > 0 && parseInt(form.find('#total-file-successfully-uploaded').val()) > 0) {
+                                    uploadPlugin.addFilesToPayload();
+                                }
+                                resolve();
+                            });
+                        }
+                    }
+                    return new Promise((resolve, reject) => {
+                        resolve();
+                    });
+                }
+                /**
+                 * Method to submit form to dwsFormsScriptSettings.actionUrl via AJAX POST
+                 * @param csrfToken
+                 *
+                 */
+                submitForm(csrfToken) {
+                    var $ = jQuery;
+                    var ajaxOptions = this.getAjaxOptions();
+                    // submit form via AJAX POST
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                            url: ajaxOptions.url,
+                            method: 'POST',
+                            headers: {
+                                'X-CSRF-TOKEN': csrfToken
+                            },
+                            contentType: ajaxOptions.contentType,
+                            processData: ajaxOptions.processData,
+                            data: ajaxOptions.data,
+                            success: (response) => {
+                                if (('success' in response) && (response.success == true)) {
+                                    console.log('form submitted successfully: ' + response.statusCode);
+                                }
+                                else if (('success' in response) && (response.success == false)) {
+                                    this.showSubmissionErrorMessage();
+                                    console.log('form submission failed: ' + response.statusCode);
+                                }
+                                else {
+                                    console.log('form submission failed: ' + response);
+                                    this.showSubmissionErrorMessage();
+                                }
+                                resolve(response);
+                            },
+                            error: (response) => {
+                                console.log('form service error: ' + response.status);
+                                reject(response);
+                            }
+                        });
+                    });
+                }
+                /**
+                 * Method to get AJAX options
+                 * @returns {any}
+                 */
+                getAjaxOptions() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    // get form data
+                    var formData = form.data('form-data');
+                    console.log(formData);
+                    var ajaxOptions = {
+                        url: dwsFormsScriptSettings.actionUrl,
+                        contentType: 'application/json',
+                        processData: true,
+                        data: JSON.stringify(formData)
+                    };
+                    if (formData.inquiryType == 12) { // careers
+                        var career = new DealerCenter.WebSite.Plugins.DWSFormsCareerDataPreProcessing(form);
+                        ajaxOptions.url = dwsFormsScriptSettings.actionUrl + '/careers';
+                        ajaxOptions.contentType = false;
+                        ajaxOptions.processData = false;
+                        ajaxOptions.data = career.getFormData();
+                    }
+                    return ajaxOptions;
+                }
+                /**
+                 * Method to map form fields to form-data object
+                 * @returns {Promise<void>}
+                 */
+                mapFormFields() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('mapping form fields...');
+                    return new Promise((resolve, reject) => {
+                        // get input fields with dws-forms-form-* class
+                        var fields = form.find('.dws-forms-form-control, .dws-forms-form-file-control, .dws-forms-form-select, .dws-forms-form-radio, .dws-forms-form-checkbox, .dws-forms-form-textarea');
+                        // get value of each field and map to form-data object based on data-form-json-field-map attribute string value
+                        fields.each((index, element) => {
+                            var field = $(element);
+                            var fieldMap = field.data('form-json-field-map');
+                            var fieldSection = field.data('form-section');
+                            if (fieldMap && field.attr('disabled') != 'disabled') {
+                                var value = field.val();
+                                var map = fieldMap.split('.');
+                                var data = form.data('form-data');
+                                for (var i = 0; i < map.length; i++) {
+                                    if (i == map.length - 1) {
+                                        if (value != '') {
+                                            if (field.data('data-type') == 'number') {
+                                                var sanitizedNumericValue = DealerCenter.WebSite.Plugins.DWS_Input_Price_Format.sanitizedMoneyValue(value);
+                                                if ($.isNumeric(sanitizedNumericValue)) {
+                                                    data[map[i]] = parseFloat(sanitizedNumericValue);
+                                                }
+                                            }
+                                            else {
+                                                data[map[i]] = value;
+                                            }
+                                        }
+                                        else {
+                                            delete data[map[i]];
+                                        }
+                                    }
+                                    else {
+                                        if (!data[map[i]]) {
+                                            data[map[i]] = {};
+                                        }
+                                        data = data[map[i]];
+                                    }
+                                }
+                            }
+                            // set data pre processing per section
+                            switch (fieldSection) {
+                                case 'vehicle_information':
+                                    console.log('pre processing vehicle information section...');
+                                    var vehicleInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsVehicleInformationSectionDataPreProcessing(field, form);
+                                    vehicleInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'survey_information':
+                                    console.log('pre processing survey information section...');
+                                    var surveyInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsSurveyInformationSectionDataPreProcessing(field, form);
+                                    surveyInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'personal_information':
+                                    console.log('pre processing personal information section...');
+                                    var personalInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsPersonalInformationSectionDataPreProcessing(field, form);
+                                    personalInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'employment_information':
+                                    console.log('pre processing employment information section...');
+                                    var employmentInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsEmploymentInformationSectionDataPreProcessing(form, field);
+                                    employmentInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'co_buyer_employment_information':
+                                    console.log('pre processing co buyer employment information section...');
+                                    var coBuyerEmploymentInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsCoBuyerEmploymentInformationSectionDataPreProcessing(field, form);
+                                    coBuyerEmploymentInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'residential_information':
+                                    console.log('pre processing residential information section...');
+                                    var residentialInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsResidentialInformationSectionDataPreProcessing(form, field);
+                                    residentialInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'delivery_details':
+                                    console.log('pre processing delivery details section...');
+                                    var deliveryDetailsSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsDeliveryDetailsSectionDataPreProcessing(field, form);
+                                    deliveryDetailsSectionDataPreProcessing.init();
+                                    break;
+                                case 'other_information':
+                                    console.log('pre processing other information section...');
+                                    // check if the class exists in dom
+                                    if (typeof DealerCenter.WebSite.Plugins.DWSFormsOtherInformationSectionDataPreProcessing === 'undefined') {
+                                        break;
+                                    }
+                                    var otherInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsOtherInformationSectionDataPreProcessing(field, form);
+                                    otherInformationSectionDataPreProcessing.init();
+                                    break;
+                                case 'contact_information':
+                                default:
+                                    console.log('pre processing default/contact information section...');
+                                    // check if exists DealerCenter.WebSite.Plugins.DWSFormsContactInformationSectionDataPreProcessing
+                                    if (typeof DealerCenter.WebSite.Plugins.DWSFormsContactInformationSectionDataPreProcessing === 'undefined') {
+                                        break;
+                                    }
+                                    var contactInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsContactInformationSectionDataPreProcessing(field, form);
+                                    contactInformationSectionDataPreProcessing.init();
+                                    break;
+                            }
+                        });
+                        // set data pre processing after per fields
+                        console.log('pre processing after...');
+                        // if inquiry type is credit application
+                        if (form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) { // credit app form
+                            console.log('pre processing credit application...');
+                            var employmentInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsEmploymentInformationSectionDataPreProcessing(form);
+                            var previousAddressSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsPreviousAddressSectionDataPreProcessing(form);
+                            var previousEmploymentSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsPreviousEmploymentSectionDataPreProcessing(form);
+                            var additionalEmploymentInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsAdditionalEmploymentInformationSectionDataPreProcessing(form);
+                            var tradeInSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsTradeInSectionDataPreProcessing(form);
+                            var additionalInfoSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsAdditionalInfoSectionDataPreProcessing(form);
+                            var otherReferencesSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsReferencesSectionDataPreProcessing(form);
+                            var commentAndOthersSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsCommentAndOthersSectionDataPreProcessing(form);
+                            var residentialInformationSectionDataPreProcessing = new DealerCenter.WebSite.Plugins.DWSFormsResidentialInformationSectionDataPreProcessing(form);
+                            residentialInformationSectionDataPreProcessing.setFieldsToComment();
+                            employmentInformationSectionDataPreProcessing.setFieldsToComment();
+                            previousAddressSectionDataPreProcessing.init();
+                            previousEmploymentSectionDataPreProcessing.init();
+                            additionalEmploymentInformationSectionDataPreProcessing.init();
+                            tradeInSectionDataPreProcessing.init();
+                            additionalInfoSectionDataPreProcessing.init();
+                            otherReferencesSectionDataPreProcessing.init();
+                            commentAndOthersSectionDataPreProcessing.init();
+                        }
+                        // remove empty objects from form-data object
+                        this.removeEmptyObjects(form.data('form-data'));
+                        console.log('form fields mapped.');
+                        resolve();
+                    });
+                }
+                /**
+                 * Method to remove empty objects from the object
+                 * @param obj object
+                 */
+                removeEmptyObjects(obj) {
+                    var $ = jQuery;
+                    // for loop on data
+                    for (var key in obj) {
+                        let prop = obj[key];
+                        // check if prop is object
+                        if (typeof prop === 'object') {
+                            // check if prop is empty
+                            if (prop && Object.keys(prop).length === 0 && prop.constructor === Object) {
+                                // delete prop
+                                delete obj[key];
+                            }
+                            else {
+                                // recursive call
+                                this.removeEmptyObjects(prop);
+                            }
+                        }
+                    }
+                }
+                /**
+                 * Method to check and mark invalid form fields identified by browser
+                 * @returns {Promise<void>}
+                 */
+                markInvalidFormFields() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('getting list of invalid fields...');
+                    var invalidFields = form.find('.dws-forms-form-control:invalid, dws-forms-form-file-control:invalid, .dws-forms-form-select:invalid, .dws-forms-form-radio:invalid, .dws-forms-form-checkbox:invalid, .dws-forms-form-textarea:invalid');
+                    console.log(invalidFields);
+                    return new Promise((resolve, reject) => {
+                        let count = invalidFields.length;
+                        form.addClass('was-validated');
+                        resolve(count);
+                    });
+                }
+                /**
+                 * Method to get CSRF token
+                 * @returns {Promise<string>}
+                 */
+                getCsrfToken() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    // get form data
+                    var formData = form.data('form-data');
+                    console.log('getting csrf token...');
+                    var hostnameUrl = new URL(formData.session.landingUrl);
+                    // get CSRF token via admin-ajax.php call using get_form_token action
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                            url: '/wp-admin/admin-ajax.php',
+                            method: 'POST',
+                            data: {
+                                action: 'get_form_token',
+                                form_id: form.attr('id'),
+                                dcCompanyId: formData.dcCompanyId,
+                                hostname: 'https://' + hostnameUrl.hostname,
+                                _wpnonce: jQuery("[name='_wpnonce']", form).val(),
+                                _wp_http_referer: jQuery("[name='_wp_http_referer']", form).val()
+                            },
+                            success: (response) => {
+                                console.log('csrf token received.');
+                                resolve(response);
+                            },
+                            error: (response) => {
+                                console.log('csrf token error: ' + response);
+                                reject(response);
+                            }
+                        });
+                    });
+                }
+                /**
+                 * Method to set form reCAPTCHA token
+                 * @returns {Promise<void>}
+                 */
+                setReCaptchaToken() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('getting recaptcha token...');
+                    // get grecaptcha token once ready
+                    return new Promise((resolve, reject) => {
+                        grecaptcha.enterprise.ready(() => __awaiter(this, void 0, void 0, function* () {
+                            try {
+                                // get grecaptcha token
+                                const grecaptchaToken = yield grecaptcha.enterprise.execute(dwsFormsScriptSettings.greCaptchaSiteKey, { action: 'submitform' });
+                                // set grecaptcha token in form-data object
+                                form.data('form-data').reCaptcha = grecaptchaToken;
+                                console.log('recaptcha token received and set in form.');
+                                resolve();
+                            }
+                            catch (e) {
+                                console.log(e);
+                                reject();
+                            }
+                        }));
+                    });
+                }
+                /**
+                 * Method to show thank you message
+                 */
+                showThankYouMessage() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('showing thank you message...');
+                    // hide the form
+                    form.hide();
+                    // reset the form fields
+                    form.trigger("reset");
+                    // show the thank you message
+                    this.formThankYouMessage.show();
+                    // modal on shown 
+                    form.closest('.modal').on('hidden.bs.modal', function (e) {
+                        // reset the form fields
+                        form.trigger("reset");
+                        // show the form
+                        form.show();
+                        // remove was-validated class
+                        form.removeClass('was-validated');
+                        // clear form data applicant
+                        // form.data('form-data').applicant = {};
+                        // hide the thank you message
+                        // note could not use this.formThankYouMessage.hide() because this is not the same this as the one in the submit button click event
+                        $('#' + form.attr('id') + '-thank-you-message').hide();
+                    });
+                }
+                /**
+                 * Method to show submission error message
+                 */
+                showSubmissionErrorMessage() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('showing submission error message...');
+                    // show error message wrapper
+                    this.formErrorMessageWrapper.show();
+                }
+                /**
+                 * Method to show submission error message
+                 */
+                showSubmissionValidationErrorMessage() {
+                    var $ = jQuery;
+                    var form = this.form;
+                    console.log('showing submission validation error message...');
+                    // show error message wrapper
+                    this.formValidationErrorMessageWrapper.show();
+                }
+                /**
+                 * Method to get cookie value
+                 * @param cookieName
+                 * @returns {string}
+                 */
+                static getCookie(cookieName) {
+                    var nameWithEqual = cookieName + '=';
+                    var cookieStrings = document.cookie.split(';');
+                    for (var i = 0; i < cookieStrings.length; i++) {
+                        var cookieString = cookieStrings[i];
+                        while (cookieString.charAt(0) == ' ') {
+                            cookieString = cookieString.substring(1);
+                        }
+                        if (cookieString.indexOf(nameWithEqual) == 0) {
+                            return cookieString.substring(nameWithEqual.length, cookieString.length);
+                        }
+                    }
+                    return '';
+                }
+                /**
+                 * Method to set cookie
+                 * @param cookieName, cookieValue, expireDate, isSessionCookie
+                 * @returns {string}
+                 */
+                static setCookie(cookieName, cookieValue, expireDate = null, isSessionCookie = false) {
+                    if (isSessionCookie) { // expires when browser is closed
+                        document.cookie = cookieName + '=' + cookieValue + '; path=/'; // should not have expire and maxdate
+                    }
+                    else {
+                        if (expireDate === null) {
+                            expireDate = new Date();
+                            expireDate.setMonth(expireDate.getMonth() + 1);
+                        }
+                        document.cookie = cookieName + '=' + cookieValue + '; expires=' + expireDate.toUTCString() + '; path=/; samesite=strict';
+                    }
+                }
+                setLoadingBtn(btn, isLoading = true) {
+                    if (!btn.length) {
+                        return;
+                    }
+                    var btnLabel = btn.find('.dws-forms-button-submit-label');
+                    var btnSpinner = btn.find('.spinner-border');
+                    if (isLoading) {
+                        btn.prop('disabled', true);
+                        btnLabel.hide();
+                        btnSpinner.show();
+                    }
+                    else {
+                        btn.prop('disabled', false);
+                        btnLabel.show();
+                        btnSpinner.hide();
+                    }
+                }
+                /**
+                   * static function to get form markup via AJAX POST to get_dws_forms action
+                   */
+                static getFormMarkup(formId, vehicleStockNumber, themeColor) {
+                    var $ = jQuery;
+                    console.log('getting form markup...' + formId);
+                    // get form markup via admin-ajax.php call using get_dws_forms action
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                            url: '/wp-admin/admin-ajax.php',
+                            method: 'POST',
+                            data: {
+                                action: 'get_dws_forms',
+                                form_id: formId,
+                                vehicle_stock_number: vehicleStockNumber,
+                                theme_color: themeColor,
+                            },
+                            success: (response) => {
+                                console.log('form markup received.');
+                                resolve(response);
+                            },
+                            error: (response) => {
+                                console.log('form markup error: ' + response);
+                                reject(response);
+                            }
+                        });
+                    });
+                }
+            }
+            Plugins.DWSFormsScript = DWSFormsScript;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

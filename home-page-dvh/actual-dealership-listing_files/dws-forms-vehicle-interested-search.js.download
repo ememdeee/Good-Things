@@ -1,0 +1,418 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsVehicleInterestedSearch {
+                constructor(form) {
+                    this.form = form;
+                    this.init();
+                }
+                init() {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        let interestedVehicleSearchSection = jQuery(this.form).find('.dws-forms-section-vehicle-interested-field');
+                        if (interestedVehicleSearchSection.length > 0) {
+                            this.hookSearchVehicleEvents();
+                        }
+                        let interestedVehicleSearchDropdownSection = jQuery(this.form).find('.dws-forms-section-vehicle-interested-dropdown');
+                        if (interestedVehicleSearchDropdownSection.length > 0) {
+                            this.hookSearchVehicleDropdownEvents();
+                        }
+                    });
+                }
+                hookSearchVehicleEvents() {
+                    var $ = jQuery;
+                    var closeSearchBtn = $(".close-vehicle-dropdown-list", this.form);
+                    var timeoutSearch;
+                    $('.dws-forms-magnifying-icon', this.form).on('click touchstart', (ev) => {
+                        this.searchVehicle();
+                    });
+                    $(".dws-forms-vehicle-interested-search-field", this.form).keypress((ev) => {
+                        clearTimeout(timeoutSearch);
+                        timeoutSearch = setTimeout(() => {
+                            this.searchVehicle();
+                        }, 800);
+                    });
+                    closeSearchBtn.on("click touchstart", () => {
+                        if ($(".dropdown-list-of-vehicles", this.form).hasClass('dropdown-displayed')) {
+                            $(".search-string-no-results", this.form).remove();
+                            $(".dropdown-list-of-vehicles", this.form).hide().removeClass("dropdown-displayed").next().removeClass("dropdown-displayed");
+                        }
+                    });
+                    $(this.form).on('click touchstart', '.search-results-vehicle-container', (ev) => {
+                        var _a, _b, _c, _d, _e, _f, _g;
+                        let item = $(ev.currentTarget);
+                        let data = item.data('item');
+                        if (!data) {
+                            return;
+                        }
+                        let stockNumberField = $(this.form).find('#dws-forms-vehicle-interested-field-stock-number-input');
+                        let yearField = $(this.form).find('[name="vehicle_interested_field_year"]');
+                        let makeField = $(this.form).find('#dws-forms-vehicle-interested-field-make-input');
+                        let modelField = $(this.form).find('#dws-forms-vehicle-interested-field-model-input');
+                        let vehiclePriceField = $(this.form).find('[name="vehicle_interested_field_vehicle_price"]');
+                        let exteriorColorField = $(this.form).find('#dws-forms-vehicle-interested-field-exterior-color-input');
+                        let interiorColorField = $(this.form).find('#dws-forms-vehicle-interested-field-interior-color-input');
+                        if (stockNumberField.length) {
+                            stockNumberField.val((_a = data.StockNumber) !== null && _a !== void 0 ? _a : '');
+                        }
+                        if (yearField.length) {
+                            yearField.val((_b = data.Year) !== null && _b !== void 0 ? _b : '');
+                        }
+                        if (makeField.length) {
+                            makeField.val((_c = data.Make) !== null && _c !== void 0 ? _c : '');
+                        }
+                        if (modelField.length) {
+                            modelField.val((_d = data.Model) !== null && _d !== void 0 ? _d : '');
+                        }
+                        // set vehicle price value, string empty once the value is not a valid number
+                        if (vehiclePriceField.length) {
+                            if (data.VehiclePrice) {
+                                let vehiclePriceStringLower = data.VehiclePrice.toString().toLowerCase();
+                                if (vehiclePriceStringLower.indexOf('call') > -1 ||
+                                    vehiclePriceStringLower.indexOf('-') > -1 ||
+                                    vehiclePriceStringLower.indexOf('below') > -1) {
+                                    vehiclePriceField.val(null);
+                                }
+                                else {
+                                    vehiclePriceField.val((_e = data.VehiclePrice) !== null && _e !== void 0 ? _e : null);
+                                }
+                            }
+                            else {
+                                vehiclePriceField.val(null);
+                            }
+                        }
+                        if (exteriorColorField.length) {
+                            exteriorColorField.val((_f = data.ExteriorColor) !== null && _f !== void 0 ? _f : '');
+                        }
+                        if (interiorColorField.length) {
+                            interiorColorField.val((_g = data.InteriorColor) !== null && _g !== void 0 ? _g : '');
+                        }
+                        closeSearchBtn.trigger('click');
+                    });
+                    $(this.form).on('click touchstart focus', '.dropdown #dws-forms-price-field', (ev) => {
+                        let item = $(ev.currentTarget);
+                        let dropdownMenu = item.parent().find('.dropdown-menu');
+                        dropdownMenu.toggleClass('show');
+                    });
+                    $(this.form).on('click touchstart focus', '.dropdown.dws-forms-search-icons .dropdown-item', (ev) => {
+                        ev.preventDefault();
+                        let item = $(ev.currentTarget);
+                        let dropdownMenu = item.parent();
+                        $('#dws-forms-price-field label', this.form).text(item.text());
+                        dropdownMenu.toggleClass('show');
+                    });
+                    $(this.form).on('click touchstart focus', '.dws-forms-sort-btn', (ev) => {
+                        let item = $(ev.currentTarget);
+                        let icon = item.find('svg');
+                        // if icon has style of transform: rotate(180deg) then remove it
+                        if (icon.attr('style') && icon.attr('style').indexOf('rotate(180deg)') > -1) {
+                            icon.removeAttr('style');
+                            console.log(item);
+                            item.data('sort', 'desc');
+                        }
+                        else {
+                            icon.attr('style', 'transform: rotate(180deg)');
+                            item.data('sort', 'asc');
+                        }
+                    });
+                }
+                hookSearchVehicleDropdownEvents() {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        try {
+                            var $ = jQuery;
+                            yield this.setVehicleOptionsFields();
+                            $('#dws-forms-vehicle-search-dropdown-vehicle-year', this.form).on('change', (ev) => __awaiter(this, void 0, void 0, function* () {
+                                yield this.setVehicleOptionsFields($(ev.currentTarget).val());
+                            }));
+                            $('#dws-forms-vehicle-search-dropdown-vehicle-make', this.form).on('change', (ev) => __awaiter(this, void 0, void 0, function* () {
+                                let year = $('#dws-forms-vehicle-search-dropdown-vehicle-year', this.form).val();
+                                let make = $(ev.currentTarget).val();
+                                yield this.setVehicleOptionsFields(year, make);
+                            }));
+                            $('#dws-forms-vehicle-search-dropdown-vehicle-model', this.form).on('change', (ev) => __awaiter(this, void 0, void 0, function* () {
+                                let year = $('#dws-forms-vehicle-search-dropdown-vehicle-year', this.form).val();
+                                let make = $('#dws-forms-vehicle-search-dropdown-vehicle-make', this.form).val();
+                                let model = $(ev.currentTarget).val();
+                                yield this.setVehicleOptionsFields(year, make, model);
+                            }));
+                        }
+                        catch (error) {
+                            console.error(error);
+                        }
+                    });
+                }
+                setVehicleOptionsFields(year = '', make = '', model = '') {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        try {
+                            var $ = jQuery;
+                            let vehicleOptions = yield this.getVehiclesOption(year, make, model);
+                            if (!vehicleOptions) {
+                                return;
+                            }
+                            vehicleOptions = JSON.parse(vehicleOptions);
+                            if (!year) {
+                                yield this.setOptionsByElement($('#dws-forms-vehicle-search-dropdown-vehicle-year', this.form), vehicleOptions.year);
+                            }
+                            if (!make) {
+                                yield this.setOptionsByElement($('#dws-forms-vehicle-search-dropdown-vehicle-make', this.form), vehicleOptions.make);
+                            }
+                            if (!model) {
+                                yield this.setOptionsByElement($('#dws-forms-vehicle-search-dropdown-vehicle-model', this.form), vehicleOptions.model);
+                            }
+                            yield this.setOptionsByElement($('#dws-forms-vehicle-search-dropdown-mileage', this.form), vehicleOptions.mileage);
+                            yield this.setOptionsByElement($('#dws-forms-vehicle-search-dropdown-price', this.form), vehicleOptions.price_range);
+                            yield this.setStockNumber();
+                        }
+                        catch (e) {
+                            console.error(e);
+                        }
+                    });
+                }
+                setStockNumber() {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        let $ = jQuery;
+                        let year = $('#dws-forms-vehicle-search-dropdown-vehicle-year', this.form).val();
+                        let make = $('#dws-forms-vehicle-search-dropdown-vehicle-make', this.form).val();
+                        let model = $('#dws-forms-vehicle-search-dropdown-vehicle-model', this.form).val();
+                        let mileageRange = $('#dws-forms-vehicle-search-dropdown-mileage', this.form).val();
+                        let priceRange = $('#dws-forms-vehicle-search-dropdown-price', this.form).val();
+                        if (year && make && model) {
+                            let stockNumber = yield this.getVehicleByYearMakeModel(year, make, model, mileageRange, priceRange);
+                            let stockNumberHiddenField = $('#dws-forms-vehicle-search-dropdown-vehicle-stock-number', this.form);
+                            if (stockNumber && stockNumberHiddenField.length) {
+                                stockNumberHiddenField.val(stockNumber);
+                            }
+                        }
+                    });
+                }
+                getVehicleByYearMakeModel(year, make, model, priceRange = '', mileageRange = '') {
+                    return new Promise(resolve => {
+                        jQuery.ajax({
+                            url: '/wp-admin/admin-ajax.php',
+                            method: 'POST',
+                            data: {
+                                action: 'get_search_vehicles',
+                                keyword: `${year} ${make} ${model}`,
+                            },
+                            success: (response) => {
+                                let result = JSON.parse(response);
+                                if (!result || !result.Vehicles.length) {
+                                    resolve('');
+                                    return;
+                                }
+                                let originalVehiclesResult = result.Vehicles;
+                                // result vehicles length is more than 1
+                                if (result.Vehicles.length > 1) {
+                                    if (priceRange) {
+                                        result.Vehicles = result.Vehicles.filter(x => x.VehiclePrice >= priceRange.split('-')[0] && x.VehiclePrice <= priceRange.split('-')[1]);
+                                    }
+                                    if (mileageRange) {
+                                        result.Vehicles = result.Vehicles.filter(x => x.Odometer >= mileageRange.split('-')[0] && x.Odometer <= mileageRange.split('-')[1]);
+                                    }
+                                }
+                                if (result.Vehicles.length == 0) {
+                                    resolve(originalVehiclesResult[0].StockNumber);
+                                    return;
+                                }
+                                resolve(result.Vehicles[0].StockNumber);
+                            },
+                            error: () => {
+                                resolve('');
+                            }
+                        });
+                    });
+                }
+                getVehiclesOption($year = '', $make = '', $model = '') {
+                    return new Promise((resolve, reject) => {
+                        jQuery.ajax({
+                            url: '/wp-admin/admin-ajax.php',
+                            method: 'POST',
+                            data: {
+                                action: 'get_interested_vehicles_options',
+                                year: $year,
+                                make: $make,
+                                model: $model
+                            },
+                            success: (response) => {
+                                resolve(response);
+                            },
+                            error: (response) => {
+                                reject(response);
+                            }
+                        });
+                    });
+                }
+                setOptionsByElement(element, options) {
+                    return new Promise(resolve => {
+                        if (!element || !options) {
+                            resolve(false);
+                            return;
+                        }
+                        element.find("option[value!='']").remove();
+                        let html = '';
+                        options.forEach(option => {
+                            // check if option not contains '-'
+                            if (`${option}`.indexOf('-') == -1) {
+                                html += `<option value="${option}" ${options.length == 1 ? 'selected' : ''}>${option}</option>`;
+                                return;
+                            }
+                            else {
+                                let optionTextSplitted = option.split('-');
+                                html += `<option value="${option}" ${options.length == 1 ? 'selected' : ''}>${optionTextSplitted[0]} - ${optionTextSplitted[1]}</option>`;
+                            }
+                        });
+                        element.append(html);
+                        resolve(true);
+                    });
+                }
+                searchVehicle() {
+                    var $ = jQuery;
+                    let vehicleSearchInput = $(".dws-forms-vehicle-interested-search-field", this.form);
+                    let vehicleSearchInputValue = vehicleSearchInput.val();
+                    var vehicleSearchTimeout;
+                    clearTimeout(vehicleSearchTimeout);
+                    vehicleSearchTimeout = setTimeout(() => __awaiter(this, void 0, void 0, function* () {
+                        try {
+                            let result = yield this.getVehicles(vehicleSearchInputValue);
+                            if (!result) {
+                                return;
+                            }
+                            result = JSON.parse(result);
+                            let parent = $(".dropdown-list-of-vehicles", this.form);
+                            if (!result || !result.TotalRecordCount || result.Vehicles.length == 0) {
+                                parent.empty();
+                                parent.append(`<li class="search-string-no-results">No results found</li>`);
+                                // show parent and next element
+                                parent.show().addClass("dropdown-displayed").next().addClass("dropdown-displayed");
+                                return;
+                            }
+                            parent.empty();
+                            result.Vehicles.forEach(vehicle => {
+                                var _a, _b;
+                                let imageUrl = '';
+                                if (vehicle.VehicleImageCount > 0) {
+                                    let documentId = (_b = (_a = vehicle.VehicleImages.find(x => x.IsDefault)) === null || _a === void 0 ? void 0 : _a.DocumentId) !== null && _b !== void 0 ? _b : vehicle.VehicleImages[0].DocumentId;
+                                    imageUrl = documentId ? DWS_CONST_INV_IMAGE_URL.replace("{DocumentId}", documentId).replace("{width}", '200').replace("{height}", '200') : '';
+                                }
+                                else {
+                                    imageUrl = "/dealercenter/img/vehicle-image-notavailable-320x240.jpg";
+                                }
+                                let vehicleItem = $(`
+                        <li>
+                            <div class="search-results-vehicle-container" data-item='${JSON.stringify(vehicle)}'>
+                                <div class="search-results-vehicle-image">
+                                    <img src="${imageUrl}" class="dropdown-vehicle-image">
+                                </div>
+                                
+                                <div class="search-results-vehicle-details">
+                                    <div class="search-results-vehicle-title">${vehicle.YMMT}</div>
+
+                                    <div class="search-results-vehicle-options row">
+                                        <div class="col-sm-6">
+                                            ${vehicle.Vin ?
+                                    `<div class="vehicle-column">
+                                                    <label>VIN:</label>
+                                                    <span>${vehicle.Vin}</span>
+                                                </div>` :
+                                    ''}
+                                            
+                                            ${vehicle.VehiclePrice ?
+                                    `<div class="vehicle-column">
+                                                    <label>Price:</label>
+                                                    <span>${vehicle.VehiclePrice}</span>
+                                                </div>` :
+                                    ''}
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="vehicle-column">
+                                                <label>Stock #:</label>
+                                                <span>${vehicle.StockNumber}</span>
+                                            </div>
+
+                                            <div class="vehicle-column">
+                                                <label>Miles:</label>
+                                                <span>${vehicle.Odometer}</span>
+                                            </div>
+                                        </div>
+
+                                        ${vehicle.InteriorColor ?
+                                    `<div ng-if="vehicles.InteriorColor" class="ng-scope">
+                                                <div class="vehicle-column col-xs-12">
+                                                    <label>Int Color:</label>
+                                                    <span>${vehicle.InteriorColor}</span>
+                                                </div>
+                                            </div>` :
+                                    ''}
+                                        
+                                        ${vehicle.ExteriorColor ?
+                                    `<div ng-if="vehicles.ExteriorColor" class="ng-scope">
+                                                <div class="vehicle-column col-xs-12">
+                                                    <label>Ext Color:</label>
+                                                    <span>${vehicle.ExteriorColor}</span>
+                                                </div>
+                                            </div>` :
+                                    ''}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>`);
+                                parent.append(vehicleItem);
+                            });
+                            // show parent and next element
+                            parent.show().addClass("dropdown-displayed").next().addClass("dropdown-displayed");
+                        }
+                        catch (e) {
+                            console.error(e);
+                        }
+                    }), 500);
+                }
+                /**
+                 * Method to get vehicles
+                 * @returns {Promise<string>}
+                 */
+                getVehicles(keyword) {
+                    return __awaiter(this, void 0, void 0, function* () {
+                        var $ = jQuery;
+                        if (!keyword) {
+                            return;
+                        }
+                        var sortBy = $('#dws-forms-price-field label', this.form).first().text();
+                        var sortDirection = $('.dws-forms-sort-btn', this.form).data('sort');
+                        return new Promise((resolve, reject) => {
+                            $.ajax({
+                                url: '/wp-admin/admin-ajax.php',
+                                method: 'POST',
+                                data: {
+                                    action: 'get_search_vehicles',
+                                    keyword: keyword,
+                                    sortBy: sortBy,
+                                    sortDirection: sortDirection
+                                },
+                                success: (response) => {
+                                    resolve(response);
+                                },
+                                error: (response) => {
+                                    reject(response);
+                                }
+                            });
+                        });
+                    });
+                }
+            }
+            Plugins.DWSFormsVehicleInterestedSearch = DWSFormsVehicleInterestedSearch;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

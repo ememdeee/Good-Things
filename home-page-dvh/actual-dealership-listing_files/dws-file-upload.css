@@ -1,0 +1,238 @@
+.upload-file-widget-containers {
+  background-color: #fff;
+}
+.upload-file-widget-containers .file-upload-container {
+  background-color: #fff;
+  padding: 0 10px 0 10px;
+}
+.upload-file-widget-containers .file-upload-container .upload-failed-message-wrapper {
+  font-size: 16px;
+  color: red;
+  padding-top: 10px;
+  font-weight: bold;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone {
+  border: dashed 1px #ddd;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 165px;
+  display: inline-block;
+  padding: 2px 0 0 0;
+  margin: auto auto 10px auto;
+  color: #999;
+  padding-top: 40px;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone.drag-over {
+  background-color: #eaedf2 !important;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone:hover {
+  background-color: #eaedf2 !important;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone .dc-icon-icon-upload-cloud {
+  font-size: 3rem;
+  color: #ccc;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone p {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone .fileinput-button {
+  position: relative;
+  overflow: hidden;
+  border-image: none;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px !important;
+  line-height: 20px;
+  margin: 2px;
+  padding: 4px 12px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #EA0000;
+  border-color: #EA0000;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone .fileinput-button:hover {
+  background-color: #c20017 !important;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #dropzone .fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  height: 100%;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  font-size: 200px !important;
+  direction: ltr;
+  cursor: pointer;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #files {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files .name {
+  color: #777;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  /* 150% */
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files .progress-bar.active,
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files .progress.active .progress-bar {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files .progress-bar-success {
+  background-color: #5cb85c;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files .progress {
+  height: 0.5rem;
+  margin-bottom: 0 !important;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files .progress-bar {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #007bff;
+  transition: width 0.6s ease;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files div.file-upload-success,
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files div.file-upload-failed {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files div.file-upload-success {
+  background-color: #28a745;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .files div.file-upload-failed {
+  background-color: #d20f26;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table {
+  margin-bottom: 0 !important;
+  margin-top: 10px !important;
+  width: 100%;
+  max-width: 100%;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .template-upload-row {
+  border-bottom: 10px solid #FFFFFF;
+  background-color: #F5F5F5;
+  padding: 10px 10px 5px 10px;
+}
+@media screen and (max-width: 500px) {
+  .upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .template-upload-row .template-upload-left-col-wrapper p.name {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .template-upload-row .template-upload-right-col-wrapper {
+  text-align: right;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .template-upload-row .template-upload-right-col-wrapper label {
+  position: relative;
+  top: -2px;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .template-upload-row .template-upload-right-col-wrapper input.dws-files-for-upload {
+  margin-left: 5px;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .done .cancel-btn {
+  display: block;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .cancel-btn {
+  float: right;
+  padding: 0;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .cancel-btn strong {
+  font-size: 14px;
+  cursor: pointer;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload .table .cancel-btn:focus {
+  outline: none !important;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #remove-files-in-dropzone-wrapper {
+  text-align: right;
+}
+.upload-file-widget-containers .file-upload-container .dws-secured-form-fileupload #fileupload #remove-files-in-dropzone-wrapper #remove-files-in-dropzone {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.upload-file-widget-containers .title {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+.upload-file-widget-containers .disclaimer {
+  color: #333;
+  font-size: 12px;
+  font-weight: 500;
+}
+.upload-file-widget-containers .re-upload-button-container {
+  text-align: right;
+  padding: 0 10px 0 10px;
+}
+.upload-file-widget-containers .re-upload-button-container input[type="submit"] {
+  margin-top: 10px;
+}
+.upload-file-widget-containers .upload-file-errors {
+  color: red;
+  font-size: 0.8em;
+}
+.upload-file-widget-containers .upload-file-errors span {
+  padding: 0 10px 10px 10px;
+}
+.template-upload button.cancel {
+  border-radius: 20px;
+  background-color: #FFF;
+  width: 15px;
+  height: 15px;
+  padding: 13px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-width: 0px;
+}
+.template-upload i.dws-icomoon-bin2 {
+  color: #666;
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 22px;
+  /* 220% */
+}
+.template-upload i.glyphicon-trash {
+  color: #666;
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 22px;
+  /* 220% */
+  right: 3px;
+  top: 0;
+}

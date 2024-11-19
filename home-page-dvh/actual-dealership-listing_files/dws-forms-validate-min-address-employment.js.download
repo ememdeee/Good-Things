@@ -1,0 +1,137 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DwsFormsValidateMinAddressEmployment {
+                static validateAddressEmploymentField(form_id, yearsField, monthsField, minValueSetting, section) {
+                    var currentYears;
+                    var months;
+                    jQuery(yearsField, form_id).on('change', function () {
+                        currentYears = jQuery(this).val();
+                        // yearsField has value and totalYearsEmploymentAddress is 0
+                        if (Number(currentYears) > 0 && DwsFormsValidateMinAddressEmployment.currentYearsEmploymentAddress === 0) {
+                            var tempCurrentMonths = Number(currentYears) * 12;
+                        }
+                        else {
+                            DwsFormsValidateMinAddressEmployment.currentYearsEmploymentAddress = (Number(currentYears) - DwsFormsValidateMinAddressEmployment.currentYearsEmploymentAddress) * 12;
+                        }
+                        DwsFormsValidateMinAddressEmployment.currentYearsEmploymentAddress = Number(currentYears);
+                        if (minValueSetting != undefined) {
+                            DwsFormsValidateMinAddressEmployment.sumTotalMonthsEmploymentAddress(section, minValueSetting);
+                        }
+                    });
+                    jQuery(monthsField, form_id).on('change', function () {
+                        months = jQuery(this).val();
+                        var countMonthsToYear = 0;
+                        var tempCurrentMonths = 0;
+                        if (Number(currentYears) > 0) {
+                            tempCurrentMonths = Number(currentYears) * 12;
+                        }
+                        if (currentYears != undefined) {
+                            DwsFormsValidateMinAddressEmployment.currentYearsEmploymentAddress = Number(currentYears);
+                        }
+                        if (minValueSetting != undefined) {
+                            DwsFormsValidateMinAddressEmployment.sumTotalMonthsEmploymentAddress(section, minValueSetting);
+                        }
+                    });
+                }
+                // compute for all the months in the address and employment fields. includes the years fields
+                static sumTotalMonthsEmploymentAddress(section, minValueSetting) {
+                    var $ = jQuery;
+                    var totalMonthsEmploymentAddress = 0;
+                    var totalYearsEmploymentAddress = 0;
+                    var currentMonthsInYears = 0;
+                    var previousMonthFields = document.querySelectorAll('.dws-forms-previous-' + section + '-months-field');
+                    var currentMonthFields = document.querySelectorAll('.dws-forms-current-' + section + '-months-field');
+                    var previousYearsFields = document.querySelectorAll('.dws-forms-previous-' + section + '-years-field');
+                    var currentYearsFields = document.querySelectorAll('.dws-forms-current-' + section + '-years-field');
+                    if (currentYearsFields[0].value != '') {
+                        totalYearsEmploymentAddress = Number(currentYearsFields[0].value);
+                    }
+                    for (var i = 0; i < previousYearsFields.length; i++) {
+                        if (previousYearsFields[i].value != '' || previousYearsFields[i].value === undefined) {
+                            totalYearsEmploymentAddress += Number(previousYearsFields[i].value);
+                        }
+                    }
+                    if (currentMonthFields[0].value != '') {
+                        totalMonthsEmploymentAddress += Number(currentMonthFields[0].value);
+                    }
+                    for (var i = 0; i < previousMonthFields.length; i++) {
+                        if (previousMonthFields[i].value != '') {
+                            totalMonthsEmploymentAddress += Number(previousMonthFields[i].value);
+                        }
+                    }
+                    if (section === 'employment') {
+                        var additionalEmploymentMonths = document.querySelectorAll('.dws-forms-current-additional-employment-months-field');
+                        var additionalEmploymentYears = document.querySelectorAll('.dws-forms-additional-current-employment-years-field');
+                        for (var i = 0; i < additionalEmploymentMonths.length; i++) {
+                            if (additionalEmploymentMonths[i].value != '') {
+                                totalMonthsEmploymentAddress += Number(additionalEmploymentMonths[i].value);
+                            }
+                        }
+                        for (var i = 0; i < additionalEmploymentYears.length; i++) {
+                            if (additionalEmploymentYears[i].value != '') {
+                                totalYearsEmploymentAddress += Number(additionalEmploymentYears[i].value);
+                            }
+                        }
+                    }
+                    currentMonthsInYears = totalYearsEmploymentAddress * 12;
+                    DwsFormsValidateMinAddressEmployment.currentMonthsEmploymentAddress = currentMonthsInYears + totalMonthsEmploymentAddress;
+                    // var tempMinValue = Math.abs(DwsFormsValidateMinAddressEmployment.currentMonthsEmploymentAddress - Number(minValueSetting));
+                    // console.log(DwsFormsValidateMinAddressEmployment.currentMonthsEmploymentAddress);
+                    if (DwsFormsValidateMinAddressEmployment.currentMonthsEmploymentAddress >= Number(minValueSetting)) {
+                        $(previousMonthFields).removeAttr('min');
+                        $(currentMonthFields).removeAttr('min');
+                        $(previousMonthFields).prop('required', false);
+                        $(currentMonthFields).prop('required', false);
+                        this.setCustomValidityToValid(previousMonthFields);
+                        this.setCustomValidityToValid(currentMonthFields);
+                        if (additionalEmploymentMonths != undefined && additionalEmploymentMonths.length > 0) {
+                            $(additionalEmploymentMonths).removeAttr('min');
+                            $(additionalEmploymentMonths).prop('required', false);
+                            this.setCustomValidityToValid(additionalEmploymentMonths);
+                        }
+                        if (additionalEmploymentYears != undefined && additionalEmploymentYears.length > 0) {
+                            $(additionalEmploymentYears).removeAttr('min');
+                            $(additionalEmploymentYears).prop('required', false);
+                            this.setCustomValidityToValid(additionalEmploymentYears);
+                        }
+                    }
+                    else {
+                        $(previousMonthFields).attr('min', minValueSetting);
+                        $(currentMonthFields).attr('min', minValueSetting);
+                        $(previousMonthFields).prop('required', true);
+                        $(currentMonthFields).prop('required', true);
+                        this.setCustomValidityToInvalid(previousMonthFields);
+                        this.setCustomValidityToInvalid(currentMonthFields);
+                        if (additionalEmploymentMonths != undefined && additionalEmploymentMonths.length > 0) {
+                            $(additionalEmploymentMonths).prop('required', true);
+                            $(additionalEmploymentMonths).attr('min', minValueSetting);
+                            this.setCustomValidityToInvalid(additionalEmploymentMonths);
+                        }
+                    }
+                }
+                static setCustomValidityToInvalid(fields) {
+                    fields.forEach((field) => {
+                        field.setCustomValidity(' ');
+                        field.reportValidity();
+                    });
+                }
+                static setCustomValidityToValid(fields) {
+                    fields.forEach((field) => {
+                        field.setCustomValidity('');
+                        field.reportValidity();
+                    });
+                }
+            }
+            DwsFormsValidateMinAddressEmployment.section = '';
+            DwsFormsValidateMinAddressEmployment.currentMonthsEmploymentAddress = 0;
+            DwsFormsValidateMinAddressEmployment.currentYearsEmploymentAddress = 0;
+            DwsFormsValidateMinAddressEmployment.minMonthsAttr = 0;
+            Plugins.DwsFormsValidateMinAddressEmployment = DwsFormsValidateMinAddressEmployment;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

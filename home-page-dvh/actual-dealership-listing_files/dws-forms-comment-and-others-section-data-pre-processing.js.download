@@ -1,0 +1,31 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsCommentAndOthersSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        var howDidYouHearAboutUsField = this.form.find('[name="how_did_you_hear_about_us"]');
+                        if (howDidYouHearAboutUsField.length && howDidYouHearAboutUsField.val() != '') {
+                            var howDidYouHearAboutUs = howDidYouHearAboutUsField.find('option:selected').text();
+                            this.addToFormDataComment('How did you hear about us', howDidYouHearAboutUs, this.form);
+                        }
+                    }
+                }
+            }
+            Plugins.DWSFormsCommentAndOthersSectionDataPreProcessing = DWSFormsCommentAndOthersSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

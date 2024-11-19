@@ -1,0 +1,173 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsAdditionalEmploymentInformationSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    var _a, _b;
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        var employerNameField = this.form.find('[name="additional_employer_name"]');
+                        var coBuyerEmployerNameField = this.form.find('[name="co_buyer_additional_employer_name"]');
+                        var hasAdditionalEmploymentField = this.form.find('[name="additional_employment_checker"]');
+                        var hasCoBuyerAdditionalEmploymentField = this.form.find('[name="co_buyer_additional_employment_checker"]');
+                        // reset previous employment in form data
+                        if ((_a = this.form.data('form-data').applicant) === null || _a === void 0 ? void 0 : _a.previousEmployments) {
+                            // remove additional employment
+                            let previousEmployments = this.form.data('form-data').applicant.previousEmployments.filter(x => x.employmentStatusId != 1);
+                            if (previousEmployments.length == 0) {
+                                delete this.form.data('form-data').applicant.previousEmployments;
+                            }
+                            else {
+                                this.form.data('form-data').applicant.previousEmployments = previousEmployments;
+                            }
+                        }
+                        if ((_b = this.form.data('form-data').coApplicant) === null || _b === void 0 ? void 0 : _b.previousEmployments) {
+                            // remove additional employment
+                            let previousEmployments = this.form.data('form-data').coApplicant.previousEmployments.filter(x => x.employmentStatusId != 1);
+                            if (previousEmployments.length == 0) {
+                                delete this.form.data('form-data').coApplicant.previousEmployments;
+                            }
+                            else {
+                                this.form.data('form-data').coApplicant.previousEmployments = previousEmployments;
+                            }
+                        }
+        
+                        if(hasAdditionalEmploymentField.length > 0 && hasCoBuyerAdditionalEmploymentField.length > 0) {
+                            // check the checkbox property if checked
+                            if(hasAdditionalEmploymentField.prop('checked') == true) {
+                                this.addAdditionalEmploymentToFormData();
+                            }
+
+                            if(hasCoBuyerAdditionalEmploymentField.prop('checked') == true) {
+                                this.addAdditionalEmploymentToFormData(true);
+                            }
+                            
+                        }else{
+                            if (employerNameField.length && employerNameField.prop('disabled') == false) {
+                                this.addAdditionalEmploymentToFormData();
+                            }
+                            else if (coBuyerEmployerNameField.length && coBuyerEmployerNameField.prop('disabled') == false) {
+                                this.addAdditionalEmploymentToFormData(true);
+                            }
+                        }
+                    }
+                }
+                addAdditionalEmploymentToFormData(isCoBuyer = false) {
+                    var _a, _b;
+                    var $ = jQuery;
+                    var additionalEmploymentSection;
+                    if (isCoBuyer) {
+                        additionalEmploymentSection = this.form.find('.dws-forms-section-co-buyer-additional-employment-information[data-form-previous-fields-index]');
+                    }
+                    else {
+                        additionalEmploymentSection = this.form.find('.dws-forms-section-additional-employment-information[data-form-previous-fields-index]');
+                    }
+                    if (additionalEmploymentSection.length > 0) {
+                        var additionalEmploymentList = [];
+                        additionalEmploymentSection.each((index, element) => {
+                            var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x;
+                            var section = $(element);
+                            if (section.css('display') != 'none') {
+                                if (isCoBuyer) {
+                                    var employerName = (_a = section.find('[name="co_buyer_additional_employer_name"]').val()) !== null && _a !== void 0 ? _a : null;
+                                    var title = (_b = section.find('[name="co_buyer_additional_employer_title_position"]').val()) !== null && _b !== void 0 ? _b : null;
+                                    var employerPhoneNumber = (_c = section.find('[name="co_buyer_additional_employer_phone_number"]').val()) !== null && _c !== void 0 ? _c : null;
+                                    var street = (_d = section.find('[name="co_buyer_additional_employer_street"]').val()) !== null && _d !== void 0 ? _d : null;
+                                    var city = (_e = section.find('[name="co_buyer_additional_employer_city"]').val()) !== null && _e !== void 0 ? _e : null;
+                                    var state = (_f = section.find('[name="co_buyer_additional_employer_state"]').val()) !== null && _f !== void 0 ? _f : null;
+                                    var zipCode = (_g = section.find('[name="co_buyer_additional_employer_zip_code"]').val()) !== null && _g !== void 0 ? _g : null;
+                                    var monthlyGrossIncome = (_h = section.find('[name="co_buyer_additional_monthly_gross_income"]').val()) !== null && _h !== void 0 ? _h : null;
+                                    var yearsAtJob = (_j = section.find('[name="co_buyer_additional_employment_years"]').val()) !== null && _j !== void 0 ? _j : null;
+                                    var monthAtJob = (_k = section.find('[name="co_buyer_additional_employment_months"]').val()) !== null && _k !== void 0 ? _k : null;
+                                    var incomeType = (_l = section.find('[name="co_buyer_additional_employment_income_type"]').val()) !== null && _l !== void 0 ? _l : null;
+                                }
+                                else {
+                                    var employerName = (_m = section.find('[name="additional_employer_name"]').val()) !== null && _m !== void 0 ? _m : null;
+                                    var title = (_o = section.find('[name="additional_employer_title_position"]').val()) !== null && _o !== void 0 ? _o : null;
+                                    var employerPhoneNumber = (_p = section.find('[name="additional_employer_phone_number"]').val()) !== null && _p !== void 0 ? _p : null;
+                                    var street = (_q = section.find('[name="additional_employer_street"]').val()) !== null && _q !== void 0 ? _q : null;
+                                    var city = (_r = section.find('[name="additional_employer_city"]').val()) !== null && _r !== void 0 ? _r : null;
+                                    var state = (_s = section.find('[name="additional_employer_state"]').val()) !== null && _s !== void 0 ? _s : null;
+                                    var zipCode = (_t = section.find('[name="additional_employer_zip_code"]').val()) !== null && _t !== void 0 ? _t : null;
+                                    var monthlyGrossIncome = (_u = section.find('[name="additional_monthly_gross_income"]').val()) !== null && _u !== void 0 ? _u : null;
+                                    var yearsAtJob = (_v = section.find('[name="additional_employment_years"]').val()) !== null && _v !== void 0 ? _v : null;
+                                    var monthAtJob = (_w = section.find('[name="additional_employment_months"]').val()) !== null && _w !== void 0 ? _w : null;
+                                    var incomeType = (_x = section.find('[name="additional_employment_income_type"]').val()) !== null && _x !== void 0 ? _x : null;
+                                }
+                                var previousEmployment = {
+                                    employmentStatusId: 1,
+                                    employerName: employerName,
+                                    streetAddress: street,
+                                    city: city,
+                                    businessPhone: employerPhoneNumber,
+                                    state: state,
+                                    zip: zipCode,
+                                    title: title,
+                                };
+                                if (monthlyGrossIncome) {
+                                    var monthlyGrossIncomeSanitized = DealerCenter.WebSite.Plugins.DWS_Input_Price_Format.sanitizedMoneyValue(monthlyGrossIncome);
+                                    previousEmployment.income = $.isNumeric(monthlyGrossIncomeSanitized) ? parseFloat(monthlyGrossIncomeSanitized) : monthlyGrossIncome;
+                                }
+                                if (yearsAtJob) {
+                                    previousEmployment.workYears = $.isNumeric(yearsAtJob) ? parseInt(yearsAtJob) : yearsAtJob;
+                                }
+                                if (monthAtJob) {
+                                    previousEmployment.workMonths = $.isNumeric(monthAtJob) ? parseInt(monthAtJob) : monthAtJob;
+                                }
+                                if (incomeType) {
+                                    previousEmployment.incomeType = $.isNumeric(incomeType) ? parseInt(incomeType) : incomeType;
+                                }
+                                // check all previous employment properties if null
+                                for (var key in previousEmployment) {
+                                    if (!previousEmployment[key]) {
+                                        // remove property in previous employment
+                                        delete previousEmployment[key];
+                                    }
+                                }
+                                // check if previous employment has properties more than 1
+                                if (Object.keys(previousEmployment).length > 1) {
+                                    additionalEmploymentList.push(previousEmployment);
+                                }
+                            }
+                        });
+                        if (additionalEmploymentList.length > 0) {
+                            if (isCoBuyer) {
+                                // check value of coApplicant.previousEmployments
+                                if (((_a = this.form.data('form-data').coApplicant) === null || _a === void 0 ? void 0 : _a.previousEmployments) && this.form.data('form-data').coApplicant.previousEmployments) {
+                                    var filteredList = this.form.data('form-data').coApplicant.previousEmployments.filter(x => x.employmentStatusId != 1);
+                                    additionalEmploymentList = filteredList.concat(additionalEmploymentList);
+                                }
+                                // set previous address in form data
+                                this.addToFormData('coApplicant.previousEmployments', additionalEmploymentList, this.form);
+                            }
+                            else {
+                                if (((_b = this.form.data('form-data').applicant) === null || _b === void 0 ? void 0 : _b.previousEmployments) && this.form.data('form-data').applicant.previousEmployments.length > 0) {
+                                    var filteredList = this.form.data('form-data').applicant.previousEmployments.filter(x => x.employmentStatusId != 1);
+                                    additionalEmploymentList = filteredList.concat(additionalEmploymentList);
+                                }
+                                // set previous address in form data
+                                this.addToFormData('applicant.previousEmployments', additionalEmploymentList, this.form);
+                            }
+                        }
+                    }
+                    if (!isCoBuyer) {
+                        this.addAdditionalEmploymentToFormData(true);
+                    }
+                }
+            }
+            Plugins.DWSFormsAdditionalEmploymentInformationSectionDataPreProcessing = DWSFormsAdditionalEmploymentInformationSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

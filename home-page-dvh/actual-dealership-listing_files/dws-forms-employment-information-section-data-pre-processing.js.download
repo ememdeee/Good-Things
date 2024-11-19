@@ -1,0 +1,45 @@
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsEmploymentInformationSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form, field = null) {
+                    super();
+                    this.field = field;
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        // if dataset json field map equals employment income type
+                        if (this.field.data('form-json-field-map') == 'applicant.employer.incomeType') {
+                            this.convertFormDataValueToInteger('applicant.employer.incomeType', this.field, this.form);
+                        }
+                        if (this.field.attr('name') == 'monthly_gross_income' && this.field.val()) {
+                            this.convertFormDataValueToInteger('applicant.employer.grossMonthlySalary', this.field, this.form);
+                        }
+                        if (this.field.attr('name') == 'employment_months' && this.field.val()) {
+                            this.convertFormDataValueToInteger('applicant.employer.lengthOfEmployMo', this.field, this.form);
+                        }
+                        if (this.field.attr('name') == 'employment_years' && this.field.val()) {
+                            this.convertFormDataValueToInteger('applicant.employer.lengthOfEmployYr', this.field, this.form);
+                        }
+                    }
+                }
+                setFieldsToComment() {
+                    var netMonthlyIncomeField = this.form.find('[name="net_monthly_income"]');
+                    if (netMonthlyIncomeField.length && netMonthlyIncomeField.val() != '') {
+                        this.addToFormDataComment('Net Income', netMonthlyIncomeField.val(), this.form);
+                    }
+                }
+            }
+            Plugins.DWSFormsEmploymentInformationSectionDataPreProcessing = DWSFormsEmploymentInformationSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

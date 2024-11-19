@@ -1,0 +1,57 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsAdditionalInfoSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        this.setExtraCustomFieldsToComment();
+                    }
+                }
+                setExtraCustomFieldsToComment(isCoBuyer = false) {
+                    if (!isCoBuyer) {
+                        var extraCustomField = this.form.find('[id*=dwsBuyerTab] [name="extra_custom_field_1"]');
+                    }
+                    else {
+                        var extraCustomField = this.form.find('[id*=dwsCoBuyerTab] [name="extra_custom_field_1"]');
+                    }
+                    if (extraCustomField.length) {
+                        let parentForm = !isCoBuyer ? extraCustomField.closest('[id*=dwsBuyerTab]') : extraCustomField.closest('[id*=dwsCoBuyerTab]');
+                        let extraFields = parentForm.find('input[name*="extra_custom_field"]');
+                        if (extraFields.length > 0) {
+                            extraFields.each((index, element) => {
+                                let extraField = jQuery(element);
+                                let extraFieldLabel = extraField.data('label');
+                                let extraFieldValue = extraField.val();
+                                if (extraFieldValue != '') {
+                                    if (!isCoBuyer) {
+                                        this.addToFormDataComment(extraFieldLabel, extraFieldValue, this.form);
+                                    }
+                                    else {
+                                        this.addToFormDataComment(extraFieldLabel, extraFieldValue, this.form, true);
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    if (!isCoBuyer) {
+                        this.setExtraCustomFieldsToComment(true);
+                    }
+                }
+            }
+            Plugins.DWSFormsAdditionalInfoSectionDataPreProcessing = DWSFormsAdditionalInfoSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

@@ -1,0 +1,36 @@
+.dws-forms-section.dws-forms-section-previous-employment,
+.dws-forms-section.dws-forms-section-previous-employment-accordion,
+.dws-forms-section.dws-forms-section-co-buyer-previous-employment {
+  max-width: 764px;
+}
+.dws-forms-section.dws-forms-section-previous-employment.dws-fields-wrapper,
+.dws-forms-section.dws-forms-section-previous-employment-accordion.dws-fields-wrapper,
+.dws-forms-section.dws-forms-section-co-buyer-previous-employment.dws-fields-wrapper {
+  max-width: 740px;
+}
+.dws-forms-section.dws-forms-section-previous-employment .dws-forms-form-label,
+.dws-forms-section.dws-forms-section-previous-employment-accordion .dws-forms-form-label,
+.dws-forms-section.dws-forms-section-co-buyer-previous-employment .dws-forms-form-label {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-section.dws-forms-section-previous-employment .dws-forms-form-control,
+.dws-forms-section.dws-forms-section-previous-employment-accordion .dws-forms-form-control,
+.dws-forms-section.dws-forms-section-co-buyer-previous-employment .dws-forms-form-control {
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  background: #F9F9F9;
+  font-size: 0.75em;
+  /* computed based on font-size */
+  height: 2.66em;
+  line-height: 1.375em;
+  padding: 0 12px;
+}
+.dws-forms-section.dws-forms-section-previous-employment .dws-forms-add-and-remove-button-container button,
+.dws-forms-section.dws-forms-section-previous-employment-accordion .dws-forms-add-and-remove-button-container button,
+.dws-forms-section.dws-forms-section-co-buyer-previous-employment .dws-forms-add-and-remove-button-container button {
+  background: transparent;
+  border: none;
+  font-size: 0.75em;
+  line-height: 1.375em;
+}

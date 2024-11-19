@@ -1,0 +1,42 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsTradeInSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        var tradeInLienHolder = this.form.find('[name="trade_in_lien_holder"]');
+                        if (tradeInLienHolder.length && tradeInLienHolder.val() != '') {
+                            this.addToFormDataComment('Lienholder', tradeInLienHolder.val(), this.form);
+                        }
+                        var tradeInPayoffAmount = this.form.find('[name="trade_in_payoff_amount"]');
+                        if (tradeInPayoffAmount.length && tradeInPayoffAmount.val() != '') {
+                            this.addToFormDataComment('Payoff Amount', tradeInPayoffAmount.val(), this.form);
+                        }
+                        var tradeInOweOption = this.form.find('[name="trade_in_owe_option"]:checked');
+                        if (tradeInOweOption.length && tradeInOweOption.val() != '') {
+                            this.addToFormDataComment('Owed money on trade-in', tradeInOweOption.val(), this.form);
+                        }
+                        var tradeInAmountOwed = this.form.find('[name="trade_in_amount_owed"]');
+                        if (tradeInAmountOwed.length && tradeInAmountOwed.val() != '') {
+                            this.addToFormDataComment('Owed money on trade-in amount', tradeInAmountOwed.val(), this.form);
+                        }
+                    }
+                }
+            }
+            Plugins.DWSFormsTradeInSectionDataPreProcessing = DWSFormsTradeInSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

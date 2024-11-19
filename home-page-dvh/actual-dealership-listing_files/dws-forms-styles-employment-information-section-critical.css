@@ -1,0 +1,45 @@
+.dws-forms-section.dws-forms-section-employment-information,
+.dws-forms-section.dws-forms-section-co-buyer-employment-information,
+.dws-forms-section.dws-forms-section-additional-employment-information,
+.dws-forms-section.dws-forms-section-co-buyer-additional-employment-information {
+  max-width: 764px;
+}
+.dws-forms-section.dws-forms-section-employment-information.dws-fields-wrapper,
+.dws-forms-section.dws-forms-section-co-buyer-employment-information.dws-fields-wrapper,
+.dws-forms-section.dws-forms-section-additional-employment-information.dws-fields-wrapper,
+.dws-forms-section.dws-forms-section-co-buyer-additional-employment-information.dws-fields-wrapper {
+  max-width: 740px;
+}
+.dws-forms-section.dws-forms-section-employment-information .dws-forms-form-label,
+.dws-forms-section.dws-forms-section-co-buyer-employment-information .dws-forms-form-label,
+.dws-forms-section.dws-forms-section-additional-employment-information .dws-forms-form-label,
+.dws-forms-section.dws-forms-section-co-buyer-additional-employment-information .dws-forms-form-label,
+.dws-forms-section.dws-forms-section-employment-information .dws-forms-checkbox-container,
+.dws-forms-section.dws-forms-section-co-buyer-employment-information .dws-forms-checkbox-container,
+.dws-forms-section.dws-forms-section-additional-employment-information .dws-forms-checkbox-container,
+.dws-forms-section.dws-forms-section-co-buyer-additional-employment-information .dws-forms-checkbox-container {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-section.dws-forms-section-employment-information .dws-forms-form-control,
+.dws-forms-section.dws-forms-section-co-buyer-employment-information .dws-forms-form-control,
+.dws-forms-section.dws-forms-section-additional-employment-information .dws-forms-form-control,
+.dws-forms-section.dws-forms-section-co-buyer-additional-employment-information .dws-forms-form-control {
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  background-color: #F9F9F9;
+  font-size: 0.75em;
+  /* computed based on font-size */
+  height: 2.66em;
+  line-height: 1.375em;
+  padding: 0 12px;
+}
+.dws-forms-section.dws-forms-section-employment-information .dws-forms-add-and-remove-button-container button,
+.dws-forms-section.dws-forms-section-co-buyer-employment-information .dws-forms-add-and-remove-button-container button,
+.dws-forms-section.dws-forms-section-additional-employment-information .dws-forms-add-and-remove-button-container button,
+.dws-forms-section.dws-forms-section-co-buyer-additional-employment-information .dws-forms-add-and-remove-button-container button {
+  background: transparent;
+  border: none;
+  font-size: 0.75em;
+  line-height: 1.375em;
+}

@@ -1,0 +1,27 @@
+.dws-forms-section.dws-forms-section-trade-in {
+  max-width: 764px;
+}
+.dws-forms-section.dws-forms-section-trade-in.dws-fields-wrapper {
+  max-width: 740px;
+}
+.dws-forms-section.dws-forms-section-trade-in .dws-forms-form-label {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-section.dws-forms-section-trade-in .dws-forms-form-control {
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  background: #F9F9F9;
+  font-size: 0.75em;
+  /* computed based on font-size */
+  height: 2.66em;
+  line-height: 1.375em;
+  padding: 0 12px;
+}
+.dws-forms-section.dws-forms-section-trade-in .dws-trade-in-label {
+  display: inline;
+  margin-right: 10px;
+}
+.dws-forms-section.dws-forms-section-trade-in .dws-forms-form-check-label {
+  font-size: 0.75em;
+}

@@ -1,0 +1,79 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsReferencesSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(form) {
+                    super();
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    var _a;
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        let hasOtherReference = jQuery('.dws-forms-section-references[data-form-previous-fields-index="1"]').length > 0;
+                        // reset othere references in form data
+                        if ((_a = this.form.data('form-data').applicant) === null || _a === void 0 ? void 0 : _a.otherReferences) {
+                            delete this.form.data('form-data').applicant.otherReferences;
+                        }
+                        if (hasOtherReference) {
+                            this.addOtherReferenceToFormData();
+                        }
+                    }
+                }
+                addOtherReferenceToFormData() {
+                    var $ = jQuery;
+                    var otherReferenceSection = this.form.find('.dws-forms-section-references[data-form-previous-fields-index!="0"]');
+                    if (otherReferenceSection.length > 0) {
+                        var otherReferenceList = [];
+                        otherReferenceSection.each((index, element) => {
+                            var _a, _b, _c, _d, _e, _f, _g;
+                            var section = $(element);
+                            if (section.css('display') != 'none' && (section.data('form-previous-fields-index') && section.data('form-previous-fields-index') != '0')) {
+                                var referenceName = (_a = section.find('[name="reference_name"]').val()) !== null && _a !== void 0 ? _a : null;
+                                var phoneNumber = (_b = section.find('[name="reference_phone_number"]').val()) !== null && _b !== void 0 ? _b : null;
+                                var relationship = (_c = section.find('[name="reference_relationship"]').val()) !== null && _c !== void 0 ? _c : null;
+                                var streetAddress = (_d = section.find('[name="reference_street"]').val()) !== null && _d !== void 0 ? _d : null;
+                                var city = (_e = section.find('[name="reference_city"]').val()) !== null && _e !== void 0 ? _e : null;
+                                var state = (_f = section.find('[name="reference_state"]').val()) !== null && _f !== void 0 ? _f : null;
+                                var zip = (_g = section.find('[name="reference_zip"]').val()) !== null && _g !== void 0 ? _g : null;
+                                var otherReference = {
+                                    referenceName: referenceName,
+                                    phoneNumber: phoneNumber,
+                                    relationship: relationship,
+                                    streetAddress: streetAddress,
+                                    city: city,
+                                    state: state,
+                                    zip: zip,
+                                };
+                                // check all other reference properties if null
+                                for (var key in otherReference) {
+                                    if (!otherReference[key]) {
+                                        // remove property in other reference
+                                        delete otherReference[key];
+                                    }
+                                }
+                                // get other reference key count
+                                if (Object.keys(otherReference).length > 0) {
+                                    otherReferenceList.push(otherReference);
+                                }
+                            }
+                        });
+                        if (otherReferenceList.length > 0) {
+                            // set previous address in form data
+                            this.addToFormData('applicant.otherReferences', otherReferenceList, this.form);
+                        }
+                    }
+                }
+            }
+            Plugins.DWSFormsReferencesSectionDataPreProcessing = DWSFormsReferencesSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

@@ -1,0 +1,31 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSFormsCoBuyerEmploymentInformationSectionDataPreProcessing extends DealerCenter.WebSite.Plugins.DWSFormsDataPreProcessing {
+                constructor(field, form) {
+                    super();
+                    this.field = field;
+                    this.form = form;
+                }
+                /**
+                 * initialize class
+                 */
+                init() {
+                    // check if valid inquiry type
+                    if ((this.form.data('form-data').inquiryType == 1 && !this.form.data('form-data').secondaryInquiryType) // credit app
+                    ) {
+                        // if dataset json field map equals employment income type
+                        if (this.field.data('form-json-field-map') == 'coApplicant.employer.incomeType') {
+                            this.convertFormDataValueToInteger('coApplicant.employer.incomeType', this.field, this.form);
+                        }
+                    }
+                }
+            }
+            Plugins.DWSFormsCoBuyerEmploymentInformationSectionDataPreProcessing = DWSFormsCoBuyerEmploymentInformationSectionDataPreProcessing;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

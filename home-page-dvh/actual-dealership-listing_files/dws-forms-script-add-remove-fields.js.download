@@ -1,0 +1,179 @@
+"use strict";
+var DealerCenter;
+(function (DealerCenter) {
+    var WebSite;
+    (function (WebSite) {
+        var Plugins;
+        (function (Plugins) {
+            class DWSAddRemoveFields {
+                addFields(addButton, fieldsWrapper, formFieldsIndex) {
+                    var lastPreviousFields = addButton.closest(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]');
+                    /* clone the last previous fields */
+                    var clonedPreviousFields = lastPreviousFields.clone(true);
+                    if (lastPreviousFields.length == 1 && formFieldsIndex == 0 && lastPreviousFields.children().is(':hidden')) {
+                        jQuery(lastPreviousFields).children(':not(.dws-forms-add-and-remove-button-container)').show();
+                        jQuery('.dws-forms-add-and-remove-button-container').children(':not(.' + addButton.attr('class') + ')').show();
+                        lastPreviousFields.find('input, select').prop('disabled', false);
+                    }
+                    else {
+                        /* exclude the last previous fields add button */
+                        jQuery(addButton).hide();
+                        formFieldsIndex = formFieldsIndex + 1;
+                        // find all the inputs and clear the values
+                        jQuery(clonedPreviousFields).find("input").val("");
+                        // find all the inputs and update the id attributes
+                        jQuery(clonedPreviousFields).find("input").each(function () {
+                            // remove formFieldsIndex from the id if it exists
+                            var newId = jQuery(this).attr("id").replace("-" + (formFieldsIndex - 1), "");
+                            jQuery(this).attr("id", newId);
+                            var newId = jQuery(this).attr("id") + "-" + formFieldsIndex;
+                            jQuery(this).attr("id", newId);
+                        });
+                        this.reApplyPhoneNumberMaskInCloneFields(clonedPreviousFields, 'previous_employer_phone_number');
+                        this.reApplyPhoneNumberMaskInCloneFields(clonedPreviousFields, 'co_buyer_previous_employer_phone_number');
+                        // re-apply price format with decimal in cloned fields
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'previous_monthly_rent_mortgage_amount');
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'co_buyer_previous_monthly_rent_mortgage_amount');
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'previous_monthly_gross_income');
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'previous_net_monthly_income');
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'co_buyer_previous_monthly_gross_income');
+                        clonedPreviousFields.attr("data-form-previous-fields-index", formFieldsIndex).insertAfter(lastPreviousFields);
+                    }
+                    return formFieldsIndex;
+                }
+                removeFields(removeButton, addButton, fieldsWrapper, formFieldsIndex) {
+                    var lastPreviousFields = jQuery(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]');
+                    jQuery(lastPreviousFields).find("input").val("");
+                    if (lastPreviousFields.length == 1 && formFieldsIndex == 0) {
+                        jQuery(lastPreviousFields).children(':not(.dws-forms-add-and-remove-button-container)').hide();
+                        jQuery(lastPreviousFields).children('.dws-forms-add-and-remove-button-container').children(':not(.' + addButton.attr('class') + ')').hide();
+                        jQuery(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]').find('input, select').prop('disabled', true);
+                    }
+                    else {
+                        /* show the last previous fields add button */
+                        jQuery(lastPreviousFields).remove();
+                        formFieldsIndex = formFieldsIndex - 1;
+                        jQuery(lastPreviousFields).find("input").each(function () {
+                            // remove formFieldsIndex from the id if it exists
+                            var newId = jQuery(this).attr("id").replace("-" + (formFieldsIndex - 1), "");
+                            jQuery(this).attr("id", newId);
+                            var newId = jQuery(this).attr("id") + "-" + formFieldsIndex;
+                            jQuery(this).attr("id", newId);
+                        });
+                        jQuery(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]').find('.' + addButton.attr('class')).show();
+                    }
+                    return formFieldsIndex;
+                }
+                // add remove reference fields
+                addReferenceFields(addButton, fieldsWrapper, formFieldsIndex) {
+                    var lastPreviousFields = addButton.closest(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]').first();
+                    var parentForm = lastPreviousFields.closest('form');
+                    if (!lastPreviousFields.length) {
+                        return;
+                    }
+                    var cloneReferenceSection = lastPreviousFields.clone(true);
+                    formFieldsIndex++;
+                    cloneReferenceSection.data('form-previous-fields-index', formFieldsIndex);
+                    // remove clone reference section fields data-form-json-field-map attribute
+                    cloneReferenceSection.find('[data-form-json-field-map]').removeAttr('data-form-json-field-map');
+                    // hide add more and show remove in prev section 
+                    parentForm.find('.dws-references-addmore-button').hide();
+                    parentForm.find('.dws-references-remove-button').show();
+                    // show remove btn in cloned section
+                    cloneReferenceSection.find('.dws-references-addmore-button').show();
+                    cloneReferenceSection.find('.dws-references-remove-button').show();
+                    // clear inputs
+                    cloneReferenceSection.find("input", 'select').val("");
+                    // change clone id and name attributes
+                    cloneReferenceSection.find("input").each(function () {
+                        // remove formFieldsIndex from the id if it exists
+                        var newId = jQuery(this).attr("id").replace("-" + (formFieldsIndex - 1), "");
+                        jQuery(this).attr("id", newId);
+                        newId = jQuery(this).attr("id") + "-" + formFieldsIndex;
+                        jQuery(this).attr("id", newId);
+                    });
+                    this.reApplyPhoneNumberMaskInCloneFields(cloneReferenceSection, 'reference_phone_number');
+                    cloneReferenceSection.attr("data-form-previous-fields-index", formFieldsIndex).insertAfter(lastPreviousFields);
+                    return formFieldsIndex;
+                }
+                removeReferenceFields(removeButton, addButton, fieldsWrapper, formFieldsIndex) {
+                    var lastPreviousFields = jQuery(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]');
+                    jQuery(lastPreviousFields).find("input").val("");
+                    /* show the last previous fields add button */
+                    jQuery(lastPreviousFields).remove();
+                    formFieldsIndex = formFieldsIndex - 1;
+                    jQuery(lastPreviousFields).find("input").each(function () {
+                        // remove formFieldsIndex from the id if it exists
+                        var newId = jQuery(this).attr("id").replace("-" + (formFieldsIndex - 1), "");
+                        jQuery(this).attr("id", newId);
+                        var newId = jQuery(this).attr("id") + "-" + formFieldsIndex;
+                        jQuery(this).attr("id", newId);
+                    });
+                    jQuery(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]').find('.' + addButton.attr('class')).show();
+                    if (lastPreviousFields.length == 1 && formFieldsIndex == 0) {
+                        jQuery(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]').find('.' + removeButton.attr('class')).hide();
+                    }
+                    return formFieldsIndex;
+                }
+                // add remove additional employment information
+                addAddtionalEmploymentInfo(addButton, fieldsWrapper, formFieldsIndex) {
+                    var lastPreviousFields = addButton.closest(fieldsWrapper + '[data-form-previous-fields-index="' + formFieldsIndex + '"]');
+                    if (!lastPreviousFields.length) {
+                        return;
+                    }
+                    lastPreviousFields.find('.dws-additional-employment-remove-button').show();
+                    /* clone the last previous fields */
+                    var clonedPreviousFields = lastPreviousFields.clone(true);
+                    if (lastPreviousFields.length == 1 && formFieldsIndex == 0 && lastPreviousFields.children().is(':hidden')) {
+                        jQuery(lastPreviousFields).children().show();
+                    }
+                    else {
+                        formFieldsIndex++;
+                        /* exclude the last previous fields remove button */
+                        lastPreviousFields.find('.dws-additional-employment-addmore-button').hide();
+                        lastPreviousFields.find('.dws-additional-employment-remove-button').show();
+                        // find all the inputs and clear the values
+                        clonedPreviousFields.find("input", 'select').val("");
+                        // find all the inputs and update the id attributes
+                        clonedPreviousFields.find("input").each(function () {
+                            // remove formFieldsIndex from the id if it exists
+                            var newId = jQuery(this).attr("id").replace("-" + (formFieldsIndex - 1), "");
+                            jQuery(this).attr("id", newId);
+                            newId = jQuery(this).attr("id") + "-" + formFieldsIndex;
+                            jQuery(this).attr("id", newId);
+                        });
+                        this.reApplyPhoneNumberMaskInCloneFields(clonedPreviousFields, 'additional_employer_phone_number');
+                        this.reApplyPhoneNumberMaskInCloneFields(clonedPreviousFields, 'co_buyer_additional_employer_phone_number');
+                        // re-apply price format with decimal in cloned fields
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'additional_monthly_gross_income');
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'additional_employment_net_monthly_income');
+                        this.reApplyPriceFormatWithDecimalInCloneFields(clonedPreviousFields, 'co_buyer_additional_monthly_gross_income');
+                        clonedPreviousFields.attr("data-form-previous-fields-index", formFieldsIndex).insertAfter(lastPreviousFields);
+                    }
+                    return formFieldsIndex;
+                }
+                reApplyPriceFormatWithDecimalInCloneFields(cloneSection, cloneFieldName) {
+                    var cloneField = cloneSection.find(`[name="${cloneFieldName}"]`);
+                    if (cloneField.length) {
+                        var cloneFieldCopy = cloneField.clone();
+                        DealerCenter.WebSite.Plugins.DWSNumbersOnlyFields.numberOnlyAmountField(cloneFieldCopy);
+                        DealerCenter.WebSite.Plugins.DWS_Input_Price_Format.formatPrice(cloneFieldCopy);
+                        cloneFieldCopy.insertAfter(cloneField);
+                        cloneField.remove();
+                    }
+                }
+                reApplyPhoneNumberMaskInCloneFields(cloneSection, cloneFieldName) {
+                    var form_id = jQuery('form').attr('id');
+                    var cloneField = cloneSection.find(`[name="${cloneFieldName}"]`);
+                    if (cloneField.length) {
+                        var cloneFieldCopy = cloneField.clone();
+                        DealerCenter.WebSite.Plugins.DWS_Input_Mask.maskPhoneNumber(cloneFieldCopy, form_id);
+                        cloneFieldCopy.insertAfter(cloneField);
+                        cloneField.remove();
+                    }
+                }
+            }
+            Plugins.DWSAddRemoveFields = DWSAddRemoveFields;
+        })(Plugins = WebSite.Plugins || (WebSite.Plugins = {}));
+    })(WebSite = DealerCenter.WebSite || (DealerCenter.WebSite = {}));
+})(DealerCenter || (DealerCenter = {}));

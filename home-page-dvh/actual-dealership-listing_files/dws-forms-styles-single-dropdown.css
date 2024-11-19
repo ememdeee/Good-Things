@@ -1,0 +1,25 @@
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-contact-information,
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-information {
+  max-width: 764px;
+  margin-bottom: 0;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-contact-information.dws-fields-wrapper,
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-information.dws-fields-wrapper {
+  max-width: 740px;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-contact-information .dws-forms-form-label,
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-information .dws-forms-form-label {
+  font-size: 0.75em;
+  line-height: 1.83333333em;
+}
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-contact-information .dws-forms-form-control,
+.dws-forms-credit-app .dws-forms-section.dws-forms-section-dealer-information .dws-forms-form-control {
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  background-color: #F9F9F9;
+  font-size: 0.75em;
+  /* computed based on font-size */
+  height: 2.66em;
+  line-height: 1.375em;
+  padding: 0 12px;
+}

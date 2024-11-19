@@ -1,0 +1,32 @@
+.dws-forms-wrapper .dws-forms-section .dws-forms-file-attachments label {
+  align-items: center;
+  background: #F1F8FF;
+  border-radius: 8px;
+  border: 1px dashed #7AACC8;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100px;
+  margin-bottom: 0;
+  padding: 24px 16px;
+  width: 600px;
+}
+.dws-forms-wrapper .dws-forms-section .dws-forms-file-attachments label i {
+  color: #ccc;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 0.91666667;
+}
+.dws-forms-wrapper .dws-forms-section .dws-forms-file-attachments label span {
+  color: #666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.83333333;
+}
+.dws-forms-wrapper .dws-forms-section .dws-forms-file-attachments input[type="file"] {
+  display: none;
+  height: 100px;
+  opacity: 0;
+  width: 600px;
+}
