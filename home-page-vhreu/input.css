@@ -1,0 +1,36 @@
+/* Font declarations */
+@font-face {
+    font-family: 'Hanken Grotesk';
+    src: url('assets/HankenGrotesk-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hanken Grotesk';
+    src: url('assets/HankenGrotesk-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom utility classes */
+@layer utilities {
+    .hk-font {
+        font-family: 'Hanken Grotesk', sans-serif;
+    }
+    .hk-font-medium {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-weight: 500;
+    }
+
+    .hk-font-bold {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-weight: 700;
+    }
+}
