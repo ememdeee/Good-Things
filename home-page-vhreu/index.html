@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle History Europe</title>
-    <!-- <script src="https://cdn.tailwindcss.com"></script>
-    <link href="input.css" rel="stylesheet"> -->
-    <link href="vhreu-homepage.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="input.css" rel="stylesheet">
+    <!-- <link href="vhreu-homepage.css" rel="stylesheet"> -->
 </head>
 <body>
 
@@ -253,6 +253,19 @@
   <!-- end navbar -->
 
   <!-- content -->
+  <script>
+    function scrollToForm() {
+        const targetElement = document.getElementById('vinForm');
+        const offset = window.innerWidth <= 768 ? 50 : 100; // Adjust based on screen size
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    };
+  </script>
   <section class="hk-font bg-[#1A2634] px-4 py-12 md:py-16">
     <div class="max-w-7xl mx-auto">
       <!-- Trustpilot Badge -->
@@ -272,7 +285,7 @@
           </div>
   
           <!-- Form Section -->
-          <div class="space-y-4">
+          <!-- <div id="vinForm" class="space-y-4">
             <input 
               type="text" 
               placeholder="Enter your VIN number" 
@@ -291,7 +304,7 @@
             <button class="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-900 font-semibold py-3 px-6 rounded-lg transition-colors">
               Check Vehicle History
             </button>
-          </div>
+          </div> -->
           <?php
           // Output the shortcode directly in a PHP template
           echo do_shortcode('[site_form type="vhr" color="#FFCB00" vintxt="Search VIN" lptxt="Search License Plate" ymmtxt="Search YMM"]');
@@ -304,7 +317,7 @@
               View Sample Report
             </a>
             <a href="#">
-              <span class="inline-flex items-center text-[#FDE4B0] px-3 py-1 rounded-full bg-slate-800">
+              <span class="inline-flex items-center text-[#FDE4B0] px-3 py-1 rounded-full bg-[#203E5F]">
                 <img src="assets/global-icon.svg" class="w-5 h-5 mr-2" alt="World Icon" /> <!-- Placeholder for globe icon -->
                 Pan-European Coverage
               </span>
@@ -398,28 +411,31 @@
     </div>
   </section>
 
-  <section class="hk-font bg-white py-12 px-4 md:py-16 lg:py-20">
+  <section class="hk-font bg-white py-8 px-4 md:py-12 lg:py-16">
     <div class="max-w-6xl mx-auto">
       <!-- Header -->
-      <div class="text-center">
+      <div class="text-center mb-8 md:mb-12">
         <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
           What is a VIN Number?
         </h2>
-        <p class="text-gray-600 max-w-3xl mx-auto text-base md:text-lg mb-4">
-          A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every car. It's like a car's fingerprint!
-        </p>
-        <p class="text-gray-600 max-w-3xl mx-auto text-base md:text-lg">
-          The VIN number contains crucial information, including the vehicle's manufacturer, model, year, engine type, and country of origin. It also tracks the car's history, such as accidents, repairs, and ownership. A VIN is usually found on the car's dashboard, door frame, or engine block.
-        </p>
       </div>
   
-      <!-- VIN Location Guide -->
-      <div class="mt-8">
-        <h3 class="text-xl md:text-2xl font-semibold text-center mb-8">
-          Where to Find Any Vehicle's Identification Number (VIN)
-        </h3>
-        <p class="text-center text-gray-600 mb-8">Check these 7 spots to locate your VIN.</p>
-        <img src="assets/section-3-image.webp" alt="Car Detail" class="w-full h-auto max-w-lg mx-auto" />
+      <!-- Content wrapper -->
+      <div class="flex flex-col md:flex-row md:items-start md:space-x-8">
+        <!-- Left column: Text content -->
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <p class="text-gray-600 text-base md:text-lg mb-4">
+            A Vehicle Identification Number (VIN) is a unique 17-character code assigned to every car. It's like a car's fingerprint!
+          </p>
+          <p class="text-gray-600 text-base md:text-lg">
+            The VIN number contains crucial information, including the vehicle's manufacturer, model, year, engine type, and country of origin. It also tracks the car's history, such as accidents, repairs, and ownership. A VIN is usually found on the car's dashboard, door frame, or engine block.
+          </p>
+        </div>
+  
+        <!-- Right column: VIN Location Guide -->
+        <div class="md:w-1/2">
+          <img src="assets/section-3-image.webp" alt="Car Detail" class="w-full h-auto max-w-lg mx-auto" />
+        </div>
       </div>
     </div>
   </section>
@@ -479,7 +495,7 @@
     
       <div class="text-center">
         <h3 class="text-xl font-semibold mb-6">Don't be a victim in the used car market</h3>
-        <button class="bg-[#1A2634] text-white px-6 py-2 rounded-md hover:bg-[#0F1A22] transition-colors">
+        <button class="bg-[#1A2634] text-white px-6 py-2 rounded-md hover:bg-[#0F1A22] transition-colors" onclick="scrollToForm()">
           Run a VIN check now
         </button>
       </div>
@@ -804,11 +820,9 @@
             Check Sample Report
           </button>
         </a>
-        <a href="#vinForm">
-          <button class="bg-yellow-500 text-gray-900 px-6 py-2 rounded-md hover:bg-yellow-400 transition-colors">
-            Check VIN Now!
-          </button>
-        </a>
+        <button class="bg-yellow-500 text-gray-900 px-6 py-2 rounded-md hover:bg-yellow-400 transition-colors" onclick="scrollToForm()">
+          Check VIN Now!
+        </button>
       </div>
     </div>
   </section>

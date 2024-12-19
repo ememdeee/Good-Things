@@ -61,3 +61,12 @@
         font-weight: 700;
     }
 }
+
+#site_form_submit{
+    color: #1A2634 !important;
+    font-weight: 700 !important;
+    font-family: 'Lato', sans-serif !important;
+}
+#site_form_submit:hover{
+    background-color: #f7d036 !important;
+}
