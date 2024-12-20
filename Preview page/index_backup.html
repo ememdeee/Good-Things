@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
-<!-- condition
-    if it report preview page, use vehicle-report class in the body
-        if it contain auction, give auction class in the body
-    if it window sticker preview page, use window-sticker class in the body -->
-<body class="auction">
+<body>
     <div class="container">
         <div class="topBar"><span class="error">We have found 17 historical records for this VIN:</span> <b id="vin">1FTEX1CM6CFC81700</b></div>
         <div class="content">
@@ -44,48 +40,6 @@
                             <span class="specData" id="vehicleType">Vehicle Type:<b class="value">Pickup - Fullsize</b></span>
                         </div>
                         <div onclick="showSpecData()" class="lessMore">View 17 full specifications</div>
-                    </div>
-                </div>
-                <div class="row_2_ws con preview-window-sticker">
-                    <div class="col image">
-                        <img class="wsImage" src="asset/unlock-window-sticker.png" onclick="toCheckout()" />
-                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
-                        <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
-                    </div>
-                    <div class="col text">
-                        <p class="heading">Your window sticker includes</p>
-                        <div class="list">
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>VIN description</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Interior and exterior Color</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Standard equipment, features and warranties</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>MSRP(Manufacturer's Suggested Retail Price), total vehicle price & shipping cost</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Options and packages</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>EPA fuel economy and environment ratings</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>NHTSA safety rating</span>
-                            </p>
-                            <p class="description">and more...</p>
-                        </div>
-                        <button class="transparent_noBorder withIcon desktop-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                     </div>
                 </div>
                 <div class="row_2">
@@ -545,7 +499,7 @@
                         <div class="grid-item hidden none-sm"><img class="checkIcon" src="asset/check.svg" /> </div>
                     </div>
                 </div>
-                <div class="row_5 sales-history con">
+                <div class="row_5 con">
                     <div class="intro">
                         <p class="heading">The importance of checking the history of a vehicle with full vehicle history report!</p>
                         <p class="description">In today's market, purchasing a used car comes with its fair share of risks. Protect yourself from potential scams and uncertainties by utilizing our meticulously crafted vehicle history reports.</p>
@@ -586,86 +540,7 @@
                     </div>
                     <p class="disclaimer"><span class="error">Disclaimer: </span>Every vehicle is unique and reports may vary based on data availability. Please keep in mind, not all reports will have all the details mentioned. It all depends on the specific history of each vehicle.</p>
                 </div>
-                <div class="row_6 con preview-window-sticker">
-                    <div class="col text">
-                        <p class="heading">Vehicle history report</p>
-                        <p class="description">We provide detailed vehicle history reports for all manufacturers worldwide to avoid potential scams when you buy or sell a vehicle.</p>
-                        <div class="list">
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Sales history</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Damage history</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Auction history with photos</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Stolen check</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Odometer rollback</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Ownership history</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Title brand check</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Salvage brand</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Accident records</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Flood, hail, fire damage check</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Market value</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Recalls</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Maintenance schedules</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Warranty status and coverage</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Estimates on repair costs</span>
-                            </p>
-                            <p class="listItem">
-                                <img class="checkIcon" src="asset/check.svg" />
-                                <span>Detailed car specifications</span>
-                            </p>
-                        </div>
-                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid credits</button>
-                        <button class="transparent_noBorder withIcon desktop-flex">View sample report <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
-                    </div>
-                    <div class="col image">
-                        <img class="wsImage" src="asset/vehicle-history-report.png" />
-                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
-                        <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
-                    </div>
-                </div>
-                <div class="row_6 con preview-vehicle-report">
+                <div class="row_6 con">
                     <div class="col text">
                         <p class="heading">Window Stickers</p>
                         <p class="description">We provide detailed OEM window stickers for all manufacturers worldwide.</p>
