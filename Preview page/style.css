@@ -45,6 +45,19 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-button {
     display: none; /* Hides the top and bottom scrollbar arrows */
 }
+/* global condition */
+body.vehicle-report .preview-window-sticker{
+    display: none;
+}
+body.window-sticker .preview-vehicle-report{
+    display: none;
+}
+body.auction .auction{
+    display: flex !important;
+}
+body.window-sticker .auction, body.window-sticker .sales-history{
+    display: none !important;
+}
 body, p{
     font-family: 'SF Pro Display Reguler', sans-serif;
     margin: 0;
@@ -89,8 +102,11 @@ button.transparent{
 }
 button.transparent_noBorder{
     background: transparent;
-    border: none;
+    border: solid 1px transparent;
     color: #004EA2;
+}
+button.transparent_noBorder:hover{
+    border: 1px solid #1572d4;
 }
 button.transparent:hover{
     background: #1572d4;
@@ -252,6 +268,55 @@ img{
     padding: 20px 0px;
 
 }
+.row_2_ws{
+    display: flex;
+    border-top: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+.row_2_ws .col{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.row_2_ws .image{
+    max-width: 650px;
+}
+.row_2_ws .list{
+    padding-top: 14px;
+}
+.row_2_ws .listItem{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 14px;
+    font-size: 17px;
+}
+.row_2_ws .description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+.row_2_ws button.withIcon{
+    font-size: 17px;
+    padding-left: 0;
+}
+.row_2_ws button.transparent_noBorder:hover{
+    font-size: 17px;
+    text-decoration: underline;
+    border: 1px solid transparent;
+}
+.row_2_ws .wsImage{
+    cursor: pointer;
+}
+.row_2_ws .blue{
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
 .row_2 .checks{
     width: 100%;
     padding: 0px 15px;
@@ -260,6 +325,7 @@ img{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    max-width: 1100px;
 }
 .row_2 .checksHeading{
     margin-bottom: 15px;
@@ -275,6 +341,9 @@ img{
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+}
+.auction .row_2 .checkData{
+    max-width: inherit;
 }
 .row_2 .checkData .col1{
     display: flex;
@@ -324,6 +393,7 @@ img{
     flex-direction: column;
     gap: 15px;
     height: fit-content;
+    display: none;
 }
 .row_2 .redBox{
     display: flex;
@@ -451,8 +521,9 @@ img{
 }
 .row_4 .grid-container{
     display: grid;
-    gap: 10px;
+    gap: 14px;
     margin-top: 15px;
+    font-size: 17px;
 }
 .row_4 .grid-item {
     /* background-color: #f0f0f0; */
@@ -553,20 +624,32 @@ img{
     margin-bottom: 5px;
 }
 .row_6 .image{
-    max-width: 400px;
+    max-width: 460px;
+}
+.row_6.preview-window-sticker .list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.row_6 .list{
+    padding-top: 14px;
 }
 .row_6 .listItem{
     display: flex;
     gap: 10px;
     align-items: center;
-    padding-bottom: 5px;
+    padding-bottom: 14px;
+    font-size: 17px;
 }
 .row_6 .transparent_noBorder{
     padding-left: 0;
 }
+.row_6 button.transparent_noBorder:hover{
+    text-decoration: underline;
+    border: 1px solid transparent;
+}
+
 .row_6 .image .wsImage{
     border-radius: 8px;
-    box-shadow: 0px 0px 8px 2px #0000004D inset;
 }
 .row_7 .tabList {
     margin: 15px 0 0 0;
@@ -1087,7 +1170,7 @@ label:has(input[type="radio"]:checked) .credit::before {
         top: 15px;
     }
 }
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (min-width: 992px) and (max-width: 1300px) {
     .row_2 .checkData{
         max-width: 300px;
     }
@@ -1141,6 +1224,12 @@ label:has(input[type="radio"]:checked) .credit::before {
     }
     .row_2{
         flex-direction: column-reverse;
+    }
+    .row_2_ws{
+        flex-direction: column-reverse;
+    }
+    .row_2_ws button{
+        align-self: center;
     }
     .row_2 .auction{
         width: 100%;
@@ -1279,5 +1368,13 @@ label:has(input[type="radio"]:checked) .credit::before {
 @media (max-width: 851px) {
     .row_2 .checkData{
         max-width: inherit;
+    }
+}
+@media (max-width: 425px) {
+    .packageOption label{
+        width: 100%;
+    }
+    .row_4 .grid-container, .row_6.preview-window-sticker .list{
+        grid-template-columns: repeat(1, 1fr)
     }
 }

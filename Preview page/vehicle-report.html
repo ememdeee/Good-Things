@@ -1,0 +1,2413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starter Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<!-- condition
+    if it report preview page, use vehicle-report class in the body
+        if it contain auction, give auction class in the body
+    if it window sticker preview page, use window-sticker class in the body -->
+<body class="vehicle-report auction">
+    <div class="container">
+        <div class="topBar"><span class="error">We have found 17 historical records for this VIN:</span> <b id="vin">1FTEX1CM6CFC81700</b></div>
+        <div class="content">
+            <div class="data">
+                <div class="row_1">
+                    <div class="vehicle">
+                        <div class="vehicleIntro">
+                            <img src="asset\ford.png">
+                            <span>
+                                <span style="display: block;">2012 Ford</span>
+                                <span>F-150</span>
+                            </span>
+                        </div>
+                        <div class="addToGarage">
+                            <button class="transparent full">Add to garage</button>
+                            <div class="alertContainer">
+                                <img id="garageAlertIcon" class="alert popupAlert" src="asset/alert-circle.svg">
+                                <p id="garageAlertPopup" class="garagePopup infoPopup" style="display: none;">Add vehicle to garage to access detailed vehicle specifications, market value, recalls, maintenance schedules, and more anywhere anytime! Access a full dashboard for free.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vehicleSpesification border-left-md">
+                        <span class="specHeading heading">Vehicle specifications</span>
+                        <div class="spesification">
+                            <span class="specData" id="trim">Trim:<b class="value">STX / XL / XLT</b></span>
+                            <span class="specData" id="bodyType:">Body Type:<b class="value">Extended Cab 4D</b></span>
+                            <span class="specData" id="engine">Engine:<b class="value">3.7L V6 SMPI Flex Fuel</b></span>
+                            <span class="specData" id="manufacturerCountry">Manufacturer Country:<b class="value">United States</b></span>
+                            <span class="specData" id="transmission">Transmission:<b class="value">Manual</b></span>
+                            <span class="specData" id="vehicleType">Vehicle Type:<b class="value">Pickup - Fullsize</b></span>
+                        </div>
+                        <div onclick="showSpecData()" class="lessMore">View 17 full specifications</div>
+                    </div>
+                </div>
+                <div class="row_2_ws con preview-window-sticker">
+                    <div class="col image">
+                        <img class="wsImage" src="asset/unlock-window-sticker.png" onclick="toCheckout()" />
+                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                    <div class="col text">
+                        <p class="heading">Your window sticker includes</p>
+                        <div class="list">
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>VIN description</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Interior and exterior Color</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Standard equipment, features and warranties</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>MSRP(Manufacturer's Suggested Retail Price), total vehicle price & shipping cost</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Options and packages</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>EPA fuel economy and environment ratings</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>NHTSA safety rating</span>
+                            </p>
+                            <p class="description">and more...</p>
+                        </div>
+                        <button class="transparent_noBorder withIcon desktop-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                </div>
+                <div class="row_2">
+                    <div class="checks">
+                        <span class="checksHeading heading">Important vehicle checks</span>
+                        <div class="checksContainer">
+                            <div class="checkData">
+                                <span class="checkDataHeading">Ownership history</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Flood damage check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Title brand check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Odometer rollback</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Accident check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Lemon check</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Theft record</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkData">
+                                <span class="checkDataHeading">Vehicle recalls</span>
+                                <div class="checkDataContainer">
+                                    <div class="col1">
+                                        <div class="redAlert">
+                                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                                            <span class="checkDataDesc">Reveal records!</span>
+                                        </div>
+                                    </div>
+                                    <div onclick="toCheckout()" class="col2">
+                                        <img class="key" src="asset/unlock.svg">
+                                        <span class="unlock">Unlock now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div class="auction border-left-md">
+                        <img src="asset/dummyCar.png" />
+                        <div class="redBox">
+                            <img class="redAlertIcon" src="asset/alert-red.svg">
+                            <p>This vehicle was previously listed for sale. Reveal past sales listing records, including 10+ photos.</p>
+                        </div>
+                        <div class="auctionData">
+                            <span class="auctionvalue">Odometer: <span class="error bold">73,229 mi</span></span>
+                            <span class="auctionvalue">Sales type: <span class="error bold">Classified</span></span>
+                        </div>
+                        <div class="auctionData">
+                            <span class="auctionvalue">City: <span class="error bold">435 W Main St, Anoka MN 55303</span></span>
+                        </div>
+                        <button class="blue withIcon">Get full vehicle history report <img class="btnIcon" src="asset/arrow-right.svg" /></button>
+                    </div>
+                </div>
+                <div class="checkoutContainer mobile">
+                    <div class="checkout">
+                        <p class="heading">Select your package</p>
+                        <p class="description">Get prepaid credits now! Use credits to access detailed vehicle history reports or learn more about the vehicle with a window sticker.</p>
+                        <div class="packageOption" id="packageOptionMobile">
+                            <label for="credit_1">
+                                <div class="credit">
+                                    <input class="radioBtn" type="radio" id="credit_1" name="credit" value="credit_1" checked>
+                                    <div class="packageData">
+                                        <div class="header">
+                                            <span class="getCredit">1 Credit</span>
+                                            <span class="tag none">Most popular</span>
+                                        </div>
+                                        <p class="details">You pay $15.00, you get 1 credit.</p>
+                                        <p class="cost">$15.00/credit</p>
+                                        <p class="compare success">67% cheaper than Carfax</p>
+                                        <div class="saving none">
+                                            <span class="saveTag">Save 47%</span>
+                                            <span class="saveCost">-$75.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label for="credit_5">
+                                <div class="credit">
+                                    <input class="radioBtn" type="radio" id="credit_5" name="credit" value="credit_5">
+                                    <div class="packageData">
+                                        <div class="header">
+                                            <span class="getCredit">5 Credits</span>
+                                            <span class="tag">Most popular</span>
+                                        </div>
+                                        <p class="details">You pay $25.00, you get 5 credits.</p>
+                                        <p class="cost">$5.00/credit</p>
+                                        <p class="compare success none">67% cheaper than Carfax</p>
+                                        <div class="saving">
+                                            <span class="discount">$75.00</span>
+                                            <span class="fix">$25.00</span>
+                                            <span class="saveTag">Save 66%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label for="credit_50">
+                                <div class="credit">
+                                    <input class="radioBtn" type="radio" id="credit_50" name="credit" value="credit_50">
+                                    <div class="packageData">
+                                        <div class="header">
+                                            <span class="getCredit">50 Credit</span>
+                                            <span class=" none">Most popular</span>
+                                        </div>
+                                        <p class="details">You pay $100.00, you get 50 credits.</p>
+                                        <p class="cost">$2.00/credit</p>
+                                        <p class="compare success none">67% cheaper than Carfax</p>
+                                        <div class="saving">
+                                            <span class="discount">$750.00</span>
+                                            <span class="fix">$100.00</span>
+                                            <span class="saveTag">Save 86%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label for="subscription">
+                                <div class="credit subscription">
+                                    <input class="radioBtn" type="radio" id="subscription" name="credit" value="subscription">
+                                    <div class="packageData">
+                                        <div class="header">
+                                            <span class="getCredit">Subscription</span>
+                                            <span class="tag">Monthly</span>
+                                        </div>
+                                        <p class="details">$49.99 only!</p>
+                                        <p class="cost">20 VIN searches per month for both reports and window stickers.</p>
+                                        <p class="compare success none">67% cheaper than Carfax</p>
+                                        <div class="saving none">
+                                            <span class="saveTag">Save 47%</span>
+                                            <span class="saveCost">-$75.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="getCopy">
+                            <input type="checkbox" value="copy" id="copy"/>
+                            <label for="copy">Get printed copy of vehicle history report delivered in just $5.00</label>
+                        </div>
+                        <div class="coupon">
+                            <label for="couponCode">Enter coupon code</label>
+                            <div class="couponContainer">
+                                <input type="text" id="couponCode" placeholder="Enter your coupon code"/>
+                                <button class="black">Apply</button>
+                            </div>
+                        </div>
+                        <div class="invoice">
+                            <div class="invoiceValue">
+                                <span>5 prepaid credits</span>
+                                <span>$25.00</span>
+                            </div>
+                            <div class="invoiceValue">
+                                <span>Discount applied</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="invoiceValue summary">
+                                <span>Total</span>
+                                <span>
+                                    <span class="discount">$25.00</span>
+                                    <span class="fix">$20.00</span>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="blue full big proceedCheckout">Proceed to checkout</button>
+                        <div class="reportFormat">
+                            <img src="asset/report-format.svg" />
+                            <img src="asset/delivery-time.svg" />
+                            <img src="asset/delivery-method.svg" />
+                        </div>
+                        <div class="sliderContainer">
+                            <img class="trustPilot" src="asset/trustPilot.svg" />
+                            <!-- First Testimonial Slider -->
+                            <div class="testimoni testimonialDesktop">
+                                <div class="slider-wrapper">
+                                    <div class="slider testimonial_data_wrapper">
+                                        <div class="slide active">
+                                            <div class="slider-header flex">
+                                                <img src="https://dummyimage.com/100x100/000/fff&text=BH" class="profilePict" alt="Testimonial 1">
+                                                <div class="identity">
+                                                    <p>Bobby Hedrick</p>
+                                                    <p>US</p>
+                                                    <img class="rating" src="asset/stars.svg" alt="Rating">
+                                                </div>
+                                            </div>
+                                            <p class="slider-testimonial">Helpful affordable service that offers accurate information about your vehicle I would choose this over any other vehicle history services.</p>
+                                        </div>
+                                    </div>
+                                    <img src="asset/chevron-left.svg" class="arrow left">
+                                    <img src="asset/chevron-right.svg" class="arrow right">
+                                    <div class="pagination">
+                                        <span class="dot active"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row_3 con">
+                    <div class="heading">Market value data</div>
+                    <div class="marketTabs tabList">
+                        <span class="tab active" data-target="retailValue">Retail Value</span>
+                        <span class="tab" data-target="privateValue">Private Value</span>
+                        <span class="tab" data-target="tradeIn">Trade-in</span>
+                    </div>
+                    <div class="marketData">
+                        <div id="retailValue" class="dataContainer active">
+                            <div class="row">
+                                <div class="title">
+                                    <span>Rough</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="roughAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 30%;"></div>
+                                    <span class="value">$18,646</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Average</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="averageAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 35%;"></div>
+                                    <span class="value">$19,870</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Clean</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="cleanAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 40%;"></div>
+                                    <span class="value">$20,811</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Outstanding</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="outstandingAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 45%;"></div>
+                                    <span class="value">$21,376</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="privateValue" class="dataContainer">
+                            <div class="row">
+                                <div class="title">
+                                    <span>Rough</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="roughAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 10%;"></div>
+                                    <span class="value">$10,646</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Average</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="averageAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 15%;"></div>
+                                    <span class="value">$11,870</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Clean</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="cleanAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 20%;"></div>
+                                    <span class="value">$10,811</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Outstanding</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="outstandingAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 55%;"></div>
+                                    <span class="value">$31,376</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tradeIn" class="dataContainer">
+                            <div class="row">
+                                <div class="title">
+                                    <span>Rough</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="roughAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 50%;"></div>
+                                    <span class="value">$38,646</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Average</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="averageAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 55%;"></div>
+                                    <span class="value">$29,870</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Clean</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="cleanAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 20%;"></div>
+                                    <span class="value">$10,811</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="title">
+                                    <span>Outstanding</span>
+                                    <img class="alert popupAlert" src="asset/alert-circle-black.svg"/>
+                                    <p id="outstandingAlertPopup" class="marketValuePopup infoPopup" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed ante vel libero iaculis cursus.</p>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 15%;"></div>
+                                    <span class="value">$11,376</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row_4 con">
+                    <div class="heading">What we check for?</div>
+                    <div class="grid-container">
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Sales history</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Accident history</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Stolen check</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Recalls</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Auction history</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Market value</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Odometer rollback</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Warranty status & coverage</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Vehicle usage</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Maintenance schedules</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Lien & loan records</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Detailed car specifications</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Ownership history</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Estimates on repair costs</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Salvage brand</div>
+                        <div class="grid-item hidden none-sm"><img class="checkIcon" src="asset/check.svg" /> </div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Title check</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Damage history</div>
+                        <div class="grid-item"><img class="checkIcon" src="asset/check.svg" /> Flood, hail, and fire damage</div>
+                        <div class="grid-item hidden none-sm"><img class="checkIcon" src="asset/check.svg" /> </div>
+                    </div>
+                </div>
+                <div class="row_5 sales-history con">
+                    <div class="intro">
+                        <p class="heading">The importance of checking the history of a vehicle with full vehicle history report!</p>
+                        <p class="description">In today's market, purchasing a used car comes with its fair share of risks. Protect yourself from potential scams and uncertainties by utilizing our meticulously crafted vehicle history reports.</p>
+                        <p class="title bold">2015 Mercedes-Benz SL Class</p>
+                        <p class="vin">VIN: WDDJK6FA2FF035099</p>
+                    </div>
+                    <div class="listing">
+                        <div class=" col listing1">
+                            <p class="listingTitle success">List in auction 2 months prior it listed online</p>
+                            <img class="listingImg" src="asset/car_1.png" />
+                            <div class="listingDataList">
+                                <p>Auction date: <b>07/14/2020</b></p>
+                                <p>Location: <b>Knoxville (TN)</b></p>
+                                <p>Odometer: <b>32,936</b></p>
+                                <p>Title type: <b>SC</b></p>
+                                <p>Primary damage: <b>Front end</b></p>
+                                <p>Auction sold price: <b>$19,100</b></p>
+                            </div>
+                        </div>
+                        <div class="col listing2">
+                            <p class="listingTitle error">Actual vehicle listing after repairs</p>
+                            <img class="listingImg" src="asset/car_2.png" />
+                            <div class="listingDataList">
+                                <p>Sale date: <b>09/16/2020</b></p>
+                                <p>Location: <b>Long Island (NY)</b></p>
+                                <p>Odometer: <b>32,975</b></p>
+                                <p>Seller type: <b>Classified</b></p>
+                                <p>Retail value: <b>$38,263</b></p>
+                                <p>Sold price: <b>$27,750</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="blue withIcon">Get full vehicle history report <img class="btnIcon" src="asset/arrow-right.svg" /></button>
+                        <a class="btn" href="https://detailedvehiclehistory.com/report/vin/56KTRLAA6H3349440#sales-listing-history">
+                            <button class="transparent_noBorder withIcon">View sample report <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                        </a>
+                    </div>
+                    <p class="disclaimer"><span class="error">Disclaimer: </span>Every vehicle is unique and reports may vary based on data availability. Please keep in mind, not all reports will have all the details mentioned. It all depends on the specific history of each vehicle.</p>
+                </div>
+                <div class="row_6 con preview-window-sticker">
+                    <div class="col text">
+                        <p class="heading">Vehicle history report</p>
+                        <p class="description">We provide detailed vehicle history reports for all manufacturers worldwide to avoid potential scams when you buy or sell a vehicle.</p>
+                        <div class="list">
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Sales history</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Damage history</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Auction history with photos</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Stolen check</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Odometer rollback</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Ownership history</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Title brand check</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Salvage brand</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Accident records</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Flood, hail, fire damage check</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Market value</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Recalls</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Maintenance schedules</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Warranty status and coverage</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Estimates on repair costs</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Detailed car specifications</span>
+                            </p>
+                        </div>
+                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="transparent_noBorder withIcon desktop-flex">View sample report <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                    <div class="col image">
+                        <img class="wsImage" src="asset/vehicle-history-report.png" />
+                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                </div>
+                <div class="row_6 con preview-vehicle-report">
+                    <div class="col text">
+                        <p class="heading">Window Stickers</p>
+                        <p class="description">We provide detailed OEM window stickers for all manufacturers worldwide.</p>
+                        <div class="list">
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Highlights features and specifications</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Provides options, packages and safety ratings</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Instantly conveys vehicle information to buyers</span>
+                            </p>
+                            <p class="listItem">
+                                <img class="checkIcon" src="asset/check.svg" />
+                                <span>Builds trust and transparency for dealers and sellers</span>
+                            </p>
+                        </div>
+                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="transparent_noBorder withIcon desktop-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                    <div class="col image">
+                        <img class="wsImage" src="asset/window-sticker.png" />
+                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
+                    </div>
+                </div>
+                <div class="row_7 con" id="spesification">
+                    <p class="heading">Full vehicle specifications</p>
+                    <div class="spesificationsTabs tabList">
+                        <span class="tab active" data-target="imperialData">Imperial</span>
+                        <span class="tab" data-target="metricData">Metric</span>
+                    </div>
+                </div>
+                <div class="row_8">
+                    <div id="imperialData" class="dataContainer active">
+                        <div id="price" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/price.svg" />
+                                    <span class="spesificationTitle">Price</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Base MSRP</td>
+                                            <td class="value">31,105 USD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Delivery charges</td>
+                                            <td class="value">995 USD</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Invoice price</td>
+                                            <td class="value">28,362 USD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Total price</td>
+                                            <td class="value">32,100 USD</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="engine" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/engine.svg" />
+                                    <span class="spesificationTitle">Engine</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Engine type</td>
+                                            <td class="value">Gas/Ethanol V8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Code</td>
+                                            <td class="value">99F</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Engine size</td>
+                                            <td class="value">5.0 L</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cylinders configuration</td>
+                                            <td class="value">V8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Displacement</td>
+                                            <td class="value">5000 cc</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Compressor</td>
+                                            <td class="value">Twin turbo</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Drive type</td>
+                                            <td class="value">RWD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Horsepower RPM</td>
+                                            <td class="value">5000 rpm</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Horsepower</td>
+                                            <td class="value">365 hp</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Torque RPM</td>
+                                            <td class="value">2500 rpm</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Torque</td>
+                                            <td class="value">420 ft-lb</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Engine location</td>
+                                            <td class="value">Front</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Valves</td>
+                                            <td class="value">32</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Compression</td>
+                                            <td class="value">10.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Bore</td>
+                                            <td class="value">3.64 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Stroke</td>
+                                            <td class="value">3.41</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Block type</td>
+                                            <td class="value">V</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="transmission" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/transmission.svg" />
+                                    <span class="spesificationTitle">Transmission</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Automatic</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Code</td>
+                                            <td class="value">446</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Number of speeds</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Description</td>
+                                            <td class="value">6 speed automatic</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">First gear ratio</td>
+                                            <td class="value">4.17</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Second gear ratio</td>
+                                            <td class="value">2.34</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Third gear ratio</td>
+                                            <td class="value">1.52</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Fourth gear ratio</td>
+                                            <td class="value">1.14</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Fifth gear ratio</td>
+                                            <td class="value">0.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Sixth gear ratio</td>
+                                            <td class="value">0.69</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Reverse gear ratio</td>
+                                            <td class="value">3.4</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="fuel" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/fuel.svg" />
+                                    <span class="spesificationTitle">Fuel</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Gasoline</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Tank capacity</td>
+                                            <td class="value">26.0 Gal</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Grade</td>
+                                            <td class="value">Regular unleaded</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/emissions.svg" />
+                                    <span class="spesificationTitle">Emissions</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Greenhouse gas score</td>
+                                            <td class="value">2</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Air pollution score</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mpg" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/mileage.svg" />
+                                    <span class="spesificationTitle">Mileage (MPG)</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">EPA city economy</td>
+                                            <td class="value">15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">EPA hwy economy</td>
+                                            <td class="value">21</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">EPA combined economy</td>
+                                            <td class="value">17</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Cruising range city</td>
+                                            <td class="value">390 mi</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cruising range hwy</td>
+                                            <td class="value">546 mi</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="doors" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/doors.svg" />
+                                    <span class="spesificationTitle">Doors</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Number of doors</td>
+                                            <td class="value">4</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Number of seats</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max seating capacity</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tires" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/tires.svg" />
+                                    <span class="spesificationTitle">Tires</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front tire size</td>
+                                            <td class="value">P235/75R17</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear tire size</td>
+                                            <td class="value">P235/75R17</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Spare tire size</td>
+                                            <td class="value">P235/75R17</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/wheel.svg" />
+                                    <span class="spesificationTitle">Wheels</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front wheel material</td>
+                                            <td class="value">Steel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front wheel size</td>
+                                            <td class="value">17 x 7.5 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear wheel material</td>
+                                            <td class="value">Steel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear wheel size</td>
+                                            <td class="value">17 x 7.5 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Spare wheel material</td>
+                                            <td class="value">Steel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Spare wheel size</td>
+                                            <td class="value">17 x 7.5 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="suspensions" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/suspensions.svg" />
+                                    <span class="spesificationTitle">Suspensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front type</td>
+                                            <td class="value">Double wishbone</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front axle</td>
+                                            <td class="value">Long Spindle</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Rear type</td>
+                                            <td class="value">Live axle</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear axle</td>
+                                            <td class="value">Semi Float Beam</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="braking" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/Braking.svg" />
+                                    <span class="spesificationTitle">Braking</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Pwr</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Primary abs system</td>
+                                            <td class="value">4 Wheel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front disc</td>
+                                            <td class="value">Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear disc</td>
+                                            <td class="value">Yes</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front brake rotor dia</td>
+                                            <td class="value">13.8 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front brake rotor thickness</td>
+                                            <td class="value">0.6 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear brake rotor dia</td>
+                                            <td class="value">13.7 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear brake rotor thickness</td>
+                                            <td class="value">0.5 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="electrical" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/electrical.svg" />
+                                    <span class="spesificationTitle">Electrical</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Cold cranking capacity</td>
+                                            <td class="value">750.0 amps</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max alternator capacity</td>
+                                            <td class="value">155.0 amps</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="exterior" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/exterior_dimensions.svg" />
+                                    <span class="spesificationTitle">Exterior dimensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Overall length</td>
+                                            <td class="value">250.39 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Overall length without rear bumper</td>
+                                            <td class="value">250.3 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Overall width</td>
+                                            <td class="value">79.21 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max width without mirrors</td>
+                                            <td class="value">79.2 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Overall height</td>
+                                            <td class="value">75.79 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Overhang front</td>
+                                            <td class="value">38.3 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Wheelbase</td>
+                                            <td class="value">162.99 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Ground to top of load floor</td>
+                                            <td class="value">34.6 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="interior" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/interior_dimensions.svg" />
+                                    <span class="spesificationTitle">Interior dimensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Passenger volume</td>
+                                            <td class="value">114.8 cu. ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front head room</td>
+                                            <td class="value">41.0 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear head room </td>
+                                            <td class="value">39.7 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front shoulder room</td>
+                                            <td class="value">65.9 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Rear shoulder room</td>
+                                            <td class="value">65.7 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front leg room</td>
+                                            <td class="value">41.4 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear leg room</td>
+                                            <td class="value">33.4 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="weights" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/weights.svg" />
+                                    <span class="spesificationTitle">Weights</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Curb weight as spec'd</td>
+                                            <td class="value">5312.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Payload as spec'd</td>
+                                            <td class="value">2438.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Curb weight</td>
+                                            <td class="value">5312.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Curb weight front</td>
+                                            <td class="value">3110.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Curb weight rear </td>
+                                            <td class="value">2202.0 lbs</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/road.svg" />
+                                    <span class="spesificationTitle">Off-road attributes</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Approach angle</td>
+                                            <td class="value">23 deg</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Departure angle</td>
+                                            <td class="value">23 deg</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Ramp breakover angle</td>
+                                            <td class="value">16 deg</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cargo" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/cargo.svg" />
+                                    <span class="spesificationTitle">Cargo dimensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max cargo volume</td>
+                                            <td class="value">41.0 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cargo box height</td>
+                                            <td class="value">22.4 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cargo box floor length</td>
+                                            <td class="value">97.4 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Cargo box floor width</td>
+                                            <td class="value">60.3 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cargo box wheelhousings width</td>
+                                            <td class="value">50.0 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Tailgate width</td>
+                                            <td class="value">60.3 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="steering" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/Steering.svg" />
+                                    <span class="spesificationTitle">Steering</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Pwr Rack & Pinion</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Turning diameter curb to curb</td>
+                                            <td class="value">52.3 ft</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Turning radius curb to curb</td>
+                                            <td class="value">26.15 ft</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="trailering" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/trailering.svg" />
+                                    <span class="spesificationTitle">Trailering</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max tongue dead weight hitch</td>
+                                            <td class="value">500.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max tongue weight distributing hitch</td>
+                                            <td class="value">5000.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max tongue fifth wheel hitch</td>
+                                            <td class="value">1975.0 lbs</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max trailer fifth wheel hitch</td>
+                                            <td class="value">7900.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max trailer weight distributing hitch</td>
+                                            <td class="value">2400 lbs</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="metricData" class="dataContainer">
+                        <div id="price" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/price.svg" />
+                                    <span class="spesificationTitle">Price</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Base MSRP</td>
+                                            <td class="value">31,105 USD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Delivery charges</td>
+                                            <td class="value">995 USD</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Invoice price</td>
+                                            <td class="value">28,362 USD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Total price</td>
+                                            <td class="value">32,100 USD</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="engine" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/engine.svg" />
+                                    <span class="spesificationTitle">Engine</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Engine type</td>
+                                            <td class="value">Gas/Ethanol V8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Code</td>
+                                            <td class="value">99F</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Engine size</td>
+                                            <td class="value">5.0 L</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cylinders configuration</td>
+                                            <td class="value">V8</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Displacement</td>
+                                            <td class="value">5000 cc</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Compressor</td>
+                                            <td class="value">Twin turbo</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Drive type</td>
+                                            <td class="value">RWD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Horsepower RPM</td>
+                                            <td class="value">5000 rpm</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Horsepower</td>
+                                            <td class="value">365 hp</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Torque RPM</td>
+                                            <td class="value">2500 rpm</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Torque</td>
+                                            <td class="value">420 ft-lb</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Engine location</td>
+                                            <td class="value">Front</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Valves</td>
+                                            <td class="value">32</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Compression</td>
+                                            <td class="value">10.5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Bore</td>
+                                            <td class="value">3.64 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Stroke</td>
+                                            <td class="value">3.41</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Block type</td>
+                                            <td class="value">V</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="transmission" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/transmission.svg" />
+                                    <span class="spesificationTitle">Transmission</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Automatic</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Code</td>
+                                            <td class="value">446</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Number of speeds</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Description</td>
+                                            <td class="value">6 speed automatic</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">First gear ratio</td>
+                                            <td class="value">4.17</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Second gear ratio</td>
+                                            <td class="value">2.34</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Third gear ratio</td>
+                                            <td class="value">1.52</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Fourth gear ratio</td>
+                                            <td class="value">1.14</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Fifth gear ratio</td>
+                                            <td class="value">0.86</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Sixth gear ratio</td>
+                                            <td class="value">0.69</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Reverse gear ratio</td>
+                                            <td class="value">3.4</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="fuel" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/fuel.svg" />
+                                    <span class="spesificationTitle">Fuel</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Gasoline</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Tank capacity</td>
+                                            <td class="value">26.0 Gal</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Grade</td>
+                                            <td class="value">Regular unleaded</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/emissions.svg" />
+                                    <span class="spesificationTitle">Emissions</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Greenhouse gas score</td>
+                                            <td class="value">2</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Air pollution score</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="mpg" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/mileage.svg" />
+                                    <span class="spesificationTitle">Mileage (MPG)</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">EPA city economy</td>
+                                            <td class="value">15</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">EPA hwy economy</td>
+                                            <td class="value">21</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">EPA combined economy</td>
+                                            <td class="value">17</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/alert-circle-black.svg" />
+                                    <span class="spesificationTitle">Other</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Cruising range city</td>
+                                            <td class="value">390 mi</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cruising range hwy</td>
+                                            <td class="value">546 mi</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="doors" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/doors.svg" />
+                                    <span class="spesificationTitle">Doors</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Number of doors</td>
+                                            <td class="value">4</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Number of seats</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max seating capacity</td>
+                                            <td class="value">6</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tires" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/tires.svg" />
+                                    <span class="spesificationTitle">Tires</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front tire size</td>
+                                            <td class="value">P235/75R17</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear tire size</td>
+                                            <td class="value">P235/75R17</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Spare tire size</td>
+                                            <td class="value">P235/75R17</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/wheel.svg" />
+                                    <span class="spesificationTitle">Wheels</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front wheel material</td>
+                                            <td class="value">Steel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front wheel size</td>
+                                            <td class="value">17 x 7.5 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear wheel material</td>
+                                            <td class="value">Steel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear wheel size</td>
+                                            <td class="value">17 x 7.5 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Spare wheel material</td>
+                                            <td class="value">Steel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Spare wheel size</td>
+                                            <td class="value">17 x 7.5 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="suspensions" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/suspensions.svg" />
+                                    <span class="spesificationTitle">Suspensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front type</td>
+                                            <td class="value">Double wishbone</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front axle</td>
+                                            <td class="value">Long Spindle</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Rear type</td>
+                                            <td class="value">Live axle</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear axle</td>
+                                            <td class="value">Semi Float Beam</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="braking" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/Braking.svg" />
+                                    <span class="spesificationTitle">Braking</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Pwr</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Primary abs system</td>
+                                            <td class="value">4 Wheel</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front disc</td>
+                                            <td class="value">Yes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear disc</td>
+                                            <td class="value">Yes</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Front brake rotor dia</td>
+                                            <td class="value">13.8 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front brake rotor thickness</td>
+                                            <td class="value">0.6 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear brake rotor dia</td>
+                                            <td class="value">13.7 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear brake rotor thickness</td>
+                                            <td class="value">0.5 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="electrical" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/electrical.svg" />
+                                    <span class="spesificationTitle">Electrical</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Cold cranking capacity</td>
+                                            <td class="value">750.0 amps</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max alternator capacity</td>
+                                            <td class="value">155.0 amps</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="exterior" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/exterior_dimensions.svg" />
+                                    <span class="spesificationTitle">Exterior dimensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Overall length</td>
+                                            <td class="value">250.39 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Overall length without rear bumper</td>
+                                            <td class="value">250.3 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Overall width</td>
+                                            <td class="value">79.21 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max width without mirrors</td>
+                                            <td class="value">79.2 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Overall height</td>
+                                            <td class="value">75.79 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Overhang front</td>
+                                            <td class="value">38.3 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Wheelbase</td>
+                                            <td class="value">162.99 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Ground to top of load floor</td>
+                                            <td class="value">34.6 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="interior" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/interior_dimensions.svg" />
+                                    <span class="spesificationTitle">Interior dimensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Passenger volume</td>
+                                            <td class="value">114.8 cu. ft</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front head room</td>
+                                            <td class="value">41.0 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear head room </td>
+                                            <td class="value">39.7 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front shoulder room</td>
+                                            <td class="value">65.9 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Rear shoulder room</td>
+                                            <td class="value">65.7 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Front leg room</td>
+                                            <td class="value">41.4 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Rear leg room</td>
+                                            <td class="value">33.4 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="weights" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/weights.svg" />
+                                    <span class="spesificationTitle">Weights</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Curb weight as spec'd</td>
+                                            <td class="value">5312.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Payload as spec'd</td>
+                                            <td class="value">2438.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Curb weight</td>
+                                            <td class="value">5312.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Curb weight front</td>
+                                            <td class="value">3110.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Curb weight rear </td>
+                                            <td class="value">2202.0 lbs</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader not_hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/road.svg" />
+                                    <span class="spesificationTitle">Off-road attributes</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Approach angle</td>
+                                            <td class="value">23 deg</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Departure angle</td>
+                                            <td class="value">23 deg</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Ramp breakover angle</td>
+                                            <td class="value">16 deg</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cargo" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/cargo.svg" />
+                                    <span class="spesificationTitle">Cargo dimensions</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max cargo volume</td>
+                                            <td class="value">41.0 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cargo box height</td>
+                                            <td class="value">22.4 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cargo box floor length</td>
+                                            <td class="value">97.4 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Cargo box floor width</td>
+                                            <td class="value">60.3 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Cargo box wheelhousings width</td>
+                                            <td class="value">50.0 in</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Tailgate width</td>
+                                            <td class="value">60.3 in</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="steering" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/Steering.svg" />
+                                    <span class="spesificationTitle">Steering</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Type</td>
+                                            <td class="value">Pwr Rack & Pinion</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Turning diameter curb to curb</td>
+                                            <td class="value">52.3 ft</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Turning radius curb to curb</td>
+                                            <td class="value">26.15 ft</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="trailering" class="specContainer">
+                            <div class="col col1">
+                                <p class="spesificationHeader">
+                                    <img class="spesificationIcon" src="asset/trailering.svg" />
+                                    <span class="spesificationTitle">Trailering</span>
+                                </p>
+                                <div class="tableContainer">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max tongue dead weight hitch</td>
+                                            <td class="value">500.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max tongue weight distributing hitch</td>
+                                            <td class="value">5000.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max tongue fifth wheel hitch</td>
+                                            <td class="value">1975.0 lbs</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col col2">
+                                <p class="spesificationHeader hiddenHeader">
+                                    <img class="spesificationIcon" src="asset/seat.svg" />
+                                    <span class="spesificationTitle">Seating</span>
+                                </p>
+                                <div class="tableContainer border-left-md">
+                                    <table>
+                                        <tr>
+                                            <td class="title">Max trailer fifth wheel hitch</td>
+                                            <td class="value">7900.0 lbs</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="title">Max trailer weight distributing hitch</td>
+                                            <td class="value">2400 lbs</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="checkoutContainer desktop">
+                <div class="checkout">
+                    <p class="heading">Select your package</p>
+                    <p class="description">Get prepaid credits now! Use credits to access detailed vehicle history reports or learn more about the vehicle with a window sticker.</p>
+                    <div class="packageOption" id="packageOptionDesktop">
+                        <label for="credit_1_m">
+                            <div class="credit">
+                                <input class="radioBtn" type="radio" id="credit_1_m" name="credit_m" value="credit_1" checked>
+                                <div class="packageData">
+                                    <div class="header">
+                                        <span class="getCredit">1 Credit</span>
+                                        <span class="tag none">Most popular</span>
+                                    </div>
+                                    <p class="details">You pay $15.00, you get 1 credit.</p>
+                                    <p class="cost">$15.00/credit</p>
+                                    <p class="compare success">67% cheaper than Carfax</p>
+                                    <div class="saving none">
+                                        <span class="saveTag">Save 47%</span>
+                                        <span class="saveCost">-$75.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label for="credit_5_m">
+                            <div class="credit">
+                                <input class="radioBtn" type="radio" id="credit_5_m" name="credit_m" value="credit_5">
+                                <div class="packageData">
+                                    <div class="header">
+                                        <span class="getCredit">5 Credits</span>
+                                        <span class="tag">Most popular</span>
+                                    </div>
+                                    <p class="details">You pay $25.00, you get 5 credits.</p>
+                                    <p class="cost">$5.00/credit</p>
+                                    <p class="compare success none">67% cheaper than Carfax</p>
+                                    <div class="saving">
+                                        <span class="discount">$75.00</span>
+                                        <span class="fix">$25.00</span>
+                                        <span class="saveTag">Save 66%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label for="credit_50_m">
+                            <div class="credit">
+                                <input class="radioBtn" type="radio" id="credit_50_m" name="credit_m" value="credit_50">
+                                <div class="packageData">
+                                    <div class="header">
+                                        <span class="getCredit">50 Credits</span>
+                                        <span class=" none">Most popular</span>
+                                    </div>
+                                    <p class="details">You pay $100.00, you get 50 credits.</p>
+                                    <p class="cost">$2.00/credit</p>
+                                    <p class="compare success none">67% cheaper than Carfax</p>
+                                    <div class="saving">
+                                        <span class="discount">$750.00</span>
+                                        <span class="fix">$100.00</span>
+                                        <span class="saveTag">Save 86%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                        <label for="subscription_m">
+                            <div class="credit subscription">
+                                <input class="radioBtn" type="radio" id="subscription_m" name="credit_m" value="subscription">
+                                <div class="packageData">
+                                    <div class="header">
+                                        <span class="getCredit">Subscription</span>
+                                        <span class="tag">Monthly</span>
+                                    </div>
+                                    <p class="details">$49.99 only!</p>
+                                    <p class="cost">20 VIN searches per month for both reports and window stickers.</p>
+                                    <p class="compare success none">67% cheaper than Carfax</p>
+                                    <div class="saving none">
+                                        <span class="saveTag">Save 66%</span>
+                                        <span class="saveCost">-$75.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="getCopy">
+                        <input type="checkbox" value="copy" id="copy_m"/>
+                        <label for="copy_m">Get printed copy of vehicle history report delivered in just $5.00</label>
+                    </div>
+                    <div class="coupon">
+                        <label for="couponCode">Enter coupon code</label>
+                        <div class="couponContainer">
+                            <input type="text" id="couponCode" placeholder="Enter your coupon code"/>
+                            <button class="black">Apply</button>
+                        </div>
+                    </div>
+                    <div class="invoice">
+                        <div class="invoiceValue">
+                            <span>5 prepaid credits</span>
+                            <span class="bold">$25.00</span>
+                        </div>
+                        <div class="invoiceValue">
+                            <span>Discount applied</span>
+                            <span class="bold">20%</span>
+                        </div>
+                        <div class="invoiceValue summary">
+                            <span>Total</span>
+                            <span>
+                                <span class="discount">$25.00</span>
+                                <span class="fix">$20.00</span>
+                            </span>
+                        </div>
+                    </div>
+                    <button class="blue full big proceedCheckout">Proceed to checkout</button>
+                    <div class="reportFormat">
+                        <img src="asset/report-format.svg" />
+                        <img src="asset/delivery-time.svg" />
+                        <img src="asset/delivery-method.svg" />
+                    </div>
+                    <div class="sliderContainer">
+                        <img class="trustPilot" src="asset/trustPilot.svg" />
+                        <!-- First Testimonial Slider -->
+                        <div class="testimoni testimonialDesktop">
+                            <div class="slider-wrapper">
+                                <div class="slider testimonial_data_wrapper">
+                                    <div class="slide active">
+                                        <div class="slider-header flex">
+                                            <img src="https://dummyimage.com/100x100/000/fff&text=BH" class="profilePict" alt="Testimonial 1">
+                                            <div class="identity">
+                                                <p>Bobby Hedrick</p>
+                                                <p>US</p>
+                                                <img class="rating" src="asset/stars.svg" alt="Rating">
+                                            </div>
+                                        </div>
+                                        <p class="slider-testimonial">Helpful affordable service that offers accurate information about your vehicle I would choose this over any other vehicle history services.</p>
+                                    </div>
+                                </div>
+                                <img src="asset/chevron-left.svg" class="arrow left">
+                                <img src="asset/chevron-right.svg" class="arrow right">
+                                <div class="pagination">
+                                    <span class="dot active"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row_9 con">
+            <div class="images">
+                <img src="asset/SSL1.svg" />
+                <img src="asset/SSL2.svg" />
+            </div>
+            <p>This website utilizes some of the most advanced techniques to protect your information and personal data including technical, administrative and even physical safeguards against unauthorized access misuse improper disclosure. All of your information is encrypted and transmitted using a Secure Sockets (SSL) protocol.</p>
+        </div>
+        <div class="row_10">
+            <div>© 2024 Detailed Vehicle History All rights reserved.</div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+</body>
+</html>
