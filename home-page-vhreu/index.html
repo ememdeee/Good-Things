@@ -206,7 +206,7 @@
         <li><a href="https://vehiclehistory.eu/pricing" target="_blank">Pricing</a></li>
         <li><a href="https://vehiclehistory.eu/sample-report" target="_blank">Sample Reports</a></li>
         <li><a href="https://vehiclehistory.eu/contact-us" target="_blank">Contact Us</a></li>
-        <li><a href="https://vehiclehistory.eu/vehiclehistory.eu/members/login" class="login-btn" target="_blank">Login</a></li>
+        <li><a href="https://vehiclehistory.eu/members/login" class="login-btn" target="_blank">Login/Sign Up</a></li>
       </ul>
     </div>
   </nav>
@@ -269,10 +269,10 @@
   <section class="hk-font bg-[#1A2634] px-4 py-12 md:py-16">
     <div class="max-w-7xl mx-auto">
       <!-- Trustpilot Badge -->
-      <div class="inline-flex items-center bg-white rounded-full px-4 py-1 mb-8">
+      <!-- <div class="inline-flex items-center bg-white rounded-full px-4 py-1 mb-8">
         <span class="text-sm font-medium">4.8/5 based on 10,000+&nbsp;reviews</span>
-        <img src="assets/Trustpilot.svg" class="w-20 h-5 ml-2"></img> <!-- Placeholder for Trustpilot logo -->
-      </div>
+        <img src="assets/Trustpilot.svg" class="w-20 h-5 ml-2"></img>
+      </div> -->
   
       <!-- Main Content Grid -->
       <div class="grid lg:grid-cols-2 gap-8 items-start">
@@ -408,6 +408,18 @@
           </div>
         </div>
       </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8 items-center">
+        <a href="https://vehiclehistory.eu/sample-report" target="_blank">
+          <button class="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors">
+            View Sample
+          </button>
+        </a>
+        <button class="bg-yellow-500 text-gray-900 px-6 py-2 rounded-md hover:bg-yellow-400 transition-colors" onclick="scrollToForm()">
+          Check Vehicle History!
+        </button>
+      </div>
     </div>
   </section>
 
@@ -494,9 +506,8 @@
       </div>
     
       <div class="text-center">
-        <h3 class="text-xl font-semibold mb-6">Don't be a victim in the used car market</h3>
         <button class="bg-[#1A2634] text-white px-6 py-2 rounded-md hover:bg-[#0F1A22] transition-colors" onclick="scrollToForm()">
-          Run a VIN check now
+          Run a VIN check now!
         </button>
       </div>
     </div>
@@ -684,7 +695,7 @@
         <!-- Detailed Vehicle Specification -->
         <div class="bg-[#203E5F] text-white rounded-lg p-6">
           <h3 class="text-2xl font-semibold mb-4">Detailed Vehicle Specification</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 text-base">
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 text-base">
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
               <span>General specification</span>
@@ -705,13 +716,21 @@
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
               <span>Fuel type</span>
             </div>
+            <div class="flex items-center gap-2">
+              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
+              <span>Displacement information</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
+              <span>Gearbox type</span>
+            </div>
           </div>
         </div>
   
         <!-- Auction Records -->
         <div class="bg-[#203E5F] text-white rounded-lg p-6">
           <h3 class="text-xl font-semibold mb-4">Auction Records</h3>
-          <div class="space-y-3 text-base">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-base">
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
               <span>Sales status and history</span>
@@ -749,7 +768,7 @@
         <!-- Technical Specs -->
         <div class="bg-[#203E5F] text-white rounded-lg p-6">
           <h3 class="text-2xl font-semibold mb-4">Technical Specs</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-base">
+          <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 text-base">
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
               <span>Odometer on title</span>
@@ -770,44 +789,40 @@
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
               <span>Estimated repair cost</span>
             </div>
+            <div class="flex items-center gap-2">
+              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
+              <span>Damage ratio</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
+              <span>Estimated retail value</span>
+            </div>
           </div>
         </div>
   
-        <!-- Problem Checks -->
+        <!-- Theft Records (Stolen Check) -->
         <div class="bg-[#203E5F] text-white rounded-lg p-6">
-          <h3 class="text-xl font-semibold mb-4">Problem Checks</h3>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-base">
+          <h3 class="text-2xl font-semibold mb-4">Theft Records (Stolen Check)</h3>
+          <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 text-base">
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Accidents</span>
+              <span>Reported as Stolen</span>
             </div>
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Flood damage</span>
+              <span>Stolen Date</span>
             </div>
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Fire damage</span>
+              <span>Location</span>
             </div>
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Hail damage</span>
+              <span>License Plate</span>
             </div>
             <div class="flex items-center gap-2">
               <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Saltwater damage</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Junk and salvage</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span>Police or taxi</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <img src="assets/green-check.svg" alt="Check" class="w-4 h-4"/>
-              <span class="text-yellow-300">And more!</span>
+              <span>Color</span>
             </div>
           </div>
         </div>
@@ -896,12 +911,6 @@
             <td class="p-4 text-center">No</td>
             <td class="p-4 text-center text-red-500">Yes (after 30 days)</td>
             <td class="p-4 text-center text-red-500">Yes (after 12 days)</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="p-4">Trust Pilot Rating</td>
-            <td class="p-4 text-center font-medium">4.8</td>
-            <td class="p-4 text-center">2.5</td>
-            <td class="p-4 text-center">2.9</td>
           </tr>
         </tbody>
       </table>
@@ -1005,16 +1014,6 @@
             <div>No</div>
             <div class="text-red-500">Yes (after 30 days)</div>
             <div class="text-red-500">Yes (after 12 days)</div>
-          </div>
-        </div>
-  
-        <!-- Trust Pilot Rating -->
-        <div>
-          <div class="font-medium mb-2 bg-gray-100 p-2 text-center md:text-left">Trust Pilot Rating</div>
-          <div class="grid grid-cols-3 gap-2 text-center">
-            <div class="font-medium">4.8</div>
-            <div>2.5</div>
-            <div>2.9</div>
           </div>
         </div>
       </div>
@@ -1283,9 +1282,8 @@
     </div>
   </section>
 
-  <section class="hk-font py-12 px-4">
+  <!-- <section class="hk-font py-12 px-4">
     <div class="mx-auto max-w-7xl">
-      <!-- Header -->
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold mb-6">What our Customers say?</h2>
         <div class="flex items-center justify-center flex-wrap gap-2 mb-2">
@@ -1298,9 +1296,7 @@
         </div>
       </div>
   
-      <!-- Reviews Grid -->
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <!-- Review 1 (Vivek Malkan) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/Vivek-Malkan-Testimonial.webp" alt="Vivek Malkan" class="w-12 h-12 rounded-full">
@@ -1318,7 +1314,6 @@
           <p class="pt-4 text-gray-700 text-sm">I was looking online to get a copy of my car's window sticker. I came to this website and entered my car's vin number, and instantaneously I received my vehicles history and window sticker. The process was really smooth and efficient and it got me exactly what I was looking for. Once, I received the reports, I wad then contacted by their team, personally via a phone call to make sure I was happy with their service and received what I wanted. This kind of after-sales service is make differentiates a great company from the rest!</p>
         </div>
   
-        <!-- Review 2 (Martin Acuña bermudez) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/Martin-Acuna-bermudez-Testimonial.webp" alt="Martin Acuña bermudez" class="w-12 h-12 rounded-full">
@@ -1336,7 +1331,6 @@
           <p class="pt-4 text-gray-700 text-sm">I am thoroughly impressed with Detailed Vehicle History for their exceptional service. The comprehensive report I received was on par with industry leaders, yet offered at a fraction of the cost. The efficiency and expertise displayed by the live chat agent were remarkable, providing immediate and knowledgeable assistance without any delay. This level of customer service and value has solidified my decision to exclusively use Detailed Vehicle History for all future vehicle history report needs.</p>
         </div>
   
-        <!-- Review 3 (Michael) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/testimonial.webp" alt="Michael" class="w-12 h-12 rounded-full">
@@ -1354,7 +1348,6 @@
           <p class="pt-4 text-gray-700 text-sm">Recently bought a used 7 year old MB sedan. The dealer had limited info about the specific car and affordable option/ costs at original sale. Read favorable newspaper article about Detailed Vehicle History. Within a few minutes the window sticker came back, it was amazingly detailed, showed all the specific options/ costs and looked just like the original window sticker. Would definitely recommend this invaluable service to others.</p>
         </div>
   
-        <!-- Review 4 (Ha Duong) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/haDuong-testimonial.webp" alt="Ha Duong" class="w-12 h-12 rounded-full">
@@ -1373,7 +1366,6 @@
             </p>
         </div>
   
-        <!-- Review 5 (Constantin Colodezni) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/ConstantinColodezni-Tetimonial.webp" alt="Constantin Colodezni" class="w-12 h-12 rounded-full">
@@ -1391,7 +1383,6 @@
           <p class="pt-4 text-gray-700 text-sm">I was pleasantly surprised by the simplicity and effectiveness of this service for checking the history of my motorcycle. With just the VIN number, Detailed Vehicle History provided me with comprehensive information that was well worth it. It's an easy recommendation for any motorcycle owner looking for detailed insights into their vehicle's history.</p>
         </div>
   
-        <!-- Review 6 (DE LOS SANTOS JR, CARLOS L) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/DE-LOS-SANTOS-JR-CARLOS-TESTIMONIAL.webp" alt="DE LOS SANTOS JR, CARLOS L" class="w-12 h-12 rounded-full">
@@ -1409,7 +1400,6 @@
           <p class="pt-4 text-gray-700 text-sm">I'd like to thank detailed vehicle history for getting me my OEM window sticker it was so easy and seamless and very inexpensive I was looking everywhere and couldn't find any sites or ask people no one knew how to get my OEM window sticker but they made it so easy for me I highly recommend them!</p>
         </div>
   
-        <!-- Review 7 (Phil D) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/Phil-D-Testimonial.webp" alt="Phil D" class="w-12 h-12 rounded-full">
@@ -1427,7 +1417,6 @@
           <p class="pt-4 text-gray-700 text-sm">Incredibly efficient service! One of those rare cases where you get exactly what is advertised. I went onto the DVH website and was able to obtain a window sticker for a 25 year old Porsche within a few minutes. Highly recommended!</p>
         </div>
   
-        <!-- Review 8 (Mr. Ed) -->
         <div class="bg-white p-6 rounded-lg border shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
           <div class="flex gap-3 mb-4 items-start">
             <img src="https://detailedvehiclehistory.com/assets/MrEd-Testimonial.webp" alt="Mr. Ed" class="w-12 h-12 rounded-full">
@@ -1446,7 +1435,6 @@
         </div>
       </div>
   
-      <!-- Button -->
       <div class="text-center">
         <a href="https://www.trustpilot.com/review/detailedvehiclehistory.com" target="_blank">
           <button class="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors">
@@ -1455,7 +1443,7 @@
         </a>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="hk-font py-12 px-4">
     <div class="max-w-4xl mx-auto">
@@ -1651,7 +1639,7 @@
           <img src="assets/vhreu-logo.svg" alt="Vehicle History Logo">
       </div>
       <div class="contact-info">
-          <a href="tel:+123456789" target="_blank" aria-label="Phone"><img src="assets/phone-logo.svg" />+123456789</a>
+          <a href="tel:+(866)-300-0554" target="_blank" aria-label="Phone"><img src="assets/phone-logo.svg" />+(866)-300-0554</a>
           <a href="mailto:support@vehiclehistory.com" target="_blank" aria-label="Email"><img src="assets/email-logo.svg" />support@vehiclehistory.com</a>
       </div>
       <!-- <div class="social-links">
@@ -1667,7 +1655,7 @@
       <ul>
           <li><a href="https://vehiclehistory.eu/contact-us" target="_blank">Contact Us</a></li>
           <li><a href="https://vehiclehistory.eu/blog" target="_blank">Blog</a></li>
-          <li><a href="https://vehiclehistory.eu/vehiclehistory.eu/members/login" target="_blank">Login</a></li>
+          <li><a href="https://vehiclehistory.eu/members/login" target="_blank">Login/Sign Up</a></li>
       </ul>
       </div>
 
@@ -1694,7 +1682,7 @@
       <h3>Quick Link</h3>
       <ul>
           <li><a href="https://vehiclehistory.eu/privacy-policy" target="_blank">Privacy Policy</a></li>
-          <li><a href="https://vehiclehistory.eu/terms-of-service" target="_blank">Terms & Condition</a></li>
+          <li><a href="https://vehiclehistory.eu/terms-of-service" target="_blank">Terms and conditions</a></li>
           <li><a href="https://vehiclehistory.eu/frequently-asked-questions" target="_blank">FAQs</a></li>
       </ul>
       </div>
