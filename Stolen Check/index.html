@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-6">
+            <div class="space-y-6">
+                <!-- Header -->
+                <div class="flex flex-col sm:flex-row items-start justify-between gap-4">
+                    <div class="flex items-start gap-4 items-center">
+                        <img src="assets/toyota-logo.png" class="w-auto h-12"/>
+                        <div>
+                            <h1 class="text-xl sm:text-2xl font-bold">2019 TOYOTA HIGHLANDER</h1>
+                            <p class="text-lg sm:text-xl">LIMITED PLATINUM</p>
+                        </div>
+                    </div>
+                    <button class="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 text-white px-4 py-2 rounded-md flex items-center justify-center">
+                        Add to garage
+                        <i data-lucide="clock" class="ml-2 h-4 w-4"></i>
+                    </button>
+                </div>
+
+                <!-- Vehicle Specifications Section - Collapsible on mobile -->
+                <div class="lg:hidden">
+                    <div class="bg-white rounded-lg shadow-md">
+                        <div class="p-4">
+                            <h2 class="text-lg font-semibold mb-4">Vehicle Specifications</h2>
+                            <div class="space-y-3" id="mobileSpecifications">
+                                <!-- Mobile specifications will be populated here -->
+                            </div>
+                            <button id="viewMoreSpecs" class="mt-4 w-full text-blue-600">
+                                View More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stolen Check Section -->
+                <div class="bg-red-50 rounded-lg overflow-hidden shadow-md">
+                    <div class="bg-red-600 p-4">
+                        <h2 class="text-xl font-semibold text-white flex items-center gap-2">
+                            <i data-lucide="shield" class="h-6 w-6"></i>
+                            Stolen Check
+                        </h2>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="bg-white rounded-lg p-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="shield" class="h-5 w-5 text-red-600"></i>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900">REPORTED AS STOLEN?</p>
+                                    <p class="text-sm text-red-600 font-semibold">Records Found</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="stolenCheckItems">
+                            <!-- Stolen check items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Listing Preview -->
+                <div class="bg-blue-50 rounded-lg shadow-md">
+                    <div class="p-6">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <div class="flex-1">
+                                <h3 class="font-semibold mb-4">
+                                    This vehicle was previously listed for sale. Reveal past sales listing records, including 10+ photos.
+                                </h3>
+                                <div class="space-y-2 mb-4">
+                                    <p>Odometer: <span class="text-red-600">99,999</span></p>
+                                    <p>Sales Type: <span class="text-red-600">Classified</span></p>
+                                    <p>Location: <span class="text-red-600">Somerville (NJ)</span></p>
+                                </div>
+                                <button class="w-full border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2 px-4 rounded checkOut">
+                                    Reveal Full Sales Listing Records
+                                </button>
+                            </div>
+                            <div class="md:w-1/3 flex items-center justify-center">
+                                <img src="assets/dummyCar.png" class="w-full h-auto bg-gray-300 rounded-md"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lookup Vehicle History Section -->
+                <section class="space-y-6">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">Lookup Vehicle History</h2>
+                        <p class="text-gray-600">
+                            Access detailed Vehicle History Reports and uncover theft records and all the essential records about your car today!
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4" id="historyCheckItems">
+                        <!-- History check items will be populated here -->
+                    </div>
+                </section>
+
+                <!-- Why Theft Check Isn't Enough Section -->
+                <section class="space-y-6">
+                    <h2 class="text-2xl font-bold">Why Theft Check Isn't Enough?</h2>
+                    <p class="text-gray-600">
+                        In today's market, purchasing a used car comes with its fair share of risks. Protect yourself from potential scams and uncertainties by utilizing our meticulously crafted vehicle history reports.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border-red-200 bg-red-50 rounded-lg shadow-md">
+                            <div class="p-6 space-y-4">
+                                <h3 class="font-semibold text-lg text-red-600">False Listing</h3>
+                                <img src="https://detailedvehiclehistory.com/assets/redImage.webp" class="w-full h-auto object-cover rounded-lg"></img>
+                                <p>
+                                    Dealer listed this vehicle for <span class="font-semibold">$15,995</span>. Dealer only mentioned that this vehicle sustained minor hail damage and has a branded title.
+                                </p>
+                                <a href="https://detailedvehiclehistory.com/actual-dealership-listing/" target="_blank" class="w-full block text-center bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                    View False Listing
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="border-emerald-200 bg-emerald-50 rounded-lg shadow-md">
+                            <div class="p-6 space-y-4">
+                                <h3 class="font-semibold text-lg text-emerald-600">Vehicle History Report</h3>
+                                <img src="https://detailedvehiclehistory.com/assets/greenImage.webp" class="w-full h-auto object-cover rounded-lg"></img>
+                                <p>
+                                    In Detailed Vehicle History Report, it is showing that this vehicle has an <span class="font-semibold">Auction Brand Title, 3 Accident Records, Salvage Brand</span> and more.
+                                </p>
+                                <a href="https://detailedvehiclehistory.com/report/vin/4S4BSAJC6K3298326" target="_blank" class="w-full block text-center border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2 px-4 rounded">
+                                    View History Report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 bg-gray-50 p-4 sm:p-6 rounded-lg">
+                        <h3 class="font-semibold">Common Buying and Selling practices that buyers should be cautious about:</h3>
+                        <div class="space-y-4">
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-start">
+                                    <span class="font-semibold min-w-[24px]">1.</span>
+                                    <span class="font-semibold">Accident History:</span>
+                                </div>
+                                <p class="text-gray-600 ml-6">Sellers may hide accidents or structural damage, inflating the price.</p>
+                            </div>
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-start">
+                                    <span class="font-semibold min-w-[24px]">2.</span>
+                                    <span class="font-semibold">Odometer Rollbacks:</span>
+                                </div>
+                                <p class="text-gray-600 ml-6">Some vehicles may have tampered odometers, misrepresenting mileage.</p>
+                            </div>
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-start">
+                                    <span class="font-semibold min-w-[24px]">3.</span>
+                                    <span class="font-semibold">Auction Vehicles:</span>
+                                </div>
+                                <p class="text-gray-600 ml-6">Bought from auctions may appear perfect but often have a history of repairs.</p>
+                            </div>
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-start">
+                                    <span class="font-semibold min-w-[24px]">4.</span>
+                                    <span class="font-semibold">Title Issues:</span>
+                                </div>
+                                <p class="text-gray-600 ml-6">Salvage titles and title brands can significantly lower the real value of a car.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MSRP Window Sticker Section -->
+                <section id="pricing-section" class="space-y-6">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-2">
+                            MSRP along with the price of packages and options that makes up a window sticker and gets us real price of the car
+                        </h2>
+                        <p class="text-gray-600">
+                            We provide detailed OEM window stickers for all manufacturers worldwide.
+                        </p>
+                    </div>
+
+                    <a href="https://detailedvehiclehistory.com/window-sticker" target="_blank" class="block">
+                        <img src="assets/unlock-window-sticker.png" class="relative w-full h-auto rounded-lg overflow-hidden bg-gray-300"></img>
+                    </a>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-gray-700">Instantly conveys vehicle information to buyers</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-gray-700">Builds trust and transparency for dealers and sellers</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-gray-700">Highlights features and specifications</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-green-600 font-bold">✓</span>
+                            <span class="text-gray-700">Provides options, packages and safety ratings and more.</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://detailedvehiclehistory.com/window-sticker" target="_blank" class="w-full text-center sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Get Window Sticker
+                        </a>
+                        <a href="https://detailedvehiclehistory.com/sticker/vin/54DBDW1B3JS811938-DF26DF26-CFCF-9BBC-5FF5-711C9C1C777C" target="_blank" class="w-full text-center sm:w-auto border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2 px-4 rounded">
+                            View Sample Sticker
+                        </a>
+                    </div>
+
+                    <div id="checkOut" class="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-lg overflow-hidden shadow-lg">
+                        <div class="p-6 space-y-8">
+                            <h3 class="text-2xl sm:text-3xl font-bold text-center mb-4 animate-pulse">
+                                Unlock the Complete Vehicle History
+                            </h3>
+                            <p class="text-center text-blue-100 text-base sm:text-lg">
+                                Choose the package that best fits your needs and get instant access to detailed reports.
+                            </p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="packageOptions">
+                                <!-- Package options will be populated here -->
+                            </div>
+
+                            <div class="flex items-center justify-between bg-white bg-opacity-10 rounded-lg p-4 hover:bg-opacity-20 transition-all gap-2">
+                                <div class="flex items-center gap-2">
+                                    <input
+                                        type="checkbox"
+                                        id="window-sticker"
+                                        class="rounded border-blue-300 text-yellow-400 focus:ring-yellow-400"
+                                    />
+                                    <label for="window-sticker" class="text-sm">
+                                        Add a window sticker to your purchase for just
+                                        <span class="font-bold text-yellow-400">$9.99</span>
+                                        <span class="line-through text-blue-200">$19.99</span>
+                                    </label>
+                                </div>
+                                <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded animate-bounce text-center">
+                                    Save 50%
+                                </span>
+                            </div>
+
+                            <button 
+                                id="getReportButton"
+                                class="w-full bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold text-xl py-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105">
+                                Get Your Report Now
+                            </button>
+
+                            <p class="text-sm text-center text-blue-200">
+                                By selecting "Get Your Report Now" you agree to our
+                                <a href="https://detailedvehiclehistory.com/terms-of-service" target="_blank" class="text-yellow-400 underline">Terms of Use</a>
+                                and
+                                <a href="https://detailedvehiclehistory.com/privacy" target="_blank" class="text-yellow-400 underline">Privacy Policy</a>
+                            </p>
+
+                            <a href="https://www.trustpilot.com/review/detailedvehiclehistory.com" target="_blank" class="flex items-center justify-center gap-2 bg-white bg-opacity-10 p-3 rounded-lg hover:bg-opacity-20 transition-all">
+                                <span class="font-semibold">Trustpilot</span>
+                                <span>Trust score 4.8</span>
+                                <div class="flex">
+                                    <span class="text-yellow-400">★★★★★</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Vehicle Specifications Section - Now in sidebar -->
+            <div class="hidden lg:block">
+                <div class="lg:sticky lg:top-4">
+                    <div class="bg-white rounded-lg shadow-md">
+                        <div class="p-6">
+                            <h2 class="text-lg font-semibold mb-4">Vehicle Specifications</h2>
+                            <div class="space-y-3" id="sidebarSpecifications">
+                                <!-- Sidebar specifications will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section class="py-12">
+            <div class="container mx-auto sm:p-4 max-w-7xl">
+                <div class="grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-center mb-8">What Our Customers Say</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="testimonials">
+                            <!-- Testimonials will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Fixed Pricing Section -->
+<div id="fixedPricing" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-700 to-blue-900 border-t border-blue-500 shadow-lg p-4 md:p-6 z-50 transition-all duration-300">
+    <div class="container mx-auto max-w-7xl">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div class="hidden sm:grid sm:grid-cols-4 gap-4 w-full sm:flex-grow sm:mr-6" id="fixedPackageOptions">
+          <!-- Fixed package options will be populated here -->
+        </div>
+        <div class="flex flex-col items-center gap-2 md:gap-4 w-full sm:w-auto min-w-56">
+          <button id="fixedGetReportButton" class="w-full bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold md:font-bold p-2 md:p-4 text-lg rounded-lg transition-colors duration-300">
+            Get Your Report Now
+          </button>
+          <div class="flex items-center text-white text-sm bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-all p-2 md:p-3 w-full justify-center">
+            <label for="fixed-window-sticker" class="flex items-center cursor-pointer">
+              <input type="checkbox" id="fixed-window-sticker" class="rounded border-blue-300 text-yellow-400 focus:ring-yellow-400 mr-2" />
+              <span>Add window sticker</span>
+            </label>
+            <span class="text-yellow-400 font-semibold ml-2">$9.99</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <footer class="mt-8 border-t pt-8 pb-4">
+            <div class="container mx-auto max-w-7xl">
+                <div class="flex flex-col items-center gap-4 text-center">
+                    <div class="flex items-center gap-4">
+                        <img src="assets/ssl.png" class="h-12" alt="SSL Certificate" />
+                    </div>
+                    <p class="text-sm text-gray-600 max-w-3xl">
+                        This website utilizes some of the most advanced techniques to protect your information and personal
+                        data including technical, administrative and even physical safeguards against unauthorized access
+                        misuse improper disclosure. All of your information is encrypted and transmitted using a Secure Sockets
+                        (SSL) protocol.
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        © 2024 <a href="https://detailedvehiclehistory.com/" target="_blank">Detailed Vehicle History</a>. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sample data
+        const specifications = [
+            { label: "VIN", value: "5TDDZRFHXKS730863", icon: "file-text" },
+            { label: "Engine", value: "3.5L V-6", icon: "car" },
+            { label: "Transmission", value: "Automatic", icon: "settings" },
+            { label: "Drive Type", value: "AWD", icon: "gauge" },
+            { label: "Body Type", value: "SUV", icon: "car" },
+            { label: "Fuel Type", value: "Gas", icon: "fuel" },
+            { label: "Doors", value: "4", icon: "door-open" },
+            { label: "Manufacturer", value: "Toyota", icon: "factory" },
+        ];
+
+        const stolenCheckItems = [
+            { label: "STOLEN DATE", value: "Aug 15, 2023", icon: "clock", blurred: true },
+            { label: "LOCATION", value: "Los Angeles, CA", icon: "map-pin", blurred: true },
+            { label: "LICENSE PLATE", value: "ABC123", icon: "car", blurred: true },
+            { label: "COLOR", value: "Silver", icon: "paintbrush", blurred: true },
+        ];
+
+        const historyCheckItems = [
+            { title: "Ownership History", actionText: "Multiple Owners!", variant: "warning" },
+            { title: "Vehicle Usage", actionText: "Reveal Records!", variant: "reveal" },
+            { title: "Title Brand Check", actionText: "Reveal Records!", variant: "reveal" },
+            { title: "Odometer Rollback", actionText: "Reveal Records!", variant: "reveal" },
+            { title: "Accident Check", actionText: "Multiple Owners!", variant: "warning" },
+            { title: "Lemon Check", actionText: "Reveal Records!", variant: "reveal" },
+            { title: "Flood Check", actionText: "Reveal Records!", variant: "reveal" },
+            { title: "Vehicle Recalls", actionText: "Reveal Records!", variant: "reveal" },
+        ];
+
+        const packages = [
+            { id: "10", reports: 10, pricePerReport: 8.00, totalPrice: 79.99, originalPrice: 199.90, discount: 60, save: "Save BIG!" },
+            { id: "5", reports: 5, pricePerReport: 10.00, totalPrice: 49.99, originalPrice: 99.95, discount: 50, popular: true },
+            { id: "2", reports: 2, pricePerReport: 15.00, totalPrice: 29.99, originalPrice: 39.98, discount: 25 },
+            { id: "1", reports: 1, pricePerReport: 19.99, totalPrice: 19.99 },
+        ];
+
+        const testimonials = [
+            {
+                image: "https://detailedvehiclehistory.com/assets/ConstantinColodezni-Tetimonial.webp",
+                name: "John Doe",
+                loct: "US",
+                content: "This vehicle history report saved me from buying a car with hidden problems. The detailed information was invaluable!",
+                rating: 5
+            },
+            {
+                image: "https://detailedvehiclehistory.com/assets/testimonial.webp",
+                name: "Jane Smith",
+                loct: "CA",
+                content: "As a first-time car buyer, I was nervous about making the wrong choice. This report gave me the confidence I needed.",
+                rating: 5
+            },
+            {
+                image: "https://detailedvehiclehistory.com/assets/Vivek-Malkan-Testimonial.webp",
+                name: "Mike Johnson",
+                loct: "GE",
+                content: "I use this service for all my inventory. It helps build trust with my customers and ensures I'm selling quality vehicles.",
+                rating: 5
+            }
+        ];
+
+        // Populate specifications
+        function populateSpecifications() {
+            const mobileSpecs = document.getElementById('mobileSpecifications');
+            const sidebarSpecs = document.getElementById('sidebarSpecifications');
+            
+            specifications.forEach((spec, index) => {
+                const specHtml = `
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="${spec.icon}" class="h-4 w-4 text-gray-400"></i>
+                            <span class="text-sm font-medium text-gray-600">${spec.label}</span>
+                        </div>
+                        <span class="font-semibold text-gray-900">${spec.value}</span>
+                    </div>
+                `;
+                
+                if (index < 3) {
+                    mobileSpecs.innerHTML += specHtml;
+                }
+                sidebarSpecs.innerHTML += specHtml;
+            });
+
+            lucide.createIcons();
+        }
+
+        // Populate stolen check items
+        function populateStolenCheckItems() {
+            const stolenCheckContainer = document.getElementById('stolenCheckItems');
+            
+            stolenCheckItems.forEach(item => {
+                stolenCheckContainer.innerHTML += `
+                    <div class="bg-white rounded-lg p-3 shadow-sm">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="${item.icon}" class="h-5 w-5 text-red-600"></i>
+                                <div>
+                                    <p class="text-xs font-medium text-gray-600">${item.label}</p>
+                                    <p class="text-sm font-semibold text-gray-900 ${item.blurred ? 'blur-sm' : ''}">
+                                        ${item.blurred ? '●●●●●●●●●●●●' : item.value}
+                                    </p>
+                                </div>
+                            </div>
+                            ${item.blurred ? `
+                                <button class="text-xs px-2 py-1 text-blue-600 hover:text-blue-800 checkOut">
+                                    Reveal
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+
+            lucide.createIcons();
+        }
+
+        // Populate history check items
+        function populateHistoryCheckItems() {
+            const historyCheckContainer = document.getElementById('historyCheckItems');
+            
+            historyCheckItems.forEach(item => {
+                historyCheckContainer.innerHTML += `
+                    <div class="p-4 bg-white rounded-lg border flex flex-col items-center text-center space-y-2">
+                        <i data-lucide="alert-triangle" class="h-8 w-8 text-amber-500"></i>
+                        <h3 class="font-medium">${item.title}</h3>
+                        <button class="text-${item.variant === 'warning' ? 'red' : 'blue'}-600 p-0 h-auto checkOut">
+                            ${item.actionText}
+                        </button>
+                    </div>
+                `;
+            });
+
+            lucide.createIcons();
+        }
+
+        // Populate package options
+        function populatePackageOptions() {
+            const packageContainer = document.getElementById('packageOptions');
+            const fixedPackageContainer = document.getElementById('fixedPackageOptions');
+            
+            packages.forEach(pkg => {
+                const packageHtml = `
+                    <div class="relative">
+                        <input type="radio" name="package" id="option-${pkg.id}" value="${pkg.id}" class="peer sr-only" />
+                        <label for="option-${pkg.id}" class="flex flex-col py-6 px-4 bg-white bg-opacity-10 rounded-lg cursor-pointer transition-all hover:bg-opacity-30 peer-checked:ring-2 peer-checked:ring-yellow-400 hover:transform hover:scale-105">
+                            ${pkg.popular ? `
+                                <span class="absolute top-0 right-0 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">
+                                    Most Popular
+                                </span>
+                            ` : ''}
+                            ${pkg.save ? `
+                                <span class="absolute top-0 left-0 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-br-lg rounded-tl-lg">
+                                    ${pkg.save}
+                                </span>
+                            ` : ''}
+                            <span class="text-lg font-bold mb-1">${pkg.reports} ${pkg.reports === 1 ? 'Report' : 'Reports'}</span>
+                            <span class="text-2xl sm:text-2xl font-bold text-yellow-400 mb-2">
+                                $${pkg.pricePerReport.toFixed(2)}
+                                <span class="text-sm text-blue-200">/report</span>
+                            </span>
+                            <span class="text-sm font-semibold">
+                                Total: $${pkg.totalPrice.toFixed(2)}
+                            </span>
+                            ${pkg.originalPrice ? `
+                                <span class="text-xs text-blue-200 line-through">
+                                    Original: $${pkg.originalPrice.toFixed(2)}
+                                </span>
+                            ` : ''}
+                            ${pkg.discount ? `
+                                <span class="text-xs font-bold text-yellow-400">
+                                    Save ${pkg.discount}%
+                                </span>
+                            ` : ''}
+                        </label>
+                    </div>
+                `;
+                
+                packageContainer.innerHTML += packageHtml;
+                
+                fixedPackageContainer.innerHTML += `
+                    <div class="text-center p-3 rounded-lg cursor-pointer transition-all bg-white bg-opacity-10 text-blue-100 hover:bg-opacity-20 flex flex-col justify-center items-center" data-package-id="${pkg.id}">
+                        <div class="text-sm font-semibold">${pkg.reports} ${pkg.reports === 1 ? 'Report' : 'Reports'}</div>
+                        <div class="text-xl font-bold text-yellow-400">$${pkg.pricePerReport.toFixed(2)}</div>
+                        <div class="text-xs">Total: $${pkg.totalPrice.toFixed(2)}</div>
+                        ${pkg.discount ? `
+                            <div class="text-xs text-yellow-200 font-semibold">Save ${pkg.discount}%</div>
+                        ` : ''}
+                        ${pkg.popular ? `
+                            <div class="text-xs text-green-300 font-semibold">Most Popular</div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+        }
+
+        // Populate testimonials
+        function populateTestimonials() {
+            const testimonialsContainer = document.getElementById('testimonials');
+            
+            testimonials.forEach(testimonial => {
+                testimonialsContainer.innerHTML += `
+                    <div class="bg-white rounded-lg shadow-md flex flex-col h-full">
+                        <div class="flex-grow p-6">
+                            <div class="flex items-center mb-4">
+                                <img src="${testimonial.image}" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl"/>
+                                <div class="ml-4">
+                                    <h3 class="font-semibold">${testimonial.name}</h3>
+                                    <p class="text-sm text-gray-600">${testimonial.loct}</p>
+                                </div>
+                            </div>
+                            <div class="mb-4 text-yellow-400 flex">
+                                ${'★'.repeat(testimonial.rating)}
+                            </div>
+                            <i data-lucide="quote" class="w-8 h-8 text-blue-300 mb-2"></i>
+                            <p class="text-gray-700">${testimonial.content}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+            lucide.createIcons();
+        }
+
+        // Initialize the page
+        function initPage() {
+            populateSpecifications();
+            populateStolenCheckItems();
+            populateHistoryCheckItems();
+            populatePackageOptions();
+            populateTestimonials();
+
+            // Set up event listeners
+            document.getElementById('viewMoreSpecs').addEventListener('click', toggleMobileSpecs);
+            document.getElementById('getReportButton').addEventListener('click', handleGetReport);
+            document.getElementById('fixedGetReportButton').addEventListener('click', handleGetReport);
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleResize);
+
+            // Set up fixed pricing package selection
+            const fixedPackages = document.querySelectorAll('#fixedPackageOptions > div');
+            fixedPackages.forEach(pkg => {
+                pkg.addEventListener('click', () => selectFixedPackage(pkg.dataset.packageId));
+            });
+
+            // Initialize fixed pricing visibility
+            handleResize();
+        }
+
+        function toggleMobileSpecs() {
+            const mobileSpecs = document.getElementById('mobileSpecifications');
+            const viewMoreButton = document.getElementById('viewMoreSpecs');
+            const isExpanded = mobileSpecs.children.length > 3;
+
+            if (isExpanded) {
+                while (mobileSpecs.children.length > 3) {
+                    mobileSpecs.removeChild(mobileSpecs.lastChild);
+                }
+                viewMoreButton.textContent = 'View More';
+            } else {
+                specifications.slice(3).forEach(spec => {
+                    mobileSpecs.innerHTML += `
+                        <div class="flex items-center justify-between p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                            <div class="flex items-center space-x-2">
+                                <i data-lucide="${spec.icon}" class="h-4 w-4 text-gray-400"></i>
+                                <span class="text-sm font-medium text-gray-600">${spec.label}</span>
+                            </div>
+                            <span class="font-semibold text-gray-900">${spec.value}</span>
+                        </div>
+                    `;
+                });
+                viewMoreButton.textContent = 'View Less';
+                lucide.createIcons();
+            }
+        }
+
+        function handleGetReport() {
+            const selectedPackage = document.querySelector('input[name="package"]:checked');
+            const addWindowSticker = document.getElementById('window-sticker').checked;
+            
+            console.log(`Selected package: ${selectedPackage ? selectedPackage.value : 'None'} reports`);
+            console.log(`Add window sticker: ${addWindowSticker}`);
+            // Add checkout logic here
+        }
+
+        function handleScroll() {
+            const pricingSection = document.getElementById('checkOut');
+            const fixedPricing = document.getElementById('fixedPricing');
+            
+            if (pricingSection) {
+                const rect = pricingSection.getBoundingClientRect();
+                const buffer = 20; // 20px buffer
+
+                // Show when above or significantly below the pricing section
+                if (rect.top > window.innerHeight + buffer || rect.bottom < -buffer) {
+                    fixedPricing.classList.remove('pointer-events-none', 'opacity-0');
+                } else {
+                    fixedPricing.classList.add('pointer-events-none', 'opacity-0');
+                }
+            }
+        }
+
+        function handleResize() {
+            const fixedPricing = document.getElementById('fixedPricing');
+            return
+            if (window.innerWidth >= 640) {
+                fixedPricing.classList.remove('hidden');
+            } else {
+                fixedPricing.classList.add('hidden');
+            }
+        }
+
+        function selectFixedPackage(packageId) {
+            const radioButton = document.getElementById(`option-${packageId}`);
+            if (radioButton) {
+                radioButton.checked = true;
+            }
+            
+            const fixedPackages = document.querySelectorAll('#fixedPackageOptions > div');
+            fixedPackages.forEach(pkg => {
+                if (pkg.dataset.packageId === packageId) {
+                    pkg.classList.add('bg-blue-500', 'text-white');
+                    pkg.classList.remove('bg-white', 'bg-opacity-10', 'text-blue-100');
+                } else {
+                    pkg.classList.remove('bg-blue-500', 'text-white');
+                    pkg.classList.add('bg-white', 'bg-opacity-10', 'text-blue-100');
+                }
+            });
+        }
+
+        // Initialize the page when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', initPage);
+
+        // Function to handle the smooth scroll
+        function smoothScrollToCheckOut(e) {
+            e.preventDefault();
+            const checkOutElement = document.getElementById('checkOut');
+            
+            if (checkOutElement) {
+                // Check if the browser supports smooth scrolling
+                if ('scrollBehavior' in document.documentElement.style) {
+                    checkOutElement.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Fallback for browsers that don't support smooth scrolling
+                    const targetPosition = checkOutElement.getBoundingClientRect().top + window.pageYOffset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all elements with the class "checkOut"
+            const checkOutButtons = document.querySelectorAll('.checkOut');
+
+            // Add click event listener to each "checkOut" element
+            checkOutButtons.forEach(button => {
+                button.addEventListener('click', smoothScrollToCheckOut);
+            });
+        });
+    </script>
+</body>
+</html>
