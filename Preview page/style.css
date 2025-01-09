@@ -1044,17 +1044,15 @@ label:has(input[type="radio"]:checked) .credit::before {
 }
 .reportFormat{
     display: flex;
-    gap: 10px;
+    gap: 4px;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #D1D1D1;
     padding: 15px 0;
-    flex-wrap: wrap;
 }
 .reportFormat img{
-    width: 30%;
-    height: 56px;
-    max-width: 185px
+    width: calc(33% - 1px);
+    height: auto;
 }
 .sliderContainer {
     padding-top: 20px;
@@ -1325,9 +1323,6 @@ label:has(input[type="radio"]:checked) .credit::before {
     }
 
     /* checkout */
-    .reportFormat img{
-        width: 100% !important;
-    }
     .credit{
         font-size: 16px;
         gap: 2px;
