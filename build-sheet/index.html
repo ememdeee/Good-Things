@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Vehicle Description</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    .specifications-container {
+        column-count: 2;
+        column-gap: 2rem;
+    }
+    .specification-category {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+</style>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-[1340px] mx-auto bg-white border-8 border-black p-6">
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-4">
+            <div class="flex gap-4">
+                <div class="w-20 h-20 rounded-xl p-1 border-2 text-black border-black">
+                    <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-lg leading-snug font-bold uppercase">Vehicle Description</h1>
+                    <h2 class="text-2xl leading-snug font-bold">1963 Dodge Polara</h2>
+                    <p class="text-lg leading-snug font-bold">Its a B-500 Series</p>
+                </div>
+            </div>
+            <div class="flex gap-4 items-center">
+                <p class="text-base font-bold">Scan to view build sheet</p>
+                <img src="assets/barcode.svg" class="w-20 h-20 scale-125"></img>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex gap-6">
+            <!-- Left Column - Specifications -->
+            <div class="flex-grow">
+                <h3 class="text-lg font-bold mb-2">Standard Specifications</h3>
+                <div id="specificationsContainer" class="specifications-container">
+                    <!-- JavaScript will populate this -->
+                </div>
+            </div>
+
+            <!-- Right Column - Price and Equipment -->
+            <div class="w-64">
+                <!-- Original Base Price -->
+                <div class="bg-[#E0C12B] p-2 mb-4">
+                    <p class="text-sm">Original Base Price</p>
+                    <p class="font-bold">$3,195.00</p>
+                </div>
+
+                <div class="bg-[#F2E5D7] text-center p-2 mb-4">
+                    <p class="text-sm mb-1">No. Produced: 7,300</p>
+                </div>
+
+                <!-- Standard/Optional Equipment -->
+                <div class="p-2">
+                    <ul class="text-sm" id="equipmentList">
+                        <!-- JavaScript will populate this -->
+                    </ul>
+                </div>
+
+                <!-- VIN -->
+                <div class="bg-[#F2E5D7] text-center p-2 mt-4">
+                    <p class="text-sm">VIN: 6432153670</p>
+                </div>
+
+                <!-- Report Section -->
+                <div class="mt-8 border border-black p-4">
+                    <h4 class="font-bold text-sm mb-2">Get 20% Off Classic Vehicle History Reports!</h4>
+                    <p class="text-xs mb-4">Uncover your classic car's past with detailed records, including:</p>
+                    <ul class="text-xs list-disc pl-4 mb-4">
+                        <li>Auction & Sales History</li>
+                        <li>Accident & Title Records</li>
+                        <li>Mileage, Theft, Lien Checks & more</li>
+                    </ul>
+                    <button class="bg-yellow-400 text-sm w-full py-1 px-2">Get Your Report Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Value -->
+        <div class="mt-8">
+            <h3 class="font-bold mb-2">Market Value</h3>
+            <div class="grid grid-cols-4 gap-4 text-center">
+                <div class="border p-2">
+                    <p class="font-bold">♦ Rough</p>
+                    <p class="text-sm">$30,100</p>
+                </div>
+                <div class="border p-2">
+                    <p class="font-bold">♦ Average</p>
+                    <p class="text-sm">$48,800</p>
+                </div>
+                <div class="border p-2">
+                    <p class="font-bold">♦ Good</p>
+                    <p class="text-sm">$70,200</p>
+                </div>
+                <div class="border p-2">
+                    <p class="font-bold">♦ Outstanding</p>
+                    <p class="text-sm">$83,200</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exterior Colors -->
+        <div class="mt-8">
+            <h3 class="font-bold mb-2">Exterior Colors (Paint Type)</h3>
+            <p class="text-xs">Colors: All colors may not be available in all models. Turquoise Metallic, Gray, Light Blue, Medium Blue Metallic, Dark Blue Metallic, Black, Ivory, Steel Gray Metallic, Vermillion, Polar No. 2, Beige, Sandalwood Metallic</p>
+        </div>
+    </div>
+
+    <script>
+        const specifications = {
+            "Body": [
+                "Body Maker: Dodge",
+                "No. Doors: 2",
+                "Passengers:",
+                "Model: B-500",
+                "Weight: 3,455lbs"
+            ],
+            "Dimension": [
+                "Wheelbase: 119 inches",
+                "Length: 209.8 inches",
+                "Width: 78.8 inches",
+                "Height: 53.9 inches",
+                "Front Tread: 61.7 inches",
+                "Rear Tread: 57.5 inches"
+            ],
+            "Engine": [
+                "Type: V8 Valve-in-head",
+                "Displacement: 362.9 cu. in.",
+                "Cylinders: 8",
+                "Bore: 4.12 inches",
+                "Stroke: 3.375 inches",
+                "Compression Ratio: 10.1 to 1",
+                "Brake Horsepower: 305@4600",
+                "Rated Horsepower: 52",
+                "Torque: @3600",
+                "Main Bearings: 5",
+                "Valve Drive: Hydraulic",
+                "Block: Cast iron"
+            ],
+            "Transmission": [
+                "Type: Unknown at time of publication",
+                "Drive: Rear wheel drive",
+                "No. Of speeds",
+                "Gear Ratios:",
+                "1st: 2.45 to 1",
+                "2nd: 1.45 to 1",
+                "3rd: 1.00 to 1",
+                "4th: Not applicable",
+                "5th: Not applicable"
+            ],
+            "Test": [
+                "Type: Unknown at time of publication",
+                "Drive: Rear wheel drive",
+                "No. Of speeds",
+                "Gear Ratios:"
+            ],
+            "Test1": [
+                "Type: Unknown at time of publication",
+                "Drive: Rear wheel drive",
+                "No. Of speeds",
+                "Gear Ratios:"
+            ],
+            "Test2": [
+                "Type: Unknown at time of publication",
+                "Drive: Rear wheel drive",
+                "No. Of speeds",
+                "Gear Ratios:"
+            ]
+        };
+
+        const equipment = {
+            "Standard/Optional Equipment": [
+                "1963 Dodge Polara B-500 Series",
+                "Standard Specifications",
+                "Power Brakes",
+                "Power steering",
+                "Push-button radio"
+            ]
+        };
+
+        function createSpecifications() {
+            const container = document.getElementById('specificationsContainer');
+
+            Object.entries(specifications).forEach(([category, items]) => {
+                const section = document.createElement('div');
+                section.className = 'mb-4 specification-category';
+
+                // Create title container for flex layout
+                const titleContainer = document.createElement('div');
+                titleContainer.className = 'flex items-center gap-1';
+
+                // Create icon
+                const icon = document.createElement('img');
+                icon.src = 'assets/icon.svg';
+                icon.className = 'w-5 h-5 -mb-3';
+                icon.alt = '';
+
+                // Create title
+                const title = document.createElement('h4');
+                title.className = 'font-bold text-base';
+                title.textContent = category;
+
+                // Append title and icon to container
+                titleContainer.appendChild(icon);
+                titleContainer.appendChild(title);
+                section.appendChild(titleContainer);
+
+                const list = document.createElement('ul');
+                list.className = 'text-base';
+
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'text-base leading-5 flex items-start gap-1';
+
+                    // Create dot element
+                    const dot = document.createElement('span');
+                    dot.textContent = '•';
+                    dot.className = 'w-5 h-5 text-2xl leading-5 text-center';
+
+                    // Create text node for item content
+                    const textNode = document.createTextNode(item);
+
+                    // Append dot and text to list item
+                    li.appendChild(dot);
+                    li.appendChild(textNode);
+
+                    list.appendChild(li);
+                });
+
+                section.appendChild(list);
+                container.appendChild(section);
+            });
+        }
+
+        function createEquipmentList() {
+            const container = document.getElementById('equipmentList');
+
+            Object.entries(equipment).forEach(([category, items]) => {
+                const section = document.createElement('div');
+                section.className = 'mb-4 equipment-category';
+
+                // Create title container for flex layout
+                const titleContainer = document.createElement('div');
+                titleContainer.className = 'flex items-center gap-1';
+
+                // Create icon
+                const icon = document.createElement('img');
+                icon.src = 'assets/icon.svg';
+                icon.className = 'w-5 h-5 -mb-3';
+                icon.alt = '';
+
+                // Create title
+                const title = document.createElement('h4');
+                title.className = 'font-bold text-base';
+                title.textContent = category;
+
+                // Append title and icon to container
+                titleContainer.appendChild(icon);
+                titleContainer.appendChild(title);
+                section.appendChild(titleContainer);
+
+                const list = document.createElement('ul');
+                list.className = 'text-base';
+
+                items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = 'text-base leading-5 flex items-start gap-1 justify-between';
+
+                    // Create dot element
+                    const dot = document.createElement('span');
+                    dot.textContent = '•';
+                    dot.className = 'w-5 h-5 text-2xl leading-5 text-center';
+
+                    // Create text container for item content
+                    const textContainer = document.createElement('div');
+                    textContainer.className = 'flex-grow';
+                    const textNode = document.createTextNode(item);
+                    textContainer.appendChild(textNode);
+
+                    // Create 'Opt' element
+                    const opt = document.createElement('span');
+                    opt.textContent = 'Opt';
+                    opt.className = 'text-xs text-gray-600 ml-2';
+
+                    // Append dot, text, and 'Opt' to list item
+                    li.appendChild(dot);
+                    li.appendChild(textContainer);
+                    li.appendChild(opt);
+
+                    list.appendChild(li);
+                });
+
+                section.appendChild(list);
+                container.appendChild(section);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            createSpecifications();
+            createEquipmentList();
+        });
+    </script>
+</body>
+</html>
