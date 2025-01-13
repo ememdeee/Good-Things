@@ -2,11 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Vehicle Description</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <style>
+    body * {
+        font-family: 'Chivo', sans-serif;
+        transition: all 0.3s ease-in-out;
+    }
     .specifications-container {
         column-count: 2;
         column-gap: 2rem;
@@ -16,164 +23,299 @@
         page-break-inside: avoid;
         margin-bottom: 1rem;
     }
+    .zoom:hover {
+        transform: scale(1.1);
+        padding: 12px;
+        border-radius: 4px;
+        background: #FFFDF5;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        /* border: 1px solid #E0C12B; */
+    }
 </style>
 <body class="bg-gray-100 p-4">
-    <div class="max-w-[1340px] mx-auto bg-white border-8 border-black p-6">
-        <!-- Header -->
-        <div class="flex justify-between items-start mb-4">
-            <div class="flex gap-4">
-                <div class="w-20 h-20 rounded-xl p-1 border-2 text-black border-black">
-                    <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover">
-                </div>
-                <div>
-                    <h1 class="text-lg leading-snug font-bold uppercase">Vehicle Description</h1>
-                    <h2 class="text-2xl leading-snug font-bold">1963 Dodge Polara</h2>
-                    <p class="text-lg leading-snug font-bold">Its a B-500 Series</p>
-                </div>
-            </div>
-            <div class="flex gap-4 items-center">
-                <p class="text-base font-bold">Scan to view build sheet</p>
-                <img src="assets/barcode.svg" class="w-20 h-20 scale-125"></img>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="flex gap-6">
-            <!-- Left Column - Specifications -->
-            <div class="flex-grow">
-                <h3 class="text-lg font-bold mb-2">Standard Specifications</h3>
-                <div id="specificationsContainer" class="specifications-container">
+    <table class="w-full h-full max-w-[1340px] mx-auto bg-[#FFFDF5] border-8 border-black">
+        <tr>
+            <td colspan="2" class="px-2 pt-2">
+                <!-- Header -->
+                <table class="w-full">
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="pr-4">
+                                        <div class="w-20 h-20 rounded-xl p-1 border-2 text-black border-black">
+                                            <img src="assets/logo.png" alt="Logo" class="w-full h-full object-cover">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h1 class="text-xl leading-snug font-bold uppercase">Vehicle Description</h1>
+                                        <h2 class="text-3xl leading-none font-bold">1963 Dodge Polara</h2>
+                                        <p class="text-xl leading-snug font-bold">Its a B-500 Series</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="text-right">
+                            <table class="ml-auto">
+                                <tr>
+                                    <td class="pr-4 align-middle">
+                                        <p class="text-base font-bold">Scan to view build sheet</p>
+                                    </td>
+                                    <td class="align-middle">
+                                        <img src="assets/barcode.svg" class="w-20 h-20">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="pl-2 content-baseline pb-1">
+                <!-- Left Column - Specifications -->
+                <h3 class="text-xl font-medium mb-2">Standard Specifications</h3>
+                <div id="specificationsContainer" class="specifications-container pb-4">
                     <!-- JavaScript will populate this -->
                 </div>
-            </div>
+                <table class="w-full zoom">
+                    <tr>
+                        <td colspan="2">
+                            <!-- Market Value -->
+                            <h3 class="font-bold bg-black text-center text-white py-2">Market Value</h3>
+                            <table class="w-full text-center">
+                                <tr>
+                                    <td class="border border-black p-2 w-1/4">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <span class="font-bold text-2xl">♦</span>
+                                            <span class="font-bold">Rough</span>
+                                        </div>
+                                        <p class="text-sm">Runs fine, visible flaws</p>
+                                        <p class="text-base pt-1">$30,100</p>
+                                    </td>
+                                    <td class="border border-black p-2 w-1/4">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <span class="font-bold text-2xl">♦</span>
+                                            <span class="font-bold">Average</span>
+                                        </div>
+                                        <p class="text-sm">Drives well, minor flaws.</p>
+                                        <p class="text-base pt-1">$48,800</p>
+                                    </td>
+                                    <td class="border border-black p-2 w-1/4">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <span class="font-bold text-2xl">♦</span>
+                                            <span class="font-bold">Good</span>
+                                        </div>
+                                        <p class="text-sm">Like new, show-ready</p>
+                                        <p class="text-base pt-1">$70,200</p>
+                                    </td>
+                                    <td class="border border-black p-2 w-1/4">
+                                        <div class="flex items-center justify-center gap-2">
+                                            <span class="font-bold text-2xl">♦</span>
+                                            <span class="font-bold">Outstanding</span>
+                                        </div>
+                                        <p class="text-sm">World-class, competition-level.</p>
+                                        <p class="text-base pt-1">$83,200</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            
+            <td class="pl-1 pr-2" style="min-width: 256px; width: 30%;">
+                <!-- Right Column - Price and Equipment -->
+                <table class="w-full h-full border-[#1B1C1E] border-2 border-b-0 mb-[-4px]" style="background-image: url('assets/motif-grayed.svg'); background-repeat: repeat; background-size: 250px 250px;">
+                    <tr>
+                        <td class="flex-col flex h-full justify-between">
+                            <table class="w-full h-fit border-separate [border-spacing:0_10px] px-2">
+                                <tr>
+                                    <td class="bg-[#E0C12B] p-2">
+                                        <p class="text-base">Original Base Price</p>
+                                        <p class="text-xl font-bold">$3,195.00</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[#F2E5D7] text-center text-base p-2">
+                                        <p class="text-base">No. Produced: 7,300</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="text-sm" id="equipmentList">
+                                            <!-- JavaScript will populate this -->
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="bg-[#F2E5D7] text-center p-2">
+                                        <p class="font-medium">VIN: <span class="font-bold">6432153670</span></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="w-full h-fit border-separate [border-spacing:0_10px] px-2">
+                                <tr>
+                                    <td class="p-2 bg-[#F2E5D7] text-center">
+                                        <h4 class="font-bold text-lg mb-2">Get 20% Off Classic Vehicle History Reports!</h4>
+                                        <p class="text-base mb-4">Uncover your classic car's past with detailed records, including:</p>
+                                        <ul class="text-base list-disc pl-4 mb-4">
+                                            <li>Auction & Sales History</li>
+                                            <li>Accident & Title Records</li>
+                                            <li>Mileage, Theft, Lien Checks & more</li>
+                                        </ul>
+                                        <button class="bg-[#E0C12B] text-sm font-semibold w-full py-3 px-2 border-2 border-[#1B1C1E] rounded-lg hover:bg-[#F2D94E] hover:text-[#1B1C1E] transition-colors duration-300">Get Your Report Now</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="w-full">
+                                            <tr>
+                                                <td class="pr-4 align-middle">
+                                                    <p class="text-base font-bold leading-5">Order Build Sheet with your Smartphone</p>
+                                                </td>
+                                                <td class="align-middle w-20">
+                                                    <img src="assets/barcode.svg" class="w-20 h-20">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">
+                                        <img class="w-full max-w-44 mb-1" src="assets/CD-Logo.svg" />
+                                        <p class="font-semibold">support@classicdecoder.com</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
 
-            <!-- Right Column - Price and Equipment -->
-            <div class="w-64">
-                <!-- Original Base Price -->
-                <div class="bg-[#E0C12B] p-2 mb-4">
-                    <p class="text-sm">Original Base Price</p>
-                    <p class="font-bold">$3,195.00</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="px-2">
+                <!-- Exterior Colors -->
+                <div class="flex border-2 border-black p-2">
+                    <div class="w-6 relative items-baseline flex justify-center text-center">
+                        <span class="w-1 h-2 bg-[#FFFDF5] top-0 absolute"></span>
+                        <img src="assets/icon-only.svg" class="w-3 h-3 top-0 absolute" alt="">
+                        <span class="w-[3px] flex h-[87%] bg-black"></span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl mb-1">Exterior Colors (Paint Type)</h3>
+                        <p class="text-sm">Colors: All colors may not be available in all models. Turquoise Metallic, Gray, Light Blue, Medium Blue Metallic, Dark Blue Metallic, Black, Ivory, Steel Gray Metallic, Vermillion, Polar No. 2, Beige, Sandalwood Metallic</p>
+                    </div>
                 </div>
-
-                <div class="bg-[#F2E5D7] text-center p-2 mb-4">
-                    <p class="text-sm mb-1">No. Produced: 7,300</p>
-                </div>
-
-                <!-- Standard/Optional Equipment -->
-                <div class="p-2">
-                    <ul class="text-sm" id="equipmentList">
-                        <!-- JavaScript will populate this -->
-                    </ul>
-                </div>
-
-                <!-- VIN -->
-                <div class="bg-[#F2E5D7] text-center p-2 mt-4">
-                    <p class="text-sm">VIN: 6432153670</p>
-                </div>
-
-                <!-- Report Section -->
-                <div class="mt-8 border border-black p-4">
-                    <h4 class="font-bold text-sm mb-2">Get 20% Off Classic Vehicle History Reports!</h4>
-                    <p class="text-xs mb-4">Uncover your classic car's past with detailed records, including:</p>
-                    <ul class="text-xs list-disc pl-4 mb-4">
-                        <li>Auction & Sales History</li>
-                        <li>Accident & Title Records</li>
-                        <li>Mileage, Theft, Lien Checks & more</li>
-                    </ul>
-                    <button class="bg-yellow-400 text-sm w-full py-1 px-2">Get Your Report Now</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Market Value -->
-        <div class="mt-8">
-            <h3 class="font-bold mb-2">Market Value</h3>
-            <div class="grid grid-cols-4 gap-4 text-center">
-                <div class="border p-2">
-                    <p class="font-bold">♦ Rough</p>
-                    <p class="text-sm">$30,100</p>
-                </div>
-                <div class="border p-2">
-                    <p class="font-bold">♦ Average</p>
-                    <p class="text-sm">$48,800</p>
-                </div>
-                <div class="border p-2">
-                    <p class="font-bold">♦ Good</p>
-                    <p class="text-sm">$70,200</p>
-                </div>
-                <div class="border p-2">
-                    <p class="font-bold">♦ Outstanding</p>
-                    <p class="text-sm">$83,200</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Exterior Colors -->
-        <div class="mt-8">
-            <h3 class="font-bold mb-2">Exterior Colors (Paint Type)</h3>
-            <p class="text-xs">Colors: All colors may not be available in all models. Turquoise Metallic, Gray, Light Blue, Medium Blue Metallic, Dark Blue Metallic, Black, Ivory, Steel Gray Metallic, Vermillion, Polar No. 2, Beige, Sandalwood Metallic</p>
-        </div>
-    </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="px-2">
+                <p class="text-sm bg-black text-white p-4 mt-[-2px] leading-5">This build sheet is generated in accordance with the Federal Automobile Information Disclosure Act of 1958. The disclosure of this information does not interfere with the buyer’s freedom to bargain over the price of the car or the dealer’s right to sell the new car for any price he desires, but it does assure that the purchaser will start the negotiations with the minimum necessary information. Please note that dealer installed options or accessories are not included in this build sheet.</p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="p-2">
+                <p class="text-sm text-center">© 2025 Classic Decoder. All Rights Reserved.</p>
+            </td>
+        </tr>
+    </table>
 
     <script>
+        // The JavaScript code remains unchanged
         const specifications = {
             "Body": [
                 "Body Maker: Dodge",
                 "No. Doors: 2",
                 "Passengers:",
-                "Model: B-500",
+                "Model Number:",
                 "Weight: 3,455lbs"
             ],
             "Dimension": [
                 "Wheelbase: 119 inches",
-                "Length: 209.8 inches",
-                "Width: 78.8 inches",
+                "Length: 208.1 inches",
+                "Width: 78.5 inches",
                 "Height: 53.9 inches",
-                "Front Tread: 61.7 inches",
+                "Front Tread: 58.5 inches",
                 "Rear Tread: 57.5 inches"
             ],
             "Engine": [
-                "Type: V8 Valve-in-head",
-                "Displacement: 362.9 cu. in.",
+                "Type: V8, Valve-in-head",
+                "Displacement: 382.9 cu. in.",
                 "Cylinders: 8",
-                "Bore: 4.12 inches",
-                "Stroke: 3.375 inches",
-                "Compression Ratio: 10.1 to 1",
+                "Bore & Stroke: 4 1/32 9 3 3/4 inches",
+                "Compression Ratio-Std: 10.0 to 1",
+                "Compression Ratio-Opt: Not applicable",
                 "Brake Horsepower: 305@4600",
                 "Rated Horsepower: 52",
-                "Torque: @3600",
+                "Torque: 410@2400",
                 "Main Bearings: 5",
-                "Valve Drive: Hydraulic",
-                "Block: Cast iron"
+                "Valve Lifters: Hydraulic",
+                "Block Material:",
+                "Engine Numbers:",
+                "Engine No. Location: On the right side of the block",
+                "Lubrication: Pressure to all bearings excluding wrist pin"
+            ],
+            "Carburetor": [
+                "Type: Dual downdraft",
+                "Make: Ball and Ball"
+            ],
+            "Suspension": [
+                "Front: Independent torsion bar",
+                "Rear: Longitudinal leaf spring",
+                "Steering Gear:"
+            ],
+            "Brakes": [
+                "Service: 4 wheel hydraulic drum",
+                "Front Size: 10 inches",
+                "Rear Size: 10 inches",
+                "Emergency: Rear service brakes",
+                "Size: 10 inches"
             ],
             "Transmission": [
                 "Type: Unknown at time of publication",
                 "Drive: Rear wheel drive",
-                "No. Of speeds",
+                "No. Of Gears: 3",
                 "Gear Ratios:",
-                "1st: 2.45 to 1",
-                "2nd: 1.45 to 1",
-                "3rd: 1.00 to 1",
+                "1st: 2.55 to 1",
+                "2nd: 1.49",
+                "3rd: 1 to 1",
                 "4th: Not applicable",
-                "5th: Not applicable"
+                "5th: Not applicable",
+                "Reverse: 3.34",
+                "Clutch Type: Single plate dry disc",
+                "Clutch Size: 10.5 inches",
+                "Axle Type: Semifloating",
+                "Differential: Hypoid",
+                "Differential Ratio: 3.23 to 1"
             ],
-            "Test": [
-                "Type: Unknown at time of publication",
-                "Drive: Rear wheel drive",
-                "No. Of speeds",
-                "Gear Ratios:"
+            "Other Systems Specifications": [
+                "Exhaust System: Single with crossover",
+                "Ignition System: Distributor and coil",
+                "Battery: 12 volt storage battery",
+                "Cooling System: Centrifugal pump with thermostat, 16 Quarts",
+                "Radiator: Tube and spacer",
+                "Fuel Type:",
+                "Mileage:"
             ],
-            "Test1": [
-                "Type: Unknown at time of publication",
-                "Drive: Rear wheel drive",
-                "No. Of speeds",
-                "Gear Ratios:"
+            "Wheels, Rims & Tires": [
+                "Wheel Type:",
+                "Wheel Material:",
+                "Wheel Size:",
+                "Tire Type:",
+                "Tire Size: 7 x 14",
+                "Spare Location: Trunk"
             ],
-            "Test2": [
-                "Type: Unknown at time of publication",
-                "Drive: Rear wheel drive",
-                "No. Of speeds",
-                "Gear Ratios:"
+            "Capacities": [
+                "Fuel: 20 Gallons",
+                "Oil: 4 Quarts",
+                "Transmission: 4.5 Pints",
+                "Cooling System: Centrifugal pump with thermostat, 16 Quarts",
+                "Rear Differential: 4 Pints",
+                "Front Differential: Not applicable",
+                "Transfer Case: Not applicable",
+                "Classic Rating: Not Rated"
             ]
         };
 
@@ -192,7 +334,7 @@
 
             Object.entries(specifications).forEach(([category, items]) => {
                 const section = document.createElement('div');
-                section.className = 'mb-4 specification-category';
+                section.className = 'mb-2 specification-category zoom';
 
                 // Create title container for flex layout
                 const titleContainer = document.createElement('div');
@@ -206,7 +348,7 @@
 
                 // Create title
                 const title = document.createElement('h4');
-                title.className = 'font-bold text-base';
+                title.className = 'font-bold text-lg';
                 title.textContent = category;
 
                 // Append title and icon to container
@@ -224,7 +366,7 @@
                     // Create dot element
                     const dot = document.createElement('span');
                     dot.textContent = '•';
-                    dot.className = 'w-5 h-5 text-2xl leading-5 text-center';
+                    dot.className = 'w-5 h-5 text-xl leading-5 text-center';
 
                     // Create text node for item content
                     const textNode = document.createTextNode(item);
@@ -246,7 +388,7 @@
 
             Object.entries(equipment).forEach(([category, items]) => {
                 const section = document.createElement('div');
-                section.className = 'mb-4 equipment-category';
+                section.className = 'mb-2 equipment-category zoom';
 
                 // Create title container for flex layout
                 const titleContainer = document.createElement('div');
@@ -260,7 +402,7 @@
 
                 // Create title
                 const title = document.createElement('h4');
-                title.className = 'font-bold text-base';
+                title.className = 'font-bold text-xl';
                 title.textContent = category;
 
                 // Append title and icon to container
@@ -278,7 +420,7 @@
                     // Create dot element
                     const dot = document.createElement('span');
                     dot.textContent = '•';
-                    dot.className = 'w-5 h-5 text-2xl leading-5 text-center';
+                    dot.className = 'w-5 h-5 text-xl leading-5 text-center';
 
                     // Create text container for item content
                     const textContainer = document.createElement('div');
