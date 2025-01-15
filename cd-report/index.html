@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Description</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
+</head>
+<style>
+    body * {
+        font-family: 'Chivo', sans-serif;
+        transition: all 0.3s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            transform: translateX(-100%);
+            z-index: 50;
+        }
+        .sidebar.active {
+            transform: translateX(0);
+        }
+    }
+</style>
+<!-- List Data -->
+<script>
+    // Navigation Links Data
+    const navLinks = [
+        'Standard Specifications',
+        'Vehicle Summary',
+        'Vehicle Usage Record',
+        'Ownership History',
+        'Auction History',
+        'Title Brand Check',
+        'Event Verification',
+        'Mileage Records',
+        'Accident Records',
+        'Damage Verification',
+        'Lien/Loan Records',
+        'Detailed Vehicle History'
+    ];
+
+    // Specifications Data
+    const specifications = {
+        'Body': {
+            'Body Maker': 'Fisher',
+            'No. Doors': '4',
+            'Model Number': '33669',
+            'Weight': '3,445lbs'
+        },
+        'Dimension': {
+            'Wheelbase': '115 inches',
+            'Length': '207.6 inches',
+            'Width': '76.3 inches',
+            'Height': '53.5 inches',
+            'Front Tread': '59.7 inches',
+            'Rear Tread': '59.2 inches'
+        },
+        'Engine': {
+            'Type': 'Rocket V8, valve-in-head',
+            'Displacement': '350 cu. in.',
+            'Cylinders': '8',
+            'Bore x Stroke': '4.057 & 3.385 inches',
+            'Compression Ratio Std': '8.5 to 1',
+            'Main Bearings': '5',
+            'Engine Numbers': 'OA',
+            'Lubrication': 'Pressure to all bearings excluding wrist pin'
+        },
+        'Carburetor': {
+            'Body Maker': 'Fisher',
+            'No. Doors': '4'
+        },
+        'Transmission': {
+            'Type': 'Fully synchronous 3-speed manual',
+            'Drive': 'Rear wheel drive',
+            'No. of Gears': '3'
+        },
+        'Brakes': {
+            'Service': 'Hydraulic, self-adjusting drums',
+            'Front Size': '9.5 inches',
+            'Rear Size': '9.5 inches',
+            'Emergency': 'Rear service brakes'
+        },
+        'Wheels, Rims & Tires': {
+            'Tire Size': 'F78 x 14',
+            'Spare Location': 'Trunk'
+        },
+        'Capacities': {
+            'Fuel': '20 Gallons',
+            'Oil': '4 Quarts',
+            'Transmission': '3.5 Pints',
+            'Cooling System': 'Water pump, 16 Quarts'
+        },
+        'Other System Specifications': {
+            'Exhaust System': 'Single',
+            'Battery': '12-volt storage battery',
+            'Radiator': 'Tubular and fin',
+            'Fuel Type': 'Regular'
+        }
+    };
+</script>
+<body class="bg-[#FFFDF5] p-0 m-auto max-w-[1440px]">
+    <!-- Mobile Toggle Button -->
+    <button id="sidebarToggle" class="fixed z-50 md:hidden bg-gray-800 text-white p-3 rounded-full shadow-lg bottom-6 left-1/2 -translate-x-1/2">
+        <div class="w-6 h-6 bg-white rounded"></div>
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed h-screen w-60 bg-sidebar-bg bg-[#FFFDF5] overflow-y-auto transition-transform duration-300 ease-in-out p-4 -translate-x-full md:translate-x-0 z-40">
+        <div class="mb-6 hidden md:block">
+            <h2 class="text-lg font-bold">Vehicle History Report</h2>
+            <p class="text-sm text-gray-600">Report generated: 12-12-2024</p>
+            <p class="text-sm mb-4">Share your report</p>
+            
+            <!-- Social Icons Placeholder -->
+            <div class="flex gap-2 mb-4">
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/copy.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/facebook.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/twitter.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/gmail.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/linkedin.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/pinterest.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/whatsapp.svg" class="w-full h-auto"></img>
+                </a>
+            </div>
+
+            <button class="w-full bg-gray-800 text-white py-2 px-4 rounded">
+                Download Report
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="space-y-1" id="navLinks"></nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="md:ml-60 transition-all duration-300 ease-in-out">
+        <!-- share button -->
+        <div class="block md:hidden mb-2 px-2 py-6 text-center justify-center bg-[#F2E5D7CC]">
+            <h2 class="text-2xl font-bold">Vehicle History Report</h2>
+            <p class="text-lg text-gray-600">Report generated: 12-12-2024</p>
+            <p class="text-lg mt-2 mb-4">Share your report</p>
+            
+            <!-- Social Icons Placeholder -->
+            <div class="flex gap-4 mb-4 justify-center">
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/copy.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/facebook.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/twitter.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/gmail.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/linkedin.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/pinterest.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-7 h-7">
+                    <img src="assets/whatsapp.svg" class="w-full h-auto"></img>
+                </a>
+            </div>
+
+            <button class="w-full bg-gray-800 text-white py-3 px-4 rounded-md">Download Report</button>
+        </div>
+        <!-- Header -->
+        <div class="text-white p-4">
+            <div class="flex justify-between items-center gap-4">
+                <div class="flex flex-col text-center md:flex-row md:text-left bg-gray-900 p-3 rounded-md items-center gap-4 w-full">
+                    <img src="assets/logo.png" class="w-20 h-20 bg-white object-cover rounded-md p-1"></img>
+                    <div>
+                        <h1 class="text-2xl lg:text-3xl font-bold">1972 Oldsmobile Cutlass V8 Series 33287</h1>
+                        <p class="text-lg lg:text-2xl mt-2">VIN: 3G6PH2R106352</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex w-72 gap-2 flex-col justify-center text-center text-black">
+                    <p class="text-lg font-medium">Scan to open report:</p>
+                    <img src="assets/barcode.png" class="w-16 h-16 object-cover m-auto"></img> <!-- QR Code placeholder -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Specifications Content -->
+        <section id="specificationsSection" class="p-6">
+            <h2 class="text-2xl font-bold mb-6 text-center md:text-left">Standard Specifications</h2>
+            <div class="columns-2 gap-8" id="specificationsContent"></div>
+        </section>
+        <script>
+            // Generate Specifications Content
+            function generateSpecifications() {
+                const specificationsSection = document.getElementById('specificationsSection');
+                const specificationsContent = document.getElementById('specificationsContent');
+
+                if (Object.keys(specifications).length === 0) {
+                    specificationsSection.style.display = 'none';
+                    return;
+                }
+
+                specificationsSection.style.display = 'block';
+                specificationsContent.innerHTML = Object.entries(specifications).map(([section, specs]) => `
+                    <div class="mb-5 break-inside-avoid">
+                        <h3 class="font-bold border-b border-black mb-2 pb-1">${section}</h3>
+                        ${Object.entries(specs).map(([key, value]) => `
+                            <div class="flex justify-between py-0.5">
+                                <span class="spec-key text-gray-600">${key}:</span>
+                                <span class="spec-value">${value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `).join('');
+            }
+            // Call the function to generate specifications
+            generateSpecifications();
+        </script>
+    </div>
+
+    <script>
+        // Generate Navigation Links
+        document.getElementById('navLinks').innerHTML = navLinks.map(link => 
+            `<a href="#" class="block py-2 px-4 hover:bg-gray-200 rounded">${link}</a>`
+        ).join('');
+
+        // Mobile sidebar toggle functionality
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            }
+        });
+
+        // Update sidebar visibility on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+</body>
+</html>
