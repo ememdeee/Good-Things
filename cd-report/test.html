@@ -17,28 +17,6 @@
         font-family: 'Chivo', sans-serif;
         transition: all 0.3s ease-in-out;
     }
-    .grayyedBG-1 {
-        background-image: url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 250px 250px;
-    }
-    .grayyedBG-2 {
-        background-image: url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 350px 350px;
-    }
-
-    .grayyedBG-1-red {
-        background-image: linear-gradient(rgba(150, 0, 0, 0.1), rgba(150, 0, 0, 0.1)), url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 250px 250px;
-    }
-
-    .grayyedBG-1-blue {
-        background-image: linear-gradient(rgba(206, 227, 229, 0.1), rgba(206, 227, 229, 0.1)), url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 350px 350px;
-    }
 
     @media (max-width: 768px) {
         .sidebar {
@@ -50,61 +28,7 @@
         }
     }
 </style>
-
-<body class="bg-[#FFFDF5] p-0 m-auto max-w-[1440px]">
-    <!-- Mobile Toggle Button -->
-<button id="sidebarToggle" class="fixed z-30 md:hidden bg-[#2B2B2B] text-white p-3 rounded-full shadow-lg bottom-6 left-6">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-    </svg>
-</button>
-
-<!-- Sidebar -->
-<div id="sidebar" class="fixed md:top-2 top-0 h-full md:h-fit w-80 bg-sidebar-bg bg-[#f2e5d7] md:bg-[#F2E5D7CC] shadow-lg rounded-md overflow-y-auto transition-transform duration-300 ease-in-out p-4 pt-7 md:p-4 -translate-x-full md:translate-x-0 z-40">
-    <button id="closeSidebar" class="md:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-    </button>
-    <div class="mb-4 hidden md:block">
-        <h2 class="text-2xl font-bold text-center">Vehicle History Report</h2>
-        <p class="text-xl text-gray-600 mt-1 mb-4 text-center">Report generated: 12-12-2024</p>
-        <p class="text-xl mb-4 text-center">Share your report</p>
-        
-        <!-- Social Icons Placeholder -->
-        <div class="flex gap-2 mb-4">
-            <a href="#" class="w-8 h-8">
-                <img src="assets/copy.svg" class="w-full h-auto" alt="Copy">
-            </a>
-            <a href="#" class="w-8 h-8">
-                <img src="assets/facebook.svg" class="w-full h-auto" alt="Facebook">
-            </a>
-            <a href="#" class="w-8 h-8">
-                <img src="assets/twitter.svg" class="w-full h-auto" alt="Twitter">
-            </a>
-            <a href="#" class="w-8 h-8">
-                <img src="assets/gmail.svg" class="w-full h-auto" alt="Gmail">
-            </a>
-            <a href="#" class="w-8 h-8">
-                <img src="assets/linkedin.svg" class="w-full h-auto" alt="LinkedIn">
-            </a>
-            <a href="#" class="w-8 h-8">
-                <img src="assets/pinterest.svg" class="w-full h-auto" alt="Pinterest">
-            </a>
-            <a href="#" class="w-8 h-8">
-                <img src="assets/whatsapp.svg" class="w-full h-auto" alt="WhatsApp">
-            </a>
-        </div>
-
-        <button class="w-full bg-[#2B2B2B] text-white py-2 px-4 rounded">
-            Download Report
-        </button>
-    </div>
-
-    <!-- Navigation Links -->
-    <nav class="space-y-1" id="navLinks"></nav>
-</div>
-
+<!-- List Data -->
 <script>
     // Navigation Links Data
     const navLinks = [
@@ -122,75 +46,111 @@
         'Detailed Vehicle History'
     ];
 
-    // Generate Navigation Links
-    document.getElementById('navLinks').innerHTML = navLinks.map(link => 
-        `<a href="#${link.replace(/\s+/g, '-').toLowerCase()}" class="block py-2 px-4 hover:bg-[#ecd2b5] rounded transition-colors duration-200" data-section="${link}">${link}</a>`
-    ).join('');
-
-    // Sidebar toggle functionality
-    const sidebar = document.getElementById('sidebar');
-    const sidebarToggle = document.getElementById('sidebarToggle');
-    const closeSidebar = document.getElementById('closeSidebar');
-
-    sidebarToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('-translate-x-full');
-    });
-
-    closeSidebar.addEventListener('click', () => {
-        sidebar.classList.add('-translate-x-full');
-    });
-
-    // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-            if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
-                sidebar.classList.add('-translate-x-full');
-            }
+    // Specifications Data
+    const specifications = {
+        'Body': {
+            'Body Maker': 'Fisher',
+            'No. Doors': '4',
+            'Model Number': '33669',
+            'Weight': '3,445lbs'
+        },
+        'Dimension': {
+            'Wheelbase': '115 inches',
+            'Length': '207.6 inches',
+            'Width': '76.3 inches',
+            'Height': '53.5 inches',
+            'Front Tread': '59.7 inches',
+            'Rear Tread': '59.2 inches'
+        },
+        'Engine': {
+            'Type': 'Rocket V8, valve-in-head',
+            'Displacement': '350 cu. in.',
+            'Cylinders': '8',
+            'Bore x Stroke': '4.057 & 3.385 inches',
+            'Compression Ratio Std': '8.5 to 1',
+            'Main Bearings': '5',
+            'Engine Numbers': 'OA',
+            'Lubrication': 'Pressure to all bearings excluding wrist pin'
+        },
+        'Carburetor': {
+            'Body Maker': 'Fisher',
+            'No. Doors': '4'
+        },
+        'Transmission': {
+            'Type': 'Fully synchronous 3-speed manual',
+            'Drive': 'Rear wheel drive',
+            'No. of Gears': '3'
+        },
+        'Brakes': {
+            'Service': 'Hydraulic, self-adjusting drums',
+            'Front Size': '9.5 inches',
+            'Rear Size': '9.5 inches',
+            'Emergency': 'Rear service brakes'
+        },
+        'Wheels, Rims & Tires': {
+            'Tire Size': 'F78 x 14',
+            'Spare Location': 'Trunk'
+        },
+        'Capacities': {
+            'Fuel': '20 Gallons',
+            'Oil': '4 Quarts',
+            'Transmission': '3.5 Pints',
+            'Cooling System': 'Water pump, 16 Quarts'
+        },
+        'Other System Specifications': {
+            'Exhaust System': 'Single',
+            'Battery': '12-volt storage battery',
+            'Radiator': 'Tubular and fin',
+            'Fuel Type': 'Regular'
         }
-    });
-
-    // Update sidebar visibility on window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            sidebar.classList.remove('-translate-x-full');
-        } else {
-            sidebar.classList.add('-translate-x-full');
-        }
-    });
-
-    // Function to update active link
-    function updateActiveLink() {
-        const sections = document.querySelectorAll('section[section-name]');
-        const navLinks = document.querySelectorAll('#navLinks a');
-
-        let currentSection = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.pageYOffset >= sectionTop - 200 && window.pageYOffset < sectionTop + sectionHeight - 200) {
-                currentSection = section.getAttribute('section-name');
-            }
-        });
-
-        navLinks.forEach(link => {
-            if (link.getAttribute('data-section') === currentSection) {
-                link.classList.add('bg-[#ecd2b5]', 'font-semibold');
-            } else {
-                link.classList.remove('bg-[#ecd2b5]', 'font-semibold');
-            }
-        });
-    }
-
-    // Update active link on scroll
-    window.addEventListener('scroll', updateActiveLink);
-
-    // Initial call to set active link
-    updateActiveLink();
-
-    // Initialize Lucide icons
-    lucide.createIcons();
+    };
 </script>
+<body class="bg-[#FFFDF5] p-0 m-auto max-w-[1440px]">
+    <!-- Mobile Toggle Button -->
+    <button id="sidebarToggle" class="fixed z-50 md:hidden bg-gray-800 text-white p-3 rounded-full shadow-lg bottom-6 left-1/2 -translate-x-1/2">
+        <div class="w-6 h-6 bg-white rounded"></div>
+    </button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-2 h-fit w-80 bg-sidebar-bg bg-[#F2E5D7CC] shadow-lg rounded-md overflow-y-auto transition-transform duration-300 ease-in-out p-4 -translate-x-full md:translate-x-0 z-40">
+        <div class="mb-4 hidden md:block">
+            <h2 class="text-2xl font-bold text-center">Vehicle History Report</h2>
+            <p class="text-xl text-gray-600 mt-1 mb-4 text-center">Report generated: 12-12-2024</p>
+            <p class="text-xl mb-4 text-center">Share your report</p>
+            
+            <!-- Social Icons Placeholder -->
+            <div class="flex gap-2 mb-4">
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/copy.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/facebook.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/twitter.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/gmail.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/linkedin.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/pinterest.svg" class="w-full h-auto"></img>
+                </a>
+                <a href="#" class="w-8 h-8">
+                    <img src="assets/whatsapp.svg" class="w-full h-auto"></img>
+                </a>
+            </div>
+
+            <button class="w-full bg-gray-800 text-white py-2 px-4 rounded">
+                Download Report
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="space-y-1" id="navLinks"></nav>
+    </div>
 
     <!-- Main Content -->
     <div class="md:ml-80 transition-all duration-300 ease-in-out">
@@ -225,7 +185,7 @@
                 </a>
             </div>
 
-            <button class="w-full bg-[#2B2B2B] text-white py-3 px-4 rounded-md">Download Report</button>
+            <button class="w-full bg-gray-800 text-white py-3 px-4 rounded-md">Download Report</button>
         </div>
         <!-- Header -->
         <div class="text-white p-4">
@@ -245,70 +205,11 @@
         </div>
 
         <!-- Specifications Content -->
-        <section data-section="Standard Specifications" id="specificationsSection" class="p-6 pt-1">
+        <section id="specificationsSection" class="p-6 pt-1">
             <h2 class="text-2xl font-bold mb-6 text-center md:text-left">Standard Specifications</h2>
-            <div class="columns-1 sm:columns-2 gap-8 border p-3 rounded-md" id="specificationsContent"></div>
+            <div class="columns-2 gap-8 border p-3 rounded-md" id="specificationsContent"></div>
         </section>
         <script>
-            // Specifications Data
-            const specifications = {
-                'Body': {
-                    'Body Maker': 'Fisher',
-                    'No. Doors': '4',
-                    'Model Number': '33669',
-                    'Weight': '3,445lbs'
-                },
-                'Dimension': {
-                    'Wheelbase': '115 inches',
-                    'Length': '207.6 inches',
-                    'Width': '76.3 inches',
-                    'Height': '53.5 inches',
-                    'Front Tread': '59.7 inches',
-                    'Rear Tread': '59.2 inches'
-                },
-                'Engine': {
-                    'Type': 'Rocket V8, valve-in-head',
-                    'Displacement': '350 cu. in.',
-                    'Cylinders': '8',
-                    'Bore x Stroke': '4.057 & 3.385 inches',
-                    'Compression Ratio Std': '8.5 to 1',
-                    'Main Bearings': '5',
-                    'Engine Numbers': 'OA',
-                    'Lubrication': 'Pressure to all bearings excluding wrist pin'
-                },
-                'Carburetor': {
-                    'Body Maker': 'Fisher',
-                    'No. Doors': '4'
-                },
-                'Transmission': {
-                    'Type': 'Fully synchronous 3-speed manual',
-                    'Drive': 'Rear wheel drive',
-                    'No. of Gears': '3'
-                },
-                'Brakes': {
-                    'Service': 'Hydraulic, self-adjusting drums',
-                    'Front Size': '9.5 inches',
-                    'Rear Size': '9.5 inches',
-                    'Emergency': 'Rear service brakes'
-                },
-                'Wheels, Rims & Tires': {
-                    'Tire Size': 'F78 x 14',
-                    'Spare Location': 'Trunk'
-                },
-                'Capacities': {
-                    'Fuel': '20 Gallons',
-                    'Oil': '4 Quarts',
-                    'Transmission': '3.5 Pints',
-                    'Cooling System': 'Water pump, 16 Quarts'
-                },
-                'Other System Specifications': {
-                    'Exhaust System': 'Single',
-                    'Battery': '12-volt storage battery',
-                    'Radiator': 'Tubular and fin',
-                    'Fuel Type': 'Regular'
-                }
-            };
-
             // Generate Specifications Content
             function generateSpecifications() {
                 const specificationsSection = document.getElementById('specificationsSection');
@@ -321,12 +222,12 @@
 
                 specificationsSection.style.display = 'block';
                 specificationsContent.innerHTML = Object.entries(specifications).map(([section, specs]) => `
-                    <div class="mb-5 break-inside-avoid flex flex-wrap">
-                        <h3 class="font-bold w-full border-b border-black mb-2 pb-1">${section}</h3>
+                    <div class="mb-5 break-inside-avoid">
+                        <h3 class="font-bold border-b border-black mb-2 pb-1">${section}</h3>
                         ${Object.entries(specs).map(([key, value]) => `
-                            <div class="flex gap-2 sm:gap-0 sm:flex-col w-full sm:w-1/2 justify-between p-0.5">
-                                <span class="spec-key w-1/2 sm:w-full text-gray-600 text-sm sm:text-base">${key}:</span>
-                                <span class="spec-value w-1/2 sm:w-full text-sm sm:text-base">${value}</span>
+                            <div class="flex flex-col w-half justify-between py-0.5">
+                                <span class="spec-key text-gray-600">${key}:</span>
+                                <span class="spec-value">${value}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -338,7 +239,7 @@
 
         <!-- Vehicle Highlights -->
         <section id="vehicleHighlightsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Vehicle Highlights</h2>
                 <span class="text-lg" id="recordCount"></span>
             </div>
@@ -507,11 +408,11 @@
                         
                         return `
                             <div class="relative border border-black rounded-lg p-4 overflow-hidden">
-                                <div class="absolute inset-0 bg-[url('assets/motif-grayed.svg')] bg-repeat bg-[length:350px_350px]"></div>
+                                <div class="absolute inset-0 bg-[url('assets/motif-grayed.svg')] bg-repeat bg-[length:250px_250px]"></div>
                                 <div class="absolute inset-0 ${styles.overlay}"></div>
                                 <div class="relative z-10 flex flex-col items-center text-center">
                                     <i data-lucide="${config.icon}" class="w-6 h-6 mb-2 ${styles.icon}"></i>
-                                    <h3 class="font-bold ${styles.text}">${config.title}</h3>
+                                    <h3 class="font-bold mb-2 ${styles.text}">${config.title}</h3>
                                     <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
                                     <p class="text-sm ${styles.text}">${config.getMessage(count)}</p>
                                 </div>
@@ -530,7 +431,7 @@
 
         <!-- Ownership Usage -->
         <section id="ownershipUsageSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership usage</h2>
                 <span class="text-lg" id="usageCount"></span>
             </div>
@@ -578,13 +479,13 @@
                         <div class="flex flex-col items-center gap-2">
                             <div class="relative flex items-center justify-center w-full">
                                 <!-- Status Icon -->
-                                <div class="w-6 h-6 rounded-full ${hasUsage ? 'bg-[#F51919]' : 'bg-[#09A246]'} flex items-center justify-center">
+                                <div class="w-8 h-8 rounded-full ${hasUsage ? 'bg-red-100' : 'bg-green-100'} flex items-center justify-center">
                                     <i data-lucide="${hasUsage ? 'check' : 'x'}" 
-                                       class="w-4 h-4 ${hasUsage ? 'text-white' : 'text-white'}"></i>
+                                       class="w-5 h-5 ${hasUsage ? 'text-red-600' : 'text-green-600'}"></i>
                                 </div>
                                 <!-- Connector Line -->
                                 ${index < usageData.types.length - 1 ? `
-                                    <div class="hidden lg:block absolute w-[110%] h-[2px] bg-black left-1/2 top-1/2 -z-10"></div>
+                                    <div class="hidden lg:block absolute w-full h-[2px] bg-gray-300 left-1/2 top-1/2 -z-10"></div>
                                 ` : ''}
                             </div>
                             <span class="text-sm text-center">${usage.label}</span>
@@ -602,7 +503,7 @@
 
         <!-- Ownership History -->
         <section id="ownershipHistorySection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership History</h2>
                 <span class="text-lg" id="ownerCount"></span>
             </div>
@@ -663,12 +564,12 @@
                 // Generate owner cards
                 grid.innerHTML = ownershipData.owners.map(owner => `
                     <div class="border border-black rounded-lg p-4" style="background-color: #FEF6D5;">
-                        <div class="flex items-center gap-2 mb-2">
+                        <div class="flex items-center gap-2 mb-4">
                             <i data-lucide="user" class="w-5 h-5"></i>
                             <span class="font-bold">${owner.title}</span>
                         </div>
         
-                        <div class="space-y-2 text-sm pt-1">
+                        <div class="space-y-3 text-sm">
                             <div>
                                 <div class="font-semibold">Purchased On:</div>
                                 <div>${owner.purchaseDate}</div>
@@ -925,7 +826,7 @@
                     const totalRecords = data.records.length;
         
                     container.innerHTML = `
-                        <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                        <div class="flex justify-between items-start">
                             <h2 class="text-2xl font-bold">Auction History</h2>
                             <span class="text-gray-600">${totalRecords} auction record(s) found</span>
                         </div>
@@ -936,8 +837,8 @@
                         </p>
         
                         ${data.records.map((record, index) => `
-                            <div class="mt-6">
-                                <div class="grid md:grid-cols-2 gap-3">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mt-6">
+                                <div class="grid md:grid-cols-2 gap-6 p-6">
                                     <div class="space-y-4">
                                         <!-- Main Image -->
                                         <div class="relative w-full rounded-lg overflow-hidden" style="padding-top: 56.25%;">
@@ -952,34 +853,33 @@
                                         <!-- Thumbnails Grid -->
                                         <div class="grid grid-cols-4 gap-2 thumbnails" id="thumbnails-${index}">
                                             ${record.images.map((img, imgIndex) => `
-                                                <img src="${img}" alt="" class="w-full h-20 object-cover rounded cursor-pointer thumbnail transition-all duration-200 hover:opacity-80" data-index="${imgIndex}">
+                                                <img src="${img}" alt="" class="w-full h-20 object-cover rounded cursor-pointer thumbnail" data-index="${imgIndex}">
                                             `).join('')}
                                         </div>
                                     </div>
         
                                     <!-- Info Panels -->
-                                    <div class="space-y-2">
+                                    <div class="space-y-6">
                                         <!-- Status Panel -->
-                                        <div class="border border-black rounded p-3">
-                                            <div class="border-b border-black pb-2 text-center">Satus: <span class="font-medium">${record.status}</span></div>
-                                            <div class="grid grid-cols-3 gap-4 pt-3">
+                                        <div class="border rounded p-4">
+                                            <div class="grid grid-cols-3 gap-4">
                                                 <div>
-                                                    <div class="text-black text-sm">Date</div>
+                                                    <div class="text-gray-600 text-sm">Date</div>
                                                     <div>${record.date}</div>
                                                 </div>
                                                 <div>
-                                                    <div class="text-black text-sm">Price</div>
+                                                    <div class="text-gray-600 text-sm">Price</div>
                                                     <div>${record.price}</div>
                                                 </div>
                                                 <div>
-                                                    <div class="text-black text-sm">Lot Number</div>
+                                                    <div class="text-gray-600 text-sm">Lot Number</div>
                                                     <div>${record.lotNumber}</div>
                                                 </div>
                                             </div>
                                         </div>
         
                                         <!-- Vehicle Status -->
-                                        <div class="flex flex-col md:flex-row items-center justify-center gap-4 py-2">
+                                        <div class="flex gap-4">
                                             <div class="flex items-center gap-2 ${record.features.runsAndDrives ? 'text-green-500' : 'text-red-500'}">
                                                 <i data-lucide="${record.features.runsAndDrives ? 'check-circle' : 'x-circle'}" class="w-5 h-5"></i>
                                                 <span>Runs & Drives</span>
@@ -995,42 +895,54 @@
                                         </div>
         
                                         <!-- Title & Condition -->
-                                        <div class="grid md:grid-cols-2 gap-2">
-                                            <div class="border border-black rounded p-3">
-                                                <h3 class="font-semibold mb-3 border-b border-black pb-3">Title & Condition</h3>
-                                                <div class="gap-1 text-sm pt-1 flex flex-col">
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div class="border rounded p-4">
+                                                <h3 class="font-semibold mb-3">Title & Condition</h3>
+                                                <div class="space-y-2 text-sm">
                                                     ${Object.entries(record.titleAndCondition).map(([key, value]) => `
-                                                        <span class="text-black font-medium">${key.replace(/([A-Z])/g, ' $1').trim()}: <span class="font-normal">${value}</span></span>
+                                                        <div class="grid grid-cols-2">
+                                                            <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
+                                                            <span>${value}</span>
+                                                        </div>
                                                     `).join('')}
                                                 </div>
                                             </div>
         
-                                            <div class="border border-black rounded p-3">
-                                                <h3 class="font-semibold mb-3 border-b border-black pb-3">Sale Details</h3>
-                                                <div class="gap-1 text-sm pt-1 flex flex-col">
+                                            <div class="border rounded p-4">
+                                                <h3 class="font-semibold mb-3">Sale Details</h3>
+                                                <div class="space-y-2 text-sm">
                                                     ${Object.entries(record.saleDetails).map(([key, value]) => `
-                                                        <span class="text-black font-medium">${key.replace(/([A-Z])/g, ' $1').trim()}: <span class="font-normal">${value}</span></span>
+                                                        <div class="grid grid-cols-2">
+                                                            <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
+                                                            <span>${value}</span>
+                                                        </div>
                                                     `).join('')}
                                                 </div>
                                             </div>
                                         </div>
         
                                         <!-- Specifications -->
-                                        <div class="grid md:grid-cols-2 gap-2">
-                                            <div class="border border-black rounded p-3">
-                                                <h3 class="font-semibold mb-3 border-b border-black pb-3">Technical Specifications</h3>
-                                                <div class="gap-1 text-sm pt-1 flex flex-col">
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div class="border rounded p-4">
+                                                <h3 class="font-semibold mb-3">Technical Specifications</h3>
+                                                <div class="space-y-2 text-sm">
                                                     ${Object.entries(record.technicalSpecs).map(([key, value]) => `
-                                                        <span class="text-black font-medium">${key.replace(/([A-Z])/g, ' $1').trim()}: <span class="font-normal">${value}</span></span>
+                                                        <div class="grid grid-cols-2">
+                                                            <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
+                                                            <span>${value}</span>
+                                                        </div>
                                                     `).join('')}
                                                 </div>
                                             </div>
         
-                                            <div class="border border-black rounded p-3">
-                                                <h3 class="font-semibold mb-3 border-b border-black pb-3">Vehicle Specifications</h3>
-                                                <div class="gap-1 text-sm pt-1 flex flex-col">
+                                            <div class="border rounded p-4">
+                                                <h3 class="font-semibold mb-3">Vehicle Specifications</h3>
+                                                <div class="space-y-2 text-sm">
                                                     ${Object.entries(record.vehicleSpecs).map(([key, value]) => `
-                                                        <span class="text-black font-medium">${key.replace(/([A-Z])/g, ' $1').trim()}: <span class="font-normal">${value}</span></span>
+                                                        <div class="grid grid-cols-2">
+                                                            <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
+                                                            <span>${value}</span>
+                                                        </div>
                                                     `).join('')}
                                                 </div>
                                             </div>
@@ -1138,7 +1050,7 @@
                     const totalRecords = data.records.length;
         
                     container.innerHTML = `
-                        <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                        <div class="flex justify-between items-start">
                             <h2 class="text-2xl font-bold">Sales Listing History</h2>
                             <span class="text-gray-600">${totalRecords} sales listing record(s) found</span>
                         </div>
@@ -1148,8 +1060,8 @@
                         </p>
         
                         ${data.records.map((record, index) => `
-                            <div class="mt-6">
-                                <div class="grid md:grid-cols-2 gap-3">
+                            <div class="bg-white rounded-lg shadow-sm border border-gray-200 mt-6">
+                                <div class="grid md:grid-cols-2 gap-6 p-6">
                                     <div class="space-y-4">
                                         <!-- Main Image -->
                                         <div class="relative w-full rounded-lg overflow-hidden" style="padding-top: 56.25%;">
@@ -1175,10 +1087,10 @@
                                     </div>
         
                                     <!-- Info Panels -->
-                                    <div class="space-y-3">
+                                    <div class="space-y-6">
                                         <!-- Sale Status -->
-                                        <div class="border border-black rounded p-4">
-                                            <h3 class="mb-3 text-center border-b border-black pb-2">Sale Status: <span class="font-semibold">${record.saleDetails.status}</span></h3>
+                                        <div class="border rounded p-4">
+                                            <h3 class="font-semibold mb-3">Sale Status: ${record.saleDetails.status}</h3>
                                             <div class="grid grid-cols-3 gap-4">
                                                 <div>
                                                     <div class="text-gray-600 text-sm">Listing Price</div>
@@ -1203,10 +1115,10 @@
                                         ` : ''}
         
                                         <!-- Sale Details -->
-                                        <div class="grid md:grid-cols-2 gap-2">
-                                            <div class="border border-black rounded p-4">
-                                                <h3 class="font-semibold mb-3 border-b border-black pb-3">Sale details</h3>
-                                                <div class="space-y-2 text-sm pt-1">
+                                        <div class="grid md:grid-cols-2 gap-4">
+                                            <div class="border rounded p-4">
+                                                <h3 class="font-semibold mb-3">Sale details</h3>
+                                                <div class="space-y-2 text-sm">
                                                     ${Object.entries(record.saleDetails).map(([key, value]) => `
                                                         <div class="grid grid-cols-2">
                                                             <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
@@ -1216,9 +1128,9 @@
                                                 </div>
                                             </div>
         
-                                            <div class="border border-black rounded p-4">
-                                                <h3 class="font-semibold mb-3 border-b border-black pb-3">Technical Specifications</h3>
-                                                <div class="space-y-2 text-sm pt-1">
+                                            <div class="border rounded p-4">
+                                                <h3 class="font-semibold mb-3">Technical Specifications</h3>
+                                                <div class="space-y-2 text-sm">
                                                     ${Object.entries(record.technicalSpecifications).map(([key, value]) => `
                                                         <div class="grid grid-cols-2">
                                                             <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
@@ -1230,9 +1142,9 @@
                                         </div>
         
                                         <!-- Listing Details -->
-                                        <div class="border border-black rounded p-4">
-                                            <h3 class="font-semibold mb-3 border-b border-black pb-3">Listing details</h3>
-                                            <div class="space-y-2 text-sm pt-1">
+                                        <div class="border rounded p-4">
+                                            <h3 class="font-semibold mb-3">Listing details</h3>
+                                            <div class="space-y-2 text-sm">
                                                 ${Object.entries(record.listingDetails).map(([key, value]) => `
                                                     <div class="grid grid-cols-2">
                                                         <span class="text-gray-600">${key.replace(/([A-Z])/g, ' $1').trim()}:</span>
@@ -1288,13 +1200,13 @@
         
         <!-- Title Brand Check -->
         <section id="titleBrandSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Title Brand Check</h2>
                 <span class="text-lg" id="problemCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains major checks for potential problems related to vehicles title</p>
             
-            <div class="grid md:grid-cols-2 gap-2" id="brandGrid"></div>
+            <div class="grid md:grid-cols-2 gap-4" id="brandGrid"></div>
         </section>
         
         <script>
@@ -1419,13 +1331,13 @@
                     const hasRecord = brandFlags[brand.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
-                            <div class="p-3">
+                        <div class="border rounded-lg overflow-hidden ${hasRecord ? 'bg-[#f9f3f0]' : 'bg-white'}">
+                            <div class="p-4">
                                 <div class="flex items-center gap-2 mb-2">
                                     <i data-lucide="${brand.icon}" class="w-5 h-5 ${hasRecord ? 'text-red-600' : 'text-gray-600'}"></i>
                                     <span class="font-semibold ${hasRecord ? 'text-red-600' : 'text-gray-900'}">${brand.title}</span>
                                 </div>
-                                <div class="w-full border-t mt-2 mb-1.5" style="border-color: currentColor; opacity: 1;"></div>
+                                <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
                                 <p class="${hasRecord ? 'text-red-600' : 'text-gray-600'}">${brand.getMessage(hasRecord)}</p>
                             </div>
                         </div>
@@ -1482,24 +1394,23 @@
                     const container = document.getElementById('marketValueContainer');
                     
                     container.innerHTML = `
-                        <div class="max-w-6xl mx-auto">
-                            <h2 class="text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
-                            <p class="text-gray-700 mt-2">
+                        <div class="max-w-6xl mx-auto space-y-6">
+                            <h2 class="text-2xl font-bold">Vehicle Market Value</h2>
+                            <p class="text-gray-700">
                                 This section contains market value for this vehicle based on its condition.
                             </p>
         
                             <!-- Chart -->
-                            <div class="border rounded-lg p-4 my-6">
+                            <div class="border rounded-lg p-4">
                                 <canvas id="marketValueChart"></canvas>
                             </div>
         
                             <!-- Condition Panels -->
                             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 ${data.conditions.map(condition => `
-                                    <div class="border border-black rounded-lg p-2 bg-white grayyedBG-1">
+                                    <div class="border rounded-lg p-4 bg-white">
                                         <h3 class="font-semibold">${condition.type}</h3>
                                         <p class="text-sm text-gray-600">${condition.description}</p>
-                                        <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
                                         <p class="text-xl font-bold mt-2">${formatCurrency(condition.value)}</p>
                                     </div>
                                 `).join('')}
@@ -1581,13 +1492,13 @@
 
         <!-- Key Incidents -->
         <section id="keyIncidentsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Key Incidents</h2>
                 <span class="text-lg" id="incidentCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section highlights any significant incidents the vehicle may have experienced during its lifetime.</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2" id="incidentGrid"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4" id="incidentGrid"></div>
         </section>
         
         <script>
@@ -1704,8 +1615,8 @@
                     const hasRecord = incidentFlags[incident.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
-                            <div class="px-2 py-3">
+                        <div class="border rounded-lg overflow-hidden ${hasRecord ? 'bg-[#f9f3f0]' : 'bg-white'}">
+                            <div class="p-4">
                                 <div class="flex flex-col items-center gap-2 mb-2">
                                     ${hasRecord 
                                         ? '<i data-lucide="alert-circle" class="w-5 h-5 text-red-600"></i>'
@@ -1730,14 +1641,14 @@
 
         <!-- Mileage Records -->
         <section id="mileageRecordsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Mileage Records</h2>
                 <span class="text-lg" id="mileageRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains mileage records for this vehicle</p>
             
             <div class="mb-6" id="lastKnownRecord"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2" id="mileageGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="mileageGrid"></div>
         </section>
         
         <script>
@@ -1785,7 +1696,7 @@
         
                 // Generate mileage record cards
                 grid.innerHTML = mileageData.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden bg-[#FEF6D5]">
+                    <div class="border rounded-lg overflow-hidden" style="background-color: #fefbf0;">
                         <div class="p-4">
                             <div class="mb-4">
                                 <div class="font-semibold">Date Reported</div>
@@ -1806,13 +1717,13 @@
 
         <!-- Accident Records -->
         <section id="accidentRecordsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Accident Records</h2>
                 <span class="text-lg" id="accidentRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains accident records for this vehicle</p>
             
-            <div class="space-y-2" id="accidentGrid"></div>
+            <div class="space-y-4" id="accidentGrid"></div>
         </section>
         
         <script>
@@ -1852,8 +1763,8 @@
         
                 // Generate accident record cards
                 grid.innerHTML = accidentData.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden grayyedBG-1-red">
-                        <div class="p-2 grid md:grid-cols-2 gap-4">
+                    <div class="border rounded-lg overflow-hidden" style="background-color: #f9f3f0;">
+                        <div class="p-4 grid md:grid-cols-2 gap-4">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="bell-ring" class="w-5 h-5 text-red-600"></i>
                                 <div>
@@ -1882,13 +1793,13 @@
 
         <!-- Damage History Check -->
         <section id="damageHistorySection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Damage History Check</h2>
                 <span class="text-lg" id="damageRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section highlights whether the vehicle has any recorded damage and verifies it against damage titles.</p>
             
-            <div class="grid md:grid-cols-2 gap-2" id="damageGrid"></div>
+            <div class="grid md:grid-cols-2 gap-4" id="damageGrid"></div>
         </section>
         
         <script>
@@ -2005,13 +1916,13 @@
                     const hasRecord = damageFlags[damage.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
-                            <div class="p-2">
-                                <div class="flex items-start gap-3 items-center">
+                        <div class="border rounded-lg overflow-hidden ${hasRecord ? 'bg-[#f9f3f0]' : 'bg-white'}">
+                            <div class="p-4">
+                                <div class="flex items-start gap-3">
                                     <div class="mt-1">
                                         ${hasRecord 
-                                            ? '<i data-lucide="alert-circle" class="w-8 h-8 text-red-600"></i>'
-                                            : '<i data-lucide="check-circle" class="w-8 h-8 text-green-600"></i>'
+                                            ? '<i data-lucide="alert-circle" class="w-5 h-5 text-red-600"></i>'
+                                            : '<i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>'
                                         }
                                     </div>
                                     <div>
@@ -2034,7 +1945,7 @@
 
         <!-- Theft Records -->
         <section id="theftRecordsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Theft Records</h2>
                 <span class="text-lg" id="theftRecordCount"></span>
             </div>
@@ -2043,13 +1954,13 @@
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
                 <table class="w-full">
-                    <thead class="bg-[#2B2B2B] text-white">
+                    <thead class="bg-gray-800 text-white">
                         <tr>
-                            <th class="p-4 text-center border border-white">Reported As Stolen?</th>
-                            <th class="p-4 text-center border border-white">Stolen Date</th>
-                            <th class="p-4 text-center border border-white">Location</th>
-                            <th class="p-4 text-center border border-white">License Plate</th>
-                            <th class="p-4 text-center border border-white">Color</th>
+                            <th class="p-4 text-left">Reported As Stolen?</th>
+                            <th class="p-4 text-left">Stolen Date</th>
+                            <th class="p-4 text-left">Location</th>
+                            <th class="p-4 text-left">License Plate</th>
+                            <th class="p-4 text-left">Color</th>
                         </tr>
                     </thead>
                     <tbody id="theftTableBody"></tbody>
@@ -2118,7 +2029,7 @@
         
                 // Generate table rows for desktop
                 tableBody.innerHTML = theftData.records.map(record => `
-                    <tr class="border-b hover:bg-gray-50 text-center">
+                    <tr class="border-b">
                         <td class="p-4">${record.reported}</td>
                         <td class="p-4">${record.date}</td>
                         <td class="p-4">${record.location}</td>
@@ -2164,7 +2075,7 @@
 
         <!-- Lien/Loan Records -->
         <section id="lienRecordsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Lien/Loan Records</h2>
                 <span class="text-lg" id="lienRecordCount"></span>
             </div>
@@ -2173,7 +2084,7 @@
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
                 <table class="w-full">
-                    <thead class="bg-[#2B2B2B] text-white">
+                    <thead class="bg-gray-800 text-white">
                         <tr>
                             <th class="p-4 text-center">Event Date</th>
                             <th class="p-4 text-center">Location</th>
@@ -2233,7 +2144,7 @@
         
                 // Generate table rows for desktop
                 tableBody.innerHTML = lienData.records.map(record => `
-                    <tr class="border-b hover:bg-gray-50 text-center">
+                    <tr class="border-b">
                         <td class="p-4 text-center">${record.date}</td>
                         <td class="p-4 text-center">${record.location}</td>
                         <td class="p-4 text-center">${record.source}</td>
@@ -2245,15 +2156,15 @@
                     <div class="border rounded-lg p-4 space-y-3">
                         <div>
                             <div class="font-semibold text-gray-600 text-sm">Event Date</div>
-                            <div>${record.date}</div>
+                            <div class="text-center">${record.date}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-gray-600 text-sm">Location</div>
-                            <div>${record.location}</div>
+                            <div class="text-center">${record.location}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-gray-600 text-sm">Data Source</div>
-                            <div>${record.source}</div>
+                            <div class="text-center">${record.source}</div>
                         </div>
                     </div>
                 `).join('');
@@ -2265,7 +2176,7 @@
         
         <!-- DVH -->
         <section id="detailedHistorySection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Detailed Vehicle History</h2>
                 <span class="text-lg" id="historyRecordCount"></span>
             </div>
@@ -2274,13 +2185,13 @@
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
                 <table class="w-full">
-                    <thead class="bg-[#2B2B2B] text-white">
+                    <thead class="bg-gray-800 text-white">
                         <tr>
                             <th class="p-4 text-left whitespace-nowrap">Date</th>
-                            <th class="p-4 text-center border border-white">Source</th>
-                            <th class="p-4 text-center border border-white">Location</th>
-                            <th class="p-4 text-center border border-white">Odometer</th>
-                            <th class="p-4 text-center border border-white">Details</th>
+                            <th class="p-4 text-left">Source</th>
+                            <th class="p-4 text-left">Location</th>
+                            <th class="p-4 text-left">Odometer</th>
+                            <th class="p-4 text-left">Details</th>
                         </tr>
                     </thead>
                     <tbody id="historyTableBody"></tbody>
@@ -2363,7 +2274,7 @@
         
                 // Generate table rows for desktop
                 tableBody.innerHTML = historyData.records.map(record => `
-                    <tr class="border-b hover:bg-gray-50 text-center">
+                    <tr class="border-b hover:bg-gray-50">
                         <td class="p-4 whitespace-nowrap">${record.date}</td>
                         <td class="p-4">${record.source}</td>
                         <td class="p-4">${record.location}</td>
@@ -2418,7 +2329,7 @@
 
         <!-- Banner 2 -->
         <section class="p-4 px-6">
-            <div class="grayyedBG-1-blue p-8 rounded-lg max-w-6xl mx-auto">
+            <div class="bg-[#e8f4f8] p-8 rounded-lg max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <!-- Left Column -->
                     <div class="space-y-6">
@@ -2428,7 +2339,7 @@
                         
                         <p class="text-gray-700">Our vehicle history report provides information including-</p>
                         
-                        <div class="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4">
+                        <div class="grid grid-cols-2 gap-4">
                             <div class="space-y-3">
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-green-600"></i>
@@ -2543,5 +2454,42 @@
             </div>
         </footer>
     </div>
+
+    <!-- other script -->
+    <script>
+        // Generate Navigation Links
+        document.getElementById('navLinks').innerHTML = navLinks.map(link => 
+            `<a href="#" class="block py-2 px-4 hover:bg-[#ecd2b5] rounded">${link}</a>`
+        ).join('');
+
+        // Mobile sidebar toggle functionality
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            }
+        });
+
+        // Update sidebar visibility on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
