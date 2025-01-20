@@ -49,7 +49,70 @@
             transform: translateX(0);
         }
     }
+
+    /* Modern scrollbar styling */
+    .custom-scrollbar {
+        /* Firefox */
+        scrollbar-width: thin;
+        scrollbar-color: #d3985e73 #F2E5D7;
+    }
+
+    /* Chrome, Edge, and Safari */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #F2E5D7;
+        border-radius: 20px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: #A67C52;
+        border-radius: 20px;
+        border: 2px solid #F2E5D7;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: #8B5E3C;
+    }
+
+    /* For older browsers or as a fallback */
+    .custom-scrollbar {
+        scrollbar-face-color: #d3985e73;
+        scrollbar-track-color: #F2E5D7;
+    }
 </style>
+
+<!-- global script -->
+<script>
+    function createNoRecordsMessage(recordType = '') {
+        // Create container
+        const messageContainer = document.createElement('div');
+        messageContainer.className = 'bg-[#FEFADC] border border-[#E6E0BC] rounded-md p-4 -mt-2 flex items-center gap-2';
+        
+        // Create icon container
+        const icon = document.createElement('span');
+        icon.className = 'text-green-600';
+        icon.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6L9 17l-5-5"/>
+            </svg>
+        `;
+        
+        // Create message text
+        const message = document.createElement('span');
+        message.className = 'text-gray-800';
+        message.textContent = recordType ? `No ${recordType} Records Found!` : 'No Problems Found!';
+        
+        // Assemble the message
+        messageContainer.appendChild(icon);
+        messageContainer.appendChild(message);
+        
+        return messageContainer;
+    }
+</script>
 
 <body class="bg-[#FFFDF5] p-0 m-auto max-w-[1440px]">
     <!-- Mobile Toggle Button -->
@@ -60,7 +123,7 @@
 </button>
 
 <!-- Sidebar -->
-<div id="sidebar" class="fixed md:top-2 top-0 h-full md:h-fit w-80 bg-sidebar-bg bg-[#f2e5d7] md:bg-[#F2E5D7CC] shadow-lg rounded-md overflow-y-auto transition-transform duration-300 ease-in-out p-4 pt-7 md:p-4 -translate-x-full md:translate-x-0 z-40">
+<div id="sidebar" class="fixed flex flex-col max-h-full md:top-2 top-0 h-full md:h-fit w-80 bg-sidebar-bg bg-[#f2e5d7] md:bg-[#F2E5D7CC] shadow-lg rounded-md overflow-y-auto transition-transform duration-300 ease-in-out p-4 pt-7 md:p-4 -translate-x-full md:translate-x-0 z-40">
     <button id="closeSidebar" class="md:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -102,7 +165,7 @@
     </div>
 
     <!-- Navigation Links -->
-    <nav class="space-y-1" id="navLinks"></nav>
+    <nav class="space-y-1 overflow-scroll custom-scrollbar" id="navLinks"></nav>
 </div>
 
 <script>
@@ -114,11 +177,15 @@
         'Ownership History',
         'Auction History',
         'Title Brand Check',
+        'Market Value',
+        'Key Incidents',
         'Event Verification',
         'Mileage Records',
         'Accident Records',
         'Damage Verification',
+        'Theft Records',
         'Lien/Loan Records',
+        'Salvage Auction Records',
         'Detailed Vehicle History'
     ];
 
@@ -188,6 +255,29 @@
     // Initial call to set active link
     updateActiveLink();
 
+    // Smooth scrolling functionality
+    // Smooth scrolling functionality
+document.querySelectorAll('#navLinks a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetSectionName = this.getAttribute('data-section');
+        const targetSection = document.querySelector(`section[section-name="${targetSectionName}"]`);
+        
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Close sidebar on mobile after clicking a link
+            if (window.innerWidth <= 768) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+    });
+});
+
+
+
     // Initialize Lucide icons
     lucide.createIcons();
 </script>
@@ -245,7 +335,7 @@
         </div>
 
         <!-- Specifications Content -->
-        <section data-section="Standard Specifications" id="specificationsSection" class="p-6 pt-1">
+        <section section-name="Standard Specifications" id="specificationsSection" class="p-6 pt-1">
             <h2 class="text-2xl font-bold mb-6 text-center md:text-left">Standard Specifications</h2>
             <div class="columns-1 sm:columns-2 gap-8 border p-3 rounded-md" id="specificationsContent"></div>
         </section>
@@ -337,14 +427,14 @@
         </script>
 
         <!-- Vehicle Highlights -->
-        <section id="vehicleHighlightsSection" class="p-6 hidden">
+        <section section-name="Vehicle Summary" id="vehicleHighlightsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Vehicle Highlights</h2>
                 <span class="text-lg" id="recordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section shows a summary of all major events and significant records of this vehicle.</p>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3" id="highlightsGrid"></div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 border p-3 rounded-md" id="highlightsGrid"></div>
         </section>
     
         <script>
@@ -529,7 +619,7 @@
         </script>
 
         <!-- Ownership Usage -->
-        <section id="ownershipUsageSection" class="p-6 hidden">
+        <section section-name="Ownership History" id="ownershipUsageSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership usage</h2>
                 <span class="text-lg" id="usageCount"></span>
@@ -601,7 +691,7 @@
         </script>
 
         <!-- Ownership History -->
-        <section id="ownershipHistorySection" class="p-6 hidden">
+        <section section-name="Ownership History" id="ownershipHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership History</h2>
                 <span class="text-lg" id="ownerCount"></span>
@@ -778,7 +868,7 @@
                                 class="w-full p-3 pl-16 rounded bg-[#1a2a30] border border-gray-700 focus:outline-none focus:border-[#ffd700]"
                             >
                         </div>
-                        <div class="flex items-center gap-4 pt-2">
+                        <div class="flex flex-col md:flex-row items-center gap-4 pt-2">
                             <button class="px-6 py-3 bg-[#ffd700] text-black font-semibold rounded hover:bg-[#e6c200] transition-colors">
                                 Get Your Build Sheet
                             </button>
@@ -793,7 +883,7 @@
         </section>
 
         <!-- Auction Section -->
-        <section class="p-6">
+        <section section-name="Auction History" class="p-6">
             <div class="max-w-6xl mx-auto space-y-4" id="auctionHistoryContainer">
                 <!-- Content will be dynamically inserted here -->
             </div>
@@ -962,7 +1052,7 @@
                                         <!-- Status Panel -->
                                         <div class="border border-black rounded p-3">
                                             <div class="border-b border-black pb-2 text-center">Satus: <span class="font-medium">${record.status}</span></div>
-                                            <div class="grid grid-cols-3 gap-4 pt-3">
+                                            <div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 pt-3">
                                                 <div>
                                                     <div class="text-black text-sm">Date</div>
                                                     <div>${record.date}</div>
@@ -1064,7 +1154,7 @@
         </section>
 
         <!-- Sales Listing History Section -->
-        <section class="p-6">
+        <section section-name="Auction History" class="p-6">
             <div class="max-w-6xl mx-auto space-y-4" id="salesListingContainer">
                 <!-- Content will be dynamically inserted here -->
             </div>
@@ -1179,7 +1269,7 @@
                                         <!-- Sale Status -->
                                         <div class="border border-black rounded p-4">
                                             <h3 class="mb-3 text-center border-b border-black pb-2">Sale Status: <span class="font-semibold">${record.saleDetails.status}</span></h3>
-                                            <div class="grid grid-cols-3 gap-4">
+                                            <div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-2 pt-3">
                                                 <div>
                                                     <div class="text-gray-600 text-sm">Listing Price</div>
                                                     <div>${record.saleStatus.listingPrice}</div>
@@ -1287,14 +1377,14 @@
         </section>
         
         <!-- Title Brand Check -->
-        <section id="titleBrandSection" class="p-6 hidden">
+        <section section-name="Title Brand Check" id="titleBrandSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Title Brand Check</h2>
                 <span class="text-lg" id="problemCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains major checks for potential problems related to vehicles title</p>
             
-            <div class="grid md:grid-cols-2 gap-2" id="brandGrid"></div>
+            <div class="grid md:grid-cols-2 gap-2 border rounded-md p-2 sm:p-3" id="brandGrid"></div>
         </section>
         
         <script>
@@ -1440,8 +1530,122 @@
             generateBrandChecks();
         </script>
 
+        <!-- Title Brand Checks 2 Section -->
+        <section section-name="Title Brand Check" id="titleBrandChecksSection" class="p-6 hidden">
+            <h2 class="text-2xl font-bold mb-2">Title Brand Checks</h2>
+            <p class="text-gray-700 mb-6">
+                This section contains major checks for potential problems related to vehicles title
+            </p>
+            
+            <div id="checksGrid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 border p-3 rounded-md">
+                <!-- Grid items will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <script>
+            // Title brand checks data
+            const titleBrandChecks = {
+                flood_damage: 1,
+                fire_damage: 1,
+                hail_damage: 1,
+                salt_water_damage: 0,
+                vandalism: 0,
+                kit: 0,
+                dismantled: 0,
+                junk: 1,
+                rebuilt: 0,
+                reconstructed: 0,
+                salvage_damage: 0,
+                salvage_stolen: 0,
+                salvage_other: 0,
+                test_vehicle: 0,
+                refurbished: 0,
+                replica: 0,
+                totaled: 0,
+                owner_retained: 0,
+                bond_posted: 0,
+                memorandum_copy: 0,
+                parts_only: 0,
+                recovered_theft: 0,
+                undisclosed_lien: 0,
+                prior_owner_retained: 0,
+                vehicle_non_conformity: 0,
+                vehicle_non_conformity_corrected: 0,
+                vehicle_safety_defect_uncorrected: 0,
+                vehicle_safety_defect_corrected: 0,
+                vin_replaced: 0,
+                gray_market_non_compliant: 0,
+                gray_market_compliant: 0,
+                manufacturer_buy_back: 0,
+                former_rental: 0,
+                disclosed_damage: 0,
+                prior_non_repairable: 0,
+                crushed: 0,
+                hazardous: 0,
+                export_only_vehicle: 0,
+                odometer_actual: 0,
+                odometer_not_actual: 0,
+                odometer_tampering_verified: 0,
+                odometer_exempt_disclosure: 1,
+                odometer_exceeds_mechanical_limits: 0,
+                odometer_may_be_altered: 0,
+                odometer_replaced: 0,
+                odometer_reading_renewal: 0,
+                odometer_discrepancy: 0,
+                odometer_call_title_division: 0,
+                odometer_exceeds_limits_rectified: 0
+            };
+
+            function formatTitle(key) {
+                // Remove underscores and capitalize first letter of each word
+                return key.split('_')
+                    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(' ');
+            }
+
+            function generateTitleBrandChecks() {
+                const section = document.getElementById('titleBrandChecksSection');
+                const grid = document.getElementById('checksGrid');
+                
+                // Check if titleBrandChecks is null or empty
+                if (!titleBrandChecks || Object.keys(titleBrandChecks).length === 0) {
+                    section.classList.add('hidden');
+                    return;
+                }
+
+                // If we have data, show the section
+                section.classList.remove('hidden');
+                
+                // Generate HTML for each check
+                const checksHTML = Object.entries(titleBrandChecks).map(([key, value]) => {
+                    const title = formatTitle(key);
+                    const isIssue = value === 1;
+                    
+                    return `
+                        <div class="border border-black rounded-lg p-2 flex flex-col items-center text-center ${isIssue ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                            ${isIssue 
+                                ? '<svg class="w-6 h-6 text-red-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+                                : '<svg class="w-6 h-6 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
+                            }
+                            <h3 class="font-medium">${title}?</h3>
+                            <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
+                            <p class="text-sm text-gray-600">
+                                ${isIssue ? `${title} record found` : 'No problems Found'}
+                            </p>
+                        </div>
+                    `;
+                }).join('');
+
+                // Insert the generated HTML into the grid
+                grid.innerHTML = checksHTML;
+            }
+
+            // Initialize the checks
+            generateTitleBrandChecks();
+        </script>
+
         <!-- Vehicle Market Value -->
-        <section class="p-6" id="marketValueContainer">
+        <section section-name="Market Value" class="p-6" id="marketValueContainer">
             <script>
                 // Market Value Data
                 const marketValueData = {
@@ -1482,14 +1686,14 @@
                     const container = document.getElementById('marketValueContainer');
                     
                     container.innerHTML = `
-                        <div class="max-w-6xl mx-auto">
-                            <h2 class="text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
-                            <p class="text-gray-700 mt-2">
+                        <div class="flex flex-col md:block max-w-6xl mx-auto border rounded-md p-2 sm:p-3">
+                            <h2 class="-order-3 text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
+                            <p class="-order-2 text-gray-700 mt-2">
                                 This section contains market value for this vehicle based on its condition.
                             </p>
         
                             <!-- Chart -->
-                            <div class="border rounded-lg p-4 my-6">
+                            <div class="-order-1 p-0 sm:p-4 my-6">
                                 <canvas id="marketValueChart"></canvas>
                             </div>
         
@@ -1580,14 +1784,14 @@
         </section>
 
         <!-- Key Incidents -->
-        <section id="keyIncidentsSection" class="p-6 hidden">
+        <section section-name="Key Incidents" id="keyIncidentsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Key Incidents</h2>
                 <span class="text-lg" id="incidentCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section highlights any significant incidents the vehicle may have experienced during its lifetime.</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2" id="incidentGrid"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2 border rounded-md p-2 sm:p-3" id="incidentGrid"></div>
         </section>
         
         <script>
@@ -1729,7 +1933,7 @@
         </script>
 
         <!-- Mileage Records -->
-        <section id="mileageRecordsSection" class="p-6 hidden">
+        <section section-name="Mileage Records" id="mileageRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Mileage Records</h2>
                 <span class="text-lg" id="mileageRecordCount"></span>
@@ -1786,8 +1990,8 @@
                 // Generate mileage record cards
                 grid.innerHTML = mileageData.records.map(record => `
                     <div class="border border-black rounded-lg overflow-hidden bg-[#FEF6D5]">
-                        <div class="p-4">
-                            <div class="mb-4">
+                        <div class="p-4 justify-between flex md:block">
+                            <div class="md:mb-4">
                                 <div class="font-semibold">Date Reported</div>
                                 <div>${record.date}</div>
                             </div>
@@ -1805,7 +2009,7 @@
         </script>
 
         <!-- Accident Records -->
-        <section id="accidentRecordsSection" class="p-6 hidden">
+        <section section-name="Accident Records" id="accidentRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Accident Records</h2>
                 <span class="text-lg" id="accidentRecordCount"></span>
@@ -1853,7 +2057,7 @@
                 // Generate accident record cards
                 grid.innerHTML = accidentData.records.map(record => `
                     <div class="border border-black rounded-lg overflow-hidden grayyedBG-1-red">
-                        <div class="p-2 grid md:grid-cols-2 gap-4">
+                        <div class="p-2 grid md:grid-cols-2 gap-2">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="bell-ring" class="w-5 h-5 text-red-600"></i>
                                 <div>
@@ -1881,7 +2085,7 @@
         </script>
 
         <!-- Damage History Check -->
-        <section id="damageHistorySection" class="p-6 hidden">
+        <section section-name="Damage Verification" id="damageHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Damage History Check</h2>
                 <span class="text-lg" id="damageRecordCount"></span>
@@ -2007,7 +2211,7 @@
                     return `
                         <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="p-2">
-                                <div class="flex items-start gap-3 items-center">
+                                <div class="flex items-start gap-2 items-center">
                                     <div class="mt-1">
                                         ${hasRecord 
                                             ? '<i data-lucide="alert-circle" class="w-8 h-8 text-red-600"></i>'
@@ -2033,7 +2237,7 @@
         </script>
 
         <!-- Theft Records -->
-        <section id="theftRecordsSection" class="p-6 hidden">
+        <section section-name="Theft Records" id="theftRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Theft Records</h2>
                 <span class="text-lg" id="theftRecordCount"></span>
@@ -2042,7 +2246,7 @@
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
-                <table class="w-full">
+                <table id="theftTable" class="w-full">
                     <thead class="bg-[#2B2B2B] text-white">
                         <tr>
                             <th class="p-4 text-center border border-white">Reported As Stolen?</th>
@@ -2097,6 +2301,7 @@
         
             function generateTheftRecords() {
                 const section = document.getElementById('theftRecordsSection');
+                const theftTable = document.getElementById('theftTable');
                 const tableBody = document.getElementById('theftTableBody');
                 const cardGrid = document.getElementById('theftCardGrid');
                 const recordCount = document.getElementById('theftRecordCount');
@@ -2106,9 +2311,14 @@
                                theftData !== undefined && 
                                theftData.records && 
                                theftData.records.length > 0;
+
+                console.log(hasData);
         
                 if (!hasData) {
-                    section.classList.add('hidden');
+                    section.classList.remove('hidden');
+                    theftTable.classList.add('hidden');
+                    const noRecordsMessage = createNoRecordsMessage('Theft');
+                    section.appendChild(noRecordsMessage);
                     return;
                 }
         
@@ -2163,7 +2373,7 @@
         </script>
 
         <!-- Lien/Loan Records -->
-        <section id="lienRecordsSection" class="p-6 hidden">
+        <section section-name="Lien/Loan Records" id="lienRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Lien/Loan Records</h2>
                 <span class="text-lg" id="lienRecordCount"></span>
@@ -2172,7 +2382,7 @@
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
-                <table class="w-full">
+                <table id="lienTableContent" class="w-full">
                     <thead class="bg-[#2B2B2B] text-white">
                         <tr>
                             <th class="p-4 text-center">Event Date</th>
@@ -2191,28 +2401,29 @@
         <script>
             // Lien records data
             const lienData = {
-                records: [
-                    {
-                        date: '08/09/2019',
-                        location: 'ROGERSVILLE, MO',
-                        source: 'Federal Motor Vehicle Records'
-                    },
-                    {
-                        date: '12/15/2018',
-                        location: 'SPRINGFIELD, MO',
-                        source: 'State DMV Records'
-                    },
-                    {
-                        date: '03/22/2018',
-                        location: 'KANSAS CITY, MO',
-                        source: 'County Records'
-                    }
-                ]
+                // records: [
+                //     {
+                //         date: '08/09/2019',
+                //         location: 'ROGERSVILLE, MO',
+                //         source: 'Federal Motor Vehicle Records'
+                //     },
+                //     {
+                //         date: '12/15/2018',
+                //         location: 'SPRINGFIELD, MO',
+                //         source: 'State DMV Records'
+                //     },
+                //     {
+                //         date: '03/22/2018',
+                //         location: 'KANSAS CITY, MO',
+                //         source: 'County Records'
+                //     }
+                // ]
             };
         
             function generateLienRecords() {
                 const section = document.getElementById('lienRecordsSection');
                 const tableBody = document.getElementById('lienTableBody');
+                const lienTableContent = document.getElementById('lienTableContent');
                 const cardGrid = document.getElementById('lienCardGrid');
                 const recordCount = document.getElementById('lienRecordCount');
         
@@ -2223,7 +2434,10 @@
                                lienData.records.length > 0;
         
                 if (!hasData) {
-                    section.classList.add('hidden');
+                    section.classList.remove('hidden');
+                    lienTableContent.classList.add('hidden');
+                    const noRecordsMessageLien = createNoRecordsMessage('Lien Records');
+                    section.appendChild(noRecordsMessageLien);
                     return;
                 }
         
@@ -2262,9 +2476,248 @@
             // Initialize lien records
             generateLienRecords();
         </script>
+
+        <!-- Junk/Salvage/Insurance Records -->
+        <section section-name="Salvage Auction Records" id="junkSalvageRecordsSection" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Junk/Salvage/Insurance Records</h2>
+                <span class="text-lg" id="junkSalvageRecordCount"></span>
+            </div>
+            <p class="text-gray-700 mb-6">This record shows if the vehicle has been declared as junk, salvage, or involved in significant insurance claims. These factors can greatly affect the vehicle's value and safety.</p>
+            
+            <!-- Table for desktop -->
+            <div class="hidden md:block overflow-x-auto">
+                <table id="junkSalvageTableContent" class="w-full">
+                    <thead class="bg-[#2B2B2B] text-white">
+                        <tr>
+                            <th class="p-4 text-center">Event Date</th>
+                            <th class="p-4 text-center">Type</th>
+                            <th class="p-4 text-center">Location</th>
+                            <th class="p-4 text-center">Data Source</th>
+                        </tr>
+                    </thead>
+                    <tbody id="junkSalvageTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Cards for mobile -->
+            <div class="md:hidden space-y-4" id="junkSalvageCardGrid"></div>
+        </section>
+
+        <script>
+            // Junk/Salvage/Insurance records data
+            const junkSalvageData = {
+                // records: [
+                //     {
+                //         date: '05/12/2022',
+                //         type: 'Salvage',
+                //         location: 'DENVER, CO',
+                //         source: 'State DMV Records'
+                //     },
+                //     {
+                //         date: '11/03/2021',
+                //         type: 'Insurance Claim',
+                //         location: 'BOULDER, CO',
+                //         source: 'Insurance Database'
+                //     },
+                //     {
+                //         date: '07/18/2020',
+                //         type: 'Junk',
+                //         location: 'FORT COLLINS, CO',
+                //         source: 'County Records'
+                //     }
+                // ]
+            };
+
+            function generateJunkSalvageRecords() {
+                const section = document.getElementById('junkSalvageRecordsSection');
+                const tableBody = document.getElementById('junkSalvageTableBody');
+                const junkSalvageTableContent = document.getElementById('junkSalvageTableContent');
+                const cardGrid = document.getElementById('junkSalvageCardGrid');
+                const recordCount = document.getElementById('junkSalvageRecordCount');
+
+                // Check if data exists
+                const hasData = junkSalvageData !== null && 
+                            junkSalvageData !== undefined && 
+                            junkSalvageData.records && 
+                            junkSalvageData.records.length > 0;
+
+                if (!hasData) {
+                    section.classList.remove('hidden');
+                    junkSalvageTableContent.classList.add('hidden');
+                    const noRecordsMessage = createNoRecordsMessage('Junk/Salvage/Insurance Records');
+                    section.appendChild(noRecordsMessage);
+                    return;
+                }
+
+                // Show section and update count
+                section.classList.remove('hidden');
+                recordCount.textContent = `${junkSalvageData.records.length} record(s) found`;
+
+                // Generate table rows for desktop
+                tableBody.innerHTML = junkSalvageData.records.map(record => `
+                    <tr class="border-b hover:bg-gray-50 text-center">
+                        <td class="p-4 text-center">${record.date}</td>
+                        <td class="p-4 text-center">${record.type}</td>
+                        <td class="p-4 text-center">${record.location}</td>
+                        <td class="p-4 text-center">${record.source}</td>
+                    </tr>
+                `).join('');
+
+                // Generate cards for mobile
+                cardGrid.innerHTML = junkSalvageData.records.map(record => `
+                    <div class="border rounded-lg p-4 space-y-3">
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Event Date</div>
+                            <div>${record.date}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Type</div>
+                            <div>${record.type}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Location</div>
+                            <div>${record.location}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Data Source</div>
+                            <div>${record.source}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Initialize junk/salvage/insurance records
+            generateJunkSalvageRecords();
+        </script>
         
+        <!-- Salvage Auction Records -->
+        <section section-name="Salvage Auction Records" id="salvageAuctionRecordsSection" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Salvage Auction Records</h2>
+                <span class="text-lg" id="salvageAuctionRecordCount"></span>
+            </div>
+            <p class="text-gray-700 mb-6">This record shows the vehicle's history in salvage auctions. Salvage auctions typically deal with vehicles that have been damaged, declared a total loss, or have other significant issues.</p>
+            
+            <!-- Table for desktop -->
+            <div class="hidden md:block overflow-x-auto">
+                <table id="salvageAuctionTableContent" class="w-full">
+                    <thead class="bg-[#2B2B2B] text-white">
+                        <tr>
+                            <th class="p-4 text-center">Auction Date</th>
+                            <th class="p-4 text-center">Auction Company</th>
+                            <th class="p-4 text-center">Location</th>
+                            <th class="p-4 text-center">Damage Type</th>
+                            <th class="p-4 text-center">Sale Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salvageAuctionTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Cards for mobile -->
+            <div class="md:hidden space-y-4" id="salvageAuctionCardGrid"></div>
+        </section>
+
+        <script>
+            // Salvage Auction records data
+            const salvageAuctionData = {
+                records: [
+                    {
+                        date: '09/15/2022',
+                        company: 'AutoSalvage Inc.',
+                        location: 'PHOENIX, AZ',
+                        damageType: 'Flood',
+                        saleStatus: 'Sold'
+                    },
+                    {
+                        date: '03/22/2021',
+                        company: 'Wreck Auctions LLC',
+                        location: 'TUCSON, AZ',
+                        damageType: 'Collision',
+                        saleStatus: 'Unsold'
+                    },
+                    {
+                        date: '11/07/2020',
+                        company: 'Salvage Masters',
+                        location: 'FLAGSTAFF, AZ',
+                        damageType: 'Fire',
+                        saleStatus: 'Sold'
+                    }
+                ]
+            };
+
+            function generateSalvageAuctionRecords() {
+                const section = document.getElementById('salvageAuctionRecordsSection');
+                const tableBody = document.getElementById('salvageAuctionTableBody');
+                const salvageAuctionTableContent = document.getElementById('salvageAuctionTableContent');
+                const cardGrid = document.getElementById('salvageAuctionCardGrid');
+                const recordCount = document.getElementById('salvageAuctionRecordCount');
+
+                // Check if data exists
+                const hasData = salvageAuctionData !== null && 
+                            salvageAuctionData !== undefined && 
+                            salvageAuctionData.records && 
+                            salvageAuctionData.records.length > 0;
+
+                if (!hasData) {
+                    section.classList.remove('hidden');
+                    salvageAuctionTableContent.classList.add('hidden');
+                    const noRecordsMessage = document.createElement('div');
+                    noRecordsMessage.className = 'text-center text-gray-500 my-8';
+                    noRecordsMessage.textContent = 'No Salvage Auction Records found for this vehicle.';
+                    section.appendChild(noRecordsMessage);
+                    return;
+                }
+
+                // Show section and update count
+                section.classList.remove('hidden');
+                recordCount.textContent = `${salvageAuctionData.records.length} record(s) found`;
+
+                // Generate table rows for desktop
+                tableBody.innerHTML = salvageAuctionData.records.map(record => `
+                    <tr class="border-b hover:bg-gray-50 text-center">
+                        <td class="p-4 text-center">${record.date}</td>
+                        <td class="p-4 text-center">${record.company}</td>
+                        <td class="p-4 text-center">${record.location}</td>
+                        <td class="p-4 text-center">${record.damageType}</td>
+                        <td class="p-4 text-center">${record.saleStatus}</td>
+                    </tr>
+                `).join('');
+
+                // Generate cards for mobile
+                cardGrid.innerHTML = salvageAuctionData.records.map(record => `
+                    <div class="border rounded-lg p-4 space-y-3">
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Auction Date</div>
+                            <div>${record.date}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Auction Company</div>
+                            <div>${record.company}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Location</div>
+                            <div>${record.location}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Damage Type</div>
+                            <div>${record.damageType}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Sale Status</div>
+                            <div>${record.saleStatus}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Initialize salvage auction records
+            generateSalvageAuctionRecords();
+        </script>
+
         <!-- DVH -->
-        <section id="detailedHistorySection" class="p-6 hidden">
+        <section section-name="Detailed Vehicle History" id="detailedHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Detailed Vehicle History</h2>
                 <span class="text-lg" id="historyRecordCount"></span>
@@ -2418,7 +2871,7 @@
 
         <!-- Banner 2 -->
         <section class="p-4 px-6">
-            <div class="grayyedBG-1-blue p-8 rounded-lg max-w-6xl mx-auto">
+            <div class="grayyedBG-1-blue p-4 sm:p-8 rounded-lg max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <!-- Left Column -->
                     <div class="space-y-6">
@@ -2496,6 +2949,10 @@
                     </div>
                 </div>
             </div>
+            <script>
+                // Initialize Lucide icons
+                lucide.createIcons();
+            </script>
         </section>
 
         <!-- footer -->
@@ -2516,7 +2973,7 @@
                     </p>
                     
                     <!-- Social Media Icons -->
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 sm:gap-4">
                         <a href="#" class="w-8 h-8">
                             <img src="assets/copy.svg" class="w-full h-auto">
                         </a>
