@@ -47,9 +47,8 @@
                     </div>
                 </div>
                 <div class="row_2_ws con preview-window-sticker">
-                    <div class="col image">
+                    <div class="col image" style="gap: 8px;">
                         <img class="wsImage" src="asset/unlock-window-sticker.png" onclick="toCheckout()" />
-                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
                         <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                     </div>
                     <div class="col text">
@@ -212,7 +211,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
+                        <button class="transparent_noBorder withIcon preview-window-sticker" style="margin-top: 15px;">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>                     
                     </div>
                     <div class="auction border-left-md">
                         <img src="asset/dummyCar.png" />
@@ -233,18 +233,18 @@
                 <div class="checkoutContainer mobile">
                     <div class="checkout">
                         <p class="heading">Select your package</p>
-                        <p class="description">Get prepaid credits now! Use credits to access detailed vehicle history reports or learn more about the vehicle with a window sticker.</p>
+                        <p class="description">Get prepaid <span data-type="type">credits</span> now! Use <span data-type="type">credits</span> to access detailed vehicle history reports or learn more about the vehicle with a window sticker.</p>
                         <div class="packageOption" id="packageOptionMobile">
                             <label for="credit_1">
                                 <div class="credit">
                                     <input class="radioBtn" type="radio" id="credit_1" name="credit" value="credit_1" checked>
                                     <div class="packageData">
                                         <div class="header">
-                                            <span class="getCredit">1 Credit</span>
+                                            <span class="getCredit">1 <span data-type="type">Credit</span></span>
                                             <span class="tag none">Most popular</span>
                                         </div>
-                                        <p class="details">You pay $15.00, you get 1 credit.</p>
-                                        <p class="cost">$15.00/credit</p>
+                                        <p class="details">You pay $15.00, you get 1 <span data-type="type">credit</span>.</p>
+                                        <p class="cost">$15.00/<span data-type="type">credit</span></p>
                                         <p class="compare success">67% cheaper than Carfax</p>
                                         <div class="saving none">
                                             <span class="saveTag">Save 47%</span>
@@ -258,11 +258,11 @@
                                     <input class="radioBtn" type="radio" id="credit_5" name="credit" value="credit_5">
                                     <div class="packageData">
                                         <div class="header">
-                                            <span class="getCredit">5 Credits</span>
+                                            <span class="getCredit">5 <span data-type="type">Credits</span></span>
                                             <span class="tag">Most popular</span>
                                         </div>
-                                        <p class="details">You pay $25.00, you get 5 credits.</p>
-                                        <p class="cost">$5.00/credit</p>
+                                        <p class="details">You pay $25.00, you get 5 <span data-type="type">credits</span>.</p>
+                                        <p class="cost">$5.00/<span data-type="type">credit</span></p>
                                         <p class="compare success none">67% cheaper than Carfax</p>
                                         <div class="saving">
                                             <span class="discount">$75.00</span>
@@ -277,11 +277,11 @@
                                     <input class="radioBtn" type="radio" id="credit_50" name="credit" value="credit_50">
                                     <div class="packageData">
                                         <div class="header">
-                                            <span class="getCredit">50 Credit</span>
+                                            <span class="getCredit">50 <span data-type="type">Credit</span></span>
                                             <span class=" none">Most popular</span>
                                         </div>
-                                        <p class="details">You pay $100.00, you get 50 credits.</p>
-                                        <p class="cost">$2.00/credit</p>
+                                        <p class="details">You pay $100.00, you get 50 <span data-type="type">credits</span>.</p>
+                                        <p class="cost">$2.00/<span data-type="type">credit</span></p>
                                         <p class="compare success none">67% cheaper than Carfax</p>
                                         <div class="saving">
                                             <span class="discount">$750.00</span>
@@ -323,7 +323,7 @@
                         </div>
                         <div class="invoice">
                             <div class="invoiceValue">
-                                <span>5 prepaid credits</span>
+                                <span>5 prepaid <span data-type="type">credits</span></span>
                                 <span>$25.00</span>
                             </div>
                             <div class="invoiceValue">
@@ -656,12 +656,12 @@
                                 <span>Detailed car specifications</span>
                             </p>
                         </div>
-                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid <span data-type="type-reserve">credits</span></button>
                         <button class="transparent_noBorder withIcon desktop-flex">View sample report <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                     </div>
                     <div class="col image">
                         <img class="wsImage" src="asset/vehicle-history-report.png" />
-                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid <span data-type="type">credits</span></button>
                         <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                     </div>
                 </div>
@@ -687,12 +687,12 @@
                                 <span>Builds trust and transparency for dealers and sellers</span>
                             </p>
                         </div>
-                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="blue desktop-flex" onclick="toCheckout()">Get prepaid <span data-type="type-reserve">credits</span></button>
                         <button class="transparent_noBorder withIcon desktop-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                     </div>
                     <div class="col image">
                         <img class="wsImage" src="asset/window-sticker.png" />
-                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid credits</button>
+                        <button class="blue mobile-flex" onclick="toCheckout()">Get prepaid <span data-type="type">credits</span></button>
                         <button class="transparent_noBorder withIcon mobile-flex">View sample window sticker <img class="btnIcon" src="asset/arrow-right-blue.svg" /></button>
                     </div>
                 </div>
@@ -2257,18 +2257,18 @@
             <div class="checkoutContainer desktop">
                 <div class="checkout">
                     <p class="heading">Select your package</p>
-                    <p class="description">Get prepaid credits now! Use credits to access detailed vehicle history reports or learn more about the vehicle with a window sticker.</p>
+                    <p class="description">Get prepaid <span data-type="type">credits</span> now! Use <span data-type="type">credits</span> to access detailed vehicle history reports or learn more about the vehicle with a window sticker.</p>
                     <div class="packageOption" id="packageOptionDesktop">
                         <label for="credit_1_m">
                             <div class="credit">
                                 <input class="radioBtn" type="radio" id="credit_1_m" name="credit_m" value="credit_1" checked>
                                 <div class="packageData">
                                     <div class="header">
-                                        <span class="getCredit">1 Credit</span>
+                                        <span class="getCredit">1 <span data-type="type">Credit</span></span>
                                         <span class="tag none">Most popular</span>
                                     </div>
-                                    <p class="details">You pay $15.00, you get 1 credit.</p>
-                                    <p class="cost">$15.00/credit</p>
+                                    <p class="details">You pay $15.00, you get 1 <span data-type="type">credit</span>.</p>
+                                    <p class="cost">$15.00/<span data-type="type">credit</span></p>
                                     <p class="compare success">67% cheaper than Carfax</p>
                                     <div class="saving none">
                                         <span class="saveTag">Save 47%</span>
@@ -2282,11 +2282,11 @@
                                 <input class="radioBtn" type="radio" id="credit_5_m" name="credit_m" value="credit_5">
                                 <div class="packageData">
                                     <div class="header">
-                                        <span class="getCredit">5 Credits</span>
+                                        <span class="getCredit">5 <span data-type="type">Credits</span></span>
                                         <span class="tag">Most popular</span>
                                     </div>
-                                    <p class="details">You pay $25.00, you get 5 credits.</p>
-                                    <p class="cost">$5.00/credit</p>
+                                    <p class="details">You pay $25.00, you get 5 <span data-type="type">credits</span>.</p>
+                                    <p class="cost">$5.00/<span data-type="type">credit</span></p>
                                     <p class="compare success none">67% cheaper than Carfax</p>
                                     <div class="saving">
                                         <span class="discount">$75.00</span>
@@ -2301,11 +2301,11 @@
                                 <input class="radioBtn" type="radio" id="credit_50_m" name="credit_m" value="credit_50">
                                 <div class="packageData">
                                     <div class="header">
-                                        <span class="getCredit">50 Credits</span>
+                                        <span class="getCredit">50 <span data-type="type">Credits</span></span>
                                         <span class=" none">Most popular</span>
                                     </div>
-                                    <p class="details">You pay $100.00, you get 50 credits.</p>
-                                    <p class="cost">$2.00/credit</p>
+                                    <p class="details">You pay $100.00, you get 50 <span data-type="type">credits</span>.</p>
+                                    <p class="cost">$2.00/<span data-type="type">credit</span></p>
                                     <p class="compare success none">67% cheaper than Carfax</p>
                                     <div class="saving">
                                         <span class="discount">$750.00</span>
@@ -2347,7 +2347,7 @@
                     </div>
                     <div class="invoice">
                         <div class="invoiceValue">
-                            <span>5 prepaid credits</span>
+                            <span>5 prepaid <span data-type="type">credits</span></span>
                             <span class="bold">$25.00</span>
                         </div>
                         <div class="invoiceValue">
@@ -2409,5 +2409,82 @@
         </div>
     </div>
     <div class="overlay"></div>
+
+    <div id="fixedButton" class="mobile">
+        <button class="blue" onclick="toCheckout()">Get Your <span data-type="type">Credit</span> Now</button>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        /**
+         * Updates the text of spans with `data-type="type"` and its reserve spans.
+         * @param {string} newText - The primary text to set (e.g., "sticker", "report").
+         * @param {string} reserveText - The reserve text to set (e.g., the opposite of `newText`).
+         */
+        function updateSpanText(newText, reserveText) {
+          // Select all spans with data-type="type"
+          const spans = document.querySelectorAll('span[data-type="type"]');
+          const spansReserve = document.querySelectorAll('span[data-type="type-reserve"]');
+      
+          // Function to format text (capitalize and pluralize if necessary)
+          const formatText = (originalText, baseText) => {
+            const isCapitalized = /^[A-Z]/.test(originalText); // Check if first letter is capitalized
+            const isPlural = /s$/i.test(originalText); // Check if it ends with 's'
+      
+            let formattedText = baseText;
+            if (isPlural) formattedText += 's'; // Add 's' for plural
+            if (isCapitalized) formattedText = formattedText.charAt(0).toUpperCase() + formattedText.slice(1); // Capitalize
+            return formattedText;
+          };
+      
+          // Update spans with newText
+          spans.forEach(span => {
+            span.textContent = formatText(span.textContent, newText);
+          });
+      
+          // Update reserve spans with reserveText
+          spansReserve.forEach(span => {
+            span.textContent = formatText(span.textContent, reserveText);
+          });
+        }
+
+        // Detect the body class and update spans accordingly
+        if (document.body.classList.contains('window-sticker')) {
+          updateSpanText("sticker", "report"); // Set primary to "sticker" and reserve to "report"
+        } else if (document.body.classList.contains('vehicle-report')) {
+          updateSpanText("report", "sticker"); // Set primary to "report" and reserve to "sticker"
+        }
+
+        // Handle Fixed Button
+        function handleScroll() {
+            const checkoutContainer = document.querySelector('.checkoutContainer.mobile');
+            const fixedButton = document.getElementById('fixedButton');
+            
+            if (checkoutContainer) {
+                const rect = checkoutContainer.getBoundingClientRect();
+                const buffer = 0; // 0px buffer
+
+                // Show when above or significantly below the checkout container
+                if (rect.top > window.innerHeight + buffer || rect.bottom < -buffer) {
+                    fixedButton.classList.remove('dissolve');
+                } else {
+                    fixedButton.classList.add('dissolve');
+                }
+            }
+        }
+
+        // Run the check immediately
+        handleScroll();
+
+        // Set up a scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Set up a MutationObserver to watch for changes in the DOM
+        const observer = new MutationObserver(handleScroll);
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Also check on window resize, in case the mobile container appears/disappears
+        window.addEventListener('resize', handleScroll);
+      </script>
 </body>
 </html>

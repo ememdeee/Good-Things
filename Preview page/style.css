@@ -45,6 +45,9 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-button {
     display: none; /* Hides the top and bottom scrollbar arrows */
 }
+[data-type="type"], [data-type="type-reserve"]{
+    display: contents;
+}
 /* global condition */
 body.vehicle-report .preview-window-sticker{
     display: none;
@@ -984,6 +987,7 @@ label:has(input[type="radio"]:checked) .credit::before {
 
 .coupon{
     margin-bottom: 15px;
+    display: none;
 }
 .couponContainer{
     display: flex;
@@ -1160,6 +1164,30 @@ label:has(input[type="radio"]:checked) .credit::before {
 
 .dot.active {
     background-color: #1955FF;
+}
+
+#fixedButton {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #EBF0FD, #d4dffa);
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 8px 2px #0000004d;
+}
+
+#fixedButton.dissolve {
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+}
+
+#fixedButton button {
+    width: 100%;
+    transition: background-color 0.3s;
 }
 
 @media (min-width: 992px) {
