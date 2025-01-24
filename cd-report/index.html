@@ -178,7 +178,12 @@
         'Title History',
         'Accident Records (New)',
         'Theft Records (New)',
+        'Lien/ Impound/ Export',
+        'Junk Salvage Records',
+        'Salvage Auction Records',
+        'Sale Records',
         'Auction History',
+        'Sales Listing History', 
         'Title Brand Check',
         'Market Value',
         'Key Incidents',
@@ -188,7 +193,6 @@
         'Damage Verification',
         'Theft Records',
         'Lien/Loan Records',
-        'Salvage Auction Records',
         'Detailed Vehicle History'
     ];
 
@@ -1224,7 +1228,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                 // Generate cards for mobile
                 cardGrid.innerHTML = theftDataNew.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3">
+                    <div class="border rounded-lg p-3 space-y-3">
                         <div>
                             <div class="font-semibold text-gray-600">Reported on:</div>
                             <div>${record.reportedOn}</div>
@@ -1251,6 +1255,437 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
             // Initialize new theft records
             generateTheftRecordsNew();
+        </script>
+
+        <!-- Lien/ Impound/ Export Records -->
+        <section section-name="Lien/ Impound/ Export" id="LienImpoundExportRecordsSection" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Lien/ Impound/ Export Records</h2>
+                <span class="text-lg" id="LienImpoundExportRecordCount"></span>
+            </div>
+            <p class="text-gray-700 mb-6">This section contains lien, impound, and export records of the vehicle.</p>
+            
+            <!-- Table for desktop -->
+            <div class="hidden md:block overflow-x-auto">
+                <table id="LienImpoundExportTableContent" class="w-full">
+                    <thead class="bg-[#2B2B2B] text-white">
+                        <tr>
+                            <th class="p-4 text-center">Date</th>
+                            <th class="p-4 text-center">Record Type</th>
+                            <th class="p-4 text-center">Agency</th>
+                        </tr>
+                    </thead>
+                    <tbody id="LienImpoundExportTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Cards for mobile -->
+            <div class="md:hidden space-y-4" id="LienImpoundExportCardGrid"></div>
+        </section>
+
+        <script>
+            // Lien/ Impound/ Export records data
+            const LienImpoundExportData = {
+                records: [
+                    {
+                        date: '05/12/2022',
+                        type: 'Salvage',
+                        agency: 'State DMV Records'
+                    },
+                    {
+                        date: '11/03/2021',
+                        type: 'Insurance Claim',
+                        agency: 'Insurance Database'
+                    },
+                    {
+                        date: '07/18/2020',
+                        type: 'Junk',
+                        agency: 'County Records'
+                    }
+                ]
+            };
+
+            function generateLienImpoundExportRecords() {
+                const section = document.getElementById('LienImpoundExportRecordsSection');
+                const tableBody = document.getElementById('LienImpoundExportTableBody');
+                const LienImpoundExportTableContent = document.getElementById('LienImpoundExportTableContent');
+                const cardGrid = document.getElementById('LienImpoundExportCardGrid');
+                const recordCount = document.getElementById('LienImpoundExportRecordCount');
+
+                // Check if data exists
+                const hasData = LienImpoundExportData !== null && 
+                            LienImpoundExportData !== undefined && 
+                            LienImpoundExportData.records && 
+                            LienImpoundExportData.records.length > 0;
+
+                if (!hasData) {
+                    section.classList.remove('hidden');
+                    LienImpoundExportTableContent.classList.add('hidden');
+                    const noRecordsMessage = createNoRecordsMessage('Lien/ Impound/ Export Records');
+                    section.appendChild(noRecordsMessage);
+                    return;
+                }
+
+                // Show section and update count
+                section.classList.remove('hidden');
+                recordCount.textContent = `${LienImpoundExportData.records.length} record(s) found`;
+
+                // Generate table rows for desktop
+                tableBody.innerHTML = LienImpoundExportData.records.map(record => `
+                    <tr class="border-b hover:bg-gray-50 text-center">
+                        <td class="p-4 text-center">${record.date}</td>
+                        <td class="p-4 text-center">${record.type}</td>
+                        <td class="p-4 text-center">${record.agency}</td>
+                    </tr>
+                `).join('');
+
+                // Generate cards for mobile
+                cardGrid.innerHTML = LienImpoundExportData.records.map(record => `
+                    <div class="border rounded-lg p-3 space-y-3">
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Event Date</div>
+                            <div>${record.date}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Type</div>
+                            <div>${record.type}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Agency</div>
+                            <div>${record.agency}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Initialize Lien/ Impound/ Export records
+            generateLienImpoundExportRecords();
+        </script>
+
+        <!-- Junk/Salvage/Insurance Records -->
+        <section section-name="Junk Salvage Records" id="junkSalvageRecordsSection" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Junk/Salvage/Insurance Records</h2>
+                <span class="text-lg" id="junkSalvageRecordCount"></span>
+            </div>
+            <p class="text-gray-700 mb-6">This record shows if the vehicle has been declared as junk, salvage, or involved in significant insurance claims. These factors can greatly affect the vehicle's value and safety.</p>
+            
+            <!-- Table for desktop -->
+            <div class="hidden md:block overflow-x-auto">
+                <table id="junkSalvageTableContent" class="w-full table-fixed">
+                    <thead class="bg-[#2B2B2B] text-white">
+                        <tr>
+                            <th class="p-4 text-center">Date</th>
+                            <th class="p-4 text-center">Brander</th>
+                            <th class="p-4 text-center">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="junkSalvageTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Cards for mobile -->
+            <div class="md:hidden space-y-4" id="junkSalvageCardGrid"></div>
+        </section>
+
+        <script>
+            // Junk/Salvage/Insurance records data
+            const junkSalvageData = {
+                records: [
+                    {
+                        date: '05/12/2022',
+                        brander: 'IAA WESTCHESTER, IL. Phone: 7084927000',
+                        details: 'Record type: Junk and Salvage Vehicle disposition: Sold Intended for export: No'
+                    },
+                    {
+                        date: '11/03/2021',
+                        brander: 'IAA WESTCHESTER, IL. Phone: 7084927000',
+                        details: 'Record type: Junk and Salvage Vehicle disposition: Sold Intended for export: No'
+                    },
+                    {
+                        date: '07/18/2020',
+                        brander: 'IAA WESTCHESTER, IL. Phone: 7084927000',
+                        details: 'Record type: Junk and Salvage Vehicle disposition: Sold Intended for export: No'
+                    }
+                ]
+            };
+
+            function generateJunkSalvageRecords() {
+                const section = document.getElementById('junkSalvageRecordsSection');
+                const tableBody = document.getElementById('junkSalvageTableBody');
+                const junkSalvageTableContent = document.getElementById('junkSalvageTableContent');
+                const cardGrid = document.getElementById('junkSalvageCardGrid');
+                const recordCount = document.getElementById('junkSalvageRecordCount');
+
+                // Check if data exists
+                const hasData = junkSalvageData !== null && 
+                            junkSalvageData !== undefined && 
+                            junkSalvageData.records && 
+                            junkSalvageData.records.length > 0;
+
+                if (!hasData) {
+                    section.classList.remove('hidden');
+                    junkSalvageTableContent.classList.add('hidden');
+                    const noRecordsMessage = createNoRecordsMessage('Junk/Salvage/Insurance Records');
+                    section.appendChild(noRecordsMessage);
+                    return;
+                }
+
+                // Show section and update count
+                section.classList.remove('hidden');
+                recordCount.textContent = `${junkSalvageData.records.length} record(s) found`;
+
+                // Generate table rows for desktop
+                tableBody.innerHTML = junkSalvageData.records.map(record => `
+                    <tr class="border-b hover:bg-gray-50 text-center">
+                        <td class="p-4 text-center">${record.date}</td>
+                        <td class="p-4 text-center">${record.brander}</td>
+                        <td class="p-4 text-center">${record.details}</td>
+                    </tr>
+                `).join('');
+
+                // Generate cards for mobile
+                cardGrid.innerHTML = junkSalvageData.records.map(record => `
+                    <div class="border rounded-lg p-3 space-y-3">
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Event Date</div>
+                            <div>${record.date}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Brander</div>
+                            <div>${record.brander}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Details</div>
+                            <div>${record.details}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Initialize junk/salvage/insurance records
+            generateJunkSalvageRecords();
+        </script>
+        
+        <!-- Salvage Auction Records -->
+        <section section-name="Salvage Auction Records" id="salvageAuctionRecordsSection" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Salvage Auction Records</h2>
+                <span class="text-lg" id="salvageAuctionRecordCount"></span>
+            </div>
+            <p class="text-gray-700 mb-6">This record shows the vehicle's history in salvage auctions. Salvage auctions typically deal with vehicles that have been damaged, declared a total loss, or have other significant issues.</p>
+            
+            <!-- Table for desktop -->
+            <div class="hidden md:block overflow-x-auto">
+                <table id="salvageAuctionTableContent" class="w-full table-fixed">
+                    <thead class="bg-[#2B2B2B] text-white">
+                        <tr>
+                            <th class="p-4 text-center">Date</th>
+                            <th class="p-4 text-center">Type</th>
+                            <th class="p-4 text-center">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salvageAuctionTableBody"></tbody>
+                </table>
+            </div>
+
+            <!-- Cards for mobile -->
+            <div class="md:hidden space-y-4" id="salvageAuctionCardGrid"></div>
+        </section>
+
+        <script>
+            // Salvage Auction records data
+            const salvageAuctionData = {
+                records: [
+                    {
+                        date: '09/15/2022',
+                        type: 'Salvage',
+                        details: 'Primary Damage: Unknown Secondary Damage: Rear Mileage: 1 mi (Not required/ Exempt) Color: N/A'
+                    },
+                    {
+                        date: '03/22/2021',
+                        type: 'Salvage',
+                        details: 'Primary Damage: Unknown Secondary Damage: Rear Mileage: 1 mi (Not required/ Exempt) Color: N/A'
+                    },
+                    {
+                        date: '11/07/2020',
+                        type: 'Salvage',
+                        details: 'Primary Damage: Unknown Secondary Damage: Rear Mileage: 1 mi (Not required/ Exempt) Color: N/A'
+                    }
+                ]
+            };
+
+            function generateSalvageAuctionRecords() {
+                const section = document.getElementById('salvageAuctionRecordsSection');
+                const tableBody = document.getElementById('salvageAuctionTableBody');
+                const salvageAuctionTableContent = document.getElementById('salvageAuctionTableContent');
+                const cardGrid = document.getElementById('salvageAuctionCardGrid');
+                const recordCount = document.getElementById('salvageAuctionRecordCount');
+
+                // Check if data exists
+                const hasData = salvageAuctionData !== null && 
+                            salvageAuctionData !== undefined && 
+                            salvageAuctionData.records && 
+                            salvageAuctionData.records.length > 0;
+
+                if (!hasData) {
+                    section.classList.remove('hidden');
+                    salvageAuctionTableContent.classList.add('hidden');
+                    const noRecordsMessage = createNoRecordsMessage('Junk/Salvage/Insurance Records');
+                    section.appendChild(noRecordsMessage);
+                    return;
+                }
+
+                // Show section and update count
+                section.classList.remove('hidden');
+                recordCount.textContent = `${salvageAuctionData.records.length} record(s) found`;
+
+                // Generate table rows for desktop
+                tableBody.innerHTML = salvageAuctionData.records.map(record => `
+                    <tr class="border-b hover:bg-gray-50 text-center">
+                        <td class="p-4 text-center">${record.date}</td>
+                        <td class="p-4 text-center">${record.type}</td>
+                        <td class="p-4 text-center">${record.details}</td>
+                    </tr>
+                `).join('');
+
+                // Generate cards for mobile
+                cardGrid.innerHTML = salvageAuctionData.records.map(record => `
+                    <div class="border rounded-lg p-3 space-y-3">
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Auction Date</div>
+                            <div>${record.date}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Type</div>
+                            <div>${record.type}</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-600 text-sm">Details</div>
+                            <div>${record.details}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Initialize salvage auction records
+            generateSalvageAuctionRecords();
+        </script>
+
+        <!-- Sale Records -->
+        <section section-name="Sale Records" id="saleRecordsSection" class="p-6 hidden">
+            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Sale Records</h2>
+                <span class="text-lg" id="saleRecordCount"></span>
+            </div>
+            <p class="text-gray-700 mb-6">This section contains details of historical sales listings of the vehicle</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="saleRecordsGrid"></div>
+        </section>
+
+        <script>
+            const saleHistoryData = {
+                records: [
+                    {
+                        saleDate: '09-22-2019',
+                        listingPrice: '$54,700',
+                        sellerName: 'Desert Auto',
+                        sellerLocation: 'Palm Desert,CA, USA',
+                        details: {
+                            mileage: '37,848 miles',
+                            fuelType: 'Gas',
+                            make: 'Ford',
+                            model: 'Mustang',
+                            trim: 'GT Convertible RWD',
+                            color: 'Red'
+                        }
+                    },
+                    {
+                        saleDate: '10-07-2019',
+                        listingPrice: '$54,700',
+                        sellerName: 'Desert Auto',
+                        sellerLocation: 'Palm Desert,CA, USA',
+                        details: {
+                            mileage: '37,848 miles',
+                            fuelType: 'Gas',
+                            make: 'Ford',
+                            model: 'Mustang',
+                            trim: 'GT Convertible RWD',
+                            color: 'Red'
+                        }
+                    },
+                    {
+                        saleDate: '04-29-2020',
+                        listingPrice: '$4,275',
+                        sellerName: 'Desert Auto',
+                        sellerLocation: 'Palm Desert,CA, USA. 760-660-3300',
+                        details: {
+                            mileage: '37,000 miles',
+                            fuelType: 'Gasoline',
+                            year: '1966',
+                            make: 'Ford',
+                            model: 'Mustang',
+                            trim: 'GT Package',
+                            color: 'Red'
+                        }
+                    }
+                ]
+            };
+
+            function generateSaleRecords() {
+                const section = document.getElementById('saleRecordsSection');
+                const grid = document.getElementById('saleRecordsGrid');
+                const recordCount = document.getElementById('saleRecordCount');
+
+                // Check if data exists
+                const hasData = saleHistoryData && 
+                            saleHistoryData.records && 
+                            saleHistoryData.records.length > 0;
+
+                if (!hasData) {
+                    section.classList.remove('hidden');
+                    grid.classList.remove('grid');
+                    const noRecordsMessage = createNoRecordsMessage('Sale');
+                    grid.innerHTML = '';
+                    grid.appendChild(noRecordsMessage);
+                    return;
+                }
+
+                // Show section and update count
+                section.classList.remove('hidden');
+                recordCount.textContent = `${saleHistoryData.records.length} record(s) found`;
+
+                // Generate sale record cards
+                grid.innerHTML = saleHistoryData.records.map(record => `
+                    <div class="border rounded-lg p-3">
+                        <div class="mb-3 border-b border-black pb-2">
+                            <div class="font-semibold">Sale Date: ${record.saleDate}</div>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <div>Listing Price: ${record.listingPrice}</div>
+                            <div>Seller Name: ${record.sellerName}</div>
+                            <div>Seller Location: ${record.sellerLocation}</div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="font-semibold mb-2 border-b border-black pb-2">Details</div>
+                            <div class="space-y-1">
+                                ${record.details.mileage ? `<div>Mileage: ${record.details.mileage}</div>` : ''}
+                                ${record.details.fuelType ? `<div>Fuel Type: ${record.details.fuelType}</div>` : ''}
+                                ${record.details.year ? `<div>Year: ${record.details.year}</div>` : ''}
+                                ${record.details.make ? `<div>Make: ${record.details.make}</div>` : ''}
+                                ${record.details.model ? `<div>Model: ${record.details.model}</div>` : ''}
+                                ${record.details.trim ? `<div>Trim: ${record.details.trim}</div>` : ''}
+                                ${record.details.color ? `<div>Color: ${record.details.color}</div>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Initialize sale records
+            generateSaleRecords();
         </script>
 
         <!-- Auction Section -->
@@ -2770,7 +3205,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate cards for mobile
                 cardGrid.innerHTML = theftData.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3">
+                    <div class="border rounded-lg p-3 space-y-3">
                         <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <div class="font-semibold text-gray-600">Reported As Stolen?</div>
@@ -2887,7 +3322,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate cards for mobile
                 cardGrid.innerHTML = lienData.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3">
+                    <div class="border rounded-lg p-3 space-y-3">
                         <div>
                             <div class="font-semibold text-gray-600 text-sm">Event Date</div>
                             <div>${record.date}</div>
@@ -2906,243 +3341,6 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
             // Initialize lien records
             generateLienRecords();
-        </script>
-
-        <!-- Junk/Salvage/Insurance Records -->
-        <section section-name="Salvage Auction Records" id="junkSalvageRecordsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold">Junk/Salvage/Insurance Records</h2>
-                <span class="text-lg" id="junkSalvageRecordCount"></span>
-            </div>
-            <p class="text-gray-700 mb-6">This record shows if the vehicle has been declared as junk, salvage, or involved in significant insurance claims. These factors can greatly affect the vehicle's value and safety.</p>
-            
-            <!-- Table for desktop -->
-            <div class="hidden md:block overflow-x-auto">
-                <table id="junkSalvageTableContent" class="w-full">
-                    <thead class="bg-[#2B2B2B] text-white">
-                        <tr>
-                            <th class="p-4 text-center">Event Date</th>
-                            <th class="p-4 text-center">Type</th>
-                            <th class="p-4 text-center">Location</th>
-                            <th class="p-4 text-center">Data Source</th>
-                        </tr>
-                    </thead>
-                    <tbody id="junkSalvageTableBody"></tbody>
-                </table>
-            </div>
-
-            <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="junkSalvageCardGrid"></div>
-        </section>
-
-        <script>
-            // Junk/Salvage/Insurance records data
-            const junkSalvageData = {
-                records: [
-                    {
-                        date: '05/12/2022',
-                        type: 'Salvage',
-                        location: 'DENVER, CO',
-                        source: 'State DMV Records'
-                    },
-                    {
-                        date: '11/03/2021',
-                        type: 'Insurance Claim',
-                        location: 'BOULDER, CO',
-                        source: 'Insurance Database'
-                    },
-                    {
-                        date: '07/18/2020',
-                        type: 'Junk',
-                        location: 'FORT COLLINS, CO',
-                        source: 'County Records'
-                    }
-                ]
-            };
-
-            function generateJunkSalvageRecords() {
-                const section = document.getElementById('junkSalvageRecordsSection');
-                const tableBody = document.getElementById('junkSalvageTableBody');
-                const junkSalvageTableContent = document.getElementById('junkSalvageTableContent');
-                const cardGrid = document.getElementById('junkSalvageCardGrid');
-                const recordCount = document.getElementById('junkSalvageRecordCount');
-
-                // Check if data exists
-                const hasData = junkSalvageData !== null && 
-                            junkSalvageData !== undefined && 
-                            junkSalvageData.records && 
-                            junkSalvageData.records.length > 0;
-
-                if (!hasData) {
-                    section.classList.remove('hidden');
-                    junkSalvageTableContent.classList.add('hidden');
-                    const noRecordsMessage = createNoRecordsMessage('Junk/Salvage/Insurance Records');
-                    section.appendChild(noRecordsMessage);
-                    return;
-                }
-
-                // Show section and update count
-                section.classList.remove('hidden');
-                recordCount.textContent = `${junkSalvageData.records.length} record(s) found`;
-
-                // Generate table rows for desktop
-                tableBody.innerHTML = junkSalvageData.records.map(record => `
-                    <tr class="border-b hover:bg-gray-50 text-center">
-                        <td class="p-4 text-center">${record.date}</td>
-                        <td class="p-4 text-center">${record.type}</td>
-                        <td class="p-4 text-center">${record.location}</td>
-                        <td class="p-4 text-center">${record.source}</td>
-                    </tr>
-                `).join('');
-
-                // Generate cards for mobile
-                cardGrid.innerHTML = junkSalvageData.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3">
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Event Date</div>
-                            <div>${record.date}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Type</div>
-                            <div>${record.type}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Location</div>
-                            <div>${record.location}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Data Source</div>
-                            <div>${record.source}</div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            // Initialize junk/salvage/insurance records
-            generateJunkSalvageRecords();
-        </script>
-        
-        <!-- Salvage Auction Records -->
-        <section section-name="Salvage Auction Records" id="salvageAuctionRecordsSection" class="p-6 hidden">
-            <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold">Salvage Auction Records</h2>
-                <span class="text-lg" id="salvageAuctionRecordCount"></span>
-            </div>
-            <p class="text-gray-700 mb-6">This record shows the vehicle's history in salvage auctions. Salvage auctions typically deal with vehicles that have been damaged, declared a total loss, or have other significant issues.</p>
-            
-            <!-- Table for desktop -->
-            <div class="hidden md:block overflow-x-auto">
-                <table id="salvageAuctionTableContent" class="w-full">
-                    <thead class="bg-[#2B2B2B] text-white">
-                        <tr>
-                            <th class="p-4 text-center">Auction Date</th>
-                            <th class="p-4 text-center">Auction Company</th>
-                            <th class="p-4 text-center">Location</th>
-                            <th class="p-4 text-center">Damage Type</th>
-                            <th class="p-4 text-center">Sale Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="salvageAuctionTableBody"></tbody>
-                </table>
-            </div>
-
-            <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="salvageAuctionCardGrid"></div>
-        </section>
-
-        <script>
-            // Salvage Auction records data
-            const salvageAuctionData = {
-                records: [
-                    {
-                        date: '09/15/2022',
-                        company: 'AutoSalvage Inc.',
-                        location: 'PHOENIX, AZ',
-                        damageType: 'Flood',
-                        saleStatus: 'Sold'
-                    },
-                    {
-                        date: '03/22/2021',
-                        company: 'Wreck Auctions LLC',
-                        location: 'TUCSON, AZ',
-                        damageType: 'Collision',
-                        saleStatus: 'Unsold'
-                    },
-                    {
-                        date: '11/07/2020',
-                        company: 'Salvage Masters',
-                        location: 'FLAGSTAFF, AZ',
-                        damageType: 'Fire',
-                        saleStatus: 'Sold'
-                    }
-                ]
-            };
-
-            function generateSalvageAuctionRecords() {
-                const section = document.getElementById('salvageAuctionRecordsSection');
-                const tableBody = document.getElementById('salvageAuctionTableBody');
-                const salvageAuctionTableContent = document.getElementById('salvageAuctionTableContent');
-                const cardGrid = document.getElementById('salvageAuctionCardGrid');
-                const recordCount = document.getElementById('salvageAuctionRecordCount');
-
-                // Check if data exists
-                const hasData = salvageAuctionData !== null && 
-                            salvageAuctionData !== undefined && 
-                            salvageAuctionData.records && 
-                            salvageAuctionData.records.length > 0;
-
-                if (!hasData) {
-                    section.classList.remove('hidden');
-                    salvageAuctionTableContent.classList.add('hidden');
-                    const noRecordsMessage = createNoRecordsMessage('Junk/Salvage/Insurance Records');
-                    section.appendChild(noRecordsMessage);
-                    return;
-                }
-
-                // Show section and update count
-                section.classList.remove('hidden');
-                recordCount.textContent = `${salvageAuctionData.records.length} record(s) found`;
-
-                // Generate table rows for desktop
-                tableBody.innerHTML = salvageAuctionData.records.map(record => `
-                    <tr class="border-b hover:bg-gray-50 text-center">
-                        <td class="p-4 text-center">${record.date}</td>
-                        <td class="p-4 text-center">${record.company}</td>
-                        <td class="p-4 text-center">${record.location}</td>
-                        <td class="p-4 text-center">${record.damageType}</td>
-                        <td class="p-4 text-center">${record.saleStatus}</td>
-                    </tr>
-                `).join('');
-
-                // Generate cards for mobile
-                cardGrid.innerHTML = salvageAuctionData.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3">
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Auction Date</div>
-                            <div>${record.date}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Auction Company</div>
-                            <div>${record.company}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Location</div>
-                            <div>${record.location}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Damage Type</div>
-                            <div>${record.damageType}</div>
-                        </div>
-                        <div>
-                            <div class="font-semibold text-gray-600 text-sm">Sale Status</div>
-                            <div>${record.saleStatus}</div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-
-            // Initialize salvage auction records
-            generateSalvageAuctionRecords();
         </script>
 
         <!-- DVH -->
@@ -3264,7 +3462,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate cards for mobile
                 cardGrid.innerHTML = historyData.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3 bg-white">
+                    <div class="border rounded-lg p-3 space-y-3 bg-white">
                         <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <div class="text-sm font-semibold text-gray-600">Date</div>
@@ -3396,7 +3594,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                 // Generate cards for mobile
                 cardGrid.innerHTML = dummyData.records.map(record => `
-                    <div class="border rounded-lg p-4 space-y-3">
+                    <div class="border rounded-lg p-3 space-y-3">
                         <div>
                             <div class="font-semibold text-gray-600 text-sm">Auction Date</div>
                             <div>${record.date}</div>
@@ -3421,7 +3619,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 `).join('');
             }
 
-            // Initialize salvage auction records
+            // Initialize dummy records
             generateDummyRecords();
         </script>
 
