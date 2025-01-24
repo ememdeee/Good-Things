@@ -40,6 +40,15 @@
         background-size: 350px 350px;
     }
 
+    .hover-shadow-orange {
+        transition: all 0.3s ease;
+    }
+
+    .hover-shadow-orange:hover {
+        box-shadow: 0 10px 15px -3px #f2e5d7, 0 4px 6px -4px #f2e5d7;
+    }
+
+
     @media (max-width: 768px) {
         .sidebar {
             transform: translateX(-100%);
@@ -131,7 +140,7 @@
     </button>
     <div class="mb-4 hidden md:block">
         <h2 class="text-2xl font-bold text-center">Vehicle History Report</h2>
-        <p class="text-xl text-gray-600 mt-1 mb-4 text-center">Report generated: 12-12-2024</p>
+        <p class="text-xl text-gray-600 mt-1 mb-4 text-center">Report generated: <span class="text-nowrap whitespace-nowrap">12-12-2024</span></p>
         <p class="text-xl mb-4 text-center">Share your report</p>
         
         <!-- Social Icons Placeholder -->
@@ -185,9 +194,9 @@
         'Auction History',
         'Sales Listing History', 
         'Title Brand Check',
+        'Title Brand Checks',
         'Market Value',
         'Key Incidents',
-        'Event Verification',
         'Mileage Records',
         'Accident Records',
         'Damage Verification',
@@ -559,19 +568,19 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     card: 'bg-white',
                     text: 'text-gray-900',
                     icon: 'text-gray-900',
-                    overlay: 'bg-white/0' // Transparent overlay for clean status
+                    overlay: 'grayyedBG-1' // Transparent overlay for clean status
                 },
                 issue: {
                     card: 'bg-red-50',
                     text: 'text-red-600',
                     icon: 'text-red-600',
-                    overlay: 'bg-red-50/80' // Semi-transparent red overlay for issue status
+                    overlay: 'grayyedBG-1-red' // Semi-transparent red overlay for issue status
                 },
                 warning: {
                     card: 'bg-orange-50',
                     text: 'text-orange-600',
                     icon: 'text-orange-600',
-                    overlay: 'bg-orange-100/80' // Semi-transparent orange overlay for warning status
+                    overlay: 'grayyedBG-1-red' // Semi-transparent orange overlay for warning status
                 }
             };
     
@@ -603,10 +612,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         const styles = statusStyles[status];
                         
                         return `
-                            <div class="relative border border-black rounded-lg p-4 overflow-hidden">
-                                <div class="absolute inset-0 bg-[url('assets/motif-grayed.svg')] bg-repeat bg-[length:350px_350px]"></div>
-                                <div class="absolute inset-0 ${styles.overlay}"></div>
-                                <div class="relative z-10 flex flex-col items-center text-center">
+                            <div class="relative flex border border-black rounded-lg overflow-hidden hover-shadow-orange">
+                                <div class="relative z-10 p-4 flex flex-col items-center text-center ${styles.overlay}">
                                     <i data-lucide="${config.icon}" class="w-6 h-6 mb-2 ${styles.icon}"></i>
                                     <h3 class="font-bold ${styles.text}">${config.title}</h3>
                                     <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
@@ -759,7 +766,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate owner cards
                 grid.innerHTML = ownershipData.owners.map(owner => `
-                    <div class="border border-black rounded-lg p-3" style="background-color: #FEF6D5;">
+                    <div class="border border-black rounded-lg p-3 hover-shadow-orange" style="background-color: #FEF6D5;">
                         <div class="flex items-center gap-2 mb-2">
                             <i data-lucide="user" class="w-5 h-5"></i>
                             <span class="font-bold">${owner.title}</span>
@@ -979,7 +986,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                 // Generate title history cards
                 grid.innerHTML = titleHistoryData.records.map(record => `
-                    <div class="border border-black rounded-lg p-3" style="background-color: #FEF6D5;">
+                    <div class="border border-black rounded-lg p-3 hover-shadow-orange" style="background-color: #FEF6D5;">
                         <div class="flex items-center gap-2 mb-2">
                             <i data-lucide="file-text" class="w-5 h-5"></i>
                             <span class="font-bold">${record.status}</span>
@@ -1074,7 +1081,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                 // Generate accident record cards
                 grid.innerHTML = accidentDataNew.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden grayyedBG-1-red">
+                    <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange grayyedBG-1-red">
                         <div class="p-3 space-y-4">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <!-- Reported on -->
@@ -2248,7 +2255,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 <h2 class="text-2xl font-bold">Title Brand Check</h2>
                 <span class="text-lg" id="problemCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains major checks for potential problems related to vehicles title</p>
+            <p class="text-gray-700 mb-6">This section contains major checks for potential problems related to vehicles title.</p>
             
             <div class="grid md:grid-cols-2 gap-2 border rounded-md p-2 sm:p-3" id="brandGrid"></div>
         </section>
@@ -2375,7 +2382,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const hasRecord = brandFlags[brand.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="p-3">
                                 <div class="flex items-center gap-2 mb-2">
                                     <i data-lucide="${brand.icon}" class="w-5 h-5 ${hasRecord ? 'text-red-600' : 'text-gray-600'}"></i>
@@ -2397,10 +2404,10 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </script>
 
         <!-- Title Brand Checks 2 Section -->
-        <section section-name="Title Brand Check" id="titleBrandChecksSection" class="p-6 hidden">
+        <section section-name="Title Brand Checks" id="titleBrandChecksSection" class="p-6 hidden">
             <h2 class="text-2xl font-bold mb-2">Title Brand Checks</h2>
             <p class="text-gray-700 mb-6">
-                This section contains major checks for potential problems related to vehicles title
+                This section lists our checks for potential problems related to the title.
             </p>
             
             <div id="checksGrid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 border p-3 rounded-md">
@@ -2488,7 +2495,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const isIssue = value === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg p-2 flex flex-col items-center text-center ${isIssue ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg p-2 flex flex-col items-center text-center hover-shadow-orange ${isIssue ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             ${isIssue 
                                 ? '<svg class="w-6 h-6 text-red-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
                                 : '<svg class="w-6 h-6 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
@@ -2538,17 +2545,17 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         }
                     ]
                 };
-        
+
                 function formatCurrency(value) {
                     return `$${value.toLocaleString()}`;
                 }
-        
+
                 function renderMarketValue(data) {
                     if (!data || !data.conditions || data.conditions.length === 0) {
                         document.getElementById('marketValueContainer').style.display = 'none';
                         return;
                     }
-        
+
                     const container = document.getElementById('marketValueContainer');
                     
                     container.innerHTML = `
@@ -2557,16 +2564,16 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                             <p class="-order-2 text-gray-700 mt-2">
                                 This section contains market value for this vehicle based on its condition.
                             </p>
-        
+
                             <!-- Chart -->
                             <div class="-order-1 p-0 sm:p-4 my-6">
                                 <canvas id="marketValueChart"></canvas>
                             </div>
-        
+
                             <!-- Condition Panels -->
                             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 ${data.conditions.map(condition => `
-                                    <div class="border border-black rounded-lg p-2 bg-white grayyedBG-1">
+                                    <div class="border border-black rounded-lg p-2 bg-white grayyedBG-1 hover-shadow-orange">
                                         <h3 class="font-semibold">${condition.type}</h3>
                                         <p class="text-sm text-gray-600">${condition.description}</p>
                                         <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
@@ -2576,7 +2583,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                             </div>
                         </div>
                     `;
-        
+
                     // Initialize Chart.js
                     const ctx = document.getElementById('marketValueChart').getContext('2d');
                     
@@ -2584,18 +2591,31 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         type: 'line',
                         data: {
                             labels: data.conditions.map(item => item.type.split(' ')[0]),
-                            datasets: [{
-                                data: data.conditions.map(item => item.value),
-                                borderColor: '#000',
-                                backgroundColor: '#fff',
-                                pointBackgroundColor: '#000',
-                                pointBorderColor: '#fff',
-                                pointBorderWidth: 2,
-                                pointRadius: 6,
-                                pointHoverRadius: 8,
-                                tension: 0.4,
-                                borderWidth: 2
-                            }]
+                            datasets: [
+                                {
+                                    data: data.conditions.map(item => item.value),
+                                    borderColor: '#000',
+                                    backgroundColor: '#fff',
+                                    pointBackgroundColor: '#000',
+                                    pointBorderColor: '#fff',
+                                    pointBorderWidth: 2,
+                                    pointRadius: 6,
+                                    pointHoverRadius: 8,
+                                    tension: 0.4,
+                                    borderWidth: 2,
+                                    zIndex: 2
+                                },
+                                {
+                                    data: data.conditions.map(item => item.value),
+                                    borderColor: '#e5e7eb',
+                                    borderDash: [5, 5],
+                                    borderWidth: 1,
+                                    pointRadius: 0,
+                                    fill: false,
+                                    tension: 0.4,
+                                    zIndex: 1
+                                }
+                            ]
                         },
                         options: {
                             responsive: true,
@@ -2606,11 +2626,28 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     display: false
                                 },
                                 tooltip: {
+                                    backgroundColor: 'rgba(254, 246, 213, 1)',
+                                    titleColor: '#000',
+                                    bodyColor: '#000',
+                                    titleFont: {
+                                        size: 16,
+                                        weight: '600'
+                                    },
+                                    bodyFont: {
+                                        size: 16,
+                                        weight: '600'
+                                    },
+                                    titleMarginBottom: 3,
+                                    padding: 12,
+                                    displayColors: false,
                                     callbacks: {
                                         label: function(context) {
                                             return formatCurrency(context.raw);
                                         }
-                                    }
+                                    },
+                                    borderColor: '#000',
+                                    borderWidth: 1,
+                                    cornerRadius: 8
                                 }
                             },
                             scales: {
@@ -2634,16 +2671,21 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         borderDash: [4, 4]
                                     }
                                 }
+                            },
+                            hover: {
+                                mode: 'nearest',
+                                intersect: true,
+                                backgroundColor: 'transparent' // This removes the hover box color
                             }
                         }
                     });
-        
+
                     // Handle window resize
                     window.addEventListener('resize', () => {
                         chart.resize();
                     });
                 }
-        
+
                 // Initial render
                 renderMarketValue(marketValueData);
             </script>
@@ -2655,7 +2697,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 <h2 class="text-2xl font-bold">Key Incidents</h2>
                 <span class="text-lg" id="incidentCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section highlights any significant incidents the vehicle may have experienced during its lifetime.</p>
+            <p class="text-gray-700 mb-6">This section contains event verification records for this vehicle.</p>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2 border rounded-md p-2 sm:p-3" id="incidentGrid"></div>
         </section>
@@ -2774,7 +2816,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const hasRecord = incidentFlags[incident.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="px-2 py-3">
                                 <div class="flex flex-col items-center gap-2 mb-2">
                                     ${hasRecord 
@@ -2855,7 +2897,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate mileage record cards
                 grid.innerHTML = mileageData.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden bg-[#FEF6D5]">
+                    <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange bg-[#FEF6D5]">
                         <div class="p-4 justify-between flex md:block">
                             <div class="md:mb-4">
                                 <div class="font-semibold">Date Reported</div>
@@ -2922,7 +2964,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate accident record cards
                 grid.innerHTML = accidentData.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden grayyedBG-1-red">
+                    <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange grayyedBG-1-red">
                         <div class="p-2 grid md:grid-cols-2 gap-2">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="bell-ring" class="w-5 h-5 text-red-600"></i>
@@ -3075,7 +3117,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const hasRecord = damageFlags[damage.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="p-2">
                                 <div class="flex items-start gap-2 items-center">
                                     <div class="mt-1">
