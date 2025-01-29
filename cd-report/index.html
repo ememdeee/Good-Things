@@ -310,7 +310,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             <div class="flex gap-4 mb-4 justify-center">
                 <span onclick="copyURL()" href="#" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full cursor-pointer">
                     <img src="assets/copy.svg" class="w-full h-auto" alt="Copy"></img>
-                </a>
+                </span>
                 <a href="https://www.facebook.com/classicdecodercom" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
                     <img src="assets/facebook.svg" class="w-full h-auto"></img>
                 </a>
@@ -334,9 +334,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             <button class="w-full bg-[#2B2B2B] text-white py-3 px-4 rounded-md">Download Report</button>
         </div>
         <!-- Header -->
-        <div class="text-white p-4">
+        <div class="text-white py-4 md:p-4">
             <div class="flex justify-between items-center gap-4">
-                <div class="flex flex-col text-center md:flex-row md:text-left bg-gray-900 p-3 rounded-md items-center gap-4 w-full">
+                <div class="flex flex-col text-center md:flex-row md:text-left bg-gray-900 p-3 md:rounded-md items-center gap-4 w-full">
                     <img src="assets/logo.png" class="w-20 h-20 bg-white object-cover rounded-md p-1"></img>
                     <div>
                         <h1 class="text-2xl lg:text-3xl font-bold">1972 Oldsmobile Cutlass V8 Series 33287</h1>
@@ -446,7 +446,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Vehicle Summary" id="vehicleHighlightsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Vehicle Summary</h2>
-                <span class="text-lg" id="recordCount"></span>
+                <span class="text-lg font-semibold" id="recordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section shows a summary of all major events and significant records of this vehicle.</p>
             
@@ -636,7 +636,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Ownership Usage" id="ownershipUsageSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership usage</h2>
-                <span class="text-lg" id="usageCount"></span>
+                <span class="text-lg font-semibold" id="usageCount"></span>
             </div>
             <p class="text-gray-700 mb-6">Vehicle has personal usage record</p>
             
@@ -708,7 +708,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Ownership History" id="ownershipHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership History</h2>
-                <span class="text-lg" id="ownerCount"></span>
+                <span class="text-lg font-semibold" id="ownerCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section summarizes the ownership history of this vehicle</p>
             
@@ -772,23 +772,23 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                             <span class="font-bold">${owner.title}</span>
                         </div>
         
-                        <div class="space-y-2 text-sm pt-1">
-                            <div>
+                        <div class="space-y-2 text-sm pt-1 columns-2 sm:columns-1">
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Purchased On:</div>
                                 <div>${owner.purchaseDate}</div>
                             </div>
         
-                            <div>
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Located In:</div>
                                 <div>${owner.location}</div>
                             </div>
         
-                            <div>
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Owned From:</div>
                                 <div>${owner.ownedFrom} - ${owner.ownedTo}</div>
                             </div>
         
-                            <div>
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Duration of Ownership</div>
                                 <div>${owner.duration}</div>
                             </div>
@@ -933,7 +933,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Title History" id="titleHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Title History</h2>
-                <span class="text-lg" id="titleCount"></span>
+                <span class="text-lg font-semibold" id="titleCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains the title history records of the vehicle</p>
             
@@ -1023,7 +1023,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Accident Records (New)" id="accidentRecordsSectionNew" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Accident Records (New)</h2>
-                <span class="text-lg" id="accidentRecordCountNew"></span>
+                <span class="text-lg font-semibold" id="accidentRecordCountNew"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains the accident records of the vehicle</p>
             
@@ -1089,7 +1089,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="bell-ring" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Reported on</div>
-                                        <div class="text-red-600">${record.reportDate}</div>
+                                        <div class="text-red-600 text-sm">${record.reportDate}</div>
                                     </div>
                                 </div>
 
@@ -1098,7 +1098,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="map-pin" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Located at</div>
-                                        <div class="text-red-600">${record.location}</div>
+                                        <div class="text-red-600 text-sm">${record.location}</div>
                                     </div>
                                 </div>
 
@@ -1107,7 +1107,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="ban" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Accident type</div>
-                                        <div class="text-red-600">${record.accidentType}</div>
+                                        <div class="text-red-600 text-sm">${record.accidentType}</div>
                                     </div>
                                 </div>
 
@@ -1116,7 +1116,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="target" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Impact point</div>
-                                        <div class="text-red-600">${record.impactPoint}</div>
+                                        <div class="text-red-600 text-sm">${record.impactPoint}</div>
                                     </div>
                                 </div>
                             </div>
@@ -1126,8 +1126,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                 <i data-lucide="building" class="w-5 h-5 mt-1 text-red-600"></i>
                                 <div>
                                     <div class="text-red-600 font-semibold">Source</div>
-                                    <div class="text-red-600">${record.source.name}</div>
-                                    <div class="text-red-600">${record.source.contact}</div>
+                                    <div class="text-red-600 text-sm">${record.source.name}</div>
+                                    <div class="text-red-600 text-sm">${record.source.contact}</div>
                                 </div>
                             </div>
                         </div>
@@ -1146,7 +1146,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Theft Records (New)" id="theftRecordsSectionNew" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Theft Records (New)</h2>
-                <span class="text-lg" id="theftRecordCountNew"></span>
+                <span class="text-lg font-semibold" id="theftRecordCountNew"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains details of theft(s) or stolen records</p>
             
@@ -1268,7 +1268,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Lien/ Impound/ Export" id="LienImpoundExportRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Lien/ Impound/ Export Records</h2>
-                <span class="text-lg" id="LienImpoundExportRecordCount"></span>
+                <span class="text-lg font-semibold" id="LienImpoundExportRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains lien, impound, and export records of the vehicle.</p>
             
@@ -1373,7 +1373,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Junk Salvage Records" id="junkSalvageRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Junk/Salvage/Insurance Records</h2>
-                <span class="text-lg" id="junkSalvageRecordCount"></span>
+                <span class="text-lg font-semibold" id="junkSalvageRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This record shows if the vehicle has been declared as junk, salvage, or involved in significant insurance claims. These factors can greatly affect the vehicle's value and safety.</p>
             
@@ -1478,7 +1478,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Salvage Auction Records" id="salvageAuctionRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Salvage Auction Records</h2>
-                <span class="text-lg" id="salvageAuctionRecordCount"></span>
+                <span class="text-lg font-semibold" id="salvageAuctionRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This record shows the vehicle's history in salvage auctions. Salvage auctions typically deal with vehicles that have been damaged, declared a total loss, or have other significant issues.</p>
             
@@ -1583,7 +1583,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Sale Records" id="saleRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Sale Records</h2>
-                <span class="text-lg" id="saleRecordCount"></span>
+                <span class="text-lg font-semibold" id="saleRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains details of historical sales listings of the vehicle</p>
             
@@ -1834,7 +1834,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     container.innerHTML = `
                         <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                             <h2 class="text-2xl font-bold">Auction History</h2>
-                            <span class="text-gray-600">${totalRecords} auction record(s) found</span>
+                            <span class="text-gray-600 font-semibold">${totalRecords} auction record(s) found</span>
                         </div>
 
                         <p class="text-gray-700">
@@ -1852,7 +1852,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                             <img 
                                                 src="${record.images[0]}" 
                                                 alt="Vehicle" 
-                                                class="absolute top-0 left-0 w-full h-full object-cover main-image" 
+                                                class="absolute top-0 left-0 w-full h-full object-cover main-image transition-opacity duration-300" 
                                                 id="main-image-${index}"
                                             >
                                             <div 
@@ -2099,7 +2099,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     container.innerHTML = `
                         <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                             <h2 class="text-2xl font-bold">Sales Listing History</h2>
-                            <span class="text-gray-600">${totalRecords} sales listing record(s) found</span>
+                            <span class="text-gray-600 font-bold">${totalRecords} sales listing record(s) found</span>
                         </div>
 
                         <p class="text-gray-700">
@@ -2253,7 +2253,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Title Brand Check" id="titleBrandSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Title Brand Check</h2>
-                <span class="text-lg" id="problemCount"></span>
+                <span class="text-lg font-semibold" id="problemCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains major checks for potential problems related to vehicles title.</p>
             
@@ -2405,8 +2405,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
         <!-- Title Brand Checks 2 Section -->
         <section section-name="Title Brand Checks" id="titleBrandChecksSection" class="p-6 hidden">
-            <h2 class="text-2xl font-bold mb-2">Title Brand Checks</h2>
-            <p class="text-gray-700 mb-6">
+            <h2 class="text-2xl font-bold mb-2 text-center md:text-left">Title Brand Checks</h2>
+            <p class="text-gray-700 mb-6 text-center md:text-left">
                 This section lists our checks for potential problems related to the title.
             </p>
             
@@ -2559,19 +2559,19 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const container = document.getElementById('marketValueContainer');
                     
                     container.innerHTML = `
-                        <div class="flex flex-col md:block max-w-6xl mx-auto border rounded-md p-2 sm:p-3">
-                            <h2 class="-order-3 text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
-                            <p class="-order-2 text-gray-700 mt-2">
-                                This section contains market value for this vehicle based on its condition.
-                            </p>
+                    <h2 class="text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
+                    <p class="text-gray-700 text-center md:text-left mt-2 mb-6">
+                        This section contains market value for this vehicle based on its condition.
+                    </p>
+                        <div class="flex flex-col max-w-6xl mx-auto border rounded-md p-2 sm:p-3 gap-6">
 
                             <!-- Chart -->
-                            <div class="-order-1 p-0 sm:p-4 my-6">
+                            <div>
                                 <canvas id="marketValueChart"></canvas>
                             </div>
 
                             <!-- Condition Panels -->
-                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="-order-1 md:order-2 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 ${data.conditions.map(condition => `
                                     <div class="border border-black rounded-lg p-2 bg-white grayyedBG-1 hover-shadow-orange">
                                         <h3 class="font-semibold">${condition.type}</h3>
@@ -2695,7 +2695,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Key Incidents" id="keyIncidentsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Key Incidents</h2>
-                <span class="text-lg" id="incidentCount"></span>
+                <span class="text-lg font-semibold" id="incidentCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains event verification records for this vehicle.</p>
             
@@ -2844,7 +2844,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Mileage Records" id="mileageRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Mileage Records</h2>
-                <span class="text-lg" id="mileageRecordCount"></span>
+                <span class="text-lg font-semibold" id="mileageRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains mileage records for this vehicle</p>
             
@@ -2920,7 +2920,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Accident Records" id="accidentRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Accident Records</h2>
-                <span class="text-lg" id="accidentRecordCount"></span>
+                <span class="text-lg font-semibold" id="accidentRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section contains accident records for this vehicle</p>
             
@@ -2996,7 +2996,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Damage Verification" id="damageHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Damage History Check</h2>
-                <span class="text-lg" id="damageRecordCount"></span>
+                <span class="text-lg font-semibold" id="damageRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section highlights whether the vehicle has any recorded damage and verifies it against damage titles.</p>
             
@@ -3148,7 +3148,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Theft Records" id="theftRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Theft Records</h2>
-                <span class="text-lg" id="theftRecordCount"></span>
+                <span class="text-lg font-semibold" id="theftRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section lists active theft and theft recovery records for this VIN.</p>
             
@@ -3284,7 +3284,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Lien/Loan Records" id="lienRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Lien/Loan Records</h2>
-                <span class="text-lg" id="lienRecordCount"></span>
+                <span class="text-lg font-semibold" id="lienRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This record shows that someone else has a right of possession on the vehicle - usually whoever leant the owner the money for the car. You shouldn't buy the car unless the lienholder is going to release the lien.</p>
             
@@ -3389,7 +3389,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Detailed Vehicle History" id="detailedHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Detailed Vehicle History</h2>
-                <span class="text-lg" id="historyRecordCount"></span>
+                <span class="text-lg font-semibold" id="historyRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This section gives you a comprehensive and detailed information recorded in this VIN.</p>
             
@@ -3546,7 +3546,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Dummy Record For No Data" id="dummyRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Dummy Record For No Data</h2>
-                <span class="text-lg" id="dummyRecordCount"></span>
+                <span class="text-lg font-semibold" id="dummyRecordCount"></span>
             </div>
             <p class="text-gray-700 mb-6">This is the UI when there is no data. A yellow box will appear with the section title and a message indicating 'No record'.</p>
             
