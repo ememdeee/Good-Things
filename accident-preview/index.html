@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom styles that can't be handled by Tailwind */
+        .blur-sm {
+            filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <div class="container mx-auto max-w-7xl px-4 py-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr,400px] gap-8">
+            <div class="space-y-8">
+                <!-- Header -->
+                <div class="flex flex-col sm:flex-row items-start justify-between gap-4 bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-start gap-4">
+                        <img src="assets/make-logo.png" alt="Toyota Logo" width="64" height="64" class="mt-1">
+                        <div>
+                            <h1 class="text-xl sm:text-2xl font-bold text-black">2019 TOYOTA HIGHLANDER</h1>
+                            <p class="text-lg sm:text-xl text-blue-600">LIMITED PLATINUM</p>
+                        </div>
+                    </div>
+                    <button class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded leading-none">
+                        Add to garage
+                        <i data-lucide="clock" class="inline-block w-5 h-5 ml-2"></i>
+                    </button>
+                </div>
+
+                <!-- Vehicle Specifications Section - Collapsible on mobile -->
+                <div class="lg:hidden">
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-6">
+                            <h2 class="text-xl font-semibold mb-4 text-gray-900">Vehicle Specifications</h2>
+                            <div class="space-y-3" id="mobileSpecifications">
+                                <!-- Specifications will be dynamically inserted here -->
+                            </div>
+                            <button id="viewMoreSpecs" class="mt-4 w-full text-blue-600">
+                                View More
+                                <i data-lucide="chevron-down" class="inline-block w-4 h-4 ml-2 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accident Records Section -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600"></i>
+                            <h2 class="text-xl font-semibold">Accident Records</h2>
+                        </div>
+                        <p class="text-gray-700 font-medium"><span id="accidentCount"></span> accident records found</p>
+
+                        <div class="space-y-4" id="accidentRecords">
+                            <!-- Accident records will be dynamically inserted here -->
+                        </div>
+
+                        <div class="text-center space-y-3">
+                            <p class="text-blue-600">Unlock full accident history to reveal detailed information</p>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="scrollToPricing()">
+                                Unlock Full Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Cars Section -->
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="alert-triangle" class="w-6 h-6 text-yellow-600"></i>
+                            <h2 class="text-xl font-semibold">Sample Cars with Accident History</h2>
+                        </div>
+
+                        <div class="space-y-4" id="sampleCars">
+                            <!-- Sample cars will be dynamically inserted here -->
+                        </div>
+                        <div class="mt-6 bg-blue-50/50 rounded-lg p-4 border border-blue-200">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i data-lucide="alert-triangle" class="w-5 h-5 text-blue-500"></i>
+                                <h3 class="font-semibold text-gray-900">Damage Severity Guide</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">Minor</span>
+                                    <span class="text-blue-600">Cosmetic or minor repairs</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">Moderate</span>
+                                    <span class="text-blue-600">Significant repairs, but not structural</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">Major</span>
+                                    <span class="text-blue-600">Significant structural/mechanical repairs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 bg-blue-50/50 rounded-lg p-4 border border-blue-200">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i data-lucide="info" class="w-5 h-5 text-blue-500"></i>
+                                <h3 class="font-semibold text-gray-900">Did You Know?</h3>
+                            </div>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex gap-2">
+                                    <span>•</span>
+                                    <span>Nearly 1 in 3 used vehicles have a history of accidents or damage</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span>•</span>
+                                    <span>Vehicles with accident history are typically worth 15-30% less than similar vehicles without accidents</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span>•</span>
+                                    <span>Hidden damage can lead to unexpected repairs costing thousands of NGN</span>
+                                </li>
+                                <li class="flex gap-2">
+                                    <span>•</span>
+                                    <span>Some types of damage may affect vehicle safety and insurance costs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Listing Preview -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg shadow overflow-hidden">
+                    <div class="p-8">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold mb-4">
+                                    This vehicle was previously listed for sale. Reveal past sales listing records, including 10+
+                                    photos.
+                                </h3>
+                                <div class="space-y-3 mb-6">
+                                    <p class="flex justify-between">
+                                        <span class="font-medium">Odometer:</span>
+                                        <span class="text-red-600 font-semibold">99,999</span>
+                                    </p>
+                                    <p class="flex justify-between">
+                                        <span class="font-medium">Sales Type:</span>
+                                        <span class="text-blue-600 font-semibold">Classified</span>
+                                    </p>
+                                    <p class="flex justify-between">
+                                        <span class="font-medium">Location:</span>
+                                        <span class="text-blue-600 font-semibold">Somerville (NJ)</span>
+                                    </p>
+                                </div>
+                                <button onclick="scrollToPricing()" class="w-full bg-white hover:bg-blue-50 text-blue-600 font-semibold py-2 px-4 rounded border border-blue-200">
+                                    Reveal Full Sales Listing Records
+                                    <i data-lucide="chevron-right" class="inline-block w-4 h-4 ml-2"></i>
+                                </button>
+                            </div>
+                            <div class="md:w-1/3 flex items-center justify-center">
+                                <div class="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                                    <img src="assets/dummyCar.png" alt="Vehicle Image" class="object-cover w-full h-full">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lookup Vehicle History Section -->
+                <section class="relative overflow-hidden rounded-3xl bg-blue-800 p-8 shadow-2xl">
+                    <div class="relative z-10 space-y-8">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-extrabold text-white mb-2">Unlock Your Vehicle's Past</h2>
+                            <p class="text-lg text-blue-200 max-w-2xl mx-auto">
+                                Our comprehensive reports reveal crucial details about your car's history.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="lookupOptions">
+                            <!-- Lookup options will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Why Accident Check Isn't Enough Section -->
+                <section class="space-y-8">
+                    <h2 class="text-3xl font-bold text-gray-900">Why Accident Check Isn't Enough?</h2>
+                    <p class="text-lg text-gray-700">
+                        In today's market, purchasing a used car comes with its fair share of risks. Protect yourself from
+                        potential scams and uncertainties by utilizing our meticulously crafted vehicle history reports.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="border-amber-200 bg-gradient-to-br from-amber-50 to-white overflow-hidden rounded-lg shadow">
+                            <div class="p-8 space-y-6">
+                                <h3 class="text-2xl font-semibold text-amber-600 md:max-w-72">Incomplete Accident History</h3>
+                                <div class="relative rounded-lg overflow-hidden shadow-lg">
+                                    <img src="https://detailedvehiclehistory.com/assets/redImage.webp" alt="Incomplete accident report example" class="object-cover w-full h-full">
+                                </div>
+                                <p class="text-gray-700">
+                                    Seller only disclosed a minor fender bender, but our report revealed
+                                    <span class="font-semibold text-amber-600">multiple accidents</span> including a major
+                                    collision.
+                                </p>
+                                <button class="w-full bg-white hover:bg-amber-50 text-amber-600 font-bold py-2 px-4 rounded border border-amber-200">
+                                    View Full Accident History
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="border-blue-200 bg-gradient-to-br from-blue-50 to-white overflow-hidden rounded-lg shadow">
+                            <div class="p-8 space-y-6">
+                                <h3 class="text-2xl font-semibold text-black">Comprehensive Vehicle History Report</h3>
+                                <div class="relative rounded-lg overflow-hidden shadow-lg">
+                                    <img src="https://detailedvehiclehistory.com/assets/greenImage.webp" alt="Comprehensive report example" class="object-cover w-full h-full">
+                                </div>
+                                <p class="text-gray-700">
+                                    Our detailed Vehicle History Report shows
+                                    <span class="font-semibold text-blue-600">all accidents, repairs, maintenance records,</span>
+                                    and more, giving you a complete picture of the vehicle's past.
+                                </p>
+                                <button class="w-full bg-white hover:bg-blue-50 text-blue-600 font-semibold py-2 px-4 rounded border border-blue-200">
+                                    Get Comprehensive Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-900">
+                            Why a comprehensive vehicle history is crucial:
+                        </h3>
+                        <div class="space-y-6" id="vehicleHistoryReasons">
+                            <!-- Reasons will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pricing Section -->
+                <section id="pricing-section" class="space-y-8">
+                    <div class="bg-gradient-to-br from-gray-900 via-blue-900 to-black text-white overflow-hidden rounded-lg shadow">
+                        <div class="p-6 sm:p-8 flex flex-col items-center space-y-8 bg-blue-900 bg-opacity-50 rounded-lg">
+                            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-white">
+                                Unlock the Complete Vehicle History
+                            </h3>
+                            <p class="text-xl text-gray-300 text-center mb-8">
+                                Get instant access to detailed reports and make informed decisions
+                            </p>
+                            <div class="w-full space-y-4" id="packageOptions">
+                                <!-- Package options will be dynamically inserted here -->
+                            </div>
+
+                            <label for="add-window-sticker" class="w-full p-3 rounded-lg border-2 border-blue-200 bg-blue-50 text-blue-800 cursor-pointer">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" id="add-window-sticker" class="form-checkbox h-5 w-5 text-blue-600">
+                                        <div>
+                                            <div class="font-medium text-sm">
+                                                Window Sticker
+                                            </div>
+                                            <p class="text-xs text-blue-700">Original factory window sticker with MSRP</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right text-sm">
+                                        <span class="font-bold">NGN <span id="windowStickerPrice"></span></span>
+                                        <span class="ml-1.5 text-blue-500 line-through">NGN 7,499</span>
+                                        <span class="ml-1.5 text-xs text-blue-700">Save 50%</span>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <p class="text-3xl font-bold mb-4 bg-blue-800 p-4 rounded-lg text-center">
+                                Total: NGN <span id="totalPrice"></span>
+                            </p>
+                            <button id="getReportButton" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg sm:text-xl py-4 sm:py-6 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                                Get Your Report Now
+                            </button>
+
+                            <p class="text-sm text-center text-blue-200">
+                                By selecting "Get Your Report Now" you agree to our
+                                <a href="https://detailedvehiclehistory.com/terms-of-service" class="text-blue-400 underline">Terms of Service</a>
+                                and
+                                <a href="https://detailedvehiclehistory.com/privacy" class="text-blue-400 underline">Privacy Policy</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Vehicle Specifications Section - Now in sidebar -->
+            <div class="hidden lg:block">
+                <div class="lg:sticky lg:top-24">
+                    <div class="bg-white rounded-lg shadow">
+                        <div class="p-6">
+                            <h2 class="text-xl font-semibold mb-4 text-gray-900">Vehicle Specifications</h2>
+                            <div class="space-y-3" id="desktopSpecifications">
+                                <!-- Specifications will be dynamically inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed Pricing Section at the bottom -->
+        <div id="fixedPricingSection" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-indigo-600 border-t shadow-lg z-50 hidden">
+            <div class="container mx-auto max-w-7xl px-4 py-2">
+                <div class="flex justify-between items-center">
+                    <div class="hidden lg:flex items-center space-x-4" id="fixedPackageOptions">
+                        <!-- Fixed package options will be dynamically inserted here -->
+                    </div>
+                    <div class="flex items-center lg:space-x-4 w-full lg:w-auto">
+                        <div class="hidden lg:block text-white text-center lg:text-left min-w-36">
+                            <p class="text-xs font-medium">Selected Package</p>
+                            <p class="text-sm font-bold" id="fixedSelectedPackage"></p>
+                        </div>
+                        <div class="hidden lg:flex items-center space-x-2 min-w-60">
+                            <input type="checkbox" id="fixed-add-window-sticker" class="form-checkbox h-5 w-5 text-blue-600">
+                            <label for="fixed-add-window-sticker" class="text-sm text-white cursor-pointer">
+                                Add Window Sticker (+₦ <span id="fixedWindowStickerPrice"></span>)
+                            </label>
+                        </div>
+                        <button id="fixedGetReportButton" class="hidden lg:flex bg-blue-400 hover:bg-blue-500 text-white font-semibold px-4 py-2 text-sm w-full md:max-w-80 rounded ">
+                            Get Your Report Now
+                        </button>
+                        <button onclick="scrollToPricing()" class="block lg:hidden bg-blue-400 hover:bg-blue-500 text-white font-semibold px-4 py-2 text-sm w-full rounded ">
+                            Get Your Report Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-16 border-t pt-8 pb-4">
+            <div class="container mx-auto max-w-7xl">
+                <div class="flex flex-col items-center gap-6 text-center">
+                    <div class="flex items-center gap-6">
+                        <img src="assets/ssl1.svg" alt="Security Badge" width="64" height="64" class="rounded-full">
+                        <img src="assets/ssl2.svg" alt="SSL Badge" width="64" height="64" class="rounded-full">
+                    </div>
+                    <p class="text-base text-blue-600 max-w-3xl">
+                        This website utilizes some of the most advanced techniques to protect your information and personal
+                        data, including technical, administrative, and physical safeguards against unauthorized access, misuse,
+                        and improper disclosure. All of your information is encrypted and transmitted using a Secure Sockets
+                        Layer (SSL) protocol.
+                    </p>
+                    <p class="text-sm text-blue-500">© 2024 Detailed Vehicle History. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToPricing() {
+            document.getElementById("pricing-section").scrollIntoView({ behavior: "smooth" });
+        }
+        // JavaScript code to handle dynamic content and interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Sample data (you would typically fetch this from a server)
+            const specifications = [
+                { label: "VIN", value: "5TDDZRFHXKS730863", icon: "file-text" },
+                { label: "Engine", value: "3.5L V-6", icon: "car" },
+                { label: "Transmission", value: "Automatic", icon: "settings" },
+                { label: "Drive Type", value: "AWD", icon: "gauge" },
+                { label: "Body Type", value: "SUV", icon: "car" },
+                { label: "Fuel Type", value: "Gas", icon: "fuel" },
+                { label: "Doors", value: "4", icon: "door-open" },
+                { label: "Manufacturer", value: "Toyota", icon: "factory" },
+            ];
+
+            const accidentRecords = [
+                { date: "Aug 15, 2023", location: "Los Angeles, CA", severity: "minor" },
+                { date: "Mar 22, 2022", location: "San Francisco, CA", severity: "moderate" },
+                { date: "Nov 10, 2021", location: "San Diego, CA", severity: "major" },
+            ];
+
+            const packages = [
+                { id: "10", reports: 10, pricePerReport: 6000, totalPrice: 59999, originalPrice: 149990, discount: 60, popular: true },
+                { id: "5", reports: 5, pricePerReport: 10500, totalPrice: 52499, originalPrice: 74990, discount: 30 },
+                { id: "2", reports: 2, pricePerReport: 13500, totalPrice: 26999, originalPrice: 29990, discount: 10 },
+                { id: "1", reports: 1, pricePerReport: 14999, totalPrice: 14999 },
+            ];
+
+            const subscriptionPrice = 18749;
+            const windowStickerPrice = 3749;
+
+            // Populate specifications
+            const mobileSpecsContainer = document.getElementById('mobileSpecifications');
+            const desktopSpecsContainer = document.getElementById('desktopSpecifications');
+            const viewMoreButton = document.getElementById('viewMoreSpecs');
+
+            function populateSpecifications(container, specs) {
+                container.innerHTML = specs.map(spec => `
+                    <div class="flex items-center justify-between p-3 rounded-lg bg-blue-50 hover:bg-blue-100 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="${spec.icon}" class="h-5 w-5 text-blue-600"></i>
+                            <span class="text-sm font-medium text-gray-700">${spec.label}</span>
+                        </div>
+                        <span class="font-semibold text-gray-900">${spec.value}</span>
+                    </div>
+                `).join('');
+                lucide.createIcons();
+            }
+
+            populateSpecifications(desktopSpecsContainer, specifications);
+            populateSpecifications(mobileSpecsContainer, specifications.slice(0, 3));
+
+            let isExpanded = false;
+            viewMoreButton.addEventListener('click', () => {
+                isExpanded = !isExpanded;
+                populateSpecifications(mobileSpecsContainer, isExpanded ? specifications : specifications.slice(0, 3));
+                viewMoreButton.innerHTML = isExpanded ? 'View Less <i data-lucide="chevron-up" class="inline-block w-4 h-4 ml-2"></i>' : 'View More <i data-lucide="chevron-down" class="inline-block w-4 h-4 ml-2"></i>';
+                lucide.createIcons();
+            });
+
+            // Populate accident records
+            const accidentRecordsContainer = document.getElementById('accidentRecords');
+            const accidentCountElement = document.getElementById('accidentCount');
+
+            accidentCountElement.textContent = accidentRecords.length;
+            accidentRecordsContainer.innerHTML = accidentRecords.map(record => `
+                <div class="bg-red-50/50 rounded-lg p-4 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">Reported</span>
+                    </div>
+                    <div class="space-y-2 text-gray-500">
+                        <div class="flex gap-2">
+                            <span class="font-medium">Date:</span>
+                            <span class="blur-sm">●●/●●/●●●●</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-medium">Location:</span>
+                            <span class="blur-sm">●●●●●●●, ●●</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="font-medium">Damage:</span>
+                            <span class="blur-sm">●●●●●●●●●●</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Populate sample cars
+            const sampleCarsContainer = document.getElementById('sampleCars');
+            const sampleCars = [
+                { year: "2014", make: "Chevrolet", model: "Sonic", accidents: 1, severity: "Minor Damage", link: "https://detailedvehiclehistory.com/report/vin/1G1JA5SH4E4153457"},
+                { year: "2017", make: "Ford", model: "Fusion", accidents: 1, severity: "Moderate Damage", link: "https://detailedvehiclehistory.com/report/vin/3FA6P0RU9HR306143"},
+                { year: "1967", make: "Pontiac", model: "Catalina", accidents: 1, severity: "Severe Damage", link: "https://detailedvehiclehistory.com/report/vin/252677X172255"},
+            ];
+
+            sampleCarsContainer.innerHTML = sampleCars.map(car => `
+                <div class="flex items-center justify-between p-4 bg-white rounded-lg border hover:border-blue-200 transition-colors">
+                    <div class="space-y-1">
+                        <h3 class="font-semibold text-gray-900">${car.year} ${car.make} ${car.model}</h3>
+                        <p class="text-sm text-gray-700">${car.accidents} ${car.accidents === 1 ? "accident" : "accidents"} reported</p>
+                        <span class="px-2 py-1 mt-2 inline-block rounded-full text-xs font-semibold ${
+                            car.severity === "Minor Damage" ? "bg-blue-100 text-blue-800" :
+                            car.severity === "Moderate Damage" ? "bg-yellow-100 text-yellow-800" :
+                            "bg-red-100 text-red-800"
+                        }">${car.severity}</span>
+                    </div>
+                    <a href="${car.link}" target="_blank">
+                        <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                            <i data-lucide="file-text" class="w-4 h-4 mr-2 inline-block"></i>
+                            View Report
+                        </button>
+                    </a>
+                </div>
+            `).join('');
+            lucide.createIcons();
+
+            // Populate lookup options
+            const lookupOptionsContainer = document.getElementById('lookupOptions');
+            const lookupOptions = [
+                { title: "Ownership", action: "View History" },
+                { title: "Service", action: "See Maintenance" },
+                { title: "Value", action: "Get Estimate" },
+                { title: "Title", action: "Verify Status" },
+                { title: "Odometer", action: "Check Readings" },
+                { title: "Usage", action: "See Purpose" },
+                { title: "Recalls", action: "View Alerts" },
+            ];
+
+            lookupOptionsContainer.innerHTML = lookupOptions.map(option => `
+                <button onclick="scrollToPricing()" class="bg-blue-700 rounded-xl p-4 transition-all duration-300 hover:bg-blue-600 text-white text-left w-full">
+                    <h3 class="text-base font-semibold mb-2">${option.title}</h3>
+                    <span class="text-blue-300 hover:text-blue-200 text-sm font-medium">${option.action}</span>
+                </button>
+            `).join('');
+
+            // Populate vehicle history reasons
+            const vehicleHistoryReasonsContainer = document.getElementById('vehicleHistoryReasons');
+            const vehicleHistoryReasons = [
+                {
+                    title: "Hidden Damage",
+                    description: "Accidents can cause unseen structural damage that may not be apparent in a basic check.",
+                },
+                {
+                    title: "Repair Quality",
+                    description: "Not all repairs are equal. Our report reveals the quality and extent of post-accident repairs.",
+                },
+                {
+                    title: "Insurance History",
+                    description: "Accident claims can affect insurance rates and coverage. Get the full insurance history.",
+                },
+                {
+                    title: "Resale Value Impact",
+                    description: "Multiple accidents can significantly lower a vehicle's resale value. Know before you buy.",
+                },
+            ];
+
+            vehicleHistoryReasonsContainer.innerHTML = vehicleHistoryReasons.map((reason, index) => `
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold">
+                        ${index + 1}
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800">${reason.title}</h4>
+                        <p class="text-gray-700">${reason.description}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Populate package options
+            const packageOptionsContainer = document.getElementById('packageOptions');
+
+            function createPackageOption(pkg, isFixed = false, isDefault = false) {
+                const element = document.createElement('div');
+                element.className = `relative p-4 rounded-lg border-2 border-blue-300 transition-all ${isDefault ? 'bg-blue-100' : 'bg-white'}`;
+                element.innerHTML = `
+                    ${pkg.popular ? '<span class="absolute -top-2.5 right-4 bg-blue-700 text-white text-xs px-2.5 py-0.5 rounded-full">Most Popular</span>' : ''}
+                    ${pkg.discount ? `<span class="absolute -top-2.5 left-4 bg-blue-600 text-white text-xs px-2.5 py-0.5 rounded-full">Save ${pkg.discount}%</span>` : ''}
+                    <input type="radio" name="package" value="${pkg.id}" id="option-${pkg.id}" class="sr-only" ${isDefault ? 'checked' : ''}>
+                    <div class="absolute top-4 right-4">
+                        <div class="w-6 h-6 rounded-full border-2 border-blue-300 flex items-center justify-center ${isDefault ? 'border-blue-400 bg-blue-400' : ''}"> 
+                            ${isDefault ? '<div class="w-3 h-3 rounded-full bg-white"></div> ' : ''}
+                        </div>
+                    </div>
+                    <label for="option-${pkg.id}" class="flex flex-col cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-base font-bold text-blue-900">${pkg.reports} ${pkg.reports === 1 ? "Report" : "Reports"}</h3>
+                                <p class="text-xl font-bold text-blue-600">
+                                    NGN ${pkg.pricePerReport.toLocaleString()} <span class="text-sm text-blue-600">/report</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-blue-600 text-sm">
+                            <span>Total:</span>
+                            <div class="text-right">
+                                <span class="font-bold text-blue-900">NGN ${pkg.totalPrice.toLocaleString()}</span>
+                                ${pkg.originalPrice ? `<span class="ml-2 text-sm text-blue-400 line-through">NGN ${pkg.originalPrice.toLocaleString()}</span>` : ''}
+                            </div>
+                        </div>
+                    </label>
+                `;
+                return element;
+            }
+
+            packages.forEach((pkg, index) => {
+                packageOptionsContainer.appendChild(createPackageOption(pkg, false, index === 0));
+                
+                // Select the default package (first package)
+                const defaultPackage = document.querySelector('input[name="package"]');
+                if (defaultPackage) {
+                    defaultPackage.checked = true;
+                }
+            });
+
+            // Add subscription option
+            const subscriptionOption = document.createElement('div');
+            subscriptionOption.className = 'relative p-4 rounded-lg border-2 border-blue-300 bg-white';
+            subscriptionOption.innerHTML = `
+                <span class="absolute -top-2.5 right-4 bg-blue-600 text-white text-xs px-2.5 py-0.5 rounded-full">Save 50%</span>
+                <input type="radio" name="package" value="subscription" id="option-subscription" class="sr-only">
+                <div class="absolute top-4 right-4">
+                    <div class="w-6 h-6 rounded-full border-2 border-blue-300 flex items-center justify-center"> 
+                        <div class=""></div>
+                    </div>
+                </div>
+                <label for="option-subscription" class="flex flex-col cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-base font-bold text-blue-900 flex items-center gap-2">
+                                Unlimited VIN Check
+                                <span class="text-blue-600">∞</span>
+                            </h3>
+                            <p class="text-xl font-bold text-blue-600">
+                                NGN ${subscriptionPrice.toLocaleString()} <span class="text-sm text-blue-600">/month</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space-y-1.5 text-sm">
+                        ${["Unlimited access to basic reports", "Special 50% discount on full premium reports", "Free VIN decoding and recall checks", "Free access to dashboard", "Early access to upcoming features"].map(feature => `
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check" class="h-3.5 w-3.5 text-blue-600 flex-shrink-0"></i>
+                                <span class="text-blue-600">${feature}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="mt-2 flex items-center justify-between text-sm text-blue-600">
+                        <span>Total:</span>
+                        <div class="text-right">
+                            <span class="font-bold text-blue-900">NGN ${subscriptionPrice.toLocaleString()}</span>
+                            <span class="ml-2 text-blue-400 line-through">NGN 37,499</span>
+                        </div>
+                    </div>
+                </label>
+            `;
+            packageOptionsContainer.appendChild(subscriptionOption);
+
+            // Handle package selection
+            let selectedPackage = "5";
+            let selectedPackagePrice = "₦52,499.00";
+            const packageInputs = document.querySelectorAll('input[name="package"]');
+            const fixedSelectedPackageElement = document.getElementById('fixedSelectedPackage');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const windowStickerCheckbox = document.getElementById('add-window-sticker');
+            const fixedWindowStickerCheckbox = document.getElementById('fixed-add-window-sticker');
+            const windowStickerPriceElement = document.getElementById('windowStickerPrice');
+            const fixedWindowStickerPriceElement = document.getElementById('fixedWindowStickerPrice');
+
+            function updateSelectedPackage() {
+                // Get all package options
+                const packageOptions = document.querySelectorAll('input[name="package"]');
+                
+                // Loop through all package options to update their styles
+                packageOptions.forEach(option => {
+                    const parentDiv = option.closest('div'); // Get the parent div of the input
+                    
+                    // Get the indicator element
+                    const indicator = parentDiv.querySelector('.w-6.h-6');
+                    
+                    if (option.checked) {
+                        // If this option is checked, apply the "selected" style
+                        indicator.classList.add('border-blue-400', 'bg-blue-400');
+                        indicator.innerHTML = '<div class="w-3 h-3 rounded-full bg-white"></div>';
+                        parentDiv.classList.remove('bg-white');
+                        parentDiv.classList.add('bg-blue-100');
+                    } else {
+                        // If not checked, reset to "unselected" style
+                        indicator.classList.remove('border-blue-400', 'bg-blue-400');
+                        parentDiv.classList.remove('bg-blue-100');
+                        parentDiv.classList.add('bg-white');
+                        indicator.innerHTML = '';
+                    }
+                });
+
+                // Get the selected input and update the selected package info
+                const selectedInput = document.querySelector('input[name="package"]:checked');
+                if (selectedInput) {
+                    selectedPackage = selectedInput.value;
+                    if (selectedPackage === "subscription") {
+                        selectedPackagePrice = `₦${subscriptionPrice.toLocaleString()}`;
+                    } else {
+                        const pkg = packages.find(p => p.id === selectedPackage);
+                        selectedPackagePrice = `₦${pkg.totalPrice.toLocaleString()}`;
+                    }
+                } else {
+                    // Default to the first package if none is selected
+                    selectedPackage = packages[0].id;
+                    selectedPackagePrice = `₦${packages[0].totalPrice.toLocaleString()}`;
+                }
+                
+                fixedSelectedPackageElement.textContent = selectedPackagePrice;
+                updateTotalPrice();
+            }
+
+
+            function updateTotalPrice() {
+                const basePrice = selectedPackage === "subscription" ? subscriptionPrice : packages.find(p => p.id === selectedPackage).totalPrice;
+                const total = basePrice + (windowStickerCheckbox.checked ? windowStickerPrice : 0);
+                totalPriceElement.textContent = total.toLocaleString();
+            }
+
+            packageInputs.forEach(input => {
+                input.addEventListener('change', updateSelectedPackage);
+            });
+
+            windowStickerCheckbox.addEventListener('change', () => {
+                fixedWindowStickerCheckbox.checked = windowStickerCheckbox.checked;
+                updateTotalPrice();
+            });
+
+            fixedWindowStickerCheckbox.addEventListener('change', () => {
+                windowStickerCheckbox.checked = fixedWindowStickerCheckbox.checked;
+                updateTotalPrice();
+            });
+
+            windowStickerPriceElement.textContent = windowStickerPrice.toLocaleString();
+            fixedWindowStickerPriceElement.textContent = windowStickerPrice.toLocaleString();
+
+            // Initialize values
+            updateSelectedPackage();
+
+            // Handle fixed pricing section visibility
+            const fixedPricingSection = document.getElementById('fixedPricingSection');
+            const pricingSection = document.getElementById('pricing-section');
+
+            function handleScroll() {
+                const rect = pricingSection.getBoundingClientRect();
+                if (rect.top > window.innerHeight || rect.bottom < 0) {
+                    fixedPricingSection.classList.remove('hidden');
+                } else {
+                    fixedPricingSection.classList.add('hidden');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll()
+
+            // Update fixed pricing section
+            function updateFixedPricingSection() {
+                const fixedPackageOptionsContainer = document.getElementById('fixedPackageOptions');
+                fixedPackageOptionsContainer.innerHTML = '';
+                
+                packages.forEach(pkg => {
+                    const element = document.createElement('div');
+                    element.className = `text-center p-2 rounded-lg cursor-pointer transition-all ${
+                        selectedPackage === pkg.id ? 'bg-blue-700 text-white ring-2 ring-blue-400' : 'bg-white bg-opacity-10 text-white hover:bg-opacity-20'
+                    }`;
+                    element.innerHTML = `
+                        <div class="text-xs font-semibold">${pkg.reports} ${pkg.reports === 1 ? 'Report' : 'Reports'}</div>
+                        <div class="text-sm font-bold ${selectedPackage === pkg.id ? 'text-blue-400' : 'text-blue-300'}">
+                            ₦${pkg.pricePerReport.toLocaleString()}
+                        </div>
+                    `;
+                    element.addEventListener('click', () => handlePackageSelect(pkg.id));
+                    fixedPackageOptionsContainer.appendChild(element);
+                });
+
+                // Add subscription option
+                const subscriptionElement = document.createElement('div');
+                subscriptionElement.className = `text-center p-2 rounded-lg cursor-pointer transition-all ${
+                    selectedPackage === 'subscription' ? 'bg-blue-700 text-white ring-2 ring-blue-400' : 'bg-white bg-opacity-10 text-white hover:bg-opacity-20'
+                }`;
+                subscriptionElement.innerHTML = `
+                    <div class="text-xs font-semibold">Monthly</div>
+                    <div class="text-sm font-bold ${selectedPackage === 'subscription' ? 'text-blue-400' : 'text-blue-300'}">
+                        ₦${subscriptionPrice.toLocaleString()}
+                    </div>
+                `;
+                subscriptionElement.addEventListener('click', () => handlePackageSelect('subscription'));
+                fixedPackageOptionsContainer.appendChild(subscriptionElement);
+
+                document.getElementById('fixedSelectedPackage').textContent = selectedPackagePrice;
+                document.getElementById('fixedWindowStickerPrice').textContent = windowStickerPrice.toLocaleString();
+                document.getElementById('fixed-add-window-sticker').checked = windowStickerCheckbox.checked;
+            }
+
+            // Update the handlePackageSelect function
+            function handlePackageSelect(packageId) {
+                selectedPackage = packageId;
+                if (packageId === "subscription") {
+                    selectedPackagePrice = `₦${subscriptionPrice.toLocaleString()}`;
+                } else {
+                    const selectedPkg = packages.find((pkg) => pkg.id === packageId);
+                    selectedPackagePrice = `₦${selectedPkg.totalPrice.toLocaleString()}`;
+                }
+                updateTotalPrice();
+                updateFixedPricingSection();
+            }
+
+            // Update the existing event listeners
+            packageInputs.forEach(input => {
+                input.addEventListener('change', () => handlePackageSelect(input.value));
+            });
+
+            windowStickerCheckbox.addEventListener('change', () => {
+                document.getElementById('fixed-add-window-sticker').checked = windowStickerCheckbox.checked;
+                updateTotalPrice();
+                updateFixedPricingSection();
+            });
+
+            document.getElementById('fixed-add-window-sticker').addEventListener('change', (e) => {
+                windowStickerCheckbox.checked = e.target.checked;
+                updateTotalPrice();
+                updateFixedPricingSection();
+            });
+
+            // Call updateFixedPricingSection initially
+            updateFixedPricingSection();
+
+            // Handle fixed get report button click
+            document.getElementById('fixedGetReportButton').addEventListener('click', handleGetReport);
+
+            window.addEventListener('scroll', handleScroll);
+
+            // Handle get report button click
+            const getReportButton = document.getElementById('getReportButton');
+            const fixedGetReportButton = document.getElementById('fixedGetReportButton');
+
+            function handleGetReport() {
+                console.log(`Selected package: ${selectedPackage}`);
+                console.log(`Add window sticker: ${windowStickerCheckbox.checked}`);
+                // Add checkout logic here
+            }
+
+            getReportButton.addEventListener('click', handleGetReport);
+            fixedGetReportButton.addEventListener('click', handleGetReport);
+        });
+    </script>
+</body>
+</html>
