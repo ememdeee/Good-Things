@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vehicle Description</title>
+    <title>Buildsheet Report</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,98 @@
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         /* border: 1px solid #E0C12B; */
     }
+
+    @media print {
+    @page {
+        size: A4 portrait; /* Standard portrait layout */
+        margin: 10mm; /* Optional: adjust for printer margins */
+    }
+
+    /* General body styles for print */
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 1000px; /* Adjust width for smaller content without distorting layout */
+        background-color: white !important; /* Ensure white background */
+        color: black !important; /* Print-friendly text color */
+    }
+
+    /* Tailwind font size adjustments */
+    .text-3xl {
+        font-size: 20px !important; /* Scale large headers */
+        line-height: 1.5 !important;
+    }
+
+    .text-xl {
+        font-size: 18px !important;
+        line-height: 1.5 !important;
+    }
+
+    .text-lg {
+        font-size: 16px !important;
+        line-height: 1.5 !important;
+    }
+
+    .text-base {
+        font-size: 14px !important;
+        line-height: 1.2 !important;
+    }
+
+    .text-sm {
+        font-size: 12px !important; /* Smallest text */
+        line-height: 1.2 !important;
+    }
+
+    /* Padding adjustments */
+    .p-2{
+        padding: 4px !important; /* Keep minimal spacing for print */
+    }
+    .px-2{
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+    .py-2{
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    .p-1 {
+        padding: 2px !important;
+    }
+    .px-1{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    .py-1{
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    /* Size adjustments */
+    .w-5 {
+        min-width: 15px !important;
+        width: 15px !important;
+    }
+
+    .h-5 {
+        min-height: 15px !important;
+        height: 15px !important;
+    }
+
+    /* Ensure colors and styles for print */
+    * {
+        page-break-inside: avoid; /* Prevent page breaks inside elements */
+        color-adjust: exact; /* Ensure consistent color in print */
+        -webkit-print-color-adjust: exact; /* Safari/Chrome */
+        print-color-adjust: exact; /* Standard */
+    }
+
+    /* Hide elements not needed for print */
+    .no-print {
+        display: none !important;
+    }
+}
+
 </style>
 <body class="bg-gray-100 p-4">
     <table class="w-full h-full max-w-[1340px] mx-auto bg-[#FFFDF5] border-8 border-black">
