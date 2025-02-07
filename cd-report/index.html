@@ -478,12 +478,12 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 specificationsContent.innerHTML = Object.entries(specifications).map(([section, specs]) => `
                     <div class="mb-5 break-inside-avoid flex flex-wrap">
                         <h3 class="font-bold w-full border-b border-black mb-2 pb-1">${section}</h3>
-                        ${Object.entries(specs).map(([key, value]) => `
+                        ${Object.entries(specs).map(([key, value]) => value ? `
                             <div class="flex gap-2 sm:gap-0 sm:flex-col w-full sm:w-1/2 justify-between p-0.5">
                                 <span class="spec-key w-1/2 sm:w-full text-gray-600 text-sm sm:text-base">${key}:</span>
                                 <span class="spec-value w-1/2 sm:w-full text-sm sm:text-base">${value}</span>
                             </div>
-                        `).join('')}
+                        ` : '').join('')}
                     </div>
                 `).join('');
             }
