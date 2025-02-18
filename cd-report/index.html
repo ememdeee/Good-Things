@@ -40,6 +40,15 @@
         background-size: 350px 350px;
     }
 
+    .hover-shadow-orange {
+        transition: all 0.3s ease;
+    }
+
+    .hover-shadow-orange:hover {
+        box-shadow: 0 10px 15px -3px #f2e5d7, 0 4px 6px -4px #f2e5d7;
+    }
+
+
     @media (max-width: 768px) {
         .sidebar {
             transform: translateX(-100%);
@@ -83,6 +92,55 @@
         scrollbar-face-color: #d3985e73;
         scrollbar-track-color: #F2E5D7;
     }
+
+    @media print {
+        @page {
+            size: A4 portrait; /* Standard portrait layout */
+            margin: 10mm; /* Optional: adjust for printer margins */
+        }
+
+
+        /* Ensure colors and styles for print */
+        *:not(.custom-break):not(.custom-break *) {
+            page-break-inside: avoid; /* Prevent page breaks inside elements */
+        }
+        * {
+            color-adjust: exact; /* Ensure consistent color in print */
+            -webkit-print-color-adjust: exact; /* Safari/Chrome */
+            print-color-adjust: exact; /* Standard */
+        }
+        
+        .break-inside{
+            page-break-inside: auto; 
+        }
+        .break-inside *{
+            page-break-inside: avoid; 
+        }
+
+        /* Hide elements not needed for print */
+        .no-print {
+            display: none !important;
+        }
+        .print-only {
+            display: block !important;
+        }
+
+        #main-content{
+            margin: 0 !important;
+        }
+        .thumbnails{
+            display: grid !important;
+            overflow: hidden !important;
+        }
+        .thumbnails .thumbnail{
+            height: 8rem !important;
+        }
+
+        .print-page {
+            page-break-before: always; /* For older browsers */
+            break-before: page;       /* Modern standard */
+        }
+    }
 </style>
 
 <!-- global script -->
@@ -116,14 +174,14 @@
 
 <body class="bg-[#FFFDF5] p-0 m-auto max-w-[1440px]">
     <!-- Mobile Toggle Button -->
-<button id="sidebarToggle" class="fixed z-30 md:hidden bg-[#2B2B2B] text-white p-3 rounded-full shadow-lg bottom-6 left-6">
+<button id="sidebarToggle" class="fixed z-30 md:hidden bg-[#2B2B2B] text-white p-3 rounded-full shadow-lg bottom-6 left-6 no-print">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
     </svg>
 </button>
 
 <!-- Sidebar -->
-<div id="sidebar" class="fixed flex flex-col max-h-full md:top-2 top-0 h-full md:h-fit w-80 bg-sidebar-bg bg-[#f2e5d7] md:bg-[#F2E5D7CC] shadow-lg rounded-md overflow-y-auto transition-transform duration-300 ease-in-out p-4 pt-7 md:p-4 -translate-x-full md:translate-x-0 z-40">
+<div id="sidebar" class="fixed flex flex-col max-h-full md:top-2 top-0 h-full md:h-fit w-80 bg-sidebar-bg bg-[#f2e5d7] md:bg-[#F2E5D7CC] shadow-lg rounded-md overflow-y-auto transition-transform duration-300 ease-in-out p-4 pt-7 md:p-4 -translate-x-full md:translate-x-0 z-40 no-print">
     <button id="closeSidebar" class="md:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -131,7 +189,7 @@
     </button>
     <div class="mb-4 hidden md:block">
         <h2 class="text-2xl font-bold text-center">Vehicle History Report</h2>
-        <p class="text-xl text-gray-600 mt-1 mb-4 text-center">Report generated: 12-12-2024</p>
+        <p class="text-xl text-gray-600 mt-1 mb-4 text-center">Report generated: <span class="text-nowrap whitespace-nowrap">12-12-2024</span></p>
         <p class="text-xl mb-4 text-center">Share your report</p>
         
         <!-- Social Icons Placeholder -->
@@ -165,7 +223,7 @@
     </div>
 
     <!-- Navigation Links -->
-    <nav class="space-y-1 overflow-scroll custom-scrollbar" id="navLinks"></nav>
+    <nav class="space-y-1 overflow-y-scroll custom-scrollbar" id="navLinks"></nav>
 </div>
 
 <script>
@@ -185,9 +243,9 @@
         'Auction History',
         'Sales Listing History', 
         'Title Brand Check',
+        'Title Brand Checks',
         'Market Value',
         'Key Incidents',
-        'Event Verification',
         'Mileage Records',
         'Accident Records',
         'Damage Verification',
@@ -290,9 +348,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 </script>
 
     <!-- Main Content -->
-    <div class="md:ml-80 transition-all duration-300 ease-in-out">
+    <div id="main-content" class="md:ml-80 transition-all duration-300 ease-in-out">
         <!-- share button -->
-        <div class="block md:hidden mb-2 px-2 py-6 text-center justify-center bg-[#F2E5D7CC]">
+        <div class="block md:hidden mb-2 px-2 py-6 text-center justify-center bg-[#F2E5D7CC] no-print">
             <h2 class="text-2xl font-bold">Vehicle History Report</h2>
             <p class="text-lg text-gray-600">Report generated: 12-12-2024</p>
             <p class="text-lg mt-2 mb-4">Share your report</p>
@@ -301,7 +359,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             <div class="flex gap-4 mb-4 justify-center">
                 <span onclick="copyURL()" href="#" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full cursor-pointer">
                     <img src="assets/copy.svg" class="w-full h-auto" alt="Copy"></img>
-                </a>
+                </span>
                 <a href="https://www.facebook.com/classicdecodercom" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
                     <img src="assets/facebook.svg" class="w-full h-auto"></img>
                 </a>
@@ -325,9 +383,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             <button class="w-full bg-[#2B2B2B] text-white py-3 px-4 rounded-md">Download Report</button>
         </div>
         <!-- Header -->
-        <div class="text-white p-4">
+        <div class="text-white py-4 md:p-4">
             <div class="flex justify-between items-center gap-4">
-                <div class="flex flex-col text-center md:flex-row md:text-left bg-gray-900 p-3 rounded-md items-center gap-4 w-full">
+                <div class="flex flex-col text-center md:flex-row md:text-left bg-gray-900 p-3 md:rounded-md items-center gap-4 w-full">
                     <img src="assets/logo.png" class="w-20 h-20 bg-white object-cover rounded-md p-1"></img>
                     <div>
                         <h1 class="text-2xl lg:text-3xl font-bold">1972 Oldsmobile Cutlass V8 Series 33287</h1>
@@ -420,12 +478,12 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 specificationsContent.innerHTML = Object.entries(specifications).map(([section, specs]) => `
                     <div class="mb-5 break-inside-avoid flex flex-wrap">
                         <h3 class="font-bold w-full border-b border-black mb-2 pb-1">${section}</h3>
-                        ${Object.entries(specs).map(([key, value]) => `
+                        ${Object.entries(specs).map(([key, value]) => value ? `
                             <div class="flex gap-2 sm:gap-0 sm:flex-col w-full sm:w-1/2 justify-between p-0.5">
                                 <span class="spec-key w-1/2 sm:w-full text-gray-600 text-sm sm:text-base">${key}:</span>
                                 <span class="spec-value w-1/2 sm:w-full text-sm sm:text-base">${value}</span>
                             </div>
-                        `).join('')}
+                        ` : '').join('')}
                     </div>
                 `).join('');
             }
@@ -437,9 +495,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Vehicle Summary" id="vehicleHighlightsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Vehicle Summary</h2>
-                <span class="text-lg" id="recordCount"></span>
+                <span class="text-lg font-semibold" id="recordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section shows a summary of all major events and significant records of this vehicle.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section shows a summary of all major events and significant records of this vehicle.</p>
             
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 border p-3 rounded-md" id="highlightsGrid"></div>
         </section>
@@ -559,19 +617,19 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     card: 'bg-white',
                     text: 'text-gray-900',
                     icon: 'text-gray-900',
-                    overlay: 'bg-white/0' // Transparent overlay for clean status
+                    overlay: 'grayyedBG-1' // Transparent overlay for clean status
                 },
                 issue: {
                     card: 'bg-red-50',
                     text: 'text-red-600',
                     icon: 'text-red-600',
-                    overlay: 'bg-red-50/80' // Semi-transparent red overlay for issue status
+                    overlay: 'grayyedBG-1-red' // Semi-transparent red overlay for issue status
                 },
                 warning: {
                     card: 'bg-orange-50',
                     text: 'text-orange-600',
                     icon: 'text-orange-600',
-                    overlay: 'bg-orange-100/80' // Semi-transparent orange overlay for warning status
+                    overlay: 'grayyedBG-1-red' // Semi-transparent orange overlay for warning status
                 }
             };
     
@@ -603,10 +661,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         const styles = statusStyles[status];
                         
                         return `
-                            <div class="relative border border-black rounded-lg p-4 overflow-hidden">
-                                <div class="absolute inset-0 bg-[url('assets/motif-grayed.svg')] bg-repeat bg-[length:350px_350px]"></div>
-                                <div class="absolute inset-0 ${styles.overlay}"></div>
-                                <div class="relative z-10 flex flex-col items-center text-center">
+                            <div class="relative flex border border-black rounded-lg overflow-hidden hover-shadow-orange">
+                                <div class="relative z-10 p-4 flex flex-col items-center text-center w-full ${styles.overlay}">
                                     <i data-lucide="${config.icon}" class="w-6 h-6 mb-2 ${styles.icon}"></i>
                                     <h3 class="font-bold ${styles.text}">${config.title}</h3>
                                     <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
@@ -629,9 +685,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Ownership Usage" id="ownershipUsageSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership usage</h2>
-                <span class="text-lg" id="usageCount"></span>
+                <span class="text-lg font-semibold" id="usageCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">Vehicle has personal usage record</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">Vehicle has personal usage record</p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4" id="usageTimeline"></div>
         </section>
@@ -701,11 +757,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Ownership History" id="ownershipHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Ownership History</h2>
-                <span class="text-lg" id="ownerCount"></span>
+                <span class="text-lg font-semibold" id="ownerCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section summarizes the ownership history of this vehicle</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section summarizes the ownership history of this vehicle</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2" id="ownershipGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2 print:gap-4 print:grid-cols-2" id="ownershipGrid"></div>
         </section>
         
         <script>
@@ -759,29 +815,29 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate owner cards
                 grid.innerHTML = ownershipData.owners.map(owner => `
-                    <div class="border border-black rounded-lg p-3" style="background-color: #FEF6D5;">
+                    <div class="border border-black rounded-lg p-3 hover-shadow-orange" style="background-color: #FEF6D5;">
                         <div class="flex items-center gap-2 mb-2">
                             <i data-lucide="user" class="w-5 h-5"></i>
                             <span class="font-bold">${owner.title}</span>
                         </div>
         
-                        <div class="space-y-2 text-sm pt-1">
-                            <div>
+                        <div class="space-y-2 text-sm pt-1 columns-2 sm:columns-1">
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Purchased On:</div>
                                 <div>${owner.purchaseDate}</div>
                             </div>
         
-                            <div>
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Located In:</div>
                                 <div>${owner.location}</div>
                             </div>
         
-                            <div>
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Owned From:</div>
                                 <div>${owner.ownedFrom} - ${owner.ownedTo}</div>
                             </div>
         
-                            <div>
+                            <div class="break-inside-avoid">
                                 <div class="font-semibold">Duration of Ownership</div>
                                 <div>${owner.duration}</div>
                             </div>
@@ -798,7 +854,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </script>
 
         <!-- Banner Form -->
-        <section class="p-6">
+        <section class="p-6 no-print">
             <div class="max-w-6xl bg-[#0a1a1f] p-8 rounded-lg text-white mx-auto">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <!-- Left Column -->
@@ -926,11 +982,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Title History" id="titleHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Title History</h2>
-                <span class="text-lg" id="titleCount"></span>
+                <span class="text-lg font-semibold" id="titleCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains the title history records of the vehicle</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains the title history records of the vehicle</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2" id="titleHistoryGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2 print:gap-4 print:grid print:grid-cols-2" id="titleHistoryGrid"></div>
         </section>
 
         <script>
@@ -979,7 +1035,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                 // Generate title history cards
                 grid.innerHTML = titleHistoryData.records.map(record => `
-                    <div class="border border-black rounded-lg p-3" style="background-color: #FEF6D5;">
+                    <div class="border border-black rounded-lg p-3 hover-shadow-orange" style="background-color: #FEF6D5;">
                         <div class="flex items-center gap-2 mb-2">
                             <i data-lucide="file-text" class="w-5 h-5"></i>
                             <span class="font-bold">${record.status}</span>
@@ -1016,11 +1072,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Accident Records (New)" id="accidentRecordsSectionNew" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Accident Records (New)</h2>
-                <span class="text-lg" id="accidentRecordCountNew"></span>
+                <span class="text-lg font-semibold" id="accidentRecordCountNew"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains the accident records of the vehicle</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains the accident records of the vehicle</p>
             
-            <div class="space-y-2" id="accidentGridNew"></div>
+            <div class="space-y-2 print:grid grid-cols-2 print:space-y-0 print:gap-4" id="accidentGridNew"></div>
         </section>
 
         <script>
@@ -1074,7 +1130,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                 // Generate accident record cards
                 grid.innerHTML = accidentDataNew.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden grayyedBG-1-red">
+                    <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange grayyedBG-1-red">
                         <div class="p-3 space-y-4">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <!-- Reported on -->
@@ -1082,7 +1138,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="bell-ring" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Reported on</div>
-                                        <div class="text-red-600">${record.reportDate}</div>
+                                        <div class="text-red-600 text-sm">${record.reportDate}</div>
                                     </div>
                                 </div>
 
@@ -1091,7 +1147,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="map-pin" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Located at</div>
-                                        <div class="text-red-600">${record.location}</div>
+                                        <div class="text-red-600 text-sm">${record.location}</div>
                                     </div>
                                 </div>
 
@@ -1100,7 +1156,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="ban" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Accident type</div>
-                                        <div class="text-red-600">${record.accidentType}</div>
+                                        <div class="text-red-600 text-sm">${record.accidentType}</div>
                                     </div>
                                 </div>
 
@@ -1109,7 +1165,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     <i data-lucide="target" class="w-5 h-5 mt-1 text-red-600"></i>
                                     <div>
                                         <div class="text-red-600 font-semibold">Impact point</div>
-                                        <div class="text-red-600">${record.impactPoint}</div>
+                                        <div class="text-red-600 text-sm">${record.impactPoint}</div>
                                     </div>
                                 </div>
                             </div>
@@ -1119,8 +1175,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                 <i data-lucide="building" class="w-5 h-5 mt-1 text-red-600"></i>
                                 <div>
                                     <div class="text-red-600 font-semibold">Source</div>
-                                    <div class="text-red-600">${record.source.name}</div>
-                                    <div class="text-red-600">${record.source.contact}</div>
+                                    <div class="text-red-600 text-sm">${record.source.name}</div>
+                                    <div class="text-red-600 text-sm">${record.source.contact}</div>
                                 </div>
                             </div>
                         </div>
@@ -1139,9 +1195,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Theft Records (New)" id="theftRecordsSectionNew" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Theft Records (New)</h2>
-                <span class="text-lg" id="theftRecordCountNew"></span>
+                <span class="text-lg font-semibold" id="theftRecordCountNew"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains details of theft(s) or stolen records</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains details of theft(s) or stolen records</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -1160,7 +1216,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
 
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="theftCardGridNew"></div>
+            <div class="md:hidden space-y-4 print:grid grid-cols-2 print:space-y-0 gap-4" id="theftCardGridNew"></div>
         </section>
 
         <script>
@@ -1260,10 +1316,10 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <!-- Lien/ Impound/ Export Records -->
         <section section-name="Lien/ Impound/ Export" id="LienImpoundExportRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold">Lien/ Impound/ Export Records</h2>
-                <span class="text-lg" id="LienImpoundExportRecordCount"></span>
+                <h2 class="text-2xl font-bold text-center md:text-left">Lien/ Impound/ Export Records</h2>
+                <span class="text-lg font-semibold" id="LienImpoundExportRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains lien, impound, and export records of the vehicle.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains lien, impound, and export records of the vehicle.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -1280,7 +1336,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
 
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="LienImpoundExportCardGrid"></div>
+            <div class="md:hidden space-y-4 print:grid print:grid-cols-2 print:space-y-0 print:gap-4" id="LienImpoundExportCardGrid"></div>
         </section>
 
         <script>
@@ -1365,10 +1421,10 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <!-- Junk/Salvage/Insurance Records -->
         <section section-name="Junk Salvage Records" id="junkSalvageRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold">Junk/Salvage/Insurance Records</h2>
-                <span class="text-lg" id="junkSalvageRecordCount"></span>
+                <h2 class="text-2xl font-bold text-center md:text-left">Junk/Salvage/Insurance Records</h2>
+                <span class="text-lg font-semibold" id="junkSalvageRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This record shows if the vehicle has been declared as junk, salvage, or involved in significant insurance claims. These factors can greatly affect the vehicle's value and safety.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This record shows if the vehicle has been declared as junk, salvage, or involved in significant insurance claims. These factors can greatly affect the vehicle's value and safety.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -1385,7 +1441,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
 
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="junkSalvageCardGrid"></div>
+            <div class="md:hidden space-y-4 print:grid print:grid-cols-2 print:space-y-0 print:gap-4" id="junkSalvageCardGrid"></div>
         </section>
 
         <script>
@@ -1471,9 +1527,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Salvage Auction Records" id="salvageAuctionRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Salvage Auction Records</h2>
-                <span class="text-lg" id="salvageAuctionRecordCount"></span>
+                <span class="text-lg font-semibold" id="salvageAuctionRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This record shows the vehicle's history in salvage auctions. Salvage auctions typically deal with vehicles that have been damaged, declared a total loss, or have other significant issues.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This record shows the vehicle's history in salvage auctions. Salvage auctions typically deal with vehicles that have been damaged, declared a total loss, or have other significant issues.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -1490,7 +1546,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
 
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="salvageAuctionCardGrid"></div>
+            <div class="md:hidden space-y-4 print:grid print:grid-cols-2 print:space-y-0 print:gap-4" id="salvageAuctionCardGrid"></div>
         </section>
 
         <script>
@@ -1576,11 +1632,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Sale Records" id="saleRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Sale Records</h2>
-                <span class="text-lg" id="saleRecordCount"></span>
+                <span class="text-lg font-semibold" id="saleRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains details of historical sales listings of the vehicle</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains details of historical sales listings of the vehicle</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="saleRecordsGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 print:grid-cols-2" id="saleRecordsGrid"></div>
         </section>
 
         <script>
@@ -1689,8 +1745,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </script>
 
         <!-- Auction Section -->
-        <section section-name="Auction History" class="p-6">
-            <div class="max-w-6xl mx-auto space-y-4" id="auctionHistoryContainer">
+        <section section-name="Auction History" class="p-6 custom-break">
+            <div class="mx-auto space-y-4" id="auctionHistoryContainer">
                 <!-- Content will be dynamically inserted here -->
             </div>
 
@@ -1811,7 +1867,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     if (!data || !data.records || data.records.length === 0) {
                         container.innerHTML = `
                             <h2 class="text-2xl font-bold">Auction History</h2>
-                            <p class="text-gray-700">
+                            <p class="text-gray-700 text-center md:text-left">
                                 This section contains information about the auction history of the vehicle. 
                                 Includes auction information with 10+ auction photos per listing
                             </p>
@@ -1827,7 +1883,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     container.innerHTML = `
                         <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                             <h2 class="text-2xl font-bold">Auction History</h2>
-                            <span class="text-gray-600">${totalRecords} auction record(s) found</span>
+                            <span class="text-gray-600 font-semibold">${totalRecords} auction record(s) found</span>
                         </div>
 
                         <p class="text-gray-700">
@@ -1837,15 +1893,15 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                         ${sortedRecords.map((record, index) => `
                             <div class="mt-8 pb-8 ${index < totalRecords - 1 ? 'border-b border-gray-300' : ''}">
-                                <h3 class="text-xl font-semibold mb-4">Record #${index + 1}</h3>
+                                <h3 class="text-xl font-semibold mb-4 no-print">Record #${index + 1}</h3>
                                 <div class="grid md:grid-cols-2 gap-3">
                                     <div class="space-y-4">
                                         <!-- Main Image -->
-                                        <div class="relative w-full rounded-lg overflow-hidden" style="padding-top: 56.25%;">
+                                        <div class="relative w-full rounded-lg overflow-hidden no-print" style="padding-top: 56.25%;">
                                             <img 
                                                 src="${record.images[0]}" 
                                                 alt="Vehicle" 
-                                                class="absolute top-0 left-0 w-full h-full object-cover main-image" 
+                                                class="absolute top-0 left-0 w-full h-full object-cover main-image transition-opacity duration-300" 
                                                 id="main-image-${index}"
                                             >
                                             <div 
@@ -1858,7 +1914,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         </div>
                                         
                                         <!-- Thumbnails Grid -->
-                                        <div class="flex overflow-y-scroll md:overflow-y-hidden md:grid grid-cols-4 gap-2 thumbnails" id="thumbnails-${index}">
+                                        <div class="flex overflow-y-scroll md:overflow-y-hidden md:grid grid-cols-4 gap-2 thumbnails break-inside-avoid" id="thumbnails-${index}">
+                                            <h3 class="hidden text-xl font-semibold mb-4 break-after-avoid col-span-full print-only">Record #${index + 1}</h3>
                                             ${record.images.map((img, imgIndex) => `
                                                 <img src="${img}" alt="" class="w-full h-20 object-cover rounded cursor-pointer thumbnail transition-all duration-200 hover:opacity-80" data-index="${imgIndex}">
                                             `).join('')}
@@ -1866,7 +1923,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     </div>
 
                                     <!-- Info Panels -->
-                                    <div class="space-y-2">
+                                    <div class="space-y-2 break-inside">
                                         <!-- Status Panel -->
                                         <div class="border border-black rounded p-3">
                                             <div class="border-b border-black pb-2 text-center">Status: <span class="font-medium">${record.status}</span></div>
@@ -1903,7 +1960,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         </div>
 
                                         <!-- Title & Condition -->
-                                        <div class="grid md:grid-cols-2 gap-2">
+                                        <div class="grid md:grid-cols-2 print:grid-cols-2 gap-2">
                                             <div class="border border-black rounded p-3">
                                                 <h3 class="font-semibold mb-3 border-b border-black pb-3">Title & Condition</h3>
                                                 <div class="gap-1 text-sm pt-1 flex flex-col">
@@ -1924,7 +1981,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         </div>
 
                                         <!-- Specifications -->
-                                        <div class="grid md:grid-cols-2 gap-2">
+                                        <div class="grid md:grid-cols-2 gap-2 print:grid-cols-2">
                                             <div class="border border-black rounded p-3">
                                                 <h3 class="font-semibold mb-3 border-b border-black pb-3">Technical Specifications</h3>
                                                 <div class="gap-1 text-sm pt-1 flex flex-col">
@@ -1973,7 +2030,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
         <!-- Sales Listing History Section -->
         <section section-name="Sales Listing History" class="p-6">
-            <div class="max-w-6xl mx-auto space-y-4" id="salesListingContainer">
+            <div class="mx-auto space-y-4" id="salesListingContainer">
                 <!-- Content will be dynamically inserted here -->
             </div>
             <script>
@@ -2092,7 +2149,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     container.innerHTML = `
                         <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                             <h2 class="text-2xl font-bold">Sales Listing History</h2>
-                            <span class="text-gray-600">${totalRecords} sales listing record(s) found</span>
+                            <span class="text-gray-600 font-bold">${totalRecords} sales listing record(s) found</span>
                         </div>
 
                         <p class="text-gray-700">
@@ -2101,11 +2158,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
                         ${data.records.map((record, index) => `
                             <div class="mt-8 pb-8 ${index < totalRecords - 1 ? 'border-b border-gray-300' : ''}">
-                                <h3 class="text-xl font-semibold mb-4">Record #${index + 1}</h3>
+                                <h3 class="text-xl font-semibold mb-4 no-print">Record #${index + 1}</h3>
                                 <div class="grid md:grid-cols-2 gap-3">
                                     <div class="space-y-4">
                                         <!-- Main Image -->
-                                        <div class="relative w-full rounded-lg overflow-hidden" style="padding-top: 56.25%;">
+                                        <div class="relative w-full rounded-lg overflow-hidden no-print" style="padding-top: 56.25%;">
                                             <img 
                                                 src="${record.images[0]}" 
                                                 alt="Vehicle" 
@@ -2122,7 +2179,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         </div>
                                         
                                         <!-- Thumbnails Grid -->
-                                        <div class="flex overflow-y-scroll md:overflow-y-hidden md:grid grid-cols-4 gap-2 thumbnails" id="thumbnails-${index}">
+                                        <div class="flex overflow-y-scroll md:overflow-y-hidden md:grid grid-cols-4 gap-2 thumbnails break-inside-avoid" id="thumbnails-${index}">
+                                            <h3 class="hidden text-xl font-semibold mb-4 break-after-avoid col-span-full print-only">Record #${index + 1}</h3>
                                             ${record.images.map((img, imgIndex) => `
                                                 <img 
                                                     src="${img}" 
@@ -2163,7 +2221,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         ` : ''}
 
                                         <!-- Sale Details -->
-                                        <div class="grid md:grid-cols-2 gap-2">
+                                        <div class="grid md:grid-cols-2 print:grid-cols-2 gap-2">
                                             <div class="border border-black rounded p-4">
                                                 <h3 class="font-semibold mb-3 border-b border-black pb-3">Sale details</h3>
                                                 <div class="space-y-2 text-sm pt-1">
@@ -2246,11 +2304,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Title Brand Check" id="titleBrandSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Title Brand Check</h2>
-                <span class="text-lg" id="problemCount"></span>
+                <span class="text-lg font-semibold" id="problemCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains major checks for potential problems related to vehicles title</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains major checks for potential problems related to vehicles title.</p>
             
-            <div class="grid md:grid-cols-2 gap-2 border rounded-md p-2 sm:p-3" id="brandGrid"></div>
+            <div class="grid md:grid-cols-2 print:grid-cols-3 gap-2 border rounded-md p-2 sm:p-3" id="brandGrid"></div>
         </section>
         
         <script>
@@ -2375,7 +2433,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const hasRecord = brandFlags[brand.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="p-3">
                                 <div class="flex items-center gap-2 mb-2">
                                     <i data-lucide="${brand.icon}" class="w-5 h-5 ${hasRecord ? 'text-red-600' : 'text-gray-600'}"></i>
@@ -2397,13 +2455,13 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </script>
 
         <!-- Title Brand Checks 2 Section -->
-        <section section-name="Title Brand Check" id="titleBrandChecksSection" class="p-6 hidden">
-            <h2 class="text-2xl font-bold mb-2">Title Brand Checks</h2>
-            <p class="text-gray-700 mb-6">
-                This section contains major checks for potential problems related to vehicles title
+        <section section-name="Title Brand Checks" id="titleBrandChecksSection" class="p-6 custom-break hidden">
+            <h2 class="text-2xl font-bold mb-2 text-center md:text-left">Title Brand Checks</h2>
+            <p class="text-gray-700 mb-6 text-center md:text-left">
+                This section lists our checks for potential problems related to the title.
             </p>
             
-            <div id="checksGrid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 border p-3 rounded-md">
+            <div id="checksGrid" class="grid grid-cols-1 print:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-4 border p-3 rounded-md">
                 <!-- Grid items will be inserted here by JavaScript -->
             </div>
         </section>
@@ -2488,7 +2546,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const isIssue = value === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg p-2 flex flex-col items-center text-center ${isIssue ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg p-2 flex flex-col items-center text-center hover-shadow-orange ${isIssue ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             ${isIssue 
                                 ? '<svg class="w-6 h-6 text-red-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
                                 : '<svg class="w-6 h-6 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
@@ -2538,35 +2596,35 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         }
                     ]
                 };
-        
+
                 function formatCurrency(value) {
                     return `$${value.toLocaleString()}`;
                 }
-        
+
                 function renderMarketValue(data) {
                     if (!data || !data.conditions || data.conditions.length === 0) {
                         document.getElementById('marketValueContainer').style.display = 'none';
                         return;
                     }
-        
+
                     const container = document.getElementById('marketValueContainer');
                     
                     container.innerHTML = `
-                        <div class="flex flex-col md:block max-w-6xl mx-auto border rounded-md p-2 sm:p-3">
-                            <h2 class="-order-3 text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
-                            <p class="-order-2 text-gray-700 mt-2">
-                                This section contains market value for this vehicle based on its condition.
-                            </p>
-        
+                    <h2 class="text-center md:text-left text-2xl font-bold">Vehicle Market Value</h2>
+                    <p class="text-gray-700 text-center md:text-left mt-2 mb-6">
+                        This section contains market value for this vehicle based on its condition.
+                    </p>
+                        <div class="flex flex-col mx-auto border rounded-md p-2 sm:p-3 gap-6">
+
                             <!-- Chart -->
-                            <div class="-order-1 p-0 sm:p-4 my-6">
+                            <div>
                                 <canvas id="marketValueChart"></canvas>
                             </div>
-        
+
                             <!-- Condition Panels -->
-                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div class="-order-1 md:order-2 grid md:grid-cols-2 lg:grid-cols-4 print:grid-cols-2 gap-4">
                                 ${data.conditions.map(condition => `
-                                    <div class="border border-black rounded-lg p-2 bg-white grayyedBG-1">
+                                    <div class="border border-black rounded-lg p-2 bg-white grayyedBG-1 hover-shadow-orange">
                                         <h3 class="font-semibold">${condition.type}</h3>
                                         <p class="text-sm text-gray-600">${condition.description}</p>
                                         <div class="w-full border-t my-2" style="border-color: currentColor; opacity: 1;"></div>
@@ -2576,7 +2634,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                             </div>
                         </div>
                     `;
-        
+
                     // Initialize Chart.js
                     const ctx = document.getElementById('marketValueChart').getContext('2d');
                     
@@ -2584,18 +2642,31 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         type: 'line',
                         data: {
                             labels: data.conditions.map(item => item.type.split(' ')[0]),
-                            datasets: [{
-                                data: data.conditions.map(item => item.value),
-                                borderColor: '#000',
-                                backgroundColor: '#fff',
-                                pointBackgroundColor: '#000',
-                                pointBorderColor: '#fff',
-                                pointBorderWidth: 2,
-                                pointRadius: 6,
-                                pointHoverRadius: 8,
-                                tension: 0.4,
-                                borderWidth: 2
-                            }]
+                            datasets: [
+                                {
+                                    data: data.conditions.map(item => item.value),
+                                    borderColor: '#000',
+                                    backgroundColor: '#fff',
+                                    pointBackgroundColor: '#000',
+                                    pointBorderColor: '#fff',
+                                    pointBorderWidth: 2,
+                                    pointRadius: 6,
+                                    pointHoverRadius: 8,
+                                    tension: 0.4,
+                                    borderWidth: 2,
+                                    zIndex: 2
+                                },
+                                {
+                                    data: data.conditions.map(item => item.value),
+                                    borderColor: '#e5e7eb',
+                                    borderDash: [5, 5],
+                                    borderWidth: 1,
+                                    pointRadius: 0,
+                                    fill: false,
+                                    tension: 0.4,
+                                    zIndex: 1
+                                }
+                            ]
                         },
                         options: {
                             responsive: true,
@@ -2606,11 +2677,28 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                     display: false
                                 },
                                 tooltip: {
+                                    backgroundColor: 'rgba(254, 246, 213, 1)',
+                                    titleColor: '#000',
+                                    bodyColor: '#000',
+                                    titleFont: {
+                                        size: 16,
+                                        weight: '600'
+                                    },
+                                    bodyFont: {
+                                        size: 16,
+                                        weight: '600'
+                                    },
+                                    titleMarginBottom: 3,
+                                    padding: 12,
+                                    displayColors: false,
                                     callbacks: {
                                         label: function(context) {
                                             return formatCurrency(context.raw);
                                         }
-                                    }
+                                    },
+                                    borderColor: '#000',
+                                    borderWidth: 1,
+                                    cornerRadius: 8
                                 }
                             },
                             scales: {
@@ -2634,16 +2722,21 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                         borderDash: [4, 4]
                                     }
                                 }
+                            },
+                            hover: {
+                                mode: 'nearest',
+                                intersect: true,
+                                backgroundColor: 'transparent' // This removes the hover box color
                             }
                         }
                     });
-        
+
                     // Handle window resize
                     window.addEventListener('resize', () => {
                         chart.resize();
                     });
                 }
-        
+
                 // Initial render
                 renderMarketValue(marketValueData);
             </script>
@@ -2653,11 +2746,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Key Incidents" id="keyIncidentsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Key Incidents</h2>
-                <span class="text-lg" id="incidentCount"></span>
+                <span class="text-lg font-semibold" id="incidentCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section highlights any significant incidents the vehicle may have experienced during its lifetime.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains event verification records for this vehicle.</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2 border rounded-md p-2 sm:p-3" id="incidentGrid"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2 border rounded-md p-2 sm:p-3 print:grid-cols-3" id="incidentGrid"></div>
         </section>
         
         <script>
@@ -2774,7 +2867,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const hasRecord = incidentFlags[incident.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="px-2 py-3">
                                 <div class="flex flex-col items-center gap-2 mb-2">
                                     ${hasRecord 
@@ -2802,12 +2895,12 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Mileage Records" id="mileageRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Mileage Records</h2>
-                <span class="text-lg" id="mileageRecordCount"></span>
+                <span class="text-lg font-semibold" id="mileageRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains mileage records for this vehicle</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains mileage records for this vehicle</p>
             
             <div class="mb-6" id="lastKnownRecord"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2" id="mileageGrid"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 print:grid-cols-2" id="mileageGrid"></div>
         </section>
         
         <script>
@@ -2855,7 +2948,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate mileage record cards
                 grid.innerHTML = mileageData.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden bg-[#FEF6D5]">
+                    <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange bg-[#FEF6D5]">
                         <div class="p-4 justify-between flex md:block">
                             <div class="md:mb-4">
                                 <div class="font-semibold">Date Reported</div>
@@ -2878,11 +2971,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Accident Records" id="accidentRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Accident Records</h2>
-                <span class="text-lg" id="accidentRecordCount"></span>
+                <span class="text-lg font-semibold" id="accidentRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section contains accident records for this vehicle</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section contains accident records for this vehicle</p>
             
-            <div class="space-y-2" id="accidentGrid"></div>
+            <div class="space-y-2 print:grid print:grid-cols-2 print:space-y-0 print:gap-2" id="accidentGrid"></div>
         </section>
         
         <script>
@@ -2922,7 +3015,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate accident record cards
                 grid.innerHTML = accidentData.records.map(record => `
-                    <div class="border border-black rounded-lg overflow-hidden grayyedBG-1-red">
+                    <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange grayyedBG-1-red">
                         <div class="p-2 grid md:grid-cols-2 gap-2">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="bell-ring" class="w-5 h-5 text-red-600"></i>
@@ -2954,11 +3047,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Damage Verification" id="damageHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Damage History Check</h2>
-                <span class="text-lg" id="damageRecordCount"></span>
+                <span class="text-lg font-semibold" id="damageRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section highlights whether the vehicle has any recorded damage and verifies it against damage titles.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section highlights whether the vehicle has any recorded damage and verifies it against damage titles.</p>
             
-            <div class="grid md:grid-cols-2 gap-2" id="damageGrid"></div>
+            <div class="grid md:grid-cols-2 gap-2 print:grid-cols-2" id="damageGrid"></div>
         </section>
         
         <script>
@@ -3075,7 +3168,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     const hasRecord = damageFlags[damage.id] === 1;
                     
                     return `
-                        <div class="border border-black rounded-lg overflow-hidden ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
+                        <div class="border border-black rounded-lg overflow-hidden hover-shadow-orange ${hasRecord ? 'grayyedBG-1-red' : 'grayyedBG-1'}">
                             <div class="p-2">
                                 <div class="flex items-start gap-2 items-center">
                                     <div class="mt-1">
@@ -3106,9 +3199,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Theft Records" id="theftRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Theft Records</h2>
-                <span class="text-lg" id="theftRecordCount"></span>
+                <span class="text-lg font-semibold" id="theftRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section lists active theft and theft recovery records for this VIN.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section lists active theft and theft recovery records for this VIN.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -3127,7 +3220,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
         
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="theftCardGrid"></div>
+            <div class="md:hidden space-y-4 print:grid print:grid-cols-2 print:space-y-0 print:gap-4" id="theftCardGrid"></div>
         </section>
         
         <script>
@@ -3242,9 +3335,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Lien/Loan Records" id="lienRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Lien/Loan Records</h2>
-                <span class="text-lg" id="lienRecordCount"></span>
+                <span class="text-lg font-semibold" id="lienRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This record shows that someone else has a right of possession on the vehicle - usually whoever leant the owner the money for the car. You shouldn't buy the car unless the lienholder is going to release the lien.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This record shows that someone else has a right of possession on the vehicle - usually whoever leant the owner the money for the car. You shouldn't buy the car unless the lienholder is going to release the lien.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -3261,7 +3354,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
         
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="lienCardGrid"></div>
+            <div class="md:hidden space-y-4 print:grid print:grid-cols-2 print:space-y-0 print:gap-4" id="lienCardGrid"></div>
         </section>
         
         <script>
@@ -3347,9 +3440,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Detailed Vehicle History" id="detailedHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Detailed Vehicle History</h2>
-                <span class="text-lg" id="historyRecordCount"></span>
+                <span class="text-lg font-semibold" id="historyRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This section gives you a comprehensive and detailed information recorded in this VIN.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This section gives you a comprehensive and detailed information recorded in this VIN.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -3368,7 +3461,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
         
             <!-- Cards for mobile -->
-            <div class="md:hidden space-y-4" id="historyCardGrid"></div>
+            <div class="md:hidden space-y-4 print:space-y-0 print:grid grid-cols-2 gap-4" id="historyCardGrid"></div>
         </section>
         
         <script>
@@ -3504,9 +3597,9 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <section section-name="Dummy Record For No Data" id="dummyRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Dummy Record For No Data</h2>
-                <span class="text-lg" id="dummyRecordCount"></span>
+                <span class="text-lg font-semibold" id="dummyRecordCount"></span>
             </div>
-            <p class="text-gray-700 mb-6">This is the UI when there is no data. A yellow box will appear with the section title and a message indicating 'No record'.</p>
+            <p class="text-gray-700 mb-6 text-center md:text-left">This is the UI when there is no data. A yellow box will appear with the section title and a message indicating 'No record'.</p>
             
             <!-- Table for desktop -->
             <div class="hidden md:block overflow-x-auto">
@@ -3624,8 +3717,8 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </script>
 
         <!-- Banner 2 -->
-        <section class="p-4 px-6">
-            <div class="grayyedBG-1-blue p-4 sm:p-8 rounded-lg max-w-6xl mx-auto">
+        <section class="p-4 px-6 no-print">
+            <div class="grayyedBG-1-blue p-4 sm:p-8 rounded-lg mx-auto">
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <!-- Left Column -->
                     <div class="space-y-6">
@@ -3711,7 +3804,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
 
         <!-- footer -->
         <footer class="py-1 px-4 md:px-8 ">
-            <div class="max-w-6xl mx-auto space-y-4 border-t border-gray-200 py-4">
+            <div class="mx-auto space-y-4 border-t border-gray-200 py-4">
                 <!-- Disclaimer Section -->
                 <div class="space-y-2">
                     <h2 class="text-xl font-bold text-gray-900">Disclaimer</h2>
@@ -3723,11 +3816,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 <!-- Copyright and Social Links -->
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-1">
                     <p class="text-gray-600 text-sm">
-                        © 2025 Classic Decoder. All Rights Reserved.
+                        © 2025 <a href="/" target="_blank">Classic Decoder</a>. All Rights Reserved.
                     </p>
                     
                     <!-- Social Media Icons -->
-                    <div class="flex items-center gap-2 sm:gap-4">
+                    <div class="flex items-center gap-2 sm:gap-4 no-print">
                         <span onclick="copyURL()" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full cursor-pointer">
                             <img src="assets/copy.svg" class="w-full h-auto" alt="Copy">
                         </span>
