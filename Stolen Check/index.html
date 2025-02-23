@@ -316,17 +316,17 @@
         </section>
 
         <!-- Fixed Pricing Section -->
-        <div id="fixedPricing" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-700 to-blue-900 border-t border-blue-500 shadow-lg p-4 md:p-6 z-50 transition-all duration-300">
+        <div id="fixedPricing" class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-700 to-blue-900 border-t border-blue-500 shadow-lg p-2 md:py-4 md:px-6 z-50 transition-all duration-300">
             <div class="container mx-auto max-w-7xl">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="hidden sm:grid sm:grid-cols-4 gap-4 w-full sm:flex-grow sm:mr-6" id="fixedPackageOptions">
                 <!-- Fixed package options will be populated here -->
                 </div>
-                <div class="flex flex-col items-center gap-2 md:gap-4 w-full sm:w-auto min-w-56">
+                <div class="flex flex-col items-center gap-2 md:gap-3 w-full sm:w-auto min-w-56">
                 <a class="checkOut block sm:hidden text-center cursor-pointer w-full bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold md:font-bold p-2 md:p-4 text-lg rounded-lg transition-colors duration-300">
                     Get Your Report Now
                 </a>
-                <button id="fixedGetReportButton" class="hidden sm:block w-full bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold md:font-bold p-2 md:p-4 text-lg rounded-lg transition-colors duration-300">
+                <button id="fixedGetReportButton" class="hidden sm:block w-full bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold md:font-bold p-2 md:px-4 text-lg rounded-lg transition-colors duration-300">
                     Get Your Report Now
                 </button>
                 <div class="items-center hidden sm:flex text-white text-sm bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition-all p-2 md:p-3 w-full justify-center">
@@ -368,7 +368,7 @@
 
         // Sample data
         const specifications = [
-            { label: "VIN", value: "5TDDZRFHXKS730863", icon: "file-text" },
+            { label: "VIN", value: "", icon: "file-text" },
             { label: "Engine", value: "3.5L V-6", icon: "car" },
             { label: "Transmission", value: "Automatic", icon: "settings" },
             { label: "Drive Type", value: "AWD", icon: "gauge" },
@@ -397,10 +397,10 @@
         ];
 
         const packages = [
-            { id: "10", reports: 10, pricePerReport: 8.00, totalPrice: 79.99, originalPrice: 199.90, discount: 60, save: "Save BIG!" },
-            { id: "5", reports: 5, pricePerReport: 10.00, totalPrice: 49.99, originalPrice: 99.95, discount: 50, popular: true },
-            { id: "2", reports: 2, pricePerReport: 15.00, totalPrice: 29.99, originalPrice: 39.98, discount: 25 },
-            { id: "1", reports: 1, pricePerReport: 19.99, totalPrice: 19.99 },
+            { id: "10", reports: 10, pricePerReport: 8.00, totalPrice: 79.99, originalPrice: 199.90, discount: 60, save: "Save BIG!", defaultPlan :true },
+            { id: "5", reports: 5, pricePerReport: 10.00, totalPrice: 49.99, originalPrice: 99.95, discount: 50, popular: true, defaultPlan :false },
+            { id: "2", reports: 2, pricePerReport: 15.00, totalPrice: 29.99, originalPrice: 39.98, discount: 25, defaultPlan :false },
+            { id: "1", reports: 1, pricePerReport: 19.99, totalPrice: 19.99, defaultPlan :false },
         ];
 
         const testimonials = [
@@ -433,8 +433,10 @@
             const sidebarSpecs = document.getElementById('sidebarSpecifications');
             
             specifications.forEach((spec, index) => {
+                if (!spec.value) return;
+
                 const specHtml = `
-                    <div class="flex items-center justify-between p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div class="flex items-center justify-between p-2 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors text-right gap-2">
                         <div class="flex items-center space-x-2">
                             <i data-lucide="${spec.icon}" class="h-4 w-4 text-gray-400"></i>
                             <span class="text-sm font-medium text-gray-600">${spec.label}</span>
@@ -509,8 +511,8 @@
             packages.forEach(pkg => {
                 const packageHtml = `
                     <div class="relative">
-                        <input type="radio" name="package" id="option-${pkg.id}" value="${pkg.id}" class="peer sr-only" />
-                        <label for="option-${pkg.id}" class="flex flex-col py-6 px-4 bg-white bg-opacity-10 rounded-lg cursor-pointer transition-all hover:bg-opacity-30 peer-checked:ring-2 peer-checked:ring-yellow-400 hover:transform hover:scale-105">
+                        <input type="radio" name="package" id="option-${pkg.id}" value="${pkg.id}" class="peer sr-only" ${pkg.defaultPlan ? 'checked' : ''}/>
+                        <label for="option-${pkg.id}" class="flex flex-col h-full justify-center py-6 px-4 bg-white bg-opacity-10 rounded-lg cursor-pointer transition-all hover:bg-opacity-30 peer-checked:ring-2 peer-checked:ring-yellow-400 hover:transform hover:scale-105">
                             ${pkg.popular ? `
                                 <span class="absolute top-0 right-0 bg-yellow-400 text-blue-900 text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">
                                     Most Popular
@@ -546,9 +548,9 @@
                 packageContainer.innerHTML += packageHtml;
                 
                 fixedPackageContainer.innerHTML += `
-                    <div class="text-center p-3 rounded-lg cursor-pointer transition-all bg-white bg-opacity-10 text-blue-100 hover:bg-opacity-20 flex flex-col justify-center items-center" data-package-id="${pkg.id}">
+                    <div class="text-center p-3 rounded-lg cursor-pointer transition-all ${pkg.defaultPlan ? 'bg-blue-500 text-white' : 'bg-white bg-opacity-10 text-blue-100'} hover:bg-opacity-20 flex flex-col justify-center items-center" data-package-id="${pkg.id}">
                         <div class="text-sm font-semibold">${pkg.reports} ${pkg.reports === 1 ? 'Report' : 'Reports'}</div>
-                        <div class="text-xl font-bold text-yellow-400">$${pkg.pricePerReport.toFixed(2)}</div>
+                        <div class="text-lg font-bold text-yellow-400">$${pkg.pricePerReport.toFixed(2)}</div>
                         <div class="text-xs">Total: $${pkg.totalPrice.toFixed(2)}</div>
                         ${pkg.discount ? `
                             <div class="text-xs text-yellow-200 font-semibold">Save ${pkg.discount}%</div>

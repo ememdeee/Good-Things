@@ -1,9 +1,100 @@
+<?php
+echo 'test';
+
+// Function
+function count_array_values($my_array, $match){ 
+    $count = 0; 
+    foreach ($my_array as $key => $value){ 
+        if ($value == $match){ 
+            $count++; 
+        }else if(strpos($value,$match)){
+            $count++; 
+        }
+    } 
+    return $count; 
+}
+
+function search_items($my_array,$match,$mycolumn){
+    $result = array_filter($my_array, function ($item) use ($match,$mycolumn) {
+        if (stripos($item[$mycolumn], $match) !== false) {
+            return true;
+        }else if (stripos($item[$mycolumn][0], $match) !== false) {
+            return true;
+        }
+        return false;
+    });
+    return $result; 
+}
+
+function searchdvh_detailskey($my_array,$match,$mycolumn){
+    $result = array_filter($my_array, function ($item) use ($match,$mycolumn) {
+        if(count($item[$mycolumn])>1){
+            foreach($item[$mycolumn] as $dkey => $data){
+                if (stripos($item[$mycolumn][$dkey], $match) !== false) {
+                    return true;
+                }
+            }
+        }else if (count($item[$mycolumn])==1 && stripos($item[$mycolumn][0], $match) !== false) {
+            return true;
+        }
+        return false;
+    });
+    return $result; 
+}
+
+$report = (array)$this->raw;
+$v2userreport = isset($report['classic_v2userreport']) ? $report['classic_v2userreport'] : $report['V2_Classic'];
+$antique = $report['antique']['allInfo'];
+$prevclassic_data = $report['Classic_Prev_Data'];
+$classicData = $v2userreport['classic'];
+$spec_obj = (isset($classicData['standard_specifications']))?$classicData['standard_specifications']:$classicData;
+$allType = trim($spec_obj['Type'],", ,");
+$splitType = explode(",",$allType);
+$countType = count($splitType);
+$vusage_obj = $v2userreport['vehicle_usage_verification']['data'];
+$ownedhistory_obj = $v2userreport['owner_history']['data'];
+$auctions_obj = $v2userreport['auctions'];
+$damage_verification = $v2userreport['damage_verification']['data'];
+$dvh_obj = $v2userreport['dvh']['data'];
+$theft_obj = searchdvh_detailskey($dvh_obj,"theft",'details');
+$loanlienObj = array_merge_recursive(searchdvh_detailskey($dvh_obj,"lien",'details'));
+$loanlien_obj = [];
+foreach($loanlienObj as $key => $ll_obj){
+    if(strtotime($loanlienObj[$key-1]['date']) === strtotime($ll_obj['date'])){
+        unset($ll_obj);
+    }else{
+        array_push($loanlien_obj, $ll_obj);
+    }
+}
+$recall_obj = $v2userreport['recalls']['recalls'];
+
+// Vehicle Summary
+$titlebrand_obj = $v2userreport['checks']['data'];
+$tb_status = array_column($titlebrand_obj, 'status');
+$count_Rftitlebrand_obj = count_array_values($tb_status, "records found");
+$titlehistory_obj = $v2userreport['inspection']['data'];
+$event_obj = $v2userreport['vehicle_checks']['data'];
+$mileage_obj = $v2userreport['mileage_records']['data'];
+$accident_obj = $v2userreport['accident_records']['data'];
+$services_obj = $v2userreport['services']['data'];
+$service_records_obj = $v2userreport['service_records'];
+$inspection_obj = $v2userreport['inspection']['data'];
+$number_of_owners_obj = $v2userreport['number_of_owners'];
+
+$sales_historylist = $v2userreport['sales_listing_history'];
+
+$getMake = ((isset($v2userreport['classic_spec'])) ? $v2userreport['classic_spec']['make'] : (((!isset($v2userreport['classic_decode']['make']) || $v2userreport['classic_decode']['make'] == "") && !empty($classicData)) ? $classicData['make'] : ((isset($v2userreport['classic_decode']['title']) && $v2userreport['classic_decode']['title'] != "") ? "" : $v2userreport['classic_decode']['make'])));
+$logo = Url::company_logo().str_replace(" ","-","classicVehicle/".strtolower($getMake)).".png";
+if(!@getimagesize($logo)) {
+    $logo = $images['logo'][0];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicle Description</title>
+    <title>History Report for VIN <?=$report['vin']?> | <?=str_replace("app.","",COOKIE_DOMAIN)?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -11,137 +102,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<?=REPORT_ASSETS?>report/v2_classic/style.css">
 </head>
-<style>
-    body * {
-        font-family: 'Chivo', sans-serif;
-        transition: all 0.3s ease-in-out;
-    }
-    .grayyedBG-1 {
-        background-image: url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 250px 250px;
-    }
-    .grayyedBG-2 {
-        background-image: url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 350px 350px;
-    }
-
-    .grayyedBG-1-red {
-        background-image: linear-gradient(rgba(150, 0, 0, 0.1), rgba(150, 0, 0, 0.1)), url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 250px 250px;
-    }
-
-    .grayyedBG-1-blue {
-        background-image: linear-gradient(rgba(206, 227, 229, 0.1), rgba(206, 227, 229, 0.1)), url('assets/motif-grayed.svg');
-        background-repeat: repeat;
-        background-size: 350px 350px;
-    }
-
-    .hover-shadow-orange {
-        transition: all 0.3s ease;
-    }
-
-    .hover-shadow-orange:hover {
-        box-shadow: 0 10px 15px -3px #f2e5d7, 0 4px 6px -4px #f2e5d7;
-    }
-
-
-    @media (max-width: 768px) {
-        .sidebar {
-            transform: translateX(-100%);
-            z-index: 50;
-        }
-        .sidebar.active {
-            transform: translateX(0);
-        }
-    }
-
-    /* Modern scrollbar styling */
-    .custom-scrollbar {
-        /* Firefox */
-        scrollbar-width: thin;
-        scrollbar-color: #d3985e73 #F2E5D7;
-    }
-
-    /* Chrome, Edge, and Safari */
-    .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: #F2E5D7;
-        border-radius: 20px;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #A67C52;
-        border-radius: 20px;
-        border: 2px solid #F2E5D7;
-    }
-
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background-color: #8B5E3C;
-    }
-
-    /* For older browsers or as a fallback */
-    .custom-scrollbar {
-        scrollbar-face-color: #d3985e73;
-        scrollbar-track-color: #F2E5D7;
-    }
-
-    @media print {
-        @page {
-            size: A4 portrait; /* Standard portrait layout */
-            margin: 10mm; /* Optional: adjust for printer margins */
-        }
-
-
-        /* Ensure colors and styles for print */
-        *:not(.custom-break):not(.custom-break *) {
-            page-break-inside: avoid; /* Prevent page breaks inside elements */
-        }
-        * {
-            color-adjust: exact; /* Ensure consistent color in print */
-            -webkit-print-color-adjust: exact; /* Safari/Chrome */
-            print-color-adjust: exact; /* Standard */
-        }
-        
-        .break-inside{
-            page-break-inside: auto; 
-        }
-        .break-inside *{
-            page-break-inside: avoid; 
-        }
-
-        /* Hide elements not needed for print */
-        .no-print {
-            display: none !important;
-        }
-        .print-only {
-            display: block !important;
-        }
-
-        #main-content{
-            margin: 0 !important;
-        }
-        .thumbnails{
-            display: grid !important;
-            overflow: hidden !important;
-        }
-        .thumbnails .thumbnail{
-            height: 8rem !important;
-        }
-
-        .print-page {
-            page-break-before: always; /* For older browsers */
-            break-before: page;       /* Modern standard */
-        }
-    }
-</style>
 
 <!-- global script -->
 <script>
@@ -195,25 +158,25 @@
         <!-- Social Icons Placeholder -->
         <div class="flex gap-2 mb-4">
             <span onclick="copyURL()" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full cursor-pointer">
-                <img src="assets/copy.svg" class="w-full h-auto" alt="Copy">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/copy.svg" class="w-full h-auto" alt="Copy">
             </span>
-            <a href="https://www.facebook.com/classicdecodercom" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                <img src="assets/facebook.svg" class="w-full h-auto" alt="Facebook">
+            <a href="https://www.facebook.com/sharer.php?u=<?=str_replace('app.','',Url::link('report/vin/'.$report['vin']))?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/facebook.svg" class="w-full h-auto" alt="Facebook">
             </a>
-            <a href="https://twitter.com/ClassicDecoder" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                <img src="assets/twitter.svg" class="w-full h-auto" alt="Twitter">
+            <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(str_replace('app.','',Url::link('report/vin/'.$report['vin']))); ?>&text=<?php echo urlencode($shareText); ?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/twitter.svg" class="w-full h-auto" alt="Twitter">
             </a>
-            <a href="mailto:support@classicdecoder.com" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                <img src="assets/gmail.svg" class="w-full h-auto" alt="Gmail">
+            <a href="mailto:<?= Url::email()?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/gmail.svg" class="w-full h-auto" alt="Gmail">
             </a>
-            <a href="https://www.linkedin.com/company/classicdecoder" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                <img src="assets/linkedin.svg" class="w-full h-auto" alt="LinkedIn">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= str_replace('app.','',Url::link('report/vin/'.$report['vin'])) ?>&title=<?php echo urlencode('Vehicle History Report'); ?>&summary=<?php echo urlencode($shareText); ?>&source=<?= COOKIE_DOMAIN ?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/linkedin.svg" class="w-full h-auto" alt="LinkedIn">
             </a>
-            <a href="https://www.pinterest.com/classicdecoder/" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                <img src="assets/pinterest.svg" class="w-full h-auto" alt="Pinterest">
+            <a href="https://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(str_replace('app.','',Url::link('report/vin/'.$report['vin']))); ?>&media=<?php echo urlencode($logo); ?>&description=<?php echo urlencode($shareText); ?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/pinterest.svg" class="w-full h-auto" alt="Pinterest">
             </a>
             <a href="https://secure.livechatinc.com/licence/10186117/v2/open_chat.cgi?groups=0" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                <img src="assets/livechat.svg" class="w-full h-auto" alt="LiveChat">
+                <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/livechat.svg" class="w-full h-auto" alt="LiveChat">
             </a>
         </div>
 
@@ -223,7 +186,7 @@
     </div>
 
     <!-- Navigation Links -->
-    <nav class="space-y-1 overflow-y-auto custom-scrollbar" id="navLinks"></nav>
+    <nav class="space-y-1 overflow-y-scroll custom-scrollbar" id="navLinks"></nav>
 </div>
 
 <script>
@@ -358,25 +321,25 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             <!-- Social Icons Placeholder -->
             <div class="flex gap-4 mb-4 justify-center">
                 <span onclick="copyURL()" href="#" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full cursor-pointer">
-                    <img src="assets/copy.svg" class="w-full h-auto" alt="Copy"></img>
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/copy.svg" class="w-full h-auto" alt="Copy"></img>
                 </span>
-                <a href="https://www.facebook.com/classicdecodercom" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                    <img src="assets/facebook.svg" class="w-full h-auto"></img>
+                <a href="https://www.facebook.com/sharer.php?u=<?=str_replace('app.','',Url::link('report/vin/'.$report['vin']))?>" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/facebook.svg" class="w-full h-auto"></img>
                 </a>
-                <a href="https://twitter.com/ClassicDecoder" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                    <img src="assets/twitter.svg" class="w-full h-auto"></img>
+                <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(str_replace('app.','',Url::link('report/vin/'.$report['vin']))); ?>&text=<?php echo urlencode($shareText); ?>" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/twitter.svg" class="w-full h-auto"></img>
                 </a>
-                <a href="mailto:support@classicdecoder.com" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                    <img src="assets/gmail.svg" class="w-full h-auto"></img>
+                <a href="mailto:<?= Url::email()?>" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/gmail.svg" class="w-full h-auto"></img>
                 </a>
-                <a href="https://www.linkedin.com/company/classicdecoder" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                    <img src="assets/linkedin.svg" class="w-full h-auto"></img>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= str_replace('app.','',Url::link('report/vin/'.$report['vin'])) ?>&title=<?php echo urlencode('Vehicle History Report'); ?>&summary=<?php echo urlencode($shareText); ?>&source=<?= COOKIE_DOMAIN ?>" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/linkedin.svg" class="w-full h-auto"></img>
                 </a>
-                <a href="https://www.pinterest.com/classicdecoder/" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                    <img src="assets/pinterest.svg" class="w-full h-auto"></img>
+                <a href="https://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(str_replace('app.','',Url::link('report/vin/'.$report['vin']))); ?>&media=<?php echo urlencode($logo); ?>&description=<?php echo urlencode($shareText); ?>" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/pinterest.svg" class="w-full h-auto"></img>
                 </a>
                 <a href="https://secure.livechatinc.com/licence/10186117/v2/open_chat.cgi?groups=0" class="w-7 h-7 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                    <img src="assets/livechat.svg" class="w-full h-auto"></img>
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/livechat.svg" class="w-full h-auto"></img>
                 </a>
             </div>
 
@@ -386,15 +349,33 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <div class="text-white py-4 md:p-4">
             <div class="flex justify-between items-center gap-4">
                 <div class="flex flex-col text-center md:flex-row md:text-left bg-gray-900 p-3 md:rounded-md items-center gap-4 w-full">
-                    <img src="assets/logo.png" class="w-20 h-20 bg-white object-contain rounded-md p-1"></img>
+                    <?php if($logo != ""){ ?>
+                        <img src="<?=$logo?>" class="w-20 h-20 bg-white object-cover rounded-md p-1"></img>
+                    <?php } ?>
                     <div>
-                        <h1 class="text-2xl lg:text-3xl font-bold">1972 Oldsmobile Cutlass V8 Series 33287</h1>
-                        <p class="text-lg lg:text-2xl mt-2">VIN: 3G6PH2R106352</p>
+                        <h1 class="text-2xl lg:text-3xl font-bold">
+                            <?php 
+                                if (!empty($v2userreport['classic'])) { 
+                                    echo ucwords($v2userreport['classic']['year']) . ' ' . 
+                                        ucwords($v2userreport['classic']['make']) . ' ' . 
+                                        ucwords(str_replace("_", " ", $v2userreport['classic']['series']));
+                                } elseif (isset($v2userreport['classic_decode']['title']) && $v2userreport['classic_decode']['title'] != "") { 
+                                    echo $v2userreport['classic_decode']['title'];
+                                } elseif (!empty($prevclassic_data)) { 
+                                    echo $prevclassic_data['year'] . ' ' . 
+                                        $prevclassic_data['make'] . ' ' . 
+                                        $prevclassic_data['model'];
+                                } elseif (isset($v2userreport['classic_spec']) && $v2userreport['classic_spec']['title'] != "") { 
+                                    echo $v2userreport['classic_spec']['title'];
+                                }
+                            ?>
+                        </h1>
+                        <p class="text-lg lg:text-2xl mt-2">VIN: <?=$report['vin']?></p>
                     </div>
                 </div>
                 <div class="hidden md:flex w-72 gap-2 flex-col justify-center text-center text-black">
                     <p class="text-lg font-medium">Scan to open report:</p>
-                    <img src="assets/barcode.png" class="w-16 h-16 object-cover m-auto"></img> <!-- QR Code placeholder -->
+                    <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/barcode.png" class="w-16 h-16 object-cover m-auto"></img> <!-- QR Code placeholder -->
                 </div>
             </div>
         </div>
@@ -408,59 +389,71 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Specifications Data
             const specifications = {
                 'Body': {
-                    'Body Maker': 'Fisher',
-                    'No. Doors': '4',
-                    'Model Number': '33669',
-                    'Weight': '3,445lbs'
+                    'Body Maker': '<?=trim($spec_obj['Body Maker'],",")?>',
+                    'No. Doors': '<?=trim($spec_obj['No. Doors'],",")?>',
+                    'Model Number': '<?=trim($spec_obj['Model Number'],",")?>',
+                    'Weight': '<?=trim($spec_obj['Weight'],",")?>'
                 },
                 'Dimension': {
-                    'Wheelbase': '115 inches',
-                    'Length': '207.6 inches',
-                    'Width': '76.3 inches',
-                    'Height': '53.5 inches',
-                    'Front Tread': '59.7 inches',
-                    'Rear Tread': '59.2 inches'
+                    'Wheelbase': '<?=trim($spec_obj['Wheelbase'],",")?>',
+                    'Length': '<?=trim($spec_obj['Length'],",")?>',
+                    'Width': '<?=trim($spec_obj['Width'],",")?>',
+                    'Height': '<?=trim($spec_obj['Height'],",")?>',
+                    'Front Tread': '<?=trim($spec_obj['Front Tread'],",")?>',
+                    'Rear Tread': '<?=trim($spec_obj['Rear Tread'],",")?>'
                 },
                 'Engine': {
-                    'Type': 'Rocket V8, valve-in-head',
-                    'Displacement': '350 cu. in.',
-                    'Cylinders': '8',
-                    'Bore x Stroke': '4.057 & 3.385 inches',
-                    'Compression Ratio Std': '8.5 to 1',
-                    'Main Bearings': '5',
-                    'Engine Numbers': 'OA',
-                    'Lubrication': 'Pressure to all bearings excluding wrist pin'
+                    'Type': '<?=($countType >= 4)?$splitType[0].', '.$splitType[1]:$splitType[0]?>',
+                    'Displacement': '<?=trim($spec_obj['Displacement'],",")?>',
+                    'Cylinders': '<?=trim($spec_obj['Cylinders'],",")?>',
+                    'Bore x Stroke': '<?=trim($spec_obj['Bore & Stroke'],",")?>',
+                    'Compression Ratio Std': '<?=trim($spec_obj['Compression Ratio-Opt'],",")?>',
+                    'Main Bearings': '<?=trim($spec_obj['Main Bearings'],",")?>',
+                    'Engine Numbers': '<?=trim($spec_obj['Engine Numbers'],",")?>',
+                    'Lubrication': '<?="<span>".wordwrap($spec_obj['Lubrication'], 44, "<br />\n")."</span>"?>'
                 },
                 'Carburetor': {
-                    'Body Maker': 'Fisher',
-                    'No. Doors': '4'
+                    'Type': '<?=($countType >= 4)?$splitType[2]:$splitType[1]?>',
+                    'Body Maker': '<?=trim($spec_obj['Make'],",")?>',
+                    'No. Doors': '<?=trim($spec_obj['No. Doors'],",")?>'
                 },
                 'Transmission': {
-                    'Type': 'Fully synchronous 3-speed manual',
-                    'Drive': 'Rear wheel drive',
-                    'No. of Gears': '3'
+                    'Type': '<?=($countType > 4)?$splitType[3].', '.$splitType[4]:$splitType[3]?>',
+                    'Drive': '<?=trim($spec_obj['Drive'],",")?>',
+                    'No. of Gears': '<?=trim($spec_obj['No. Of Gears'],",")?>'
                 },
                 'Brakes': {
-                    'Service': 'Hydraulic, self-adjusting drums',
-                    'Front Size': '9.5 inches',
-                    'Rear Size': '9.5 inches',
-                    'Emergency': 'Rear service brakes'
+                    'Service': '<?=trim($spec_obj['Service'],",")?>',
+                    'Front Size': '<?=trim($spec_obj['Front Size'],",")?>',
+                    'Rear Size': '<?=trim($spec_obj['Rear Size'],",")?>',
+                    'Emergency': '<?=trim($spec_obj['Emergency'],",")?>',
+                    'Size': '<?=trim($spec_obj['Size'],",")?>'
                 },
                 'Wheels, Rims & Tires': {
-                    'Tire Size': 'F78 x 14',
-                    'Spare Location': 'Trunk'
+                    'Wheel Type': '<?=trim($spec_obj['Wheel Type'],",")?>',
+                    'Wheel Mfr': '<?=trim($spec_obj['Wheel Mfr'],",")?>',
+                    'Wheel Size:': '<?=trim($spec_obj['Wheel Size'],",")?>',
+                    'Tire Size': '<?=trim($spec_obj['Tire Size'],",")?>',
+                    'Spare Location': '<?=trim($spec_obj['Spare Location'],",")?>'
                 },
                 'Capacities': {
-                    'Fuel': '20 Gallons',
-                    'Oil': '4 Quarts',
-                    'Transmission': '3.5 Pints',
-                    'Cooling System': 'Water pump, 16 Quarts'
+                    'Fuel': '<?=trim($spec_obj['Fuel'],",")?>',
+                    'Oil': '<?=trim($spec_obj['Oil'],",")?>',
+                    'Transmission': '<?=trim($spec_obj['Transmission'],",")?>',
+                    'Cooling System': '<?=trim($spec_obj['Cooling System'],",")?>',
+                    'Rear Differential': '<?=trim($spec_obj['Rear Differential'],",")?>',
+                    'Front Differential': '<?=trim($spec_obj['Front Differential'],",")?>',
+                    'Transfer Case': '<?=trim($spec_obj['Transfer Case'],",")?>',
+                    'Classic Rating': '<?=trim($spec_obj['Classic Rating'],",")?>'
                 },
                 'Other System Specifications': {
-                    'Exhaust System': 'Single',
-                    'Battery': '12-volt storage battery',
-                    'Radiator': 'Tubular and fin',
-                    'Fuel Type': 'Regular'
+                    'Exhaust System': '<?=trim($spec_obj['Exhaust System'],",")?>',
+                    'Ignition System': '<?=trim($spec_obj['Ignition System'],",")?>',
+                    'Battery': '<?=trim($spec_obj['Battery'],",")?>',
+                    'Cooling System': '<?=wordwrap($spec_obj['Cooling System'], 35, "<br />\n")?>',
+                    'Radiator': '<?=wordwrap($spec_obj['Radiator'], 35, "<br />\n")?>',
+                    'Fuel Type': '<?=trim($spec_obj['Fuel Type'],",")?>',
+                    'Mileage': '<?=trim($spec_obj['Mileage'],",")?>'
                 }
             };
 
@@ -469,24 +462,17 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 const specificationsSection = document.getElementById('specificationsSection');
                 const specificationsContent = document.getElementById('specificationsContent');
 
-                // Filter out sections with all empty values
-                const filteredSpecifications = Object.entries(specifications).filter(([_, specs]) =>
-                    Object.values(specs).some(value => value)
-                );
-
-                if (filteredSpecifications.length === 0) {
+                if (Object.keys(specifications).length === 0) {
                     specificationsSection.style.display = 'none';
                     return;
-                } else if (filteredSpecifications.length === 1) {
-                    specificationsContent.classList.remove('sm:columns-2');
                 }
 
                 specificationsSection.style.display = 'block';
-                specificationsContent.innerHTML = filteredSpecifications.map(([section, specs]) => `
+                specificationsContent.innerHTML = Object.entries(specifications).map(([section, specs]) => `
                     <div class="mb-5 break-inside-avoid flex flex-wrap">
                         <h3 class="font-bold w-full border-b border-black mb-2 pb-1">${section}</h3>
                         ${Object.entries(specs).map(([key, value]) => value ? `
-                            <div class="flex gap-2 sm:gap-0 sm:flex-col w-full sm:w-1/2 justify-between sm:justify-start p-0.5">
+                            <div class="flex gap-2 sm:gap-0 sm:flex-col w-full sm:w-1/2 justify-between p-0.5">
                                 <span class="spec-key w-1/2 sm:w-full text-gray-600 text-sm sm:text-base">${key}:</span>
                                 <span class="spec-value w-1/2 sm:w-full text-sm sm:text-base">${value}</span>
                             </div>
@@ -512,16 +498,16 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <script>
             // Raw data from API/Database. can be empty to not show the section
             const vehicleData = {
-                titleBrandCount: 1,
-                odometerCount: 0,
-                accidentCount: 0,
-                damageCount: 2,
-                eventCount: 0,
-                serviceCount: 0,
-                auctionCount: 1,
-                lienCount: 0,
-                theftCount: 0,
-                recallCount: 0
+                titleBrandCount: <?= $count_Rftitlebrand_obj ?>,
+                odometerCount: <?= count(search_items($titlebrand_obj, "Odometer brand", 'text')); ?>,
+                accidentCount: <?= count($accident_obj) ?>,
+                damageCount: <?= count($damage_verification) ?>,
+                eventCount: <?= count($event_obj) ?>,
+                serviceCount: <?= $service_records_obj ?>,
+                auctionCount: <?= count($auctions_obj) ?>,
+                lienCount: <?= count($loanlien_obj) ?>,
+                theftCount: <?= count($theft_obj) ?>,
+                recallCount: <?= count($recall_obj) ?>
             };
     
             // Configuration for highlight cards
@@ -703,14 +689,14 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Usage data configuration 1 or 0 for count
             const usageData = {
                 types: [
-                    { id: 'personal', label: 'Personal', count: 1 },
-                    { id: 'lease', label: 'Lease', count: 0 },
-                    { id: 'rental', label: 'Rental', count: 0 },
-                    { id: 'taxi', label: 'Taxi', count: 0 },
-                    { id: 'police', label: 'Police', count: 0 },
-                    { id: 'fleet', label: 'Fleet', count: 0 },
-                    { id: 'commercial', label: 'Commercial', count: 0 },
-                    { id: 'government', label: 'Government', count: 0 }
+                    { id: 'personal', label: 'Personal', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['text'], "Personal") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'lease', label: 'Lease', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['text'], "Lease") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'rental', label: 'Rental', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['text'], "Rental") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'taxi', label: 'Taxi', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['text'], "Taxi") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'police', label: 'Police', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['text'], "Police") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'fleet', label: 'Fleet', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['text'], "Fleet") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'commercial', label: 'Commercial', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['Commercial'], "Personal") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> },
+                    { id: 'government', label: 'Government', count: <?php foreach($vusage_obj as $vusage){ if(stripos($vusage['Government'], "Personal") !== false && $vusage['status'] == 'records found'){ echo '1'; }else{ echo '0'; } } ?> }
                 ]
             };
         
@@ -775,33 +761,19 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Ownership data
             const ownershipData = {
                 owners: [
-                    {
-                        id: 1,
-                        title: 'Owner 1',
-                        purchaseDate: '1996',
-                        location: 'FL',
-                        ownedFrom: '02/1996',
-                        ownedTo: '08/2005',
-                        duration: '9 year(s) 6 month(s)'
-                    },
-                    {
-                        id: 2,
-                        title: 'Owner 2',
-                        purchaseDate: '2005',
-                        location: 'FL',
-                        ownedFrom: '08/2005',
-                        ownedTo: '09/2019',
-                        duration: '14 year(s) 1 month'
-                    },
-                    {
-                        id: 3,
-                        title: 'Current Owner',
-                        purchaseDate: '2019',
-                        location: 'FL',
-                        ownedFrom: '09/2019',
-                        ownedTo: 'Present',
-                        duration: '5 year(s) 2 month(s)'
-                    }
+                    <?php
+                        foreach($ownedhistory_obj as $key => $ownedhistory){
+                            // Use JSON encoding for proper escaping
+                            echo json_encode([
+                                'id' => $key + 1,
+                                'title' => "Owner " . ($key + 1),
+                                'purchaseDate' => $ownedhistory['purchased'],
+                                'location' => $ownedhistory['state'],
+                                'ownedFrom' => $ownedhistory['owned'],
+                                'duration' => $ownedhistory['duration']
+                            ]) . ",";
+                        }
+                    ?>
                 ]
             };
         
@@ -841,7 +813,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                             <div class="break-inside-avoid">
                                 <div class="font-semibold">Owned From:</div>
-                                <div>${owner.ownedFrom} - ${owner.ownedTo}</div>
+                                <div>${owner.ownedFrom}</div>
                             </div>
         
                             <div class="break-inside-avoid">
@@ -985,6 +957,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
         </section>
 
+        <?php 
+        echo "titlehistory_obj";
+        print_r($titlehistory_obj);
+        ?>
+
         <!-- Title History -->
         <section section-name="Title History" id="titleHistorySection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
@@ -1003,19 +980,19 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     {
                         status: "Historical",
                         date: "01-28-2005",
-                        state_of_title: "California",
+                        stateOfTitle: "California",
                         mileage: "Unknown"
                     },
                     {
                         status: "Historical",
                         date: "03-25-2005",
-                        state_of_title: "Florida",
+                        stateOfTitle: "Florida",
                         mileage: "Exempt"
                     },
                     {
                         status: "Current",
                         date: "01-11-2019",
-                        state_of_title: "Connecticut",
+                        stateOfTitle: "Connecticut",
                         mileage: "49906 mi"
                     }
                 ]
@@ -1041,30 +1018,31 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 titleCount.textContent = `${titleHistoryData.records.length} record(s) found`;
 
                 // Generate title history cards
-                grid.innerHTML = titleHistoryData.records.map(record => {
-                    // Ensure the status defaults to 'History' if not provided
-                    const status = record.status || "History";
+                grid.innerHTML = titleHistoryData.records.map(record => `
+                    <div class="border border-black rounded-lg p-3 hover-shadow-orange" style="background-color: #FEF6D5;">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i data-lucide="file-text" class="w-5 h-5"></i>
+                            <span class="font-bold">${record.status}</span>
+                        </div>
 
-                    return `
-                        <div class="border border-black rounded-lg p-3 hover-shadow-orange" style="background-color: #FEF6D5;">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i data-lucide="file-text" class="w-5 h-5"></i>
-                                <span class="font-bold">${status}</span>
+                        <div class="space-y-2 text-sm pt-1">
+                            <div>
+                                <div class="font-semibold">Date:</div>
+                                <div>${record.date}</div>
                             </div>
 
-                            <div class="space-y-2 text-sm pt-1">
-                                ${Object.keys(record)
-                                    .filter(key => record[key] && record[key] !== "Unknown" && record[key] !== "N/A") // Skip unwanted keys
-                                    .map(key => `
-                                        <div>
-                                            <div class="font-semibold">${key.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}:</div>
-                                            <div>${record[key]}</div>
-                                        </div>
-                                    `).join('')}
+                            <div>
+                                <div class="font-semibold">State of Title:</div>
+                                <div>${record.stateOfTitle}</div>
+                            </div>
+
+                            <div>
+                                <div class="font-semibold">Mileage:</div>
+                                <div>${record.mileage}</div>
                             </div>
                         </div>
-                    `;
-                }).join('');
+                    </div>
+                `).join('');
 
                 // Initialize Lucide icons
                 lucide.createIcons();
@@ -1089,26 +1067,20 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Accident records data
             const accidentDataNew = {
                 records: [
-                    {
-                        reportDate: '07-28-2016',
-                        location: 'U56 HWY & LARNED CITY LIMIT PT',
-                        accidentType: 'COLLISION W MOTOR VEH-TRANSPOR',
-                        impactPoint: 'PASSENGER FRNT QRTER',
-                        source: {
-                            name: 'Kansas Dept of Transportation,Topeka,KS,66603',
-                            contact: '785-296-3566, www.ksdot.org'
+                    <?php
+                        foreach($accident_obj as $accident){
+                            echo json_encode([
+                                'reportDate' => $accident['date'],
+                                'location' => $accident['location'],
+                                'accidentType' => "unknown", // Set default string value
+                                'impactPoint' => "unknown", // Default string value
+                                'source' => [
+                                    'source' => "unknown", // Default string value
+                                    'contact' => "unknown" // Default string value
+                                ]
+                            ]) . ",";
                         }
-                    },
-                    {
-                        reportDate: '03-15-2016',
-                        location: 'INTERSTATE 70 & EXIT 159',
-                        accidentType: 'REAR END COLLISION',
-                        impactPoint: 'REAR CENTER',
-                        source: {
-                            name: 'Kansas Dept of Transportation,Topeka,KS,66603',
-                            contact: '785-296-3566, www.ksdot.org'
-                        }
-                    }
+                    ?>
                 ]
             };
 
@@ -1319,6 +1291,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             generateTheftRecordsNew();
         </script>
 
+        <?php
+            echo "loanlien_obj";
+            print_r($loanlien_obj);
+        ?>
+
         <!-- Lien/ Impound/ Export Records -->
         <section section-name="Lien/ Impound/ Export" id="LienImpoundExportRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
@@ -1349,21 +1326,34 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Lien/ Impound/ Export records data
             const LienImpoundExportData = {
                 records: [
-                    {
-                        date: '05/12/2022',
-                        type: 'Salvage',
-                        agency: 'State DMV Records'
-                    },
-                    {
-                        date: '11/03/2021',
-                        type: 'Insurance Claim',
-                        agency: 'Insurance Database'
-                    },
-                    {
-                        date: '07/18/2020',
-                        type: 'Junk',
-                        agency: 'County Records'
-                    }
+                    <?php
+                        foreach($loanlien_obj as $loanlien){
+                            $details = is_array($loanlien['details']) 
+                                ? array_map(fn($detail) => str_replace(["\r", "\n"], ", ", $detail), $loanlien['details'])
+                                : str_replace(["\r", "\n"], ", ", $loanlien['details']);
+        
+                            echo json_encode([
+                                'date' => $loanlien['date'],
+                                'type' => $details,
+                                'agency' => $loanlien['source']
+                            ]) . ",";
+                        }
+                    ?>
+                    // {
+                    //     date: '05/12/2022',
+                    //     type: 'Salvage',
+                    //     agency: 'State DMV Records'
+                    // },
+                    // {
+                    //     date: '11/03/2021',
+                    //     type: 'Insurance Claim',
+                    //     agency: 'Insurance Database'
+                    // },
+                    // {
+                    //     date: '07/18/2020',
+                    //     type: 'Junk',
+                    //     agency: 'County Records'
+                    // }
                 ]
             };
 
@@ -1634,6 +1624,18 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             generateSalvageAuctionRecords();
         </script>
 
+        <?php
+            // Access the first auction record
+            $first_auction = $auctions_obj[0];
+
+            // Get the sales listing from the first auction
+            $first_sales_listing = $first_auction['sales_listing'];
+
+            // Output the sales listing data
+            // echo "First Sales Listing Data:\n";
+            // print_r($first_sales_listing);
+        ?>
+
         <!-- Sale Records -->
         <section section-name="Sale Records" id="saleRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
@@ -1648,49 +1650,67 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <script>
             const saleHistoryData = {
                 records: [
-                    {
-                        saleDate: '09-22-2019',
-                        listingPrice: '$54,700',
-                        sellerName: 'Desert Auto',
-                        sellerLocation: 'Palm Desert,CA, USA',
-                        details: {
-                            mileage: '37,848 miles',
-                            fuelType: 'Gas',
-                            make: 'Ford',
-                            model: 'Mustang',
-                            trim: 'GT Convertible RWD',
-                            color: 'Red'
+                    <?php
+                        foreach($first_sales_listing as $saleRecord){
+                            echo json_encode([
+                                'saleDate' => $saleRecord['date'],
+                                'listingPrice' => $saleRecord['notes'],
+                                'type' => $saleRecord['type'], // Set default string value
+                                'startDrive' => $saleRecord['start_drive'], // Default string value
+                                'details' => [
+                                    'bid' => $saleRecord['bid'], // Default string value
+                                    'salvage' => $saleRecord['salvage'], // Default string value
+                                    'odometer' => $saleRecord['odometer'], // Default string value
+                                    'title' => $saleRecord['title'], // Default string value
+                                    'repairCost' => $saleRecord['repair_cost'], // Default string value
+                                    'damage' => $saleRecord['damage'] // Default string value
+                                ]
+                            ]) . ",";
                         }
-                    },
-                    {
-                        saleDate: '10-07-2019',
-                        listingPrice: '$54,700',
-                        sellerName: 'Desert Auto',
-                        sellerLocation: 'Palm Desert,CA, USA',
-                        details: {
-                            mileage: '37,848 miles',
-                            fuelType: 'Gas',
-                            make: 'Ford',
-                            model: 'Mustang',
-                            trim: 'GT Convertible RWD',
-                            color: 'Red'
-                        }
-                    },
-                    {
-                        saleDate: '04-29-2020',
-                        listingPrice: '$4,275',
-                        sellerName: 'Desert Auto',
-                        sellerLocation: 'Palm Desert,CA, USA. 760-660-3300',
-                        details: {
-                            mileage: '37,000 miles',
-                            fuelType: 'Gasoline',
-                            year: '1966',
-                            make: 'Ford',
-                            model: 'Mustang',
-                            trim: 'GT Package',
-                            color: 'Red'
-                        }
-                    }
+                    ?>
+                    // {
+                    //     saleDate: '09-22-2019',
+                    //     listingPrice: '$54,700',
+                    //     sellerName: 'Desert Auto',
+                    //     sellerLocation: 'Palm Desert,CA, USA',
+                    //     details: {
+                    //         mileage: '37,848 miles',
+                    //         fuelType: 'Gas',
+                    //         make: 'Ford',
+                    //         model: 'Mustang',
+                    //         trim: 'GT Convertible RWD',
+                    //         color: 'Red'
+                    //     }
+                    // },
+                    // {
+                    //     saleDate: '10-07-2019',
+                    //     listingPrice: '$54,700',
+                    //     sellerName: 'Desert Auto',
+                    //     sellerLocation: 'Palm Desert,CA, USA',
+                    //     details: {
+                    //         mileage: '37,848 miles',
+                    //         fuelType: 'Gas',
+                    //         make: 'Ford',
+                    //         model: 'Mustang',
+                    //         trim: 'GT Convertible RWD',
+                    //         color: 'Red'
+                    //     }
+                    // },
+                    // {
+                    //     saleDate: '04-29-2020',
+                    //     listingPrice: '$4,275',
+                    //     sellerName: 'Desert Auto',
+                    //     sellerLocation: 'Palm Desert,CA, USA. 760-660-3300',
+                    //     details: {
+                    //         mileage: '37,000 miles',
+                    //         fuelType: 'Gasoline',
+                    //         year: '1966',
+                    //         make: 'Ford',
+                    //         model: 'Mustang',
+                    //         trim: 'GT Package',
+                    //         color: 'Red'
+                    //     }
+                    // }
                 ]
             };
 
@@ -1725,22 +1745,22 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         </div>
                         
                         <div class="mb-2">
-                            ${record.listingPrice ? `<div>Listing Price: ${record.listingPrice}</div>` : ''}
-                            ${record.sellerName ? `<div>Seller Name: ${record.sellerName}</div>` : ''}
-                            ${record.sellerLocation ? `<div>Seller Location: ${record.sellerLocation}</div>` : ''}
+                            ${record.listingPrice ? `<div>Price: ${record.listingPrice}</div>` : ''}
+                            ${record.type ? `<div>Type: ${record.type}</div>` : ''}
+                            ${record.startDrive ? `<div>Start Drive: ${record.startDrive}</div>` : ''}
                         </div>
 
                         ${Object.keys(record.details).some(key => record.details[key]) ? `
                             <div class="mt-4">
                                 <div class="font-semibold mb-2 border-b border-black pb-2">Details</div>
                                 <div class="space-y-1">
-                                    ${record.details.mileage ? `<div>Mileage: ${record.details.mileage}</div>` : ''}
-                                    ${record.details.fuelType ? `<div>Fuel Type: ${record.details.fuelType}</div>` : ''}
-                                    ${record.details.year ? `<div>Year: ${record.details.year}</div>` : ''}
-                                    ${record.details.make ? `<div>Make: ${record.details.make}</div>` : ''}
-                                    ${record.details.model ? `<div>Model: ${record.details.model}</div>` : ''}
-                                    ${record.details.trim ? `<div>Trim: ${record.details.trim}</div>` : ''}
-                                    ${record.details.color ? `<div>Color: ${record.details.color}</div>` : ''}
+                                    ${record.details.bid ? `<div>Bid: ${record.details.bid}</div>` : ''}
+                                    ${record.details.salvage ? `<div>Salvage: ${record.details.salvage}</div>` : ''}
+                                    ${record.details.odometer ? `<div>Odometer: ${record.details.odometer}</div>` : ''}
+                                    ${record.details.title ? `<div>Title: ${record.details.title}</div>` : ''}
+                                    ${record.details.repairCost ? `<div>Repair Cost: ${record.details.repair_cost}</div>` : ''}
+                                    ${record.details.damage ? `<div>Damage: ${record.details.damage}</div>` : ''}
+                                    ${record.details.city ? `<div>City: ${record.details.city}</div>` : ''}
                                 </div>
                             </div>
                         ` : ''}
@@ -1759,8 +1779,94 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </div>
 
             <script>
-                // Example auction data structure (unchanged)
+                // Auction data
                 const auctionData = {
+                    records: [
+                        <?php
+                            foreach ($auctions_obj as $auction) {
+                                // Prepare auction data with images
+                                $images = $auction['images'];
+                                $maketValue = $auction['auction_market_value'];
+                                $salesListing = $auction['sales_listing'];
+                                $imageUrls = [];
+                                
+                                foreach ($images as $image) {
+                                    // Add each image URL to the array
+                                    $imageUrls[] = $image;
+                                }
+
+                                // Output the auction data with unescaped slashes
+                                echo json_encode(
+                                    [
+                                        "status" => $maketValue['auction_status'],
+                                        "date" => $maketValue['auction_date'],
+                                        "price" => $maketValue['auction_price'],
+                                        "lotNumber" => $maketValue['lot'],
+                                        "images" => $imageUrls,
+                                        "features" => [
+                                            "runsAndDrives" => $maketValue['runs_drives'],
+                                            "engineStart" => $maketValue['engine_starts'],
+                                            "hasKeys" => $maketValue['keys']
+                                        ],
+                                        "titleAndCondition" => [
+                                            "titleType" => $maketValue['title_state_and_type'],
+                                            "titleDescription" => $maketValue['title_description'],
+                                            "primaryDamage" => $maketValue['primary_damage'],
+                                            "secondaryDamage" => $maketValue['secondary_damage'],
+                                            "vin" => $maketValue['vin'],
+                                            "common" => $maketValue['common_price']
+                                        ],
+                                        "saleDetails" => [
+                                            "location" => $maketValue['location'],
+                                            "buyerCountry" => $maketValue['buyer_country'],
+                                            "titleType" => $maketValue['title_state_and_type'],
+                                            "titleDescription" => $maketValue['title_description'],
+                                            "seller" => $maketValue['seller'],
+                                            "sellerType" => $maketValue['seller_type'],
+                                            "primaryDamage" => $maketValue['primary_damage'],
+                                            "secondaryDamage" => $maketValue['secondary_damage'],
+                                            "damageRatio" => $maketValue['damage_ratio'],
+                                            "finalBid" => $maketValue['final_bid'],
+                                            "saleMethod" => $maketValue['sale_method'],
+                                            "auctionName" => $maketValue['auction_name'],
+                                            "priceRange" => $maketValue['price_range'],
+                                            "averagePrice" => $maketValue['average_price'],
+                                            "weightedAveragePrice" => $maketValue['weighted_average_price']
+                                        ],
+                                        "technicalSpecs" => [
+                                            "odometer" => $maketValue['odometer'],
+                                            "estimatedRepairCost" => $maketValue['estimated_repair_cost'],
+                                            "avgEstimatedRetailValue" => $maketValue['avg_estimated_retail_value'],
+                                            "bodyStyle" => $maketValue['noData'],
+                                            "color" => $maketValue['noData'],
+                                            "engineType" => $maketValue['noData'],
+                                            "fuelType" => $maketValue['noData'],
+                                            "cylinders" => $maketValue['noData'],
+                                            "transmission" => $maketValue['noData']
+                                        ],
+                                        "vehicleSpecs" => [
+                                            "year" => $v2userreport['classic_spec']['year'],
+                                            "make" => ucwords($v2userreport['classic_spec']['make']),
+                                            "model" => ucwords($v2userreport['classic_spec']['model']),
+                                            "marketValue" => $maketValue['estimated_retail_value'],
+                                            "vin" => $report['vin']
+                                        ]
+                                    ],
+                                    JSON_UNESCAPED_SLASHES // Ensures slashes are not escaped
+                                ) . ",";
+                            }
+                        ?>
+                    ]
+                };
+
+                // Output the auctionData variable in the console for verification
+                console.log("Records Images");
+                console.log(auctionData.images);
+            </script>
+
+            <script>
+                // Example auction data structure (unchanged)
+                const auctionData2 = {
                     records: [
                         {
                             status: "Sold",
@@ -1768,16 +1874,16 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                             price: "$250",
                             lotNumber: "0-40168573",
                             images: [
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png"
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png"
                             ],
                             features: {
                                 runsAndDrives: false,
@@ -1823,10 +1929,10 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                             price: "$300",
                             lotNumber: "0-50168574",
                             images: [
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png"
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png"
                             ],
                             features: {
                                 runsAndDrives: true,
@@ -2056,10 +2162,14 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             </script>
         </section>
 
+        <?php
+            echo "sales_historylist";
+            print_r($sales_historylist);
+        ?>
+
         <!-- Sales Listing History Section -->
         <section section-name="Sales Listing History" class="p-6">
             <div class="mx-auto space-y-4" id="salesListingContainer">
-                <!-- Content will be dynamically inserted here -->
             </div>
             <script>
                 // Example sales listing data structure
@@ -2067,14 +2177,14 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                     records: [
                         {
                             images: [
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png"
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png"
                             ],
                             saleStatus: {
                                 listingPrice: "$66,995",
@@ -2112,14 +2222,14 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                         },
                         {
                             images: [
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png",
-                                "assets/car2.png",
-                                "assets/car.png"
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car2.png",
+                                "<?=REPORT_ASSETS?>report/v2_classic/assets/car.png"
                             ],
                             saleStatus: {
                                 listingPrice: "$64,500",
@@ -2339,19 +2449,35 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             <div class="grid md:grid-cols-2 print:grid-cols-3 gap-2 border rounded-md p-2 sm:p-3" id="brandGrid"></div>
         </section>
         
+        <?php
+        // Auction Brand Records
+        $isAuctionBrand = false;
+        $auctionobj = search_items($titlebrand_obj,"Auction",'text');
+        if (!empty($auctionobj)) {
+            foreach ($auctionobj as $odometer) {
+                if($odometer['text'] == "Auction brand" && $odometer['status'] == "records found") {
+                    $isAuctionBrand = true; // Set to true if the condition is 
+                    break; // Exit the loop as the condition is satisfied
+                }else{
+                    echo "2";
+                    $isAuctionBrand = false;
+                }
+            }
+        }
+        ?>
         <script>
             // Simple flags for brand records (0 = no record, 1 = has record)
             const brandFlags = {
-                fireBrand: 1,
-                hailBrand: 0,
-                floodBrand: 0,
-                junkBrand: 0,
-                manufacturerBuyback: 0,
-                lemonBrand: 0,
-                salvageBrand: 0,
-                rebuiltBrand: 0,
-                odometerBrand: 0,
-                auctionBrand: 0
+                fireBrand: <?= (!empty(search_items($titlebrand_obj,"Fire",'text'))) ? 1 : 0; ?>,
+                hailBrand: <?= (!empty(search_items($titlebrand_obj,"Hail",'text'))) ? 1 : 0; ?>,
+                floodBrand: <?= (!empty(search_items($titlebrand_obj,"Flood",'text'))) ? 1 : 0; ?>,
+                junkBrand: <?= (!empty(search_items($titlebrand_obj,"Junk",'text'))) ? 1 : 0; ?>,
+                manufacturerBuyback: <?= (!empty(search_items($titlebrand_obj,"Manufacturer",'text'))) ? 1 : 0; ?>,
+                lemonBrand: <?= (!empty(search_items($titlebrand_obj,"Lemon",'text'))) ? 1 : 0; ?>,
+                salvageBrand: <?= (!empty(search_items($titlebrand_obj,"Salvage",'text'))) ? 1 : 0; ?>,
+                rebuiltBrand: <?= (!empty(search_items($titlebrand_obj,"Rebuilt",'text'))) ? 1 : 0; ?>,
+                odometerBrand: <?= (!empty(search_items($titlebrand_obj,"Odometer brand",'text'))) ? 1 : 0; ?>,
+                auctionBrand: <?= ($isAuctionBrand) ? 1 : 0; ?>
             };
         
             // Brand configuration
@@ -2482,6 +2608,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             generateBrandChecks();
         </script>
 
+        <?php
+            echo "antique";
+            print_r($antique); //can't call antique data 
+        ?>
+
         <!-- Title Brand Checks 2 Section -->
         <section section-name="Title Brand Checks" id="titleBrandChecksSection" class="p-6 custom-break hidden">
             <h2 class="text-2xl font-bold mb-2 text-center md:text-left">Title Brand Checks</h2>
@@ -2497,56 +2628,111 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         <script>
             // Title brand checks data
             const titleBrandChecks = {
-                flood_damage: 1,
-                fire_damage: 1,
-                hail_damage: 1,
-                salt_water_damage: 0,
-                vandalism: 0,
-                kit: 0,
-                dismantled: 0,
-                junk: 1,
-                rebuilt: 0,
-                reconstructed: 0,
-                salvage_damage: 0,
-                salvage_stolen: 0,
-                salvage_other: 0,
-                test_vehicle: 0,
-                refurbished: 0,
-                replica: 0,
-                totaled: 0,
-                owner_retained: 0,
-                bond_posted: 0,
-                memorandum_copy: 0,
-                parts_only: 0,
-                recovered_theft: 0,
-                undisclosed_lien: 0,
-                prior_owner_retained: 0,
-                vehicle_non_conformity: 0,
-                vehicle_non_conformity_corrected: 0,
-                vehicle_safety_defect_uncorrected: 0,
-                vehicle_safety_defect_corrected: 0,
-                vin_replaced: 0,
-                gray_market_non_compliant: 0,
-                gray_market_compliant: 0,
-                manufacturer_buy_back: 0,
-                former_rental: 0,
-                disclosed_damage: 0,
-                prior_non_repairable: 0,
-                crushed: 0,
-                hazardous: 0,
-                export_only_vehicle: 0,
-                odometer_actual: 0,
-                odometer_not_actual: 0,
-                odometer_tampering_verified: 0,
-                odometer_exempt_disclosure: 1,
-                odometer_exceeds_mechanical_limits: 0,
-                odometer_may_be_altered: 0,
-                odometer_replaced: 0,
-                odometer_reading_renewal: 0,
-                odometer_discrepancy: 0,
-                odometer_call_title_division: 0,
-                odometer_exceeds_limits_rectified: 0
+                <?php 
+                if (empty($antique['checks'])) {
+                    echo "'flood_damage': 0,";
+                    echo "'fire_damage': 0,";
+                    echo "'hail_damage': 0,";
+                    echo "'salt_water_damage': 0,";
+                    echo "'vandalism': 0,";
+                    echo "'kit': 0,";
+                    echo "'dismantled': 0,";
+                    echo "'junk': 0,";
+                    echo "'rebuilt': 0,";
+                    echo "'reconstructed': 0,";
+                    echo "'salvage_damage': 0,";
+                    echo "'salvage_stolen': 0,";
+                    echo "'salvage_other': 0,";
+                    echo "'test_vehicle': 0,";
+                    echo "'refurbished': 0,";
+                    echo "'replica': 0,";
+                    echo "'totaled': 0,";
+                    echo "'owner_retained': 0,";
+                    echo "'bond_posted': 0,";
+                    echo "'memorandum_copy': 0,";
+                    echo "'parts_only': 0,";
+                    echo "'recovered_theft': 0,";
+                    echo "'undisclosed_lien': 0,";
+                    echo "'prior_owner_retained': 0,";
+                    echo "'vehicle_non_conformity': 0,";
+                    echo "'vehicle_non_conformity_corrected': 0,";
+                    echo "'vehicle_safety_defect_uncorrected': 0,";
+                    echo "'vehicle_safety_defect_corrected': 0,";
+                    echo "'vin_replaced': 0,";
+                    echo "'gray_market_non_compliant': 0,";
+                    echo "'gray_market_compliant': 0,";
+                    echo "'manufacturer_buy_back': 0,";
+                    echo "'former_rental': 0,";
+                    echo "'disclosed_damage': 0,";
+                    echo "'prior_non_repairable': 0,";
+                    echo "'crushed': 0,";
+                    echo "'hazardous': 0,";
+                    echo "'export_only_vehicle': 0,";
+                    echo "'odometer_actual': 0,";
+                    echo "'odometer_not_actual': 0,";
+                    echo "'odometer_tampering_verified': 0,";
+                    echo "'odometer_exempt_disclosure': 0,";
+                    echo "'odometer_exceeds_mechanical_limits': 0,";
+                    echo "'odometer_may_be_altered': 0,";
+                    echo "'odometer_replaced': 0,";
+                    echo "'odometer_reading_renewal': 0,";
+                    echo "'odometer_discrepancy': 0,";
+                    echo "'odometer_call_title_division': 0,";
+                    echo "'odometer_exceeds_limits_rectified': 0";
+                }
+                ?>
             };
+            // const titleBrandChecks = {
+            //     flood_damage: 0,
+            //     fire_damage: 0,
+            //     hail_damage: 1,
+            //     salt_water_damage: 0,
+            //     vandalism: 0,
+            //     kit: 0,
+            //     dismantled: 0,
+            //     junk: 1,
+            //     rebuilt: 0,
+            //     reconstructed: 0,
+            //     salvage_damage: 0,
+            //     salvage_stolen: 0,
+            //     salvage_other: 0,
+            //     test_vehicle: 0,
+            //     refurbished: 0,
+            //     replica: 0,
+            //     totaled: 0,
+            //     owner_retained: 0,
+            //     bond_posted: 0,
+            //     memorandum_copy: 0,
+            //     parts_only: 0,
+            //     recovered_theft: 0,
+            //     undisclosed_lien: 0,
+            //     prior_owner_retained: 0,
+            //     vehicle_non_conformity: 0,
+            //     vehicle_non_conformity_corrected: 0,
+            //     vehicle_safety_defect_uncorrected: 0,
+            //     vehicle_safety_defect_corrected: 0,
+            //     vin_replaced: 0,
+            //     gray_market_non_compliant: 0,
+            //     gray_market_compliant: 0,
+            //     manufacturer_buy_back: 0,
+            //     former_rental: 0,
+            //     disclosed_damage: 0,
+            //     prior_non_repairable: 0,
+            //     crushed: 0,
+            //     hazardous: 0,
+            //     export_only_vehicle: 0,
+            //     odometer_actual: 0,
+            //     odometer_not_actual: 0,
+            //     odometer_tampering_verified: 0,
+            //     odometer_exempt_disclosure: 1,
+            //     odometer_exceeds_mechanical_limits: 0,
+            //     odometer_may_be_altered: 0,
+            //     odometer_replaced: 0,
+            //     odometer_reading_renewal: 0,
+            //     odometer_discrepancy: 0,
+            //     odometer_call_title_division: 0,
+            //     odometer_exceeds_limits_rectified: 0
+            // };
 
             function formatTitle(key) {
                 // Remove underscores and capitalize first letter of each word
@@ -2780,20 +2966,20 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             
             <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-2 border rounded-md p-2 sm:p-3 print:grid-cols-3" id="incidentGrid"></div>
         </section>
-        
+
         <script>
             // Incident flags (0 = no record, 1 = has record)
             const incidentFlags = {
-                insuranceLoss: 1,
-                insuranceCompany: 0,
-                auctionLemon: 0,
-                abandonedTitle: 0,
-                greyMarket: 0,
-                loanLien: 1,
-                repossessed: 0,
-                correctedTitle: 0,
-                duplicateTitle: 0,
-                theft: 0
+                insuranceLoss: <?= (!empty(search_items($event_obj,"Loss",'details'))) ? 1 : 0; ?>,
+                insuranceCompany: <?= (!empty(search_items($event_obj,"Titled",'details'))) ? 1 : 0; ?>,
+                auctionLemon: <?= (!empty(search_items($event_obj,"Auction",'details'))) ? 1 : 0; ?>,
+                abandonedTitle: <?= (!empty(search_items($event_obj,"Abandoned",'details'))) ? 1 : 0; ?>,
+                greyMarket: <?= (!empty(search_items($event_obj,"Grey",'details'))) ? 1 : 0; ?>,
+                loanLien: <?= (!empty(search_items($event_obj,"Loan/Lien",'details'))) ? 1 : 0; ?>,
+                repossessed: <?= (!empty(search_items($event_obj,"Repossessed",'details'))) ? 1 : 0; ?>,
+                correctedTitle: <?= (!empty(search_items($event_obj,"Corrected",'details'))) ? 1 : 0; ?>,
+                duplicateTitle: <?= (!empty(search_items($event_obj,"Duplicate",'details'))) ? 1 : 0; ?>,
+                theft: <?= (!empty(search_items($event_obj,"Theft",'details'))) ? 1 : 0; ?>
             };
         
             // Incident configuration
@@ -2935,15 +3121,15 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Mileage records data
             const mileageData = {
                 records: [
-                    {
-                        date: '07/19/2000',
-                        mileage: 20034
-                    },
-                    {
-                        date: '05/15/2000',
-                        mileage: 19500
-                    }
-                    // Add more records as needed
+                    <?php
+                        foreach($mileage_obj as $mileage){
+                            // Use JSON encoding for proper escaping
+                            echo json_encode([
+                                'date' => $mileage['date'],
+                                'mileage' => $mileage['mileage']
+                            ]) . ",";
+                        }
+                    ?>
                 ]
             };
         
@@ -3010,14 +3196,14 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Accident records data
             const accidentData = {
                 records: [
-                    {
-                        reportDate: '05/19/2019',
-                        location: 'Kansas',
-                    },
-                    {
-                        reportDate: '03/12/2018',
-                        location: 'Missouri',
-                    }
+                    <?php
+                        foreach($accident_obj as $accident){
+                            echo json_encode([
+                                'reportDate' => $accident['date'],
+                                'location' => $accident['location']
+                            ]) . ",";
+                        }
+                    ?>
                 ]
             };
         
@@ -3033,11 +3219,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                                accidentData.records.length > 0;
         
                 if (!hasData) {
-                    section.classList.remove('hidden');
-                    grid.classList.remove('grid');
-                    const noRecordsMessage = createNoRecordsMessage('Accident');
-                    grid.innerHTML = '';
-                    grid.appendChild(noRecordsMessage);
+                    section.classList.add('hidden');
                     return;
                 }
         
@@ -3085,20 +3267,20 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             
             <div class="grid md:grid-cols-2 gap-2 print:grid-cols-2" id="damageGrid"></div>
         </section>
-        
+
         <script>
             // Damage history flags (0 = no record/clean, 1 = has record/issue)
             const damageFlags = {
-                fireDamage: 0,
-                hailDamage: 0,
-                floodDamage: 0,
-                auctionJunk: 0,
-                recycling: 0,
-                structural: 0,
-                salvageAuction: 1,
-                minorMajorDamage: 1,
-                auctionRebuildable: 0,
-                dentScratches: 0
+                fireDamage: <?= (!empty(search_items($damage_verification,"Fire",'details'))) ? 1 : 0; ?>,
+                hailDamage: <?= (!empty(search_items($damage_verification,"Hail",'details'))) ? 1 : 0; ?>,
+                floodDamage: <?= (!empty(search_items($damage_verification,"Flood",'details'))) ? 1 : 0; ?>,
+                auctionJunk: <?= (!empty(search_items($damage_verification,"junk",'details'))) ? 1 : 0; ?>,
+                recycling: <?= (!empty(search_items($damage_verification,"Recycling",'details'))) ? 1 : 0; ?>,
+                structural: <?= (!empty(search_items($damage_verification,"Structural",'details'))) ? 1 : 0; ?>,
+                salvageAuction: <?= (!empty(search_items($damage_verification,"Salvage",'details'))) ? 1 : 0; ?>,
+                minorMajorDamage: <?= (!empty(search_items($damage_verification,"major",'details'))) ? 1 : 0; ?>,
+                auctionRebuildable: <?= (!empty(search_items($damage_verification,"rebuildable",'details'))) ? 1 : 0; ?>,
+                dentScratches: <?= (!empty(search_items($damage_verification,"Scratches",'details'))) ? 1 : 0; ?>
             };
         
             // Damage type configuration
@@ -3226,6 +3408,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Initialize damage history
             generateDamageHistory();
         </script>
+
+        <?php
+        echo "theft_obj";
+        print_r ($theft_obj); 
+        ?>
 
         <!-- Theft Records -->
         <section section-name="Theft Records" id="theftRecordsSection" class="p-6 hidden">
@@ -3363,6 +3550,11 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             generateTheftRecords();
         </script>
 
+        <?php
+        echo "loanlien_obj";
+        print_r($loanlien_obj);
+        ?>
+
         <!-- Lien/Loan Records -->
         <section section-name="Lien/Loan Records" id="lienRecordsSection" class="p-6 hidden">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
@@ -3393,21 +3585,30 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Lien records data
             const lienData = {
                 records: [
-                    {
-                        date: '08/09/2019',
-                        location: 'ROGERSVILLE, MO',
-                        source: 'Federal Motor Vehicle Records'
-                    },
-                    {
-                        date: '12/15/2018',
-                        location: 'SPRINGFIELD, MO',
-                        source: 'State DMV Records'
-                    },
-                    {
-                        date: '03/22/2018',
-                        location: 'KANSAS CITY, MO',
-                        source: 'County Records'
-                    }
+                    <?php
+                        foreach($loanlien_obj as $loanlien){
+                            echo json_encode([
+                                'date' => $loanlien['date'],
+                                'location' => $loanlien['location'],
+                                'source' => $loanlien['source']
+                            ]) . ",";
+                        }
+                    ?>
+                    // {
+                    //     date: '08/09/2019',
+                    //     location: 'ROGERSVILLE, MO',
+                    //     source: 'Federal Motor Vehicle Records'
+                    // },
+                    // {
+                    //     date: '12/15/2018',
+                    //     location: 'SPRINGFIELD, MO',
+                    //     source: 'State DMV Records'
+                    // },
+                    // {
+                    //     date: '03/22/2018',
+                    //     location: 'KANSAS CITY, MO',
+                    //     source: 'County Records'
+                    // }
                 ]
             };
         
@@ -3500,48 +3701,32 @@ document.querySelectorAll('#navLinks a').forEach(link => {
             // Detailed history data
             const historyData = {
                 records: [
-                    {
-                        date: '07/19/2000',
-                        source: 'Federal Motor Vehicle Records',
-                        location: 'LEBO, KS',
-                        odometer: '20,034',
-                        details: 'Title'
-                    },
-                    {
-                        date: '07/19/2000',
-                        source: 'Federal Motor Vehicle Records',
-                        location: 'LEBO, KS',
-                        odometer: 'N/A',
-                        details: 'Registration Event/renewal\nExcluded/exempt'
-                    },
-                    {
-                        date: '07/31/2018',
-                        source: 'Federal Motor Vehicle Records',
-                        location: 'EMPORIA, KS',
-                        odometer: 'N/A',
-                        details: 'Title\nRegistration Event/renewal'
-                    },
-                    {
-                        date: '05/19/2019',
-                        source: 'State Agency',
-                        location: 'KS',
-                        odometer: 'N/A',
-                        details: 'Left Side Impact With Another Vehicle(case #:2019011219)\nLeft Side Impact Collision\nAccident Reported(report #:19-01901)\nVehicle Damage Reported As Disabling\nVehicle Was Towed'
-                    },
-                    {
-                        date: '08/09/2019',
-                        source: 'Federal Motor Vehicle Records',
-                        location: 'ROGERSVILLE, MO',
-                        odometer: 'N/A',
-                        details: 'Title(lien Reported)\nSalvage\nExcluded/exempt'
-                    },
-                    {
-                        date: '01/23/2020',
-                        source: 'Federal Motor Vehicle Records',
-                        location: 'IRRIGON, OR',
-                        odometer: 'N/A',
-                        details: 'Title\nReconstructed\nInsurance Loss\nExcluded/exempt'
+                    <?php
+                    foreach ($dvh_obj as $dvh) {
+                        // Prepare sources
+                        $sources = "";
+                        if (!empty($dvh['source'])) {
+                            $sourcesArray = array_map(fn($source) => ucwords(strtolower($source)), $dvh['source']);
+                            $sources = implode(", ", $sourcesArray); // Join with commas
+                        }
+
+                        // Prepare details
+                        $details = "";
+                        if (!empty($dvh['details'])) {
+                            $detailsArray = array_map(fn($detail) => ucwords(strtolower($detail)), $dvh['details']);
+                            $details = implode(", ", $detailsArray); // Join with commas
+                        }
+
+                        // Output each record as a JSON object
+                        echo json_encode([
+                            'date' => $dvh['date'] == "" ? "-" : $dvh['date'],
+                            'source' => $sources,
+                            'location' => $dvh['location'] == "" ? "N/A" : strtoupper($dvh['location']),
+                            'odometer' => $dvh['odometer'] == "" ? "N/A" : $dvh['odometer'],
+                            'details' => $details
+                        ]) . ",";
                     }
+                    ?>
                 ]
             };
         
@@ -3841,38 +4026,38 @@ document.querySelectorAll('#navLinks a').forEach(link => {
                 <div class="space-y-2">
                     <h2 class="text-xl font-bold text-gray-900">Disclaimer</h2>
                     <p class="text-gray-700 text-sm md:text-base leading-relaxed">
-                        The compilation of Classic Decoder vehicle history report requires data third party data suppliers and other various data sources. Classic Decoder relies on its data sources for the accuracy and reliability of its information. Therefore, Classic Decoder or its agents assume no responsibility for errors or omissions in this report. In addition, Classic Decoder, expressly disclaims all warranties, express or implied, including any implied warranties of merchantability or fitness for a particular purpose.
+                        The compilation of <?= SITENAME ?> vehicle history report requires data third party data suppliers and other various data sources. <?= SITENAME ?> relies on its data sources for the accuracy and reliability of its information. Therefore, <?= SITENAME ?> or its agents assume no responsibility for errors or omissions in this report. In addition, <?= SITENAME ?>, expressly disclaims all warranties, express or implied, including any implied warranties of merchantability or fitness for a particular purpose.
                     </p>
                 </div>
         
                 <!-- Copyright and Social Links -->
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-1">
                     <p class="text-gray-600 text-sm">
-                        © 2025 <a href="/" target="_blank">Classic Decoder</a>. All Rights Reserved.
+                        © 2025 <a href="/" target="_blank"><?= SITENAME ?></a>. All Rights Reserved.
                     </p>
                     
                     <!-- Social Media Icons -->
                     <div class="flex items-center gap-2 sm:gap-4 no-print">
                         <span onclick="copyURL()" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full cursor-pointer">
-                            <img src="assets/copy.svg" class="w-full h-auto" alt="Copy">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/copy.svg" class="w-full h-auto" alt="Copy">
                         </span>
-                        <a href="https://www.facebook.com/classicdecodercom" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                            <img src="assets/facebook.svg" class="w-full h-auto">
+                        <a href="https://www.facebook.com/sharer.php?u=<?=str_replace('app.','',Url::link('report/vin/'.$report['vin']))?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/facebook.svg" class="w-full h-auto">
                         </a>
-                        <a href="https://twitter.com/ClassicDecoder" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                            <img src="assets/twitter.svg" class="w-full h-auto">
+                        <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(str_replace('app.','',Url::link('report/vin/'.$report['vin']))); ?>&text=<?php echo urlencode($shareText); ?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/twitter.svg" class="w-full h-auto">
                         </a>
-                        <a href="mailto:support@classicdecoder.com" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                            <img src="assets/gmail.svg" class="w-full h-auto">
+                        <a href="mailto:<?= Url::email()?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/gmail.svg" class="w-full h-auto">
                         </a>
-                        <a href="https://www.linkedin.com/company/classicdecoder" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                            <img src="assets/linkedin.svg" class="w-full h-auto">
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?= str_replace('app.','',Url::link('report/vin/'.$report['vin'])) ?>&title=<?php echo urlencode('Vehicle History Report'); ?>&summary=<?php echo urlencode($shareText); ?>&source=<?= COOKIE_DOMAIN ?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/linkedin.svg" class="w-full h-auto">
                         </a>
-                        <a href="https://www.pinterest.com/classicdecoder/" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                            <img src="assets/pinterest.svg" class="w-full h-auto">
+                        <a href="https://www.pinterest.com/pin/create/button/?url=<?php echo urlencode(str_replace('app.','',Url::link('report/vin/'.$report['vin']))); ?>&media=<?php echo urlencode($logo); ?>&description=<?php echo urlencode($shareText); ?>" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/pinterest.svg" class="w-full h-auto">
                         </a>
                         <a href="https://secure.livechatinc.com/licence/10186117/v2/open_chat.cgi?groups=0" class="w-8 h-8 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:shadow-[#D5B002]/20 rounded-full" target="_blank">
-                            <img src="assets/livechat.svg" class="w-full h-auto">
+                            <img src="<?=REPORT_ASSETS?>report/v2_classic/assets/livechat.svg" class="w-full h-auto">
                         </a>
                     </div>
                 </div>
