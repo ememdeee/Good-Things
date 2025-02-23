@@ -1,570 +1,1960 @@
+<?php
+//include WordPress envirnoment
+define('WP_USE_THEMES',false);
+require_once($_SERVER['DOCUMENT_ROOT']. '/wp-load.php'); //automatically resolves to your WordPess root directory
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing Page</title>
+    <link href="output.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <!-- <link rel="stylesheet" href="input.css"> -->
-    <link rel="stylesheet" href="output.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Vehicle Databases APIs</title>
 </head>
-<body class="min-h-screen bg-white">
-     <!-- Top section with image background -->
-     <section class="relative bg-image pt-20 pb-20">
-        <div class="max-w-3xl mx-auto text-center px-4 pb-4 md:px-6">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                <span class="text-blue-600">Cost-effective pricing</span>
-                <span class="text-gray-900"> for you</span>
-            </h1>
-            <p class="text-gray-500 md:text-xl text-base max-w-2xl mx-auto leading-relaxed pb-4">
-                Say goodbye to overpaying with Carfax or AutoCheck! Get a more detailed report for nearly half the cost, and unlock a window sticker to know options, packages, features MSRP and more. Buy credits now, and use them later for reports or stickers!
-            </p>
-            
-
+<body>
+   
+    
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 md:py-16 py-3 text-center md:mt-6 mt-24">
+        <a href="https://vehicledatabases.com/articles" target="_blank" >
+            <span class="bg-gray-100 hover:bg-blue-100 text-gray-600 px-4 py-2 rounded-full text-sm border border-[#171717]">Read the latest Blog</span>
+        </a>
+        <h1 class="text-4xl md:text-7xl font-extrabold gradient-text pt-6">
+                Vehicle Databases APIs
+        </h1>
+        <p class="text-xl font-bold bg-gradient-to-r from-[#F59120] via-[#DB7093] to-[#9747FF] bg-clip-text text-transparent max-w-3xl mx-auto mt-3 mb-8">
+        Extensive Vehicle Databases + Easy Integration + Scalable Growth = Complete Automotive Data Solutions
+        </p>
+        <p class="text-lg md:text-xl font-medium text-[#171717] max-w-3xl mx-auto  mb-16">Vehicle Data APIs empowering businesses, developers, and individuals with access to the largest database of accurate vehicle information</p>
+        <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
+           <a href="https://vehicledatabases.com/portal/signup" target="_blank"> <button class="bg-gradient-primary text-white px-8 py-3 rounded-md">Start for Free</button></a>
+           <a href="https://vehicledatabases.com/schedule-a-demo" target="_blank"><button class="bg-normalbtn border border-[#171717] px-8 py-3 rounded-md ">Schedule a Demo</button>
         </div>
-        <div>
-            <!-- Dynamic pricing Section-->
+            <a href="https://trustpilot.com/review/vehicledatabases.com"target="_blank" ><div class="flex justify-center items-center gap-2 mb-12">
+                <div class=" flex md:flex-row md:gap-[10px] flex-col gap-[2px] items-center border gradient-border-green px-8 py-3 rounded-full hover:bg-teal-50">
+                    <span class="text-[#15AA8C]">Review us on Trustpilot</span>
+                    <img src="../vdb-redesigned/assets/trustpilot_score.png" width="128" height="24" alt="Trustpilot">
+                    <span class="text-gray-400">4.5 out of 5</span>
+                </div>
+            </a>
+        </div>
+      
+    </section>
+    <!-- Partner Logos -->
+    <section class="justify-center px-4 ">
+        
+        <div class="relative max-w-7xl mx-auto px-4 ">
+            <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/50 hover:bg-gray-800 text-white p-2 rounded-full transform -translate-x-1/2 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-400" aria-label="Previous slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            
+            <div class="overflow-hidden" id="sliderWrapper">
+                <div class="flex transition-transform duration-500 ease-in-out" id="slider">
+                    <!-- 20 Logo Items -->
+                                      
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/amazon-dark.png" alt="Amazon" class="h-12 w-auto object-contain mx-auto ">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/bumper-dark.png" alt="Bumper" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/Redline-dark.png" alt="Redline" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/bid-dark.png" alt="Bid" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/connexion-dark.png" alt="Connexion" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/Barnwell_house_of_tyres-dk.png" alt="Barnwell" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/Blue-ribbon-logo.png" alt="Blue Ribbon" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/deb_expert-dk.png" alt="Deb expert" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/NovaCharge-dk.png" alt="Nova Charge" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/obdai-logo.png" alt="Obdai" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/omni-logo.png" alt="Omni" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/Pixel_Guru-dk.png" alt="Pixel Guru" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/Preferred_Warranties-dk.png" alt="Preferred Warranties" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/NY_times-dk.png" alt="NY Times" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/Repair_Lift-dk.png" alt="Repair Lift" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/revel-logo.png" alt="Revel" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/teslativity-logo.png" alt="Teslativity" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                    <div class="logo-slide p-4">
+                        <img src="../vdb-redesigned/assets/yalla-motor-logo.png" alt="YallaMotor" class="h-12 w-auto object-contain mx-auto">
+                    </div>
+                </div>
+            </div>
+
+            <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-800/50 hover:bg-gray-800 text-white p-2 rounded-full transform translate-x-1/2 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-400" aria-label="Next slide">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </section> <!-- end section logo's slider-->
+
+    <!-- API Services Grid -->
+    <section class="container mx-auto px-4 pt-16">
+        <h2 class="text-[40px] font-medium text-center mb-8">Vehicle Databases API Services</h2>
+        <p class="bl-col text-base font-normal text-center  max-w-4xl mx-auto">Vehicle Databases offers 25+ automotive data APIs—explore our full range of API solutions</p>
+        <div class="grid grid-cols-7 lg:gap-4 md:gap-40 gap-40 overflow-x-auto lg:overflow-hidden justify-items-center max-w-6xl mx-auto md:py-12 py-6  pl-20 pr-20 lg:pr-6 lg:pl-6">
+            <!-- VIN Decoding APIs -->
+            
+                <a target="_blank" href="https://vehicledatabases.com/vin-decode-api">
+                    <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                         
+                        <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                            <div class="text-amber-500 mb-4">
+                                <img src="../vdb-redesigned/assets/si_barcode-fill.svg" alt="">
+
+                            </div>
+                            <h3 class="text-center bl-col font-semibold">VIN Decoding APIs </h3>
+                                              
+                        </div>
+                </div>
+                </a>
+       
+    
+            <!-- OCR APIs -->
+            <a target="_blank" href="https://vehicledatabases.com/ocr-api-services"> 
+                <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                        
+                        <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                            <div class="text-amber-500 mb-4">
+                                <img src="../vdb-redesigned/assets/si_barcode-scan-fill.svg" alt="">
+                            </div>
+                            <h3 class="text-center bl-col font-semibold">OCR APIs </h3>                                         
+                        </div>
+                </div>
+            </a>
+            <!-- License Plate Decoding APIs -->
+            <a target="_blank" href="https://vehicledatabases.com/license-plate-api">
+                <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                        
+                        <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                            <div class="text-amber-500 mb-4">
+                                <img src="../vdb-redesigned/assets/carbon_prompt-template.svg" alt="">
+                            </div>
+                            <h3 class="text-center bl-col font-semibold">License Plate Decoding APIs</h3>
+                        
+                        </div>
+                    </div>
+            </a>
+            <!-- Market Value APIs -->
+            <a target="_blank" href="https://vehicledatabases.com/vehicle-market-value-api">
+                <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                        
+                        <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                            <div class="text-amber-500 mb-4">
+                                <img src="../vdb-redesigned/assets/icon-park-outline_stock-market.svg" alt="">
+                            </div>
+                            <h3 class="text-center bl-col font-semibold">Market Value APIs</h3>
+                        
+                        </div>
+                    </div>
+            </a>
+            <!-- Maintenance API -->
+            <a target="_blank" href="https://vehicledatabases.com/vehicle-maintenance-api">
+                <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                         
+                        <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                            <div class="text-amber-500 mb-4">
+                                <img src="../vdb-redesigned/assets/material-symbols_laptop-car-outline-sharp.svg" alt="">
+                            </div>
+                            <h3 class="text-center bl-col font-semibold">Maintenance API</h3>                            
+                        </div>
+                </div>
+            </a>
+            <!-- Repair API -->
+            <a target="_blank" href="https://vehicledatabases.com/repair-pricing-api">
+                <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                        
+                        <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                            <div class="text-amber-500 mb-4">
+                                <img src="../vdb-redesigned/assets/fluent-mdl2_repair.svg" alt="">
+
+                            </div>
+                            <h3 class="text-center bl-col font-semibold">Repair API</h3>
+                            
+                        </div>
+                </div>
+            </a>
+            <!-- Title check API -->
+            <a target="_blank" href="https://vehicledatabases.com/vin-title-check-api">
+                <div class="transtion group flex w-36 h-full items-center justify-center rounded-lg border border-black text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                    
+                    <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd] group-hover:shadow-zinc-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-70 group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] px-1 py-6">
+                        <div class="text-amber-500 mb-4">
+                            <img src="../vdb-redesigned/assets/solar_document-linear.svg" alt="">
+
+                        </div>
+                        <h3 class="text-center bl-col font-semibold">Title check API</h3>
+                        
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="text-center">
+            <a href="https://vehicledatabases.com/api" target="_blank"><button class="bg-gradient-primary text-white px-8 py-3 rounded-md">Explore All APIs</button></a>
+        </div>
+    </section>
+
+    <!-- Try APIs Section -->
+    <section class="container mx-auto px-4 pt-16">
+        <h2 class="text-[40px] font-medium text-center mb-8">Try out our APIs for Free</h2>
+        <p  class="bl-col text-base font-normal text-center  max-w-4xl mx-auto">Discover the power of our API services and see how they can transform your business! Get started today—test the API for free and experience seamless integration in minutes.</p>    
+   
+                <!-- Frame Templates (Hidden) -->
+    <template id="auctionhFrame">
+        <div class="lg:p-8 p-0">
             <?php
-                // Load WordPress environment
-                require_once( dirname( __FILE__, 2 ) . '/wp-load.php' );
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/auction?title=Auction&desc=Access+auction+history+records+through+Auction+API&name=auction"]');
+?>
+ </div>
+    </template>
 
-                // Echo the shortcode output
-                echo do_shortcode("[pricingData site='dvh']");
-                ?>
-                <!-- end Dynamic pricing section-->
-        </div>
-    </section>
-
-
-    <!-- Second section with gray background -->
-    <section class="w-full py-12 bg-[#FAFBFD]">
-        <div class="container px-4 md:px-6 mx-auto">
-            <div class="grid gap-8 lg:gap-12 lg:grid-cols-2">
-                <!-- Left Column -->
-                <div class="space-y-6">
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Credits support for Vehicle History Reports & Window Stickers.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Decode VIN numbers and Lookup US License Plates for FREE.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Credits, reports and stickers generated NEVER expire.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Access recalls & maintenance information for FREE.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Free access to vehicle market value.</span>
-                        </div>
-                    </div>
-
-                   
-                </div>
-
-                <!-- Right Column -->
-                <div class="space-y-6">
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Download your Vehicle History Report or Window Sticker in PDF for FREE.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Free mobile app access to run or view your reports. Scan and lookup VINs and US License Plates for FREE.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">Add and manage vehicles to garage for FREE.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">100% satisfaction guaranteed.</span>
-                        </div>
-                        <div class="flex items-start gap-2">
-                            <span class="checkmark">✓</span>
-                            <span class="text-gray-600 text-base md:text-xl">24/7 customer service and live chat support.</span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            <div class="grid gap-8 lg:gap-12 lg:grid-cols-2" >
-                <div class="pt-4">
-                    <div class="mb-6">
-                        <img src="https://developtestsite.com/wp-content/uploads/2024/12/truste-logo.png"  alt="Trust Icon" class="w-auto  object-contain">
-                        <p class="text-base md:text-xl font-bold">Get 100% real-time information instantly!</p>
-                    </div>
-                    <p class="text-base md:text-xl">
-                        We provide up-to-date information from the Department of Motor Vehicles, Police records, private data companies and NMVTIS databases. Save over 67% Compared to Carfax ($39.99) and 40% compared to AutoCheck ($29.99).
-                    </p>
-                </div>
-
-<div class="pt-4">
-                    <div class="mb-6">
-                        <img src="https://developtestsite.com/wp-content/uploads/2024/12/money-back-logo.png"  alt="Money Back Icon" class="w-auto object-contain">
-                        <p class="text-base md:text-xl font-bold">100 % money back guaranteed!</p>
-                    </div>
-                    <p class="text-base md:text-xl">
-                        Not satisfied? Get a full refund with our 100% money-back guarantee! Buy credits with confidence. Your satisfaction is our priority.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="mt-12 flex flex-wrap justify-center items-center gap-6">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/Visa-1.png" alt="Visa payment method" class="h-8">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/Paypal.png" alt="PayPal payment method" class="h-8">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/MasterC.png" alt="Mastercard payment method" class="h-8">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/Discover.png" alt="Discover payment method" class="h-8">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/Amex.png" alt="American Express payment method" class="h-8 ">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/Paystack.png" alt="PayStack payment method" class="h-8 ">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/BankTransfer.png" alt="BankTransfer payment method" class="h-8 ">
-            </div>
-        </div>
-    </section>
-
-    <!-- Third section with white background -->
-    <section class="bg-white py-6 md:py-16">
-        <div class="w-full max-w-4xl mx-auto px-4">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold">
-                    How we are helping <span class="text-blue-600">Individuals & Businesses</span>
-                </h2>
-                <p class="text-base md:text-xl">
-                    See what our happy customers from across the globe has to say about Detailed Vehicle History Report
-                </p>
-            </div>
-    
-            <div class="relative overflow-hidden">
-                <div id="testimonialSlider" class="testimonial-slider flex">
-                    <!-- Testimonials will be dynamically inserted here -->
-                </div>
-    
-                <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white rounded-xl p-2 shadow-md hover:bg-gray-50">
-                    <i class="fas fa-chevron-left w-6 h-6"></i>
-                </button>
-    
-                <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white rounded-xl p-2 shadow-md hover:bg-gray-50">
-                    <i class="fas fa-chevron-right w-6 h-6"></i>
-                </button>
-            </div>
-    
-            <div class="text-center mt-8">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" onclick="window.open('https://www.trustpilot.com/review/detailedvehiclehistory.com', '_blank')">
-                    Read all our Trustpilot reviews
-                </button>
-            </div>
-        </div>
-    
-    </section>
-
-    <!-- Fourth section with white background -->
-    <section class="bg-white-200 py-5 px-5 md:px-16 mb-16">
-     
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="space-y-4">
-                    <h2 class="text-3xl md:text-4xl font-bold">
-                        Get the <span class="text-blue-600">Vehicle History</span> or
-                        <span class="text-blue-600">Factory Options and Packages</span>
-                    </h2>
-                    <p class="text-base md:text-xl">
-                        Check the decoded VIN to view all its specifications and details, and then choose your preferred package.
-                    </p>
-                    <div class="space-y-2">
-                        <a href="https://detailedvehiclehistory.com/sample" target="_blank" class=" text-base md:text-xl text-blue-600 hover:underline block">                           
-                            How a vehicle report looks like and what you might get in a report?
-                        </a>
-                        <a href="https://detailedvehiclehistory.com/sample" target="_blank" class="text-base md:text-xl text-blue-600 hover:underline block">
-                            How a window sticker looks like and what you might get in a window sticker?
-                        </a>
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 gap-4">
-                    <img src="https://developtestsite.com/wp-content/uploads/2025/01/report-sample-img.png" alt="Sample Report 1" class="rounded-lg w-full">
-                    
-                </div>
-            </div>
-        
-
-        <!-- Second Section -->
-        <section class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="order-2 md:order-1">
-                <img src="https://developtestsite.com/wp-content/uploads/2024/12/report-img-phones.png" alt="Mobile App Preview" class=" w-3/5 md:w-full max-w-xs mx-auto">
-            </div>
-            <div class="space-y-6 order-1 md:order-2 pt-6">
-                <h2 class="text-3xl md:text-4xl font-bold">
-                    Getting our Vehicle History Report and Window Sticker is 
-                    <span class="text-blue-600">Very Simple</span>
-                </h2>
-                <p class="text-base md:text-xl">
-                    Tired of typing the VIN all the time? Our VIN Decoder & Vehicle History app comes with a scanning feature that allows you to scan VINs, license plates, and minimize errors with typing. We also provide free and online VIN decoding with the mobile application and several features.
-                </p>
-                <div class="space-y-4">
-                    <p class="font-bold text-2xl md:text-3xl text-[#1D4ED8]">Download now and get started!</p>
-                    <div class="flex flex-wrap gap-4">
-                        <!-- App Store Button -->
-                        <a href="https://apps.apple.com/app/vin-decoder-vehicle-history/id1576559330" target="_blank" class="inline-block">
-                            <img src="https://developtestsite.com/wp-content/uploads/2024/12/apple-store-logo.png" alt="Download on App Store" class="h-10">
-                        </a>
-                        <!-- Google Play Button -->
-                        <a href="https://play.google.com/store/apps/details?id=com.vehiclehistory.dvh" target="_blank" class="inline-block">
-                            <img src="https://developtestsite.com/wp-content/uploads/2024/12/google-play-logo.png" alt="Get it on Google Play" class="h-10">
-                        </a>
-                        <!-- Windows Button -->
-                        <a href="https://detailedvehiclehistory.com/downloads/vin-decoder-app/VIN-Decoder.exe" target="_blank" class="inline-block">
-                            <img src="https://developtestsite.com/wp-content/uploads/2024/12/windows-logo.png" alt="Get it on Windows" class="h-10">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    </section>
-
-    <section class="bg-[#FAFBFD] py-12 md:py-20 px-5 md:px-16">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-2xl md:text-4xl font-bold mb-8 text-center ">Frequently Asked Questions</h2>
+    <template id="basicvinFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/basic-vin-decode?title=Basic+VIN+Decode&desc=Access+basic+vehicle+specifications+with+VIN+decoding+API&name=basic-vin-decode"]');
+?>
             
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">What is included in a vehicle history report?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl ">
-                            A vehicle history report typically includes:
-                            <ul class="list-disc pl-5 mt-2 space-y-1">
-                                <li>Accident history</li>
-                                <li>Odometer readings</li>
-                                <li>Title status</li>
-                                <li>Ownership history</li>
-                                <li>Recall information</li>
-                                <li>Service records</li>
-                                <li>Sales and auction history with images (when available)</li>
-                                <li>and more</li>
-                            </ul>
-                        </p>
-                    </div>
-                </details>
-    
-                <!-- FAQ Item 2 -->
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">What is a window sticker, and what does it include?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            A window sticker provides detailed information about a vehicle, such as its original features, MSRP, factory-installed equipment, options, and packages.
-                        </p>
-                    </div>
-                </details>
-    
-                <!-- FAQ Item 3 -->
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">How much does a vehicle history report and window sticker cost?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            <strong>Vehicle History Reports:</strong> Prices start at $19.99 for individual reports, with discounts for bulk purchases as low as $8.99/report. We are flat 67% cheaper carfax alternative with more data available in our reports.<br><br>
-                            <strong>Stickers:</strong> Priced at $19.99 per sticker, with bulk and subscription options available.
-                        </p>
-                    </div>
-                </details>
+        </div>
+    </template>
 
-                  <!-- FAQ Item 4 -->
-                  
-                  <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">What is a window sticker, and what does it include?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            A window sticker provides detailed information about a vehicle, such as its original features, MSRP, factory-installed equipment, options, and packages.
-                        </p>
-                    </div>
-                </details>
+    <template id="classicvinFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/classic-vin-decode?title=Classic+VIN+Decoder&desc=Access+classic+vehicle+specifications+by+VIN&name=classic-decode"]');
+?>
+        </div>
+    </template>
 
-                <!-- FAQ Item 5 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">  Are subscription plans available?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                          
-Yes, we have an unlimited VIN check plan, which gives access to unlimited vehicle history reports for only $24.99/month. We also offer tailored subscription plans for vehicle history reports and window stickers available on request. For details, please contact us at Livechat or fill this form.</p>
-                    </div>
-                </details>
+    <template id="electricspecsFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/electric-vehicle?title=Electric+Vehicle+Specifications&desc=Explore+electric+vehicle+specs+at+your+fingertips&name=646fc2ef37fbb1e055f0c905"]');
+?>
+        </div>
+    </template>
 
-                <!-- FAQ Item 6 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">Can I get a discount for purchasing in bulk?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            Absolutely! Both vehicle history reports and window stickers have volume-based discounts. You can go for business plans that are available based on your needs. For varied volumes and requirements, please contact us for tailored pricing.
-                        </p>
-                    </div>
-                </details>
+    <template id="europevinFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/europe-vin-decode?title=Europe+VIN+Decode&desc=Access+European+vehicle+specifications+with+Europe+VIN+decoding+API&name=europe-vin-decode"]');
+?>
+</div>
+    </template>
 
-                <!-- FAQ Item 7 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">What if the standard plans don’t meet my business requirements?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            We provide custom plans for businesses with unique needs. Whether you require higher limits, additional features, or combined services, our team can create a plan tailored to your requirements.
-                        </p>
-                    </div>
-                </details>
-
-                <!-- FAQ Item 8 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">Do you offer enterprise-level packages?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            Yes, enterprise-level packages with advanced features, higher usage limits, and priority support are available. Reach out through Llivechat or email us at support@detailedvehiclehistory.com to discuss your specific needs.
-                        </p>
-                    </div>
-                </details>
-
-                <!-- FAQ Item 9 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">Do you offer unlimited usage plans?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            Yes we have a subscription plan called “Unlimited VIN check plan” which gives access to basic vehicle history reports for only 24.99/month.For detailed vehicle history reports we provide unlimited usage plans for businesses with high-volume needs. Contact us for details and pricing.
-                        </p>
-                    </div>
-                </details>
-
-                <!-- FAQ Item 10 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">Is there a trial option for businesses?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            We offer limited trials for businesses to evaluate our services. Please contact us to request a trial.
-                        </p>
-                    </div>
-                </details>
-
-                <!-- FAQ Item 11 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">Are there hidden fees?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            No, all prices are transparent and clearly displayed at checkout. There are no hidden fees.
-                        </p>
-                    </div>
-                </details>
-
-                <!-- FAQ Item 12 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">Do you offer dedicated support for businesses?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            Yes, businesses on custom or enterprise plans have access to dedicated account managers and priority support for seamless service.
-                        </p>
-                    </div>
-                </details>
-
-                <!-- FAQ Item 13 -->
-                  
-                <details class="faq-item border rounded-lg">
-                    <summary class="flex items-center justify-between p-4 cursor-pointer">
-                        <span class="font-bold text-lg md:text-2xl">What payment methods do you accept?</span>
-                        <span class="plus-icon">+</span>
-                        <span class="minus-icon">−</span>
-                    </summary>
-                    <div class="px-4 pb-4">
-                        <p class="text-base md:text-xl">
-                            We strive to support worldwide payments to ensure a seamless experience for all our customers. We accept major credit cards, PayPal, and Paystack payments, catering to global accessibility. Additionally, we offer a manual bank transfer option upon request, and wire transfers can be arranged for larger orders.
-                        </p>
-                    </div>
-                </details>
+    <template id="licenseFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/ocr/license-plate-to-vin?title=License+Plate+OCR&desc=License+plate+OCR+technology+that+detects+the+plate+number+and+state+of+vehicle+in+USA+(all+states)&name=license-plate-ocr"]');
+?>
+</div>
+    </template>
+    </template>
+    <template id="marketvFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/market-value?title=Market+Value&desc=Get+access+to+trade-in,+private-party+%26+retail+values+of+a+vehicle+based+on+its+VIN+or+year,+make,+model.&name=market-value"]');
+?>
+        </div>
+    </template>
+    <template id="premiumvinFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/premium-vin-decode?title=Premium+Plus+VIN+Decode&desc=Access+premium+vehicle+specifications+with+VIN+decoding+API&name=premium-plus-vin-decode"]');
+?></div>
+    </template>
+    <template id="saleshFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/sales-history?title=Sales+History&desc=Access+sales+history+records+through+Sales+history+API&name=sales-history"]');
+?>
+</div>
+    </template>
+    <template id="titlecheckFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/title-check?title=Title+Check&desc=Check+title+information+of+any+vehicle+by+VIN&name=title-check"]');
+?>
+ </div>
+    </template>
+    <template id="ukdecodeFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/license_plate/uk?title=UK+Registration+Decode&desc=Access+information+about+a+UK+registration+number,+including+its+year,+make,+model,+and+more+details&name=64d1eef040bf1e19d472b3e4"]');
+?>
+</div>
+    </template>
+    <template id="usplatedecodeFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/license_plate/us?title=US+Plate+Decode&desc=Decode+any+US+plate+instantly+with+License+plate+decode+API&name=license-decode"]');
+?>
+</div>
+    </template>
+    <template id="ustruckFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/truck_license_plate/us?title=US+Truck+Plate+Decode&desc=Decode+any+US+Truck+plate+instantly+with+License+plate+decode+API&name=65e8adc207a729aeecf2ca34"]');
+?>
+</div>
+    </template>
+    <template id="maintenanceFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/schedule?title=Vehicle+Maintenance&desc=Access+the+service+and+maintenance+schedules+information+of+a+vehicle&name=vehicle-maintenance"]');
+?>
+</div>
+    </template>
+    <template id="recallsFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/recall?title=Vehicle+Recalls&desc=Access+the+recall+information+of+a+vehicle&name=vehicle-recalls"]');
+?>
+</div>
+    </template>
+    <template id="repairFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/repair?title=Vehicle+Repairs&desc=Access+the+repair+information+of+a+vehicle&name=vehicle-repairs"]');
+?>
+</div>
+    </template>
+    <template id="warrantyFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/warranty?title=Vehicle+Warranty&desc=Access+the+warranty+information+of+a+vehicle&name=vehicle-warranty"]');
+?>
+</div>
+    </template>
+    <template id="vinocrFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/ocr/vin/test?title=VIN+OCR&desc=Fast+and+accurate+VIN+OCR+API+that+recognizes+the+VIN+in+seconds&name=vin-ocr"]');
+?>
+</div>
+    </template>
+    <template id="vinsuggestionFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/vin-suggestion?title=VIN+Suggestion&desc=Access+VIN+suggestions+with+VIN&name=vin-suggestion"]');
+?>
+</div>
+    </template>
+    <template id="ymmspecsFrame">
+        <div class="lg:p-8 p-0">
+            <?php
+ echo do_shortcode('[vdb_iframe iframe_url="https://vehicledatabases.com/portal/iframe/ymm?title=YMM+Specifications&desc=Access+vehicle+specifications+with+YMM+specifications+API&name=ymm-specifications"]');
+?>
+</div>
+    </template>
+  
+    <!-- Main Content -->
+    <div class="max-w-5xl mx-auto lg:p-4 p-0">
+        <!-- Header with Options -->
+        <div class="bg-white rounded-t-lg shadow-sm w-[98%]">
+            <div class="relative">
+                <select id="apiOption" class="w-full bg-slate-100 appearance-none px-4 py-3 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="auctionh">Auction History API</option>
+                    <option value="basicvin">Basic VIN Decode</option>
+                    <option value="classicvin">Classic VIN Decoder</option>
+                    <option value="electricspecs">Electric Vehicle Specifications</option>
+                    <option value="europevin">Europe VIN Decode</option>
+                    <option value="license">License Plate OCR</option>
+                    <option value="marketv">Market Value by VIN</option>
+                    <option value="premiumvin">Premium VIN Decode</option>
+                    <option value="salesh">Sales History</option>
+                    <option value="titlecheck">Title Check</option>
+                    <option value="ukdecode">UK Registration Decode</option>
+                    <option value="usplatedecode">US Plate Decode</option>
+                    <option value="ustruck">US Truck Plate Decode</option>
+                    <option value="maintenance">Vehicle Maintenance by VIN</option>
+                    <option value="recalls">Vehicle Recalls</option>
+                    <option value="repair">Vehicle Repair by VIN</option>
+                    <option value="warranty">Vehicle Warranty</option>
+                    <option value="vinocr">VIN OCR</option>
+                    <option value="vinsuggestion">VIN Suggestion</option>
+                    <option value="ymmspecs">YMM Specifications</option>
+                </select>
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" id="headerArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
             </div>
         </div>
-        
-    </section>
-</body>
-<script>
-    const testimonials = [
-        {
-            id: '1',
-            name: 'Vivek Malkan',
-            location: 'United States',
-            rating: 5,
-            review: 'I was looking online to get a copy of my cars window sticker. I came to this website and entered my car vin number, and instantaneously...',
-            avatar: 'https://developtestsite.com/assets/Vivek-Malkan-Testimonial.webp', // Placeholder image
-            date: 'Aug 1, 2024'
-        },
-        {
-            id: '2',
-            name: 'Constantin Colodezni',
-            location: 'Canada',
-            rating: 4,
-            review: 'I was pleasantly surprised by the simplicity and effectiveness of this service for checking the history of my motorcycle. With just the VIN number,...',
-            avatar: 'https://developtestsite.com/assets/ConstantinColodezni-Tetimonial.webp', // Placeholder image
-            date: 'May 7, 2024'
-        },
-        {
-            id: '3',
-            name: 'DE LOS SANTOS JR, CARLOS L',
-            location: 'United States',
-            rating: 5,
-            review: 'I would like to thank detailed vehicle history for getting me my OEM window sticker it was so easy and seamless and very inexpensive I was looking everywhere...',
-            avatar: 'https://developtestsite.com/assets/DE-LOS-SANTOS-JR-CARLOS-TESTIMONIAL.webp', // Placeholder image
-            date: 'Jun 30, 2024'
-        },
-        {
-            id: '4',
-            name: 'Michael',
-            location: 'United Kingdom',
-            rating: 5,
-            review: 'Recently bought a used 7 year old MB sedan. The dealer had limited info about the specific car and affordable option/ costs at original sale. Read...',
-            avatar: 'https://developtestsite.com/assets/testimonial.webp', // Placeholder image
-            date: 'Jun 30, 2024'
-        }
-    ];
 
-    let currentIndex = 0;
-
-    function renderTestimonials() {
-        const slider = document.getElementById('testimonialSlider');
-        slider.innerHTML = '';
-
-        testimonials.forEach((testimonial, index) => {
-            const testimonialElement = document.createElement('div');
-            testimonialElement.className = 'w-full flex-shrink-0 px-4';
-            testimonialElement.innerHTML = `
-                <div class="bg-white p-8 rounded-lg shadow-sm">
-                    <div class="flex items-center gap-4 mb-4">
-                        <img src="${testimonial.avatar}" alt="" class="w-12 h-12 rounded-full">
-                        <div>
-                            <h3 class="font-semibold">${testimonial.name}</h3>
-                            <p class="text-sm text-gray-600">${testimonial.location}</p>
-                        </div>
-                    </div>
-                    <div class="rating-info">
-                        <div class="rating-img">
-                        <img src="https://developtestsite.com/wp-content/uploads/2024/12/trustpilot-2.png" width="108" height="26"  >
-                        <img src="https://developtestsite.com/wp-content/uploads/2024/12/Stars-trustpilot.svg" width="108" height="26" >
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">${testimonial.date}</span>
-                    </div>
-                   
-                    <p class="text-base md:text-xl">${testimonial.review}</p>
-                      
+        <!-- Main Content Area -->
+        <div class="bg-white shadow-sm">
+            <!-- Frame Container -->
+            <div class="lg:p-6 p-0 my-0 lg:my-2">
+                <div id="frameContainer" class="w-full h-[600px] bg-gray-50 border border-gray-200 rounded-lg overflow-hidden mt-1">
                 </div>
-            `;
-            slider.appendChild(testimonialElement);
-        });
+            </div>
 
-        updateSliderPosition();
+            <!-- Bottom Action Bar -->
+            
+        </div>
+    </div>
+            
+        
+
+        </div>
+        <div class="text-center mt-6">
+            <button class="bg-gradient-primary text-white px-8 py-3 rounded-full">Sign up for free to test 25+ APIs</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class=" max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-[40px] font-medium text-center mb-8">Simplifying API Access for Everyone</h2>
+        <p class="bl-col text-base font-normal text-center  max-w-6xl mx-auto mb-12">
+            Our intuitive API platform makes accessing automotive data effortless for both tech-savvy users and those less familiar with technology. Whether you're a developer or a business owner, our portal is designed by keeping you in mind ensuring you get the automotive data you need without the hassle. Track your metrics, manage keys, and monitor usage—all designed to eliminate the complexity of data integration so you can focus on leveraging valuable insights to drive your business forward.
+        </p>
+            <!-- Feature Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Card 1 -->
+                <div class="   hover:bg-gradient-to-l hover:shadow-md hover:shadow-purple-600/30">
+                    
+                    <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd]  group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6 border border-[#171717]">
+                        <h3 class="bl-col text-xl font-medium mb-3">
+                            API Testing Platform for Everyone
+                        </h3>
+                        <p class="bl-col font-normal md:font-bold text-sm">
+                            Test your APIs in a secure JSON format and visualize them in a user-friendly interface. Get detailed responses and developers will love the instant results.
+                        </p>
+                    
+                    </div>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="transtion group flex items-center justify-center rounded-lg hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                    
+                    <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd]  group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6 border border-[#171717]">
+                        <h3 class="bl-col text-xl font-medium mb-3">
+                        Manage Keys and Monitor Usage
+                        </h3>
+                        <p class="bl-col font-normal md:font-bold text-sm">
+                        Get access to a comprehensive dashboard. Analyze detailed reports, monitor API usage, track key performance indicators, all in one place.
+                        </p>
+                    
+                    </div>
+                </div>
+    
+                <!-- Card 3 -->
+                <div class="   hover:bg-gradient-to-l hover:shadow-md hover:shadow-purple-600/30">
+                    
+                    <div class="flex flex-col h-full w-full items-center justify-center rounded-lg bg-[#fdfdfd]  group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6 border border-[#171717]">
+                        <h3 class="bl-col text-xl font-medium mb-3">
+                            Seamless Subscription Management
+
+                        </h3>
+                        <p class="bl-col font-medium md:font-normal text-sm">
+                            Manage your API keys and subscription through our detailed dashboard. Monitor usage, modify your plan, and pay a fee when needed.
+                        </p>
+                    
+                    </div>
+                </div>
+            </div> 
+   
+            <!-- Image Section -->
+            <div class="relative w-full max-w-5xl mx-auto mb-12">
+                <div class="w-full rounded-lg overflow-hidden bg-cover px-5 py-5"
+                style="background-image: url('../vdb-redesigned/assets/bg-square.png')">
+                    <img 
+                        src="../vdb-redesigned/assets/API-image-sample.webp" 
+                        alt="API Platform Interface"
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+            <!-- CTA as -->
+            <div class="flex flex-wrap gap-4 justify-center">
+             
+                   
+                    <button class="bg-gradient-primary text-white px-8 py-3 rounded-md">Start for Free</button>                 
+                </a>
+                <a href="https://vehicledatabases.com/schedule-a-demo" target="_blank" class="">
+                    <button class="bg-normalbtn border border-[#171717] px-8 py-3 rounded-md ">Schedule a Demo</button>
+                </a>
+            </div>
+        </div> 
+        </section>
+
+    
+    <!-- Benefits Grid -->
+    <section class="bg-gradient-primary-box text-white py-16">
+        <div class="max-w-4xl container mx-auto px-4">
+            <div class="mx-auto mb-12 md:mb-16">
+                <h2 class="deg-titles text-center bg-clip-text text-transparent text-3xl md:text-4xl font-semibold text-white mb-4">
+                    Vehicle Databases Provides Fast, Reliable, and Easy Data Access
+                </h2>                
+    </div>
+             <!--cards start -->
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- card 1-->
+                <div class="hover:bg-gradient-to-l hover:shadow-md hover:shadow-purple-600/30">
+                    <div class="flex flex-col h-full w-full items-center justify-start rounded-lg bg-[#FDFDFDE5] group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6">
+                    <!--  Fast response -->
+                            <div  class="rounded-lg backdrop-blur-sm">
+                                 <div class="text-white mb-4">
+                                    <img src="../vdb-redesigned/assets/response-icon-dark.svg" alt="">
+
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold md:font-bold bl-col mb-3">
+                                    Fast Response Times
+                                </h3>
+                                <p class="bl-col text-sm md:text-base font-normal">
+                                    Easily manage your active plans and subscriptions through our intuitive interface. Upgrade, downgrade, or modify your plan with just a few clicks.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <!-- card 2-->
+                 <div class="duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                    <div class="flex flex-col h-full w-full items-center justify-start rounded-lg bg-[#FDFDFDE5]  group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6">
+                    <!--  Scalability -->
+                            <div class="bg-opacity-50 rounded-lg backdrop-blur-sm">
+                                 <div class="bl-col mb-4">
+                                    <img src="../vdb-redesigned/assets/scalability-icon-dark.svg" alt="">
+
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold md:font-bold bl-col mb-3">
+                                Scalability
+                                </h3>
+                                <p class="bl-col text-sm md:text-base font-normal">
+                                Our infrastructure adapts effortlessly to changing demands, maintaining top performance and reliability.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <!-- card 3-->
+                 <div class=" hover:bg-gradient-to-l hover:shadow-md hover:shadow-purple-600/30">
+                    <div class="flex flex-col h-full w-full items-center justify-start rounded-lg bg-[#FDFDFDE5]   group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6">
+                    <!--  99.99% Uptime -->
+                            <div class=" rounded-lg backdrop-blur-sm">
+                                 <div class="text-white mb-4">
+                                    <img src="../vdb-redesigned/assets/uptime-icon-dark.svg" alt="">
+
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold md:font-bold bl-col mb-3">
+                                    99.99% Uptime
+                                </h3>
+                                <p class="bl-col text-sm md:text-base font-normal">
+                                    Enjoy a 99.99% uptime for uninterrupted access to essential data and services.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <!-- card 4-->
+                 <div class="transtion group flex items-center justify-center rounded-lg hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                    <div class="flex flex-col h-full w-full items-center justify-start rounded-lg bg-[#FDFDFDE5] group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6">
+                    <!--  Unmatched Reliability -->
+                            <div class=" rounded-lg backdrop-blur-sm">
+                                 <div class="bl-col mb-4">
+                                    <img src="../vdb-redesigned/assets/reliability-icon-dark.svg" alt="">
+
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold md:font-bold bl-col mb-3">
+                                    Unmatched Reliability
+                                </h3>
+                                <p class="bl-col text-sm md:text-base font-normal">
+                                    State-of-the-art technology minimizes downtime, delivering robust and dependable performance.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <!-- card 5-->
+                 <div class="   hover:bg-gradient-to-l hover:shadow-md hover:shadow-purple-600/30">
+                    <div class="flex flex-col h-full w-full items-center justify-start rounded-lg bg-[#FDFDFDE5]   group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6">
+                    <!--  Easy Integration -->
+                            <div class="rounded-lg backdrop-blur-sm">
+                                 <div class="bl-col mb-4">
+                                    <img src="../vdb-redesigned/assets/integration-icon-dark.svg" alt="">
+
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold md:font-bold bl-col mb-3">
+                                    Easy Integration
+                                </h3>
+                                <p class="bl-col text-sm md:text-base font-normal">
+                                    APIs are debl-colsigned for simple integration, allowing developers to enhance functionality with minimal effort.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <!-- card 6-->
+                 <div class="transtion group flex items-center justify-center rounded-lg hover:bg-gradient-to-r hover:shadow-md hover:shadow-purple-600/30">
+                    <div class="flex flex-col h-full w-full items-center justify-start rounded-lg bg-[#FDFDFDE5] group-hover:shadow-[0_0_25px_rgba(0,0,0,0.3)] p-6">
+                    <!--  Docs-->
+                            <div class=" bg-opacity-50 rounded-lg backdrop-blur-sm">
+                                 <div class="bl-col mb-4">
+                                    <img src="../vdb-redesigned/assets/docs-icon-dark.svg" alt="">
+
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-semibold md:font-bold bl-col mb-3">
+                                    Clear Documentation 
+                                </h3>
+                                <p class="bl-col text-sm md:text-base font-normal">
+                                    Access straightforward documentation to effectively use our vehicle databases APIs, covering endpoints, parameters, and authentication methods.
+                                </p>
+                            </div>
+                    </div>
+                </div>
+        </div>
+        <!--cards ended --> 
+        </div>
+        <!-- CTA as -->
+        <div class="flex flex-wrap gap-4 justify-center">
+            <a  href="https://vehicledatabases.com/portal/signup" target="_blank" class="">
+               
+                <button class="bg-[#fdfdfd] bl-col px-8 py-3 rounded-md hover:bg-[#9747FF99] hover:text-white">Start for Free</button>                 
+            </a>
+            <a href="https://vehicledatabases.com/schedule-a-demo" target="_blank" class="">
+                <button class="border border-[#fdfdfd] px-8 py-3 rounded-md hover:bg-[#F5912066] hover:bl-col">Schedule a Demo</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="container mx-auto px-4 md:py-16 py-3">
+        <h2 class="text-[40px] font-medium text-center mb-6">Simple Documentation - A Better Developer Experience</h2>
+        <p class="bl-col text-base font-normal text-center  max-w-5xl mx-auto">Our easy and straightforward documentation provides a stellar experience to developers making API integration smoother than ever.</p>
+          <!-- Main Content for code languages-->
+    <div class="md:flex flex-row gap-4 py-8 md:py-12 hidden md:block">
+        <div class="container mx-auto p-4">
+<div class="flex flex-col md:flex-row gap-4">
+    <!-- Left Panel - Accordion -->
+    <div class="w-full md:w-2/5 space-y-3 bg-[#FDFDFD33] p-3 rounded-lg border-2 border-gray-600">
+        <!-- First accordion item - open by default -->
+        <div class="accordion-item rounded-lg" data-api="vehicle-market-value">
+            <button class="w-full p-4 border border-[#D9D9D9] text-left bg-gradient-to-r from-orange-500 to-purple-600 rounded-lg font-bold text-2xl ">
+                Vehicle Market Value API
+            </button>
+            <div class="accordion-content active ">
+                <p class="p-4 text-sm font-bold bl-col">Vehicle market value API works as an Edmunds API alternative, allows you to get instant access to any vehicle's accurate market value pricing. We compute used and new car values by analyzing millions of actual sales transactions and auction prices.</p>
+            </div>
+        </div>
+        <div class="accordion-item rounded-lg" data-api="vin-decoder">
+            <button class="w-full p-4 border border-[#D9D9D9] hover:bg-zinc-100 rounded text-left bg-[#FDFDFD33] hover:bg-zinc-100 rounded-[10px] font-bold text-2xl ">
+                VIN Decoder API
+            </button>
+            <div class="accordion-content ">
+                <p class="p-4 text-sm font-bold bl-col">Our VIN decoder API provides detailed vehicle information from any valid VIN number.</p>
+            </div>
+        </div>
+        <div class="accordion-item rounded-lg" data-api="maintenance">
+            <button class="w-full p-4 border border-[#D9D9D9] hover:bg-zinc-100 text-left bg-[#FDFDFD33] hover:bg-zinc-100 rounded-[10px] font-bold text-2xl ">
+                Maintenance API
+            </button>
+            <div class="accordion-content ">
+                <p class="p-4 text-sm font-bold bl-col">Access comprehensive vehicle maintenance schedules and service information.</p>
+            </div>
+        </div>
+        <div class="accordion-item rounded-lg" data-api="license-plate">
+            <button class="w-full p-4 border border-[#D9D9D9] hover:bg-zinc-100 text-left bg-[#FDFDFD33] hover:hover:bg-zinc-100 rounded-[10px] font-bold text-2xl ">
+                License Plate API
+            </button>
+            <div class="accordion-content ">
+                <p class="p-4 text-sm font-bold bl-col">Query vehicle details using license plate numbers from supported regions.</p>
+            </div>
+        </div>
+        <div class="accordion-item rounded-lg" data-api="ocr">
+            <button class="w-full p-4 border border-[#D9D9D9] hover:bg-zinc-100 text-left bg-[#FDFDFD33] hover:bg-zinc-100 rounded-[10px] font-bold text-2xl ">
+                OCR API
+            </button>
+            <div class="accordion-content ">
+                <p class="p-4 text-sm font-bold bl-col">Extract text from vehicle-related documents using our OCR technology.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Panel - Tabs -->
+    <div class="w-full md:w-3/5 bg-[#FDFDFD33] rounded-lg border-2 border-gray-600">
+        <div class="code-window">
+        <div class="bg-gradient-to-r from-[#FFD600] via-[#FAB70D] to-[#F59120] p-3 flex items-center">
+                    <div class="mac-as w-full">
+                        <div class="group-one">
+                        <img src="../vdb-redesigned/assets/red-dot.png" alt="">
+                        <img src="../vdb-redesigned/assets/yellow-dot.png" alt="">
+                        <img src="../vdb-redesigned/assets/green-dot.png" alt="">
+                    </div>
+                    <div class="group-two">
+                        <img src="../vdb-redesigned/assets/code-icon.svg" alt="">
+                    </div>
+                    </div>                        
+                </div>    
+                    </div>
+     <div class="p-4">         
+        <!-- Vehicle Market Value API -->
+        <div class="tab-section active" id="vehicle-market-value-section">
+            <div class="flex space-x-2 pb-3 border-b">
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vehicle-market-value-node">Node</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vehicle-market-value-react">React</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vehicle-market-value-php">PHP</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vehicle-market-value-python">Python</button>
+            </div>
+            <div class="h-64 overflow-y-auto">
+                <div class="tab-content active" id="vehicle-market-value-node-content">
+                    <div><!-- VIN Decoder API Node -->
+                        <pre><code>request = varrequire('request');
+var options = {
+'method': 'GET',
+'url': 'https://api.vehicledatabases.com/vehicle-maintenance/options/v3/year',
+'headers': {
+'x-AuthKey': '{X-Authkey}'
+}
+};
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});                                        
+                        </code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="vehicle-market-value-react-content">
+                    <div>
+                        <pre> <code>var axios = require('axios');
+
+var config = {
+method: 'get',
+url: 'https://api.vehicledatabases.com/vehicle-maintenance/options/v3/year',
+headers: { 
+'x-AuthKey': '{X-Authkey}'
+}
+};                                 
+axios(config)
+.then(function (response) )?{
+console.log(JSON.stringify(response.data));}
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="vehicle-market-value-php-content">
+                    <div > 
+                        <pre class="text-purple-400">
+<code>$curl = curl_init();      
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/vehicle-maintenance/options/v3/year',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {}'
+),
+));
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="vehicle-market-value-python-content">
+                    <div > 
+                        <pre class="text-yellow-400">
+<code>import requests    
+url = "https://api.vehicledatabases.com/vehicle-maintenance/options/v3/year"    
+payload={}
+headers = {
+'x-AuthKey': '{X-Authkey}'
+}    
+response = requests.request("GET", url, headers=headers, data=payload)    
+print(response.text)
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIN Decoder API -->
+        <div class="tab-section" id="vin-decoder-section">
+            <div class="flex space-x-2 pb-3 border-b">
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vin-decoder-node">Node</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vin-decoder-react">React</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vin-decoder-php">PHP</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="vin-decoder-python">Python</button>
+            </div>
+            <div class="h-64 overflow-y-auto">
+                <div class="tab-content active" id="vin-decoder-node-content">
+                    <div > 
+                     <pre>
+<code>var request = require('request');
+var options = {
+'method': 'GET',
+'url': 'https://api.vehicledatabases.com/vin-decode/{vin}',
+'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+}
+};
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+</code>                                
+                     </pre>   
+                    </div>
+                </div>
+                <div class="tab-content" id="vin-decoder-react-content">
+                    <div > 
+                        <pre class="text-blue-400">
+<code>var axios = require('axios');
+
+var config = {
+method: 'get',
+url: 'https://api.vehicledatabases.com/vin-decode/{vin}',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}'
+}
+};   
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+}); 
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="vin-decoder-php-content">
+                    <div > 
+                        <pre class="text-purple-400">
+<code>$curl = curl_init();          
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/vin-decode/{vin}',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {X-AUTHKEY}'
+),
+));    
+$response = curl_exec($curl);    
+curl_close($curl);
+echo $response;
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="vin-decoder-python-content">
+                    <div > 
+                        <pre class="text-yellow-400">
+<code>import requests          
+url = "https://api.vehicledatabases.com/vin-decode/{vin}"    
+payload={}
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}    
+response = requests.request("GET", url, headers=headers, data=payload)    
+print(response.text)
+</code>
+                            
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Maintenance API -->
+        <div class="tab-section" id="maintenance-section">
+            <div class="flex space-x-2 pb-3 border-b">
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="maintenance-node">Node</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="maintenance-react">React</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="maintenance-php">PHP</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="maintenance-python">Python</button>
+            </div>
+            <div class="h-64 overflow-y-auto">
+                <div class="tab-content active" id="maintenance-node-content">
+                    <div > 
+                        <pre>
+<code>var request = require('request');
+var options = {
+'method': 'GET',
+'url': 'https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}',
+'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+}
+};
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="maintenance-react-content">
+                    <div > 
+                        <pre class="text-blue-400">
+<code>var axios = require("axios");      
+var config = {
+method: "get",
+url: "https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}",
+headers: {
+"x-AuthKey": "{X-AUTHKEY}",
+},
+};    
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="maintenance-php-content">
+                    <div > 
+                        <pre class="text-purple-400">
+<code>$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {X-AUTHKEY}'
+),
+));    
+$response = curl_exec($curl);    
+curl_close($curl);
+echo $response;
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="maintenance-python-content">
+                    <div > 
+                        <pre class="text-yellow-400">
+<code>import requests      
+url = "https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}"    
+payload={}
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}
+
+response = requests.request("GET", url, headers=headers, data=payload)    
+print(response.text)
+
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- License Plate API -->
+        <div class="tab-section" id="license-plate-section">
+            <div class="flex space-x-2 pb-3 border-b">
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="license-plate-node">Node</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="license-plate-react">React</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="license-plate-php">PHP</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="license-plate-python">Python</button>
+            </div>
+            <div class="h-64 overflow-y-auto">
+                <div class="tab-content active" id="license-plate-node-content">
+                    <div > 
+                        <pre>
+<code>var request = require('request');
+var fs = require('fs');
+var options = {
+'method': 'POST',
+'url': 'https://api.vehicledatabases.com/licenseplate-ocr',
+'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+},
+formData: {
+'file': {
+'value': fs.createReadStream('test.jpg'),
+'options': {
+'filename': 'SC2.jpg',
+'contentType': ""
+}
+}
+}
+};
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="license-plate-react-content">
+                    <div > 
+                        <pre class="text-blue-400">
+<code>var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+data.append('file', fs.createReadStream('test.jpg'));
+
+var config = {
+method: 'post',
+url: 'https://api.vehicledatabases.com/licenseplate-ocr',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}', 
+...data.getHeaders()
+},
+data : data
+};
+
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="license-plate-php-content">
+                    <div > 
+                        <pre class="text-purple-400">
+<code> $curl = curl_init();      
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/licenseplate-ocr',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'POST',
+CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('test.jpg')),
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {X-AUTHKEY}'
+),
+));    
+$response = curl_exec($curl);    
+curl_close($curl);
+echo $response
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="license-plate-python-content">
+                    <div > 
+                        <pre class="text-yellow-400">
+<code>
+import requests
+
+url = "https://api.vehicledatabases.com/licenseplate-ocr"    
+payload={}
+files=[
+('file',('SC2.jpg',open('test.jpg','rb'),'image/jpeg'))
+]
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}    
+response = requests.request("POST", url, headers=headers, data=payload, files=files)    
+print(response.text)
+
+
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OCR API -->
+        <div class="tab-section" id="ocr-section">
+            <div class="flex space-x-2 pb-3 border-b">
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="ocr-node">Node</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="ocr-react">React</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="ocr-php">PHP</button>
+                <button class="tab-button px-4 py-2 rounded bg-[#D9D9D9] hover:bg-gray-400 transition-colors duration-200 border border-gray-300" data-tab="ocr-python">Python</button>
+            </div>
+            <div class="h-64 overflow-y-auto">
+                <div class="tab-content active" id="ocr-node-content">
+                    <div > 
+                        <pre>
+<code>var request = require('request');
+var fs = require('fs');
+var options = {
+'method': 'POST',
+'url': 'https://api.vehicledatabases.com/vin-ocr',
+'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+},
+formData: {
+'file': {
+'value': fs.createReadStream('/home/user/Downloads/1 (1).jpg'),
+'options': {
+'filename': '1 (1).jpg',
+'contentType': ""
+}
+}
+}
+};
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="ocr-react-content">
+                    <div > 
+                        <pre class="text-blue-400">
+<code>var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+data.append('file', fs.createReadStream('/home/user/Downloads/1 (1).jpg'));    
+var config = {
+method: 'post',
+url: 'https://api.vehicledatabases.com/vin-ocr',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}', 
+...data.getHeaders()
+},
+data : data
+};
+
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="ocr-php-content">
+                    <div > 
+                        <pre class="text-purple-400">
+<code>$curl = curl_init(); 
+curl_setopt_array($curl, array( CURLOPT_URL => 
+'https://api.vehicledatabases.com/vin-ocr', 
+CURLOPT_RETURNTRANSFER => true, 
+CURLOPT_ENCODING => '', 
+CURLOPT_MAXREDIRS => 10, 
+CURLOPT_TIMEOUT => 0, 
+CURLOPT_FOLLOWLOCATION => true, 
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, 
+CURLOPT_CUSTOMREQUEST => 'POST', 
+CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('/home/user/Downloads/1 (1).jpg')), 
+CURLOPT_HTTPHEADER => array( 'x-AuthKey: {X-AUTHKEY}' ), )); 
+$response = curl_exec($curl); 
+curl_close($curl); echo $response;
+</code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="tab-content" id="ocr-python-content">
+                    <div > 
+                        <pre class="text-yellow-400">
+<code>import requests
+
+url = "https://api.vehicledatabases.com/vin-ocr"    
+payload={}
+files=[
+('file',('test.jpg',open('test.jpg','rb'),'image/jpeg'))
+]
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}    
+response = requests.request("POST", url, headers=headers, data=payload, files=files)    
+print(response.text)
+</code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+    </div>
+</div>
+</div>  
+     </div>
+</div>
+            <!-- Block only responsive for content -->
+            <div class="flex flex-col lg:flex-row gap-8 py-8 md:py-12 block md:hidden">                
+    <div class="max-w-full mx-auto">
+        <!-- Select/Dropdown -->
+        <select id="apiSelect" class="w-full p-3 rounded-lg bg-zinc-300 text-black border border-zinc-700 mb-4">
+            <option value="vehicle">Vehicle Market Value API</option>
+            <option value="vin">VIN Decoder API</option>
+            <option value="maintenance">Maintenance API</option>
+            <option value="license">License Plate API</option>
+            <option value="ocr">OCR API</option>
+        </select>
+
+        <!-- API Containers -->
+        <div id="vehicle" class="api-container">
+            <div class="rounded-lg overflow-hidden bg-zinc-900 shadow-xl border border-zinc-700 mb-4">
+                <div class="flex justify-end p-2 bg-zinc-800 border-b border-zinc-700">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                </div>
+                <div class="border-b border-zinc-700 bg-zinc-800">
+                    <div class="flex justify-center">
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700 active" data-tab="vehicle-node">Node</button>
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vehicle-react">React</button>
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vehicle-php">PHP</button>
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vehicle-python">Python</button>
+                    </div>
+                </div>    
+                <div class="p-4"> <!-- Vehicle Market Value mob -->
+                    <div id="vehicle-node" class="tab-contentsm active">
+                        <pre><code> var request = require('request');
+                          var options = {
+                          'method': 'GET',
+                          'url': 'https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}',
+                          'headers': {
+                          'x-AuthKey': '{X-AUTHKEY}'
+                          }
+                          };
+                           request(options, function (error, response) {
+                           if (error) throw new Error(error);
+                            console.log(response.body);
+                          }); 
+                                              </code></pre>
+                    </div>
+                    <div id="vehicle-react" class="tab-contentsm hidden">
+                      <pre> <code>var axios = require("axios");      
+var config = {
+method: "get",
+url: "https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}",
+headers: {
+"x-AuthKey": "{X-AUTHKEY}",
+},
+};                      
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});                     
+                                       
+                    </code></pre>
+                    </div>
+                    <div id="vehicle-php" class="tab-contentsm hidden">
+                      <pre><code>$curl = curl_init();      
+  curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1
+  CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_HTTPHEADER => array(
+  'x-AuthKey: {X-AUTHKEY}'
+  ),
+  ));
+                                              
+  $response = curl_exec($curl);                      
+  curl_close($curl);
+  echo $response;  
+                                            </code></pre>
+                    </div>
+                    <div id="vehicle-python" class="tab-contentsm hidden">
+                      <pre><code>import requests      
+url = "https://api.vehicledatabases.com/vehicle-maintenance/v2/{vin}"                              
+payload={}
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}      
+response = requests.request("GET", url, headers=headers, data=payload)      
+print(response.text)
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="vin" class="api-container hidden">
+            <!-- VIN Decoder API container (similar structure as vehicle) -->
+            <div class="rounded-lg overflow-hidden bg-zinc-900 shadow-xl border border-zinc-700 mb-4">
+                <!-- Traffic lights -->
+                <div class="flex justify-end p-2 bg-zinc-800 border-b border-zinc-700">
+                    <div class="flex gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                </div>
+                <!-- Tabs -->
+                <div class="border-b border-zinc-700 bg-zinc-800">
+                    <div class="flex justify-center">
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700 active" data-tab="vin-node">Node</button>
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-react">React</button>
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-php">PHP</button>
+                        <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-python">Python</button>
+                    </div>
+                </div>
+<!-- Vin Decoder API mob -->
+                <div class="p-4">
+                    <div id="vin-node" class="tab-contentsm active">
+                      <pre><code>var request = require('request');
+var options = {
+'method': 'GET',
+'url': 'https://api.vehicledatabases.com/vin-decode/{vin}',
+'headers': {
+  'x-AuthKey': '{X-AUTHKEY}'
     }
+    };
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+                      </code></pre>
+                    </div>
+                    <div id="vin-react" class="tab-contentsm hidden">
+                      <pre><code>
+var axios = require('axios');
+          
+var config = {
+method: 'get',
+url: 'https://api.vehicledatabases.com/vin-decode/{vin}',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}'
+}
+};          
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+                      </code></pre>
+                    </div>
+                    <div id="vin-php" class="tab-contentsm hidden">
+                      <pre><code> $curl = curl_init();          
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/vin-decode/{vin}',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {X-AUTHKEY}'
+  ),
+  ));
+                        
+  $response = curl_exec($curl);                        
+  curl_close($curl);
+echo $response; 
+                      </code></pre>
+                    </div>
+                    <div id="vin-python" class="tab-content hidden">
+                      <pre><code>import requests
+          
+url = "https://api.vehicledatabases.com/vin-decode/{vin}"                        
+payload={}
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}                        
+response = requests.request("GET", url, headers=headers, data=payload)                        
+print(response.text) 
+                      </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="maintenance" class="api-container hidden">
+          <!-- Maintenance API container (similar structure as vehicle) -->
+          <div class="rounded-lg overflow-hidden bg-zinc-900 shadow-xl border border-zinc-700 mb-4">
+              <!-- Traffic lights -->
+              <div class="flex justify-end p-2 bg-zinc-800 border-b border-zinc-700">
+                  <div class="flex gap-2">
+                      <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+              </div>
+              <!-- Tabs -->
+              <div class="border-b border-zinc-700 bg-zinc-800">
+                  <div class="flex justify-center">
+                      <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700 active" data-tab="vin-node">Node</button>
+                      <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-react">React</button>
+                      <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-php">PHP</button>
+                      <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-python">Python</button>
+                  </div>
+              </div>
+<!-- Maintenance API -->
+              <div class="p-4">
+                  <div id="vin-node" class="tab-contentsm active">
+                    <pre><code>
+                      var request = require('request');
+var options = {
+'method': 'GET',
+'url': 'https://api.vehicledatabases.com/vin-decode/{vin}',
+'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+  }
+  };
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+                    </code></pre>
+                  </div>
+                  <div id="vin-react" class="tab-contentsm hidden">
+                    <pre><code>
+var axios = require('axios');
+        
+var config = {
+method: 'get',
+url: 'https://api.vehicledatabases.com/vin-decode/{vin}',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}'
+}
+};          
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+                    </code></pre>
+                  </div>
+                  <div id="vin-php" class="tab-contentsm hidden">
+                    <pre><code> $curl = curl_init();          
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/vin-decode/{vin}',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {X-AUTHKEY}'
+),
+));
+                      
+$response = curl_exec($curl);                        
+curl_close($curl);
+echo $response; 
+                    </code></pre>
+                  </div>
+                  <div id="vin-python" class="tab-content hidden">
+                    <pre><code>import requests
+        
+url = "https://api.vehicledatabases.com/vin-decode/{vin}"                        
+payload={}
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}                        
+response = requests.request("GET", url, headers=headers, data=payload)                        
+print(response.text) 
+                    </code></pre>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div id="license" class="api-container hidden">
+        <!-- VIN Decoder API container (similar structure as vehicle) -->
+        <div class="rounded-lg overflow-hidden bg-zinc-900 shadow-xl border border-zinc-700 mb-4">
+            <!-- Traffic lights -->
+            <div class="flex justify-end p-2 bg-zinc-800 border-b border-zinc-700">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+            </div>
+            <!-- Tabs -->
+            <div class="border-b border-zinc-700 bg-zinc-800">
+                <div class="flex justify-center">
+                    <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700 active" data-tab="vin-node">Node</button>
+                    <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-react">React</button>
+                    <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-php">PHP</button>
+                    <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-python">Python</button>
+                </div>
+            </div>
+<!-- License API mob -->
+            <div class="p-4">
+                <div id="vin-node" class="tab-contentsm active">
+                  <pre><code>var request = require('request');
+var fs = require('fs');
+var options = {
+'method': 'POST',
+'url': 'https://api.vehicledatabases.com/licenseplate-ocr',
+'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+},
+formData: {
+'file': {
+'value': fs.createReadStream('test.jpg'),
+'options': {
+'filename': 'SC2.jpg',
+ 'contentType': ""
+ }
+}
+}
+};
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+                                        
+</code></pre>
+                </div>
+<div id="vin-react" class="tab-contentsm hidden">
+<pre><code>var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+data.append('file', fs.createReadStream('test.jpg'));
+                                          
+var config = {
+method: 'post',
+url: 'https://api.vehicledatabases.com/licenseplate-ocr',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}', 
+...data.getHeaders()
+},
+data : data
+};
+                                          
+axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+</code></pre>
+</div>
+<div id="vin-php" class="tab-contentsm hidden">
+<pre><code>$curl = curl_init();
+      
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://api.vehicledatabases.com/licenseplate-ocr',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'POST',
+CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('test.jpg')),
+CURLOPT_HTTPHEADER => array(
+'x-AuthKey: {X-AUTHKEY}'
+),
+));      
+$response = curl_exec($curl);      
+curl_close($curl);
+echo $response;
+</code></pre>
+</div>
+                <div id="vin-python" class="tab-content hidden">
+                  <pre><code>import requests      
+ url = "https://api.vehicledatabases.com/licenseplate-ocr"
+                                          
+ payload={}
+files=[
+('file',('SC2.jpg',open('test.jpg','rb'),'image/jpeg'))
+]
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}                      
+response = requests.request("POST", url, headers=headers, data=payload, files=files)                      
+print(response.text) 
+</code></pre>
+</div>
+</div>
+</div>
+    </div>
+    <div id="ocr" class="api-container hidden">
+      <!-- VIN Decoder API container (similar structure as vehicle) -->
+      <div class="rounded-lg overflow-hidden bg-zinc-900 shadow-xl border border-zinc-700 mb-4">
+          <!-- Traffic lights -->
+          <div class="flex justify-end p-2 bg-zinc-800 border-b border-zinc-700">
+              <div class="flex gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              </div>
+          </div>
+          <!-- Tabs -->
+          <div class="border-b border-zinc-700 bg-zinc-800">
+              <div class="flex justify-center">
+                  <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700 active" data-tab="vin-node">Node</button>
+                  <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-react">React</button>
+                  <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-php">PHP</button>
+                  <button class="tab-buttonsm px-4 py-2 text-white bg-zinc-800 hover:bg-zinc-700" data-tab="vin-python">Python</button>
+              </div>
+          </div>
+<!--OCR API mob -->
+          <div class="p-4">
+              <div id="vin-node" class="tab-contentsm active">
+                <pre><code>var request = require('request');
+var fs = require('fs');
+var options = {
+'method': 'POST',
+'url': 'https://api.vehicledatabases.com/vin-ocr',
+ 'headers': {
+'x-AuthKey': '{X-AUTHKEY}'
+},
+formData: {
+'file': {
+'value': fs.createReadStream('/home/user/Downloads/1 (1).jpg'),
+'options': {
+'filename': '1 (1).jpg',
+'contentType': ""
+}
+}
+}
+ };
+request(options, function (error, response) {
+if (error) throw new Error(error);
+console.log(response.body);
+});
+                  
+</code></pre>
+              </div>
+              <div id="vin-react" class="tab-contentsm hidden">
+                <pre><code>var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+ data.append('file', fs.createReadStream('/home/user/Downloads/1 (1).jpg'));
+                                  
+var config = {
+ method: 'post',
+url: 'https://api.vehicledatabases.com/vin-ocr',
+headers: { 
+'x-AuthKey': '{X-AUTHKEY}', 
+...data.getHeaders()
+},
+data : data
+};
+                                  
+ axios(config)
+.then(function (response) {
+console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+console.log(error);
+});
+                  
+                                </code></pre>
+              </div>
+              <div id="vin-php" class="tab-contentsm hidden">
+                <pre><code>$curl = curl_init(); 
+                  
+curl_setopt_array($curl, array( CURLOPT_URL => 'https://api.vehicledatabases.com/vin-ocr', 
+CURLOPT_RETURNTRANSFER => true, 
+CURLOPT_ENCODING => '', 
+CURLOPT_MAXREDIRS => 10, 
+CURLOPT_TIMEOUT => 0, 
+CURLOPT_FOLLOWLOCATION => true, 
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, 
+CURLOPT_CUSTOMREQUEST => 'POST', 
+CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('/home/user/Downloads/1 (1).jpg')), 
+CURLOPT_HTTPHEADER => array( 'x-AuthKey: {X-AUTHKEY}' ), )); 
+$response = curl_exec($curl); 
+curl_close($curl); echo $response;
+              </code></pre>
+            </div>
+            <div id="vin-python" class="tab-contentsm hidden">
+              <pre><code>import requests
+url = "https://api.vehicledatabases.com/vin-ocr"
+                                
+payload={}
+files=[
+('file',('test.jpg',open('test.jpg','rb'),'image/jpeg'))
+]
+headers = {
+'x-AuthKey': '{X-AUTHKEY}'
+}
+                                
+response = requests.request("POST", url, headers=headers, data=payload, files=files)
+print(response.text) 
+ </code></pre>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</div> <!--end responsive block for coding languages by API -->
+</div>
+<!-- CTA codes-->
+<div class="flex flex-col items-center md:flex-row justify-center gap-4 mb-8">
+            <a href="https://www.vehicledatabases.com/docs" target="_blank"><button class="bg-gradient-primary text-white px-8 py-3 rounded-md">View Documentation</button></a>
+            <a href="https://vehicledatabases.com/portal/signup" target="_blank"><button class="bg-normalbtn border border-[#171717] px-8 py-3 rounded-md ">Schedule a Demo</button></a>
+        </div>
+    <!-- End Main content -->
+    </section>
 
-    function updateSliderPosition() {
-        const slider = document.getElementById('testimonialSlider');
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
+    <!-- Testimonials -->
+     <!-- start testimonial section -->
+     <section class="py-0 md:pb-16 px-4 relative overflow-hidden">
+                <div class="max-w-5xl mx-auto z-index-10">
+                <!-- Yellow decorative images -->
+                        
+                <div class="max-w-7xl mx-auto pt-8">
+                    
+                    <h2 class="text-[40px] font-medium text-center mb-6">
+                        What Our Customers Say
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 pt-14">
+                        <div class="flex absolute top-1/2 left-1/2 transform -translate-x-1/2 transform translate-y-[-200px] w-full max-w-7xl h-40  justify-between items-center px-4">
+                        <img src="../vdb-redesigned/assets/yellow-ellipse.png" alt="" class=" ellip-left transform translate-x-[-200px]" />
+                        <img src="../vdb-redesigned/assets/yellow-ellipse.png" alt="" class=" ellip-right transform translate-x-[200px] " />
+                    </div>
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % testimonials.length;
-        updateSliderPosition();
-    }
+                        <!-- Review Card 1 -->
+                        <div class="bg-[#FDFDFDE5] rounded-lg p-4 space-y-8 relative custome-shadow-gray flex">
+                            <img src="../vdb-redesigned/assets/quotation-mark.svg" alt="" class="w-10 h-10 absolute -top-3 -left-3" />
+                            <div class="space-y-4 flex flex-col justify-between ">
+                                <h3 class="text-xl font-bold bl-col">Better experience... impossible</h3>
+                                <p class="bl-col text-base font-normal">These guys help you with everything and they put all the effort to create the best experience and satisfaction. We are very thankful with them.</p>
+                                <div class="flex space-x-4 pt-10 items-end">
+                                    <div class="flex flex-col justify-end  w-1/2">
+                                        <img src="../vdb-redesigned/assets/redline-avatar.png" alt="" class="w-10 h-10 rounded-full" />
+                                        <p class="text-xs font-bold text-white ">Redline Used Auto Parts</p>
+                                    </div>
+                                    <div class="flex grid justify-items-end  w-1/2">
+                                        <div class="flex">
+                                            <img src="" alt=""><span class="text-[#030303]">Spain</span>
+                                        </div>
+                                        <div class="text-sm text-black text-end"><b>Date of experience:</b> Jan 11, 2024</div>
+                                        <img src="../vdb-redesigned/assets/trustpilot-ratings.png" alt="" class="pt-2 float-right">
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+        
+                        <!-- Review Card 2 -->
+                        <div class="bg-[#FDFDFDE5] rounded-lg p-4 space-y-8 relative custome-shadow-gray flex">
+                            <img src="../vdb-redesigned/assets/quotation-mark.svg" alt="" class="w-10 h-10 absolute -top-3 -left-3" />
+                            <div class="space-y-4 flex flex-col justify-between ">
+                                <h3 class="text-xl font-bold bl-col">Easy to use, Excellent service</h3>
+                                <p class="bl-col text-base font-normal">Great service, their apis have allowed my business to quickly get up and running, with minimal development costs. Someone is also always at hand whether it be Whats app or over the phone to help with any issues. Would 100% recommend</p>
+                                <div class="flex iitems-end space-x-4">
+                                    <div class="flex flex-col justify-end  w-1/2">
+                                        <img src="../vdb-redesigned/assets/user-lionel-avatar.png" alt="" class="w-10 h-10 rounded-full">
+                                        <p class="text-xs font-bold text-white">Lionel Yarbol</p>
+                                    </div>
+                                    <div class="flex grid justify-items-end  w-1/2">
+                                        <div class="flex items-center">
+                                            <span class="text-[#030303]">Ghana</span>
+                                        </div>
+                                        <div class="text-sm text-black text-end"><b>Date of experience:</b> May 30, 2024</div>
+                                        <img src="../vdb-redesigned/assets/trustpilot-ratings.png" alt="" class="pt-2 float-right">
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+        
+                        <!-- Review Card 3 -->
+                        <div class="bg-[#FDFDFDE5] rounded-lg p-4 space-y-8 relative custome-shadow-gray flex">
+                            <img src="../vdb-redesigned/assets/quotation-mark.svg" alt="" class="w-10 h-10 absolute -top-3 -left-3" />
+                            <div class="space-y-4 flex flex-col justify-between">
+                                <h3 class="text-xl font-bold bl-col">The support is top-notch</h3>
+                                <p class="bl-col text-base font-normal">The support is top-notch. I don't think I have ever worked with a company that has ever reached out to me repeatedly to just check on me and my progress. I can't say enough good things about them. Also, the product is awesome.</p>
+                                <div class="flex items-end space-x-4">
+                                    <div class="flex flex-col justify-end w-1/2">
+                                        <img src="../vdb-redesigned/assets/gearshift-logo.png" alt="Gearshift Solutions" class="w-12 h-12 rounded-full" />
+                                        <p class="text-xs font-bold text-white">Gearshift Solutions</p>
+                                    </div>
+                                    <div class="flex grid justify-items-end w-1/2">
+                                        <div class="flex items-center">
+                                            <span class="text-[#030303]">United States</span>
+                                        </div>
+                                        <div class="text-sm text-black text-end"><b>Date of experience:</b> Jul 26, 2024</div>
+                                        <img src="../vdb-redesigned/assets/trustpilot-ratings.png" alt="" class="pt-2 float-right">
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 px-4">
+                        <a  href="https://trustpilot.com/review/vehicledatabases.com" target="_blank" class="transtion group flex h-10 w-80 items-center justify-center rounded-full text-white duration-300 hover:bg-gradient-to-r hover:shadow-md hover:shadow-orange-600/30">
+                        <div class="flex h-full w-full items-center justify-center bg-gradient-primary text-white px-8 py-3 rounded-md group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-purple-700 group-hover:transition  group-hover:shadow-orange-600 group-hover:border border-orange-400 group-hover:shadow-[0_0_25px_rgba(245,145,32,1)] group-hover:duration-300 group-hover:ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">Read more reviews on trustpilot</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </section> <!-- end testimonial section -->
+            <!-- FAQ section start -->
+            <section class="py-14 md:py-16 px-4 relative overflow-hidden">
+                
+                <div class="max-w-3xl w-full mx-auto p-0 md:p-4 space-y-4">
+                    <h2 class="text-[40px] font-medium text-center mb-6" >Frequently Asked Questions</h2>
+                    <div class="space-y-4" id="faq-accordion">
+                        <div class="border-b border-black bg-transparent">
+                            <a class="flex justify-between cursor-pointer items-center w-full p-4 text-left hover:bg-white-200 transition-colors">
+                                <span class="text-base font-bold bl-col">What is Vehicle Databases?</span>
+                                <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                            <div class="accordion-content">
+                                <div class="p-4 ">
+                                    <p class="bl-col text-sm md: text-base">Vehicle Databases provides accurate vehicle data and VIN decoding APIs. Our API database helps businesses access essential vehicle information, streamline development, and enhance their products. With a vehicle API, they can retrieve vehicle data on all car types, motorcycles, trucks, trailers, and more vehicles sold in the United States, to improve their business services and increase customer satisfaction.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-black bg-transparent">
+                            <a class="flex justify-between items-center cursor-pointer w-full p-4 text-left hover:bg-white-200 transition-colors">
+                                <span class="text-base font-bold bl-col">How to use car API?</span>
+                                <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                            <div class="accordion-content">
+                                <div class="p-4 ">
+                                    <p class="bl-col text-sm md: text-base">To get started with the our car data APIs, all you need to do is:
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-        updateSliderPosition();
-    }
+                                        <ul class="bl-col text-sm md: text-base list-disc">
+                                            <li>Visit our free trial page</li>
+                                            <li>Fill out the form with the required details</li>
+                                            <li>Select the APIs that best suit your business model</li>
+                                            <li>Submit the form</li>
+                                        </ul>
+                                        <span class="bl-col text-sm md: text-base">You will immediately receive 15 free credits and your API key to access information on different vehicles, vehicle manufacturers, and automakers.</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-black bg-transparent">
+                            <a class="flex justify-between cursor-pointer items-center w-full p-4 text-left hover:bg-white-200 transition-colors">
+                                <span class="text-base font-bold bl-col">How can Vehicle Databases benefit my company?</span>
+                                <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                            <div class="accordion-content">
+                                <div class="p-4 ">
+                                    <p class="bl-col text-sm md: text-base">By using our robust vehicle data APIs, you can create innovative applications for both companies and consumers. Our APIs integrate seamlessly into various systems, software, websites, and tools. You can also easily access free car APIs with our free trial available for everyone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b border-black bg-transparent">
+                            <a class="flex justify-between cursor-pointer items-center w-full p-4 text-left hover:bg-white-200 transition-colors">
+                                <span class="text-base font-bold bl-col">Why choose Vehicle Databases?</span>
+                                <svg class="w-5 h-5 transition-transform duration-200" fill="none" stroke="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                            <div class="accordion-content">
+                                <div class="p-4 ">
+                                    <p class="bl-col text-sm md: text-base">
+                                    <ul class="bl-col text-sm md: text-base list-disc">
+                                        <li> Our REST and JSON APIs are robust, consistent, and trusted by many automotive data providers.</li>
+                                        <li> Our car API platform provides smooth integration and comprehensive documentation. </li>
+                                        <li> Whether you need VIN decoding, market values, or other vehicle data points, our API database has got you covered! Simply make API calls today to retrieve data for any car make and model in seconds. </li>   
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> <!-- FAQ section end -->
+    
 
-    document.getElementById('nextBtn').addEventListener('click', nextSlide);
-    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    <!-- Final CTA -->
+    <section class="py-0 md:py-16 px-4 pb-8 relative overflow-hidden">
+                <div class="bg-pattern max-w-5xl mx-auto py-8 md:py-12 bg-gradient-primary-box rounded-lg px-4 md:px-12 ">
+    
+                
+                <!-- Content Container -->
+                <div class="max-w-3xl mx-auto text-center space-y-6 relative z-10">
+                    <!-- Heading -->
+                    <h3 class="text-[40px] text-[#FDFDFD] font-semibold text-center mb-8">
+                        Ready to Get Started?
+                    </h3>
+                    
+                    <!-- Description -->
+                    <p class="text-[#FDFDFD] md:text-lg text-sm max-w-2xl mx-auto px-4 font-medium md:font-bold">
+                        Sign up today for free access to 15 credits—no credit card required! Test our APIs and explore the possibilities with ease.
+                    </p>
+                    
+                    <!-- as Container -->
+                    <div class="flex flex-wrap gap-4 justify-center">
+                <a  href="https://vehicledatabases.com/portal/signup" target="_blank" class="">
+                   
+                    <button class="bg-[#F59120] text-white px-8 py-3 rounded-md hover:bg-orange-600 ">Start for Free</button>                 
+                </a>
+                <a href="https://vehicledatabases.com/schedule-a-demo" target="_blank" class="">
+                    <button class="border border-[#fdfdfd] px-8 py-3 rounded-md text-white hover:bg-white hover:text-black">Schedule a Demo</button>
+                </a>
+            </div>
+    </div> <!-- del componente -->
+            </section>
 
-    renderTestimonials();
-
-    // Responsive behavior
-    function handleResize() {
-        const slider = document.getElementById('testimonialSlider');
-        const containerWidth = slider.offsetWidth;
-        testimonials.forEach((_, index) => {
-            const testimonialElement = slider.children[index];
-            testimonialElement.style.width = `${containerWidth}px`;
-        });
-        updateSliderPosition();
-    }
-
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial call
-
-      // Add smooth transition for opening/closing
-      document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', e => {
-                if (e.target.tagName === 'SUMMARY') {
-                    e.preventDefault();
-                    const details = e.target.parentElement;
-                    if (details.hasAttribute('open')) {
-                        details.removeAttribute('open');
-                    } else {
-                        details.setAttribute('open', '');
-                    }
-                }
-            });
-        });
-</script>
+    <!-- Footer -->
+      <!--start footer-->
+    
+   
+    <script src="scripts-copy.js"></script>
+</body>
 </html>
