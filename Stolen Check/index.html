@@ -50,8 +50,12 @@
                     </div>
                 </div>
 
-                <!-- Stolen Check Section -->
-                <div class="bg-red-50 rounded-lg overflow-hidden shadow-md">
+                <div class="bg-red-50 rounded-lg overflow-hidden shadow-md relative transition-all duration-500 ease-in-out" id="stolenCheckSection">
+                    <!-- Loading Animation -->
+                    <div class="absolute inset-0 bg-white/80 flex flex-col items-center justify-center z-10 transition-opacity duration-500 ease-in-out" id="loadingAnimation">
+                        <div class="w-12 h-12 border-4 border-red-600 border-t-transparent rounded-full animate-spin mb-2"></div>
+                        <p class="text-red-600 font-medium">Checking...</p>
+                    </div>
                     <div class="bg-red-600 p-4">
                         <h2 class="text-xl font-semibold text-white flex items-center gap-2">
                             <i data-lucide="shield" class="h-6 w-6"></i>
@@ -73,6 +77,59 @@
                         </div>
                     </div>
                 </div>
+                
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                    
+                    .animate-spin {
+                        animation: spin 1s linear infinite;
+                    }
+                    
+                    /* Loading animation fade out class */
+                    .loading-hidden {
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                    
+                    /* Section shrink animation class */
+                    .section-hidden {
+                        max-height: 0 !important;
+                        opacity: 0;
+                        margin: 0;
+                        padding: 0;
+                        overflow: hidden;
+                    }
+                    
+                    /* Set initial max-height for animation to work */
+                    #stolenCheckSection {
+                        max-height: 1000px; /* Adjust based on your content's maximum possible height */
+                    }
+                </style>
+                
+                <script>
+                    // To hide the loading animation smoothly:
+                    function hideLoading() {
+                        document.getElementById('loadingAnimation').classList.add('loading-hidden');
+                    }
+                    
+                    // To show the loading animation again:
+                    function showLoading() {
+                        document.getElementById('loadingAnimation').classList.remove('loading-hidden');
+                    }
+                    
+                    // To smoothly hide the entire section:
+                    function hideSection() {
+                        document.getElementById('stolenCheckSection').classList.add('section-hidden');
+                    }
+                    
+                    // To show the section again:
+                    function showSection() {
+                        document.getElementById('stolenCheckSection').classList.remove('section-hidden');
+                    }
+                </script>
 
                 <!-- Sales Listing Preview -->
                 <div class="bg-blue-50 rounded-lg shadow-md">
