@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="container">
+            <header>
+                <a href="#" class="back-button"><span class="arrow-left"></span> Back</a>
+                <h1>Checkout</h1>
+                <p class="checkout-description">Double-check everything. Review your order summary to confirm your choices and ensure accuracy. Your satisfaction is our success.</p>
+            </header>
+    
+            <div class="checkout-content">
+                <div class="payment-section">
+                    <div class="payment-box">
+                        <div class="payment-header">
+                            <h2>Payment Details</h2>
+                            <label class="toggle-container">
+                                <span>Use saved card</span>
+                                <div class="toggle">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" value="walt@enterprise.com" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 1234 5678" oninput="this.nextElementSibling.style.opacity = this.value.trim() ? '0' : '1';">
+                            <div class="card-icons">
+                                <img src="images/cards.svg" alt="Visa" class="card-icon visa">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group half">
+                                <label for="cvc">CVC</label>
+                                <input type="text" id="cvc" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-box">
+                        <div class="promo-code">
+                            <label for="coupon">Have a Promo Code?</label>
+                            <div class="promo-input">
+                                <input id="coupon" type="text" placeholder="Enter code">
+                                <button class="apply-btn">Apply</button>
+                            </div>
+                        </div>
+                        
+                        <div class="upgrade-plan-box">
+                            <div class="upgrade-text">
+                                <h3>Upgrade your plan.</h3>
+                                <p>Save more, get more!</p>
+                            </div>
+                            <button class="upgrade-btn">Upgrade to Yearly Plan</button>
+                        </div>
+                        
+                        <button class="pay-now-btn">Pay now</button>
+                        
+                        <p class="terms-text">
+                            By clicking "Pay" you confirm that you have read and agree to our <a href="#">Terms & conditions</a> and <a href="#">privacy policy</a>.
+                        </p>
+                    </div>
+                    <div class="payment-box">
+                        <div class="trust-badges">
+                            <div class="badge">
+                                <div class="badge-icon secure"></div>
+                                <div class="badge-text">
+                                    <strong>100% secure guarantee.</strong>
+                                    <span>Your data is always protected.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="badge">
+                                <div class="badge-icon support"></div>
+                                <div class="badge-text">
+                                    <strong>24/7 customer support & live chat.</strong>
+                                    <span>Here to help anytime.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="badge">
+                                <div class="badge-icon rated"></div>
+                                <div class="badge-text">
+                                    <strong>Top-rated service.</strong>
+                                    <span>Trusted by thousands of customers.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="summary-section">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="summary-item">
+                        <span>Enterprise Package:</span>
+                        <span class="price">$2,500.00/month</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Total Credits:</span>
+                        <span class="highlight">50,000</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Pre Credit Price:</span>
+                        <span class="highlight">$0.05</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>API Call Limit:</span>
+                        <span class="highlight">5 API call/second</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Overage Fee:</span>
+                        <span class="highlight">$0.05 per API call</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span>Selected API Services:</span>
+                        <div>
+                            <span class="highlight">All services</span>
+                            <a href="#" class="view-link">View</a>
+                        </div>
+                    </div>
+                    
+                    <div class="total-amount">
+                        <div>
+                            <span>Total amount</span>
+                            <span class="billing-cycle">Billed monthly</span>
+                        </div>
+                        <span class="total-price">$2,500.00</span>
+                    </div>
+                    
+                    <div class="yearly-offer">
+                        <div class="best-value">BEST VALUE</div>
+                        <h3>Upgrade to yearly subscription</h3>
+                        <div class="yearly-price">
+                            <span class="price">$24,000.00</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <div class="savings">
+                            <span class="original">$30,000/year</span>
+                            <span class="save-percent">Save 20%</span>
+                            <span class="save-amount">Save $6,000 vs monthly plan</span>
+                        </div>
+                        
+                        <button class="upgrade-yearly-btn">Upgrade to Enterprise Yearly Subscription</button>
+                        
+                        <ul class="benefits">
+                            <li>Includes choice of All APIs!</li>
+                            <li>600,000 credits included!</li>
+                            <li>Lower per-credit price ($0.04)</li>
+                            <li>Priority support!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
