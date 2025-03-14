@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
         <div class="container">
             <header>
                 <a href="#" class="back-button"><span class="arrow-left"></span> Back</a>
-                <h1>Checkout</h1>
-                <p class="checkout-description">Double-check everything. Review your order summary to confirm your choices and ensure accuracy. Your satisfaction is our success.</p>
             </header>
     
             <div class="checkout-content">
                 <div class="payment-section">
+                    <div class="header">
+                        <h1>Checkout</h1>
+                        <p class="checkout-description">Double-check everything. Review your order summary to confirm your choices and ensure accuracy. Your satisfaction is our success.</p>
+                    </div>
                     <div class="payment-box">
                         <div class="payment-header">
                             <h2>Payment Details</h2>
@@ -109,11 +112,14 @@
                 </div>
                 
                 <div class="summary-section">
-                    <h2>Order Summary</h2>
+                    <p class="summary-heading">Order Summary</p>
                     
                     <div class="summary-item">
                         <span>Enterprise Package:</span>
-                        <span class="price">$2,500.00/month</span>
+                        <span class="price">
+                            <span class="value">$2,500.00</span>
+                            <span class="periode">/month</span>
+                        </span>
                     </div>
                     
                     <div class="summary-item">
@@ -146,15 +152,17 @@
                     
                     <div class="total-amount">
                         <div>
-                            <span>Total amount</span>
+                            <span class="heading">Total amount</span>
                             <span class="billing-cycle">Billed monthly</span>
                         </div>
                         <span class="total-price">$2,500.00</span>
                     </div>
                     
                     <div class="yearly-offer">
-                        <div class="best-value">BEST VALUE</div>
-                        <h3>Upgrade to yearly subscription</h3>
+                        <div class="yearly-header">
+                            <h3>Upgrade to yearly subscription</h3>
+                            <div class="best-value">BEST VALUE</div>
+                        </div>
                         <div class="yearly-price">
                             <span class="price">$24,000.00</span>
                             <span class="period">/year</span>
@@ -162,7 +170,10 @@
                         <div class="savings">
                             <span class="original">$30,000/year</span>
                             <span class="save-percent">Save 20%</span>
-                            <span class="save-amount">Save $6,000 vs monthly plan</span>
+                            <span class="save-amount">
+                                <span class="price">Save $6,000</span>
+                                <span class="period"> vs monthly plan</span>
+                        </span>
                         </div>
                         
                         <button class="upgrade-yearly-btn">Upgrade to Enterprise Yearly Subscription</button>

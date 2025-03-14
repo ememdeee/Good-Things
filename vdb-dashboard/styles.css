@@ -1,5 +1,8 @@
 :root {
+    --primary: #F56A1A;
+    --primaryDarker: #fa6108;
     --dark: #25282B;
+    --darkLighter: #3a3c3f;
     --gray: #CCCCCC;
 }
 
@@ -7,9 +10,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; */
+    font-family: 'Public Sans', sans-serif;
+    transition: 0.2s;
 }
-  
 
 body {
     background-color: #F5F7FB;
@@ -32,7 +36,10 @@ body {
 
 a {
     text-decoration: none;
-    color: #333;
+    color: var(--dark);
+}
+a:hover {
+    color: var(--darkLighter);
 }
 
 /* Header */
@@ -45,7 +52,6 @@ header {
     align-items: center;
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 15px;
 }
 
 .arrow-left {
@@ -67,7 +73,6 @@ h1 {
 .checkout-description {
     font-size: 14px;
     max-width: 600px;
-    margin-bottom: 20px;
 }
 
 /* Layout */
@@ -77,10 +82,14 @@ h1 {
 }
 
 .payment-section {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 50%;
+}
+
+.payment-section .header{
+    display: block;
 }
 
 .payment-box{
@@ -100,11 +109,15 @@ h1 {
 }
 
 .summary-section {
-    width: 350px;
+    width: 50%;
     background-color: white;
     border-radius: 10px;
-    padding: 25px;
+    padding: 16px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--gray);
+    height: fit-content;
+    position: sticky;
+    top: 16px;
 }
 
 h2 {
@@ -159,7 +172,7 @@ h2 {
 }
 
 input:checked + .slider {
-    background-color: #ff6b35;
+    background-color: var(--primary);
 }
 
 input:checked + .slider:before {
@@ -168,11 +181,11 @@ input:checked + .slider:before {
 
 /* Form Elements */
 .form-group {
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     position: relative;
 }
 
-.payment-box label {
+.payment-box label:not(.toggle-container) {
     margin-left: 16px;
     margin-bottom: -7px;
     line-height: 1;
@@ -208,13 +221,13 @@ input[type="email"] {
 input[type="text"]:focus,
 input[type="email"]:focus {
     outline: none;
-    border-color: #ff6b35;
+    border-color: var(--primary);
 }
 
 .card-icons {
     position: absolute;
     right: 10px;
-    top: 26px;
+    top: 21.5px;
     pointer-events: none;
     opacity: 1;
     transition: 0.2s;
@@ -251,13 +264,16 @@ input[type="email"]:focus {
 }
 
 .apply-btn {
-    background-color: #222;
+    background-color: var(--dark);
     color: white;
     border: none;
     border-radius: 0 5px 5px 0;
     padding: 0 20px;
     cursor: pointer;
     font-weight: 500;
+}
+.apply-btn:hover{
+    background-color: var(--darkLighter);
 }
 
 /* Upgrade Plan Box */
@@ -271,17 +287,20 @@ input[type="email"]:focus {
 
 .upgrade-text h3 {
     font-size: 16px;
-    margin-bottom: 5px;
 }
 
 .upgrade-btn {
     background-color: white;
-    border: 1px solid #333;
+    border: 1px solid var(--dark);
     border-radius: 5px;
     padding: 10px 15px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
+}
+.upgrade-btn:hover{
+    background-color: var(--darkLighter);
+    color: white;
 }
 
 /* Pay Now Button */
@@ -297,6 +316,9 @@ input[type="email"]:focus {
     cursor: pointer;
     margin-bottom: 15px;
 }
+.pay-now-btn:hover{
+    background-color: var(--darkLighter);
+}
 
 /* Terms Text */
 .terms-text {
@@ -306,7 +328,6 @@ input[type="email"]:focus {
 }
 
 .terms-text a {
-    color: var(--dark);
     text-decoration: underline;
 }
 
@@ -326,12 +347,11 @@ input[type="email"]:focus {
 .badge-icon {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     background-color: #fff2e9;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ff6b35;
+    color: var(--primary);
     font-size: 16px;
 }
 
@@ -350,16 +370,20 @@ input[type="email"]:focus {
 }
 
 /* Order Summary */
+.summary-heading{
+    font-weight: 700;
+    margin-bottom: 8px;
+}
 .summary-item {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
-    font-size: 14px;
+    margin-bottom: 8px;
+    font-size: 16px;
 }
 
 .highlight {
-    color: #ff6b35;
-    font-weight: 500;
+    color: var(--primary);
+    font-weight: 700;
 }
 
 .view-link {
@@ -377,55 +401,71 @@ input[type="email"]:focus {
     padding-top: 15px;
     border-top: 1px solid #eee;
 }
+.total-amount .heading{
+    font-weight: 700;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 3px;
+}
 
 .billing-cycle {
     display: block;
-    font-size: 12px;
     color: #666;
 }
 
 .total-price {
-    font-size: 24px;
-    font-weight: 600;
-    color: #ff6b35;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary);
 }
 
 /* Yearly Offer */
 .yearly-offer {
-    background-color: #fff9f5;
-    border: 1px solid #ffead9;
+    background: linear-gradient(to bottom, #FFE4D4, #FFFFFF);
+    border: 1px solid #F56A1A;
     border-radius: 10px;
-    padding: 20px;
+    padding: 16px;
     position: relative;
     margin-top: 20px;
+    box-shadow: 0px 0px 8px 0px #0000003D;
+}
+
+.yearly-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    justify-content: space-between;
 }
 
 .best-value {
-    position: absolute;
-    top: -10px;
-    right: 15px;
-    background-color: #ffd9c7;
-    color: #ff6b35;
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 10px;
+    background-color: #991FF8;
+    color: #F3E3F4;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 11px;
     border-radius: 20px;
 }
 
 .yearly-offer h3 {
     font-size: 16px;
-    margin-bottom: 10px;
 }
 
 .yearly-price {
     display: flex;
-    align-items: baseline;
-    margin-bottom: 5px;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
-.price {
-    font-size: 20px;
-    font-weight: 600;
+.yearly-price .price {
+    font-size: 24px;
+    font-weight: 700;
+}
+.price .value{
+    color: var(--primary);
+    font-weight: 700;
+}
+.price .periode{
+    font-weight: 500;
 }
 
 .period {
@@ -439,17 +479,19 @@ input[type="email"]:focus {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 15px;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .original {
     text-decoration: line-through;
-    color: #666;
+    color: #E30101;
 }
 
 .save-percent {
-    background-color: #e6f7e6;
-    color: #2e8b57;
+    font-size: 14px;
+    background-color: #16A34A;
+    color: #FAFAFA;
     padding: 2px 8px;
     border-radius: 20px;
     font-weight: 500;
@@ -459,21 +501,31 @@ input[type="email"]:focus {
     color: #666;
 }
 
+.save-amount .price {
+    color: var(--dark);
+}
+
 .upgrade-yearly-btn {
     width: 100%;
-    background-color: #ff6b35;
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 12px;
+    padding: 16px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     margin-bottom: 15px;
 }
 
+.upgrade-yearly-btn:hover{
+    background-color: var(--primaryDarker);
+}
+
 .benefits {
     list-style: none;
+    padding-top: 15px;
+    border-top: 1px solid var(--gray);
 }
 
 .benefits li {
@@ -493,6 +545,15 @@ input[type="email"]:focus {
 
 /* Responsive */
 @media (max-width: 900px) {
+    .container{
+        padding: 12px;
+    }
+    .sidebar{
+        padding: 0;
+    }
+    .payment-section, .summary-section{
+        width: 100%;
+    }
     .checkout-content {
         flex-direction: column;
     }
@@ -503,6 +564,12 @@ input[type="email"]:focus {
 }
 
 @media (max-width: 600px) {
+    .card-icons{
+        top: 23px;
+    }
+    .card-icon{
+        width: 98px;
+    }
     .form-row {
         flex-direction: column;
         gap: 0;
@@ -516,14 +583,14 @@ input[type="email"]:focus {
     
     .trust-badges {
         gap: 20px;
+        flex-direction: column;
     }
     
     .badge {
-        flex-direction: column;
-        text-align: center;
+        text-align: left;
     }
     
     .badge-text {
-        text-align: center;
+        text-align: left;
     }
 }
