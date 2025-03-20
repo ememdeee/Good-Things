@@ -15,15 +15,19 @@ position: relative;
 z-index: 10;
 }
 
-.tab-pane.inactive {
-opacity: 0;
-transform: translateY(4px);
-pointer-events: none;
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-z-index: 5;
+/* .tab-pane.inactive {
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+} */
+
+.tab-pane.inactive > div {
+  display: none;
 }
 
 /* Testimonial transition styles */

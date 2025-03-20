@@ -50,81 +50,84 @@
 
             <!-- Tabs -->
             <div class="mb-8">
-                <div class="flex -mb-px w-fit border bg-gray-200 border-gray-200 rounded-lg overflow-hidden flex-wrap">
-                    <button class="tab-btn py-3 px-5 text-sm font-medium min-w-[120px] max-w-[120px] flex-1 relative text-primary rounded-lg bg-white" data-tab="subscription">Subscription</button>
-                    <button class="tab-btn py-3 px-5 text-sm min-w-[120px] flex-1 font-medium relative text-gray-600 bg-gray-200 rounded-none" data-tab="pay-as-you-go">Pay as you go</button>
-                    <button class="tab-btn py-3 px-5 text-sm min-w-[138px] font-medium flex-1 relative text-gray-600 bg-gray-200 rounded-none" data-tab="testing-credits">Testing credits</button>
+                <div class="flex -mb-px w-fit border bg-gray-200 border-gray-200 rounded-lg overflow-hidden">
+                    <button class="tab-btn py-3 px-2 sm:px-5 text-xs sm:text-sm font-medium relative text-primary rounded-lg bg-white" data-tab="subscription">Subscription</button>
+                    <button class="tab-btn py-3 px-2 sm:px-5 text-xs sm:text-sm font-medium relative text-gray-600 bg-gray-200 rounded-none" data-tab="pay-as-you-go">Pay as you go</button>
+                    <button class="tab-btn py-3 px-2 sm:px-5 text-xs sm:text-sm font-medium relative text-gray-600 bg-gray-200 rounded-none" data-tab="testing-credits">Testing credits</button>
                 </div>
             </div>
 
             <!-- Tab Content -->
             <div class="tab-content">
+                <div class="toogle-slider">
+                  <!-- Billing Toggle -->
+                  <div class="flex items-center mb-8 gap-2 flex-wrap">
+                      <span class="billing-option md:text-lg font-medium text-gray-800">Monthly</span>
+                      <label class="relative inline-block w-12 h-6">
+                          <input type="checkbox" id="billing-toggle" class="opacity-0 w-0 h-0">
+                          <span class="absolute cursor-pointer inset-0 bg-gray-300 rounded-full transition-all duration-300 
+                              before:content-[''] before:absolute before:h-5 before:w-5 before:left-0.5 before:bottom-0.5 
+                              before:bg-white before:rounded-full before:transition-all before:duration-300 before:translate-x-0"></span>
+                      </label>
+                      <span class="billing-option md:text-lg font-medium text-gray-500">Yearly</span>
+                      <span class="text-xs font-medium bg-green-600 text-white px-2 py-1 rounded-full">Save up to 50%</span>
+                  </div>
+    
+                  <!-- Slider Section -->
+                  <div class="bg-gradient-to-b from-[#FFE4D4] to-white border border-gray rounded-lg px-4 md:px-6 py-6 text-center">
+                    <h2 class="text-lg font-bold flex items-center justify-center mb-4">
+                        How many API calls do you need? 
+                        <div class="relative ml-2 group">
+                          <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs text-gray-600 cursor-help">?</span>
+                          
+                          <!-- Single responsive tooltip -->
+                          <div class="absolute bottom-full right-0 md:left-1/2 md:right-auto transform md:-translate-x-1/2 mb-2 w-48 md:w-64 p-3 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                            <!-- Arrow position changes based on screen size -->
+                            <div class="absolute bottom-0 right-2 md:right-auto md:left-1/2 transform translate-y-1/2 md:-translate-x-1/2 rotate-45 w-3 h-3 bg-white"></div>
+                            
+                            <p class="text-sm text-gray-700">Scroll the slider, let us recommend the right package for you!</p>
+                          </div>
+                        </div>
+                    </h2>
+                    <div class="mt-2 md:mt-0 text-base font-medium mb-4">
+                        I need <span class="text-primary font-bold text-2xl"><span id="api-calls-value">50K</span> API calls</span>
+                    </div>
+                      
+                    <div class="relative mb-3 h-6 touch-none">
+                        <!-- Slider Track Background -->
+                        <div class="absolute top-1/2 left-0 right-0 h-3 bg-gray-200 rounded-full transform -translate-y-1/2"></div>
+                        
+                        <!-- Slider Active Track -->
+                        <div id="slider-active-track" class="absolute top-1/2 left-0 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full transform -translate-y-1/2" style="width: 66.6667%;"></div>
+                        
+                        <!-- Slider Input -->
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="6" 
+                            value="3" 
+                            class="slider-thumb w-full appearance-none bg-transparent cursor-pointer z-10 absolute left-0 h-6 touch-none" 
+                            id="api-calls-slider"
+                        >
+                    </div>
+    
+                    <!-- Slider Markers -->
+                    <div class="flex justify-between text-xs text-gray-500 px-1 w-[calc(100%-20px)]">
+                      <span class="w-0">1K</span>
+                      <span class="w-0">5K</span>
+                      <span class="w-0">10K</span>
+                      <span class="w-0">50K</span>
+                      <span class="w-0">100K</span>
+                      <span class="w-0">1M+</span>
+                      <span class="w-0">5M+</span>
+                    </div>
+                  </div>
+                </div>
                 <!-- Subscription Tab -->
                 <div class="tab-pane active" id="subscription">
-                    <!-- Billing Toggle -->
-                    <div class="flex items-center mb-8 gap-2 flex-wrap">
-                        <span class="billing-option md:text-lg font-medium text-gray-800">Monthly</span>
-                        <label class="relative inline-block w-12 h-6">
-                            <input type="checkbox" id="billing-toggle" class="opacity-0 w-0 h-0">
-                            <span class="absolute cursor-pointer inset-0 bg-gray-300 rounded-full transition-all duration-300 
-                                before:content-[''] before:absolute before:h-5 before:w-5 before:left-0.5 before:bottom-0.5 
-                                before:bg-white before:rounded-full before:transition-all before:duration-300 before:translate-x-0"></span>
-                        </label>
-                        <span class="billing-option md:text-lg font-medium text-gray-500">Yearly</span>
-                        <span class="text-xs font-medium bg-green-600 text-white px-2 py-1 rounded-full">Save up to 50%</span>
-                    </div>
-
-                    <!-- Slider Section -->
-                    <div class="bg-gradient-to-b from-[#FFE4D4] to-white border border-gray rounded-lg px-4 md:px-6 py-6 text-center">
-                        <h2 class="text-lg font-bold flex items-center justify-center mb-4">
-                            How many API calls do you need? 
-                            <div class="relative ml-2 group">
-                              <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs text-gray-600 cursor-help">?</span>
-                              
-                              <!-- Single responsive tooltip -->
-                              <div class="absolute bottom-full right-0 md:left-1/2 md:right-auto transform md:-translate-x-1/2 mb-2 w-48 md:w-64 p-3 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
-                                <!-- Arrow position changes based on screen size -->
-                                <div class="absolute bottom-0 right-2 md:right-auto md:left-1/2 transform translate-y-1/2 md:-translate-x-1/2 rotate-45 w-3 h-3 bg-white"></div>
-                                
-                                <p class="text-sm text-gray-700">Scroll the slider, let us recommend the right package for you!</p>
-                              </div>
-                            </div>
-                        </h2>
-                        <div class="mt-2 md:mt-0 text-base font-medium mb-4">
-                            I need <span class="text-primary font-bold text-2xl"><span id="api-calls-value">50K</span> API calls</span>
-                        </div>
-                        
-                        <div class="relative mb-3 h-6 touch-none">
-                            <!-- Slider Track Background -->
-                            <div class="absolute top-1/2 left-0 right-0 h-3 bg-gray-200 rounded-full transform -translate-y-1/2"></div>
-                            
-                            <!-- Slider Active Track -->
-                            <div id="slider-active-track" class="absolute top-1/2 left-0 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full transform -translate-y-1/2" style="width: 66.6667%;"></div>
-                            
-                            <!-- Slider Input -->
-                            <input 
-                                type="range" 
-                                min="0" 
-                                max="6" 
-                                value="3" 
-                                class="slider-thumb w-full appearance-none bg-transparent cursor-pointer z-10 absolute left-0 h-6 touch-none" 
-                                id="api-calls-slider"
-                            >
-                        </div>
-                        <!-- Slider Markers -->
-                        <div class="flex justify-between text-xs text-gray-500 px-1 w-[calc(100%-20px)]">
-                          <span class="w-0">1K</span>
-                          <span class="w-0">5K</span>
-                          <span class="w-0">10K</span>
-                          <span class="w-0">50K</span>
-                          <span class="w-0">100K</span>
-                          <span class="w-0">1M+</span>
-                          <span class="w-0">5M+</span>
-                        </div>
-                    </div>
 
                     <!-- Pricing Cards -->
-                    <div id="pricing-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+                    <div id="pricing-cards-subscribtion" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
                         <!-- Cards will be dynamically generated here -->
                     </div>
 
@@ -235,7 +238,11 @@
                 </div>
 
                 <!-- Pay As You Go Tab -->
-                <div class="tab-pane hidden" id="pay-as-you-go">
+                <div class="tab-pane" id="pay-as-you-go">
+                    <!-- Pricing Cards -->
+                    <div id="pricing-cards-payAsYouGo" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+                        <!-- Cards will be dynamically generated here -->
+                    </div>
                     <section class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
                         <div class="mb-4">
                           <h2 class="text-lg font-semibold text-gray-800">Feature Comparison - Pay As You Go Plans</h2>
@@ -318,68 +325,65 @@
                           </table>
                         </div>
                     </section>
-                    
                 </div>
 
                 <!-- Testing Credits Tab -->
-                <div class="tab-pane hidden" id="testing-credits">
-                    <section class="">
-                        <div class="mb-6">
-                            <h2 class="text-2xl font-bold text-gray-800 mb-2">Get testing credits from our testing Adds-on plans!</h2>
-                            <p class="text-gray-700 mb-2">Still testing the APIs and need more credits? Choose your testing package now.</p>
-                            <p class="text-red-600 text-sm">*Available to purchase one time only. Make the most of your testing credits!*</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <!-- Premium Package -->
-                            <div class="bg-white rounded-xl border border-gray-200 px-4 md:px-6 py-6 relative">
-                                <div class="absolute top-6 right-6 bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">
-                                    BEST VALUE
-                                </div>
-                                
-                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Premium Package</h3>
-                                
-                                <div class="mb-4">
-                                    <span class="text-4xl font-bold text-gray-900">$100.00</span>
-                                </div>
-                                
-                                <p class="text-gray-600 mb-6">450 credits at <span class="font-medium">$0.22/credit</span></p>
-                                
-                                <button class="w-full py-3 px-4 border border-gray-800 rounded text-gray-800 font-medium hover:bg-gray-50 transition-colors">
-                                    Select API services with this plan
-                                </button>
-                            </div>
-                            
-                            <!-- Basic Package -->
-                            <div class="bg-white rounded-xl border border-gray-200 px-4 md:px-6 py-6">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Basic Package</h3>
-                                
-                                <div class="mb-4">
-                                    <span class="text-4xl font-bold text-gray-900">$50.00</span>
-                                </div>
-                                
-                                <p class="text-gray-600 mb-6">200 credits at <span class="font-medium">$0.25/credit</span></p>
-                                
-                                <button class="w-full py-3 px-4 border border-gray-800 rounded text-gray-800 font-medium hover:bg-gray-50 transition-colors">
-                                    Select API services with this plan
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Request Additional Credits Button -->
-                        <div class="text-center">
-                            <button 
-                                onclick="showRequestCreditsModal()" 
-                                class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded transition-colors duration-200 inline-flex items-center"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
-                                </svg>
-                                Request Additional Credits
-                            </button>
-                            <p class="text-sm text-gray-600 mt-4">Need more than what our standard packages offer? Request a custom amount.</p>
-                        </div>
-                    </section>
+                <div class="tab-pane" id="testing-credits">
+                      <div class="mb-6">
+                          <h2 class="text-2xl font-bold text-gray-800 mb-2">Get testing credits from our testing Adds-on plans!</h2>
+                          <p class="text-gray-700 mb-2">Still testing the APIs and need more credits? Choose your testing package now.</p>
+                          <p class="text-red-600 text-sm">*Available to purchase one time only. Make the most of your testing credits!*</p>
+                      </div>
+                      
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                          <!-- Premium Package -->
+                          <div class="bg-white rounded-xl border border-gray-200 px-4 md:px-6 py-6 relative">
+                              <div class="absolute top-6 right-6 bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">
+                                  BEST VALUE
+                              </div>
+                              
+                              <h3 class="text-xl font-semibold text-gray-800 mb-4">Premium Package</h3>
+                              
+                              <div class="mb-4">
+                                  <span class="text-4xl font-bold text-gray-900">$100.00</span>
+                              </div>
+                              
+                              <p class="text-gray-600 mb-6">450 credits at <span class="font-medium">$0.22/credit</span></p>
+                              
+                              <button class="w-full py-3 px-4 border border-gray-800 rounded text-gray-800 font-medium hover:bg-gray-50 transition-colors">
+                                  Select API services with this plan
+                              </button>
+                          </div>
+                          
+                          <!-- Basic Package -->
+                          <div class="bg-white rounded-xl border border-gray-200 px-4 md:px-6 py-6">
+                              <h3 class="text-xl font-semibold text-gray-800 mb-4">Basic Package</h3>
+                              
+                              <div class="mb-4">
+                                  <span class="text-4xl font-bold text-gray-900">$50.00</span>
+                              </div>
+                              
+                              <p class="text-gray-600 mb-6">200 credits at <span class="font-medium">$0.25/credit</span></p>
+                              
+                              <button class="w-full py-3 px-4 border border-gray-800 rounded text-gray-800 font-medium hover:bg-gray-50 transition-colors">
+                                  Select API services with this plan
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <!-- Request Additional Credits Button -->
+                      <div class="text-center">
+                          <button 
+                              onclick="showRequestCreditsModal()" 
+                              class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded transition-colors duration-200 inline-flex items-center"
+                          >
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                              </svg>
+                              Request Additional Credits
+                          </button>
+                          <p class="text-sm text-gray-600 mt-4">Need more than what our standard packages offer? Request a custom amount.</p>
+                      </div>
                 </div>
                 <!-- Select Services -->
                 <section class="px-4 md:px-6 py-6 bg-white border border-gray rounded-xl shadow-sm my-8">

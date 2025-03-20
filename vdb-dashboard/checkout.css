@@ -438,7 +438,7 @@ label.saved-card-item:has(input[type="radio"]:checked) {
 
 .badge {
     display: flex;
-    align-items: center;
+    align-items: top;
     gap: 15px;
 }
 
@@ -491,7 +491,6 @@ label.saved-card-item:has(input[type="radio"]:checked) {
     color: #666;
     text-decoration: underline;
     margin-left: 5px;
-    font-size: 12px;
     cursor: pointer;
 }
 #view-all-link.show{
@@ -500,17 +499,21 @@ label.saved-card-item:has(input[type="radio"]:checked) {
 }
 
 #view-all-link {
-    transition: all 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out;
     max-height: 0;
     overflow: hidden;
     border-radius: 8px;
     border: 0px solid transparent;
 }
 
+.api-services-table{
+    font-size: 14px;
+}
+
 .api-services-table .table-header {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
+    padding: 0.35rem 1rem;
     background: var(--primary);
     color: #fff;
 }
@@ -519,7 +522,7 @@ label.saved-card-item:has(input[type="radio"]:checked) {
 .api-services-table .table-row {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 1rem;
+    padding: 0.35rem 1rem;
     border-top: 1px solid #ddd;
     transition: background-color 0.2s ease;
 }
@@ -529,7 +532,7 @@ label.saved-card-item:has(input[type="radio"]:checked) {
 }
 
 /* Text styles */
-.api-services-table .table-row span {
+.api-services-table span {
     flex: 1;
     text-align: left;
 }
