@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majestic Plumbing - Commercial & Industrial Plumbing Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0056b3',
+                        secondary: '#003366',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles */
+        .container{
+            max-width: 1380px !important;
+        }
+        .slider-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .slider-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .slider-item.active {
+            opacity: 1;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .overlay-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #0056b3;
+            transition: width 0.3s;
+        }
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        .dropdown-arrow::after {
+            content: '▼';
+            font-size: 8px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+        .bg-navy-900 {
+        background-color: #0f2851;
+        }
+        .bg-navy-950 {
+            background-color: #0a1e3c;
+        }
+        .text-navy-800 {
+            color: #1a365d;
+        }
+        .text-navy-800 {
+            color: #1a365d;
+        }
+        .text-navy-900 {
+            color: #0f2851;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Top Navigation Bar -->
+    <div class="bg-[#F8F8F8] py-3 px-4 md:px-8 lg:px-12 relative z-50">
+        <div class="container mx-auto">
+            <!-- Mobile View (Only Phone Numbers) -->
+            <div class="flex justify-between lg:hidden">
+                <a href="tel:0892090888" class="flex items-center text-gray-700 hover:text-primary text-sm">
+                    <img src="assets/images/phone.svg" alt="Phone Icon" class="text-primary mr-2 h-5 w-5" />
+                    08 9209 0888
+                </a>
+                <a href="tel:0488489009" class="flex items-center text-gray-700 hover:text-primary text-sm">
+                    <img src="assets/images/20-time.svg" alt="Clock Icon" class="text-primary mr-2 h-5 w-5" />
+                    <span class="text-xs">Emergency:</span> 0488 489 009
+                </a>
+            </div>
+            
+            <!-- Desktop View (Full Navigation) -->
+            <div class="hidden lg:flex justify-end">
+                <div class="flex items-center space-x-6 text-sm">
+                    <a href="#" class="text-gray-700 hover:text-primary">About Us</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">Community</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">FAQs</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">Blog</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">Contact Us</a>
+                    <a href="tel:0892090888" class="flex items-center text-gray-700 hover:text-primary">
+                        <img src="assets/images/phone.svg" alt="Phone Icon" class="text-primary mr-2 h-6 w-6" />
+                        08 9209 0888
+                    </a>
+                    <a href="tel:0488489009" class="flex items-center text-gray-700 hover:text-primary">
+                        <img src="assets/images/20-time.svg" alt="Clock Icon" class="text-primary mr-2 h-6 w-6" />
+                        After Hours Emergency 0488 489 009
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="bg-white shadow-sm py-4 px-4 md:px-8 lg:px-12 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="relative z-10">
+                <div class="h-auto w-44 flex items-center justify-center">
+                    <!-- Logo placeholder -->
+                    <img src="assets/images/logo-navy.svg" class="w-full" alt="Majestic Plumbing" />
+                </div>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden flex items-center">
+                <i data-lucide="menu" class="h-6 w-6 text-gray-800"></i>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center justify-end flex-1">
+                <!-- Navigation Links -->
+                <div class="flex space-x-8 mr-8">
+                    <!-- Home Dropdown -->
+                    <div class="relative group">
+                        <a href="#" class="nav-item text-gray-800 group-hover:text-primary font-medium flex items-center">
+                            Home
+                            <i data-lucide="chevron-down" class="ml-1 h-3 w-3 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md p-3 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 w-48">
+                            <div class="flex flex-col space-y-2">
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Homepage</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">About Us</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Our Team</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Testimonials</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Capabilities Dropdown -->
+                    <div class="relative group">
+                        <a href="#" class="nav-item text-gray-800 group-hover:text-primary font-medium flex items-center">
+                            Capabilities
+                            <i data-lucide="chevron-down" class="ml-1 h-3 w-3 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md p-3 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 w-64">
+                            <div class="flex flex-col space-y-2">
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Commercial Plumbing</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Industrial Solutions</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Emergency Services</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Preventative Maintenance</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Project Management</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <a href="#" class="nav-item text-gray-800 group-hover:text-primary font-medium flex items-center">
+                            Services
+                            <i data-lucide="chevron-down" class="ml-1 h-3 w-3 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md p-3 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 w-64">
+                            <div class="grid grid-cols-2 gap-2">
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">General Plumbing</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Water Filtration</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Gas Fitting</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Block Drains</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Hot Water Systems</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Backflow Testing</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Roof Plumbing</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Leak Detection</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Industries Dropdown -->
+                    <div class="relative group">
+                        <a href="#" class="nav-item text-gray-800 group-hover:text-primary font-medium flex items-center">
+                            Industries
+                            <i data-lucide="chevron-down" class="ml-1 h-3 w-3 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md p-3 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 w-56">
+                            <div class="flex flex-col space-y-2">
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Commercial</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Residential</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Industrial</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Healthcare</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Education</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Hospitality</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Studies Dropdown -->
+                    <div class="relative group">
+                        <a href="#" class="nav-item text-gray-800 group-hover:text-primary font-medium flex items-center">
+                            Case Studies
+                            <i data-lucide="chevron-down" class="ml-1 h-3 w-3 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </a>
+                        <div class="absolute left-0 top-full mt-1 bg-white shadow-lg rounded-md p-3 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50 w-56">
+                            <div class="flex flex-col space-y-2">
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Commercial Projects</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Industrial Solutions</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Emergency Repairs</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">Maintenance Programs</a>
+                                <a href="#" class="text-gray-700 hover:text-primary text-sm py-1">View All Case Studies</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-primary hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full flex items-center transition duration-300">
+                        Request Quote
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </a>
+                    <a href="#" class="bg-white border border-primary hover:bg-gray-100 text-primary font-medium py-2 px-6 rounded-full flex items-center transition duration-300">
+                        Book Now
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu (Hidden by default) -->
+            <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <div class="h-auto w-44">
+                        <img src="assets/images/logo-navy.svg" class="w-full" alt="Majestic Plumbing" />
+                    </div>
+                    <button id="close-mobile-menu">
+                        <i data-lucide="x" class="h-6 w-6 text-gray-800"></i>
+                    </button>
+                </div>
+                <div class="p-4 overflow-y-auto max-h-[calc(100vh-80px)]">
+                    <nav class="space-y-4">
+                        <!-- Mobile Accordion Menus -->
+                        <!-- Home Accordion -->
+                        <div class="mobile-accordion">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100 cursor-pointer">
+                                <span class="text-gray-800 font-medium">Home</span>
+                                <i data-lucide="chevron-down" class="h-4 w-4 text-gray-800 transition-transform duration-300"></i>
+                            </div>
+                            <div class="mobile-accordion-content hidden pl-4 py-2 space-y-2">
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Homepage</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">About Us</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Our Team</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Testimonials</a>
+                            </div>
+                        </div>
+
+                        <!-- Capabilities Accordion -->
+                        <div class="mobile-accordion">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100 cursor-pointer">
+                                <span class="text-gray-800 font-medium">Capabilities</span>
+                                <i data-lucide="chevron-down" class="h-4 w-4 text-gray-800 transition-transform duration-300"></i>
+                            </div>
+                            <div class="mobile-accordion-content hidden pl-4 py-2 space-y-2">
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Commercial Plumbing</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Industrial Solutions</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Emergency Services</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Preventative Maintenance</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Project Management</a>
+                            </div>
+                        </div>
+
+                        <!-- Services Accordion -->
+                        <div class="mobile-accordion">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100 cursor-pointer">
+                                <span class="text-gray-800 font-medium">Services</span>
+                                <i data-lucide="chevron-down" class="h-4 w-4 text-gray-800 transition-transform duration-300"></i>
+                            </div>
+                            <div class="mobile-accordion-content hidden pl-4 py-2 space-y-2">
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">General Plumbing</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Water Filtration</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Gas Fitting</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Block Drains</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Hot Water Systems</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Backflow Testing</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Roof Plumbing</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Leak Detection</a>
+                            </div>
+                        </div>
+
+                        <!-- Industries Accordion -->
+                        <div class="mobile-accordion">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100 cursor-pointer">
+                                <span class="text-gray-800 font-medium">Industries</span>
+                                <i data-lucide="chevron-down" class="h-4 w-4 text-gray-800 transition-transform duration-300"></i>
+                            </div>
+                            <div class="mobile-accordion-content hidden pl-4 py-2 space-y-2">
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Commercial</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Residential</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Industrial</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Healthcare</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Education</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Hospitality</a>
+                            </div>
+                        </div>
+
+                        <!-- Case Studies Accordion -->
+                        <div class="mobile-accordion">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100 cursor-pointer">
+                                <span class="text-gray-800 font-medium">Case Studies</span>
+                                <i data-lucide="chevron-down" class="h-4 w-4 text-gray-800 transition-transform duration-300"></i>
+                            </div>
+                            <div class="mobile-accordion-content hidden pl-4 py-2 space-y-2">
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Commercial Projects</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Industrial Solutions</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Emergency Repairs</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">Maintenance Programs</a>
+                                <a href="#" class="block py-1 text-gray-700 hover:text-primary">View All Case Studies</a>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="mt-8 space-y-4">
+                        <a href="#" class="block bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full text-center transition duration-300">
+                            Request Quote
+                        </a>
+                        <a href="#" class="block bg-white border border-primary hover:bg-gray-100 text-primary font-medium py-3 px-6 rounded-full text-center transition duration-300">
+                            Book Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu JavaScript -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize Lucide icons
+                lucide.createIcons();
+                
+                // Mobile menu functionality
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const closeMenuButton = document.getElementById('close-mobile-menu');
+                const mobileMenu = document.getElementById('mobile-menu');
+                
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+                });
+                
+                closeMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = ''; // Re-enable scrolling
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideMenu = mobileMenu.contains(event.target);
+                    const isClickOnMenuButton = mobileMenuButton.contains(event.target);
+                    
+                    if (!isClickInsideMenu && !isClickOnMenuButton && !mobileMenu.classList.contains('translate-x-full')) {
+                        mobileMenu.classList.add('translate-x-full');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Handle window resize
+                window.addEventListener('resize', function() {
+                    if (window.innerWidth >= 1024) { // lg breakpoint
+                        mobileMenu.classList.add('translate-x-full');
+                        document.body.style.overflow = '';
+                    }
+                });
+                
+                // Mobile accordion functionality
+                const accordionHeaders = document.querySelectorAll('.mobile-accordion > div:first-child');
+                
+                accordionHeaders.forEach(header => {
+                    header.addEventListener('click', () => {
+                        const content = header.nextElementSibling;
+                        const icon = header.querySelector('i');
+                        
+                        // Toggle content visibility
+                        content.classList.toggle('hidden');
+                        
+                        // Rotate icon
+                        if (content.classList.contains('hidden')) {
+                            icon.style.transform = 'rotate(0deg)';
+                        } else {
+                            icon.style.transform = 'rotate(180deg)';
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+
+   <!-- Hero Section with Slider Background -->
+<!-- Hero Section with Slider Background -->
+<section class="relative h-[94vh] flex items-end justify-center text-white pb-20">
+    <!-- Slider Background -->
+    <div class="slider-bg">
+        <div class="slider-item active" style="background-color: #333;">
+             <img src="assets/images/stadium.jpg" alt="Stadium" class="w-full h-full object-cover" />
+            <div class="overlay"></div>
+        </div>
+        <div class="slider-item" style="background-color: #444;">
+            <img src="assets/images/truck.jpg" alt="Stadium" class="w-full h-full object-cover" />
+            <div class="overlay-2"></div>
+        </div>
+        <div class="slider-item" style="background-color: #555;">
+            <img src="assets/images/plumb.jpg" alt="Stadium" class="w-full h-full object-cover" />
+            <div class="overlay-2"></div>
+        </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container mx-auto px-4 text-center z-10 mb-12">
+        <p class="uppercase tracking-wider mb-2 text-sm md:text-base">Perth's Trusted Experts in Plumbing & Gas</p>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Commercial & Industrial<br>
+            Plumbing Solutions
+        </h1>
+        <p class="max-w-2xl mx-auto mb-8 text-sm md:text-base">
+            Combining decades of expertise with cutting-edge technology, we provide innovative 
+            plumbing and gas solutions that minimise downtime and optimise performance.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+            <a href="#" class="bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full transition duration-300">
+                Our Capabilities
+            </a>
+            <a href="#" class="bg-navy-900 border border-[#0f2851] hover:bg-white hover:border-white hover:text-primary text-white font-medium py-3 px-6 rounded-full transition duration-300">
+                Get In Touch
+            </a>
+        </div>
+    </div>
+
+    <!-- Slider Navigation -->
+    <div id="slider-nav" class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-10">
+        <button class="slider-dot w-8 h-2 bg-primary rounded-full" data-index="0"></button>
+        <button class="slider-dot w-2 h-2 bg-white rounded-full" data-index="1"></button>
+        <button class="slider-dot w-2 h-2 bg-white rounded-full" data-index="2"></button>
+    </div>
+</section>
+
+<!-- JavaScript for Slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Slider functionality
+        const slides = document.querySelectorAll('.slider-item');
+        const navButtons = document.querySelectorAll('#slider-nav .slider-dot');
+        let currentSlide = 0;
+        let slideInterval;
+        
+        function setActiveSlide(index) {
+            // Remove active class from all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Add active class to selected slide
+            slides[index].classList.add('active');
+            
+            // Reset all buttons to default state first
+            navButtons.forEach(btn => {
+                btn.className = 'slider-dot w-2 h-2 bg-white rounded-full';
+            });
+            
+            // Then set the active button
+            navButtons[index].className = 'slider-dot w-8 h-2 bg-primary rounded-full';
+            
+            currentSlide = index;
+        }
+        
+        // Auto-rotate slides
+        function startAutoRotation() {
+            // Clear any existing interval first
+            if (slideInterval) {
+                clearInterval(slideInterval);
+            }
+            
+            slideInterval = setInterval(function() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                setActiveSlide(currentSlide);
+            }, 5000);
+        }
+        
+        // Initialize slider
+        startAutoRotation();
+        
+        // Add click event listeners to navigation buttons
+        navButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                setActiveSlide(index);
+                
+                // Restart auto-rotation after user interaction
+                clearInterval(slideInterval);
+                setTimeout(startAutoRotation, 10000);
+            });
+        });
+    });
+</script>
+
+    <!-- Clients Logo Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                <!-- Water Corporation Logo -->
+                <div class="w-32 md:w-40 h-auto flex items-center justify-center">
+                    <div class="w-full h-auto flex items-center justify-center">
+                        <!-- Replace with actual logo -->
+                         <img src="assets/images/water.png" alt="Water Corporation Logo" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                
+                <!-- City of Perth Logo -->
+                <div class="w-32 md:w-40 h-auto flex items-center justify-center">
+                    <div class="w-full h-auto flex items-center justify-center">
+                        <!-- Replace with actual logo -->
+                        <img src="assets/images/perth.png" alt="City Of Perth Logo" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                
+                <!-- CarpetCall Logo -->
+                <div class="w-32 md:w-40 h-auto flex items-center justify-center">
+                    <div class="w-full h-auto flex items-center justify-center">
+                        <!-- Replace with actual logo -->
+                        <img src="assets/images/carpet.png" alt="City Of Perth Logo" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                
+                <!-- State Library Logo -->
+                <div class="w-32 md:w-40 h-auto flex items-center justify-center">
+                    <div class="w-full h-auto flex items-center justify-center">
+                        <!-- Replace with actual logo -->
+                        <img src="assets/images/library.png" alt="City Of Perth Logo" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                
+                <!-- Belmont Logo -->
+                <div class="w-32 md:w-40 h-auto flex items-center justify-center">
+                    <div class="w-full h-auto flex items-center justify-center">
+                        <!-- Replace with actual logo -->
+                        <img src="assets/images/belmont.png" alt="City Of Perth Logo" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+                
+                <!-- City of Kwinana Logo -->
+                <div class="w-32 md:w-40 h-auto flex items-center justify-center">
+                    <div class="w-full h-auto flex items-center justify-center">
+                        <!-- Replace with actual logo -->
+                        <img src="assets/images/kwinan.png" alt="City Of Perth Logo" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="max-w-[600px]">
+                    <p class="text-blue-600 font-medium text-sm uppercase tracking-wider mb-2">PERTH'S TRUSTED PLUMBING & GAS EXPERTS</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-800 leading-tight">
+                        Over 3,865 clients trust Majestic Plumbing to deliver reliable plumbing solutions.
+                    </h2>
+                </div>
+                <div class="flex flex-col align-start gap-4 items-start">
+                    <p class="text-gray-700">
+                        With over 40 years of experience, we have built a reputation for excellence, reliability, and innovation in commercial and industrial plumbing. Businesses across Perth trust us to deliver high-quality solutions that ensure compliance, efficiency, and long-term performance.
+                    </p>
+                    <a href="#" class="flex items-center justify-center text-navy-900 hover:text-primary font-medium py-3 px-6 rounded-full border border-gray-200 transition-all duration-300 hover:border-primary hover:shadow-sm">
+                        More about us
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Stat Box 1 -->
+                <div class="bg-navy-900 text-white p-8 rounded-lg">
+                    <div class="mb-4">
+                        <img src="assets/images/user-shield.svg" alt="User Shield Icon" class="text-blue-400 h-13 w-13" />
+                    </div>
+                    <h3 class="text-4xl font-bold mb-2">1988</h3>
+                    <p class="text-white text-lg">4 Decades of Experience</p>
+                </div>
+                
+                <!-- Stat Box 2 -->
+                <div class="bg-navy-900 text-white p-8 rounded-lg">
+                    <div class="mb-4">
+                        <img src="assets/images/flag.svg" alt="User Shield Icon" class="text-blue-400 h-13 w-13" />
+                    </div>
+                    <h3 class="text-4xl font-bold mb-2">WA</h3>
+                    <p class="text-white text-lg">Locally Owned and Operated</p>
+                </div>
+                
+                <!-- Stat Box 3 -->
+                <div class="bg-navy-900 text-white p-8 rounded-lg">
+                    <div class="mb-4">
+                        <img src="assets/images/24-hours.svg" alt="User Shield Icon" class="text-blue-400 h-13 w-13" />
+                    </div>
+                    <h3 class="text-4xl font-bold mb-2">24/7</h3>
+                    <p class="text-white text-lg">Emergency Service</p>
+                </div>
+                
+                <!-- Stat Box 4 -->
+                <div class="bg-navy-900 text-white p-8 rounded-lg">
+                    <div class="mb-4">
+                        <img src="assets/images/thumbs.svg" alt="User Shield Icon" class="text-blue-400 h-13 w-13" />
+                    </div>
+                    <h3 class="text-4xl font-bold mb-2">3,865</h3>
+                    <p class="text-white text-lg">Happy Clients</p>
+                </div>
+                
+                <!-- Stat Box 5 -->
+                <div class="bg-navy-900 text-white p-8 rounded-lg">
+                    <div class="mb-4">
+                        <img src="assets/images/certificate.svg" alt="User Shield Icon" class="text-blue-400 h-13 w-13" />
+                    </div>
+                    <h3 class="text-4xl font-bold mb-2">100%</h3>
+                    <p class="text-white text-lg">Quality & Service Guarantee</p>
+                </div>
+                
+                <!-- Stat Box 6 -->
+                <div class="bg-navy-900 text-white p-8 rounded-lg">
+                    <div class="mb-4">
+                        <img src="assets/images/badge.svg" alt="User Shield Icon" class="text-blue-400 h-13 w-13" />
+                    </div>
+                    <h3 class="text-4xl font-bold mb-2">5</h3>
+                    <p class="text-white text-lg">Award-Recognised Industry Leader</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planned Preventive Maintenance Section -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto px-4">
+            <div class="container mx-auto border border-gray-200 rounded-xl p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-10">
+                    <div class="flex flex-col justify-center ">
+                        <p class="text-blue-600 font-medium text-sm uppercase tracking-wider mb-2">MINIMISE DOWNTIME, MAXIMISE PERFORMANCE</p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-navy-900 leading-tight mb-6">
+                            Planned Preventive Maintenance to Safeguard Your Assets
+                        </h2>
+                        <p class="text-gray-700 mb-8 leading-relaxed">
+                            Experience peace of mind with Majestic Plumbing's tailored Planned Preventative Maintenance solutions. Our comprehensive PPM schedule is designed to safeguard your assets, minimise emergency events, and ensure your plumbing and gas systems perform at peak efficiency. Focus on your business while we proactively manage maintenance, keeping you compliant with Australian Standards and manufacturer recommendations.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#" class="bg-navy-900 hover:bg-navy-800 text-white font-medium py-3 px-8 rounded-full flex items-center transition-all duration-300 group">
+                                Request an audit
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <a href="#" class="bg-white border border-gray-200 text-navy-900 hover:text-primary hover:border-primary font-medium py-3 px-8 rounded-full flex items-center transition-all duration-300 group">
+                                How it works
+                                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <!-- Placeholder for plumber image -->
+                        <img src="assets/images/pumbler.png" class="w-full h-auto rounded-lg overflow-hidden object-cover" />
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+                    <!-- Feature 1 -->
+                    <div class="flex flex-col gap-4 sm:flex-row sm:gap-0 group hover:bg-gray-50 p-4 rounded-2xl transition duration-300">
+                        <div class="mr-4 flex-shrink-0">
+                            <img src="assets/images/asset.svg" class="w-14 h-14 group-hover:scale-110 transition-transform duration-300" />
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Asset Register & PPM</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                We audit your site assets and craft a tailored PPM program to meet compliance and manufacturer guidelines, maximising performance and preventing disruptions.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="flex flex-col gap-4 sm:flex-row sm:gap-0 group hover:bg-gray-50 p-4 rounded-2xl transition duration-300">
+                        <div class="mr-4 flex-shrink-0">
+                            <img src="assets/images/service.svg" class="w-14 h-14 group-hover:scale-110 transition-transform duration-300" />
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Service Schedule</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Your custom PPM schedule complies with Australian Standards. Our "Set & Forget" system manages recurring services and keeps you informed.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="flex flex-col gap-4 sm:flex-row sm:gap-0 group hover:bg-gray-50 p-4 rounded-2xl transition duration-300">
+                        <div class="mr-4 flex-shrink-0">
+                            <img src="assets/images/reporting.svg" class="w-14 h-14 group-hover:scale-110 transition-transform duration-300" />
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">Reporting</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                We perform condition assessments and failure reporting, providing prompt quotes for any necessary repairs or replacements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Services Slider Section -->
+<section class="py-16 bg-navy-950 relative overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="mb-12">
+            <p class="text-blue-500 font-medium text-sm uppercase tracking-wider mb-2">PLUMBING SOLUTIONS FOR EVERY BUSINESS NEED</p>
+            <div class="flex justify-between items-end">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Services & Solutions</h2>
+                    <p class="text-gray-300 max-w-xl">
+                        From general plumbing to specialized industrial solutions, we provide expert services tailored to your business needs.
+                    </p>
+                </div>
+                <a href="#" class="hidden md:flex items-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full transition duration-300 group">
+                    View all services
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+<!-- Slider Container -->
+<div class="services-slider-outer relative">
+    <div class="services-slider-container">
+        <div class="services-slider flex transition-transform duration-500 ease-out">
+            <!-- Service cards will be inserted here by JavaScript -->
+        </div>
+    </div>
+    
+    <!-- Navigation and Pagination Container -->
+    <div class="container mx-auto px-4" style="max-width: 1380px;">
+        <div class="flex items-center justify-between mt-8">
+            <!-- Navigation and Pagination in proper order -->
+            <button class="slider-nav prev bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300 z-10 focus:outline-none">
+                <span class="sr-only">Previous</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            
+            <!-- Pagination Dots (centered) -->
+            <div class="slider-dots flex items-center justify-center space-x-2 flex-grow">
+                <!-- Dots will be inserted here by JavaScript -->
+            </div>
+            
+            <button class="slider-nav next bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300 z-10 focus:outline-none">
+                <span class="sr-only">Next</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+    
+    <!-- Mobile View All Link -->
+    <div class="container mx-auto px-4 mt-8 md:hidden">
+        <a href="#" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full transition duration-300 w-full">
+            View all services
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+        </a>
+    </div>
+</section>
+
+<style>
+    /* Custom styles for the slider */
+    .bg-navy-950 {
+        background-color: #0a1e3c;
+    }
+    
+    .services-slider-outer {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    .services-slider-container {
+        width: 100%;
+        overflow: visible;
+        padding: 0;
+    }
+    
+    .services-slider {
+        margin-left: calc((100% - 1400px) / 2 + 15px);
+        padding-right: 80px;
+    }
+    
+    .service-card {
+        flex: 0 0 auto;
+        width: 320px;
+        height: auto;
+        margin-right: 20px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .service-card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .service-card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        height: 50%;
+    }
+    
+    .service-card-title {
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .service-card-button {
+        background-color: white;
+        color: #0a1e3c;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-center: center;
+        transition: all 0.3s ease;
+    }
+    
+    .service-card-button:hover {
+        transform: rotate(45deg);
+        background-color: #3b82f6;
+        color: white;
+    }
+    
+    .slider-dots button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .slider-dots button.active {
+        width: 24px;
+        border-radius: 4px;
+        background-color: #3b82f6;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 1380px) {
+        .services-slider {
+            margin-left: 20px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .services-slider {
+            margin-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .service-card {
+            width: 280px;
+            height: auto;
+        }
+    }
+</style>
+
+<script>
+    // Services data with correct image paths
+    const servicesData = [
+        {
+            title: "General Plumbing",
+            image: "assets/images/service-1.png",
+            url: "#general-plumbing"
+        },
+        {
+            title: "Commercial Plumbing",
+            image: "assets/images/service-2.png",
+            url: "#commercial-plumbing"
+        },
+        {
+            title: "Construction Plumbing",
+            image: "assets/images/service-3.png",
+            url: "#construction-plumbing"
+        },
+        {
+            title: "Industrial Plumbing",
+            image: "assets/images/service-4.png",
+            url: "#industrial-plumbing"
+        },
+        {
+            title: "Gas Fitting",
+            image: "assets/images/service-5.png",
+            url: "#gas-fitting"
+        },
+        {
+            title: "Emergency Services",
+            image: "assets/images/service-6.png",
+            url: "#emergency-services"
+        }
+    ];
+
+    // Initialize the slider when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        initServicesSlider();
+    });
+
+    function initServicesSlider() {
+        const sliderContainer = document.querySelector('.services-slider');
+        const dotsContainer = document.querySelector('.slider-dots');
+        const prevButton = document.querySelector('.slider-nav.prev');
+        const nextButton = document.querySelector('.slider-nav.next');
+        const currentScreenWidth = window.innerWidth;
+        console.log(currentScreenWidth);
+        
+        let currentSlide = 0;
+        // let slideWidth = 300; // screen < 768px Card width + margin
+        if (currentScreenWidth > 1380) {
+            slideWidth = 220; // screen < 640px Card width + margin
+        } else if (currentScreenWidth < 450) {
+            slideWidth = 200; // screen < 640px Card width + margin
+        } 
+        else{
+            slideWidth = 320; // screen > 768px Card width + margin
+        }
+
+        console.log(slideWidth);
+        let visibleSlides = getVisibleSlides();
+        let totalSlides = servicesData.length;
+        let maxSlide = Math.max(0, totalSlides - visibleSlides);
+        
+        // Create slides
+        servicesData.forEach((service, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'service-card';
+            slide.innerHTML = `
+                <img src="${service.image}" alt="${service.title}" class="service-card-image">
+                <div class="service-card-overlay">
+                    <h3 class="service-card-title">${service.title}</h3>
+                    <a href="${service.url}" class="service-card-button flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            `;
+            sliderContainer.appendChild(slide);
+        });
+        
+        // Create pagination dots - one for each group of visible slides
+        const totalGroups = Math.ceil(totalSlides / visibleSlides);
+        for (let i = 0; i < totalGroups; i++) {
+            const dot = document.createElement('button');
+            dot.setAttribute('aria-label', `Go to slide group ${i + 1}`);
+            dot.addEventListener('click', () => goToSlide(i * visibleSlides));
+            dotsContainer.appendChild(dot);
+        }
+        
+        // Set initial active dot
+        updateDots();
+        
+        // Add event listeners for navigation
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+        
+        // Add resize listener to handle responsive changes
+        window.addEventListener('resize', handleResize);
+        
+        function getVisibleSlides() {
+            if (window.innerWidth < 640) return 1;
+            if (window.innerWidth < 1024) return 2;
+            return 3;
+        }
+        
+        function handleResize() {
+            const newVisibleSlides = getVisibleSlides();
+            
+            if (newVisibleSlides !== visibleSlides) {
+                visibleSlides = newVisibleSlides;
+                maxSlide = Math.max(0, totalSlides - visibleSlides);
+                
+                // Reset dots
+                dotsContainer.innerHTML = '';
+                const totalGroups = Math.ceil(totalSlides / visibleSlides);
+                for (let i = 0; i < totalGroups; i++) {
+                    const dot = document.createElement('button');
+                    dot.setAttribute('aria-label', `Go to slide group ${i + 1}`);
+                    dot.addEventListener('click', () => goToSlide(i * visibleSlides));
+                    dotsContainer.appendChild(dot);
+                }
+                
+                // Ensure current slide is valid and divisible by visibleSlides
+                currentSlide = Math.min(currentSlide, maxSlide);
+                currentSlide = Math.floor(currentSlide / visibleSlides) * visibleSlides;
+                updateSlider();
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide = Math.max(0, currentSlide - visibleSlides);
+                updateSlider();
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < maxSlide) {
+                currentSlide = Math.min(maxSlide, currentSlide + visibleSlides);
+                updateSlider();
+            }
+        }
+        
+        function goToSlide(index) {
+            currentSlide = Math.min(maxSlide, index);
+            updateSlider();
+        }
+        
+        function updateSlider() {
+            const translateX = -currentSlide * slideWidth;
+            sliderContainer.style.transform = `translateX(${translateX}px)`;
+            updateDots();
+            updateNavButtons();
+        }
+        
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('button');
+            const activeDotIndex = Math.floor(currentSlide / visibleSlides);
+            
+            dots.forEach((dot, index) => {
+                if (index === activeDotIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function updateNavButtons() {
+            prevButton.disabled = currentSlide === 0;
+            prevButton.style.opacity = currentSlide === 0 ? '0.5' : '1';
+            
+            nextButton.disabled = currentSlide === maxSlide;
+            nextButton.style.opacity = currentSlide === maxSlide ? '0.5' : '1';
+        }
+        
+        // Initialize slider position and state
+        updateSlider();
+    }
+</script>
+
+    <!-- Industry Expertise Section -->
+    <section class="sm:py-16 sm:px-4 bg-white">
+        <div class="bg-blue-50 container mx-auto px-4 py-12 sm:p-14 rounded-lg">
+            <div class="mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <div>
+                        <p class="text-blue-600 font-medium text-sm uppercase tracking-wider mb-2">INDUSTRY EXPERTISE</p>
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-900 leading-tight mb-8">
+                            Industry-Specific Plumbing Solutions for a Diverse Range of Sectors
+                        </h2>
+                        
+                        <!-- Industry List -->
+                        <div class="space-y-3 mb-10">
+                            <!-- Active/Selected Industry -->
+                            <a href="#residential" data-industry="residential" class="industry-item active flex items-center justify-between bg-navy-900 text-white py-3.5 px-6 rounded-md transition-all duration-300">
+                                <span class="font-medium text-lg">Residential Real Estate</span>
+                                <span class="icon-circle bg-blue-500 bg-opacity-20 w-6 h-6 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </a>
+                            
+                            <!-- Other Industries -->
+                            <a href="#commercial" data-industry="commercial" class="industry-item flex items-center justify-between text-navy-900 py-3.5 px-6 rounded-md transition-all duration-300 hover:bg-white">
+                                <span class="font-medium text-lg">Commercial Real Estate</span>
+                                <span class="icon-circle w-6 h-6 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </a>
+                            
+                            <a href="#medical" data-industry="medical" class="industry-item flex items-center justify-between text-navy-900 py-3.5 px-6 rounded-md transition-all duration-300 hover:bg-white">
+                                <span class="font-medium text-lg">Hospital & Medical Facilites</span>
+                                <span class="icon-circle w-6 h-6 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </a>
+                            
+                            <a href="#manufacturing" data-industry="manufacturing" class="industry-item flex items-center justify-between text-navy-900 py-3.5 px-6 rounded-md transition-all duration-300 hover:bg-white">
+                                <span class="font-medium text-lg">Factories & Manufacturing Plants</span>
+                                <span class="icon-circle w-6 h-6 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </a>
+                            
+                            <a href="#mining" data-industry="mining" class="industry-item flex items-center justify-between text-navy-900 py-3.5 px-6 rounded-md transition-all duration-300 hover:bg-white">
+                                <span class="font-medium text-lg">Mining & Resources</span>
+                                <span class="icon-circle w-6 h-6 rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                        
+                        <!-- View All Button -->
+                        <a href="#all-industries" class="inline-flex items-center text-navy-900 border border-gray-300 rounded-full font-medium py-2.5 px-6 hover:bg-white transition duration-300 group">
+                            <span>View all industries</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Image Container - Updated for vertical ratio -->
+                    <div class="flex items-center justify-center">
+                        <div class="relative w-full rounded-lg overflow-hidden md:max-w-[450px]" style="aspect-ratio: 3/4;">
+                            <!-- Industry Images - Only one will be visible at a time -->
+                            <div id="residential-image" class="industry-image absolute inset-0 opacity-100 transition-opacity duration-500 ease-in-out">
+                                <img src="assets/images/vertical-image-1.png" alt="Residential Image" class="w-full h-full object-cover absolute inset-0" />
+                            </div>
+                            <div id="commercial-image" class="industry-image absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                                <img src="assets/images/vertical-image-2.png" alt="Commercial Image" class="w-full h-full object-cover absolute inset-0" />
+                            </div>
+                            <div id="medical-image" class="industry-image absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                                <img src="assets/images/vertical-image-3.png" alt="Medical Image" class="w-full h-full object-cover absolute inset-0" />
+                            </div>
+                            <div id="manufacturing-image" class="industry-image absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                                <img src="assets/images/vertical-image-4.png" alt="Manufacturing Image" class="w-full h-full object-cover absolute inset-0" />
+                            </div>
+                            <div id="mining-image" class="industry-image absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                                <img src="assets/images/vertical-image-5.png" alt="Mining Image" class="w-full h-full object-cover absolute inset-0" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Custom styles for exact design match */
+        .bg-blue-50 {
+            background-color: #f5f8fc;
+        }
+        
+        .bg-navy-900 {
+            background-color: #0f2851;
+        }
+        
+        .text-navy-900 {
+            color: #0f2851;
+        }
+        
+        /* Enhanced hover effects */
+        .industry-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .industry-item:not(.active):hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .industry-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background-color: #3b82f6;
+            opacity: 0.1;
+            transition: width 0.3s ease;
+        }
+        
+        .industry-item:not(.active):hover::before {
+            width: 100%;
+        }
+        
+        .industry-item.active {
+            pointer-events: none;
+        }
+        
+        .industry-item.active::before {
+            display: none;
+        }
+        
+        .industry-item:not(.active):hover span:first-child {
+            color: #1e40af;
+        }
+        
+        /* Smooth image transitions */
+        .industry-image {
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const industryItems = document.querySelectorAll('.industry-item');
+        const industryImages = document.querySelectorAll('.industry-image');
+        
+        // Function to switch active industry
+        function switchIndustry(industryId) {
+            // Update active class on industry items
+            industryItems.forEach(item => {
+                const iconCircle = item.querySelector('.icon-circle');
+                const iconSvg = item.querySelector('svg');
+                
+                if (item.dataset.industry === industryId) {
+                    // Active item styling
+                    item.classList.add('active', 'bg-navy-900', 'text-white');
+                    item.classList.remove('text-navy-900');
+                    
+                    // Update icon styling for active item
+                    if (iconCircle) {
+                        iconCircle.classList.add('bg-blue-500', 'bg-opacity-20');
+                    }
+                    if (iconSvg) {
+                        iconSvg.classList.remove('text-blue-600');
+                        iconSvg.classList.add('text-blue-400');
+                    }
+                } else {
+                    // Inactive item styling
+                    item.classList.remove('active', 'bg-navy-900', 'text-white');
+                    item.classList.add('text-navy-900');
+                    
+                    // Update icon styling for inactive item
+                    if (iconCircle) {
+                        iconCircle.classList.remove('bg-blue-500', 'bg-opacity-20');
+                    }
+                    if (iconSvg) {
+                        iconSvg.classList.add('text-blue-600');
+                        iconSvg.classList.remove('text-blue-400');
+                    }
+                }
+            });
+            
+            // Fade out all images, then fade in the selected one
+            industryImages.forEach(img => {
+                img.classList.add('opacity-0');
+                img.classList.remove('opacity-100');
+            });
+            
+            // Fade in the selected image
+            const selectedImage = document.getElementById(`${industryId}-image`);
+            if (selectedImage) {
+                setTimeout(() => {
+                    selectedImage.classList.remove('opacity-0');
+                    selectedImage.classList.add('opacity-100');
+                }, 300); // Small delay for better transition effect
+            }
+        }
+        
+        // Add click event listeners to industry items
+        industryItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const industryId = this.dataset.industry;
+                switchIndustry(industryId);
+            });
+        });
+    });
+</script>
+
+<!-- Case Studies Section -->
+<section class="py-16 bg-white overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col sm:flex-row sm:justify-between items-start gap-4 sm:gap-0 sm:items-center mb-10">
+            <h2 class="text-4xl font-bold text-navy-900">Case Studies</h2>
+            <a href="#" class="bg-navy-900 hover:bg-navy-800 text-white font-medium py-2.5 px-5 rounded-full flex items-center transition duration-300 group">
+                View all case studies
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Case Studies Slider -->
+    <div class="case-studies-slider-container relative">
+        <div class="case-studies-slider flex transition-transform duration-500 ease-out">
+            <!-- Case Study 1 -->
+            <div class="case-study-card">
+                <div class="relative h-full rounded-lg overflow-hidden">
+                    <!-- Image placeholder -->
+                    <img src="assets/images/case-1.png" class="bg-gray-300 w-full h-full absolute inset-0" />
+                    
+                    <!-- Content overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-5">Carpet Call Leak Detection</h3>
+                        <div>
+                            <span class="inline-block bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">
+                                Leak Detection
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study 2 -->
+            <div class="case-study-card">
+                <div class="relative h-full rounded-lg overflow-hidden">
+                    <!-- Image placeholder -->
+                    <img src="assets/images/case-2.png" class="bg-gray-300 w-full h-full absolute inset-0" />
+                    
+                    <!-- Content overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-5">Holiday Inn</h3>
+                        <div>
+                            <span class="inline-block bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">
+                                Planned Preventative Maintenance
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study 3 -->
+            <div class="case-study-card">
+                <div class="relative h-full rounded-lg overflow-hidden">
+                    <!-- Image placeholder -->
+                    <img src="assets/images/case-3.png" class="bg-gray-300 w-full h-full absolute inset-0" />
+                    
+                    <!-- Content overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-5">The Ashby Bar & Bistro</h3>
+                        <div>
+                            <span class="inline-block bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">
+                                Leak Detection
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study 4 (Additional) -->
+            <div class="case-study-card">
+                <div class="relative h-full rounded-lg overflow-hidden">
+                    <!-- Image placeholder -->
+                    <img src="assets/images/case-2.png" class="bg-gray-300 w-full h-full absolute inset-0" />
+                    
+                    <!-- Content overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-5">Perth Stadium</h3>
+                        <div>
+                            <span class="inline-block bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">
+                                Commercial Plumbing
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case Study 5 (Additional) -->
+            <div class="case-study-card">
+                <div class="relative h-full rounded-lg overflow-hidden">
+                    <!-- Image placeholder -->
+                    <img src="assets/images/case-1.png" class="bg-gray-300 w-full h-full absolute inset-0" />
+                    
+                    <!-- Content overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-2xl font-bold mb-5">Crown Towers</h3>
+                        <div>
+                            <span class="inline-block bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded-full">
+                                Emergency Services
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pagination Dots -->
+        <div class="slider-dots flex justify-center mt-8 space-x-2">
+            <!-- Dots will be dynamically inserted here -->
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom styles for the case studies slider */
+    .bg-navy-900 {
+        background-color: #0f2851;
+    }
+    
+    .bg-navy-800 {
+        background-color: #1a365d;
+    }
+    
+    .text-navy-900 {
+        color: #0f2851;
+    }
+    
+    .case-studies-slider-container {
+        width: 100%;
+        overflow: visible;
+        padding: 0 0 40px;
+    }
+    
+    .case-studies-slider {
+        margin-left: calc(50% - 690px);
+        padding-right: 80px;
+    }
+    
+    .case-study-card {
+        flex: 0 0 auto;
+        width: 430px;
+        height: 430px;
+        margin-right: 20px;
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+    
+    .case-study-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .slider-dots button {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(15, 40, 81, 0.3);
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .slider-dots button.active {
+        width: 24px;
+        border-radius: 4px;
+        background-color: #0f2851;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .case-studies-slider {
+            margin-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .case-study-card {
+            width: calc(100vw - 40px); /* Full viewport width minus margins */
+            height: 240px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        initCaseStudiesSlider();
+    });
+
+    function initCaseStudiesSlider() {
+        const sliderContainer = document.querySelector('.case-studies-slider');
+        const dotsContainer = document.querySelector('.case-studies-slider-container .slider-dots');
+        const cards = document.querySelectorAll('.case-study-card');
+        
+        let currentSlide = 0;
+        let cardWidth, cardMargin, slideWidth;
+        let visibleSlides = getVisibleSlides();
+        let totalSlides = cards.length;
+        let maxSlide = Math.max(0, totalSlides - visibleSlides);
+        
+        // Calculate slide width based on screen size
+        function calculateSlideWidth() {
+            if (window.innerWidth <= 768) {
+                // On mobile, use the full width of the card
+                cardWidth = cards[0].offsetWidth;
+                cardMargin = 20;
+                slideWidth = cardWidth + cardMargin;
+            } else {
+                // On desktop, use fixed width
+                cardWidth = 430;
+                cardMargin = 20;
+                slideWidth = 450; // Card width + margin
+            }
+            return slideWidth;
+        }
+        
+        // Initial slide width calculation
+        slideWidth = calculateSlideWidth();
+        
+        // Create pagination dots
+        function createPaginationDots() {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i <= maxSlide; i++) {
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+            updateDots();
+        }
+        
+        createPaginationDots();
+        
+        // Add touch support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        sliderContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        sliderContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                // Swipe left
+                nextSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                // Swipe right
+                prevSlide();
+            }
+        }
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        function getVisibleSlides() {
+            return window.innerWidth <= 768 ? 1 : 3;
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < maxSlide) {
+                currentSlide++;
+                updateSlider();
+            }
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+        
+        function updateSlider() {
+            // Recalculate slide width in case of resize
+            slideWidth = calculateSlideWidth();
+            const translateX = -currentSlide * slideWidth;
+            sliderContainer.style.transform = `translateX(${translateX}px)`;
+            updateDots();
+        }
+        
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll('button');
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newVisibleSlides = getVisibleSlides();
+            
+            // Update card width for mobile
+            if (window.innerWidth <= 768) {
+                // Update card width to full viewport width minus margins
+                cards.forEach(card => {
+                    card.style.width = 'calc(100vw - 40px)';
+                });
+            } else {
+                // Reset to desktop width
+                cards.forEach(card => {
+                    card.style.width = '430px';
+                });
+            }
+            
+            // Recalculate slide width
+            slideWidth = calculateSlideWidth();
+            
+            // Update visible slides if needed
+            if (newVisibleSlides !== visibleSlides) {
+                visibleSlides = newVisibleSlides;
+                maxSlide = Math.max(0, totalSlides - visibleSlides);
+                
+                // Reset dots
+                createPaginationDots();
+                
+                // Ensure current slide is valid
+                currentSlide = Math.min(currentSlide, maxSlide);
+            }
+            
+            updateSlider();
+        });
+        
+        // Auto-advance slides every 5 seconds
+        let autoplayInterval = setInterval(() => {
+            if (currentSlide < maxSlide) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
+            }
+            updateSlider();
+        }, 4000);
+        
+        // Pause autoplay on hover
+        sliderContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(() => {
+                if (currentSlide < maxSlide) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0;
+                }
+                updateSlider();
+            }, 2000);
+        });
+        
+        // Initialize slider position and state
+        updateSlider();
+    }
+</script>
+
+<!-- About Majestic Plumbing Section -->
+<section class="py-16 px-4 md:px-8 lg:px-12 bg-white">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+            <!-- Team Image -->
+            <div class="w-full md:w-1/2">
+                <div class="rounded-lg overflow-hidden shadow-lg">
+                    <img src="assets/images/dominink.png" alt="Majestic Plumbing Team" class="w-full h-auto">
+                </div>
+            </div>
+            
+            <!-- About Content -->
+            <div class="w-full md:w-1/2">
+                <div class="text-sm text-primary font-medium uppercase tracking-wider mb-3">
+                    ABOUT MAJESTIC PLUMBING
+                </div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-navy-900 mb-6 leading-tight">
+                    Your Trusted Plumbing Partner for Over 40 Years
+                </h2>
+                <div class="space-y-4 text-gray-700">
+                    <p>
+                        Majestic Plumbing is a trusted industry leader, known for exceptional workmanship 
+                        and customer service. With over 60 tradesmen and 75 apprentices trained, we've 
+                        built a loyal clientele based on core values and high standards.
+                    </p>
+                    <p>
+                        We take pride in our rich history and the milestones that have shaped our success, 
+                        consistently delivering reliable solutions that continue to earn the trust of our 
+                        clients.
+                    </p>
+                </div>
+                <div class="mt-8">
+                    <a href="#" class="inline-flex items-center border border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-full transition duration-300">
+                        Meet The Team
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Slider Section -->
+<section class="py-16 px-4 md:px-8 lg:px-12 bg-white overflow-hidden">
+    <div class="container mx-auto">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-start sm:items-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy-900">What Our Clients Say</h2>
+            <a href="#" class="bg-primary hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-full flex items-center transition duration-300">
+                View case studies
+                <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+            </a>
+        </div>
+
+        <!-- Testimonial Slider -->
+        <div class="relative testimonial-slider">
+            <div class="testimonial-track flex transition-transform duration-500 ease-in-out">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide min-w-[85%] md:min-w-[45%] lg:min-w-[30%] p-4">
+                    <div class="bg-gray-50 p-6 rounded-lg h-full flex flex-col">
+                        <img src="assets/images/quote.svg" class="w-9 h-auto mb-5"/>
+                        <p class="text-gray-700 mb-12 flex-grow">
+                            The City of Perth have utilised Majestic Plumbing on several occasions. We have found them to be very professional in all the works they have carried out for us and have no hesitation in recommending them to other companies.
+                        </p>
+                        <div class="mt-auto">
+                            <img src="assets//images/perth.png" class="w-32 h-16 mb-4"></img>
+                            <h4 class="font-bold text-navy-900">Stephen Bradfield</h4>
+                            <p class="text-gray-600">City of Perth</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide min-w-[85%] md:min-w-[45%] lg:min-w-[30%] p-4">
+                    <div class="bg-gray-50 p-6 rounded-lg h-full flex flex-col">
+                        <img src="assets/images/quote.svg" class="w-9 h-auto mb-5"/>
+                        <p class="text-gray-700 mb-12 flex-grow">
+                            We are so glad Ivor Cohen introduced us to Majestic Plumbing, they are a high-quality contractor with professional service.
+                        </p>
+                        <div class="mt-auto">
+                            <img src="assets//images/chrunchill.png" class="w-32 h-16 mb-4"></img>
+                            <h4 class="font-bold text-navy-900">Mieke Malaika</h4>
+                            <p class="text-gray-600">Churchill Knight Real Estate Agents</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide min-w-[85%] md:min-w-[45%] lg:min-w-[30%] p-4">
+                    <div class="bg-gray-50 p-6 rounded-lg h-full flex flex-col">
+                        <img src="assets/images/quote.svg" class="w-9 h-auto mb-5"/>
+                        <p class="text-gray-700 mb-12 flex-grow">
+                            Majestic Plumbing has provided excellent plumbing services to Mercy College, including maintenance and emergency repairs. Their involvement in major building projects and installed fire service to water recycling systems.
+                        </p>
+                        <div class="mt-auto">
+                            <img src="assets//images/mercy.png" class="w-auto h-16 mb-4"></img>
+                            <h4 class="font-bold text-navy-900">Soren Hansen</h4>
+                            <p class="text-gray-600">Mercy College</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-slide min-w-[85%] md:min-w-[45%] lg:min-w-[30%] p-4">
+                    <div class="bg-gray-50 p-6 rounded-lg h-full flex flex-col">
+                        <img src="assets/images/quote.svg" class="w-9 h-auto mb-5"/>
+                        <p class="text-gray-700 mb-12 flex-grow">
+                            We've been working with Majestic Plumbing for over 5 years and their service has always been exceptional. Their team is responsive, professional, and delivers quality work every time.
+                        </p>
+                        <div class="mt-auto">
+                            <img src="assets//images/perth.png" class="w-32 h-16 mb-4"></img>
+                            <h4 class="font-bold text-navy-900">Emma Johnson</h4>
+                            <p class="text-gray-600">Perth Development Group</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-slide min-w-[85%] md:min-w-[45%] lg:min-w-[30%] p-4">
+                    <div class="bg-gray-50 p-6 rounded-lg h-full flex flex-col">
+                        <img src="assets/images/quote.svg" class="w-9 h-auto mb-5"/>
+                        <p class="text-gray-700 mb-12 flex-grow">
+                            Majestic Plumbing's expertise in commercial plumbing solutions has been invaluable for our shopping center renovations. Highly recommended for any large-scale project.
+                        </p>
+                        <div class="mt-auto">
+                            <img src="assets//images/belmont.png" class="w-32 h-16 mb-4"></img>
+                            <h4 class="font-bold text-navy-900">Michael Chen</h4>
+                            <p class="text-gray-600">Belmont City Of Oppotunity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation and Dots Container -->
+            <div class="flex justify-center items-center mt-8 space-x-4">
+                <!-- Previous Button -->
+                <button class="testimonial-prev bg-white rounded-full shadow-lg p-2 focus:outline-none">
+                    <i data-lucide="chevron-left" class="h-6 w-6 text-primary"></i>
+                </button>
+                
+                <!-- Dots Navigation -->
+                <div class="flex items-center testimonial-dots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+                
+                <!-- Next Button -->
+                <button class="testimonial-next bg-white rounded-full shadow-lg p-2 focus:outline-none">
+                    <i data-lucide="chevron-right" class="h-6 w-6 text-primary"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Slider JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            
+            // Testimonial slider functionality
+            const track = document.querySelector('.testimonial-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const nextButton = document.querySelector('.testimonial-next');
+            const prevButton = document.querySelector('.testimonial-prev');
+            const dotsContainer = document.querySelector('.testimonial-dots');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            // Function to determine slides to show based on screen width
+            function getSlidesToShow() {
+                return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+            }
+            
+            // Function to calculate the total number of pages
+            function getTotalPages() {
+                return totalSlides;
+            }
+            
+            // Generate dots based on total pages
+            function generateDots() {
+                dotsContainer.innerHTML = '';
+                const totalPages = getTotalPages();
+                
+                for (let i = 0; i < totalPages; i++) {
+                    const dot = document.createElement('button');
+                    dot.classList.add('rounded-full', 'mx-1', 'transition-all', 'duration-300');
+                    
+                    if (i === currentIndex) {
+                        dot.classList.add('w-8', 'h-2', 'bg-primary');
+                    } else {
+                        dot.classList.add('w-2', 'h-2', 'bg-gray-300');
+                    }
+                    
+                    dot.setAttribute('data-index', i);
+                    dot.addEventListener('click', () => {
+                        goToSlide(i);
+                    });
+                    
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            
+            // Function to update slider position
+            function updateSlider() {
+                const slidesToShow = getSlidesToShow();
+                
+                // Calculate the slide width as a percentage
+                const slideWidth = window.innerWidth < 768 ? 100 / slidesToShow : 150 / slidesToShow;
+                
+                // Set each slide's width
+                slides.forEach(slide => {
+                    slide.style.minWidth = `${slideWidth}%`;
+                });
+                
+                // Calculate the translation percentage for one slide at a time
+                // For mobile (1 slide visible), center the current slide
+                if (slidesToShow === 1) {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                } else {
+                    // For larger screens, we need to handle partial visibility
+                    // Calculate how much to move to show the next slide
+                    const translateX = currentIndex * (100 / slidesToShow);
+                    track.style.transform = `translateX(-${translateX}%)`;
+                }
+                
+                // Update dots
+                const dots = document.querySelectorAll('.testimonial-dots button');
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('w-8', 'bg-primary');
+                        dot.classList.remove('w-2', 'bg-gray-300');
+                    } else {
+                        dot.classList.remove('w-8', 'bg-primary');
+                        dot.classList.add('w-2', 'bg-gray-300');
+                    }
+                });
+            }
+            
+            // Function to go to a specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlider();
+                pauseAutoRotation();
+            }
+            
+            // Next button click - move one slide at a time
+            nextButton.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                    updateSlider();
+                    pauseAutoRotation();
+                }
+            });
+            
+            // Previous button click - move one slide at a time
+            prevButton.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                    pauseAutoRotation();
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                // Update slider on resize without changing current index
+                updateSlider();
+            });
+            
+            // Variable to track if auto-rotation is paused
+            let isAutoPaused = false;
+            let slideInterval;
+            
+            // Function to start auto-rotation
+            function startAutoRotation() {
+                // Clear any existing interval first
+                if (slideInterval) {
+                    clearInterval(slideInterval);
+                }
+                
+                slideInterval = setInterval(() => {
+                    if (currentIndex < totalSlides - 1) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    updateSlider();
+                }, 5000);
+            }
+            
+            // Pause auto-rotation when user interacts with navigation
+            function pauseAutoRotation() {
+                if (isAutoPaused) return; // Prevent multiple pauses
+                
+                isAutoPaused = true;
+                clearInterval(slideInterval);
+                
+                // Restart auto-rotation after a delay
+                setTimeout(() => {
+                    isAutoPaused = false;
+                    startAutoRotation();
+                }, 10000);
+            }
+            
+            // Initialize dots
+            generateDots();
+            
+            // Initialize slider
+            updateSlider();
+            
+            // Start initial auto-rotation
+            startAutoRotation();
+        });
+    </script>
+</section>
+
+<!-- Blog Section -->
+<section class="py-16 md:py-20 px-4 md:px-8 lg:px-12 bg-gray-50">
+    <div class="container mx-auto">
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-start mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-navy-900">From Our Blog</h2>
+            <a href="#" class="bg-navy-900 hover:bg-navy-950 text-white font-medium py-2 px-6 rounded-full flex items-center transition-all duration-300 hover:shadow-lg hover:scale-105">
+                View more articles
+                <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+            </a>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Blog Post 1 -->
+            <a href="#" class="block rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                <div class="h-auto bg-gray-300 relative">
+                    <!-- Replace with actual image -->
+                    <img src="assets/images/blog-1.png" class="bg-gray-300 w-full h-auto"></img>
+                </div>
+                <div class="pt-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">Commercial Plumbing</span>
+                        <span class="text-gray-500 text-sm">FEB 22, 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">The Importance of Preventative Plumbing Maintenance for Commercial Properties</h3>
+                    <p class="text-gray-600 text-sm">
+                        Discover why regular plumbing maintenance is crucial for commercial properties and how it can prevent costly repairs and downtime.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Blog Post 2 -->
+            <a href="#" class="block rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                <div class="h-auto bg-gray-300 relative">
+                    <!-- Replace with actual image -->
+                    <img src="assets/images/blog-2.png" class="bg-gray-300 w-full h-auto"></img>
+                </div>
+                <div class="pt-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">Industrial Plumbing</span>
+                        <span class="text-gray-500 text-sm">MAR 5, 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">How to Ensure Your Industrial Plumbing Systems Are Compliant with Regulations</h3>
+                    <p class="text-gray-600 text-sm">
+                        Learn about key regulations for industrial plumbing systems and how to stay compliant to avoid fines and operational disruptions.
+                    </p>
+                </div>
+            </a>
+
+            <!-- Blog Post 3 -->
+            <a href="#" class="block rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                <div class="h-auto bg-gray-300 relative">
+                    <!-- Replace with actual image -->
+                    <img src="assets/images/blog-3.png" class="bg-gray-300 w-full h-auto"></img>
+                </div>
+                <div class="pt-4">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-primary text-white text-xs font-medium px-3 py-1 rounded-full">Plumbing Tips & Maintenance</span>
+                        <span class="text-gray-500 text-sm">MARCH 18, 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Top Tips for Maintaining Your Hot Water Systems Year-Round</h3>
+                    <p class="text-gray-600 text-sm">
+                        Keep your hot water systems running smoothly with these essential maintenance tips to ensure reliability and energy efficiency.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-navy-900 text-white py-16 px-4 md:px-8 lg:px-12 pb-0">
+    <div class="container mx-auto">
+        <!-- Top Footer -->
+        <div class="flex flex-col lg:flex-row justify-between mb-12">
+            <!-- Logo and Social -->
+            <div class="mb-8 lg:mb-0 flex flex-col sm:flex-row gap-4">
+                <!-- Logo -->
+                <div class="mb-6">
+                    <div class="h-12 w-64">
+                        <!-- Replace with actual logo -->
+                         <img src="assets/images/logo-white.svg" class="h-12 w-auto"></img>
+                    </div>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="flex space-x-4">
+                    <a href="#" class="w-12 h-12 sm:h-[60px] sm:w-[60px] hover:-translate-y-1 transition duration-300">
+                        <img src="assets/images/facebook.svg" class="w-full h-full"></img>
+                    </a>
+                    <a href="#" class="w-12 h-12 sm:h-[60px] sm:w-[60px] hover:-translate-y-1 transition duration-300">
+                        <img src="assets/images/linkedin.svg" class="w-full h-full"></img>
+                    </a>
+                    <a href="#" class="w-12 h-12 sm:h-[60px] sm:w-[60px] hover:-translate-y-1 transition duration-300">
+                        <img src="assets/images/instagram.svg" class="w-full h-full"></img>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Partner Logos -->
+            <div class="flex flex-wrap items-center gap-8 mb-8 lg:mb-0">
+                <div class="h-12 w-auto flex items-center justify-center">
+                    <!-- Placeholder for certification logo -->
+                    <img src="assets/images/partner-0.png" class="h-12 w-auto"></img>
+                </div>
+                <div class="h-16 w-16 bg-white rounded-full flex items-center justify-center">
+                    <!-- Placeholder for certification logo -->
+                    <img src="assets/images/partner-1.png" class="h-14 w-14 rounded-full"></img>
+                </div>
+                <div class="h-16 w-16 bg-white rounded-full flex items-center justify-center">
+                    <!-- Placeholder for certification logo -->
+                    <img src="assets/images/partner-2.png" class="h-14 w-14 rounded-full"></img>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Links -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-6 md:mb-12">
+            <!-- About Us Column -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">About Us</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Our Team</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Careers</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Our History</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Awards</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Certifications</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Safety & Compliance</a></li>
+                </ul>
+            </div>
+            
+            <!-- Capabilities Column -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Capabilities</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Case Studies</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Community</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">FAQs</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Blog</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Services Column -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">General Plumbing</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Commercial Plumbing</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Construction Plumbing</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Industrial Plumbing</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Asset Management</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Planned Preventive Maintenance</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Emergency Plumbing</a></li>
+                </ul>
+            </div>
+            
+            <!-- Services Column (continued) -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Services</h3>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Maintenance</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Water Filtration</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Gas Fitting</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Block Drains</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Grease Trap Cleaning</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Hot water system</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Backflow Testing & Prevention</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Roof Plumbing</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-200">Leak Detection</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Column -->
+            <div>
+                <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+                <ul class="space-y-2">
+                    <li class="text-gray-300">08 9209 0888</li>
+                </ul>
+                
+                <h3 class="text-lg font-bold mt-6 mb-4">Address</h3>
+                <address class="text-gray-300 not-italic">
+                    91 Crocker Drive<br>
+                    Malaga WA 6090<br>
+                    Mon - Fri: 7:30am – 4:30pm
+                </address>
+            </div>
+        </div>
+        
+        <!-- License Information -->
+        <div class="pb-6 md:pt-3 md:pb-12">
+            <div class="flex flex-col md:flex-row justify-between text-sm text-gray-400">
+                <div class="mb-4 md:mb-0">
+                    <span class="mr-6">Licensed Contractor: PL 5034</span>
+                    <span>Licensed Gasfitter: GF 4593</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="flex flex-col md:flex-row justify-between text-sm text-gray-400 border-t border-white/10 py-6">
+            <div>© Majestic Plumbing Pty Ltd</div>
+            <div>Website by Basrh - Design by Clue</div>
+        </div>
+    </div>
+    
+</footer>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
