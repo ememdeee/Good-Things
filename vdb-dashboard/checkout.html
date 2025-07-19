@@ -5,54 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="checkout.css">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
         <div class="container">
             <header>
                 <a href="#" class="back-button"><span class="arrow-left"></span> Back</a>
-                <h1>Checkout</h1>
-                <p class="checkout-description">Double-check everything. Review your order summary to confirm your choices and ensure accuracy. Your satisfaction is our success.</p>
             </header>
     
             <div class="checkout-content">
                 <div class="payment-section">
+                    <div class="header">
+                        <h1>Checkout</h1>
+                        <p class="checkout-description">Double-check everything. Review your order summary to confirm your choices and ensure accuracy. Your satisfaction is our success.</p>
+                    </div>
                     <div class="payment-box">
                         <div class="payment-header">
                             <h2>Payment Details</h2>
                             <label class="toggle-container">
                                 <span>Use saved card</span>
                                 <div class="toggle">
-                                    <input type="checkbox">
+                                    <input id="card-toogle" type="checkbox">
                                     <span class="slider"></span>
                                 </div>
                             </label>
                         </div>
                         
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" value="walt@enterprise.com" readonly>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="card-number">Card Number</label>
-                            <input type="text" id="card-number" placeholder="1234 5678 1234 5678" oninput="this.nextElementSibling.style.opacity = this.value.trim() ? '0' : '1';">
-                            <div class="card-icons">
-                                <img src="images/cards.svg" alt="Visa" class="card-icon visa">
+                        <div id="input-card">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" value="walt@enterprise.com" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" placeholder="1234 5678 1234 5678" oninput="this.nextElementSibling.style.opacity = this.value.trim() ? '0' : '1';">
+                                <div class="card-icons">
+                                    <img src="images/cards.svg" alt="Visa" class="card-icon visa">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" placeholder="MM/YY">
+                                </div>
+                                <div class="form-group half">
+                                    <label for="cvc">CVC</label>
+                                    <input type="text" id="cvc" placeholder="123">
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label for="expiry">Expiry Date</label>
-                                <input type="text" id="expiry" placeholder="MM/YY">
-                            </div>
-                            <div class="form-group half">
-                                <label for="cvc">CVC</label>
-                                <input type="text" id="cvc" placeholder="123">
-                            </div>
+                        <div id="saved-card" class="hidden">
+                            <label for="card-visa" class="saved-card-item">
+                                <div class="card-logo">
+                                  <img src="images/visa.svg" alt="Visa">
+                                </div>
+                                <div class="card-details">
+                                  <div class="card-holder">Alex Parkinson</div>
+                                  <div class="card-number">•••• •••• •••• 4242</div>
+                                </div>
+                                <div class="card-radio">
+                                  <input checked type="radio" id="card-visa" name="saved-card">
+                                  <span class="radio-checkmark"></span>
+                                </div>
+                            </label>
+                            
+                            <label for="card-mastercard" class="saved-card-item">
+                                <div class="card-logo">
+                                  <img src="images/mastercard.svg" alt="Mastercard">
+                                </div>
+                                <div class="card-details">
+                                  <div class="card-holder">Alex Parkinson</div>
+                                  <div class="card-number">•••• •••• •••• 4242</div>
+                                </div>
+                                <div class="card-radio">
+                                  <input type="radio" id="card-mastercard" name="saved-card">
+                                  <span class="radio-checkmark"></span>
+                                </div>
+                            </label>
                         </div>
                     </div>
                     
@@ -76,7 +109,7 @@
                         <button class="pay-now-btn">Pay now</button>
                         
                         <p class="terms-text">
-                            By clicking "Pay" you confirm that you have read and agree to our <a href="#">Terms & conditions</a> and <a href="#">privacy policy</a>.
+                            By clicking "Pay" you confirm that you have read and agree to our <a href="https://vehicledatabases.com/terms-and-conditions">Terms & conditions</a> and <a href="https://vehicledatabases.com/privacy_policy">privacy policy</a>.
                         </p>
                     </div>
                     <div class="payment-box">
@@ -109,11 +142,14 @@
                 </div>
                 
                 <div class="summary-section">
-                    <h2>Order Summary</h2>
+                    <p class="summary-heading">Order Summary</p>
                     
                     <div class="summary-item">
                         <span>Enterprise Package:</span>
-                        <span class="price">$2,500.00/month</span>
+                        <span class="price">
+                            <span class="value">$2,500.00</span>
+                            <span class="periode">/month</span>
+                        </span>
                     </div>
                     
                     <div class="summary-item">
@@ -138,23 +174,56 @@
                     
                     <div class="summary-item">
                         <span>Selected API Services:</span>
-                        <div>
-                            <span class="highlight">All services</span>
-                            <a href="#" class="view-link">View</a>
+                        <div class="all-selected-api">
+                            <a onclick="toggleViewAll()" class="view-link">View selected services</a>
                         </div>
                     </div>
+                    <div id="view-all-link" class="api-services-table">
+                        <div class="table-header">
+                            <span>Service Name</span>
+                            <span>Description</span>
+                        </div>
+                        <div class="table-row">
+                            <span>one</span>
+                            <span>First service description</span>
+                        </div>
+                        <div class="table-row">
+                            <span>two</span>
+                            <span>Second service description</span>
+                        </div>
+                        <div class="table-row">
+                            <span>three</span>
+                            <span>Third service description</span>
+                        </div>
+                        <div class="table-row">
+                            <span>four</span>
+                            <span>Fourth service description</span>
+                        </div>
+                        <div class="table-row">
+                            <span>This is only example</span>
+                            <span>Example service description</span>
+                        </div>
+                    </div>
+                    <script>
+                        function toggleViewAll() {
+                            const viewAllLink = document.getElementById('view-all-link');
+                            viewAllLink.classList.toggle('show');
+                        }
+                    </script>
                     
                     <div class="total-amount">
                         <div>
-                            <span>Total amount</span>
+                            <span class="heading">Total amount</span>
                             <span class="billing-cycle">Billed monthly</span>
                         </div>
                         <span class="total-price">$2,500.00</span>
                     </div>
                     
                     <div class="yearly-offer">
-                        <div class="best-value">BEST VALUE</div>
-                        <h3>Upgrade to yearly subscription</h3>
+                        <div class="yearly-header">
+                            <h3>Upgrade to yearly subscription</h3>
+                            <div class="best-value">BEST VALUE</div>
+                        </div>
                         <div class="yearly-price">
                             <span class="price">$24,000.00</span>
                             <span class="period">/year</span>
@@ -162,7 +231,10 @@
                         <div class="savings">
                             <span class="original">$30,000/year</span>
                             <span class="save-percent">Save 20%</span>
-                            <span class="save-amount">Save $6,000 vs monthly plan</span>
+                            <span class="save-amount">
+                                <span class="price">Save $6,000</span>
+                                <span class="period"> vs monthly plan</span>
+                        </span>
                         </div>
                         
                         <button class="upgrade-yearly-btn">Upgrade to Enterprise Yearly Subscription</button>
@@ -178,5 +250,6 @@
             </div>
         </div>
     </div>
+    <script src="checkout.js"></script>
 </body>
 </html>

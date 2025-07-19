@@ -97,8 +97,12 @@
         @page {
             size: A4 portrait; /* Standard portrait layout */
             margin: 10mm; /* Optional: adjust for printer margins */
+            background-color: #fffdf5;
         }
 
+        body{
+            background-color: #fffdf5;
+        }
 
         /* Ensure colors and styles for print */
         *:not(.custom-break):not(.custom-break *) {
@@ -170,6 +174,7 @@
         
         return messageContainer;
     }
+    
     function bannerForm(type, id, vin, email, phone, errorTextElement) {
         // Check if VIN length is 5-13 characters
         const vinValid = vin.length >= 5 && vin.length <= 13;
@@ -178,7 +183,7 @@
         const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         // Check if phone is valid (8-13 digits)
-        const phoneValid = /^\d{8,13}$/.test(phone);
+        const phoneValid = phone === '' || /^\d{8,13}$/.test(phone);
 
         if (!vinValid || !emailValid || !phoneValid) {
             let errorMessage = '';
@@ -192,8 +197,19 @@
             errorTextElement.textContent = ''; // Clear any previous error messages
             console.log('Form Data:', { type, id, vin, email, phone });
 
+            var coupon = type == 'sticker' ? 'sr20' : 'rr20';
+
+            const domainName = window.location.hostname || "detailedvehiclehistory.com";
+
+            let redirectUrl;
+
             // Construct the URL with form data
-            const redirectUrl = `https://classicdecoder.com/vehicle/preview?type=${type}&vin=${encodeURIComponent(vin)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&wpPage=newReport`;
+            if (domainName === "classicdecoder.com" || domainName === "pintonaturals.com") {
+                redirectUrl = `https://${domainName}/vehicle/preview?type=${type}&vin=${encodeURIComponent(vin)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&wpPage=newReport`;
+                
+            } else {
+                redirectUrl = `https://${domainName}/vin-check/preview?vin=${encodeURIComponent(vin)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&wpPage=newReport`;
+            }
             
             // Open the URL in a new tab
             window.open(redirectUrl, '_blank');
@@ -429,7 +445,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </div>
 
         <!-- Specifications Content -->
-        <section section-name="Standard Specifications" id="specificationsSection" class="p-6 pt-1">
+        <section section-name="Standard Specifications" id="specificationsSection" class="p-6 pt-1 custom-break">
             <h2 class="text-2xl font-bold mb-6 text-center md:text-left">Standard Specifications</h2>
             <div class="columns-1 sm:columns-2 gap-8 border p-3 rounded-md" id="specificationsContent"></div>
         </section>
@@ -3482,7 +3498,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         </script>
 
         <!-- DVH -->
-        <section section-name="Detailed Vehicle History" id="detailedHistorySection" class="p-6 hidden">
+        <section section-name="Detailed Vehicle History" id="detailedHistorySection" class="p-6 hidden custom-break">
             <div class="flex flex-col md:flex-row justify-center md:justify-between items-center mb-4">
                 <h2 class="text-2xl font-bold">Detailed Vehicle History</h2>
                 <span class="text-lg font-semibold" id="historyRecordCount"></span>
@@ -3600,7 +3616,7 @@ document.querySelectorAll('#navLinks a').forEach(link => {
         
                 // Generate cards for mobile
                 cardGrid.innerHTML = historyData.records.map(record => `
-                    <div class="border rounded-lg p-3 space-y-3 bg-white">
+                    <div class="border rounded-lg p-3 space-y-3 bg-white break-inside-avoid">
                         <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <div class="text-sm font-semibold text-gray-600">Date</div>

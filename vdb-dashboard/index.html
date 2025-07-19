@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#ff6b35',
+                            light: '#ff9d7d',
+                            lighter: '#fff9f5',
+                            dark: '#e55a2a'
+                        },
+                        success: {
+                            DEFAULT: '#2e8b57',
+                            light: '#e6f7e6'
+                        },
+                        gray: {
+                            DEFAULT: '#CCCCCC',
+                            light: '#E5E5E5',
+                            dark: '#999999'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="container">
+            <!-- Header -->
+            <div class="mb-6">
+                <h1 class="text-2xl font-semibold mb-2">Choose Your Plan</h1>
+                <p class="text-gray-600 text-sm">Select the perfect plan based on your API usage needs.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="mb-8">
+                <div class="flex -mb-px w-fit border bg-gray-200 border-gray-200 rounded-lg overflow-hidden">
+                    <button class="tab-btn py-3 px-2 sm:px-5 text-xs sm:text-sm font-medium relative text-primary rounded-lg bg-white" data-tab="subscription">Subscription</button>
+                    <button class="tab-btn py-3 px-2 sm:px-5 text-xs sm:text-sm font-medium relative text-gray-600 bg-gray-200 rounded-none" data-tab="pay-as-you-go">Pay as you go</button>
+                    <button class="tab-btn py-3 px-2 sm:px-5 text-xs sm:text-sm font-medium relative text-gray-600 bg-gray-200 rounded-none" data-tab="testing-credits">Testing credits</button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div class="toogle-slider">
+                  <!-- Billing Toggle -->
+                  <div class="flex items-center mb-8 gap-2 flex-wrap">
+                      <span class="billing-option md:text-lg font-medium text-gray-800">Monthly</span>
+                      <label class="relative inline-block w-12 h-6">
+                          <input type="checkbox" id="billing-toggle" class="opacity-0 w-0 h-0">
+                          <span class="absolute cursor-pointer inset-0 bg-gray-300 rounded-full transition-all duration-300 
+                              before:content-[''] before:absolute before:h-5 before:w-5 before:left-0.5 before:bottom-0.5 
+                              before:bg-white before:rounded-full before:transition-all before:duration-300 before:translate-x-0"></span>
+                      </label>
+                      <span class="billing-option md:text-lg font-medium text-gray-500">Yearly</span>
+                      <span class="text-xs font-medium bg-green-600 text-white px-2 py-1 rounded-full">Save up to 50%</span>
+                  </div>
+    
+                  <!-- Slider Section -->
+                  <div class="bg-gradient-to-b from-[#FFE4D4] to-white border border-gray rounded-lg px-4 md:px-6 py-6 text-center">
+                    <h2 class="text-lg font-bold flex items-center justify-center mb-4">
+                        How many API calls do you need? 
+                        <div class="relative ml-2 group">
+                          <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs text-gray-600 cursor-help">?</span>
+                          
+                          <!-- Single responsive tooltip -->
+                          <div class="absolute bottom-full right-0 md:left-1/2 md:right-auto transform md:-translate-x-1/2 mb-2 w-48 md:w-64 p-3 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-10">
+                            <!-- Arrow position changes based on screen size -->
+                            <div class="absolute bottom-0 right-2 md:right-auto md:left-1/2 transform translate-y-1/2 md:-translate-x-1/2 rotate-45 w-3 h-3 bg-white"></div>
+                            
+                            <p class="text-sm text-gray-700">Scroll the slider, let us recommend the right package for you!</p>
+                          </div>
+                        </div>
+                    </h2>
+                    <div class="mt-2 md:mt-0 text-base font-medium mb-4">
+                        I need <span class="text-primary font-bold text-2xl"><span id="api-calls-value">50K</span> API calls</span>
+                    </div>
+                      
+                    <div class="relative mb-3 h-6 touch-none">
+                        <!-- Slider Track Background -->
+                        <div class="absolute top-1/2 left-0 right-0 h-3 bg-gray-200 rounded-full transform -translate-y-1/2"></div>
+                        
+                        <!-- Slider Active Track -->
+                        <div id="slider-active-track" class="absolute top-1/2 left-0 h-3 bg-gradient-to-r from-primary to-primary-light rounded-full transform -translate-y-1/2" style="width: 66.6667%;"></div>
+                        
+                        <!-- Slider Input -->
+                        <input 
+                            type="range" 
+                            min="0" 
+                            max="6" 
+                            value="3" 
+                            class="slider-thumb w-full appearance-none bg-transparent cursor-pointer z-10 absolute left-0 h-6 touch-none" 
+                            id="api-calls-slider"
+                        >
+                    </div>
+    
+                    <!-- Slider Markers -->
+                    <div class="flex justify-between text-xs text-gray-500 px-1 w-[calc(100%-20px)]">
+                      <span class="w-0">1K</span>
+                      <span class="w-0">5K</span>
+                      <span class="w-0">10K</span>
+                      <span class="w-0">50K</span>
+                      <span class="w-0">100K</span>
+                      <span class="w-0">1M+</span>
+                      <span class="w-0">5M+</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Subscription Tab -->
+                <div class="tab-pane active" id="subscription">
+
+                    <!-- Pricing Cards -->
+                    <div id="pricing-cards-subscribtion" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+                        <!-- Cards will be dynamically generated here -->
+                    </div>
+
+                    <!-- Feature Comparison Table -->
+                    <section class="px-4 md:px-6 py-6 bg-white border border-gray rounded-xl shadow-sm">
+                        <div class="mb-4">
+                          <h2 class="text-xl font-bold text-gray-800 mb-2">Feature Comparison - Monthly Plans</h2>
+                          <p class="text-sm text-gray-600">Compare our features side by side to find the perfect fit for your needs</p>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                          <table class="w-full border-collapse">
+                            <!-- Table Header -->
+                            <thead>
+                              <tr class="border-t border-gray-200">
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-gray-700">Features</th>
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-gray-700">Starter</th>
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-gray-700">Basic</th>
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-gray-700">Standard</th>
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-gray-700">Premium</th>
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-purple-600">Premium Plus</th>
+                                <th class="py-4 px-4 text-left text-sm font-semibold text-orange-500">Enterprise</th>
+                              </tr>
+                            </thead>
+                            
+                            <!-- Table Body -->
+                            <tbody>
+                              <!-- Price Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">Price</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$100</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$180</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$360</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$500</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">$800</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">$2,500</td>
+                              </tr>
+                              
+                              <!-- Costs Per Credit Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">Costs Per Credit</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.20</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.15</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.12</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.10</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">$0.08</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">$0.05</td>
+                              </tr>
+                              
+                              <!-- Credits Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">Credits</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">500</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">1,200</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">3,000</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">5,000</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">10,000</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">50,000</td>
+                              </tr>
+                              
+                              <!-- API Call Limits Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">API Call Limits</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">1/second</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">2/second</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">3/second</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">4/second</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">5/second</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">5/second</td>
+                              </tr>
+                              
+                              <!-- Services Included Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">Services Included</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">3</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">5</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">7</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">9</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">12</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">All</td>
+                              </tr>
+                              
+                              <!-- Overage Fees Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">Overage Fees</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.24/API call</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.18/API call</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.15/API call</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">$0.12/API call</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">$0.10/API call</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">$0.06/API call</td>
+                              </tr>
+                              
+                              <!-- Support Level Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-4 px-4 text-sm font-medium text-gray-700">Support Level</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-4 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-4 px-4 text-sm font-medium text-purple-600">Standard</td>
+                                <td class="py-4 px-4 text-sm font-medium text-orange-500">Priority</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Pay As You Go Tab -->
+                <div class="tab-pane" id="pay-as-you-go">
+                    <!-- Pricing Cards -->
+                    <div id="pricing-cards-payAsYouGo" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+                        <!-- Cards will be dynamically generated here -->
+                    </div>
+                    <section class="p-4 bg-white rounded-lg border border-gray-200 shadow-sm">
+                        <div class="mb-4">
+                          <h2 class="text-lg font-semibold text-gray-800">Feature Comparison - Pay As You Go Plans</h2>
+                          <p class="text-sm text-gray-600">Compare our features side by side to find the perfect fit for your needs</p>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                          <table class="w-full border-collapse">
+                            <thead>
+                              <tr class="border-t border-gray-200">
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Features</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Starter</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Basic</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Standard</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Premium</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-orange-500">Enterprise</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <!-- Price Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm font-medium text-gray-700">Price</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$125</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$240</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$375</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$1,200</td>
+                                <td class="py-3 px-4 text-sm font-medium text-orange-500">$5,000</td>
+                              </tr>
+                              
+                              <!-- Costs Per Credit Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm font-medium text-gray-700">Costs Per Credit</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$0.25</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$0.20</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$0.15</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">$0.12</td>
+                                <td class="py-3 px-4 text-sm font-medium text-orange-500">$0.10</td>
+                              </tr>
+                              
+                              <!-- Credits Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm font-medium text-gray-700">Credits</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">500</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">1,200</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">2,500</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">10,000</td>
+                                <td class="py-3 px-4 text-sm font-medium text-orange-500">50,000</td>
+                              </tr>
+                              
+                              <!-- API Call Limits Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm font-medium text-gray-700">API Call Limits</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">1/second</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">1/second</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">2/second</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">2/second</td>
+                                <td class="py-3 px-4 text-sm font-medium text-orange-500">3/second</td>
+                              </tr>
+                              
+                              <!-- Services Included Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm font-medium text-gray-700">Services Included</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">1</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">2</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">4</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">8</td>
+                                <td class="py-3 px-4 text-sm font-medium text-orange-500">All</td>
+                              </tr>
+                              
+                              <!-- Support Level Row -->
+                              <tr class="border-t border-gray-200">
+                                <td class="py-3 px-4 text-sm font-medium text-gray-700">Support Level</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-3 px-4 text-sm text-gray-600">Standard</td>
+                                <td class="py-3 px-4 text-sm font-medium text-orange-500">Priority</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Testing Credits Tab -->
+                <div class="tab-pane" id="testing-credits">
+                      <div class="mb-6">
+                          <h2 class="text-2xl font-bold text-gray-800 mb-2">Get testing credits from our testing Adds-on plans!</h2>
+                          <p class="text-gray-700 mb-2">Still testing the APIs and need more credits? Choose your testing package now.</p>
+                          <p class="text-red-600 text-sm">*Available to purchase one time only. Make the most of your testing credits!*</p>
+                      </div>
+                      
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                          <!-- Premium Package -->
+                          <div class="bg-white rounded-xl border border-gray-200 px-4 md:px-6 py-6 relative">
+                              <div class="absolute top-6 right-6 bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">
+                                  BEST VALUE
+                              </div>
+                              
+                              <h3 class="text-xl font-semibold text-gray-800 mb-4">Premium Package</h3>
+                              
+                              <div class="mb-4">
+                                  <span class="text-4xl font-bold text-gray-900">$100.00</span>
+                              </div>
+                              
+                              <p class="text-gray-600 mb-6">450 credits at <span class="font-medium">$0.22/credit</span></p>
+                              
+                              <button class="w-full py-3 px-4 border border-gray-800 rounded text-gray-800 font-medium hover:bg-gray-50 transition-colors">
+                                  Select API services with this plan
+                              </button>
+                          </div>
+                          
+                          <!-- Basic Package -->
+                          <div class="bg-white rounded-xl border border-gray-200 px-4 md:px-6 py-6">
+                              <h3 class="text-xl font-semibold text-gray-800 mb-4">Basic Package</h3>
+                              
+                              <div class="mb-4">
+                                  <span class="text-4xl font-bold text-gray-900">$50.00</span>
+                              </div>
+                              
+                              <p class="text-gray-600 mb-6">200 credits at <span class="font-medium">$0.25/credit</span></p>
+                              
+                              <button class="w-full py-3 px-4 border border-gray-800 rounded text-gray-800 font-medium hover:bg-gray-50 transition-colors">
+                                  Select API services with this plan
+                              </button>
+                          </div>
+                      </div>
+                      
+                      <!-- Request Additional Credits Button -->
+                      <div class="text-center">
+                          <button 
+                              onclick="showRequestCreditsModal()" 
+                              class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded transition-colors duration-200 inline-flex items-center"
+                          >
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                              </svg>
+                              Request Additional Credits
+                          </button>
+                          <p class="text-sm text-gray-600 mt-4">Need more than what our standard packages offer? Request a custom amount.</p>
+                      </div>
+                </div>
+                <!-- Select Services -->
+                <section class="px-4 md:px-6 py-6 bg-white border border-gray rounded-xl shadow-sm my-8">
+                    <div class="flex flex-wrap gap-4 border-b border-gray justify-between items-center pb-4 mb-4">
+                      <div>
+                        <h2 class="text-lg font-bold text-gray-800 mb-2">Select API Services</h2>
+                        <p class="text-sm text-gray-600">Choose up to All services to include in your plan.</p>
+                      </div>
+                      <div class="bg-purple-100 border border-[#991FF8] text-purple-700 text-xs font-bold px-3 py-1 rounded-full text-center">
+                        3 OF ALL API SERVICES SELECTED
+                      </div>
+                    </div>
+                    
+                    <!-- Vehicle History Notice -->
+                    <div class="bg-gray-900 text-white p-2 rounded flex justify-between items-center mb-6 flex-wrap gap-2">
+                      <p class="text-sm"><span class="text-red-600 text-xl leading-none tracking-[4px]">*</span>Vehicle History is only available on custom request and is not included in the current plans.<span class="text-red-600 text-xl leading-none tracking-[4px]">*</span></p>
+                      <button class="bg-transparent border border-white text-white text-xs px-3 py-2 rounded hover:bg-white hover:text-gray-900 transition-colors" onclick="showRequestCreditsModal()">
+                        Request API Access
+                      </button>
+                    </div>
+                    
+                    <!-- Services Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-6">
+                      <!-- Left Column -->
+                      <div>
+                        <!-- VIN Services & Vehicle Specifications -->
+                        <div class="mb-4 border-b border-gray pb-4">
+                          <h3 class="font-semibold text-gray-800 mb-3">VIN Services & Vehicle Specifications</h3>
+                          
+                          <div class="space-y-4">
+                            <!-- Basic U.S VIN Decode -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="basic-vin-decode" class="mt-1 mr-3">
+                              <div>
+                                <label for="basic-vin-decode" class="block font-medium text-sm text-gray-700">Basic U.S VIN Decode</label>
+                                <p class="text-xs text-gray-500">Basic U.S vehicle identification number decoding.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Classic VIN Decoder -->
+                            <div class="flex items-start">
+                                <input type="checkbox" id="classic-vin-decode" class="mt-1 mr-3">
+                                <div>
+                                    <label for="classic-vin-decode" class="block font-medium text-sm text-gray-700">Classic VIN Decoder</label>
+                                    <p class="text-xs text-gray-500">Specialized decoder for classic vehicles.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Premium Plus VIN Decode -->
+                            <div class="flex items-start">
+                                <input type="checkbox" id="premium-vin-decode" class="mt-1 mr-3">
+                                <div>
+                                    <label for="premium-vin-decode" class="block font-medium text-sm text-gray-700">Premium Plus VIN Decode</label>
+                                    <p class="text-xs text-gray-500">Advanced VIN decoding with detailed vehicle information.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Europe VIN Decode -->
+                            <div class="flex items-start">
+                                <input type="checkbox" id="eruope-vin-decode" class="mt-1 mr-3">
+                                <div>
+                                    <label for="eruope-vin-decode" class="block font-medium text-sm text-gray-700">Europe VIN Decode</label>
+                                    <p class="text-xs text-gray-500">European vehicle identification number decoding.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Incorrect VIN Suggestion -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="incorrect-vin" class="mt-1 mr-3">
+                              <div>
+                                <label for="incorrect-vin" class="block font-medium text-sm text-gray-700">Incorrect VIN Suggestion</label>
+                                <p class="text-xs text-gray-500">VIN search and suggestions.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Electric Vehicle Specifications -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="electric-vehicle-specs" class="mt-1 mr-3">
+                              <div>
+                                <label for="electric-vehicle-specs" class="block font-medium text-sm text-gray-700">Electric Vehicle Specifications</label>
+                                <p class="text-xs text-gray-500">Detailed specifications for electric vehicles.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- YMM Specifications -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="ymm-specs" class="mt-1 mr-3">
+                              <div>
+                                <label for="ymm-specs" class="block font-medium text-sm text-gray-700">YMM Specifications</label>
+                                <p class="text-xs text-gray-500">Vehicle specifications by Year/Make/Model.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Vehicle Valuation -->
+                        <div class="mb-4 border-b border-gray pb-4">
+                          <h3 class="font-semibold text-gray-800 mb-3">Vehicle Valuation</h3>
+                          
+                          <div class="space-y-4">
+                            <!-- Market Value by VIN & YMM -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="market-value" class="mt-1 mr-3">
+                              <div>
+                                <label for="market-value" class="block font-medium text-sm text-gray-700">Market Value by VIN & YMM</label>
+                                <p class="text-xs text-gray-500">Vehicle market value assessment by VIN & Year/Make/Model.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Sales History -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="sales-history" class="mt-1 mr-3">
+                              <div>
+                                <label for="sales-history" class="block font-medium text-sm text-gray-700">Sales History</label>
+                                <p class="text-xs text-gray-500">Historical sales data and analysis.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- OCR Services -->
+                        <div class="mb-4 md:border-none border-b border-gray pb-4">
+                          <h3 class="font-semibold text-gray-800 mb-3">OCR Services</h3>
+                          
+                          <div class="space-y-4">
+                            <!-- License Plate OCR -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="license-plate-ocr" class="mt-1 mr-3">
+                              <div>
+                                <label for="license-plate-ocr" class="block font-medium text-sm text-gray-700">License Plate OCR</label>
+                                <p class="text-xs text-gray-500">License plate optical character recognition for US vehicles.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- VIN OCR -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="vin-ocr" class="mt-1 mr-3">
+                              <div>
+                                <label for="vin-ocr" class="block font-medium text-sm text-gray-700">VIN OCR</label>
+                                <p class="text-xs text-gray-500">US VIN optical character recognition.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <!-- Right Column -->
+                      <div>
+                        <!-- License Plate/Registration Services -->
+                        <div class="mb-4 border-b border-gray pb-4">
+                          <h3 class="font-semibold text-gray-800 mb-3">License Plate/Registration Services</h3>
+                          
+                          <div class="space-y-4">
+                            <!-- US Plate Decode -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="us-plate-decode" class="mt-1 mr-3">
+                              <div>
+                                <label for="us-plate-decode" class="block font-medium text-sm text-gray-700">US Plate Decode</label>
+                                <p class="text-xs text-gray-500">US license plate number decoding.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- UK Registration Decode -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="uk-registration-decode" class="mt-1 mr-3">
+                              <div>
+                                <label for="uk-registration-decode" class="block font-medium text-sm text-gray-700">UK Registration Decode</label>
+                                <p class="text-xs text-gray-500">UK vehicle registration number decoding.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Vehicle History and Records -->
+                        <div class="mb-4 border-b border-gray pb-4">
+                          <h3 class="font-semibold text-gray-800 mb-3">Vehicle History and Records</h3>
+                          
+                          <div class="space-y-4">
+                            <!-- Stolen Check -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="stolen-check" class="mt-1 mr-3">
+                              <div>
+                                <label for="stolen-check" class="block font-medium text-sm text-gray-700">Stolen Check</label>
+                                <p class="text-xs text-gray-500">Vehicle theft status verification.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Title Check -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="title-check" class="mt-1 mr-3">
+                              <div>
+                                <label for="title-check" class="block font-medium text-sm text-gray-700">Title Check</label>
+                                <p class="text-xs text-gray-500">Vehicle title status and history.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <!-- Services and Repairs -->
+                        <div>
+                          <h3 class="font-semibold text-gray-800 mb-3">Services and Repairs</h3>
+                          
+                          <div class="space-y-4">
+                            <!-- Vehicle Maintenance -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="vehicle-maintenance" class="mt-1 mr-3">
+                              <div>
+                                <label for="vehicle-maintenance" class="block font-medium text-sm text-gray-700">Vehicle Maintenance</label>
+                                <p class="text-xs text-gray-500">Maintenance history and records.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Vehicle Recalls -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="vehicle-recalls" class="mt-1 mr-3">
+                              <div>
+                                <label for="vehicle-recalls" class="block font-medium text-sm text-gray-700">Vehicle Recalls</label>
+                                <p class="text-xs text-gray-500">Vehicle safety recall information.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Vehicle Repairs -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="vehicle-repairs" class="mt-1 mr-3">
+                              <div>
+                                <label for="vehicle-repairs" class="block font-medium text-sm text-gray-700">Vehicle Repairs</label>
+                                <p class="text-xs text-gray-500">Repair costs including parts & labor.</p>
+                              </div>
+                            </div>
+                            
+                            <!-- Vehicle Warranty -->
+                            <div class="flex items-start">
+                              <input type="checkbox" id="vehicle-warranty" class="mt-1 mr-3">
+                              <div>
+                                <label for="vehicle-warranty" class="block font-medium text-sm text-gray-700">Vehicle Warranty</label>
+                                <p class="text-xs text-gray-500">Warranty status and coverage.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+
+                <!-- Chckout Summary -->
+                <section class="px-4 md:px-6 py-6 bg-white rounded-xl border border-gray-200 shadow-sm mb-8">
+                    <h2 class="text-xl font-bold text-gray-800 mb-4">Checkout Summary</h2>
+                    
+                    <div class="border-t border-gray-200 pt-4">
+                      <!-- Summary Items -->
+                      <div class="space-y-3">
+                        <!-- Package -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">Package:</span>
+                          <span class="font-medium text-right">Enterprise - Monthly Subscription</span>
+                        </div>
+                        
+                        <!-- Package Price -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">Package Price:</span>
+                          <span class="font-medium text-right">$2,500.00</span>
+                        </div>
+                        
+                        <!-- Total Credits -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">Total Credits:</span>
+                          <span class="font-medium text-right">50,000</span>
+                        </div>
+                        
+                        <!-- Per Credit Price -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">Per Credit Price:</span>
+                          <span class="font-medium text-right">$0.05</span>
+                        </div>
+                        
+                        <!-- API Call Limit -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">API Call Limit:</span>
+                          <span class="font-medium text-right">5 API call/second</span>
+                        </div>
+                        
+                        <!-- Overage Fees -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">Overage Fees:</span>
+                          <span class="font-medium text-right">$0.06 per API call</span>
+                        </div>
+                        
+                        <!-- Selected API Services -->
+                        <div class="flex justify-between items-center">
+                          <span class="text-gray-700">Selected API Services:</span>
+                          <span class="font-medium text-right">3 services</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <!-- Divider -->
+                    <div class="border-t border-gray-200 my-4"></div>
+                    
+                    <!-- Checkout Button -->
+                    <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-4 rounded transition-colors duration-200">
+                      Proceed to Checkout
+                    </button>
+                </section>
+
+                <!-- Testimonials -->
+                <section class="">
+                    <!-- Tabs -->
+                    <div class="inline-flex rounded-lg overflow-hidden border border-gray-200 bg-gray-200 mb-4">
+                      <button id="customer-stories-tab" class="py-3 px-5 text-sm text-orange-500 font-medium bg-white rounded-lg">Customer stories</button>
+                      <button id="trusted-by-tab" class="py-3 px-5 text-sm text-gray-600 font-medium bg-gray-200 rounded-lg">Trusted by</button>
+                    </div>
+                    
+                    <!-- Customer Stories Content -->
+                    <div id="customer-stories-content" class="bg-white rounded-xl border border-gray-200 p-8 md:px-16 relative">
+                      <!-- Navigation Arrows -->
+                      <button id="prev-testimonial" class="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 w-5 h-5 md:w-8 md:h-8 flex items-center justify-center bg-white rounded-full shadow-md z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 md:h-5 md:w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      
+                      <button id="next-testimonial" class="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 w-5 h-5 md:w-8 md:h-8 flex items-center justify-center bg-white rounded-full shadow-md z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 md:h-5 md:w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                      
+                      <!-- Testimonial Content (Will be populated by JS) -->
+                      <div id="testimonials-container" class="grid grid-cols-1 gap-8">
+                        <!-- Testimonials will be inserted here by JavaScript -->
+                      </div>
+                      
+                      <!-- Pagination Dots (Will be populated by JS) -->
+                      <div id="testimonial-dots" class="flex justify-center mt-8 space-x-2 hidden">
+                        <!-- Dots will be inserted here by JavaScript -->
+                      </div>
+                    </div>
+                    
+                    <!-- Trusted By Content (Initially hidden but prepared for transition) -->
+                    <div id="trusted-by-content" class="absolute top-0 left-0 w-full opacity-0 pointer-events-none bg-white rounded-xl border border-gray-200 p-8 transition-all duration-300 ease-in-out transform translate-y-4">
+                        <h3 class="text-xl font-bold text-center mb-8">Trusted by Leading Companies</h3>
+                        
+                        <div id="companies-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                          <!-- Company logos will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Questions Section -->
+                    <div class="bg-white rounded-xl border border-gray-200 p-8 text-center">
+                      <h3 class="text-xl font-bold mb-2">Any questions or concerns?</h3>
+                      <p class="text-gray-600 mb-6">Speak to our live chat or setup a meeting for instant assistance.</p>
+                      <button class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded transition-colors duration-200">
+                        Book a Meeting
+                      </button>
+                    </div>
+                    
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                          // ===== DATA =====
+                          // Flat testimonial data structure
+                          const testimonials = [
+                            {
+                              logo: {
+                                src: 'https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/11/dvh-logo.svg',
+                                alt: 'Company Logo'
+                              },
+                              title: 'Detailed Vehicle History',
+                              text: 'We have established Detailed Vehicle History as one of the main vehicle history providers in the market, all thanks to Vehicle Databases. We did not only use their APIs for our website in order to decode VINs, provide vehicle reports and window stickers, but we also integrated their APIs in our wonderful mobile application. By using their OCR API, our mobile app gives customers the possibility to scan VIN numbers and license plates directly from the vehicle or documents, even when users are offline, in order to retrieve data from that vehicle in a matter of seconds. We couldn\'t be more happy with our choice of using Vehicle Databases APIs!'
+                            },
+                            {
+                              logo: {
+                                src: 'https://consultadevin.com/wp-content/uploads/2022/08/Logo-cnv.svg',
+                                alt: 'Consulta logo'
+                              },
+                              title: 'Consulta de VIN',
+                              text: 'Vehicles Databases es una pieza clave para nuestro sitio web. Gracias a su increíble base de datos, pudimos desarrollar un sitio web que provee reportes del historial del vehículo y calcomanías de ventana (Monroney labels), siendo pioneros en América Latina en brindar este tipo de productos. Además, gracias a las diversas APIs que proveen, podemos ofrecer la decodificación de VINs gratuitas en nuestro sitio, para que cualquier usuario pueda confirmar los datos más importantes de su vehículo. Estamos muy contentos de utilizar Vehicle Databases API para brindar todos nuestros servicios.'
+                            },
+                            {
+                              logo: {
+                                src: 'https://classicdecoder.com/wp-content/uploads/2023/01/logo-svg.svg',
+                                alt: 'Classic Decoder'
+                              },
+                              title: 'VIN Professional Services',
+                              text: 'Our company has been using Vehicle Databases API for over 3 years now, and we\'ve seen tremendous growth in our business. The comprehensive data they provide has allowed us to offer premium services to our customers. Their API is reliable, fast, and constantly updated with the latest vehicle information.'
+                            },
+                            {
+                              logo: {
+                                src: 'https://instantvinreports.com/wp-content/uploads/2022/02/logo.png',
+                                alt: 'Instan VIN Report'
+                              },
+                              title: 'AutoTrack Solutions',
+                              text: 'Vehicle Databases has been an essential partner in our vehicle tracking solutions. Their API integration was seamless, and their support team is always responsive. We\'ve been able to provide real-time vehicle data to our clients, which has significantly improved our service offerings.'
+                            },
+                            {
+                              logo: {
+                                src: 'https://smartcarcheck.uk/wp-content/uploads/2022/08/Logo-scc-svg.svg',
+                                alt: 'Smart Car Check'
+                              },
+                              title: 'CarData Analytics',
+                              text: 'As a data analytics company focused on the automotive industry, we needed a reliable source of vehicle information. Vehicle Databases has exceeded our expectations with their comprehensive API. The data quality is exceptional, and we\'ve been able to build powerful analytics tools for our clients.'
+                            },
+                            {
+                              logo: {
+                                src: 'https://vehiclehistory.eu/assets/vhreu-logo.svg',
+                                alt: 'Vehicle History'
+                              },
+                              title: 'Vehicle History',
+                              text: 'We\'ve integrated Vehicle Databases API into our mobile app, and our users love the detailed vehicle information they can access. The API performance is outstanding, even during peak usage times. This partnership has been crucial for our business growth.'
+                            }
+                          ];
+                          
+                          // Company data - using image URLs
+                          const companies = [
+                              { imageUrl: 'https://detailedvehiclehistory.com/wp-content/uploads/sites/3/2024/11/dvh-logo.svg', alt: 'DVH' },
+                              { imageUrl: 'https://consultadevin.com/wp-content/uploads/2022/08/Logo-cnv.svg', alt: 'CNV' },
+                              { imageUrl: 'https://classicdecoder.com/wp-content/uploads/2023/01/logo-svg.svg', alt: 'CD' },
+                              { imageUrl: 'https://instantvinreports.com/wp-content/uploads/2022/02/logo.png', alt: 'IVR' },
+                              { imageUrl: 'https://smartcarcheck.uk/wp-content/uploads/2022/08/Logo-scc-svg.svg', alt: 'SMC' },
+                              { imageUrl: 'https://vehiclehistory.eu/assets/vhreu-logo.svg', alt: 'VHReu' },
+                              { imageUrl: 'https://premiumvin.com/wp-content/uploads/2020/12/logo.png', alt: 'PV' },
+                              { imageUrl: 'https://windowstickerslookup.com/wp-content/uploads/2023/05/logo.svg', alt: 'WSL' }
+                          ];
+                          
+                          // ===== DOM ELEMENTS =====
+                          const customerStoriesTab = document.getElementById('customer-stories-tab');
+                          const trustedByTab = document.getElementById('trusted-by-tab');
+                          const customerStoriesContent = document.getElementById('customer-stories-content');
+                          const trustedByContent = document.getElementById('trusted-by-content');
+                          const testimonialsContainer = document.getElementById('testimonials-container');
+                          const testimonialDots = document.getElementById('testimonial-dots');
+                          const companiesContainer = document.getElementById('companies-container');
+                          const prevButton = document.getElementById('prev-testimonial');
+                          const nextButton = document.getElementById('next-testimonial');
+                          
+                          // ===== STATE =====
+                          let currentTestimonialIndex = 0;
+                          let activeTab = 'customer-stories';
+                          let isMobile = window.innerWidth < 768; // Track if we're in mobile view
+                          
+                          // ===== FUNCTIONS =====
+                          // Generate single testimonial HTML
+                          function generateTestimonialHTML(testimonial) {
+                            return `
+                              <div class="flex flex-col testimonial-slide">
+                                <div class="flex items-center mb-4">
+                                  <img src="${testimonial.logo.src}" alt="${testimonial.logo.alt || 'Company logo'}" class="w-16 h-8 object-contain mr-4">
+                                  <h3 class="text-lg font-bold">${testimonial.title}</h3>
+                                </div>
+                                <p class="text-gray-700 text-sm leading-relaxed">${testimonial.text}</p>
+                              </div>
+                            `;
+                          }
+                          
+                          // Generate company logo HTML
+                          function generateCompanyHTML(company) {
+                            return `
+                              <div class="flex items-center justify-center p-4 bg-gray-50 rounded-lg h-24">
+                                <img src="${company.imageUrl}" alt="${company.alt || 'Company logo'}" class="max-h-16 max-w-full object-contain">
+                              </div>
+                            `;
+                          }
+                          
+                          // Calculate total number of slides based on viewport
+                          function getTotalSlides() {
+                            return isMobile ? testimonials.length : Math.ceil(testimonials.length / 2);
+                          }
+                          
+                          // Render testimonials with smooth transition
+                          function renderTestimonials() {
+                            // Fade out current content
+                            testimonialsContainer.style.opacity = '0';
+                            testimonialsContainer.style.transform = 'translateY(10px)';
+                            
+                            setTimeout(() => {
+                              let newContent = '';
+                              
+                              if (isMobile) {
+                                // On mobile, show just one testimonial
+                                newContent = generateTestimonialHTML(testimonials[currentTestimonialIndex]);
+                              } else {
+                                // On desktop, show two testimonials side by side
+                                const firstIndex = currentTestimonialIndex * 2;
+                                const secondIndex = firstIndex + 1;
+                                
+                                // First testimonial
+                                newContent = `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">`;
+                                newContent += generateTestimonialHTML(testimonials[firstIndex]);
+                                
+                                // Second testimonial (if available)
+                                if (secondIndex < testimonials.length) {
+                                  newContent += generateTestimonialHTML(testimonials[secondIndex]);
+                                }
+                                
+                                newContent += `</div>`;
+                              }
+                              
+                              // Update the container
+                              testimonialsContainer.innerHTML = newContent;
+                              
+                              // Fade in new content
+                              testimonialsContainer.style.opacity = '1';
+                              testimonialsContainer.style.transform = 'translateY(0)';
+                              
+                              // Update pagination dots
+                              updatePaginationDots();
+                            }, 300);
+                          }
+                          
+                          // Update pagination dots based on current view
+                          function updatePaginationDots() {
+                            const totalSlides = getTotalSlides();
+                            const currentSlide = isMobile ? currentTestimonialIndex : Math.floor(currentTestimonialIndex / 2);
+                            
+                            testimonialDots.innerHTML = Array.from({ length: totalSlides }, (_, index) => `
+                              <span class="w-2 h-2 ${index === currentSlide ? 'bg-orange-500' : 'bg-gray-300'} rounded-full"></span>
+                            `).join('');
+                          }
+                          
+                          // Render company logos
+                          function renderCompanies() {
+                            companiesContainer.innerHTML = companies.map(company => 
+                              generateCompanyHTML(company)
+                            ).join('');
+                          }
+                          
+                          // Navigate to previous testimonial with smooth transition
+                          function goToPrevTestimonial() {
+                            if (isMobile) {
+                              currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+                            } else {
+                              // On desktop, move 2 testimonials at a time
+                              currentTestimonialIndex = (currentTestimonialIndex - 1 + Math.ceil(testimonials.length / 2)) % Math.ceil(testimonials.length / 2);
+                            }
+                            renderTestimonials();
+                          }
+                          
+                          // Navigate to next testimonial with smooth transition
+                          function goToNextTestimonial() {
+                            if (isMobile) {
+                              currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+                            } else {
+                              // On desktop, move 2 testimonials at a time
+                              currentTestimonialIndex = (currentTestimonialIndex + 1) % Math.ceil(testimonials.length / 2);
+                            }
+                            renderTestimonials();
+                          }
+                          
+                          // Switch tabs with smooth transition
+                          function switchTab(tabName) {
+                            if (tabName === activeTab) return; // Don't switch if already on this tab
+                            
+                            // Update active tab state
+                            activeTab = tabName;
+                            
+                            // Update tab button styles
+                            if (tabName === 'customer-stories') {
+                                customerStoriesTab.classList.remove('text-gray-500');
+                                customerStoriesTab.classList.add('text-orange-500');
+                                customerStoriesTab.classList.remove('bg-gray-200');
+                                customerStoriesTab.classList.add('bg-white');
+                                trustedByTab.classList.remove('text-orange-500');
+                                trustedByTab.classList.add('text-gray-500');
+                                trustedByTab.classList.add('bg-gray-200');
+                                trustedByTab.classList.remove('bg-white');
+                            } else {
+                                trustedByTab.classList.remove('bg-gray-200');
+                                trustedByTab.classList.add('bg-white');
+                                customerStoriesTab.classList.add('bg-gray-200');
+                                customerStoriesTab.classList.remove('bg-white');
+                                trustedByTab.classList.remove('text-gray-500');
+                                trustedByTab.classList.add('text-orange-500');
+                                customerStoriesTab.classList.remove('text-orange-500');
+                                customerStoriesTab.classList.add('text-gray-500');
+                            }
+                            
+                            // Smooth transition between content panes
+                            if (tabName === 'customer-stories') {
+                              // Fade out trusted-by content
+                              trustedByContent.classList.remove('active');
+                              trustedByContent.classList.add('inactive');
+                              
+                              // Fade in customer stories content
+                              customerStoriesContent.classList.remove('inactive');
+                              customerStoriesContent.classList.add('active');
+                            } else {
+                              // Fade out customer stories content
+                              customerStoriesContent.classList.remove('active');
+                              customerStoriesContent.classList.add('inactive');
+                              
+                              // Fade in trusted-by content
+                              trustedByContent.classList.remove('inactive');
+                              trustedByContent.classList.add('active');
+                            }
+                          }
+                          
+                          // Handle responsive layout changes
+                          function handleResize() {
+                            const wasMobile = isMobile;
+                            isMobile = window.innerWidth < 768;
+                            
+                            // If we crossed the mobile/desktop threshold, re-render
+                            if (wasMobile !== isMobile) {
+                              // Reset to first slide when switching views
+                              currentTestimonialIndex = 0;
+                              renderTestimonials();
+                            }
+                          }
+                          
+                          // ===== EVENT LISTENERS =====
+                          // Tab switching with smooth transition
+                          customerStoriesTab.addEventListener('click', () => switchTab('customer-stories'));
+                          trustedByTab.addEventListener('click', () => switchTab('trusted-by'));
+                          
+                          // Testimonial navigation
+                          prevButton.addEventListener('click', goToPrevTestimonial);
+                          nextButton.addEventListener('click', goToNextTestimonial);
+                          
+                          // Responsive layout
+                          window.addEventListener('resize', handleResize);
+                          
+                          // Add transition styles to containers
+                          testimonialsContainer.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                          
+                          // Make sure both content panes are properly set up for transitions
+                          customerStoriesContent.classList.add('tab-pane', 'active');
+                          trustedByContent.classList.add('tab-pane', 'inactive');
+                          
+                          // Wrap both panes in a container if not already
+                          if (!customerStoriesContent.parentElement.classList.contains('tab-content')) {
+                            const tabContentWrapper = document.createElement('div');
+                            tabContentWrapper.className = 'tab-content mb-4';
+                            customerStoriesContent.parentNode.insertBefore(tabContentWrapper, customerStoriesContent);
+                            tabContentWrapper.appendChild(customerStoriesContent);
+                            tabContentWrapper.appendChild(trustedByContent);
+                          }
+                          
+                          // ===== INITIALIZATION =====
+                          // Initial render
+                          renderTestimonials();
+                          renderCompanies();
+                        });
+                    </script>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Notification (hidden by default) -->
+<div id="offer-popup" class="fixed bottom-4 right-4 w-[90%] max-w-80 rounded-lg shadow-lg bg-white overflow-hidden transform translate-y-full opacity-0 transition-all duration-300 z-50">
+    <!-- Header -->
+    <div class="bg-gray-800 text-white p-3 flex items-center">
+      <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="font-semibold">Limited time offer!</span>
+    </div>
+    
+    <!-- Push Notification Popup -->
+    <div class="p-4">
+        <p class="text-gray-800 mb-4">
+            <span class="font-bold">Get 15% Off</span> Premium Plus Plan! Offer ends soon.
+        </p>
+        
+        <!-- Buttons -->
+        <div class="flex justify-end space-x-2">
+            <button id="accept-offer" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-6 rounded transition-colors">
+            Accept
+            </button>
+            <button id="decline-offer" class="border border-gray-800 text-gray-800 font-medium py-2 px-6 rounded hover:bg-gray-50 transition-colors">
+            Decline
+            </button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Popup Requeswt Additional Premium Package Credits -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+        <!-- Modal Container -->
+        <div id="modal-container" class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4 relative transform scale-95 opacity-0 transition-all duration-300 ease-in-out">
+            <!-- Close Button -->
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            
+            <!-- Modal Content -->
+            <div class="px-4 md:px-6 py-6">
+                <h2 class="text-lg font-semibold text-gray-900 mb-3">Request Additional Premium Package Credits</h2>
+                
+                <p class="text-gray-700 mb-2">
+                Please explain how additional credits will impact your business or project.
+                </p>
+                
+                <div class="mb-4">
+                <label for="impact-description" class="block text-gray-700 mb-1">
+                    How will additional credits benefit your business or project?<span class="text-red-500">*</span>
+                </label>
+                <textarea 
+                    id="impact-description" 
+                    class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 min-h-[120px]" 
+                    placeholder="Please provide at least 50 characters explaining the impact on your business or project."
+                ></textarea>
+                <p id="character-count" class="text-xs text-gray-500 mt-1">0/50 characters</p>
+                <p id="error-message" class="text-xs text-red-500 mt-1 hidden">Please enter at least 50 characters</p>
+                </div>
+                
+                <div class="flex justify-end">
+                <button 
+                    id="submit-request" 
+                    class="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled
+                >
+                    Submit Request
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

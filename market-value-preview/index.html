@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom spacing utilities */
+        .section-spacing > * + * {
+            margin-top: 2rem;
+        }
+
+        .card-spacing > * + * {
+            margin-top: 1.5rem;
+        }
+
+        /* Improved shadows */
+        .shadow-custom {
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+
+        /* Improved card styling */
+        .card-hover {
+            transition: box-shadow 0.2s;
+        }
+        .card-hover:hover {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* Improved spacing between sections */
+        .content-section {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        .content-section:first-child {
+            padding-top: 0;
+        }
+        .content-section:last-child {
+            padding-bottom: 0;
+        }
+
+        /* Responsive padding adjustments */
+        .responsive-padding {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 640px) {
+            .responsive-padding {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .responsive-padding {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <div class="flex-grow min-h-screen bg-gray-50">
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-6 sm:pt-8 pb-24 space-y-6 sm:space-y-8">
+            <div class="grid gap-6 sm:gap-8">
+                <!-- Vehicle Header Card -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-4 sm:p-6">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <img src="assets/make-logo.png" alt="Toyota Logo" class="w-12 h-auto sm:w-16 rounded">
+                                <h1 class="text-lg sm:text-2xl font-semibold">2019 Toyota Highlander Limited Platinum</h1>
+                            </div>
+                            <button class="reveal-history-btn w-full sm:w-auto px-4 py-2 text-sm font-medium border rounded-md bg-white hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50">
+                                Reveal Full History
+                            </button>
+                        </div>
+                        <div id="vehicle-specs" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"></div>
+                    </div>
+                </section>
+                <script>
+                    // Vehicle Specs Data
+                    const vehicleSpecs = {
+                        vin: "5TDDZRFHXKS730863",
+                        trim: "Limited Platinum",
+                        odometer: "90,000 km",
+                        state: "CA",
+                        engine: "3.5L V-6",
+                        transmission: "Automatic",
+                        driveType: "AWD",
+                        fuelType: "Gas",
+                        doors: 4,
+                        bodyType: "SUV",
+                        vehicleType: "MPV",
+                        manufacturer: "Toyota Motor Manufacturing, Indiana, Inc."
+                    };
+
+                    // Generate Vehicle Specs HTML
+                    const vehicleSpecsContainer = document.getElementById('vehicle-specs');
+                    Object.entries(vehicleSpecs).forEach(([key, value]) => {
+                        const specElement = document.createElement('div');
+                        specElement.innerHTML = `
+                            <div class="text-gray-600 text-sm">${key.charAt(0).toUpperCase() + key.slice(1)}:</div>
+                            <div class="font-medium text-sm sm:text-base">${value}</div>
+                        `;
+                        vehicleSpecsContainer.appendChild(specElement);
+                    });
+                </script>
+
+                <!-- Market Value Card -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden p-4 sm:p-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                        <h2 class="text-lg font-semibold">Market Value Comparison Data</h2>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm">Graph</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="graph-toggle" class="sr-only peer">
+                                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="market-value-table" class="border rounded-lg"></div>
+                    <div id="market-value-chart" class="border rounded-lg px-2 py-4 sm:px-4 hidden"></div>
+                </section>
+                <script>
+                    // Market Value Data
+                    const marketValueData = {
+                        outstanding: {
+                            tradeIn: 25118,
+                            privateParty: 27149,
+                            dealerRetail: 29106,
+                        },
+                        clean: {
+                            tradeIn: 24468,
+                            privateParty: 26438,
+                            dealerRetail: 28335,
+                        },
+                        average: {
+                            tradeIn: 23394,
+                            privateParty: 25252,
+                            dealerRetail: 27048,
+                        },
+                        rough: {
+                            tradeIn: 21975,
+                            privateParty: 23711,
+                            dealerRetail: 25375,
+                        }
+                    };
+
+                    // Generate Market Value Table
+                    const marketValueTable = document.getElementById('market-value-table');
+                    marketValueTable.innerHTML = `
+                        <table class="w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="p-2 sm:p-4 text-left text-xs sm:text-sm font-medium text-gray-600">
+                                        Trim: Limited Platinum 4dr All-wheel Drive Automatic
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${Object.entries(marketValueData).map(([condition, prices]) => `
+                                    <tr class="border-t">
+                                        <td class="p-2 sm:p-4">
+                                            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+                                                <span class="text-xs sm:text-sm capitalize font-medium">${condition}</span>
+                                                <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 mt-1 sm:mt-0">
+                                                    <span class="text-xs sm:text-sm">
+                                                        <span class="text-gray-600">Trade-in:</span> $${prices.tradeIn.toLocaleString()}
+                                                    </span>
+                                                    <span class="text-xs sm:text-sm">
+                                                        <span class="text-gray-600">Private Party:</span> $${prices.privateParty.toLocaleString()}
+                                                    </span>
+                                                    <span class="text-xs sm:text-sm">
+                                                        <span class="text-gray-600">Dealer Retail:</span> $${prices.dealerRetail.toLocaleString()}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                `).join('')}
+                            </tbody>
+                        </table>
+                    `;
+
+                    // Toggle between table and chart
+                    // Toggle between table and chart
+document.getElementById('graph-toggle').addEventListener('change', function() {
+    const tableView = document.getElementById('market-value-table');
+    const chartView = document.getElementById('market-value-chart');
+    
+    if (this.checked) {
+        tableView.classList.add('hidden');
+        chartView.classList.remove('hidden');
+        
+        // Simple chart rendering (in a real implementation, you'd use a chart library)
+        const chartData = Object.entries(marketValueData).map(([condition, prices]) => ({
+            condition: condition.charAt(0).toUpperCase() + condition.slice(1),
+            tradeIn: prices.tradeIn,
+            privateParty: prices.privateParty,
+            dealerRetail: prices.dealerRetail,
+        }));
+        
+        // Find the maximum value for proper scaling
+        const maxValue = Math.max(
+            ...chartData.flatMap(data => [data.tradeIn, data.privateParty, data.dealerRetail])
+        );
+        
+        // Calculate chart height (in pixels)
+        const chartHeight = 200; // You can adjust this value
+        
+        // Function to calculate bar height as a percentage of max value
+        const getBarHeight = (value) => {
+            return (value / maxValue) * chartHeight;
+        };
+        
+        // Format currency
+        const formatCurrency = (value) => {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+        };
+        
+        // Simple chart rendering with HTML/CSS
+        chartView.innerHTML = `
+            <div class="flex flex-col h-full p-0 sm:p-4">
+                <!-- Y-axis labels -->
+                <div class="flex justify-between items-center mb-2 text-gray-500">
+                    <div class="text-xs invisible">${formatCurrency(0)}</div>
+                    <div class="text-xs">${formatCurrency(maxValue)}</div>
+                </div>
+                
+                <!-- Chart grid lines -->
+                <div class="relative mb-6" style="height: ${chartHeight}px;">
+                    <!-- Grid lines -->
+                    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                        <div class="w-full border-t border-gray-200"></div>
+                        <div class="w-full border-t border-gray-200"></div>
+                        <div class="w-full border-t border-gray-200"></div>
+                        <div class="w-full border-t border-gray-200"></div>
+                        <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    
+                    <!-- Bars -->
+                    <div class="absolute inset-0 flex justify-around items-end h-full">
+                        ${chartData.map((data, index) => `
+                            <div class="flex flex-col items-center -mb-6">
+                                <div class="flex items-end space-x-1 sm:space-x-2 mb-1">
+                                    <!-- Trade-in bar -->
+                                    <div class="relative group">
+                                        <div class="bg-blue-300 w-2 sm:w-6 rounded-t" 
+                                             style="height: ${getBarHeight(data.tradeIn)}px;">
+                                        </div>
+                                        <div class="tooltip-trade-${index} opacity-0 group-hover:opacity-100 absolute z-10 bottom-full mb-1 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap transition-opacity pointer-events-none">
+                                            Trade-in: ${formatCurrency(data.tradeIn)}
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Private Party bar -->
+                                    <div class="relative group">
+                                        <div class="bg-blue-500 w-2 sm:w-6 rounded-t" 
+                                             style="height: ${getBarHeight(data.privateParty)}px;">
+                                        </div>
+                                        <div class="tooltip-private-${index} opacity-0 group-hover:opacity-100 absolute z-20 bottom-full mb-1 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap transition-opacity pointer-events-none">
+                                            Private Party: ${formatCurrency(data.privateParty)}
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Dealer Retail bar -->
+                                    <div class="relative group">
+                                        <div class="bg-blue-700 w-2 sm:w-6 rounded-t" 
+                                             style="height: ${getBarHeight(data.dealerRetail)}px;">
+                                        </div>
+                                        <div class="tooltip-dealer-${index} opacity-0 group-hover:opacity-100 absolute z-30 bottom-full mb-1 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 whitespace-nowrap transition-opacity pointer-events-none">
+                                            Dealer Retail: ${formatCurrency(data.dealerRetail)}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-xs font-medium mt-1">${data.condition}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <!-- Legend -->
+                <div class="flex flex-wrap justify-center sm:justify-between mt-2 sm:mt-4 gap-2 text-center">
+                    <div class="flex items-center text-xs">
+                        <div class="w-3 h-3 bg-blue-300 mr-1 rounded"></div>
+                        <span>Trade-in</span>
+                    </div>
+                    <div class="flex items-center text-xs">
+                        <div class="w-3 h-3 bg-blue-500 mr-1 rounded"></div>
+                        <span>Private Party</span>
+                    </div>
+                    <div class="flex items-center text-xs">
+                        <div class="w-3 h-3 bg-blue-700 mr-1 rounded"></div>
+                        <span>Dealer Retail</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add JavaScript to fix tooltip positioning after rendering
+        setTimeout(() => {
+            // Get all tooltip elements
+            const tradeTooltips = document.querySelectorAll('[class^="tooltip-trade-"]');
+            const privateTooltips = document.querySelectorAll('[class^="tooltip-private-"]');
+            const dealerTooltips = document.querySelectorAll('[class^="tooltip-dealer-"]');
+            
+            // Position tooltips to avoid overlap
+            for (let i = 0; i < chartData.length; i++) {
+                if (tradeTooltips[i]) {
+                    tradeTooltips[i].style.transform = 'translateX(-90%)';
+                }
+                if (privateTooltips[i]) {
+                    privateTooltips[i].style.transform = 'translateX(-50%)';
+                }
+                if (dealerTooltips[i]) {
+                    dealerTooltips[i].style.transform = 'translateX(-10%)';
+                }
+            }
+            
+            // Add touch support for mobile
+            const allBars = document.querySelectorAll('.bg-blue-300, .bg-blue-500, .bg-blue-700');
+            allBars.forEach(bar => {
+                bar.addEventListener('touchstart', function(e) {
+                    // Find the tooltip in the parent element
+                    const tooltip = this.parentElement.querySelector('[class^="tooltip-"]');
+                    if (tooltip) {
+                        // Hide all other tooltips first
+                        document.querySelectorAll('[class^="tooltip-"]').forEach(t => {
+                            t.style.opacity = '0';
+                        });
+                        // Show this tooltip
+                        tooltip.style.opacity = '1';
+                        // Hide after 3 seconds
+                        setTimeout(() => {
+                            tooltip.style.opacity = '0';
+                        }, 3000);
+                    }
+                    // Prevent default touch behavior
+                    e.preventDefault();
+                });
+            });
+        }, 100);
+    } else {
+        tableView.classList.remove('hidden');
+        chartView.classList.add('hidden');
+    }
+});
+                </script>
+
+                <!-- True Value Section -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="bg-red-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-start mb-4">
+                            <h2 class="text-lg font-semibold">What is the True Value of your car?</h2>
+                            <div class="flex items-center text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                <span class="text-sm font-medium">ATTENTION!</span>
+                            </div>
+                        </div>
+                
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="md:col-span-2 space-y-2">
+                                <p class="text-sm md:text-base">
+                                    The (Type) market value of this vehicle is <span class="text-red-600 font-bold text-xl">$20,000.</span>
+                                </p>
+                                <p class="text-sm md:text-base mt-2">
+                                    Did you know many cars at this price could have been involved in accidents, auction, flood damage, or other
+                                    incidents? Always verify the vehicle history!
+                                </p>
+                                <p class="text-sm md:text-base">
+                                    This vehicle was previously listed for sale. Reveal past sales listing records, including 10+ photos.
+                                </p>
+                                <div class="space-y-1">
+                                    <div class="flex items-center text-sm md:text-base">
+                                        <span class="w-24 text-gray-600">Odometer:</span>
+                                        <span class="text-red-600">99,999</span>
+                                    </div>
+                                    <div class="flex items-center text-sm md:text-base">
+                                        <span class="w-24 text-gray-600">Sales Type:</span>
+                                        <span>Classified</span>
+                                    </div>
+                                    <div class="flex items-center text-sm md:text-base">
+                                        <span class="w-24 text-gray-600">Location:</span>
+                                        <span class="text-blue-600">Somerville (NJ)</span>
+                                    </div>
+                                </div>
+                                <button class="reveal-history-btn !mt-4 bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto inline-flex items-center justify-center rounded-md text-sm font-medium h-10 px-4 py-2">
+                                    Reveal Full Sales Listing Records
+                                </button>
+                            </div>
+                            <div class="h-full flex items-center">
+                                <img src="assets/dummyCar.png" class="w-full h-auto rounded-lg object-cover" alt="Vehicle image"/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Package Selection -->
+                <section id="pricing-section" class="bg-white rounded-xl shadow-sm overflow-hidden p-4 sm:p-6">
+                    <div class="space-y-6">
+                        <h2 class="text-lg font-semibold">Select Package</h2>
+                        <div id="package-options" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Auto Generated using js -->
+                        </div>
+                        <div class="border rounded-lg p-4">
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="window-sticker" class="mt-1">
+                                <div>
+                                    <label for="window-sticker" class="text-sm font-medium">
+                                        Add a window sticker to your purchase for just $10.00!
+                                    </label>
+                                    <span class="text-sm text-red-600 line-through ml-1">$19.99</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="checkout-button" class="w-full bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                            Proceed to checkout - Total: $0.00
+                        </button>
+                        <div class="text-xs text-center text-gray-600">
+                            By selecting "Proceed to Checkout" you are confirming that you have read and agree to Detailed Vehicle History's
+                            <a target="_blank" href="#" class="text-blue-600">Terms of Use</a> and
+                            <a target="_blank" href="#" class="text-blue-600">Privacy Policy</a>
+                        </div>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <div class="flex items-center gap-2 text-xs text-green-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                                <span>Report Format</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-green-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Delivery Time</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-green-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                                <span>Quality Method</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-green-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <span>Secure Payment</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    // Package Selection Data
+                    const packages = [
+                        {
+                            type: "Unlimited VIN Check",
+                            price: 39.99,
+                            interval: "/month",
+                            badge: "Best Value",
+                            description: "Unlimited access to lookup VINs"
+                        },
+                        {
+                            type: "10 Reports",
+                            price: 8.0,
+                            interval: "/report",
+                            badge: "Most Popular",
+                            total: 79.99,
+                            totalOriginal: 199.9,
+                            reports: 10
+                        },
+                        {
+                            type: "5 Reports",
+                            price: 14.0,
+                            interval: "/report",
+                            total: 69.99,
+                            totalOriginal: 99.95,
+                            reports: 5
+                        },
+                        {
+                            type: "1 Report",
+                            price: 19.99,
+                            interval: "/report",
+                            total: 19.99,
+                            badge: "50% Cheaper than CarFax"
+                        }
+                    ];
+
+                    // Generate Package Options
+                    const packageOptionsContainer = document.getElementById('package-options');
+                    let selectedPackage = null;
+                    let includeWindowSticker = false;
+
+                    packages.forEach((pkg, index) => {
+                        const packageElement = document.createElement('label');
+                        packageElement.className = 'border rounded-lg p-4 relative block cursor-pointer';
+                        
+                        // Create a unique ID for each radio input
+                        const radioId = `package-${pkg.type.replace(/\s+/g, '-').toLowerCase()}`;
+                        
+                        packageElement.innerHTML = `
+                            ${pkg.badge ? `<span class="absolute top-2 right-2 text-xs px-2 py-1 rounded bg-blue-100 text-blue-700 text-center max-w-24 sm:max-w-none">${pkg.badge}</span>` : ''}
+                            <div class="flex items-start gap-3">
+                                <input type="radio" id="${radioId}" name="package" class="mt-1" data-package="${pkg.type}">
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <h3 class="font-medium max-w-[calc(100%-96px)] sm:max-w-none">${pkg.type}</h3>
+                                    </div>
+                                    <div class="mt-2">
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="text-2xl font-bold">$${pkg.price}</span>
+                                            <span class="text-gray-600">${pkg.interval}</span>
+                                        </div>
+                                        ${pkg.description ? `<p class="text-sm text-gray-600 mt-1 bg-blue-50 px-2 py-1 rounded">${pkg.description}</p>` : ''}
+                                        ${pkg.total ? `
+                                            <div class="mt-2">
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-sm text-gray-600">Total:</span>
+                                                    <span class="font-medium">$${pkg.total}</span>
+                                                    ${pkg.totalOriginal ? `<span class="text-sm text-gray-400 line-through">$${pkg.totalOriginal}</span>` : ''}
+                                                </div>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        packageOptionsContainer.appendChild(packageElement);
+                    });
+
+                    // Handle package selection
+                    document.querySelectorAll('input[name="package"]').forEach(radio => {
+                        radio.addEventListener('change', function() {
+                            selectedPackage = this.getAttribute('data-package');
+                            updateTotal();
+                        });
+                    });
+
+                    // Handle window sticker toggle
+                    document.getElementById('window-sticker').addEventListener('change', function() {
+                        includeWindowSticker = this.checked;
+                        updateTotal();
+                    });
+
+                    // Update total price
+                    function updateTotal() {
+                        const selectedPkg = packages.find(pkg => pkg.type === selectedPackage);
+                        let total = selectedPkg ? (selectedPkg.total || selectedPkg.price) : 0;
+                        if (includeWindowSticker) {
+                            total += 10;
+                        }
+                        document.getElementById('checkout-button').textContent = `Proceed to checkout - Total: $${total.toFixed(2)}`;
+                    }
+
+                    // Add checkout button click handler
+                    document.getElementById('checkout-button').addEventListener('click', function() {
+                        if (!selectedPackage) {
+                            alert('Please select a package before proceeding to checkout.');
+                            return;
+                        }
+                        
+                        // Get the full details of the selected package
+                        const selectedPkg = packages.find(pkg => pkg.type === selectedPackage);
+                        
+                        // Calculate the total price
+                        let total = selectedPkg ? (selectedPkg.total || selectedPkg.price) : 0;
+                        if (includeWindowSticker) {
+                            total += 10;
+                        }
+                        
+                        // Create an order summary object
+                        const orderSummary = {
+                            package: {
+                                type: selectedPkg.type,
+                                price: selectedPkg.price,
+                                interval: selectedPkg.interval,
+                                total: selectedPkg.total || selectedPkg.price,
+                                reports: selectedPkg.reports || 1
+                            },
+                            windowSticker: {
+                                included: includeWindowSticker,
+                                price: includeWindowSticker ? 10 : 0
+                            },
+                            totalPrice: total.toFixed(2)
+                        };
+                        
+                        // Log the order summary
+                        console.log('Order Summary:', orderSummary);
+                        
+                        // You can also send this data to a server or perform other actions
+                        // For example:
+                        // sendOrderToServer(orderSummary);
+                        
+                        // For demonstration purposes, show an alert with the order details
+                        alert(`
+                            Order Summary:
+                            Package: ${selectedPkg.type}
+                            ${selectedPkg.reports ? `Reports: ${selectedPkg.reports}` : ''}
+                            Window Sticker: ${includeWindowSticker ? 'Yes (+$10.00)' : 'No'}
+                            Total Price: $${total.toFixed(2)}
+                        `);
+                        
+                        // Here you would typically redirect to a checkout page or open a payment modal
+                        // window.location.href = '/checkout?package=' + encodeURIComponent(selectedPackage) + '&windowSticker=' + includeWindowSticker;
+                    });
+                </script>
+
+                <!-- Vehicle History -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden p-4 sm:p-6">
+                    <div class="bg-gray-50 p-6 rounded-lg mt-8">
+                        <h2 class="text-lg font-semibold mb-2">Lookup Vehicle History</h2>
+                        <p class="text-sm text-gray-600 mb-6">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec lorem a arcu pretium rhoncus quis at purus.
+                            Proin vulputate, urna sit amet hendrerit gravida, urna nibh pretium odio, et egestas elit felis eu sapien.
+                        </p>
+                        <div id="history-items" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"></div>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+                            <button class="reveal-history-btn bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                                Get full vehicle history report
+                            </button>
+                            <a target="_blank" href="/report/vin/2T1BURHE0FC320645">
+                                <button class="border border-input bg-background hover:bg-accent hover:text-accent-foreground w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                                    View sample report
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    // Vehicle History Items
+                    const historyItems = [
+                        { title: "Ownership history", subtitle: "Multiple Owners!" },
+                        { title: "Vehicle usage" },
+                        { title: "Title brand check" },
+                        { title: "Odometer rollback" },
+                        { title: "Accident check" },
+                        { title: "Lemon check" },
+                        { title: "Theft record" },
+                        { title: "Flood damage check" },
+                        { title: "Vehicle recalls" }
+                    ];
+
+                    // Generate History Items
+                    const historyItemsContainer = document.getElementById('history-items');
+                    historyItems.forEach(item => {
+                        const itemElement = document.createElement('div');
+                        itemElement.className = 'flex items-start justify-between';
+                        itemElement.innerHTML = `
+                            <div class="flex items-start gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-amber-500 mt-0.5"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                <div>
+                                    <h3 class="text-sm font-medium">${item.title}</h3>
+                                    <p class="text-sm text-red-600 reveal-history-btn underline sm:no-underline">Reveal records!</p>
+                                </div>
+                            </div>
+                            <button class="reveal-history-btn hidden sm:flex text-sm text-blue-600 hover:text-blue-800 inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline h-10 px-4 py-2">
+                                Unlock now
+                            </button>
+                        `;
+                        historyItemsContainer.appendChild(itemElement);
+                    });
+                </script>
+
+                <!-- Market Value Explanation -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden p-4 sm:p-6">
+                    <div class="space-y-6">
+                        <div>
+                            <h2 class="text-xl font-bold mb-4">Why Market Value Isn't Enough?</h2>
+                            <p class="text-sm text-gray-700 mb-4">
+                                In today's market, purchasing a used car comes with its fair share of risks. Protect yourself from potential
+                                scams and uncertainties by utilizing our meticulously crafted vehicle history reports. Common Buying and
+                                Selling practices that buyers should be cautious about:
+                            </p>
+                            <ul id="risk-items" class="space-y-3 mb-6"></ul>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="border rounded-lg overflow-hidden">
+                                    <div class="bg-red-100 px-4 py-2 text-center text-red-600 font-medium">Dealership Listing</div>
+                                    <div class="p-4">
+                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-smB2zG2r6e7oAknfFPeiGxlJVPXNkX.png" alt="Clean Subaru Outback at dealership" class="aspect-video object-cover rounded-lg mb-4">
+                                        <p class="text-sm mb-4">
+                                            Don't be fooled by misleading advertisements. A comprehensive vehicle history check can reveal hidden
+                                            problems and save you from expensive mistakes.
+                                        </p>
+                                        <a target="_blank" href="https://detailedvehiclehistory.com/actual-dealership-listing/" class="text-blue-600 hover:text-blue-800 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline h-10 p-0">
+                                            View Dealership Listing →
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="border rounded-lg overflow-hidden">
+                                    <div class="bg-green-100 px-4 py-2 text-center text-green-600 font-medium">
+                                        In Actual Vehicle History Report
+                                    </div>
+                                    <div class="p-4">
+                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-dSAnPIhp9gFhXJME3u720rlrxCTn4x.png" alt="Damaged Subaru Outback showing accident history" class="aspect-video object-cover rounded-lg mb-4">
+                                        <ul class="text-sm space-y-1 mb-4">
+                                            <li>• Accident History</li>
+                                            <li>• Salvage Title Information</li>
+                                            <li>• Previous Owners</li>
+                                            <li>• Service Records</li>
+                                        </ul>
+                                        <a target="_blank" href="https://detailedvehiclehistory.com/report/vin/4S4BSAJC6K3298326" class="text-blue-600 hover:text-blue-800 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline h-10 p-0">
+                                            View Vehicle History Report →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl font-bold mb-4">What We Check For?</h2>
+                            <p class="text-sm text-gray-700 mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et nisl purus.
+                            </p>
+                            <div id="check-items" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6"></div>
+                            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                                <button class="reveal-history-btn bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                                    Get full vehicle history report
+                                </button>
+                                <a target="_blank" href="/report/vin/2T1BURHE0FC320645" class="text-blue-600 hover:text-blue-800 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline h-10 px-4 py-2">
+                                    View sample report
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    // Market Value Explanation Data
+                    const risks = [
+                        {
+                            title: "Accident History:",
+                            description: "Sellers may hide accidents or structural damage, inflating the price.",
+                        },
+                        {
+                            title: "Odometer Rollbacks:",
+                            description: "Some vehicles may have tampered odometers, misrepresenting mileage.",
+                        },
+                        {
+                            title: "Auction Vehicles:",
+                            description: "Vehicles bought from auctions may appear perfect but often have a history of repairs.",
+                        },
+                        {
+                            title: "Title Issues:",
+                            description: "Salvage titles and title brands can significantly lower the real value of a car.",
+                        },
+                    ];
+
+                    const checkItems = [
+                        "Sales history",
+                        "Auction history",
+                        "Vehicle usage",
+                        "Ownership history",
+                        "Title check",
+                        "Accident history",
+                        "Market value",
+                        "Maintenance schedules",
+                        "Estimates on repair costs",
+                        "Damage history",
+                        "Stolen check",
+                        "Odometer rollback",
+                        "Lien & loan records",
+                        "Salvage brand",
+                        "Flood, hail, fire damage",
+                        "Recalls",
+                        "Warranty status & coverage",
+                        "Detailed car specifications",
+                    ];
+
+                    // Generate Risk Items
+                    const riskItemsContainer = document.getElementById('risk-items');
+                    risks.forEach(risk => {
+                        const riskElement = document.createElement('li');
+                        riskElement.className = 'text-sm';
+                        riskElement.innerHTML = `<span class="font-medium">${risk.title}</span> ${risk.description}`;
+                        riskItemsContainer.appendChild(riskElement);
+                    });
+
+                    // Generate Check Items
+                    const checkItemsContainer = document.getElementById('check-items');
+                    checkItems.forEach(item => {
+                        const checkElement = document.createElement('div');
+                        checkElement.className = 'flex items-center gap-2 text-sm';
+                        checkElement.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-green-500"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>${item}</span>
+                        `;
+                        checkItemsContainer.appendChild(checkElement);
+                    });
+                </script>
+
+                <!-- Window Sticker Section -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden p-4 sm:p-6">
+                    <div class="space-y-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-start">
+                            <div>
+                                <h2 class="text-xl font-bold mb-4">
+                                    Reveal MSRP (Manufacturer's Suggested Retail Price from a Detailed Window Sticker
+                                </h2>
+                                <p class="text-sm text-gray-700 mb-6">
+                                    We provide detailed OEM window stickers for all manufacturers worldwide.
+                                </p>
+                                <ul id="benefit-items" class="space-y-3"></ul>
+                            </div>
+                            <div class="relative">
+                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5lCdcEKxq6KyGbdeG0qBmKiMO0I2X2.png" alt="Detailed Subaru Legacy window sticker showing specifications and pricing" class="w-full rounded-lg shadow-lg">
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 class="text-xl font-bold mb-4">What We Check For?</h2>
+                            <p class="text-sm text-gray-700 mb-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et nisl purus.
+                            </p>
+                            <div id="window-check-items" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"></div>
+                            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                                <a target="_blank" href="/window-sticker">
+                                    <button class="bg-blue-600 hover:bg-blue-700 text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                                        Get window sticker
+                                    </button>
+                                </a>
+                                <a target="_blank" href="/sticker/vin/2T3ZFREV7DW018723-986E986E-1A1A-C2BD-EE45-8CA437B89CD1" class="text-blue-600 hover:text-blue-800 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline h-10 px-4 py-2">
+                                    View sample window sticker
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    // Window Sticker Section Data
+                    const benefits = [
+                        "Instantly conveys vehicle information to buyers",
+                        "Builds trust and transparency for dealers and sellers",
+                        "Highlights features and specifications",
+                        "Provides options, packages and safety ratings and more.",
+                    ];
+
+                    const windowCheckItems = [
+                        "VIN description",
+                        "Interior and exterior Color",
+                        "Standard equipment, features and warranties",
+                        "MSRP(Manufacturer's Suggested Retail Price)",
+                        "Total vehicle price & shipping cost",
+                        "EPA fuel economy and environment ratings",
+                        "NHTSA safety rating and more.",
+                    ];
+
+                    // Generate Benefit Items
+                    const benefitItemsContainer = document.getElementById('benefit-items');
+                    benefits.forEach(benefit => {
+                        const benefitElement = document.createElement('li');
+                        benefitElement.className = 'flex items-center gap-2 text-sm';
+                        benefitElement.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-green-500 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>${benefit}</span>
+                        `;
+                        benefitItemsContainer.appendChild(benefitElement);
+                    });
+
+                    // Generate Window Check Items
+                    const windowCheckItemsContainer = document.getElementById('window-check-items');
+                    windowCheckItems.forEach(item => {
+                        const checkElement = document.createElement('div');
+                        checkElement.className = 'flex items-center gap-2 text-sm';
+                        checkElement.innerHTML = `
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-green-500 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span>${item}</span>
+                        `;
+                        windowCheckItemsContainer.appendChild(checkElement);
+                    });
+                </script>
+
+                <!-- Testimonials -->
+                <section class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="relative bg-gray-50 p-4 sm:p-6 rounded-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <img src="assets/trustpilot.svg" alt="Trustpilot" class="h-5 sm:h-6">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-4 sm:h-4 fill-green-500 text-green-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-4 sm:h-4 fill-green-500 text-green-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-4 sm:h-4 fill-green-500 text-green-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-4 sm:h-4 fill-green-500 text-green-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-4 sm:h-4 fill-green-500 text-green-500"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                        </div>
+
+                        <div class="relative">
+                            <div class="overflow-hidden">
+                                <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <script>
+                    // Testimonials Data
+                    const testimonials = [
+                        {
+                            name: "Constantin Colodezni",
+                            location: "CA",
+                            rating: 5,
+                            text: "I was pleasantly surprised by the simplicity and effectiveness of this service for checking the history of my motorcycle. With just the VIN number, Detailed Vehicle History provided me with comprehensive information that was well worth it. It's an easy recommendation for any motorcycle owner looking for detailed insights into their vehicle's history.",
+                            date: "May 07, 2024",
+                            image: "https://detailedvehiclehistory.com/assets/ConstantinColodezni-Tetimonial.webp",
+                        },
+                        {
+                            name: "Michael",
+                            location: "US",
+                            rating: 5,
+                            text: "Recently bought a used 7 year old MB sedan. The dealer had limited info about the specific car and affordable option/ costs at original sale. Read favorable newspaper article about Detailed Vehicle History. Within a few minutes the window sticker came back, it was amazingly detailed, showed all the specific options/ costs and looked just like the original window sticker. Would definitely recommend this invaluable service to others.",
+                            date: "September 13, 2024",
+                            image: "https://detailedvehiclehistory.com/assets/testimonial.webp",
+                        },
+                        {
+                            name: "Vivek Malkan",
+                            location: "US",
+                            rating: 5,
+                            text: "I was looking online to get a copy of my car's window sticker. I came to this website and entered my car's vin number, and instantaneously I received my vehicles history and window sticker. The process was really smooth and efficient and it got me exactly what I was looking for. Once, I received the reports, I wad then contacted by their team, personally via a phone call to make sure I was happy with their service and received what I wanted. This kind of after-sales service is make differentiates a great company from the rest!",
+                            date: "May 02, 2024",
+                            image: "https://detailedvehiclehistory.com/assets/Vivek-Malkan-Testimonial.webp",
+                        }
+                    ];
+
+                    // Generate Testimonials
+                    const testimonialsContainer = document.getElementById('testimonials-container');
+                    testimonials.forEach(testimonial => {
+                        const testimonialElement = document.createElement('div');
+                        testimonialElement.className = 'w-full';
+                        testimonialElement.innerHTML = `
+                            <div class="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <img src="${testimonial.image}" alt="${testimonial.name}" class="w-10 h-10 sm:w-12 sm:h-12 rounded-full">
+                                    <div>
+                                        <div class="font-medium text-sm sm:text-base">${testimonial.name}</div>
+                                        <div class="text-xs sm:text-sm text-gray-600">${testimonial.location}</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    ${Array(testimonial.rating).fill().map(() => `
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    `).join('')}
+                                </div>
+                                <p class="overflow-hidden line-clamp-6 text-xs sm:text-sm text-gray-700 mb-4">${testimonial.text}</p>
+                                <div class="text-xs sm:text-sm text-gray-500">Date of experience: ${testimonial.date}</div>
+                                <div class="mt-2 text-xs sm:text-sm font-medium text-gray-900">Highly recommended ★★★★★</div>
+                            </div>
+                        `;
+                        testimonialsContainer.appendChild(testimonialElement);
+                    });
+                </script>
+            </div>
+        </main>
+
+        <!-- Fixed Pricing Banner -->
+        <div id="fixed-pricing" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-md p-4 z-50 transition-all duration-300 ease-in-out">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="hidden sm:block">
+                    <h3 class="text-lg font-semibold">Get Your Vehicle History Report</h3>
+                    <p class="text-sm text-gray-600">Choose from multiple package options</p>
+                </div>
+                <div class="flex items-center gap-4 w-full sm:w-auto">
+                    <div class="text-right hidden sm:block">
+                        <span class="text-2xl font-bold">$8.00</span>
+                        <span class="text-sm text-gray-600 ml-1">/report</span>
+                    </div>
+                    <button id="view-packages-btn" class="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium  transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2">
+                        <span class="sm:hidden">Proceed to Checkout</span>
+                        <span class="hidden sm:inline">View Packages</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Fixed Pricing Banner
+            const fixedPricing = document.getElementById('fixed-pricing');
+            const pricingSection = document.getElementById('pricing-section');
+            
+            function checkPricingSectionVisibility() {
+                if (pricingSection) {
+                    const rect = pricingSection.getBoundingClientRect();
+                    if (rect.top > window.innerHeight || rect.bottom < 0) {
+                        fixedPricing.style.display = 'block';
+                    } else {
+                        fixedPricing.style.display = 'none';
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', checkPricingSectionVisibility);
+            checkPricingSectionVisibility(); // Check initial position
+            
+            // Scroll to pricing section when "View Packages" button is clicked
+            document.getElementById('view-packages-btn').addEventListener('click', () => {
+                if (pricingSection) {
+                    pricingSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // Scroll to pricing section when any "Reveal Full History" button is clicked
+            document.querySelectorAll('.reveal-history-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    const pricingSection = document.getElementById('pricing-section');
+                    if (pricingSection) {
+                        pricingSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
