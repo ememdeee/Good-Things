@@ -1,0 +1,322 @@
+//-----------------------------------
+// Workflow Slider Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-workflow_slider {
+	.cdb-workflow_slider {
+		$slide_padding: 60px;
+		$style_breakpoint: 520px;
+
+		overflow: hidden;
+		
+		--heading-bottom-margin: 4rem;		
+		.workflow_slider__heading {
+			@media (min-width: 768px) {
+				max-width: min(900px, calc(100% - 8rem));
+			}
+			margin-bottom: var(--heading-bottom-margin);
+		}
+		
+		.splide {
+			padding: 0;
+
+			&[data-count="1"],
+			&[data-count="2"],
+			&[data-count="3"] {
+				.cdb-slider__arrows {
+					@include media-breakpoint-up(xxl) {
+						display: none;
+					}	
+				}
+			}
+
+		}
+
+		// slider settings
+		.cdb-slider__arrows {
+			position: absolute;
+			bottom: calc(100% + var(--heading-bottom-margin));
+			width: 100%;
+			z-index: 2;
+
+			@media (max-width: 768px) {
+				display: none;
+			}
+			
+			@media (max-width: ($style_breakpoint - 1)) {
+				top: 50%;
+				bottom: auto;
+				transform: translateY(-50%);
+				display: block;
+			}
+
+
+			.splide__arrow {
+				position: relative;
+				top: auto;
+				transform: none;
+
+				@media (max-width: ($style_breakpoint - 1)) {
+					border-radius: 40px;
+					width: 40px;
+					height: 40px;
+					background-color: var(--theme-accent-color);
+					border: none;
+
+					&:before {
+						background-color: #fff;
+					}
+				}
+	
+
+				&.splide__arrow--prev {
+					left: auto;
+					@media (max-width: ($style_breakpoint - 1)) {
+						left: -15px;
+					}
+				}
+					
+				&.splide__arrow--next {
+					right: auto;
+				}
+			}
+		}
+
+		.splide__arrows_container {
+			display: flex;
+			gap: 1rem;
+			justify-content: end;
+
+			@media (max-width: ($style_breakpoint - 1)) {
+				justify-content: space-between;
+			}
+
+		}
+
+		.single-slide .cdb-slider__arrows {
+			display: none;
+		}
+
+		.splide__track {
+			overflow: visible;
+		}
+	
+		.splide__list{
+			flex-grow: 1;
+		}
+		&,
+		.section-container,
+		.slider-container,
+		.splide__track {
+			position: relative;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.slider-container {
+			@media (max-width: ($style_breakpoint - 1)) {
+				padding-bottom: 2rem;
+			}
+
+		}
+		
+		@media (min-width: $style_breakpoint) {
+			.splide__slide {
+				&::before {
+					content: '';
+					display: block;
+					padding-top: 100%;
+				}
+
+				&:nth-child(even) {
+					.workflow-slider__slide_content .dashed_circle {
+						border-top-left-radius: 50%;
+						border-top-right-radius: 50%;
+						border: 2px dashed var(--theme-accent-color);
+						border-bottom: 0;
+						clip-path: ellipse(50% 50% at 50% 46%);
+					}
+				}
+				&:nth-child(odd) {
+					.workflow-slider__slide_content .dashed_circle {
+						border-bottom-left-radius: 50%;
+						border-bottom-right-radius: 50%;
+						border: 2px dashed var(--theme-accent-color);
+						border-top: 0;
+						clip-path: ellipse(50% 50% at 50% 54%);
+					}
+				}
+			}
+		}
+		.content-container {
+			flex-grow: 1;
+			max-width: 100%;
+			width: 100%;
+		}
+	
+		.title_wrapper {
+			margin-bottom: px-to-rem(18px);
+
+		}
+		.workflow-slider__slide_content {
+			padding: 0;
+			width: 100%;
+			height: 100%;
+			min-height: 350px;
+			
+			@media (min-width: $style_breakpoint) {
+				padding: $slide_padding;
+				position: absolute;
+				top: 0;
+				min-height: unset;
+			}
+
+
+			.dashed_circle {
+				display: none;
+				position: absolute;
+				top: 30px;
+				left: 30px;
+				width: calc(100% - 59px);
+				height: calc(100% - 59px);
+
+				background-color: transparent;
+				@media (min-width: $style_breakpoint) {
+					display: block;
+				}
+			}
+		}
+		
+		.arrow_dot,
+		.stop_dot {
+			position: absolute;
+			top: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			border-radius: 20px;
+			background-color: var(--theme-accent-color);
+			transform: translateY(-50%);
+			outline: none;
+			border: none;
+
+			&::before {
+				content: '';
+				background: var(--theme-color-primary-contrast);
+			}
+
+			@media (max-width: ($style_breakpoint - 1)) {
+				display: none;
+			}
+
+		}
+
+		.arrow_dot {
+			left: calc(100% - 10px);
+			z-index: 3;
+			
+			@media (min-width: $style_breakpoint) {
+				left: 10px;
+			}
+
+			&::before {
+				height: .75rem;
+				width: 1rem;
+				mask: center center / contain no-repeat url("../../../img/svg/arrow-right.svg");
+			}
+		}
+		.stop_dot {
+			right: -30px;
+			z-index: 4;
+			
+			@media (min-width: $style_breakpoint) {
+				right: 10px;
+			}
+
+			&::before {
+				height: .75rem;
+				width: .75rem;
+				border-radius: 1rem;
+			}
+		}
+		.workflow-slider__slide_content_inner {
+			background: var(--theme-alt-bg-color);
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			padding: 2.5rem 2rem;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+			backface-visibility: hidden;
+			
+			@media (min-width: $style_breakpoint) {
+				border-radius: 50%;
+				padding: 4rem 3rem;
+			}
+		}
+		.workflow-slider__slide_content_inner_box {
+			width: 100%;
+			height: 100%;
+
+			@media (min-width: $style_breakpoint) {
+				overflow: hidden;
+			}
+		}
+		.icon_wrapper {
+			margin-bottom: 1rem;
+			img {
+				width: 3rem;
+				height: 3rem;
+			}
+		}
+
+		.main_content {
+			position: relative;
+			z-index: 2;
+		}
+		
+		.more_content {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: var(--theme-bg-color);
+			background: var(--theme-title-color);
+			transform: rotateY(180deg);
+			z-index: 1;
+
+			@media (min-width: $style_breakpoint) {
+				top: $slide_padding;
+				left: $slide_padding;
+				width: calc(100% - ($slide_padding * 2));
+				height: calc(100% - ($slide_padding * 2));
+			}
+		}
+
+		.has_more_content {
+			.workflow-slider__slide_content {
+				&:hover {
+					.main_content {
+						transform: rotateY(180deg);
+					}
+					.more_content {
+						transform: rotateY(0deg);
+					}
+				}
+			}
+		}
+	}
+
+}

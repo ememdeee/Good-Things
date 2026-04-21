@@ -1,0 +1,8810 @@
+
+
+[
+   {
+      "@name": "Perth, 6000",
+      "@suburb": "Perth",
+      "@postcode": "6000"
+   },
+   {
+      "@name": "Perth, 6001",
+      "@suburb": "Perth",
+      "@postcode": "6001"
+   },
+   {
+      "@name": "Highgate, 6003",
+      "@suburb": "Highgate",
+      "@postcode": "6003"
+   },
+   {
+      "@name": "Northbridge, 6003",
+      "@suburb": "Northbridge",
+      "@postcode": "6003"
+   },
+   {
+      "@name": "East Perth, 6004",
+      "@suburb": "East Perth",
+      "@postcode": "6004"
+   },
+   {
+      "@name": "Kings Park, 6005",
+      "@suburb": "Kings Park",
+      "@postcode": "6005"
+   },
+   {
+      "@name": "West Perth, 6005",
+      "@suburb": "West Perth",
+      "@postcode": "6005"
+   },
+   {
+      "@name": "North Perth, 6006",
+      "@suburb": "North Perth",
+      "@postcode": "6006"
+   },
+   {
+      "@name": "Leederville, 6007",
+      "@suburb": "Leederville",
+      "@postcode": "6007"
+   },
+   {
+      "@name": "West Leederville, 6007",
+      "@suburb": "West Leederville",
+      "@postcode": "6007"
+   },
+   {
+      "@name": "Daglish, 6008",
+      "@suburb": "Daglish",
+      "@postcode": "6008"
+   },
+   {
+      "@name": "Shenton Park, 6008",
+      "@suburb": "Shenton Park",
+      "@postcode": "6008"
+   },
+   {
+      "@name": "Subiaco, 6008",
+      "@suburb": "Subiaco",
+      "@postcode": "6008"
+   },
+   {
+      "@name": "Subiaco East, 6008",
+      "@suburb": "Subiaco East",
+      "@postcode": "6008"
+   },
+   {
+      "@name": "Broadway Nedlands, 6009",
+      "@suburb": "Broadway Nedlands",
+      "@postcode": "6009"
+   },
+   {
+      "@name": "Crawley, 6009",
+      "@suburb": "Crawley",
+      "@postcode": "6009"
+   },
+   {
+      "@name": "Dalkeith, 6009",
+      "@suburb": "Dalkeith",
+      "@postcode": "6009"
+   },
+   {
+      "@name": "Nedlands, 6009",
+      "@suburb": "Nedlands",
+      "@postcode": "6009"
+   },
+   {
+      "@name": "Claremont, 6010",
+      "@suburb": "Claremont",
+      "@postcode": "6010"
+   },
+   {
+      "@name": "Claremont North, 6010",
+      "@suburb": "Claremont North",
+      "@postcode": "6010"
+   },
+   {
+      "@name": "Karrakatta, 6010",
+      "@suburb": "Karrakatta",
+      "@postcode": "6010"
+   },
+   {
+      "@name": "Mount Claremont, 6010",
+      "@suburb": "Mount Claremont",
+      "@postcode": "6010"
+   },
+   {
+      "@name": "Swanbourne, 6010",
+      "@suburb": "Swanbourne",
+      "@postcode": "6010"
+   },
+   {
+      "@name": "Cottesloe, 6011",
+      "@suburb": "Cottesloe",
+      "@postcode": "6011"
+   },
+   {
+      "@name": "Peppermint Grove, 6011",
+      "@suburb": "Peppermint Grove",
+      "@postcode": "6011"
+   },
+   {
+      "@name": "Mosman Park, 6012",
+      "@suburb": "Mosman Park",
+      "@postcode": "6012"
+   },
+   {
+      "@name": "Floreat, 6014",
+      "@suburb": "Floreat",
+      "@postcode": "6014"
+   },
+   {
+      "@name": "Floreat Forum, 6014",
+      "@suburb": "Floreat Forum",
+      "@postcode": "6014"
+   },
+   {
+      "@name": "Jolimont, 6014",
+      "@suburb": "Jolimont",
+      "@postcode": "6014"
+   },
+   {
+      "@name": "City Beach, 6015",
+      "@suburb": "City Beach",
+      "@postcode": "6015"
+   },
+   {
+      "@name": "Glendalough, 6016",
+      "@suburb": "Glendalough",
+      "@postcode": "6016"
+   },
+   {
+      "@name": "Mount Hawthorn, 6016",
+      "@suburb": "Mount Hawthorn",
+      "@postcode": "6016"
+   },
+   {
+      "@name": "Herdsman, 6017",
+      "@suburb": "Herdsman",
+      "@postcode": "6017"
+   },
+   {
+      "@name": "Osborne Park, 6017",
+      "@suburb": "Osborne Park",
+      "@postcode": "6017"
+   },
+   {
+      "@name": "Churchlands, 6018",
+      "@suburb": "Churchlands",
+      "@postcode": "6018"
+   },
+   {
+      "@name": "Doubleview, 6018",
+      "@suburb": "Doubleview",
+      "@postcode": "6018"
+   },
+   {
+      "@name": "Gwelup, 6018",
+      "@suburb": "Gwelup",
+      "@postcode": "6018"
+   },
+   {
+      "@name": "Innaloo, 6018",
+      "@suburb": "Innaloo",
+      "@postcode": "6018"
+   },
+   {
+      "@name": "Karrinyup, 6018",
+      "@suburb": "Karrinyup",
+      "@postcode": "6018"
+   },
+   {
+      "@name": "Woodlands, 6018",
+      "@suburb": "Woodlands",
+      "@postcode": "6018"
+   },
+   {
+      "@name": "Scarborough, 6019",
+      "@suburb": "Scarborough",
+      "@postcode": "6019"
+   },
+   {
+      "@name": "Wembley Downs, 6019",
+      "@suburb": "Wembley Downs",
+      "@postcode": "6019"
+   },
+   {
+      "@name": "Carine, 6020",
+      "@suburb": "Carine",
+      "@postcode": "6020"
+   },
+   {
+      "@name": "Marmion, 6020",
+      "@suburb": "Marmion",
+      "@postcode": "6020"
+   },
+   {
+      "@name": "North Beach, 6020",
+      "@suburb": "North Beach",
+      "@postcode": "6020"
+   },
+   {
+      "@name": "Sorrento, 6020",
+      "@suburb": "Sorrento",
+      "@postcode": "6020"
+   },
+   {
+      "@name": "Balcatta, 6021",
+      "@suburb": "Balcatta",
+      "@postcode": "6021"
+   },
+   {
+      "@name": "Stirling, 6021",
+      "@suburb": "Stirling",
+      "@postcode": "6021"
+   },
+   {
+      "@name": "Hamersley, 6022",
+      "@suburb": "Hamersley",
+      "@postcode": "6022"
+   },
+   {
+      "@name": "Duncraig, 6023",
+      "@suburb": "Duncraig",
+      "@postcode": "6023"
+   },
+   {
+      "@name": "Greenwood, 6024",
+      "@suburb": "Greenwood",
+      "@postcode": "6024"
+   },
+   {
+      "@name": "Warwick, 6024",
+      "@suburb": "Warwick",
+      "@postcode": "6024"
+   },
+   {
+      "@name": "Craigie, 6025",
+      "@suburb": "Craigie",
+      "@postcode": "6025"
+   },
+   {
+      "@name": "Hillarys, 6025",
+      "@suburb": "Hillarys",
+      "@postcode": "6025"
+   },
+   {
+      "@name": "Kallaroo, 6025",
+      "@suburb": "Kallaroo",
+      "@postcode": "6025"
+   },
+   {
+      "@name": "Padbury, 6025",
+      "@suburb": "Padbury",
+      "@postcode": "6025"
+   },
+   {
+      "@name": "Kingsley, 6026",
+      "@suburb": "Kingsley",
+      "@postcode": "6026"
+   },
+   {
+      "@name": "Woodvale, 6026",
+      "@suburb": "Woodvale",
+      "@postcode": "6026"
+   },
+   {
+      "@name": "Beldon, 6027",
+      "@suburb": "Beldon",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Connolly, 6027",
+      "@suburb": "Connolly",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Edgewater, 6027",
+      "@suburb": "Edgewater",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Heathridge, 6027",
+      "@suburb": "Heathridge",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Joondalup, 6027",
+      "@suburb": "Joondalup",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Mullaloo, 6027",
+      "@suburb": "Mullaloo",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Ocean Reef, 6027",
+      "@suburb": "Ocean Reef",
+      "@postcode": "6027"
+   },
+   {
+      "@name": "Burns Beach, 6028",
+      "@suburb": "Burns Beach",
+      "@postcode": "6028"
+   },
+   {
+      "@name": "Currambine, 6028",
+      "@suburb": "Currambine",
+      "@postcode": "6028"
+   },
+   {
+      "@name": "Iluka, 6028",
+      "@suburb": "Iluka",
+      "@postcode": "6028"
+   },
+   {
+      "@name": "Kinross, 6028",
+      "@suburb": "Kinross",
+      "@postcode": "6028"
+   },
+   {
+      "@name": "Trigg, 6029",
+      "@suburb": "Trigg",
+      "@postcode": "6029"
+   },
+   {
+      "@name": "Clarkson, 6030",
+      "@suburb": "Clarkson",
+      "@postcode": "6030"
+   },
+   {
+      "@name": "Merriwa, 6030",
+      "@suburb": "Merriwa",
+      "@postcode": "6030"
+   },
+   {
+      "@name": "Mindarie, 6030",
+      "@suburb": "Mindarie",
+      "@postcode": "6030"
+   },
+   {
+      "@name": "Quinns Rocks, 6030",
+      "@suburb": "Quinns Rocks",
+      "@postcode": "6030"
+   },
+   {
+      "@name": "Ridgewood, 6030",
+      "@suburb": "Ridgewood",
+      "@postcode": "6030"
+   },
+   {
+      "@name": "Tamala Park, 6030",
+      "@suburb": "Tamala Park",
+      "@postcode": "6030"
+   },
+   {
+      "@name": "Banksia Grove, 6031",
+      "@suburb": "Banksia Grove",
+      "@postcode": "6031"
+   },
+   {
+      "@name": "Carramar, 6031",
+      "@suburb": "Carramar",
+      "@postcode": "6031"
+   },
+   {
+      "@name": "Neerabup, 6031",
+      "@suburb": "Neerabup",
+      "@postcode": "6031"
+   },
+   {
+      "@name": "Nowergup, 6032",
+      "@suburb": "Nowergup",
+      "@postcode": "6032"
+   },
+   {
+      "@name": "Carabooda, 6033",
+      "@suburb": "Carabooda",
+      "@postcode": "6033"
+   },
+   {
+      "@name": "Eglinton, 6034",
+      "@suburb": "Eglinton",
+      "@postcode": "6034"
+   },
+   {
+      "@name": "Yanchep, 6035",
+      "@suburb": "Yanchep",
+      "@postcode": "6035"
+   },
+   {
+      "@name": "Butler, 6036",
+      "@suburb": "Butler",
+      "@postcode": "6036"
+   },
+   {
+      "@name": "Jindalee, 6036",
+      "@suburb": "Jindalee",
+      "@postcode": "6036"
+   },
+   {
+      "@name": "Two Rocks, 6037",
+      "@suburb": "Two Rocks",
+      "@postcode": "6037"
+   },
+   {
+      "@name": "Alkimos, 6038",
+      "@suburb": "Alkimos",
+      "@postcode": "6038"
+   },
+   {
+      "@name": "Caraban, 6041",
+      "@suburb": "Caraban",
+      "@postcode": "6041"
+   },
+   {
+      "@name": "Gabbadah, 6041",
+      "@suburb": "Gabbadah",
+      "@postcode": "6041"
+   },
+   {
+      "@name": "Guilderton, 6041",
+      "@suburb": "Guilderton",
+      "@postcode": "6041"
+   },
+   {
+      "@name": "Wilbinga, 6041",
+      "@suburb": "Wilbinga",
+      "@postcode": "6041"
+   },
+   {
+      "@name": "Woodridge, 6041",
+      "@suburb": "Woodridge",
+      "@postcode": "6041"
+   },
+   {
+      "@name": "Seabird, 6042",
+      "@suburb": "Seabird",
+      "@postcode": "6042"
+   },
+   {
+      "@name": "Breton Bay, 6043",
+      "@suburb": "Breton Bay",
+      "@postcode": "6043"
+   },
+   {
+      "@name": "Ledge Point, 6043",
+      "@suburb": "Ledge Point",
+      "@postcode": "6043"
+   },
+   {
+      "@name": "Karakin, 6044",
+      "@suburb": "Karakin",
+      "@postcode": "6044"
+   },
+   {
+      "@name": "Lancelin, 6044",
+      "@suburb": "Lancelin",
+      "@postcode": "6044"
+   },
+   {
+      "@name": "Nilgen, 6044",
+      "@suburb": "Nilgen",
+      "@postcode": "6044"
+   },
+   {
+      "@name": "Wedge Island, 6044",
+      "@suburb": "Wedge Island",
+      "@postcode": "6044"
+   },
+   {
+      "@name": "Coolbinia, 6050",
+      "@suburb": "Coolbinia",
+      "@postcode": "6050"
+   },
+   {
+      "@name": "Menora, 6050",
+      "@suburb": "Menora",
+      "@postcode": "6050"
+   },
+   {
+      "@name": "Mount Lawley, 6050",
+      "@suburb": "Mount Lawley",
+      "@postcode": "6050"
+   },
+   {
+      "@name": "Maylands, 6051",
+      "@suburb": "Maylands",
+      "@postcode": "6051"
+   },
+   {
+      "@name": "Bedford, 6052",
+      "@suburb": "Bedford",
+      "@postcode": "6052"
+   },
+   {
+      "@name": "Inglewood, 6052",
+      "@suburb": "Inglewood",
+      "@postcode": "6052"
+   },
+   {
+      "@name": "Bayswater, 6053",
+      "@suburb": "Bayswater",
+      "@postcode": "6053"
+   },
+   {
+      "@name": "Ashfield, 6054",
+      "@suburb": "Ashfield",
+      "@postcode": "6054"
+   },
+   {
+      "@name": "Bassendean, 6054",
+      "@suburb": "Bassendean",
+      "@postcode": "6054"
+   },
+   {
+      "@name": "Eden Hill, 6054",
+      "@suburb": "Eden Hill",
+      "@postcode": "6054"
+   },
+   {
+      "@name": "Kiara, 6054",
+      "@suburb": "Kiara",
+      "@postcode": "6054"
+   },
+   {
+      "@name": "Lockridge, 6054",
+      "@suburb": "Lockridge",
+      "@postcode": "6054"
+   },
+   {
+      "@name": "Caversham, 6055",
+      "@suburb": "Caversham",
+      "@postcode": "6055"
+   },
+   {
+      "@name": "Guildford, 6055",
+      "@suburb": "Guildford",
+      "@postcode": "6055"
+   },
+   {
+      "@name": "Hazelmere, 6055",
+      "@suburb": "Hazelmere",
+      "@postcode": "6055"
+   },
+   {
+      "@name": "Henley Brook, 6055",
+      "@suburb": "Henley Brook",
+      "@postcode": "6055"
+   },
+   {
+      "@name": "South Guildford, 6055",
+      "@suburb": "South Guildford",
+      "@postcode": "6055"
+   },
+   {
+      "@name": "West Swan, 6055",
+      "@suburb": "West Swan",
+      "@postcode": "6055"
+   },
+   {
+      "@name": "Baskerville, 6056",
+      "@suburb": "Baskerville",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Bellevue, 6056",
+      "@suburb": "Bellevue",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Boya, 6056",
+      "@suburb": "Boya",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Greenmount, 6056",
+      "@suburb": "Greenmount",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Helena Valley, 6056",
+      "@suburb": "Helena Valley",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Herne Hill, 6056",
+      "@suburb": "Herne Hill",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Jane Brook, 6056",
+      "@suburb": "Jane Brook",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Koongamia, 6056",
+      "@suburb": "Koongamia",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Middle Swan, 6056",
+      "@suburb": "Middle Swan",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Midland, 6056",
+      "@suburb": "Midland",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Midvale, 6056",
+      "@suburb": "Midvale",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Millendon, 6056",
+      "@suburb": "Millendon",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Red Hill, 6056",
+      "@suburb": "Red Hill",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Stratton, 6056",
+      "@suburb": "Stratton",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Swan View, 6056",
+      "@suburb": "Swan View",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Viveash, 6056",
+      "@suburb": "Viveash",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "Woodbridge, 6056",
+      "@suburb": "Woodbridge",
+      "@postcode": "6056"
+   },
+   {
+      "@name": "High Wycombe, 6057",
+      "@suburb": "High Wycombe",
+      "@postcode": "6057"
+   },
+   {
+      "@name": "Maida Vale, 6057",
+      "@suburb": "Maida Vale",
+      "@postcode": "6057"
+   },
+   {
+      "@name": "Forrestfield, 6058",
+      "@suburb": "Forrestfield",
+      "@postcode": "6058"
+   },
+   {
+      "@name": "Dianella, 6059",
+      "@suburb": "Dianella",
+      "@postcode": "6059"
+   },
+   {
+      "@name": "Dog Swamp, 6060",
+      "@suburb": "Dog Swamp",
+      "@postcode": "6060"
+   },
+   {
+      "@name": "Joondanna, 6060",
+      "@suburb": "Joondanna",
+      "@postcode": "6060"
+   },
+   {
+      "@name": "Tuart Hill, 6060",
+      "@suburb": "Tuart Hill",
+      "@postcode": "6060"
+   },
+   {
+      "@name": "Yokine, 6060",
+      "@suburb": "Yokine",
+      "@postcode": "6060"
+   },
+   {
+      "@name": "Balga, 6061",
+      "@suburb": "Balga",
+      "@postcode": "6061"
+   },
+   {
+      "@name": "Mirrabooka, 6061",
+      "@suburb": "Mirrabooka",
+      "@postcode": "6061"
+   },
+   {
+      "@name": "Nollamara, 6061",
+      "@suburb": "Nollamara",
+      "@postcode": "6061"
+   },
+   {
+      "@name": "Westminster, 6061",
+      "@suburb": "Westminster",
+      "@postcode": "6061"
+   },
+   {
+      "@name": "Embleton, 6062",
+      "@suburb": "Embleton",
+      "@postcode": "6062"
+   },
+   {
+      "@name": "Morley, 6062",
+      "@suburb": "Morley",
+      "@postcode": "6062"
+   },
+   {
+      "@name": "Noranda, 6062",
+      "@suburb": "Noranda",
+      "@postcode": "6062"
+   },
+   {
+      "@name": "Beechboro, 6063",
+      "@suburb": "Beechboro",
+      "@postcode": "6063"
+   },
+   {
+      "@name": "Alexander Heights, 6064",
+      "@suburb": "Alexander Heights",
+      "@postcode": "6064"
+   },
+   {
+      "@name": "Girrawheen, 6064",
+      "@suburb": "Girrawheen",
+      "@postcode": "6064"
+   },
+   {
+      "@name": "Koondoola, 6064",
+      "@suburb": "Koondoola",
+      "@postcode": "6064"
+   },
+   {
+      "@name": "Marangaroo, 6064",
+      "@suburb": "Marangaroo",
+      "@postcode": "6064"
+   },
+   {
+      "@name": "Ashby, 6065",
+      "@suburb": "Ashby",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Darch, 6065",
+      "@suburb": "Darch",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Gnangara, 6065",
+      "@suburb": "Gnangara",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Hocking, 6065",
+      "@suburb": "Hocking",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Jandabup, 6065",
+      "@suburb": "Jandabup",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Kingsway, 6065",
+      "@suburb": "Kingsway",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Landsdale, 6065",
+      "@suburb": "Landsdale",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Lexia, 6065",
+      "@suburb": "Lexia",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Madeley, 6065",
+      "@suburb": "Madeley",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Mariginiup, 6065",
+      "@suburb": "Mariginiup",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Melaleuca, 6065",
+      "@suburb": "Melaleuca",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Pearsall, 6065",
+      "@suburb": "Pearsall",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Pinjar, 6065",
+      "@suburb": "Pinjar",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Sinagra, 6065",
+      "@suburb": "Sinagra",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Tapping, 6065",
+      "@suburb": "Tapping",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Wangara, 6065",
+      "@suburb": "Wangara",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Wanneroo, 6065",
+      "@suburb": "Wanneroo",
+      "@postcode": "6065"
+   },
+   {
+      "@name": "Ballajura, 6066",
+      "@suburb": "Ballajura",
+      "@postcode": "6066"
+   },
+   {
+      "@name": "Cullacabardee, 6067",
+      "@suburb": "Cullacabardee",
+      "@postcode": "6067"
+   },
+   {
+      "@name": "Whiteman, 6068",
+      "@suburb": "Whiteman",
+      "@postcode": "6068"
+   },
+   {
+      "@name": "Aveley, 6069",
+      "@suburb": "Aveley",
+      "@postcode": "6069"
+   },
+   {
+      "@name": "Belhus, 6069",
+      "@suburb": "Belhus",
+      "@postcode": "6069"
+   },
+   {
+      "@name": "Brigadoon, 6069",
+      "@suburb": "Brigadoon",
+      "@postcode": "6069"
+   },
+   {
+      "@name": "Ellenbrook, 6069",
+      "@suburb": "Ellenbrook",
+      "@postcode": "6069"
+   },
+   {
+      "@name": "The Vines, 6069",
+      "@suburb": "The Vines",
+      "@postcode": "6069"
+   },
+   {
+      "@name": "Upper Swan, 6069",
+      "@suburb": "Upper Swan",
+      "@postcode": "6069"
+   },
+   {
+      "@name": "Darlington, 6070",
+      "@suburb": "Darlington",
+      "@postcode": "6070"
+   },
+   {
+      "@name": "Glen Forrest, 6071",
+      "@suburb": "Glen Forrest",
+      "@postcode": "6071"
+   },
+   {
+      "@name": "Hovea, 6071",
+      "@suburb": "Hovea",
+      "@postcode": "6071"
+   },
+   {
+      "@name": "Mahogany Creek, 6072",
+      "@suburb": "Mahogany Creek",
+      "@postcode": "6072"
+   },
+   {
+      "@name": "Mundaring, 6073",
+      "@suburb": "Mundaring",
+      "@postcode": "6073"
+   },
+   {
+      "@name": "Sawyers Valley, 6074",
+      "@suburb": "Sawyers Valley",
+      "@postcode": "6074"
+   },
+   {
+      "@name": "Bickley, 6076",
+      "@suburb": "Bickley",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Carmel, 6076",
+      "@suburb": "Carmel",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Gooseberry Hill, 6076",
+      "@suburb": "Gooseberry Hill",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Hacketts Gully, 6076",
+      "@suburb": "Hacketts Gully",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Kalamunda, 6076",
+      "@suburb": "Kalamunda",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Lesmurdie, 6076",
+      "@suburb": "Lesmurdie",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Paulls Valley, 6076",
+      "@suburb": "Paulls Valley",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Pickering Brook, 6076",
+      "@suburb": "Pickering Brook",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Piesse Brook, 6076",
+      "@suburb": "Piesse Brook",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Reservoir, 6076",
+      "@suburb": "Reservoir",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Walliston, 6076",
+      "@suburb": "Walliston",
+      "@postcode": "6076"
+   },
+   {
+      "@name": "Parkerville, 6081",
+      "@suburb": "Parkerville",
+      "@postcode": "6081"
+   },
+   {
+      "@name": "Stoneville, 6081",
+      "@suburb": "Stoneville",
+      "@postcode": "6081"
+   },
+   {
+      "@name": "Bailup, 6082",
+      "@suburb": "Bailup",
+      "@postcode": "6082"
+   },
+   {
+      "@name": "Mount Helena, 6082",
+      "@suburb": "Mount Helena",
+      "@postcode": "6082"
+   },
+   {
+      "@name": "Gidgegannup, 6083",
+      "@suburb": "Gidgegannup",
+      "@postcode": "6083"
+   },
+   {
+      "@name": "Morangup, 6083",
+      "@suburb": "Morangup",
+      "@postcode": "6083"
+   },
+   {
+      "@name": "Avon Valley National Park, 6084",
+      "@suburb": "Avon Valley National Park",
+      "@postcode": "6084"
+   },
+   {
+      "@name": "Bullsbrook, 6084",
+      "@suburb": "Bullsbrook",
+      "@postcode": "6084"
+   },
+   {
+      "@name": "Chittering, 6084",
+      "@suburb": "Chittering",
+      "@postcode": "6084"
+   },
+   {
+      "@name": "Lower Chittering, 6084",
+      "@suburb": "Lower Chittering",
+      "@postcode": "6084"
+   },
+   {
+      "@name": "Walyunga National Park, 6084",
+      "@suburb": "Walyunga National Park",
+      "@postcode": "6084"
+   },
+   {
+      "@name": "Malaga, 6090",
+      "@suburb": "Malaga",
+      "@postcode": "6090"
+   },
+   {
+      "@name": "Burswood, 6100",
+      "@suburb": "Burswood",
+      "@postcode": "6100"
+   },
+   {
+      "@name": "Lathlain, 6100",
+      "@suburb": "Lathlain",
+      "@postcode": "6100"
+   },
+   {
+      "@name": "Victoria Park, 6100",
+      "@suburb": "Victoria Park",
+      "@postcode": "6100"
+   },
+   {
+      "@name": "Carlisle, 6101",
+      "@suburb": "Carlisle",
+      "@postcode": "6101"
+   },
+   {
+      "@name": "Carlisle North, 6101",
+      "@suburb": "Carlisle North",
+      "@postcode": "6101"
+   },
+   {
+      "@name": "Carlisle South, 6101",
+      "@suburb": "Carlisle South",
+      "@postcode": "6101"
+   },
+   {
+      "@name": "East Victoria Park, 6101",
+      "@suburb": "East Victoria Park",
+      "@postcode": "6101"
+   },
+   {
+      "@name": "Bentley, 6102",
+      "@suburb": "Bentley",
+      "@postcode": "6102"
+   },
+   {
+      "@name": "Bentley South, 6102",
+      "@suburb": "Bentley South",
+      "@postcode": "6102"
+   },
+   {
+      "@name": "St James, 6102",
+      "@suburb": "St James",
+      "@postcode": "6102"
+   },
+   {
+      "@name": "Rivervale, 6103",
+      "@suburb": "Rivervale",
+      "@postcode": "6103"
+   },
+   {
+      "@name": "Ascot, 6104",
+      "@suburb": "Ascot",
+      "@postcode": "6104"
+   },
+   {
+      "@name": "Belmont, 6104",
+      "@suburb": "Belmont",
+      "@postcode": "6104"
+   },
+   {
+      "@name": "Redcliffe, 6104",
+      "@suburb": "Redcliffe",
+      "@postcode": "6104"
+   },
+   {
+      "@name": "Cloverdale, 6105",
+      "@suburb": "Cloverdale",
+      "@postcode": "6105"
+   },
+   {
+      "@name": "Kewdale, 6105",
+      "@suburb": "Kewdale",
+      "@postcode": "6105"
+   },
+   {
+      "@name": "Perth Airport, 6105",
+      "@suburb": "Perth Airport",
+      "@postcode": "6105"
+   },
+   {
+      "@name": "Welshpool, 6106",
+      "@suburb": "Welshpool",
+      "@postcode": "6106"
+   },
+   {
+      "@name": "Beckenham, 6107",
+      "@suburb": "Beckenham",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "Cannington, 6107",
+      "@suburb": "Cannington",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "East Cannington, 6107",
+      "@suburb": "East Cannington",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "Kenwick, 6107",
+      "@suburb": "Kenwick",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "Queens Park, 6107",
+      "@suburb": "Queens Park",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "Wattle Grove, 6107",
+      "@suburb": "Wattle Grove",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "Wilson, 6107",
+      "@suburb": "Wilson",
+      "@postcode": "6107"
+   },
+   {
+      "@name": "Thornlie, 6108",
+      "@suburb": "Thornlie",
+      "@postcode": "6108"
+   },
+   {
+      "@name": "Maddington, 6109",
+      "@suburb": "Maddington",
+      "@postcode": "6109"
+   },
+   {
+      "@name": "Orange Grove, 6109",
+      "@suburb": "Orange Grove",
+      "@postcode": "6109"
+   },
+   {
+      "@name": "Gosnells, 6110",
+      "@suburb": "Gosnells",
+      "@postcode": "6110"
+   },
+   {
+      "@name": "Huntingdale, 6110",
+      "@suburb": "Huntingdale",
+      "@postcode": "6110"
+   },
+   {
+      "@name": "Martin, 6110",
+      "@suburb": "Martin",
+      "@postcode": "6110"
+   },
+   {
+      "@name": "Southern River, 6110",
+      "@suburb": "Southern River",
+      "@postcode": "6110"
+   },
+   {
+      "@name": "Ashendon, 6111",
+      "@suburb": "Ashendon",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Canning Mills, 6111",
+      "@suburb": "Canning Mills",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Champion Lakes, 6111",
+      "@suburb": "Champion Lakes",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Karragullen, 6111",
+      "@suburb": "Karragullen",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Kelmscott, 6111",
+      "@suburb": "Kelmscott",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Roleystone, 6111",
+      "@suburb": "Roleystone",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Westfield, 6111",
+      "@suburb": "Westfield",
+      "@postcode": "6111"
+   },
+   {
+      "@name": "Armadale, 6112",
+      "@suburb": "Armadale",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Bedfordale, 6112",
+      "@suburb": "Bedfordale",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Brookdale, 6112",
+      "@suburb": "Brookdale",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Forrestdale, 6112",
+      "@suburb": "Forrestdale",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Mount Nasura, 6112",
+      "@suburb": "Mount Nasura",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Mount Richon, 6112",
+      "@suburb": "Mount Richon",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Seville Grove, 6112",
+      "@suburb": "Seville Grove",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Wungong, 6112",
+      "@suburb": "Wungong",
+      "@postcode": "6112"
+   },
+   {
+      "@name": "Oakford, 6121",
+      "@suburb": "Oakford",
+      "@postcode": "6121"
+   },
+   {
+      "@name": "Oldbury, 6121",
+      "@suburb": "Oldbury",
+      "@postcode": "6121"
+   },
+   {
+      "@name": "Byford, 6122",
+      "@suburb": "Byford",
+      "@postcode": "6122"
+   },
+   {
+      "@name": "Cardup, 6122",
+      "@suburb": "Cardup",
+      "@postcode": "6122"
+   },
+   {
+      "@name": "Darling Downs, 6122",
+      "@suburb": "Darling Downs",
+      "@postcode": "6122"
+   },
+   {
+      "@name": "Karrakup, 6122",
+      "@suburb": "Karrakup",
+      "@postcode": "6122"
+   },
+   {
+      "@name": "Mundijong, 6123",
+      "@suburb": "Mundijong",
+      "@postcode": "6123"
+   },
+   {
+      "@name": "Whitby, 6123",
+      "@suburb": "Whitby",
+      "@postcode": "6123"
+   },
+   {
+      "@name": "Jarrahdale, 6124",
+      "@suburb": "Jarrahdale",
+      "@postcode": "6124"
+   },
+   {
+      "@name": "Hopeland, 6125",
+      "@suburb": "Hopeland",
+      "@postcode": "6125"
+   },
+   {
+      "@name": "Mardella, 6125",
+      "@suburb": "Mardella",
+      "@postcode": "6125"
+   },
+   {
+      "@name": "Serpentine, 6125",
+      "@suburb": "Serpentine",
+      "@postcode": "6125"
+   },
+   {
+      "@name": "Keysbrook, 6126",
+      "@suburb": "Keysbrook",
+      "@postcode": "6126"
+   },
+   {
+      "@name": "Langford, 6147",
+      "@suburb": "Langford",
+      "@postcode": "6147"
+   },
+   {
+      "@name": "Lynwood, 6147",
+      "@suburb": "Lynwood",
+      "@postcode": "6147"
+   },
+   {
+      "@name": "Parkwood, 6147",
+      "@suburb": "Parkwood",
+      "@postcode": "6147"
+   },
+   {
+      "@name": "Ferndale, 6148",
+      "@suburb": "Ferndale",
+      "@postcode": "6148"
+   },
+   {
+      "@name": "Riverton, 6148",
+      "@suburb": "Riverton",
+      "@postcode": "6148"
+   },
+   {
+      "@name": "Rossmoyne, 6148",
+      "@suburb": "Rossmoyne",
+      "@postcode": "6148"
+   },
+   {
+      "@name": "Shelley, 6148",
+      "@suburb": "Shelley",
+      "@postcode": "6148"
+   },
+   {
+      "@name": "Bull Creek, 6149",
+      "@suburb": "Bull Creek",
+      "@postcode": "6149"
+   },
+   {
+      "@name": "Leeming, 6149",
+      "@suburb": "Leeming",
+      "@postcode": "6149"
+   },
+   {
+      "@name": "Bateman, 6150",
+      "@suburb": "Bateman",
+      "@postcode": "6150"
+   },
+   {
+      "@name": "Murdoch, 6150",
+      "@suburb": "Murdoch",
+      "@postcode": "6150"
+   },
+   {
+      "@name": "Winthrop, 6150",
+      "@suburb": "Winthrop",
+      "@postcode": "6150"
+   },
+   {
+      "@name": "Kensington, 6151",
+      "@suburb": "Kensington",
+      "@postcode": "6151"
+   },
+   {
+      "@name": "South Perth, 6151",
+      "@suburb": "South Perth",
+      "@postcode": "6151"
+   },
+   {
+      "@name": "South Perth Angelo St, 6151",
+      "@suburb": "South Perth Angelo St",
+      "@postcode": "6151"
+   },
+   {
+      "@name": "Como, 6152",
+      "@suburb": "Como",
+      "@postcode": "6152"
+   },
+   {
+      "@name": "Karawara, 6152",
+      "@suburb": "Karawara",
+      "@postcode": "6152"
+   },
+   {
+      "@name": "Manning, 6152",
+      "@suburb": "Manning",
+      "@postcode": "6152"
+   },
+   {
+      "@name": "Salter Point, 6152",
+      "@suburb": "Salter Point",
+      "@postcode": "6152"
+   },
+   {
+      "@name": "Waterford, 6152",
+      "@suburb": "Waterford",
+      "@postcode": "6152"
+   },
+   {
+      "@name": "Applecross, 6153",
+      "@suburb": "Applecross",
+      "@postcode": "6153"
+   },
+   {
+      "@name": "Ardross, 6153",
+      "@suburb": "Ardross",
+      "@postcode": "6153"
+   },
+   {
+      "@name": "Brentwood, 6153",
+      "@suburb": "Brentwood",
+      "@postcode": "6153"
+   },
+   {
+      "@name": "Mount Pleasant, 6153",
+      "@suburb": "Mount Pleasant",
+      "@postcode": "6153"
+   },
+   {
+      "@name": "Alfred Cove, 6154",
+      "@suburb": "Alfred Cove",
+      "@postcode": "6154"
+   },
+   {
+      "@name": "Booragoon, 6154",
+      "@suburb": "Booragoon",
+      "@postcode": "6154"
+   },
+   {
+      "@name": "Myaree, 6154",
+      "@suburb": "Myaree",
+      "@postcode": "6154"
+   },
+   {
+      "@name": "Canning Vale, 6155",
+      "@suburb": "Canning Vale",
+      "@postcode": "6155"
+   },
+   {
+      "@name": "Canning Vale South, 6155",
+      "@suburb": "Canning Vale South",
+      "@postcode": "6155"
+   },
+   {
+      "@name": "Willetton, 6155",
+      "@suburb": "Willetton",
+      "@postcode": "6155"
+   },
+   {
+      "@name": "Attadale, 6156",
+      "@suburb": "Attadale",
+      "@postcode": "6156"
+   },
+   {
+      "@name": "Melville, 6156",
+      "@suburb": "Melville",
+      "@postcode": "6156"
+   },
+   {
+      "@name": "Willagee, 6156",
+      "@suburb": "Willagee",
+      "@postcode": "6156"
+   },
+   {
+      "@name": "Willagee Central, 6156",
+      "@suburb": "Willagee Central",
+      "@postcode": "6156"
+   },
+   {
+      "@name": "Bicton, 6157",
+      "@suburb": "Bicton",
+      "@postcode": "6157"
+   },
+   {
+      "@name": "Palmyra, 6157",
+      "@suburb": "Palmyra",
+      "@postcode": "6157"
+   },
+   {
+      "@name": "East Fremantle, 6158",
+      "@suburb": "East Fremantle",
+      "@postcode": "6158"
+   },
+   {
+      "@name": "North Fremantle, 6159",
+      "@suburb": "North Fremantle",
+      "@postcode": "6159"
+   },
+   {
+      "@name": "Fremantle, 6160",
+      "@suburb": "Fremantle",
+      "@postcode": "6160"
+   },
+   {
+      "@name": "Rottnest Island, 6161",
+      "@suburb": "Rottnest Island",
+      "@postcode": "6161"
+   },
+   {
+      "@name": "Beaconsfield, 6162",
+      "@suburb": "Beaconsfield",
+      "@postcode": "6162"
+   },
+   {
+      "@name": "South Fremantle, 6162",
+      "@suburb": "South Fremantle",
+      "@postcode": "6162"
+   },
+   {
+      "@name": "White Gum Valley, 6162",
+      "@suburb": "White Gum Valley",
+      "@postcode": "6162"
+   },
+   {
+      "@name": "Bibra Lake, 6163",
+      "@suburb": "Bibra Lake",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "Coolbellup, 6163",
+      "@suburb": "Coolbellup",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "Hamilton Hill, 6163",
+      "@suburb": "Hamilton Hill",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "Kardinya, 6163",
+      "@suburb": "Kardinya",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "North Lake, 6163",
+      "@suburb": "North Lake",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "O'connor, 6163",
+      "@suburb": "O'connor",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "Samson, 6163",
+      "@suburb": "Samson",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "Spearwood, 6163",
+      "@suburb": "Spearwood",
+      "@postcode": "6163"
+   },
+   {
+      "@name": "Atwell, 6164",
+      "@suburb": "Atwell",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Aubin Grove, 6164",
+      "@suburb": "Aubin Grove",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Banjup, 6164",
+      "@suburb": "Banjup",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Beeliar, 6164",
+      "@suburb": "Beeliar",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Cockburn Central, 6164",
+      "@suburb": "Cockburn Central",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Hammond Park, 6164",
+      "@suburb": "Hammond Park",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Jandakot, 6164",
+      "@suburb": "Jandakot",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "South Lake, 6164",
+      "@suburb": "South Lake",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Success, 6164",
+      "@suburb": "Success",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Yangebup, 6164",
+      "@suburb": "Yangebup",
+      "@postcode": "6164"
+   },
+   {
+      "@name": "Hope Valley, 6165",
+      "@suburb": "Hope Valley",
+      "@postcode": "6165"
+   },
+   {
+      "@name": "Naval Base, 6165",
+      "@suburb": "Naval Base",
+      "@postcode": "6165"
+   },
+   {
+      "@name": "Coogee, 6166",
+      "@suburb": "Coogee",
+      "@postcode": "6166"
+   },
+   {
+      "@name": "Henderson, 6166",
+      "@suburb": "Henderson",
+      "@postcode": "6166"
+   },
+   {
+      "@name": "Munster, 6166",
+      "@suburb": "Munster",
+      "@postcode": "6166"
+   },
+   {
+      "@name": "Wattleup, 6166",
+      "@suburb": "Wattleup",
+      "@postcode": "6166"
+   },
+   {
+      "@name": "Anketell, 6167",
+      "@suburb": "Anketell",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Bertram, 6167",
+      "@suburb": "Bertram",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Calista, 6167",
+      "@suburb": "Calista",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Casuarina, 6167",
+      "@suburb": "Casuarina",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Kwinana Beach, 6167",
+      "@suburb": "Kwinana Beach",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Kwinana Town Centre, 6167",
+      "@suburb": "Kwinana Town Centre",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Mandogalup, 6167",
+      "@suburb": "Mandogalup",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Medina, 6167",
+      "@suburb": "Medina",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Orelia, 6167",
+      "@suburb": "Orelia",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Parmelia, 6167",
+      "@suburb": "Parmelia",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Postans, 6167",
+      "@suburb": "Postans",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "The Spectacles, 6167",
+      "@suburb": "The Spectacles",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Wandi, 6167",
+      "@suburb": "Wandi",
+      "@postcode": "6167"
+   },
+   {
+      "@name": "Cooloongup, 6168",
+      "@suburb": "Cooloongup",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "East Rockingham, 6168",
+      "@suburb": "East Rockingham",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "Garden Island, 6168",
+      "@suburb": "Garden Island",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "Hillman, 6168",
+      "@suburb": "Hillman",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "Peron, 6168",
+      "@suburb": "Peron",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "Rockingham, 6168",
+      "@suburb": "Rockingham",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "Rockingham Beach, 6168",
+      "@suburb": "Rockingham Beach",
+      "@postcode": "6168"
+   },
+   {
+      "@name": "Safety Bay, 6169",
+      "@suburb": "Safety Bay",
+      "@postcode": "6169"
+   },
+   {
+      "@name": "Shoalwater, 6169",
+      "@suburb": "Shoalwater",
+      "@postcode": "6169"
+   },
+   {
+      "@name": "Waikiki, 6169",
+      "@suburb": "Waikiki",
+      "@postcode": "6169"
+   },
+   {
+      "@name": "Warnbro, 6169",
+      "@suburb": "Warnbro",
+      "@postcode": "6169"
+   },
+   {
+      "@name": "Leda, 6170",
+      "@suburb": "Leda",
+      "@postcode": "6170"
+   },
+   {
+      "@name": "Wellard, 6170",
+      "@suburb": "Wellard",
+      "@postcode": "6170"
+   },
+   {
+      "@name": "Baldivis, 6171",
+      "@suburb": "Baldivis",
+      "@postcode": "6171"
+   },
+   {
+      "@name": "Port Kennedy, 6172",
+      "@suburb": "Port Kennedy",
+      "@postcode": "6172"
+   },
+   {
+      "@name": "Secret Harbour, 6173",
+      "@suburb": "Secret Harbour",
+      "@postcode": "6173"
+   },
+   {
+      "@name": "Golden Bay, 6174",
+      "@suburb": "Golden Bay",
+      "@postcode": "6174"
+   },
+   {
+      "@name": "Singleton, 6175",
+      "@suburb": "Singleton",
+      "@postcode": "6175"
+   },
+   {
+      "@name": "Karnup, 6176",
+      "@suburb": "Karnup",
+      "@postcode": "6176"
+   },
+   {
+      "@name": "Lakelands, 6180",
+      "@suburb": "Lakelands",
+      "@postcode": "6180"
+   },
+   {
+      "@name": "Parklands, 6180",
+      "@suburb": "Parklands",
+      "@postcode": "6180"
+   },
+   {
+      "@name": "Myara, 6207",
+      "@suburb": "Myara",
+      "@postcode": "6207"
+   },
+   {
+      "@name": "Nambeelup, 6207",
+      "@suburb": "Nambeelup",
+      "@postcode": "6207"
+   },
+   {
+      "@name": "North Dandalup, 6207",
+      "@suburb": "North Dandalup",
+      "@postcode": "6207"
+   },
+   {
+      "@name": "Solus, 6207",
+      "@suburb": "Solus",
+      "@postcode": "6207"
+   },
+   {
+      "@name": "Whittaker, 6207",
+      "@suburb": "Whittaker",
+      "@postcode": "6207"
+   },
+   {
+      "@name": "Blythewood, 6208",
+      "@suburb": "Blythewood",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Fairbridge, 6208",
+      "@suburb": "Fairbridge",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Meelon, 6208",
+      "@suburb": "Meelon",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Nirimba, 6208",
+      "@suburb": "Nirimba",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "North Yunderup, 6208",
+      "@suburb": "North Yunderup",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Oakley, 6208",
+      "@suburb": "Oakley",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Pinjarra, 6208",
+      "@suburb": "Pinjarra",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Point Grey, 6208",
+      "@suburb": "Point Grey",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Ravenswood, 6208",
+      "@suburb": "Ravenswood",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "South Yunderup, 6208",
+      "@suburb": "South Yunderup",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "West Pinjarra, 6208",
+      "@suburb": "West Pinjarra",
+      "@postcode": "6208"
+   },
+   {
+      "@name": "Furnissdale, 6209",
+      "@suburb": "Furnissdale",
+      "@postcode": "6209"
+   },
+   {
+      "@name": "Coodanup, 6210",
+      "@suburb": "Coodanup",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Dudley Park, 6210",
+      "@suburb": "Dudley Park",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Erskine, 6210",
+      "@suburb": "Erskine",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Falcon, 6210",
+      "@suburb": "Falcon",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Greenfields, 6210",
+      "@suburb": "Greenfields",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Halls Head, 6210",
+      "@suburb": "Halls Head",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Madora Bay, 6210",
+      "@suburb": "Madora Bay",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Mandurah, 6210",
+      "@suburb": "Mandurah",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Mandurah East, 6210",
+      "@suburb": "Mandurah East",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Mandurah North, 6210",
+      "@suburb": "Mandurah North",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Meadow Springs, 6210",
+      "@suburb": "Meadow Springs",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "San Remo, 6210",
+      "@suburb": "San Remo",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Silver Sands, 6210",
+      "@suburb": "Silver Sands",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Wannanup, 6210",
+      "@suburb": "Wannanup",
+      "@postcode": "6210"
+   },
+   {
+      "@name": "Bouvard, 6211",
+      "@suburb": "Bouvard",
+      "@postcode": "6211"
+   },
+   {
+      "@name": "Clifton, 6211",
+      "@suburb": "Clifton",
+      "@postcode": "6211"
+   },
+   {
+      "@name": "Dawesville, 6211",
+      "@suburb": "Dawesville",
+      "@postcode": "6211"
+   },
+   {
+      "@name": "Herron, 6211",
+      "@suburb": "Herron",
+      "@postcode": "6211"
+   },
+   {
+      "@name": "Banksiadale, 6213",
+      "@suburb": "Banksiadale",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Dwellingup, 6213",
+      "@suburb": "Dwellingup",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Etmilyn, 6213",
+      "@suburb": "Etmilyn",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Holyoake, 6213",
+      "@suburb": "Holyoake",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Inglehope, 6213",
+      "@suburb": "Inglehope",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Marrinup, 6213",
+      "@suburb": "Marrinup",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Teesdale, 6213",
+      "@suburb": "Teesdale",
+      "@postcode": "6213"
+   },
+   {
+      "@name": "Birchmont, 6214",
+      "@suburb": "Birchmont",
+      "@postcode": "6214"
+   },
+   {
+      "@name": "Coolup, 6214",
+      "@suburb": "Coolup",
+      "@postcode": "6214"
+   },
+   {
+      "@name": "West Coolup, 6214",
+      "@suburb": "West Coolup",
+      "@postcode": "6214"
+   },
+   {
+      "@name": "Hamel, 6215",
+      "@suburb": "Hamel",
+      "@postcode": "6215"
+   },
+   {
+      "@name": "Lake Clifton, 6215",
+      "@suburb": "Lake Clifton",
+      "@postcode": "6215"
+   },
+   {
+      "@name": "Nanga Brook, 6215",
+      "@suburb": "Nanga Brook",
+      "@postcode": "6215"
+   },
+   {
+      "@name": "Preston Beach, 6215",
+      "@suburb": "Preston Beach",
+      "@postcode": "6215"
+   },
+   {
+      "@name": "Wagerup, 6215",
+      "@suburb": "Wagerup",
+      "@postcode": "6215"
+   },
+   {
+      "@name": "Waroona, 6215",
+      "@suburb": "Waroona",
+      "@postcode": "6215"
+   },
+   {
+      "@name": "Yarloop, 6218",
+      "@suburb": "Yarloop",
+      "@postcode": "6218"
+   },
+   {
+      "@name": "Cookernup, 6220",
+      "@suburb": "Cookernup",
+      "@postcode": "6220"
+   },
+   {
+      "@name": "Harvey, 6220",
+      "@suburb": "Harvey",
+      "@postcode": "6220"
+   },
+   {
+      "@name": "Hoffman, 6220",
+      "@suburb": "Hoffman",
+      "@postcode": "6220"
+   },
+   {
+      "@name": "Myalup, 6220",
+      "@suburb": "Myalup",
+      "@postcode": "6220"
+   },
+   {
+      "@name": "Uduc, 6220",
+      "@suburb": "Uduc",
+      "@postcode": "6220"
+   },
+   {
+      "@name": "Warawarrup, 6220",
+      "@suburb": "Warawarrup",
+      "@postcode": "6220"
+   },
+   {
+      "@name": "Mornington, 6221",
+      "@suburb": "Mornington",
+      "@postcode": "6221"
+   },
+   {
+      "@name": "Wokalup, 6221",
+      "@suburb": "Wokalup",
+      "@postcode": "6221"
+   },
+   {
+      "@name": "Benger, 6223",
+      "@suburb": "Benger",
+      "@postcode": "6223"
+   },
+   {
+      "@name": "Beela, 6224",
+      "@suburb": "Beela",
+      "@postcode": "6224"
+   },
+   {
+      "@name": "Brunswick, 6224",
+      "@suburb": "Brunswick",
+      "@postcode": "6224"
+   },
+   {
+      "@name": "Allanson, 6225",
+      "@suburb": "Allanson",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Bowelling, 6225",
+      "@suburb": "Bowelling",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Buckingham, 6225",
+      "@suburb": "Buckingham",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Cardiff, 6225",
+      "@suburb": "Cardiff",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Collie, 6225",
+      "@suburb": "Collie",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Collie Burn, 6225",
+      "@suburb": "Collie Burn",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Harris River, 6225",
+      "@suburb": "Harris River",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Lyalls Mill, 6225",
+      "@suburb": "Lyalls Mill",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Mcalinden, 6225",
+      "@suburb": "Mcalinden",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Muja, 6225",
+      "@suburb": "Muja",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Mumballup, 6225",
+      "@suburb": "Mumballup",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Mungalup, 6225",
+      "@suburb": "Mungalup",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Noggerup, 6225",
+      "@suburb": "Noggerup",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Palmer, 6225",
+      "@suburb": "Palmer",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Preston Settlement, 6225",
+      "@suburb": "Preston Settlement",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Shotts, 6225",
+      "@suburb": "Shotts",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Worsley, 6225",
+      "@suburb": "Worsley",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Yourdamung Lake, 6225",
+      "@suburb": "Yourdamung Lake",
+      "@postcode": "6225"
+   },
+   {
+      "@name": "Roelands, 6226",
+      "@suburb": "Roelands",
+      "@postcode": "6226"
+   },
+   {
+      "@name": "Burekup, 6227",
+      "@suburb": "Burekup",
+      "@postcode": "6227"
+   },
+   {
+      "@name": "Waterloo, 6228",
+      "@suburb": "Waterloo",
+      "@postcode": "6228"
+   },
+   {
+      "@name": "Picton, 6229",
+      "@suburb": "Picton",
+      "@postcode": "6229"
+   },
+   {
+      "@name": "Picton East, 6229",
+      "@suburb": "Picton East",
+      "@postcode": "6229"
+   },
+   {
+      "@name": "Bunbury, 6230",
+      "@suburb": "Bunbury",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Carey Park, 6230",
+      "@suburb": "Carey Park",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "College Grove, 6230",
+      "@suburb": "College Grove",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Dalyellup, 6230",
+      "@suburb": "Dalyellup",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Davenport, 6230",
+      "@suburb": "Davenport",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "East Bunbury, 6230",
+      "@suburb": "East Bunbury",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Gelorup, 6230",
+      "@suburb": "Gelorup",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Glen Iris, 6230",
+      "@suburb": "Glen Iris",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Pelican Point, 6230",
+      "@suburb": "Pelican Point",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "South Bunbury, 6230",
+      "@suburb": "South Bunbury",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Usher, 6230",
+      "@suburb": "Usher",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Vittoria, 6230",
+      "@suburb": "Vittoria",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Withers, 6230",
+      "@suburb": "Withers",
+      "@postcode": "6230"
+   },
+   {
+      "@name": "Bunbury, 6231",
+      "@suburb": "Bunbury",
+      "@postcode": "6231"
+   },
+   {
+      "@name": "Bunbury, 6232",
+      "@suburb": "Bunbury",
+      "@postcode": "6232"
+   },
+   {
+      "@name": "Millbridge, 6232",
+      "@suburb": "Millbridge",
+      "@postcode": "6232"
+   },
+   {
+      "@name": "Australind, 6233",
+      "@suburb": "Australind",
+      "@postcode": "6233"
+   },
+   {
+      "@name": "Binningup, 6233",
+      "@suburb": "Binningup",
+      "@postcode": "6233"
+   },
+   {
+      "@name": "Leschenault, 6233",
+      "@suburb": "Leschenault",
+      "@postcode": "6233"
+   },
+   {
+      "@name": "Parkfield, 6233",
+      "@suburb": "Parkfield",
+      "@postcode": "6233"
+   },
+   {
+      "@name": "Wellesley, 6233",
+      "@suburb": "Wellesley",
+      "@postcode": "6233"
+   },
+   {
+      "@name": "Crooked Brook, 6236",
+      "@suburb": "Crooked Brook",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Dardanup, 6236",
+      "@suburb": "Dardanup",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Dardanup West, 6236",
+      "@suburb": "Dardanup West",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Henty, 6236",
+      "@suburb": "Henty",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Paradise, 6236",
+      "@suburb": "Paradise",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Wellington Forest, 6236",
+      "@suburb": "Wellington Forest",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Wellington Mill, 6236",
+      "@suburb": "Wellington Mill",
+      "@postcode": "6236"
+   },
+   {
+      "@name": "Boyanup, 6237",
+      "@suburb": "Boyanup",
+      "@postcode": "6237"
+   },
+   {
+      "@name": "Elgin, 6237",
+      "@suburb": "Elgin",
+      "@postcode": "6237"
+   },
+   {
+      "@name": "Gwindinup, 6237",
+      "@suburb": "Gwindinup",
+      "@postcode": "6237"
+   },
+   {
+      "@name": "North Boyanup, 6237",
+      "@suburb": "North Boyanup",
+      "@postcode": "6237"
+   },
+   {
+      "@name": "Stratham, 6237",
+      "@suburb": "Stratham",
+      "@postcode": "6237"
+   },
+   {
+      "@name": "The Plains, 6237",
+      "@suburb": "The Plains",
+      "@postcode": "6237"
+   },
+   {
+      "@name": "Argyle, 6239",
+      "@suburb": "Argyle",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Beelerup, 6239",
+      "@suburb": "Beelerup",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Brookhampton, 6239",
+      "@suburb": "Brookhampton",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Charley Creek, 6239",
+      "@suburb": "Charley Creek",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Donnybrook, 6239",
+      "@suburb": "Donnybrook",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Glen Mervyn, 6239",
+      "@suburb": "Glen Mervyn",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Paynedale, 6239",
+      "@suburb": "Paynedale",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Queenwood, 6239",
+      "@suburb": "Queenwood",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Thomson Brook, 6239",
+      "@suburb": "Thomson Brook",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Upper Capel, 6239",
+      "@suburb": "Upper Capel",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Yabberup, 6239",
+      "@suburb": "Yabberup",
+      "@postcode": "6239"
+   },
+   {
+      "@name": "Lowden, 6240",
+      "@suburb": "Lowden",
+      "@postcode": "6240"
+   },
+   {
+      "@name": "Wilga, 6243",
+      "@suburb": "Wilga",
+      "@postcode": "6243"
+   },
+   {
+      "@name": "Wilga West, 6243",
+      "@suburb": "Wilga West",
+      "@postcode": "6243"
+   },
+   {
+      "@name": "Boyup Brook, 6244",
+      "@suburb": "Boyup Brook",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Chowerup, 6244",
+      "@suburb": "Chowerup",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Dinninup, 6244",
+      "@suburb": "Dinninup",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Kulikup, 6244",
+      "@suburb": "Kulikup",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Mayanup, 6244",
+      "@suburb": "Mayanup",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Scotts Brook, 6244",
+      "@suburb": "Scotts Brook",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Tonebridge, 6244",
+      "@suburb": "Tonebridge",
+      "@postcode": "6244"
+   },
+   {
+      "@name": "Brazier, 6251",
+      "@suburb": "Brazier",
+      "@postcode": "6251"
+   },
+   {
+      "@name": "Kirup, 6251",
+      "@suburb": "Kirup",
+      "@postcode": "6251"
+   },
+   {
+      "@name": "Newlands, 6251",
+      "@suburb": "Newlands",
+      "@postcode": "6251"
+   },
+   {
+      "@name": "Mullalyup, 6252",
+      "@suburb": "Mullalyup",
+      "@postcode": "6252"
+   },
+   {
+      "@name": "Balingup, 6253",
+      "@suburb": "Balingup",
+      "@postcode": "6253"
+   },
+   {
+      "@name": "Grimwade, 6253",
+      "@suburb": "Grimwade",
+      "@postcode": "6253"
+   },
+   {
+      "@name": "Southampton, 6253",
+      "@suburb": "Southampton",
+      "@postcode": "6253"
+   },
+   {
+      "@name": "Greenbushes, 6254",
+      "@suburb": "Greenbushes",
+      "@postcode": "6254"
+   },
+   {
+      "@name": "North Greenbushes, 6254",
+      "@suburb": "North Greenbushes",
+      "@postcode": "6254"
+   },
+   {
+      "@name": "Benjinup, 6255",
+      "@suburb": "Benjinup",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Bridgetown, 6255",
+      "@suburb": "Bridgetown",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Catterick, 6255",
+      "@suburb": "Catterick",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Hester, 6255",
+      "@suburb": "Hester",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Hester Brook, 6255",
+      "@suburb": "Hester Brook",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Kangaroo Gully, 6255",
+      "@suburb": "Kangaroo Gully",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Winnejup, 6255",
+      "@suburb": "Winnejup",
+      "@postcode": "6255"
+   },
+   {
+      "@name": "Glenlynn, 6256",
+      "@suburb": "Glenlynn",
+      "@postcode": "6256"
+   },
+   {
+      "@name": "Kingston, 6256",
+      "@suburb": "Kingston",
+      "@postcode": "6256"
+   },
+   {
+      "@name": "Maranup, 6256",
+      "@suburb": "Maranup",
+      "@postcode": "6256"
+   },
+   {
+      "@name": "Sunnyside, 6256",
+      "@suburb": "Sunnyside",
+      "@postcode": "6256"
+   },
+   {
+      "@name": "Wandillup, 6256",
+      "@suburb": "Wandillup",
+      "@postcode": "6256"
+   },
+   {
+      "@name": "Yornup, 6256",
+      "@suburb": "Yornup",
+      "@postcode": "6256"
+   },
+   {
+      "@name": "Balbarrup, 6258",
+      "@suburb": "Balbarrup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Crowea, 6258",
+      "@suburb": "Crowea",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Deanmill, 6258",
+      "@suburb": "Deanmill",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Diamond Tree, 6258",
+      "@suburb": "Diamond Tree",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Dingup, 6258",
+      "@suburb": "Dingup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Dixvale, 6258",
+      "@suburb": "Dixvale",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Donnelly River, 6258",
+      "@suburb": "Donnelly River",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Glenoran, 6258",
+      "@suburb": "Glenoran",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Jardee, 6258",
+      "@suburb": "Jardee",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Lake Muir, 6258",
+      "@suburb": "Lake Muir",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Linfarne, 6258",
+      "@suburb": "Linfarne",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Manjimup, 6258",
+      "@suburb": "Manjimup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Middlesex, 6258",
+      "@suburb": "Middlesex",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Mordalup, 6258",
+      "@suburb": "Mordalup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Palgarup, 6258",
+      "@suburb": "Palgarup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Perup, 6258",
+      "@suburb": "Perup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Quinninup, 6258",
+      "@suburb": "Quinninup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Ringbark, 6258",
+      "@suburb": "Ringbark",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Smith Brook, 6258",
+      "@suburb": "Smith Brook",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Upper Warren, 6258",
+      "@suburb": "Upper Warren",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Wilgarrup, 6258",
+      "@suburb": "Wilgarrup",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Yanmah, 6258",
+      "@suburb": "Yanmah",
+      "@postcode": "6258"
+   },
+   {
+      "@name": "Beedelup, 6260",
+      "@suburb": "Beedelup",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Biddelia, 6260",
+      "@suburb": "Biddelia",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Callcup, 6260",
+      "@suburb": "Callcup",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Channybearup, 6260",
+      "@suburb": "Channybearup",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Collins, 6260",
+      "@suburb": "Collins",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Eastbrook, 6260",
+      "@suburb": "Eastbrook",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Lake Jasper, 6260",
+      "@suburb": "Lake Jasper",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Peerabeelup, 6260",
+      "@suburb": "Peerabeelup",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Pemberton, 6260",
+      "@suburb": "Pemberton",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Yeagarup, 6260",
+      "@suburb": "Yeagarup",
+      "@postcode": "6260"
+   },
+   {
+      "@name": "Boorara Brook, 6262",
+      "@suburb": "Boorara Brook",
+      "@postcode": "6262"
+   },
+   {
+      "@name": "Meerup, 6262",
+      "@suburb": "Meerup",
+      "@postcode": "6262"
+   },
+   {
+      "@name": "Northcliffe, 6262",
+      "@suburb": "Northcliffe",
+      "@postcode": "6262"
+   },
+   {
+      "@name": "Shannon, 6262",
+      "@suburb": "Shannon",
+      "@postcode": "6262"
+   },
+   {
+      "@name": "Windy Harbour, 6262",
+      "@suburb": "Windy Harbour",
+      "@postcode": "6262"
+   },
+   {
+      "@name": "Capel, 6271",
+      "@suburb": "Capel",
+      "@postcode": "6271"
+   },
+   {
+      "@name": "Capel River, 6271",
+      "@suburb": "Capel River",
+      "@postcode": "6271"
+   },
+   {
+      "@name": "Forrest Beach, 6271",
+      "@suburb": "Forrest Beach",
+      "@postcode": "6271"
+   },
+   {
+      "@name": "Peppermint Grove Beach, 6271",
+      "@suburb": "Peppermint Grove Beach",
+      "@postcode": "6271"
+   },
+   {
+      "@name": "Stirling Estate, 6271",
+      "@suburb": "Stirling Estate",
+      "@postcode": "6271"
+   },
+   {
+      "@name": "Barrabup, 6275",
+      "@suburb": "Barrabup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Carlotta, 6275",
+      "@suburb": "Carlotta",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Cundinup, 6275",
+      "@suburb": "Cundinup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Darradup, 6275",
+      "@suburb": "Darradup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "East Nannup, 6275",
+      "@suburb": "East Nannup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Jalbarragup, 6275",
+      "@suburb": "Jalbarragup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Jarrahwood, 6275",
+      "@suburb": "Jarrahwood",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Nannup, 6275",
+      "@suburb": "Nannup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Scott River East, 6275",
+      "@suburb": "Scott River East",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Yoganup, 6275",
+      "@suburb": "Yoganup",
+      "@postcode": "6275"
+   },
+   {
+      "@name": "Abba River, 6280",
+      "@suburb": "Abba River",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Abbey, 6280",
+      "@suburb": "Abbey",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Acton Park, 6280",
+      "@suburb": "Acton Park",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Ambergate, 6280",
+      "@suburb": "Ambergate",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Anniebrook, 6280",
+      "@suburb": "Anniebrook",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Boallia, 6280",
+      "@suburb": "Boallia",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Bovell, 6280",
+      "@suburb": "Bovell",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Broadwater, 6280",
+      "@suburb": "Broadwater",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Busselton, 6280",
+      "@suburb": "Busselton",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Carbunup River, 6280",
+      "@suburb": "Carbunup River",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Chapman Hill, 6280",
+      "@suburb": "Chapman Hill",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Geographe, 6280",
+      "@suburb": "Geographe",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Hithergreen, 6280",
+      "@suburb": "Hithergreen",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Jindong, 6280",
+      "@suburb": "Jindong",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Kalgup, 6280",
+      "@suburb": "Kalgup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Kaloorup, 6280",
+      "@suburb": "Kaloorup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Kealy, 6280",
+      "@suburb": "Kealy",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Ludlow, 6280",
+      "@suburb": "Ludlow",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Marybrook, 6280",
+      "@suburb": "Marybrook",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Metricup, 6280",
+      "@suburb": "Metricup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "North Jindong, 6280",
+      "@suburb": "North Jindong",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Reinscourt, 6280",
+      "@suburb": "Reinscourt",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Ruabon, 6280",
+      "@suburb": "Ruabon",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Sabina River, 6280",
+      "@suburb": "Sabina River",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Siesta Park, 6280",
+      "@suburb": "Siesta Park",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Tutunup, 6280",
+      "@suburb": "Tutunup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Vasse, 6280",
+      "@suburb": "Vasse",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Walsall, 6280",
+      "@suburb": "Walsall",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "West Busselton, 6280",
+      "@suburb": "West Busselton",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Wilyabrup, 6280",
+      "@suburb": "Wilyabrup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Wonnerup, 6280",
+      "@suburb": "Wonnerup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Yalyalup, 6280",
+      "@suburb": "Yalyalup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Yelverton, 6280",
+      "@suburb": "Yelverton",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Yoongarillup, 6280",
+      "@suburb": "Yoongarillup",
+      "@postcode": "6280"
+   },
+   {
+      "@name": "Dunsborough, 6281",
+      "@suburb": "Dunsborough",
+      "@postcode": "6281"
+   },
+   {
+      "@name": "Eagle Bay, 6281",
+      "@suburb": "Eagle Bay",
+      "@postcode": "6281"
+   },
+   {
+      "@name": "Naturaliste, 6281",
+      "@suburb": "Naturaliste",
+      "@postcode": "6281"
+   },
+   {
+      "@name": "Quedjinup, 6281",
+      "@suburb": "Quedjinup",
+      "@postcode": "6281"
+   },
+   {
+      "@name": "Quindalup, 6281",
+      "@suburb": "Quindalup",
+      "@postcode": "6281"
+   },
+   {
+      "@name": "Yallingup, 6282",
+      "@suburb": "Yallingup",
+      "@postcode": "6282"
+   },
+   {
+      "@name": "Yallingup Siding, 6282",
+      "@suburb": "Yallingup Siding",
+      "@postcode": "6282"
+   },
+   {
+      "@name": "Baudin, 6284",
+      "@suburb": "Baudin",
+      "@postcode": "6284"
+   },
+   {
+      "@name": "Cowaramup, 6284",
+      "@suburb": "Cowaramup",
+      "@postcode": "6284"
+   },
+   {
+      "@name": "Gracetown, 6284",
+      "@suburb": "Gracetown",
+      "@postcode": "6284"
+   },
+   {
+      "@name": "Treeton, 6284",
+      "@suburb": "Treeton",
+      "@postcode": "6284"
+   },
+   {
+      "@name": "Bramley, 6285",
+      "@suburb": "Bramley",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Burnside, 6285",
+      "@suburb": "Burnside",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Gnarabup, 6285",
+      "@suburb": "Gnarabup",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Margaret River, 6285",
+      "@suburb": "Margaret River",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Osmington, 6285",
+      "@suburb": "Osmington",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Prevelly, 6285",
+      "@suburb": "Prevelly",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Rosa Brook, 6285",
+      "@suburb": "Rosa Brook",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Rosa Glen, 6285",
+      "@suburb": "Rosa Glen",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Schroeder, 6285",
+      "@suburb": "Schroeder",
+      "@postcode": "6285"
+   },
+   {
+      "@name": "Boranup, 6286",
+      "@suburb": "Boranup",
+      "@postcode": "6286"
+   },
+   {
+      "@name": "Forest Grove, 6286",
+      "@suburb": "Forest Grove",
+      "@postcode": "6286"
+   },
+   {
+      "@name": "Redgate, 6286",
+      "@suburb": "Redgate",
+      "@postcode": "6286"
+   },
+   {
+      "@name": "Witchcliffe, 6286",
+      "@suburb": "Witchcliffe",
+      "@postcode": "6286"
+   },
+   {
+      "@name": "Alexandra Bridge, 6288",
+      "@suburb": "Alexandra Bridge",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Courtenay, 6288",
+      "@suburb": "Courtenay",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Hamelin Bay, 6288",
+      "@suburb": "Hamelin Bay",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Karridale, 6288",
+      "@suburb": "Karridale",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Nillup, 6288",
+      "@suburb": "Nillup",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Scott River, 6288",
+      "@suburb": "Scott River",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Warner Glen, 6288",
+      "@suburb": "Warner Glen",
+      "@postcode": "6288"
+   },
+   {
+      "@name": "Augusta, 6290",
+      "@suburb": "Augusta",
+      "@postcode": "6290"
+   },
+   {
+      "@name": "Deepdene, 6290",
+      "@suburb": "Deepdene",
+      "@postcode": "6290"
+   },
+   {
+      "@name": "East Augusta, 6290",
+      "@suburb": "East Augusta",
+      "@postcode": "6290"
+   },
+   {
+      "@name": "Kudardup, 6290",
+      "@suburb": "Kudardup",
+      "@postcode": "6290"
+   },
+   {
+      "@name": "Leeuwin, 6290",
+      "@suburb": "Leeuwin",
+      "@postcode": "6290"
+   },
+   {
+      "@name": "Molloy Island, 6290",
+      "@suburb": "Molloy Island",
+      "@postcode": "6290"
+   },
+   {
+      "@name": "Badgin, 6302",
+      "@suburb": "Badgin",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Balladong, 6302",
+      "@suburb": "Balladong",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Burges, 6302",
+      "@suburb": "Burges",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Caljie, 6302",
+      "@suburb": "Caljie",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Cold Harbour, 6302",
+      "@suburb": "Cold Harbour",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Daliak, 6302",
+      "@suburb": "Daliak",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Flint, 6302",
+      "@suburb": "Flint",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Flynn, 6302",
+      "@suburb": "Flynn",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Gilgering, 6302",
+      "@suburb": "Gilgering",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Greenhills, 6302",
+      "@suburb": "Greenhills",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Gwambygine, 6302",
+      "@suburb": "Gwambygine",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Inkpen, 6302",
+      "@suburb": "Inkpen",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Kauring, 6302",
+      "@suburb": "Kauring",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Malebelling, 6302",
+      "@suburb": "Malebelling",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Mount Hardey, 6302",
+      "@suburb": "Mount Hardey",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Mount Observation, 6302",
+      "@suburb": "Mount Observation",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Narraloggan, 6302",
+      "@suburb": "Narraloggan",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Quellington, 6302",
+      "@suburb": "Quellington",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "St Ronans, 6302",
+      "@suburb": "St Ronans",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Talbot, 6302",
+      "@suburb": "Talbot",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Talbot West, 6302",
+      "@suburb": "Talbot West",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Wilberforce, 6302",
+      "@suburb": "Wilberforce",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "York, 6302",
+      "@suburb": "York",
+      "@postcode": "6302"
+   },
+   {
+      "@name": "Bally Bally, 6304",
+      "@suburb": "Bally Bally",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "Beverley, 6304",
+      "@suburb": "Beverley",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "Dale, 6304",
+      "@suburb": "Dale",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "East Beverley, 6304",
+      "@suburb": "East Beverley",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "Kokeby, 6304",
+      "@suburb": "Kokeby",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "Morbinning, 6304",
+      "@suburb": "Morbinning",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "Westdale, 6304",
+      "@suburb": "Westdale",
+      "@postcode": "6304"
+   },
+   {
+      "@name": "Aldersyde, 6306",
+      "@suburb": "Aldersyde",
+      "@postcode": "6306"
+   },
+   {
+      "@name": "Brookton, 6306",
+      "@suburb": "Brookton",
+      "@postcode": "6306"
+   },
+   {
+      "@name": "Bulyee, 6306",
+      "@suburb": "Bulyee",
+      "@postcode": "6306"
+   },
+   {
+      "@name": "Jelcobine, 6306",
+      "@suburb": "Jelcobine",
+      "@postcode": "6306"
+   },
+   {
+      "@name": "Kweda, 6306",
+      "@suburb": "Kweda",
+      "@postcode": "6306"
+   },
+   {
+      "@name": "Codjatotine, 6308",
+      "@suburb": "Codjatotine",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Dwarda, 6308",
+      "@suburb": "Dwarda",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "East Pingelly, 6308",
+      "@suburb": "East Pingelly",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Gillimanning, 6308",
+      "@suburb": "Gillimanning",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Hastings, 6308",
+      "@suburb": "Hastings",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Pingelly, 6308",
+      "@suburb": "Pingelly",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Pumphreys Bridge, 6308",
+      "@suburb": "Pumphreys Bridge",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Springs, 6308",
+      "@suburb": "Springs",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "Wandering, 6308",
+      "@suburb": "Wandering",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "West Pingelly, 6308",
+      "@suburb": "West Pingelly",
+      "@postcode": "6308"
+   },
+   {
+      "@name": "East Popanyinning, 6309",
+      "@suburb": "East Popanyinning",
+      "@postcode": "6309"
+   },
+   {
+      "@name": "Popanyinning, 6309",
+      "@suburb": "Popanyinning",
+      "@postcode": "6309"
+   },
+   {
+      "@name": "Stratherne, 6309",
+      "@suburb": "Stratherne",
+      "@postcode": "6309"
+   },
+   {
+      "@name": "West Popanyinning, 6309",
+      "@suburb": "West Popanyinning",
+      "@postcode": "6309"
+   },
+   {
+      "@name": "Commodine, 6311",
+      "@suburb": "Commodine",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Contine, 6311",
+      "@suburb": "Contine",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Cuballing, 6311",
+      "@suburb": "Cuballing",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Dryandra, 6311",
+      "@suburb": "Dryandra",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Lol Gray, 6311",
+      "@suburb": "Lol Gray",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Townsendale, 6311",
+      "@suburb": "Townsendale",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Wardering, 6311",
+      "@suburb": "Wardering",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Yornaning, 6311",
+      "@suburb": "Yornaning",
+      "@postcode": "6311"
+   },
+   {
+      "@name": "Boundain, 6312",
+      "@suburb": "Boundain",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Dumberning, 6312",
+      "@suburb": "Dumberning",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Hillside, 6312",
+      "@suburb": "Hillside",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Minigin, 6312",
+      "@suburb": "Minigin",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Narrogin, 6312",
+      "@suburb": "Narrogin",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Narrogin Valley, 6312",
+      "@suburb": "Narrogin Valley",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Nomans Lake, 6312",
+      "@suburb": "Nomans Lake",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Toolibin, 6312",
+      "@suburb": "Toolibin",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Yilliminning, 6312",
+      "@suburb": "Yilliminning",
+      "@postcode": "6312"
+   },
+   {
+      "@name": "Highbury, 6313",
+      "@suburb": "Highbury",
+      "@postcode": "6313"
+   },
+   {
+      "@name": "Arthur River, 6315",
+      "@suburb": "Arthur River",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Ballaying, 6315",
+      "@suburb": "Ballaying",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Cancanning, 6315",
+      "@suburb": "Cancanning",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Collanilling, 6315",
+      "@suburb": "Collanilling",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Dongolocking, 6315",
+      "@suburb": "Dongolocking",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Gundaring, 6315",
+      "@suburb": "Gundaring",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Jaloran, 6315",
+      "@suburb": "Jaloran",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Lime Lake, 6315",
+      "@suburb": "Lime Lake",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Minding, 6315",
+      "@suburb": "Minding",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Piesseville, 6315",
+      "@suburb": "Piesseville",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Wagin, 6315",
+      "@suburb": "Wagin",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Wedgecarrup, 6315",
+      "@suburb": "Wedgecarrup",
+      "@postcode": "6315"
+   },
+   {
+      "@name": "Boyerine, 6316",
+      "@suburb": "Boyerine",
+      "@postcode": "6316"
+   },
+   {
+      "@name": "Cartmeticup, 6316",
+      "@suburb": "Cartmeticup",
+      "@postcode": "6316"
+   },
+   {
+      "@name": "Glencoe, 6316",
+      "@suburb": "Glencoe",
+      "@postcode": "6316"
+   },
+   {
+      "@name": "Kenmare, 6316",
+      "@suburb": "Kenmare",
+      "@postcode": "6316"
+   },
+   {
+      "@name": "Westwood, 6316",
+      "@suburb": "Westwood",
+      "@postcode": "6316"
+   },
+   {
+      "@name": "Woodanilling, 6316",
+      "@suburb": "Woodanilling",
+      "@postcode": "6316"
+   },
+   {
+      "@name": "Badgebup, 6317",
+      "@suburb": "Badgebup",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Bullock Hills, 6317",
+      "@suburb": "Bullock Hills",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Carrolup, 6317",
+      "@suburb": "Carrolup",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Coblinine, 6317",
+      "@suburb": "Coblinine",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Coyrecup, 6317",
+      "@suburb": "Coyrecup",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Datatine, 6317",
+      "@suburb": "Datatine",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Ewlyamartup, 6317",
+      "@suburb": "Ewlyamartup",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Katanning, 6317",
+      "@suburb": "Katanning",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Marracoonda, 6317",
+      "@suburb": "Marracoonda",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Moojebing, 6317",
+      "@suburb": "Moojebing",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Murdong, 6317",
+      "@suburb": "Murdong",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Pinwernying, 6317",
+      "@suburb": "Pinwernying",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "South Datatine, 6317",
+      "@suburb": "South Datatine",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "South Glencoe, 6317",
+      "@suburb": "South Glencoe",
+      "@postcode": "6317"
+   },
+   {
+      "@name": "Broomehill, 6318",
+      "@suburb": "Broomehill",
+      "@postcode": "6318"
+   },
+   {
+      "@name": "Broomehill East, 6318",
+      "@suburb": "Broomehill East",
+      "@postcode": "6318"
+   },
+   {
+      "@name": "Broomehill West, 6318",
+      "@suburb": "Broomehill West",
+      "@postcode": "6318"
+   },
+   {
+      "@name": "Bobalong, 6320",
+      "@suburb": "Bobalong",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Borderdale, 6320",
+      "@suburb": "Borderdale",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Dartnall, 6320",
+      "@suburb": "Dartnall",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Lake Toolbrunup, 6320",
+      "@suburb": "Lake Toolbrunup",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Moonies Hill, 6320",
+      "@suburb": "Moonies Hill",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Tambellup, 6320",
+      "@suburb": "Tambellup",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Wansbrough, 6320",
+      "@suburb": "Wansbrough",
+      "@postcode": "6320"
+   },
+   {
+      "@name": "Cranbrook, 6321",
+      "@suburb": "Cranbrook",
+      "@postcode": "6321"
+   },
+   {
+      "@name": "Tenterden, 6322",
+      "@suburb": "Tenterden",
+      "@postcode": "6322"
+   },
+   {
+      "@name": "Kendenup, 6323",
+      "@suburb": "Kendenup",
+      "@postcode": "6323"
+   },
+   {
+      "@name": "Denbarker, 6324",
+      "@suburb": "Denbarker",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Forest Hill, 6324",
+      "@suburb": "Forest Hill",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Mount Barker, 6324",
+      "@suburb": "Mount Barker",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Perillup, 6324",
+      "@suburb": "Perillup",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Porongurup, 6324",
+      "@suburb": "Porongurup",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "South Stirling, 6324",
+      "@suburb": "South Stirling",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Takalarup, 6324",
+      "@suburb": "Takalarup",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Woogenellup, 6324",
+      "@suburb": "Woogenellup",
+      "@postcode": "6324"
+   },
+   {
+      "@name": "Narrikup, 6326",
+      "@suburb": "Narrikup",
+      "@postcode": "6326"
+   },
+   {
+      "@name": "Redmond, 6327",
+      "@suburb": "Redmond",
+      "@postcode": "6327"
+   },
+   {
+      "@name": "Redmond West, 6327",
+      "@suburb": "Redmond West",
+      "@postcode": "6327"
+   },
+   {
+      "@name": "Cheynes, 6328",
+      "@suburb": "Cheynes",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Gnowellen, 6328",
+      "@suburb": "Gnowellen",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Green Range, 6328",
+      "@suburb": "Green Range",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Kojaneerup South, 6328",
+      "@suburb": "Kojaneerup South",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Manypeaks, 6328",
+      "@suburb": "Manypeaks",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Mettler, 6328",
+      "@suburb": "Mettler",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Palmdale, 6328",
+      "@suburb": "Palmdale",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Wellstead, 6328",
+      "@suburb": "Wellstead",
+      "@postcode": "6328"
+   },
+   {
+      "@name": "Albany, 6330",
+      "@suburb": "Albany",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Bayonet Head, 6330",
+      "@suburb": "Bayonet Head",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Big Grove, 6330",
+      "@suburb": "Big Grove",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Bornholm, 6330",
+      "@suburb": "Bornholm",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Collingwood Heights, 6330",
+      "@suburb": "Collingwood Heights",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Collingwood Park, 6330",
+      "@suburb": "Collingwood Park",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Cuthbert, 6330",
+      "@suburb": "Cuthbert",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Drome, 6330",
+      "@suburb": "Drome",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Elleker, 6330",
+      "@suburb": "Elleker",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Emu Point, 6330",
+      "@suburb": "Emu Point",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Frenchman Bay, 6330",
+      "@suburb": "Frenchman Bay",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Gledhow, 6330",
+      "@suburb": "Gledhow",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Goode Beach, 6330",
+      "@suburb": "Goode Beach",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Green Valley, 6330",
+      "@suburb": "Green Valley",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Kalgan, 6330",
+      "@suburb": "Kalgan",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "King River, 6330",
+      "@suburb": "King River",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Kronkup, 6330",
+      "@suburb": "Kronkup",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Lange, 6330",
+      "@suburb": "Lange",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Little Grove, 6330",
+      "@suburb": "Little Grove",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Lockyer, 6330",
+      "@suburb": "Lockyer",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Lower King, 6330",
+      "@suburb": "Lower King",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Lowlands, 6330",
+      "@suburb": "Lowlands",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Marbelup, 6330",
+      "@suburb": "Marbelup",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Mckail, 6330",
+      "@suburb": "Mckail",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Middleton Beach, 6330",
+      "@suburb": "Middleton Beach",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Millbrook, 6330",
+      "@suburb": "Millbrook",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Milpara, 6330",
+      "@suburb": "Milpara",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Mira Mar, 6330",
+      "@suburb": "Mira Mar",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Mount Clarence, 6330",
+      "@suburb": "Mount Clarence",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Mount Elphinstone, 6330",
+      "@suburb": "Mount Elphinstone",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Mount Melville, 6330",
+      "@suburb": "Mount Melville",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Nanarup, 6330",
+      "@suburb": "Nanarup",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Napier, 6330",
+      "@suburb": "Napier",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Nullaki, 6330",
+      "@suburb": "Nullaki",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Orana, 6330",
+      "@suburb": "Orana",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Port Albany, 6330",
+      "@suburb": "Port Albany",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Robinson, 6330",
+      "@suburb": "Robinson",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Sandpatch, 6330",
+      "@suburb": "Sandpatch",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Seppings, 6330",
+      "@suburb": "Seppings",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Spencer Park, 6330",
+      "@suburb": "Spencer Park",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Torbay, 6330",
+      "@suburb": "Torbay",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Torndirrup, 6330",
+      "@suburb": "Torndirrup",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Vancouver Peninsula, 6330",
+      "@suburb": "Vancouver Peninsula",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Walmsley, 6330",
+      "@suburb": "Walmsley",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Warrenup, 6330",
+      "@suburb": "Warrenup",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "West Cape Howe, 6330",
+      "@suburb": "West Cape Howe",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Willyung, 6330",
+      "@suburb": "Willyung",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Yakamia, 6330",
+      "@suburb": "Yakamia",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Youngs Siding, 6330",
+      "@suburb": "Youngs Siding",
+      "@postcode": "6330"
+   },
+   {
+      "@name": "Albany, 6332",
+      "@suburb": "Albany",
+      "@postcode": "6332"
+   },
+   {
+      "@name": "Bow Bridge, 6333",
+      "@suburb": "Bow Bridge",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Denmark, 6333",
+      "@suburb": "Denmark",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Hay, 6333",
+      "@suburb": "Hay",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Hazelvale, 6333",
+      "@suburb": "Hazelvale",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Kentdale, 6333",
+      "@suburb": "Kentdale",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Kordabup, 6333",
+      "@suburb": "Kordabup",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Mount Lindesay, 6333",
+      "@suburb": "Mount Lindesay",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Mount Romance, 6333",
+      "@suburb": "Mount Romance",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Nornalup, 6333",
+      "@suburb": "Nornalup",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Ocean Beach, 6333",
+      "@suburb": "Ocean Beach",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Parryville, 6333",
+      "@suburb": "Parryville",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Peaceful Bay, 6333",
+      "@suburb": "Peaceful Bay",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Scotsdale, 6333",
+      "@suburb": "Scotsdale",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Shadforth, 6333",
+      "@suburb": "Shadforth",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Tingledale, 6333",
+      "@suburb": "Tingledale",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Trent, 6333",
+      "@suburb": "Trent",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "William Bay, 6333",
+      "@suburb": "William Bay",
+      "@postcode": "6333"
+   },
+   {
+      "@name": "Gnowangerup, 6335",
+      "@suburb": "Gnowangerup",
+      "@postcode": "6335"
+   },
+   {
+      "@name": "Jackitup, 6335",
+      "@suburb": "Jackitup",
+      "@postcode": "6335"
+   },
+   {
+      "@name": "Kebaringup, 6335",
+      "@suburb": "Kebaringup",
+      "@postcode": "6335"
+   },
+   {
+      "@name": "Pallinup, 6335",
+      "@suburb": "Pallinup",
+      "@postcode": "6335"
+   },
+   {
+      "@name": "Cowalellup, 6336",
+      "@suburb": "Cowalellup",
+      "@postcode": "6336"
+   },
+   {
+      "@name": "Mills Lake, 6336",
+      "@suburb": "Mills Lake",
+      "@postcode": "6336"
+   },
+   {
+      "@name": "Mindarabin, 6336",
+      "@suburb": "Mindarabin",
+      "@postcode": "6336"
+   },
+   {
+      "@name": "Needilup, 6336",
+      "@suburb": "Needilup",
+      "@postcode": "6336"
+   },
+   {
+      "@name": "Ongerup, 6336",
+      "@suburb": "Ongerup",
+      "@postcode": "6336"
+   },
+   {
+      "@name": "Toompup, 6336",
+      "@suburb": "Toompup",
+      "@postcode": "6336"
+   },
+   {
+      "@name": "Fitzgerald, 6337",
+      "@suburb": "Fitzgerald",
+      "@postcode": "6337"
+   },
+   {
+      "@name": "Gairdner, 6337",
+      "@suburb": "Gairdner",
+      "@postcode": "6337"
+   },
+   {
+      "@name": "Jacup, 6337",
+      "@suburb": "Jacup",
+      "@postcode": "6337"
+   },
+   {
+      "@name": "Jerramungup, 6337",
+      "@suburb": "Jerramungup",
+      "@postcode": "6337"
+   },
+   {
+      "@name": "West Fitzgerald, 6337",
+      "@suburb": "West Fitzgerald",
+      "@postcode": "6337"
+   },
+   {
+      "@name": "Amelup, 6338",
+      "@suburb": "Amelup",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Borden, 6338",
+      "@suburb": "Borden",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Boxwood Hill, 6338",
+      "@suburb": "Boxwood Hill",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Bremer Bay, 6338",
+      "@suburb": "Bremer Bay",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Magitup, 6338",
+      "@suburb": "Magitup",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Monjebup, 6338",
+      "@suburb": "Monjebup",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Nalyerlup, 6338",
+      "@suburb": "Nalyerlup",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "North Stirlings, 6338",
+      "@suburb": "North Stirlings",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Stirling Range National Park, 6338",
+      "@suburb": "Stirling Range National Park",
+      "@postcode": "6338"
+   },
+   {
+      "@name": "Nyabing, 6341",
+      "@suburb": "Nyabing",
+      "@postcode": "6341"
+   },
+   {
+      "@name": "Pingrup, 6343",
+      "@suburb": "Pingrup",
+      "@postcode": "6343"
+   },
+   {
+      "@name": "Fitzgerald River National Park, 6346",
+      "@suburb": "Fitzgerald River National Park",
+      "@postcode": "6346"
+   },
+   {
+      "@name": "Jerdacuttup, 6346",
+      "@suburb": "Jerdacuttup",
+      "@postcode": "6346"
+   },
+   {
+      "@name": "Ravensthorpe, 6346",
+      "@suburb": "Ravensthorpe",
+      "@postcode": "6346"
+   },
+   {
+      "@name": "West River, 6346",
+      "@suburb": "West River",
+      "@postcode": "6346"
+   },
+   {
+      "@name": "Hopetoun, 6348",
+      "@suburb": "Hopetoun",
+      "@postcode": "6348"
+   },
+   {
+      "@name": "Dumbleyung, 6350",
+      "@suburb": "Dumbleyung",
+      "@postcode": "6350"
+   },
+   {
+      "@name": "Nairibin, 6350",
+      "@suburb": "Nairibin",
+      "@postcode": "6350"
+   },
+   {
+      "@name": "Nippering, 6350",
+      "@suburb": "Nippering",
+      "@postcode": "6350"
+   },
+   {
+      "@name": "Moulyinning, 6351",
+      "@suburb": "Moulyinning",
+      "@postcode": "6351"
+   },
+   {
+      "@name": "North Moulyinning, 6351",
+      "@suburb": "North Moulyinning",
+      "@postcode": "6351"
+   },
+   {
+      "@name": "Kukerin, 6352",
+      "@suburb": "Kukerin",
+      "@postcode": "6352"
+   },
+   {
+      "@name": "Merilup, 6352",
+      "@suburb": "Merilup",
+      "@postcode": "6352"
+   },
+   {
+      "@name": "North Kukerin, 6352",
+      "@suburb": "North Kukerin",
+      "@postcode": "6352"
+   },
+   {
+      "@name": "South Kukerin, 6352",
+      "@suburb": "South Kukerin",
+      "@postcode": "6352"
+   },
+   {
+      "@name": "Beenong, 6353",
+      "@suburb": "Beenong",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Buniche, 6353",
+      "@suburb": "Buniche",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Kuender, 6353",
+      "@suburb": "Kuender",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Lake Grace, 6353",
+      "@suburb": "Lake Grace",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Mallee Hill, 6353",
+      "@suburb": "Mallee Hill",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Neendaling, 6353",
+      "@suburb": "Neendaling",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "North Burngup, 6353",
+      "@suburb": "North Burngup",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "North Lake Grace, 6353",
+      "@suburb": "North Lake Grace",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "South Lake Grace, 6353",
+      "@suburb": "South Lake Grace",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Tarin Rock, 6353",
+      "@suburb": "Tarin Rock",
+      "@postcode": "6353"
+   },
+   {
+      "@name": "Dunn Rock, 6355",
+      "@suburb": "Dunn Rock",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "East Newdegate, 6355",
+      "@suburb": "East Newdegate",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Holt Rock, 6355",
+      "@suburb": "Holt Rock",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Lake Biddy, 6355",
+      "@suburb": "Lake Biddy",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Lake Camm, 6355",
+      "@suburb": "Lake Camm",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Little Italy, 6355",
+      "@suburb": "Little Italy",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Magenta, 6355",
+      "@suburb": "Magenta",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Mount Sheridan, 6355",
+      "@suburb": "Mount Sheridan",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Newdegate, 6355",
+      "@suburb": "Newdegate",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "South Newdegate, 6355",
+      "@suburb": "South Newdegate",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Varley, 6355",
+      "@suburb": "Varley",
+      "@postcode": "6355"
+   },
+   {
+      "@name": "Lake King, 6356",
+      "@suburb": "Lake King",
+      "@postcode": "6356"
+   },
+   {
+      "@name": "Mount Madden, 6356",
+      "@suburb": "Mount Madden",
+      "@postcode": "6356"
+   },
+   {
+      "@name": "Pingaring, 6357",
+      "@suburb": "Pingaring",
+      "@postcode": "6357"
+   },
+   {
+      "@name": "Karlgarin, 6358",
+      "@suburb": "Karlgarin",
+      "@postcode": "6358"
+   },
+   {
+      "@name": "Forrestania, 6359",
+      "@suburb": "Forrestania",
+      "@postcode": "6359"
+   },
+   {
+      "@name": "Hyden, 6359",
+      "@suburb": "Hyden",
+      "@postcode": "6359"
+   },
+   {
+      "@name": "Harrismith, 6361",
+      "@suburb": "Harrismith",
+      "@postcode": "6361"
+   },
+   {
+      "@name": "Tincurrin, 6361",
+      "@suburb": "Tincurrin",
+      "@postcode": "6361"
+   },
+   {
+      "@name": "Dudinin, 6363",
+      "@suburb": "Dudinin",
+      "@postcode": "6363"
+   },
+   {
+      "@name": "Walyurin, 6363",
+      "@suburb": "Walyurin",
+      "@postcode": "6363"
+   },
+   {
+      "@name": "Jilakin, 6365",
+      "@suburb": "Jilakin",
+      "@postcode": "6365"
+   },
+   {
+      "@name": "Jitarning, 6365",
+      "@suburb": "Jitarning",
+      "@postcode": "6365"
+   },
+   {
+      "@name": "Kulin, 6365",
+      "@suburb": "Kulin",
+      "@postcode": "6365"
+   },
+   {
+      "@name": "Kulin West, 6365",
+      "@suburb": "Kulin West",
+      "@postcode": "6365"
+   },
+   {
+      "@name": "Kondinin, 6367",
+      "@suburb": "Kondinin",
+      "@postcode": "6367"
+   },
+   {
+      "@name": "South Kumminin, 6368",
+      "@suburb": "South Kumminin",
+      "@postcode": "6368"
+   },
+   {
+      "@name": "Mount Walker, 6369",
+      "@suburb": "Mount Walker",
+      "@postcode": "6369"
+   },
+   {
+      "@name": "Narembeen, 6369",
+      "@suburb": "Narembeen",
+      "@postcode": "6369"
+   },
+   {
+      "@name": "Wadderin, 6369",
+      "@suburb": "Wadderin",
+      "@postcode": "6369"
+   },
+   {
+      "@name": "West Holleton, 6369",
+      "@suburb": "West Holleton",
+      "@postcode": "6369"
+   },
+   {
+      "@name": "Woolocutty, 6369",
+      "@suburb": "Woolocutty",
+      "@postcode": "6369"
+   },
+   {
+      "@name": "East Wickepin, 6370",
+      "@suburb": "East Wickepin",
+      "@postcode": "6370"
+   },
+   {
+      "@name": "Kirk Rock, 6370",
+      "@suburb": "Kirk Rock",
+      "@postcode": "6370"
+   },
+   {
+      "@name": "Malyalling, 6370",
+      "@suburb": "Malyalling",
+      "@postcode": "6370"
+   },
+   {
+      "@name": "Wickepin, 6370",
+      "@suburb": "Wickepin",
+      "@postcode": "6370"
+   },
+   {
+      "@name": "Wogolin, 6370",
+      "@suburb": "Wogolin",
+      "@postcode": "6370"
+   },
+   {
+      "@name": "Yealering, 6372",
+      "@suburb": "Yealering",
+      "@postcode": "6372"
+   },
+   {
+      "@name": "Bullaring, 6373",
+      "@suburb": "Bullaring",
+      "@postcode": "6373"
+   },
+   {
+      "@name": "Adamsvale, 6375",
+      "@suburb": "Adamsvale",
+      "@postcode": "6375"
+   },
+   {
+      "@name": "Bilbarin, 6375",
+      "@suburb": "Bilbarin",
+      "@postcode": "6375"
+   },
+   {
+      "@name": "Corrigin, 6375",
+      "@suburb": "Corrigin",
+      "@postcode": "6375"
+   },
+   {
+      "@name": "Gorge Rock, 6375",
+      "@suburb": "Gorge Rock",
+      "@postcode": "6375"
+   },
+   {
+      "@name": "Kunjin, 6375",
+      "@suburb": "Kunjin",
+      "@postcode": "6375"
+   },
+   {
+      "@name": "Kurrenkutten, 6375",
+      "@suburb": "Kurrenkutten",
+      "@postcode": "6375"
+   },
+   {
+      "@name": "Badjaling, 6383",
+      "@suburb": "Badjaling",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Balkuling, 6383",
+      "@suburb": "Balkuling",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Cubbine, 6383",
+      "@suburb": "Cubbine",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Dangin, 6383",
+      "@suburb": "Dangin",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Doodenanning, 6383",
+      "@suburb": "Doodenanning",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Dulbelling, 6383",
+      "@suburb": "Dulbelling",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Mount Stirling, 6383",
+      "@suburb": "Mount Stirling",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Quairading, 6383",
+      "@suburb": "Quairading",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "South Quairading, 6383",
+      "@suburb": "South Quairading",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Wamenusking, 6383",
+      "@suburb": "Wamenusking",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Yoting, 6383",
+      "@suburb": "Yoting",
+      "@postcode": "6383"
+   },
+   {
+      "@name": "Pantapin, 6384",
+      "@suburb": "Pantapin",
+      "@postcode": "6384"
+   },
+   {
+      "@name": "Kwolyin, 6385",
+      "@suburb": "Kwolyin",
+      "@postcode": "6385"
+   },
+   {
+      "@name": "Shackleton, 6386",
+      "@suburb": "Shackleton",
+      "@postcode": "6386"
+   },
+   {
+      "@name": "Bannister, 6390",
+      "@suburb": "Bannister",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Boddington, 6390",
+      "@suburb": "Boddington",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Crossman, 6390",
+      "@suburb": "Crossman",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Lower Hotham, 6390",
+      "@suburb": "Lower Hotham",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Marradong, 6390",
+      "@suburb": "Marradong",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Mount Cooke, 6390",
+      "@suburb": "Mount Cooke",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Mount Wells, 6390",
+      "@suburb": "Mount Wells",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "North Bannister, 6390",
+      "@suburb": "North Bannister",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Ranford, 6390",
+      "@suburb": "Ranford",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Upper Murray, 6390",
+      "@suburb": "Upper Murray",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Wuraming, 6390",
+      "@suburb": "Wuraming",
+      "@postcode": "6390"
+   },
+   {
+      "@name": "Quindanning, 6391",
+      "@suburb": "Quindanning",
+      "@postcode": "6391"
+   },
+   {
+      "@name": "Bokal, 6392",
+      "@suburb": "Bokal",
+      "@postcode": "6392"
+   },
+   {
+      "@name": "Boolading, 6392",
+      "@suburb": "Boolading",
+      "@postcode": "6392"
+   },
+   {
+      "@name": "Darkan, 6392",
+      "@suburb": "Darkan",
+      "@postcode": "6392"
+   },
+   {
+      "@name": "Cordering, 6393",
+      "@suburb": "Cordering",
+      "@postcode": "6393"
+   },
+   {
+      "@name": "Duranillin, 6393",
+      "@suburb": "Duranillin",
+      "@postcode": "6393"
+   },
+   {
+      "@name": "Moodiarrup, 6393",
+      "@suburb": "Moodiarrup",
+      "@postcode": "6393"
+   },
+   {
+      "@name": "Trigwell, 6393",
+      "@suburb": "Trigwell",
+      "@postcode": "6393"
+   },
+   {
+      "@name": "Beaufort River, 6394",
+      "@suburb": "Beaufort River",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Boilup, 6394",
+      "@suburb": "Boilup",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Boscabel, 6394",
+      "@suburb": "Boscabel",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Changerup, 6394",
+      "@suburb": "Changerup",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Muradup, 6394",
+      "@suburb": "Muradup",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Orchid Valley, 6394",
+      "@suburb": "Orchid Valley",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Qualeup, 6394",
+      "@suburb": "Qualeup",
+      "@postcode": "6394"
+   },
+   {
+      "@name": "Cherry Tree Pool, 6395",
+      "@suburb": "Cherry Tree Pool",
+      "@postcode": "6395"
+   },
+   {
+      "@name": "Jingalup, 6395",
+      "@suburb": "Jingalup",
+      "@postcode": "6395"
+   },
+   {
+      "@name": "Kojonup, 6395",
+      "@suburb": "Kojonup",
+      "@postcode": "6395"
+   },
+   {
+      "@name": "Lumeah, 6395",
+      "@suburb": "Lumeah",
+      "@postcode": "6395"
+   },
+   {
+      "@name": "Mobrup, 6395",
+      "@suburb": "Mobrup",
+      "@postcode": "6395"
+   },
+   {
+      "@name": "Ryansbrook, 6395",
+      "@suburb": "Ryansbrook",
+      "@postcode": "6395"
+   },
+   {
+      "@name": "Frankland, 6396",
+      "@suburb": "Frankland",
+      "@postcode": "6396"
+   },
+   {
+      "@name": "Rocky Gully, 6397",
+      "@suburb": "Rocky Gully",
+      "@postcode": "6397"
+   },
+   {
+      "@name": "Broke, 6398",
+      "@suburb": "Broke",
+      "@postcode": "6398"
+   },
+   {
+      "@name": "North Walpole, 6398",
+      "@suburb": "North Walpole",
+      "@postcode": "6398"
+   },
+   {
+      "@name": "Walpole, 6398",
+      "@suburb": "Walpole",
+      "@postcode": "6398"
+   },
+   {
+      "@name": "Buckland, 6401",
+      "@suburb": "Buckland",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Burlong, 6401",
+      "@suburb": "Burlong",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Cunjardine, 6401",
+      "@suburb": "Cunjardine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Irishtown, 6401",
+      "@suburb": "Irishtown",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Jennacubbine, 6401",
+      "@suburb": "Jennacubbine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Jennapullin, 6401",
+      "@suburb": "Jennapullin",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Malabaine, 6401",
+      "@suburb": "Malabaine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Meenaar, 6401",
+      "@suburb": "Meenaar",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Mokine, 6401",
+      "@suburb": "Mokine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Muluckine, 6401",
+      "@suburb": "Muluckine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Mumberkine, 6401",
+      "@suburb": "Mumberkine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Muresk, 6401",
+      "@suburb": "Muresk",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Northam, 6401",
+      "@suburb": "Northam",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Rossmore, 6401",
+      "@suburb": "Rossmore",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Southern Brook, 6401",
+      "@suburb": "Southern Brook",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Spencers Brook, 6401",
+      "@suburb": "Spencers Brook",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Throssell, 6401",
+      "@suburb": "Throssell",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Wongamine, 6401",
+      "@suburb": "Wongamine",
+      "@postcode": "6401"
+   },
+   {
+      "@name": "Grass Valley, 6403",
+      "@suburb": "Grass Valley",
+      "@postcode": "6403"
+   },
+   {
+      "@name": "Greenwoods Valley, 6405",
+      "@suburb": "Greenwoods Valley",
+      "@postcode": "6405"
+   },
+   {
+      "@name": "Meckering, 6405",
+      "@suburb": "Meckering",
+      "@postcode": "6405"
+   },
+   {
+      "@name": "Quelagetting, 6405",
+      "@suburb": "Quelagetting",
+      "@postcode": "6405"
+   },
+   {
+      "@name": "Warding East, 6405",
+      "@suburb": "Warding East",
+      "@postcode": "6405"
+   },
+   {
+      "@name": "Cunderdin, 6407",
+      "@suburb": "Cunderdin",
+      "@postcode": "6407"
+   },
+   {
+      "@name": "Waeel, 6407",
+      "@suburb": "Waeel",
+      "@postcode": "6407"
+   },
+   {
+      "@name": "Watercarrin, 6407",
+      "@suburb": "Watercarrin",
+      "@postcode": "6407"
+   },
+   {
+      "@name": "Wyola, 6407",
+      "@suburb": "Wyola",
+      "@postcode": "6407"
+   },
+   {
+      "@name": "Wyola West, 6407",
+      "@suburb": "Wyola West",
+      "@postcode": "6407"
+   },
+   {
+      "@name": "Youndegin, 6407",
+      "@suburb": "Youndegin",
+      "@postcode": "6407"
+   },
+   {
+      "@name": "Doongin, 6409",
+      "@suburb": "Doongin",
+      "@postcode": "6409"
+   },
+   {
+      "@name": "North Tammin, 6409",
+      "@suburb": "North Tammin",
+      "@postcode": "6409"
+   },
+   {
+      "@name": "South Tammin, 6409",
+      "@suburb": "South Tammin",
+      "@postcode": "6409"
+   },
+   {
+      "@name": "Tammin, 6409",
+      "@suburb": "Tammin",
+      "@postcode": "6409"
+   },
+   {
+      "@name": "Yorkrakine, 6409",
+      "@suburb": "Yorkrakine",
+      "@postcode": "6409"
+   },
+   {
+      "@name": "Bungulla, 6410",
+      "@suburb": "Bungulla",
+      "@postcode": "6410"
+   },
+   {
+      "@name": "Daadenning Creek, 6410",
+      "@suburb": "Daadenning Creek",
+      "@postcode": "6410"
+   },
+   {
+      "@name": "Kellerberrin, 6410",
+      "@suburb": "Kellerberrin",
+      "@postcode": "6410"
+   },
+   {
+      "@name": "Mount Caroline, 6410",
+      "@suburb": "Mount Caroline",
+      "@postcode": "6410"
+   },
+   {
+      "@name": "North Kellerberrin, 6410",
+      "@suburb": "North Kellerberrin",
+      "@postcode": "6410"
+   },
+   {
+      "@name": "Doodlakine, 6411",
+      "@suburb": "Doodlakine",
+      "@postcode": "6411"
+   },
+   {
+      "@name": "South Doodlakine, 6411",
+      "@suburb": "South Doodlakine",
+      "@postcode": "6411"
+   },
+   {
+      "@name": "Baandee, 6412",
+      "@suburb": "Baandee",
+      "@postcode": "6412"
+   },
+   {
+      "@name": "North Baandee, 6412",
+      "@suburb": "North Baandee",
+      "@postcode": "6412"
+   },
+   {
+      "@name": "Hines Hill, 6413",
+      "@suburb": "Hines Hill",
+      "@postcode": "6413"
+   },
+   {
+      "@name": "Nangeenan, 6414",
+      "@suburb": "Nangeenan",
+      "@postcode": "6414"
+   },
+   {
+      "@name": "Goomarin, 6415",
+      "@suburb": "Goomarin",
+      "@postcode": "6415"
+   },
+   {
+      "@name": "Korbel, 6415",
+      "@suburb": "Korbel",
+      "@postcode": "6415"
+   },
+   {
+      "@name": "Merredin, 6415",
+      "@suburb": "Merredin",
+      "@postcode": "6415"
+   },
+   {
+      "@name": "Nokaning, 6415",
+      "@suburb": "Nokaning",
+      "@postcode": "6415"
+   },
+   {
+      "@name": "Norpa, 6415",
+      "@suburb": "Norpa",
+      "@postcode": "6415"
+   },
+   {
+      "@name": "Tandegin, 6415",
+      "@suburb": "Tandegin",
+      "@postcode": "6415"
+   },
+   {
+      "@name": "Bruce Rock, 6418",
+      "@suburb": "Bruce Rock",
+      "@postcode": "6418"
+   },
+   {
+      "@name": "Ardath, 6419",
+      "@suburb": "Ardath",
+      "@postcode": "6419"
+   },
+   {
+      "@name": "Cramphorne, 6420",
+      "@suburb": "Cramphorne",
+      "@postcode": "6420"
+   },
+   {
+      "@name": "Muntadgin, 6420",
+      "@suburb": "Muntadgin",
+      "@postcode": "6420"
+   },
+   {
+      "@name": "Burracoppin, 6421",
+      "@suburb": "Burracoppin",
+      "@postcode": "6421"
+   },
+   {
+      "@name": "South Burracoppin, 6421",
+      "@suburb": "South Burracoppin",
+      "@postcode": "6421"
+   },
+   {
+      "@name": "Warralakin, 6421",
+      "@suburb": "Warralakin",
+      "@postcode": "6421"
+   },
+   {
+      "@name": "Walgoolan, 6422",
+      "@suburb": "Walgoolan",
+      "@postcode": "6422"
+   },
+   {
+      "@name": "Boodarockin, 6423",
+      "@suburb": "Boodarockin",
+      "@postcode": "6423"
+   },
+   {
+      "@name": "Carrabin, 6423",
+      "@suburb": "Carrabin",
+      "@postcode": "6423"
+   },
+   {
+      "@name": "Warrachuppin, 6423",
+      "@suburb": "Warrachuppin",
+      "@postcode": "6423"
+   },
+   {
+      "@name": "Westonia, 6423",
+      "@suburb": "Westonia",
+      "@postcode": "6423"
+   },
+   {
+      "@name": "Bodallin, 6424",
+      "@suburb": "Bodallin",
+      "@postcode": "6424"
+   },
+   {
+      "@name": "North Bodallin, 6424",
+      "@suburb": "North Bodallin",
+      "@postcode": "6424"
+   },
+   {
+      "@name": "South Bodallin, 6424",
+      "@suburb": "South Bodallin",
+      "@postcode": "6424"
+   },
+   {
+      "@name": "Dulyalbin, 6425",
+      "@suburb": "Dulyalbin",
+      "@postcode": "6425"
+   },
+   {
+      "@name": "Moorine Rock, 6425",
+      "@suburb": "Moorine Rock",
+      "@postcode": "6425"
+   },
+   {
+      "@name": "Corinthia, 6426",
+      "@suburb": "Corinthia",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Ghooli, 6426",
+      "@suburb": "Ghooli",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Holleton, 6426",
+      "@suburb": "Holleton",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Marvel Loch, 6426",
+      "@suburb": "Marvel Loch",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Mount Hampton, 6426",
+      "@suburb": "Mount Hampton",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Mount Holland, 6426",
+      "@suburb": "Mount Holland",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Mount Jackson, 6426",
+      "@suburb": "Mount Jackson",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Mount Palmer, 6426",
+      "@suburb": "Mount Palmer",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Parker Range, 6426",
+      "@suburb": "Parker Range",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Skeleton Rock, 6426",
+      "@suburb": "Skeleton Rock",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "South Yilgarn, 6426",
+      "@suburb": "South Yilgarn",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Southern Cross, 6426",
+      "@suburb": "Southern Cross",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Turkey Hill, 6426",
+      "@suburb": "Turkey Hill",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Yellowdine, 6426",
+      "@suburb": "Yellowdine",
+      "@postcode": "6426"
+   },
+   {
+      "@name": "Koolyanobbing, 6427",
+      "@suburb": "Koolyanobbing",
+      "@postcode": "6427"
+   },
+   {
+      "@name": "Babakin, 6428",
+      "@suburb": "Babakin",
+      "@postcode": "6428"
+   },
+   {
+      "@name": "Boorabbin, 6429",
+      "@suburb": "Boorabbin",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Bullabulling, 6429",
+      "@suburb": "Bullabulling",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Coolgardie, 6429",
+      "@suburb": "Coolgardie",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Karramindie, 6429",
+      "@suburb": "Karramindie",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Londonderry, 6429",
+      "@suburb": "Londonderry",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Mount Burges, 6429",
+      "@suburb": "Mount Burges",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Victoria Rock, 6429",
+      "@suburb": "Victoria Rock",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Wallaroo, 6429",
+      "@suburb": "Wallaroo",
+      "@postcode": "6429"
+   },
+   {
+      "@name": "Binduli, 6430",
+      "@suburb": "Binduli",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Broadwood, 6430",
+      "@suburb": "Broadwood",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Hannans, 6430",
+      "@suburb": "Hannans",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Kalgoorlie, 6430",
+      "@suburb": "Kalgoorlie",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Karlkurla, 6430",
+      "@suburb": "Karlkurla",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Lamington, 6430",
+      "@suburb": "Lamington",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Mullingar, 6430",
+      "@suburb": "Mullingar",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Somerville, 6430",
+      "@suburb": "Somerville",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "South Kalgoorlie, 6430",
+      "@suburb": "South Kalgoorlie",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "West Kalgoorlie, 6430",
+      "@suburb": "West Kalgoorlie",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "West Lamington, 6430",
+      "@suburb": "West Lamington",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Williamstown, 6430",
+      "@suburb": "Williamstown",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Yilkari, 6430",
+      "@suburb": "Yilkari",
+      "@postcode": "6430"
+   },
+   {
+      "@name": "Boorara, 6431",
+      "@suburb": "Boorara",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Brown Hill, 6431",
+      "@suburb": "Brown Hill",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Bulong, 6431",
+      "@suburb": "Bulong",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Emu Flat, 6431",
+      "@suburb": "Emu Flat",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Feysville, 6431",
+      "@suburb": "Feysville",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Kanowna, 6431",
+      "@suburb": "Kanowna",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Kookynie, 6431",
+      "@suburb": "Kookynie",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Kurnalpi, 6431",
+      "@suburb": "Kurnalpi",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Lakewood, 6431",
+      "@suburb": "Lakewood",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Ora Banda, 6431",
+      "@suburb": "Ora Banda",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Plumridge Lakes, 6431",
+      "@suburb": "Plumridge Lakes",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Trafalgar, 6431",
+      "@suburb": "Trafalgar",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Warburton, 6431",
+      "@suburb": "Warburton",
+      "@postcode": "6431"
+   },
+   {
+      "@name": "Boulder, 6432",
+      "@suburb": "Boulder",
+      "@postcode": "6432"
+   },
+   {
+      "@name": "Fimiston, 6432",
+      "@suburb": "Fimiston",
+      "@postcode": "6432"
+   },
+   {
+      "@name": "South Boulder, 6432",
+      "@suburb": "South Boulder",
+      "@postcode": "6432"
+   },
+   {
+      "@name": "Victory Heights, 6432",
+      "@suburb": "Victory Heights",
+      "@postcode": "6432"
+   },
+   {
+      "@name": "Hannans, 6433",
+      "@suburb": "Hannans",
+      "@postcode": "6433"
+   },
+   {
+      "@name": "Kalgoorlie, 6433",
+      "@suburb": "Kalgoorlie",
+      "@postcode": "6433"
+   },
+   {
+      "@name": "Cundeelee, 6434",
+      "@suburb": "Cundeelee",
+      "@postcode": "6434"
+   },
+   {
+      "@name": "Forrest, 6434",
+      "@suburb": "Forrest",
+      "@postcode": "6434"
+   },
+   {
+      "@name": "Parkeston, 6434",
+      "@suburb": "Parkeston",
+      "@postcode": "6434"
+   },
+   {
+      "@name": "Rawlinna, 6434",
+      "@suburb": "Rawlinna",
+      "@postcode": "6434"
+   },
+   {
+      "@name": "Zanthus, 6434",
+      "@suburb": "Zanthus",
+      "@postcode": "6434"
+   },
+   {
+      "@name": "Menzies, 6436",
+      "@suburb": "Menzies",
+      "@postcode": "6436"
+   },
+   {
+      "@name": "Ularring, 6436",
+      "@suburb": "Ularring",
+      "@postcode": "6436"
+   },
+   {
+      "@name": "Leinster, 6437",
+      "@suburb": "Leinster",
+      "@postcode": "6437"
+   },
+   {
+      "@name": "Lake Darlot, 6438",
+      "@suburb": "Lake Darlot",
+      "@postcode": "6438"
+   },
+   {
+      "@name": "Leonora, 6438",
+      "@suburb": "Leonora",
+      "@postcode": "6438"
+   },
+   {
+      "@name": "Bandya, 6440",
+      "@suburb": "Bandya",
+      "@postcode": "6440"
+   },
+   {
+      "@name": "Beadell, 6440",
+      "@suburb": "Beadell",
+      "@postcode": "6440"
+   },
+   {
+      "@name": "Cosmo Newbery, 6440",
+      "@suburb": "Cosmo Newbery",
+      "@postcode": "6440"
+   },
+   {
+      "@name": "Lake Wells, 6440",
+      "@suburb": "Lake Wells",
+      "@postcode": "6440"
+   },
+   {
+      "@name": "Laverton, 6440",
+      "@suburb": "Laverton",
+      "@postcode": "6440"
+   },
+   {
+      "@name": "Neale, 6440",
+      "@suburb": "Neale",
+      "@postcode": "6440"
+   },
+   {
+      "@name": "Kambalda East, 6442",
+      "@suburb": "Kambalda East",
+      "@postcode": "6442"
+   },
+   {
+      "@name": "Kambalda West, 6442",
+      "@suburb": "Kambalda West",
+      "@postcode": "6442"
+   },
+   {
+      "@name": "Balladonia, 6443",
+      "@suburb": "Balladonia",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Caiguna, 6443",
+      "@suburb": "Caiguna",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Cocklebiddy, 6443",
+      "@suburb": "Cocklebiddy",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Dundas, 6443",
+      "@suburb": "Dundas",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Eucla, 6443",
+      "@suburb": "Eucla",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Fraser Range, 6443",
+      "@suburb": "Fraser Range",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Higginsville, 6443",
+      "@suburb": "Higginsville",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Madura, 6443",
+      "@suburb": "Madura",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Mundrabilla, 6443",
+      "@suburb": "Mundrabilla",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Norseman, 6443",
+      "@suburb": "Norseman",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "Widgiemooltha, 6443",
+      "@suburb": "Widgiemooltha",
+      "@postcode": "6443"
+   },
+   {
+      "@name": "North Cascade, 6445",
+      "@suburb": "North Cascade",
+      "@postcode": "6445"
+   },
+   {
+      "@name": "Salmon Gums, 6445",
+      "@suburb": "Salmon Gums",
+      "@postcode": "6445"
+   },
+   {
+      "@name": "Grass Patch, 6446",
+      "@suburb": "Grass Patch",
+      "@postcode": "6446"
+   },
+   {
+      "@name": "Lort River, 6447",
+      "@suburb": "Lort River",
+      "@postcode": "6447"
+   },
+   {
+      "@name": "Mount Ney, 6447",
+      "@suburb": "Mount Ney",
+      "@postcode": "6447"
+   },
+   {
+      "@name": "Scaddan, 6447",
+      "@suburb": "Scaddan",
+      "@postcode": "6447"
+   },
+   {
+      "@name": "Wittenoom Hills, 6447",
+      "@suburb": "Wittenoom Hills",
+      "@postcode": "6447"
+   },
+   {
+      "@name": "Gibson, 6448",
+      "@suburb": "Gibson",
+      "@postcode": "6448"
+   },
+   {
+      "@name": "Bandy Creek, 6450",
+      "@suburb": "Bandy Creek",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Beaumont, 6450",
+      "@suburb": "Beaumont",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Boyatup, 6450",
+      "@suburb": "Boyatup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Cape Le Grand, 6450",
+      "@suburb": "Cape Le Grand",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Cascade, 6450",
+      "@suburb": "Cascade",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Castletown, 6450",
+      "@suburb": "Castletown",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Chadwick, 6450",
+      "@suburb": "Chadwick",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Condingup, 6450",
+      "@suburb": "Condingup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Coomalbidgup, 6450",
+      "@suburb": "Coomalbidgup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Dalyup, 6450",
+      "@suburb": "Dalyup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "East Munglinup, 6450",
+      "@suburb": "East Munglinup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Esperance, 6450",
+      "@suburb": "Esperance",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Howick, 6450",
+      "@suburb": "Howick",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Merivale, 6450",
+      "@suburb": "Merivale",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Monjingup, 6450",
+      "@suburb": "Monjingup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Munglinup, 6450",
+      "@suburb": "Munglinup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Myrup, 6450",
+      "@suburb": "Myrup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Neridup, 6450",
+      "@suburb": "Neridup",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Nulsen, 6450",
+      "@suburb": "Nulsen",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Pink Lake, 6450",
+      "@suburb": "Pink Lake",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Sinclair, 6450",
+      "@suburb": "Sinclair",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "West Beach, 6450",
+      "@suburb": "West Beach",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Windabout, 6450",
+      "@suburb": "Windabout",
+      "@postcode": "6450"
+   },
+   {
+      "@name": "Buraminya, 6452",
+      "@suburb": "Buraminya",
+      "@postcode": "6452"
+   },
+   {
+      "@name": "Cape Arid, 6452",
+      "@suburb": "Cape Arid",
+      "@postcode": "6452"
+   },
+   {
+      "@name": "Israelite Bay, 6452",
+      "@suburb": "Israelite Bay",
+      "@postcode": "6452"
+   },
+   {
+      "@name": "Goomalling, 6460",
+      "@suburb": "Goomalling",
+      "@postcode": "6460"
+   },
+   {
+      "@name": "Hulongine, 6460",
+      "@suburb": "Hulongine",
+      "@postcode": "6460"
+   },
+   {
+      "@name": "Karranadgin, 6460",
+      "@suburb": "Karranadgin",
+      "@postcode": "6460"
+   },
+   {
+      "@name": "Ucarty West, 6460",
+      "@suburb": "Ucarty West",
+      "@postcode": "6460"
+   },
+   {
+      "@name": "Walyormouring, 6460",
+      "@suburb": "Walyormouring",
+      "@postcode": "6460"
+   },
+   {
+      "@name": "Dowerin, 6461",
+      "@suburb": "Dowerin",
+      "@postcode": "6461"
+   },
+   {
+      "@name": "Koomberkine, 6461",
+      "@suburb": "Koomberkine",
+      "@postcode": "6461"
+   },
+   {
+      "@name": "Hindmarsh, 6462",
+      "@suburb": "Hindmarsh",
+      "@postcode": "6462"
+   },
+   {
+      "@name": "Minnivale, 6462",
+      "@suburb": "Minnivale",
+      "@postcode": "6462"
+   },
+   {
+      "@name": "Ucarty, 6462",
+      "@suburb": "Ucarty",
+      "@postcode": "6462"
+   },
+   {
+      "@name": "Benjaberring, 6463",
+      "@suburb": "Benjaberring",
+      "@postcode": "6463"
+   },
+   {
+      "@name": "Manmanning, 6465",
+      "@suburb": "Manmanning",
+      "@postcode": "6465"
+   },
+   {
+      "@name": "Cadoux, 6466",
+      "@suburb": "Cadoux",
+      "@postcode": "6466"
+   },
+   {
+      "@name": "Burakin, 6467",
+      "@suburb": "Burakin",
+      "@postcode": "6467"
+   },
+   {
+      "@name": "Goodlands, 6468",
+      "@suburb": "Goodlands",
+      "@postcode": "6468"
+   },
+   {
+      "@name": "Kalannie, 6468",
+      "@suburb": "Kalannie",
+      "@postcode": "6468"
+   },
+   {
+      "@name": "Petrudor, 6468",
+      "@suburb": "Petrudor",
+      "@postcode": "6468"
+   },
+   {
+      "@name": "Kulja, 6470",
+      "@suburb": "Kulja",
+      "@postcode": "6470"
+   },
+   {
+      "@name": "Beacon, 6472",
+      "@suburb": "Beacon",
+      "@postcode": "6472"
+   },
+   {
+      "@name": "Bimbijy, 6472",
+      "@suburb": "Bimbijy",
+      "@postcode": "6472"
+   },
+   {
+      "@name": "Cleary, 6472",
+      "@suburb": "Cleary",
+      "@postcode": "6472"
+   },
+   {
+      "@name": "Karroun Hill, 6472",
+      "@suburb": "Karroun Hill",
+      "@postcode": "6472"
+   },
+   {
+      "@name": "Mouroubra, 6472",
+      "@suburb": "Mouroubra",
+      "@postcode": "6472"
+   },
+   {
+      "@name": "Remlap, 6472",
+      "@suburb": "Remlap",
+      "@postcode": "6472"
+   },
+   {
+      "@name": "North Wialki, 6473",
+      "@suburb": "North Wialki",
+      "@postcode": "6473"
+   },
+   {
+      "@name": "Wialki, 6473",
+      "@suburb": "Wialki",
+      "@postcode": "6473"
+   },
+   {
+      "@name": "Badgerin Rock, 6475",
+      "@suburb": "Badgerin Rock",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Booralaming, 6475",
+      "@suburb": "Booralaming",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Dukin, 6475",
+      "@suburb": "Dukin",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Koorda, 6475",
+      "@suburb": "Koorda",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Lake Margarette, 6475",
+      "@suburb": "Lake Margarette",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Mollerin, 6475",
+      "@suburb": "Mollerin",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Newcarlbeon, 6475",
+      "@suburb": "Newcarlbeon",
+      "@postcode": "6475"
+   },
+   {
+      "@name": "Gabbin, 6476",
+      "@suburb": "Gabbin",
+      "@postcode": "6476"
+   },
+   {
+      "@name": "Bencubbin, 6477",
+      "@suburb": "Bencubbin",
+      "@postcode": "6477"
+   },
+   {
+      "@name": "Welbungin, 6477",
+      "@suburb": "Welbungin",
+      "@postcode": "6477"
+   },
+   {
+      "@name": "Barbalin, 6479",
+      "@suburb": "Barbalin",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Bonnie Rock, 6479",
+      "@suburb": "Bonnie Rock",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Dandanning, 6479",
+      "@suburb": "Dandanning",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Elachbutting, 6479",
+      "@suburb": "Elachbutting",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Karloning, 6479",
+      "@suburb": "Karloning",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Lake Brown, 6479",
+      "@suburb": "Lake Brown",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Mukinbudin, 6479",
+      "@suburb": "Mukinbudin",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Wattoning, 6479",
+      "@suburb": "Wattoning",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Wilgoyne, 6479",
+      "@suburb": "Wilgoyne",
+      "@postcode": "6479"
+   },
+   {
+      "@name": "Nukarni, 6480",
+      "@suburb": "Nukarni",
+      "@postcode": "6480"
+   },
+   {
+      "@name": "Bullfinch, 6484",
+      "@suburb": "Bullfinch",
+      "@postcode": "6484"
+   },
+   {
+      "@name": "Ennuin, 6484",
+      "@suburb": "Ennuin",
+      "@postcode": "6484"
+   },
+   {
+      "@name": "Lake Deborah, 6484",
+      "@suburb": "Lake Deborah",
+      "@postcode": "6484"
+   },
+   {
+      "@name": "Cowcowing, 6485",
+      "@suburb": "Cowcowing",
+      "@postcode": "6485"
+   },
+   {
+      "@name": "Korrelocking, 6485",
+      "@suburb": "Korrelocking",
+      "@postcode": "6485"
+   },
+   {
+      "@name": "Nalkain, 6485",
+      "@suburb": "Nalkain",
+      "@postcode": "6485"
+   },
+   {
+      "@name": "Nembudding, 6485",
+      "@suburb": "Nembudding",
+      "@postcode": "6485"
+   },
+   {
+      "@name": "Wyalkatchem, 6485",
+      "@suburb": "Wyalkatchem",
+      "@postcode": "6485"
+   },
+   {
+      "@name": "North Yelbeni, 6487",
+      "@suburb": "North Yelbeni",
+      "@postcode": "6487"
+   },
+   {
+      "@name": "South Yelbeni, 6487",
+      "@suburb": "South Yelbeni",
+      "@postcode": "6487"
+   },
+   {
+      "@name": "Yelbeni, 6487",
+      "@suburb": "Yelbeni",
+      "@postcode": "6487"
+   },
+   {
+      "@name": "North Trayning, 6488",
+      "@suburb": "North Trayning",
+      "@postcode": "6488"
+   },
+   {
+      "@name": "South Trayning, 6488",
+      "@suburb": "South Trayning",
+      "@postcode": "6488"
+   },
+   {
+      "@name": "Trayning, 6488",
+      "@suburb": "Trayning",
+      "@postcode": "6488"
+   },
+   {
+      "@name": "Kununoppin, 6489",
+      "@suburb": "Kununoppin",
+      "@postcode": "6489"
+   },
+   {
+      "@name": "North Kununoppin, 6489",
+      "@suburb": "North Kununoppin",
+      "@postcode": "6489"
+   },
+   {
+      "@name": "South Kununoppin, 6489",
+      "@suburb": "South Kununoppin",
+      "@postcode": "6489"
+   },
+   {
+      "@name": "Burran Rock, 6490",
+      "@suburb": "Burran Rock",
+      "@postcode": "6490"
+   },
+   {
+      "@name": "Chandler, 6490",
+      "@suburb": "Chandler",
+      "@postcode": "6490"
+   },
+   {
+      "@name": "Elabbin, 6490",
+      "@suburb": "Elabbin",
+      "@postcode": "6490"
+   },
+   {
+      "@name": "Kwelkan, 6490",
+      "@suburb": "Kwelkan",
+      "@postcode": "6490"
+   },
+   {
+      "@name": "Nungarin, 6490",
+      "@suburb": "Nungarin",
+      "@postcode": "6490"
+   },
+   {
+      "@name": "Talgomine, 6490",
+      "@suburb": "Talgomine",
+      "@postcode": "6490"
+   },
+   {
+      "@name": "Muchea, 6501",
+      "@suburb": "Muchea",
+      "@postcode": "6501"
+   },
+   {
+      "@name": "Bindoon, 6502",
+      "@suburb": "Bindoon",
+      "@postcode": "6502"
+   },
+   {
+      "@name": "Bindoon Training Area, 6502",
+      "@suburb": "Bindoon Training Area",
+      "@postcode": "6502"
+   },
+   {
+      "@name": "Bambun, 6503",
+      "@suburb": "Bambun",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Beermullah, 6503",
+      "@suburb": "Beermullah",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Boonanarring, 6503",
+      "@suburb": "Boonanarring",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Breera, 6503",
+      "@suburb": "Breera",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Coonabidgee, 6503",
+      "@suburb": "Coonabidgee",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Cowalla, 6503",
+      "@suburb": "Cowalla",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Cullalla, 6503",
+      "@suburb": "Cullalla",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Gingin, 6503",
+      "@suburb": "Gingin",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Ginginup, 6503",
+      "@suburb": "Ginginup",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Granville, 6503",
+      "@suburb": "Granville",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Lennard Brook, 6503",
+      "@suburb": "Lennard Brook",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Mindarra, 6503",
+      "@suburb": "Mindarra",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Moondah, 6503",
+      "@suburb": "Moondah",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Moore River National Park, 6503",
+      "@suburb": "Moore River National Park",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Muckenburra, 6503",
+      "@suburb": "Muckenburra",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Neergabby, 6503",
+      "@suburb": "Neergabby",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Orange Springs, 6503",
+      "@suburb": "Orange Springs",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Red Gully, 6503",
+      "@suburb": "Red Gully",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Wanerie, 6503",
+      "@suburb": "Wanerie",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Yeal, 6503",
+      "@suburb": "Yeal",
+      "@postcode": "6503"
+   },
+   {
+      "@name": "Mooliabeenee, 6504",
+      "@suburb": "Mooliabeenee",
+      "@postcode": "6504"
+   },
+   {
+      "@name": "Wannamal, 6505",
+      "@suburb": "Wannamal",
+      "@postcode": "6505"
+   },
+   {
+      "@name": "Mogumber, 6506",
+      "@suburb": "Mogumber",
+      "@postcode": "6506"
+   },
+   {
+      "@name": "Cataby, 6507",
+      "@suburb": "Cataby",
+      "@postcode": "6507"
+   },
+   {
+      "@name": "Cooljarloo, 6507",
+      "@suburb": "Cooljarloo",
+      "@postcode": "6507"
+   },
+   {
+      "@name": "Dandaragan, 6507",
+      "@suburb": "Dandaragan",
+      "@postcode": "6507"
+   },
+   {
+      "@name": "Mimegarra, 6507",
+      "@suburb": "Mimegarra",
+      "@postcode": "6507"
+   },
+   {
+      "@name": "Regans Ford, 6507",
+      "@suburb": "Regans Ford",
+      "@postcode": "6507"
+   },
+   {
+      "@name": "Yathroo, 6507",
+      "@suburb": "Yathroo",
+      "@postcode": "6507"
+   },
+   {
+      "@name": "Glentromie, 6509",
+      "@suburb": "Glentromie",
+      "@postcode": "6509"
+   },
+   {
+      "@name": "New Norcia, 6509",
+      "@suburb": "New Norcia",
+      "@postcode": "6509"
+   },
+   {
+      "@name": "Waddington, 6509",
+      "@suburb": "Waddington",
+      "@postcode": "6509"
+   },
+   {
+      "@name": "Yarawindah, 6509",
+      "@suburb": "Yarawindah",
+      "@postcode": "6509"
+   },
+   {
+      "@name": "Barberton, 6510",
+      "@suburb": "Barberton",
+      "@postcode": "6510"
+   },
+   {
+      "@name": "Berkshire Valley, 6510",
+      "@suburb": "Berkshire Valley",
+      "@postcode": "6510"
+   },
+   {
+      "@name": "Gillingarra, 6510",
+      "@suburb": "Gillingarra",
+      "@postcode": "6510"
+   },
+   {
+      "@name": "Koojan, 6510",
+      "@suburb": "Koojan",
+      "@postcode": "6510"
+   },
+   {
+      "@name": "Moora, 6510",
+      "@suburb": "Moora",
+      "@postcode": "6510"
+   },
+   {
+      "@name": "Walebing, 6510",
+      "@suburb": "Walebing",
+      "@postcode": "6510"
+   },
+   {
+      "@name": "Cervantes, 6511",
+      "@suburb": "Cervantes",
+      "@postcode": "6511"
+   },
+   {
+      "@name": "Coomberdale, 6512",
+      "@suburb": "Coomberdale",
+      "@postcode": "6512"
+   },
+   {
+      "@name": "Namban, 6512",
+      "@suburb": "Namban",
+      "@postcode": "6512"
+   },
+   {
+      "@name": "Gunyidi, 6513",
+      "@suburb": "Gunyidi",
+      "@postcode": "6513"
+   },
+   {
+      "@name": "Watheroo, 6513",
+      "@suburb": "Watheroo",
+      "@postcode": "6513"
+   },
+   {
+      "@name": "Green Head, 6514",
+      "@suburb": "Green Head",
+      "@postcode": "6514"
+   },
+   {
+      "@name": "Leeman, 6514",
+      "@suburb": "Leeman",
+      "@postcode": "6514"
+   },
+   {
+      "@name": "Coorow, 6515",
+      "@suburb": "Coorow",
+      "@postcode": "6515"
+   },
+   {
+      "@name": "Eganu, 6515",
+      "@suburb": "Eganu",
+      "@postcode": "6515"
+   },
+   {
+      "@name": "Marchagee, 6515",
+      "@suburb": "Marchagee",
+      "@postcode": "6515"
+   },
+   {
+      "@name": "Waddy Forest, 6515",
+      "@suburb": "Waddy Forest",
+      "@postcode": "6515"
+   },
+   {
+      "@name": "Jurien Bay, 6516",
+      "@suburb": "Jurien Bay",
+      "@postcode": "6516"
+   },
+   {
+      "@name": "Carnamah, 6517",
+      "@suburb": "Carnamah",
+      "@postcode": "6517"
+   },
+   {
+      "@name": "Eneabba, 6518",
+      "@suburb": "Eneabba",
+      "@postcode": "6518"
+   },
+   {
+      "@name": "Warradarge, 6518",
+      "@suburb": "Warradarge",
+      "@postcode": "6518"
+   },
+   {
+      "@name": "Arrino, 6519",
+      "@suburb": "Arrino",
+      "@postcode": "6519"
+   },
+   {
+      "@name": "Arrowsmith East, 6519",
+      "@suburb": "Arrowsmith East",
+      "@postcode": "6519"
+   },
+   {
+      "@name": "Dudawa, 6519",
+      "@suburb": "Dudawa",
+      "@postcode": "6519"
+   },
+   {
+      "@name": "Kadathinni, 6519",
+      "@suburb": "Kadathinni",
+      "@postcode": "6519"
+   },
+   {
+      "@name": "Three Springs, 6519",
+      "@suburb": "Three Springs",
+      "@postcode": "6519"
+   },
+   {
+      "@name": "Womarden, 6519",
+      "@suburb": "Womarden",
+      "@postcode": "6519"
+   },
+   {
+      "@name": "Badgingarra, 6521",
+      "@suburb": "Badgingarra",
+      "@postcode": "6521"
+   },
+   {
+      "@name": "Boothendarra, 6521",
+      "@suburb": "Boothendarra",
+      "@postcode": "6521"
+   },
+   {
+      "@name": "Grey, 6521",
+      "@suburb": "Grey",
+      "@postcode": "6521"
+   },
+   {
+      "@name": "Hill River, 6521",
+      "@suburb": "Hill River",
+      "@postcode": "6521"
+   },
+   {
+      "@name": "Nambung, 6521",
+      "@suburb": "Nambung",
+      "@postcode": "6521"
+   },
+   {
+      "@name": "Bundanoon, 6522",
+      "@suburb": "Bundanoon",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Holmwood, 6522",
+      "@suburb": "Holmwood",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Ikewa, 6522",
+      "@suburb": "Ikewa",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Lockier, 6522",
+      "@suburb": "Lockier",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Mingenew, 6522",
+      "@suburb": "Mingenew",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Mooriary, 6522",
+      "@suburb": "Mooriary",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Mount Budd, 6522",
+      "@suburb": "Mount Budd",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Nangetty, 6522",
+      "@suburb": "Nangetty",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Yandanooka, 6522",
+      "@suburb": "Yandanooka",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Yarragadee, 6522",
+      "@suburb": "Yarragadee",
+      "@postcode": "6522"
+   },
+   {
+      "@name": "Allanooka, 6525",
+      "@suburb": "Allanooka",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Arrowsmith, 6525",
+      "@suburb": "Arrowsmith",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Bonniefield, 6525",
+      "@suburb": "Bonniefield",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Bookara, 6525",
+      "@suburb": "Bookara",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Dongara, 6525",
+      "@suburb": "Dongara",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Irwin, 6525",
+      "@suburb": "Irwin",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Milo, 6525",
+      "@suburb": "Milo",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Mount Adams, 6525",
+      "@suburb": "Mount Adams",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Mount Horner, 6525",
+      "@suburb": "Mount Horner",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Port Denison, 6525",
+      "@suburb": "Port Denison",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Springfield, 6525",
+      "@suburb": "Springfield",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Yardarino, 6525",
+      "@suburb": "Yardarino",
+      "@postcode": "6525"
+   },
+   {
+      "@name": "Mount Hill, 6528",
+      "@suburb": "Mount Hill",
+      "@postcode": "6528"
+   },
+   {
+      "@name": "South Greenough, 6528",
+      "@suburb": "South Greenough",
+      "@postcode": "6528"
+   },
+   {
+      "@name": "Walkaway, 6528",
+      "@suburb": "Walkaway",
+      "@postcode": "6528"
+   },
+   {
+      "@name": "Beachlands, 6530",
+      "@suburb": "Beachlands",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Beresford, 6530",
+      "@suburb": "Beresford",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Bluff Point, 6530",
+      "@suburb": "Bluff Point",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Geraldton, 6530",
+      "@suburb": "Geraldton",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Karloo, 6530",
+      "@suburb": "Karloo",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Mahomets Flats, 6530",
+      "@suburb": "Mahomets Flats",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Meru, 6530",
+      "@suburb": "Meru",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Moresby, 6530",
+      "@suburb": "Moresby",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Mount Tarcoola, 6530",
+      "@suburb": "Mount Tarcoola",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Rangeway, 6530",
+      "@suburb": "Rangeway",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Spalding, 6530",
+      "@suburb": "Spalding",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Strathalbyn, 6530",
+      "@suburb": "Strathalbyn",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Sunset Beach, 6530",
+      "@suburb": "Sunset Beach",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Tarcoola Beach, 6530",
+      "@suburb": "Tarcoola Beach",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Utakarra, 6530",
+      "@suburb": "Utakarra",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Waggrakine, 6530",
+      "@suburb": "Waggrakine",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Wandina, 6530",
+      "@suburb": "Wandina",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Webberton, 6530",
+      "@suburb": "Webberton",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "West End, 6530",
+      "@suburb": "West End",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Wonthella, 6530",
+      "@suburb": "Wonthella",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Woorree, 6530",
+      "@suburb": "Woorree",
+      "@postcode": "6530"
+   },
+   {
+      "@name": "Geraldton, 6531",
+      "@suburb": "Geraldton",
+      "@postcode": "6531"
+   },
+   {
+      "@name": "Ajana, 6532",
+      "@suburb": "Ajana",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Binnu, 6532",
+      "@suburb": "Binnu",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Bootenal, 6532",
+      "@suburb": "Bootenal",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Bringo, 6532",
+      "@suburb": "Bringo",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Buller, 6532",
+      "@suburb": "Buller",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Burma Road, 6532",
+      "@suburb": "Burma Road",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Cape Burney, 6532",
+      "@suburb": "Cape Burney",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Carrarang, 6532",
+      "@suburb": "Carrarang",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Coburn, 6532",
+      "@suburb": "Coburn",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Coolcalalaya, 6532",
+      "@suburb": "Coolcalalaya",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Dartmoor, 6532",
+      "@suburb": "Dartmoor",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Deepdale, 6532",
+      "@suburb": "Deepdale",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Dindiloa, 6532",
+      "@suburb": "Dindiloa",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Drummond Cove, 6532",
+      "@suburb": "Drummond Cove",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Durawah, 6532",
+      "@suburb": "Durawah",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "East Chapman, 6532",
+      "@suburb": "East Chapman",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "East Nabawa, 6532",
+      "@suburb": "East Nabawa",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "East Yuna, 6532",
+      "@suburb": "East Yuna",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Ellendale, 6532",
+      "@suburb": "Ellendale",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Eradu, 6532",
+      "@suburb": "Eradu",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Eradu South, 6532",
+      "@suburb": "Eradu South",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Eurardy, 6532",
+      "@suburb": "Eurardy",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Georgina, 6532",
+      "@suburb": "Georgina",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Glenfield, 6532",
+      "@suburb": "Glenfield",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Greenough, 6532",
+      "@suburb": "Greenough",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Hamelin Pool, 6532",
+      "@suburb": "Hamelin Pool",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Hickety, 6532",
+      "@suburb": "Hickety",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Howatharra, 6532",
+      "@suburb": "Howatharra",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Kojarena, 6532",
+      "@suburb": "Kojarena",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Marrah, 6532",
+      "@suburb": "Marrah",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Meadow, 6532",
+      "@suburb": "Meadow",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Minnenooka, 6532",
+      "@suburb": "Minnenooka",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Moonyoonooka, 6532",
+      "@suburb": "Moonyoonooka",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Mount Erin, 6532",
+      "@suburb": "Mount Erin",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Nabawa, 6532",
+      "@suburb": "Nabawa",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Nanson, 6532",
+      "@suburb": "Nanson",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Naraling, 6532",
+      "@suburb": "Naraling",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Narngulu, 6532",
+      "@suburb": "Narngulu",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Narra Tarra, 6532",
+      "@suburb": "Narra Tarra",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Nerren Nerren, 6532",
+      "@suburb": "Nerren Nerren",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Nolba, 6532",
+      "@suburb": "Nolba",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "North Eradu, 6532",
+      "@suburb": "North Eradu",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Northern Gully, 6532",
+      "@suburb": "Northern Gully",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Oakajee, 6532",
+      "@suburb": "Oakajee",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Rockwell, 6532",
+      "@suburb": "Rockwell",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Rudds Gully, 6532",
+      "@suburb": "Rudds Gully",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Sandsprings, 6532",
+      "@suburb": "Sandsprings",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "South Yuna, 6532",
+      "@suburb": "South Yuna",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Tamala, 6532",
+      "@suburb": "Tamala",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Tibradden, 6532",
+      "@suburb": "Tibradden",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Toolonga, 6532",
+      "@suburb": "Toolonga",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Valentine, 6532",
+      "@suburb": "Valentine",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Wandana, 6532",
+      "@suburb": "Wandana",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "West Binnu, 6532",
+      "@suburb": "West Binnu",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "White Peak, 6532",
+      "@suburb": "White Peak",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Wicherina, 6532",
+      "@suburb": "Wicherina",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Wicherina South, 6532",
+      "@suburb": "Wicherina South",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Yetna, 6532",
+      "@suburb": "Yetna",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Yuna, 6532",
+      "@suburb": "Yuna",
+      "@postcode": "6532"
+   },
+   {
+      "@name": "Alma, 6535",
+      "@suburb": "Alma",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Bowes, 6535",
+      "@suburb": "Bowes",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "East Bowes, 6535",
+      "@suburb": "East Bowes",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Gregory, 6535",
+      "@suburb": "Gregory",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Horrocks, 6535",
+      "@suburb": "Horrocks",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Isseka, 6535",
+      "@suburb": "Isseka",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Northampton, 6535",
+      "@suburb": "Northampton",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Ogilvie, 6535",
+      "@suburb": "Ogilvie",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Sandy Gully, 6535",
+      "@suburb": "Sandy Gully",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Yallabatharra, 6535",
+      "@suburb": "Yallabatharra",
+      "@postcode": "6535"
+   },
+   {
+      "@name": "Kalbarri, 6536",
+      "@suburb": "Kalbarri",
+      "@postcode": "6536"
+   },
+   {
+      "@name": "Kalbarri National Park, 6536",
+      "@suburb": "Kalbarri National Park",
+      "@postcode": "6536"
+   },
+   {
+      "@name": "Zuytdorp, 6536",
+      "@suburb": "Zuytdorp",
+      "@postcode": "6536"
+   },
+   {
+      "@name": "Denham, 6537",
+      "@suburb": "Denham",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Dirk Hartog Island, 6537",
+      "@suburb": "Dirk Hartog Island",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Francois Peron National Park, 6537",
+      "@suburb": "Francois Peron National Park",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Monkey Mia, 6537",
+      "@suburb": "Monkey Mia",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Nanga, 6537",
+      "@suburb": "Nanga",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Shark Bay, 6537",
+      "@suburb": "Shark Bay",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Useless Loop, 6537",
+      "@suburb": "Useless Loop",
+      "@postcode": "6537"
+   },
+   {
+      "@name": "Beechina, 6556",
+      "@suburb": "Beechina",
+      "@postcode": "6556"
+   },
+   {
+      "@name": "Chidlow, 6556",
+      "@suburb": "Chidlow",
+      "@postcode": "6556"
+   },
+   {
+      "@name": "Gorrie, 6556",
+      "@suburb": "Gorrie",
+      "@postcode": "6556"
+   },
+   {
+      "@name": "Malmalling, 6556",
+      "@suburb": "Malmalling",
+      "@postcode": "6556"
+   },
+   {
+      "@name": "The Lakes, 6556",
+      "@suburb": "The Lakes",
+      "@postcode": "6556"
+   },
+   {
+      "@name": "Wooroloo, 6558",
+      "@suburb": "Wooroloo",
+      "@postcode": "6558"
+   },
+   {
+      "@name": "Wundowie, 6560",
+      "@suburb": "Wundowie",
+      "@postcode": "6560"
+   },
+   {
+      "@name": "Bakers Hill, 6562",
+      "@suburb": "Bakers Hill",
+      "@postcode": "6562"
+   },
+   {
+      "@name": "Copley, 6562",
+      "@suburb": "Copley",
+      "@postcode": "6562"
+   },
+   {
+      "@name": "Woottating, 6562",
+      "@suburb": "Woottating",
+      "@postcode": "6562"
+   },
+   {
+      "@name": "Clackline, 6564",
+      "@suburb": "Clackline",
+      "@postcode": "6564"
+   },
+   {
+      "@name": "Bejoording, 6566",
+      "@suburb": "Bejoording",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Carani, 6566",
+      "@suburb": "Carani",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Coondle, 6566",
+      "@suburb": "Coondle",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Culham, 6566",
+      "@suburb": "Culham",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Dumbarton, 6566",
+      "@suburb": "Dumbarton",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Hoddys Well, 6566",
+      "@suburb": "Hoddys Well",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Katrine, 6566",
+      "@suburb": "Katrine",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Nunile, 6566",
+      "@suburb": "Nunile",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Toodyay, 6566",
+      "@suburb": "Toodyay",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "West Toodyay, 6566",
+      "@suburb": "West Toodyay",
+      "@postcode": "6566"
+   },
+   {
+      "@name": "Dewars Pool, 6567",
+      "@suburb": "Dewars Pool",
+      "@postcode": "6567"
+   },
+   {
+      "@name": "Julimar, 6567",
+      "@suburb": "Julimar",
+      "@postcode": "6567"
+   },
+   {
+      "@name": "Moondyne, 6567",
+      "@suburb": "Moondyne",
+      "@postcode": "6567"
+   },
+   {
+      "@name": "Bolgart, 6568",
+      "@suburb": "Bolgart",
+      "@postcode": "6568"
+   },
+   {
+      "@name": "Wattening, 6568",
+      "@suburb": "Wattening",
+      "@postcode": "6568"
+   },
+   {
+      "@name": "Wyening, 6568",
+      "@suburb": "Wyening",
+      "@postcode": "6568"
+   },
+   {
+      "@name": "Calingiri, 6569",
+      "@suburb": "Calingiri",
+      "@postcode": "6569"
+   },
+   {
+      "@name": "Old Plains, 6569",
+      "@suburb": "Old Plains",
+      "@postcode": "6569"
+   },
+   {
+      "@name": "Yerecoin, 6571",
+      "@suburb": "Yerecoin",
+      "@postcode": "6571"
+   },
+   {
+      "@name": "Bindi Bindi, 6574",
+      "@suburb": "Bindi Bindi",
+      "@postcode": "6574"
+   },
+   {
+      "@name": "Gabalong, 6574",
+      "@suburb": "Gabalong",
+      "@postcode": "6574"
+   },
+   {
+      "@name": "Miling, 6575",
+      "@suburb": "Miling",
+      "@postcode": "6575"
+   },
+   {
+      "@name": "Konnongorring, 6603",
+      "@suburb": "Konnongorring",
+      "@postcode": "6603"
+   },
+   {
+      "@name": "Lake Hinds, 6603",
+      "@suburb": "Lake Hinds",
+      "@postcode": "6603"
+   },
+   {
+      "@name": "Lake Ninan, 6603",
+      "@suburb": "Lake Ninan",
+      "@postcode": "6603"
+   },
+   {
+      "@name": "Mocardy, 6603",
+      "@suburb": "Mocardy",
+      "@postcode": "6603"
+   },
+   {
+      "@name": "Wongan Hills, 6603",
+      "@suburb": "Wongan Hills",
+      "@postcode": "6603"
+   },
+   {
+      "@name": "Kondut, 6605",
+      "@suburb": "Kondut",
+      "@postcode": "6605"
+   },
+   {
+      "@name": "Ballidu, 6606",
+      "@suburb": "Ballidu",
+      "@postcode": "6606"
+   },
+   {
+      "@name": "East Ballidu, 6606",
+      "@suburb": "East Ballidu",
+      "@postcode": "6606"
+   },
+   {
+      "@name": "West Ballidu, 6606",
+      "@suburb": "West Ballidu",
+      "@postcode": "6606"
+   },
+   {
+      "@name": "East Damboring, 6608",
+      "@suburb": "East Damboring",
+      "@postcode": "6608"
+   },
+   {
+      "@name": "Marne, 6608",
+      "@suburb": "Marne",
+      "@postcode": "6608"
+   },
+   {
+      "@name": "Pithara, 6608",
+      "@suburb": "Pithara",
+      "@postcode": "6608"
+   },
+   {
+      "@name": "Dalwallinu, 6609",
+      "@suburb": "Dalwallinu",
+      "@postcode": "6609"
+   },
+   {
+      "@name": "Nugadong, 6609",
+      "@suburb": "Nugadong",
+      "@postcode": "6609"
+   },
+   {
+      "@name": "Xantippe, 6609",
+      "@suburb": "Xantippe",
+      "@postcode": "6609"
+   },
+   {
+      "@name": "Jibberding, 6612",
+      "@suburb": "Jibberding",
+      "@postcode": "6612"
+   },
+   {
+      "@name": "Miamoon, 6612",
+      "@suburb": "Miamoon",
+      "@postcode": "6612"
+   },
+   {
+      "@name": "Paynes Find, 6612",
+      "@suburb": "Paynes Find",
+      "@postcode": "6612"
+   },
+   {
+      "@name": "Wubin, 6612",
+      "@suburb": "Wubin",
+      "@postcode": "6612"
+   },
+   {
+      "@name": "Buntine, 6613",
+      "@suburb": "Buntine",
+      "@postcode": "6613"
+   },
+   {
+      "@name": "Maya, 6614",
+      "@suburb": "Maya",
+      "@postcode": "6614"
+   },
+   {
+      "@name": "Latham, 6616",
+      "@suburb": "Latham",
+      "@postcode": "6616"
+   },
+   {
+      "@name": "Perenjori, 6620",
+      "@suburb": "Perenjori",
+      "@postcode": "6620"
+   },
+   {
+      "@name": "Rothsay, 6620",
+      "@suburb": "Rothsay",
+      "@postcode": "6620"
+   },
+   {
+      "@name": "Bowgada, 6623",
+      "@suburb": "Bowgada",
+      "@postcode": "6623"
+   },
+   {
+      "@name": "Bunjil, 6623",
+      "@suburb": "Bunjil",
+      "@postcode": "6623"
+   },
+   {
+      "@name": "Gutha, 6623",
+      "@suburb": "Gutha",
+      "@postcode": "6623"
+   },
+   {
+      "@name": "Koolanooka, 6623",
+      "@suburb": "Koolanooka",
+      "@postcode": "6623"
+   },
+   {
+      "@name": "Morawa, 6623",
+      "@suburb": "Morawa",
+      "@postcode": "6623"
+   },
+   {
+      "@name": "Pintharuka, 6623",
+      "@suburb": "Pintharuka",
+      "@postcode": "6623"
+   },
+   {
+      "@name": "Canna, 6627",
+      "@suburb": "Canna",
+      "@postcode": "6627"
+   },
+   {
+      "@name": "Tardun, 6628",
+      "@suburb": "Tardun",
+      "@postcode": "6628"
+   },
+   {
+      "@name": "Devils Creek, 6630",
+      "@suburb": "Devils Creek",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Mullewa, 6630",
+      "@suburb": "Mullewa",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Murchison, 6630",
+      "@suburb": "Murchison",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Nerramyne, 6630",
+      "@suburb": "Nerramyne",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Nunierra, 6630",
+      "@suburb": "Nunierra",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Wongoondy, 6630",
+      "@suburb": "Wongoondy",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Woolgorong, 6630",
+      "@suburb": "Woolgorong",
+      "@postcode": "6630"
+   },
+   {
+      "@name": "Pindar, 6631",
+      "@suburb": "Pindar",
+      "@postcode": "6631"
+   },
+   {
+      "@name": "Ambania, 6632",
+      "@suburb": "Ambania",
+      "@postcode": "6632"
+   },
+   {
+      "@name": "Tenindewa, 6632",
+      "@suburb": "Tenindewa",
+      "@postcode": "6632"
+   },
+   {
+      "@name": "South Murchison, 6635",
+      "@suburb": "South Murchison",
+      "@postcode": "6635"
+   },
+   {
+      "@name": "Yalgoo, 6635",
+      "@suburb": "Yalgoo",
+      "@postcode": "6635"
+   },
+   {
+      "@name": "Cooladar Hill, 6638",
+      "@suburb": "Cooladar Hill",
+      "@postcode": "6638"
+   },
+   {
+      "@name": "Daggar Hills, 6638",
+      "@suburb": "Daggar Hills",
+      "@postcode": "6638"
+   },
+   {
+      "@name": "Mount Magnet, 6638",
+      "@suburb": "Mount Magnet",
+      "@postcode": "6638"
+   },
+   {
+      "@name": "Paynesville, 6638",
+      "@suburb": "Paynesville",
+      "@postcode": "6638"
+   },
+   {
+      "@name": "Sandstone, 6639",
+      "@suburb": "Sandstone",
+      "@postcode": "6639"
+   },
+   {
+      "@name": "Cue, 6640",
+      "@suburb": "Cue",
+      "@postcode": "6640"
+   },
+   {
+      "@name": "East Murchison, 6640",
+      "@suburb": "East Murchison",
+      "@postcode": "6640"
+   },
+   {
+      "@name": "Lake Austin, 6640",
+      "@suburb": "Lake Austin",
+      "@postcode": "6640"
+   },
+   {
+      "@name": "Reedy, 6640",
+      "@suburb": "Reedy",
+      "@postcode": "6640"
+   },
+   {
+      "@name": "Weld Range, 6640",
+      "@suburb": "Weld Range",
+      "@postcode": "6640"
+   },
+   {
+      "@name": "Angelo River, 6642",
+      "@suburb": "Angelo River",
+      "@postcode": "6642"
+   },
+   {
+      "@name": "Capricorn, 6642",
+      "@suburb": "Capricorn",
+      "@postcode": "6642"
+   },
+   {
+      "@name": "Kumarina, 6642",
+      "@suburb": "Kumarina",
+      "@postcode": "6642"
+   },
+   {
+      "@name": "Meekatharra, 6642",
+      "@suburb": "Meekatharra",
+      "@postcode": "6642"
+   },
+   {
+      "@name": "Peak Hill, 6642",
+      "@suburb": "Peak Hill",
+      "@postcode": "6642"
+   },
+   {
+      "@name": "Lake Carnegie, 6646",
+      "@suburb": "Lake Carnegie",
+      "@postcode": "6646"
+   },
+   {
+      "@name": "Little Sandy Desert, 6646",
+      "@suburb": "Little Sandy Desert",
+      "@postcode": "6646"
+   },
+   {
+      "@name": "Wiluna, 6646",
+      "@suburb": "Wiluna",
+      "@postcode": "6646"
+   },
+   {
+      "@name": "Babbage Island, 6701",
+      "@suburb": "Babbage Island",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Bernier Island, 6701",
+      "@suburb": "Bernier Island",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Brockman, 6701",
+      "@suburb": "Brockman",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Brown Range, 6701",
+      "@suburb": "Brown Range",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Carbla, 6701",
+      "@suburb": "Carbla",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Carnarvon, 6701",
+      "@suburb": "Carnarvon",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Coral Bay, 6701",
+      "@suburb": "Coral Bay",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Dorre Island, 6701",
+      "@suburb": "Dorre Island",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "East Carnarvon, 6701",
+      "@suburb": "East Carnarvon",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Gilroyd, 6701",
+      "@suburb": "Gilroyd",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Greys Plain, 6701",
+      "@suburb": "Greys Plain",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Inggarda, 6701",
+      "@suburb": "Inggarda",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Kennedy Range, 6701",
+      "@suburb": "Kennedy Range",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Kingsford, 6701",
+      "@suburb": "Kingsford",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Lyndon, 6701",
+      "@suburb": "Lyndon",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Macleod, 6701",
+      "@suburb": "Macleod",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Massey Bay, 6701",
+      "@suburb": "Massey Bay",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Minilya, 6701",
+      "@suburb": "Minilya",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Morgantown, 6701",
+      "@suburb": "Morgantown",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Ningaloo, 6701",
+      "@suburb": "Ningaloo",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "North Plantations, 6701",
+      "@suburb": "North Plantations",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "South Carnarvon, 6701",
+      "@suburb": "South Carnarvon",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "South Plantations, 6701",
+      "@suburb": "South Plantations",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Talisker, 6701",
+      "@suburb": "Talisker",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Woodleigh, 6701",
+      "@suburb": "Woodleigh",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Wooramel, 6701",
+      "@suburb": "Wooramel",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Yalardy, 6701",
+      "@suburb": "Yalardy",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "Yandoo Creek, 6701",
+      "@suburb": "Yandoo Creek",
+      "@postcode": "6701"
+   },
+   {
+      "@name": "East Lyons River, 6705",
+      "@suburb": "East Lyons River",
+      "@postcode": "6705"
+   },
+   {
+      "@name": "Gascoyne Junction, 6705",
+      "@suburb": "Gascoyne Junction",
+      "@postcode": "6705"
+   },
+   {
+      "@name": "Gascoyne River, 6705",
+      "@suburb": "Gascoyne River",
+      "@postcode": "6705"
+   },
+   {
+      "@name": "West Lyons River, 6705",
+      "@suburb": "West Lyons River",
+      "@postcode": "6705"
+   },
+   {
+      "@name": "Cape Range National Park, 6707",
+      "@suburb": "Cape Range National Park",
+      "@postcode": "6707"
+   },
+   {
+      "@name": "Exmouth, 6707",
+      "@suburb": "Exmouth",
+      "@postcode": "6707"
+   },
+   {
+      "@name": "Exmouth Gulf, 6707",
+      "@suburb": "Exmouth Gulf",
+      "@postcode": "6707"
+   },
+   {
+      "@name": "Learmonth, 6707",
+      "@suburb": "Learmonth",
+      "@postcode": "6707"
+   },
+   {
+      "@name": "North West Cape, 6707",
+      "@suburb": "North West Cape",
+      "@postcode": "6707"
+   },
+   {
+      "@name": "Cane, 6710",
+      "@suburb": "Cane",
+      "@postcode": "6710"
+   },
+   {
+      "@name": "Onslow, 6710",
+      "@suburb": "Onslow",
+      "@postcode": "6710"
+   },
+   {
+      "@name": "Peedamulla, 6710",
+      "@suburb": "Peedamulla",
+      "@postcode": "6710"
+   },
+   {
+      "@name": "Talandji, 6710",
+      "@suburb": "Talandji",
+      "@postcode": "6710"
+   },
+   {
+      "@name": "Yannarie, 6710",
+      "@suburb": "Yannarie",
+      "@postcode": "6710"
+   },
+   {
+      "@name": "Thevenard Island, 6711",
+      "@suburb": "Thevenard Island",
+      "@postcode": "6711"
+   },
+   {
+      "@name": "Barrow Island, 6712",
+      "@suburb": "Barrow Island",
+      "@postcode": "6712"
+   },
+   {
+      "@name": "Dampier, 6713",
+      "@suburb": "Dampier",
+      "@postcode": "6713"
+   },
+   {
+      "@name": "Dampier Archipelago, 6713",
+      "@suburb": "Dampier Archipelago",
+      "@postcode": "6713"
+   },
+   {
+      "@name": "Antonymyre, 6714",
+      "@suburb": "Antonymyre",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Balla Balla, 6714",
+      "@suburb": "Balla Balla",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Baynton, 6714",
+      "@suburb": "Baynton",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Bulgarra, 6714",
+      "@suburb": "Bulgarra",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Burrup, 6714",
+      "@suburb": "Burrup",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Cleaverville, 6714",
+      "@suburb": "Cleaverville",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Cooya Pooya, 6714",
+      "@suburb": "Cooya Pooya",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Gap Ridge, 6714",
+      "@suburb": "Gap Ridge",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Gnoorea, 6714",
+      "@suburb": "Gnoorea",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Karratha, 6714",
+      "@suburb": "Karratha",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Karratha Industrial Estate, 6714",
+      "@suburb": "Karratha Industrial Estate",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Maitland, 6714",
+      "@suburb": "Maitland",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Mardie, 6714",
+      "@suburb": "Mardie",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Millars Well, 6714",
+      "@suburb": "Millars Well",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Mount Anketell, 6714",
+      "@suburb": "Mount Anketell",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Mulataga, 6714",
+      "@suburb": "Mulataga",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Nickol, 6714",
+      "@suburb": "Nickol",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Pegs Creek, 6714",
+      "@suburb": "Pegs Creek",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Sherlock, 6714",
+      "@suburb": "Sherlock",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Stove Hill, 6714",
+      "@suburb": "Stove Hill",
+      "@postcode": "6714"
+   },
+   {
+      "@name": "Fortescue, 6716",
+      "@suburb": "Fortescue",
+      "@postcode": "6716"
+   },
+   {
+      "@name": "Hamersley Range, 6716",
+      "@suburb": "Hamersley Range",
+      "@postcode": "6716"
+   },
+   {
+      "@name": "Millstream, 6716",
+      "@suburb": "Millstream",
+      "@postcode": "6716"
+   },
+   {
+      "@name": "Pannawonica, 6716",
+      "@suburb": "Pannawonica",
+      "@postcode": "6716"
+   },
+   {
+      "@name": "Roebourne, 6718",
+      "@suburb": "Roebourne",
+      "@postcode": "6718"
+   },
+   {
+      "@name": "Whim Creek, 6718",
+      "@suburb": "Whim Creek",
+      "@postcode": "6718"
+   },
+   {
+      "@name": "Cossack, 6720",
+      "@suburb": "Cossack",
+      "@postcode": "6720"
+   },
+   {
+      "@name": "Point Samson, 6720",
+      "@suburb": "Point Samson",
+      "@postcode": "6720"
+   },
+   {
+      "@name": "Wickham, 6720",
+      "@suburb": "Wickham",
+      "@postcode": "6720"
+   },
+   {
+      "@name": "Indee, 6721",
+      "@suburb": "Indee",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Mundabullangana, 6721",
+      "@suburb": "Mundabullangana",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Pardoo, 6721",
+      "@suburb": "Pardoo",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Port Hedland, 6721",
+      "@suburb": "Port Hedland",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Redbank, 6721",
+      "@suburb": "Redbank",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Strelley, 6721",
+      "@suburb": "Strelley",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Wallareenya, 6721",
+      "@suburb": "Wallareenya",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Wedgefield, 6721",
+      "@suburb": "Wedgefield",
+      "@postcode": "6721"
+   },
+   {
+      "@name": "Boodarie, 6722",
+      "@suburb": "Boodarie",
+      "@postcode": "6722"
+   },
+   {
+      "@name": "De Grey, 6722",
+      "@suburb": "De Grey",
+      "@postcode": "6722"
+   },
+   {
+      "@name": "Finucane, 6722",
+      "@suburb": "Finucane",
+      "@postcode": "6722"
+   },
+   {
+      "@name": "Pippingarra, 6722",
+      "@suburb": "Pippingarra",
+      "@postcode": "6722"
+   },
+   {
+      "@name": "South Hedland, 6722",
+      "@suburb": "South Hedland",
+      "@postcode": "6722"
+   },
+   {
+      "@name": "Bilingurr, 6725",
+      "@suburb": "Bilingurr",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Broome, 6725",
+      "@suburb": "Broome",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Dampier Peninsula, 6725",
+      "@suburb": "Dampier Peninsula",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Djugun, 6725",
+      "@suburb": "Djugun",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Eighty Mile Beach, 6725",
+      "@suburb": "Eighty Mile Beach",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Gingerah, 6725",
+      "@suburb": "Gingerah",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Lagrange, 6725",
+      "@suburb": "Lagrange",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Minyirr, 6725",
+      "@suburb": "Minyirr",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Roebuck, 6725",
+      "@suburb": "Roebuck",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Waterbank, 6725",
+      "@suburb": "Waterbank",
+      "@postcode": "6725"
+   },
+   {
+      "@name": "Cable Beach, 6726",
+      "@suburb": "Cable Beach",
+      "@postcode": "6726"
+   },
+   {
+      "@name": "Camballin, 6728",
+      "@suburb": "Camballin",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "Derby, 6728",
+      "@suburb": "Derby",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "Geegully Creek, 6728",
+      "@suburb": "Geegully Creek",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "Kimbolton, 6728",
+      "@suburb": "Kimbolton",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "King Leopold Ranges, 6728",
+      "@suburb": "King Leopold Ranges",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "Meda, 6728",
+      "@suburb": "Meda",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "St George Ranges, 6728",
+      "@suburb": "St George Ranges",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "Willare, 6728",
+      "@suburb": "Willare",
+      "@postcode": "6728"
+   },
+   {
+      "@name": "Cockatoo Island, 6731",
+      "@suburb": "Cockatoo Island",
+      "@postcode": "6731"
+   },
+   {
+      "@name": "Koolan Island, 6733",
+      "@suburb": "Koolan Island",
+      "@postcode": "6733"
+   },
+   {
+      "@name": "Drysdale River, 6740",
+      "@suburb": "Drysdale River",
+      "@postcode": "6740"
+   },
+   {
+      "@name": "Kalumburu, 6740",
+      "@suburb": "Kalumburu",
+      "@postcode": "6740"
+   },
+   {
+      "@name": "Mitchell Plateau, 6740",
+      "@suburb": "Mitchell Plateau",
+      "@postcode": "6740"
+   },
+   {
+      "@name": "Oombulgurri, 6740",
+      "@suburb": "Oombulgurri",
+      "@postcode": "6740"
+   },
+   {
+      "@name": "Prince Regent River, 6740",
+      "@suburb": "Prince Regent River",
+      "@postcode": "6740"
+   },
+   {
+      "@name": "Cambridge Gulf, 6743",
+      "@suburb": "Cambridge Gulf",
+      "@postcode": "6743"
+   },
+   {
+      "@name": "Durack, 6743",
+      "@suburb": "Durack",
+      "@postcode": "6743"
+   },
+   {
+      "@name": "Gibb, 6743",
+      "@suburb": "Gibb",
+      "@postcode": "6743"
+   },
+   {
+      "@name": "Kununurra, 6743",
+      "@suburb": "Kununurra",
+      "@postcode": "6743"
+   },
+   {
+      "@name": "Lake Argyle, 6743",
+      "@suburb": "Lake Argyle",
+      "@postcode": "6743"
+   },
+   {
+      "@name": "Warmun, 6743",
+      "@suburb": "Warmun",
+      "@postcode": "6743"
+   },
+   {
+      "@name": "Chichester, 6751",
+      "@suburb": "Chichester",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Innawanga, 6751",
+      "@suburb": "Innawanga",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Juna Downs, 6751",
+      "@suburb": "Juna Downs",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Karijini, 6751",
+      "@suburb": "Karijini",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Mount Sheila, 6751",
+      "@suburb": "Mount Sheila",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Mulga Downs, 6751",
+      "@suburb": "Mulga Downs",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Nanutarra, 6751",
+      "@suburb": "Nanutarra",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Rocklea, 6751",
+      "@suburb": "Rocklea",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Tom Price, 6751",
+      "@suburb": "Tom Price",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Wittenoom, 6751",
+      "@suburb": "Wittenoom",
+      "@postcode": "6751"
+   },
+   {
+      "@name": "Newman, 6753",
+      "@suburb": "Newman",
+      "@postcode": "6753"
+   },
+   {
+      "@name": "Paraburdoo, 6754",
+      "@suburb": "Paraburdoo",
+      "@postcode": "6754"
+   },
+   {
+      "@name": "Nullagine, 6758",
+      "@suburb": "Nullagine",
+      "@postcode": "6758"
+   },
+   {
+      "@name": "Marble Bar, 6760",
+      "@suburb": "Marble Bar",
+      "@postcode": "6760"
+   },
+   {
+      "@name": "Telfer, 6762",
+      "@suburb": "Telfer",
+      "@postcode": "6762"
+   },
+   {
+      "@name": "Fitzroy Crossing, 6765",
+      "@suburb": "Fitzroy Crossing",
+      "@postcode": "6765"
+   },
+   {
+      "@name": "Mount Hardman, 6765",
+      "@suburb": "Mount Hardman",
+      "@postcode": "6765"
+   },
+   {
+      "@name": "Halls Creek, 6770",
+      "@suburb": "Halls Creek",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Mcbeath, 6770",
+      "@suburb": "Mcbeath",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Mueller Ranges, 6770",
+      "@suburb": "Mueller Ranges",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Ord River, 6770",
+      "@suburb": "Ord River",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Purnululu, 6770",
+      "@suburb": "Purnululu",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Sturt Creek, 6770",
+      "@suburb": "Sturt Creek",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Tanami, 6770",
+      "@suburb": "Tanami",
+      "@postcode": "6770"
+   },
+   {
+      "@name": "Christmas Island, 6798",
+      "@suburb": "Christmas Island",
+      "@postcode": "6798"
+   },
+   {
+      "@name": "Home Island Cocos (Keeling) Islands, 6799",
+      "@suburb": "Home Island Cocos (Keeling) Islands",
+      "@postcode": "6799"
+   },
+   {
+      "@name": "West Island Cocos (Keeling) Islands, 6799",
+      "@suburb": "West Island Cocos (Keeling) Islands",
+      "@postcode": "6799"
+   },
+   {
+      "@name": "Perth, 6800",
+      "@suburb": "Perth",
+      "@postcode": "6800"
+   },
+   {
+      "@name": "Perth, 6809",
+      "@suburb": "Perth",
+      "@postcode": "6809"
+   },
+   {
+      "@name": "Perth, 6817",
+      "@suburb": "Perth",
+      "@postcode": "6817"
+   },
+   {
+      "@name": "Perth, 6820",
+      "@suburb": "Perth",
+      "@postcode": "6820"
+   },
+   {
+      "@name": "Perth, 6827",
+      "@suburb": "Perth",
+      "@postcode": "6827"
+   },
+   {
+      "@name": "Perth, 6830",
+      "@suburb": "Perth",
+      "@postcode": "6830"
+   },
+   {
+      "@name": "Perth St Georges Tce, 6831",
+      "@suburb": "Perth St Georges Tce",
+      "@postcode": "6831"
+   },
+   {
+      "@name": "Perth Adelaide Tce, 6832",
+      "@suburb": "Perth Adelaide Tce",
+      "@postcode": "6832"
+   },
+   {
+      "@name": "Perth, 6837",
+      "@suburb": "Perth",
+      "@postcode": "6837"
+   },
+   {
+      "@name": "Perth, 6838",
+      "@suburb": "Perth",
+      "@postcode": "6838"
+   },
+   {
+      "@name": "Perth, 6839",
+      "@suburb": "Perth",
+      "@postcode": "6839"
+   },
+   {
+      "@name": "Perth, 6840",
+      "@suburb": "Perth",
+      "@postcode": "6840"
+   },
+   {
+      "@name": "Perth, 6841",
+      "@suburb": "Perth",
+      "@postcode": "6841"
+   },
+   {
+      "@name": "Perth, 6842",
+      "@suburb": "Perth",
+      "@postcode": "6842"
+   },
+   {
+      "@name": "Perth, 6843",
+      "@suburb": "Perth",
+      "@postcode": "6843"
+   },
+   {
+      "@name": "Perth, 6844",
+      "@suburb": "Perth",
+      "@postcode": "6844"
+   },
+   {
+      "@name": "Perth, 6845",
+      "@suburb": "Perth",
+      "@postcode": "6845"
+   },
+   {
+      "@name": "Perth, 6846",
+      "@suburb": "Perth",
+      "@postcode": "6846"
+   },
+   {
+      "@name": "Perth, 6847",
+      "@suburb": "Perth",
+      "@postcode": "6847"
+   },
+   {
+      "@name": "Perth, 6848",
+      "@suburb": "Perth",
+      "@postcode": "6848"
+   },
+   {
+      "@name": "Cloisters Square, 6850",
+      "@suburb": "Cloisters Square",
+      "@postcode": "6850"
+   },
+   {
+      "@name": "West Perth, 6872",
+      "@suburb": "West Perth",
+      "@postcode": "6872"
+   },
+   {
+      "@name": "East Perth, 6892",
+      "@suburb": "East Perth",
+      "@postcode": "6892"
+   },
+   {
+      "@name": "West Leederville, 6901",
+      "@suburb": "West Leederville",
+      "@postcode": "6901"
+   },
+   {
+      "@name": "Subiaco, 6904",
+      "@suburb": "Subiaco",
+      "@postcode": "6904"
+   },
+   {
+      "@name": "North Perth, 6906",
+      "@suburb": "North Perth",
+      "@postcode": "6906"
+   },
+   {
+      "@name": "Claremont, 6910",
+      "@suburb": "Claremont",
+      "@postcode": "6910"
+   },
+   {
+      "@name": "Cottesloe, 6911",
+      "@suburb": "Cottesloe",
+      "@postcode": "6911"
+   },
+   {
+      "@name": "Mosman Park, 6912",
+      "@suburb": "Mosman Park",
+      "@postcode": "6912"
+   },
+   {
+      "@name": "Balcatta, 6914",
+      "@suburb": "Balcatta",
+      "@postcode": "6914"
+   },
+   {
+      "@name": "Mount Hawthorn, 6915",
+      "@suburb": "Mount Hawthorn",
+      "@postcode": "6915"
+   },
+   {
+      "@name": "Osborne Park, 6916",
+      "@suburb": "Osborne Park",
+      "@postcode": "6916"
+   },
+   {
+      "@name": "Osborne Park, 6917",
+      "@suburb": "Osborne Park",
+      "@postcode": "6917"
+   },
+   {
+      "@name": "North Beach, 6920",
+      "@suburb": "North Beach",
+      "@postcode": "6920"
+   },
+   {
+      "@name": "Karrinyup, 6921",
+      "@suburb": "Karrinyup",
+      "@postcode": "6921"
+   },
+   {
+      "@name": "Scarborough, 6922",
+      "@suburb": "Scarborough",
+      "@postcode": "6922"
+   },
+   {
+      "@name": "Greenwood, 6924",
+      "@suburb": "Greenwood",
+      "@postcode": "6924"
+   },
+   {
+      "@name": "Kalamunda, 6926",
+      "@suburb": "Kalamunda",
+      "@postcode": "6926"
+   },
+   {
+      "@name": "Mount Lawley, 6929",
+      "@suburb": "Mount Lawley",
+      "@postcode": "6929"
+   },
+   {
+      "@name": "Inglewood, 6932",
+      "@suburb": "Inglewood",
+      "@postcode": "6932"
+   },
+   {
+      "@name": "Bayswater, 6933",
+      "@suburb": "Bayswater",
+      "@postcode": "6933"
+   },
+   {
+      "@name": "Bassendean, 6934",
+      "@suburb": "Bassendean",
+      "@postcode": "6934"
+   },
+   {
+      "@name": "Guildford, 6935",
+      "@suburb": "Guildford",
+      "@postcode": "6935"
+   },
+   {
+      "@name": "Tuart Hill, 6937",
+      "@suburb": "Tuart Hill",
+      "@postcode": "6937"
+   },
+   {
+      "@name": "Tuart Hill, 6938",
+      "@suburb": "Tuart Hill",
+      "@postcode": "6938"
+   },
+   {
+      "@name": "Tuart Hill, 6939",
+      "@suburb": "Tuart Hill",
+      "@postcode": "6939"
+   },
+   {
+      "@name": "Tuart Hill, 6940",
+      "@suburb": "Tuart Hill",
+      "@postcode": "6940"
+   },
+   {
+      "@name": "Mirrabooka, 6941",
+      "@suburb": "Mirrabooka",
+      "@postcode": "6941"
+   },
+   {
+      "@name": "Morley, 6943",
+      "@suburb": "Morley",
+      "@postcode": "6943"
+   },
+   {
+      "@name": "Malaga, 6944",
+      "@suburb": "Malaga",
+      "@postcode": "6944"
+   },
+   {
+      "@name": "Wanneroo, 6946",
+      "@suburb": "Wanneroo",
+      "@postcode": "6946"
+   },
+   {
+      "@name": "South Perth, 6951",
+      "@suburb": "South Perth",
+      "@postcode": "6951"
+   },
+   {
+      "@name": "Como, 6952",
+      "@suburb": "Como",
+      "@postcode": "6952"
+   },
+   {
+      "@name": "Melville, 6956",
+      "@suburb": "Melville",
+      "@postcode": "6956"
+   },
+   {
+      "@name": "Fremantle, 6959",
+      "@suburb": "Fremantle",
+      "@postcode": "6959"
+   },
+   {
+      "@name": "Hamilton Hill, 6963",
+      "@suburb": "Hamilton Hill",
+      "@postcode": "6963"
+   },
+   {
+      "@name": "Success, 6964",
+      "@suburb": "Success",
+      "@postcode": "6964"
+   },
+   {
+      "@name": "Kwinana, 6966",
+      "@suburb": "Kwinana",
+      "@postcode": "6966"
+   },
+   {
+      "@name": "Rockingham, 6968",
+      "@suburb": "Rockingham",
+      "@postcode": "6968"
+   },
+   {
+      "@name": "Rockingham Beach, 6969",
+      "@suburb": "Rockingham Beach",
+      "@postcode": "6969"
+   },
+   {
+      "@name": "Victoria Park, 6979",
+      "@suburb": "Victoria Park",
+      "@postcode": "6979"
+   },
+   {
+      "@name": "East Victoria Park, 6981",
+      "@suburb": "East Victoria Park",
+      "@postcode": "6981"
+   },
+   {
+      "@name": "Bentley, 6982",
+      "@suburb": "Bentley",
+      "@postcode": "6982"
+   },
+   {
+      "@name": "Belmont, 6984",
+      "@suburb": "Belmont",
+      "@postcode": "6984"
+   },
+   {
+      "@name": "Cloverdale, 6985",
+      "@suburb": "Cloverdale",
+      "@postcode": "6985"
+   },
+   {
+      "@name": "Thornlie, 6988",
+      "@suburb": "Thornlie",
+      "@postcode": "6988"
+   },
+   {
+      "@name": "Maddington, 6989",
+      "@suburb": "Maddington",
+      "@postcode": "6989"
+   },
+   {
+      "@name": "Gosnells, 6990",
+      "@suburb": "Gosnells",
+      "@postcode": "6990"
+   },
+   {
+      "@name": "Armadale, 6992",
+      "@suburb": "Armadale",
+      "@postcode": "6992"
+   }
+]
+

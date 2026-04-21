@@ -1,0 +1,71 @@
+{
+    "key": "group_66d5b06de1a93",
+    "title": "Layout - Height",
+    "fields": [
+        {
+            "key": "field_66d5b06deef1a",
+            "label": "Section Height",
+            "name": "section_height",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "Default",
+                "5": "5%",
+                "10": "10%",
+                "15": "15%",
+                "20": "20%",
+                "25": "25%",
+                "30": "30%",
+                "35": "35%",
+                "40": "40%",
+                "45": "45%",
+                "50": "50%",
+                "55": "55%",
+                "60": "60%",
+                "65": "65%",
+                "70": "70%",
+                "75": "75%",
+                "80": "80%",
+                "85": "85%",
+                "90": "90%",
+                "95": "95%",
+                "100": "100%"
+            },
+            "default_value": 50,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1728980821
+}

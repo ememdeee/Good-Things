@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/case-study-slider",
+	"title": "Case Study Slider",
+	"description": "A Case Study Slider",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["case study", "slider"],
+	"editorScript": "file:./js/case-study-slider-editor.min.js",
+	"editorStyle":  "file:./css/case-study-slider-editor.css",
+	"viewScript": "file:./js/case-study-slider.min.js",
+	"viewStyle":  "file:./css/case-study-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/case-study-slider/case-study-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Case Study Slider Preview"
+		}
+	},
+	"render": "/blocks/case-study-slider/case-study-slider.php"
+}

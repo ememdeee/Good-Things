@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/page-title-banner",
+	"title": "Page Title Banner",
+	"description": "Section Page Title Banner block with title, text, button, background image and optional breadcrumb.",
+	"category": "theme-blocks",
+	"icon": "cover-image",
+	"keywords": ["content", "banner", "title", "page"],
+	"editorStyle":  "file:./css/page-title-banner-editor.css",
+	"style":  "file:./css/page-title-banner.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/page-title-banner/page-title-banner.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Page Title Banner Preview"
+		}
+	},
+	"render": "/blocks/page-title-banner/page-title-banner.php"
+}

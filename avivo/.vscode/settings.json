@@ -1,0 +1,11 @@
+{
+    "vscode-edge-devtools.defaultUrl": "https://avivo.local/",
+    "vscode-edge-devtools.hostname": "avivo.local",
+    "vscode-edge-devtools.pathMapping": {
+
+        "/wp-content/themes/avivo/": "${workspaceFolder}"
+    },
+    "vscode-edge-devtools.headless": false,
+    "liveServer.settings.port": 5503,
+    "php.validate.executablePath": "C:\\Users\\cicie\\AppData\\Roaming\\Local\\lightning-services\\php-8.1.23+0\\bin\\win64\\php.exe"
+}

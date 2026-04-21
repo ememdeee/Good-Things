@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/logo-grid",
+	"title": "Logo Grid",
+	"description": "A Logo Grid with image, caption, and link.",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["logo", "grid"],
+	"editorStyle":  "file:./css/logo-grid-editor.css",
+	"style":  "file:./css/logo-grid.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/logo-grid/logo-grid.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Logo Grid Preview"
+		}
+	},
+	"render": "/blocks/logo-grid/logo-grid.php"
+}

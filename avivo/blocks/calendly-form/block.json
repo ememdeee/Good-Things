@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/calendly-form",
+	"title": "Calendly Form",
+	"description": "Calendly Form block with title, text, and form.",
+	"category": "theme-blocks",
+	"icon": "align-right",
+	"keywords": ["content", "richtext", "form", "rich text"],
+	"editorStyle":  "file:./css/calendly-form-editor.css",
+	"style":  "file:./css/calendly-form.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/calendly-form/calendly-form.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Calendly Form Preview"
+		}
+	},
+	"render": "/blocks/calendly-form/calendly-form.php"
+}

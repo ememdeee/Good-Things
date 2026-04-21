@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/tiles-slider",
+	"title": "Tiles Slider",
+	"description": "A Tiles Slider",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["tiles", "slider"],
+	"editorScript": "file:./js/tiles-slider-editor.min.js",
+	"editorStyle":  "file:./css/tiles-slider-editor.css",
+	"viewScript": "file:./js/tiles-slider.min.js",
+	"viewStyle":  "file:./css/tiles-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/tiles-slider/tiles-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Tiles Slider Preview"
+		}
+	},
+	"render": "/blocks/tiles-slider/tiles-slider.php"
+}

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/richtext-image-blob",
+	"title": "Rich Text & Image Blob",
+	"description": "A Rich Text & an image blob block",
+	"category": "theme-blocks",
+	"icon": "cover-image",
+	"keywords": ["slider", "content", "text", "hero"],
+	"editorStyle":  "file:./css/richtext-image-blob-editor.css",
+	"style":  ["file:../../css/elements/image-blob.css", "file:../../css/elements/featured-icon-list.css", "file:./css/richtext-image-blob.css"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/richtext-image-blob/richtext-image-blob.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Rich Text & Image Blob Preview"
+		}
+	},
+	"render": "/blocks/richtext-image-blob/richtext-image-blob.php"
+}

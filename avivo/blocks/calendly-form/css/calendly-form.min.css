@@ -1,0 +1,2 @@
+.cdb-calendly_form .content-container{display:-ms-grid;display:grid}@media (max-width:991.98px){.cdb-calendly_form .content-container{gap:2rem}}@media (min-width:992px){.cdb-calendly_form .content-container{-ms-grid-columns:4fr 7fr;grid-template-columns:4fr 7fr}.cdb-calendly_form .content-container .text-container{max-width:460px}}.cdb-calendly_form .calendly-inline-widget{height:calc(100vh - var(--theme-mainmenu-height) - var(--theme-wp-admin-bar-height))!important}
+/*# sourceMappingURL=calendly-form.min.css.map */

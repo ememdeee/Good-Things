@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/video-banner",
+	"title": "Video Banner",
+	"description": "Section Video Banner block with title, text, button, background image and optional breadcrumb.",
+	"category": "theme-blocks",
+	"icon": "video-alt3",
+	"keywords": ["content", "banner", "title", "page"],
+	"editorStyle":  "file:./css/video-banner-editor.css",
+	"style":  "file:./css/video-banner.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/video-banner/video-banner.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Video Banner Preview"
+		}
+	},
+	"render": "/blocks/video-banner/video-banner.php"
+}

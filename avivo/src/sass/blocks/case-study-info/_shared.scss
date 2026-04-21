@@ -1,0 +1,127 @@
+//-----------------------------------
+// Case Study Info Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-case_study_info {
+	.cdb-case_study_info {
+	}
+
+	.case-study-info {
+		overflow: hidden;
+	}
+
+	.case-study-info__cols { 
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: -30px;
+		margin-right: -30px;
+		> div {
+			margin-bottom: 50px;
+			padding-left: 30px;
+			padding-right: 30px;
+
+			width: 50%;
+
+			@include media-breakpoint-up(lg) {
+				width: 30%;
+
+				&:last-child {
+						// width: 50%;
+						margin-left: auto;
+				}	
+			}
+
+			@include media-breakpoint-up(lg) {
+
+				&:last-child {
+						width: 30%;
+						margin-left: auto;
+				}	
+			}
+
+
+
+			> div {
+				&:not(:last-child) {
+					margin-bottom: 32px;
+				}
+			}
+		}
+	}	
+
+
+	.case-study-info__label { 
+		color: #b2b2b2;
+		text-transform: uppercase;
+
+		font-size: 11px;
+		line-height: 20px;
+		font-weight: 500;
+		display: block;
+	}
+
+	.case-study-info__value { 
+		display: block;
+		color: var(--theme-title-color);
+		font-weight: 500;
+
+		& + .case-study-info__label {
+			margin-top: 20px;
+		}
+	}
+
+	.case-study-info__client { 
+
+	}
+	
+	.case-study-info__year { 
+
+	}
+
+	.case-study-info__industry { 
+
+	}
+
+	.case-study-info__categories { 
+		ul {
+			list-style: none;
+			padding-left: 0;
+			color: var(--theme-title-color);
+			font-weight: 500;
+		}
+	}
+
+	.case-study-info__logo { 
+		img {
+			max-width: 160px;
+			height: auto !important;
+		}
+
+	}
+
+	.case-study-info__url { 
+		.case-study-info__label {
+			color: var(--theme-accent-color);
+		}
+
+		a {
+			color: var(--theme-title-color) !important;
+			&:before {
+				display: none;
+			}
+
+			&:hover {
+				color: #595959 !important;
+			}
+		}
+	}
+
+}

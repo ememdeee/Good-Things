@@ -1,0 +1,57 @@
+{
+    "key": "group_66fb553955bb4",
+    "title": "Layout - Grid Padding",
+    "fields": [
+        {
+            "key": "field_66fb55395c609",
+            "label": "Grid Padding",
+            "name": "section_grid_padding",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sgp-xs": "Smaller",
+                "sgp-sm": "Small",
+                "sgp-md": "Medium",
+                "sgp-lg": "Large (default)",
+                "sgp-xl": "X-Large"
+            },
+            "default_value": "sgp-lg",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1758173979
+}

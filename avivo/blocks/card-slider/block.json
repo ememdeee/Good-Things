@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/card-slider",
+	"title": "Card Slider",
+	"description": "A Card Slider",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["card", "slider"],
+	"editorScript": "file:./js/card-slider-editor.min.js",
+	"editorStyle":  "file:./css/card-slider-editor.css",
+	"viewScript": "file:./js/card-slider.min.js",
+	"viewStyle":  "file:./css/card-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/card-slider/card-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Card Slider Preview"
+		}
+	},
+	"render": "/blocks/card-slider/card-slider.php"
+}

@@ -1,0 +1,228 @@
+//-----------------------------------
+// Featured Flip Cards Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-flip_cards {
+	.cdb-flip_cards {
+    --flip-card-hpadding: 10px;
+
+        @include media-breakpoint-up(lg) {
+    --flip-card-hpadding: 20px;
+        }
+
+	}
+
+  .flip_cards__cards {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: calc(-1 * var(--flip-card-hpadding));
+    margin-right: calc(-1 * var(--flip-card-hpadding));
+    margin-bottom: calc(-2 * var(--flip-card-hpadding));
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+    }
+
+  }
+
+  // .flip-card {
+  //   flex: 1 1 0;
+  //   background-color: fuchsia;
+  // }
+
+  // .flip-card__front {
+  //   background-color: yellow;
+  // }
+
+  // .flip-card__back {
+  //   background-color: gray;
+  // }
+
+
+
+
+
+
+
+
+
+
+.flip-card {
+  background-color: transparent;
+  // height: 200px; // Adjust as needed
+  perspective: 1000px; // Gives the 3D effect
+  flex: 1 1 0;
+  padding: 0 var(--flip-card-hpadding);
+  margin-bottom: calc(2 * var(--flip-card-hpadding));
+  display: block;
+
+  &__front,
+  &__back {
+    position: absolute;
+    // width: 100%;
+    top: 0;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    transition: transform 0.6s; // Smooth transition for the flip
+    display: flex;
+    flex-direction: column;
+    border-radius: 0; 
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    
+    background-color: var(--theme-bg-color);
+    color: var(--theme-text-color);
+  }
+
+  &__front {
+    // background-color: #f1f1f1; 
+    left: var(--flip-card-hpadding);
+    right : var(--flip-card-hpadding);
+    // color: black;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+    &-title {
+      // font-size: 1.5em; 
+      text-align: center;
+      margin-bottom: 0;
+      p {
+        margin: 0; // Remove default paragraph margin
+      }
+    }
+  }
+
+  &__back {
+    position: relative;
+    // background-color: #2980b9; 
+    // color: white;
+    transform: rotateY(180deg); // Initially hidden for horizontal flip
+    padding: 20px 40px 30px; 
+    // text-align: center;
+    // justify-content: space-around; // Adjust content distribution
+    min-height: 280px;
+
+    .flip-card__title {
+      font-size: 1.5em; 
+      p {
+        margin: 0; // Remove default paragraph margin
+      }
+    }
+
+    .flip-card__description {
+      font-size: 0.9em; 
+      margin-top: 10px;
+    }
+
+    .flip-card__button {
+      margin-top: auto;
+
+      .btn {
+        width: auto !important;
+      }
+
+    }
+
+    .flip-card__icon {
+      background-color: var(--theme-color-taupelight);
+    }
+  }
+
+  // --- Horizontal Flip (Default) ---
+  &:hover {
+    .flip-card__front {
+      transform: rotateY(-180deg); // Flips the front card horizontally
+    }
+
+    .flip-card__back {
+      transform: rotateY(0deg); // Brings the back card into view horizontally
+    }
+  }
+
+  // --- Vertical Flip Modifier ---
+  &--vertical {
+    .flip-card__back {
+      transform: rotateX(180deg); // Initially hidden for vertical flip
+    }
+
+    &:hover {
+      .flip-card__front {
+        transform: rotateX(-180deg); // Flips the front card vertically
+      }
+
+      .flip-card__back {
+        transform: rotateX(0deg); // Brings the back card into view vertically
+      }
+    }
+  }
+}  
+
+// mobile, make front as background and title, and back as content with transparent bg
+@include media-breakpoint-down(lg) {
+  .flip-card__front {
+    transform: none !important;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px 30px;
+
+    .flip-card__front-title {
+      font-size: 1.5rem;
+    }
+    .flip-card__icon {
+      display: none;
+    }
+  }
+
+  .flip-card__back {
+    z-index: 1;
+    transform: none !important;
+    background-color: transparent;
+    padding: 95px 30px 30px;
+
+    .flip-card__title {
+      display: none;
+    }
+
+    .btn.t-tagline:before {
+      filter: var(--theme-filter-white);
+    }
+  }
+}
+
+
+.flip-card__icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255,255,255,0.2);
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  display: none;
+
+        @include media-breakpoint-up(lg) {
+  display: flex;
+        }
+
+
+  img {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+}
+
+}

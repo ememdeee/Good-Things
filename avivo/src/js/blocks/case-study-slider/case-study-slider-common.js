@@ -1,0 +1,74 @@
+function initializeCaseStudySlider() {
+
+	// Initialize Splide slider for elements that haven't been initialized
+	document.querySelectorAll('.cdb-case_study_slider').forEach(function (section) {
+
+		const slider = section.querySelector('.splide');
+		if (!slider) return; // Skip if no .splide element found
+
+		// Destroy existing Splide instance if initialized
+		if (slider.splide) {
+			slider.splide.destroy();
+			slider.splide = null;
+		}
+
+		// Get slider style and autoplay setting
+		const autoplay = slider.getAttribute('data-autoplay') === '1';
+
+		// Set up slider options
+		const sliderOptions = {
+			// type: 'loop',
+			speed: 1000,
+			autoplay: autoplay,
+			perPage: 2,
+			perMove: 1,
+			gap: 40,
+			padding: { right: '20%' },
+			pagination: true,
+			lazyLoad: 'nearby',
+			breakpoints: {
+				// 560: {
+				// 	perPage: 1,
+				// 	gap: 20,
+				// 	padding: { right: '0%' },
+				// },
+				768: {
+					perPage: 1,
+					gap: 20,
+					// padding: { right: '30%' },
+					padding: {
+						right: '15%',
+						left: '0%',
+					},
+				},
+				992: {
+					perPage: 2,
+					gap: 30,
+					padding: { right: '0%' },
+				},
+				1200: {
+					perPage: 2,
+					gap: 30,
+					padding: { right: '20%' },
+				},
+			}
+		};
+
+		// Initialize Splide
+		const splideInstance = new Splide(slider, sliderOptions);
+
+		// Add class if there's only one page
+		splideInstance.on('mounted move resize', () => {
+			const isSinglePage = splideInstance.Components.Controller.getEnd() === 0;
+			splideInstance.root.classList.toggle('single-page', isSinglePage);
+		});
+
+		// Mount the Splide slider
+		splideInstance.mount();
+
+		// Store instance reference on the DOM element
+		slider.splide = splideInstance;
+	});
+
+
+}

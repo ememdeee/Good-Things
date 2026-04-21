@@ -1,0 +1,215 @@
+@import "../theme/functions";
+@import "../theme/theme_variables";
+
+// @import "../assets/bootstrap5";
+@import "../assets/bootstrap5/functions";
+@import "../assets/bootstrap5/variables";
+@import "../assets/bootstrap5/maps";
+@import "../assets/bootstrap5/mixins";
+
+  // consider moved to shared place
+  .featured-iconlist {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: -20px !important;
+
+    
+  }
+
+  .featured-iconlist__item {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .featured-iconlist__link {
+    display: flex;
+    align-items: center;
+
+    color: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .featured-iconlist__icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    flex-shrink: 0;
+    position: relative;
+    background-color: transparent;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 12px;
+    }
+
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+  }
+
+  .featured-iconlist__text {
+
+  }
+
+  .featured-iconlist__title {
+    margin-bottom: 0;
+  }
+
+  .featured-iconlist__description {
+
+  }
+
+  .featured-iconlist--style-compact-list {
+    .featured-iconlist__item {
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
+
+    }
+
+    .featured-iconlist__icon {
+      width: 48px;
+      height: 48px;
+
+      &.sc-default {
+        --theme-filter: var(--theme-filter-lime);
+      }
+
+      img {
+        width: 48px;
+        height: 48px;
+        filter: var(--theme-filter);
+      }
+    }
+  }
+  
+  .featured-iconlist--style-icon-list {
+    .featured-iconlist__icon {
+      width: 54px;
+      height: 54px;
+
+      &:before {
+        background: url(../../img/svg/icon-list-bg1.svg) no-repeat center center;
+        background-size: contain;
+        width: 54px;
+        height: 54px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: var(--theme-filter);
+      }
+
+      img {
+        filter: var(--theme-filter-white);
+      }
+    }
+  }
+
+
+  .featured-iconlist--style-bulleted-list {
+    margin-bottom: -12px !important;
+    
+    .featured-iconlist__icon {
+      width: 28px;
+      height: 28px;
+
+      &:before {
+        background: url(../../img/svg/icon-list-bg2.svg) no-repeat center center;
+        background-size: contain;
+        width: 28px;
+        height: 28px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: var(--theme-filter);
+      }
+
+      img {
+        display: none;
+      }
+
+    }
+    .featured-iconlist__item {
+      margin-bottom: 12px;
+    }
+
+  }
+
+  .featured-iconlist--style-download-list {
+    margin-bottom: -12px !important;
+    
+    .featured-iconlist__link {
+      background-color: var(--theme-color-taupelight);
+      padding: 10px 10px 10px 20px;
+      border-radius: 50px;
+      transition: all 0.15s ease 0s;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+    .featured-iconlist__icon {
+      width: 44px;
+      height: 44px;
+      order: 2;
+      margin-left: auto;
+      margin-right: 0;
+
+      &:before {
+        // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' fill='none' viewBox='0 0 44 44'%3e%3crect width='44' height='44' fill='%23b9a3e3' rx='22'/%3e%3cg stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' clip-path='url(%23a)'%3e%3cpath d='M22 27V13M30 31H14M27 22l-5.001 5.001-5-5.001'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='a'%3e%3cpath fill='white' d='M10 10h24v24H10z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");        background-size: contain;
+				background-image: svg-uri($svg-arrow-right-chevron);
+        background-color: var(--theme-color-lavender);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 15px 20px;
+        border-radius: 50px;
+        width: 44px;
+        height: 44px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      img {
+        display: none;
+      }
+
+    }
+    .featured-iconlist__item {
+      margin-bottom: 10px;
+    }
+
+    .featured-iconlist__text {
+      // padding-top: 11px;
+      // padding-bottom: 11px;
+    }
+
+    .featured-iconlist__title {
+      color: var(--theme-color-primary);
+    }
+  }

@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/timeline-slider",
+	"title": "Timeline Slider",
+	"description": "A Timeline Slider with title, text, and button on each slide.",
+	"category": "theme-blocks",
+	"icon": "clock",
+	"keywords": ["slider", "timeline", "content", "text"],
+	"editorScript": "file:./js/timeline-slider-editor.min.js",
+	"editorStyle":  "file:./css/timeline-slider-editor.css",
+	"viewScript": "file:./js/timeline-slider.min.js",
+	"viewStyle":  "file:./css/timeline-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/timeline-slider/timeline-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Timeline Slider Preview"
+		}
+	},
+	"render": "/blocks/timeline-slider/timeline-slider.php"
+}

@@ -1,0 +1,8 @@
+//-----------------------------------
+// Calendly Form Block Editor CSS
+//-----------------------------------
+@import "shared";
+
+.editor-visual-editor .block-editor-block-list__layout {
+	@include cdb-calendly_form;
+}

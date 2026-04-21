@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/quick-links",
+	"title": "Quick Links",
+	"description": "Quick Links block with title, text, and button.",
+	"category": "theme-blocks",
+	"icon": "align-wide",
+	"keywords": ["content", "text", "quick links"],
+	"editorStyle":  "file:./css/quick-links-editor.css",
+	"style":  ["file:../../css/elements/image-blob.css", "file:./css/quick-links.css", "file:../../css/elements/nav-icon-list.css"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/quick-links/quick-links.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Quick Links Preview"
+		}
+	},
+	"render": "/blocks/quick-links/quick-links.php"
+}

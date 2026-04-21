@@ -1,0 +1,25 @@
+//-----------------------------------
+// Post Grid Block Editor CSS
+//-----------------------------------
+@import "shared";
+
+// TODO: temp solution for missing bootstrap grid in editor
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+// @import "../../assets/bootstrap5/containers";
+@import "../../assets/bootstrap5/grid";
+
+
+.editor-visual-editor .block-editor-block-list__layout {
+	@include cdb-post_grid;
+
+	// fix conflict with editor styles
+	.card.type-post {
+		padding: 0;
+	}
+}
+

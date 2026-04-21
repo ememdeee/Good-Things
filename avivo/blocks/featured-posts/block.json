@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/featured-posts",
+	"title": "Featured Posts",
+	"description": "A Featured blog posts",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["content", "text"],
+	"editorStyle":  "file:./css/featured-posts-editor.css",
+	"viewStyle":  "file:./css/featured-posts.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/featured-posts/featured-posts.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Featured Posts Preview"
+		}
+	},
+	"render": "/blocks/featured-posts/featured-posts.php"
+}

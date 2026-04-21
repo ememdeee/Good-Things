@@ -1,0 +1,460 @@
+//-----------------------------------
+// Buttons
+//-----------------------------------
+// variables
+$btn-border-width			: 2px;
+$btn-border-radius			: 50px;
+$btn-font-weight			: 700;
+$btn-font-size				: 1rem; //px-to-rem(12px);
+$btn-spacing				: 10px; //.5em;
+
+
+// button row - group
+.btn-row {
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	gap: $btn-spacing;
+	// margin-top: 2em;
+	margin-top: 30px;
+
+	&:not(:last-child) {
+		// margin-bottom: 2em;
+		margin-bottom: 30px;
+	}
+
+	// Buttons Alignment
+	&.left {
+		justify-content: left;
+	}
+	&.center {
+		justify-content: center;
+	}
+	&.right {
+		justify-content: right;
+	}
+	&.space-around {
+		justify-content: space-around;
+	}
+	&.space-between {
+		justify-content: space-between;
+	}
+	&.space-evenly {
+		justify-content: space-evenly;
+	}
+
+
+	// min width
+	.btn {
+        @include media-breakpoint-up(xl) {
+					min-width: 212px;
+        }
+
+	}
+}
+
+// button
+.btn {
+	--theme-link-color		: var(--theme-color-secondary);
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: $btn-font-size;
+	font-weight:$btn-font-weight;
+	text-decoration: none;
+	// text-transform: uppercase;
+	// letter-spacing: .03em;
+	line-height: 1rem;
+	cursor: pointer;
+	position: relative;
+	transition: $transition;
+
+	color: var(--theme-btn-color);
+	overflow: hidden;
+
+	@media (max-width: 480px) {
+		// width: 100%;
+	}
+	
+	@include media-breakpoint-down(sm) {
+		font-size: 14px;
+		&:not(.t-tagline) {
+			width: 100%;
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
+		// min-width: 246px;
+	}
+
+
+	&.dark,
+	&.light,
+	&.secondary,
+	&.h-dark,
+	&.h-light {
+		padding: var(--theme-btn-padding-y) var(--theme-btn-padding-x);
+		border-radius: $btn-border-radius;
+
+		body:not(.windows-os) & {
+			padding: calc(var(--theme-btn-padding-y) + var(--theme-windows-offset-half)) var(--theme-btn-padding-x);
+		}
+	}
+
+	&.dark,
+	&.light,
+	&.secondary {
+		--theme-link-hover-color : var(--theme-color-primary-contrast);
+
+		&:before{
+			content: '';
+			position: absolute;
+			left: 100%;
+			top: 0;
+			right: 0;
+			height: 100%;
+			background-color: var(--theme-color-secondary);
+			transition: $transition;
+			z-index: 0;
+		}
+	}
+
+
+	.link-text {
+		position: relative;
+	//	transition: $transition;
+		z-index: 1;
+
+		// Button's text needs bottom padding because the font has spacing at the top on Windows.
+		// This is for vertical alignment purposes.
+	//	.windows-os & {
+	//		padding-bottom: $btn-text-padding-bottom;
+	//	}
+	}
+
+	// Button Style
+	&.dark {
+		color: var(--theme-color-primary-contrast);
+		background-color: var(--theme-color-primary);
+		border-color: var(--theme-color-primary);
+
+		--theme-link-color: var(--theme-color-primary-contrast);
+		--theme-link-hover-color: var(--theme-color-primary-contrast);
+	}
+
+	&.light {
+		color: var(--theme-color-primary);
+		// --theme-btn-color: var(--theme-color-primary);
+		background-color: var(--theme-color-softlime);
+		border-color: var(--theme-color-primary-contrast);
+
+		--theme-link-hover-color: var(--theme-color-primary);
+
+		&:hover {
+			color: var(--theme-color-primary);
+		}
+	}
+
+	&.secondary {
+		color: var(--theme-color-primary);
+		background-color: var(--theme-color-secondary);
+		border-color: var(--theme-color-secondary);
+
+		--theme-link-color: var(--theme-color-primary-contrast);
+		--theme-link-hover-color: var(--theme-color-primary-contrast);
+
+		&:before{
+			background-color: var(--theme-color-primary);
+		}
+	}
+
+	// button hover
+	&:hover,
+	&:focus,
+	&:active {
+		color: var(--theme-color-primary-contrast);
+
+		&:before{
+			left: 0;
+			animation: buttonSwipe 0.3s ease-in-out;
+		}
+	}
+
+	// // background swipe left
+	// &.sw-left {
+	// 	&.dark,
+	// 	&.light,
+	// 	&.secondary {
+	// 		&:before{
+	// 			left: 0;
+	// 			right: 100%;
+	// 		}
+			
+	// 		&:hover,
+	// 		&:focus,
+	// 		&:active {
+	// 			&:before{
+	// 				right: 0;
+	// 				animation: buttonSwipeLeft 0.3s ease-in-out;
+	// 			}
+	// 		}
+	// 	}
+	// }
+	
+	// hollow buttons
+	&.h-dark,
+	&.h-light {
+		box-shadow: inset 0 0 0 2px var(--theme-btn-border-color);
+		--theme-link-color: var(--theme-color-secondary);
+	}
+	
+	&.h-dark {
+		color: var(--theme-color-primary);
+		background-color: transparent;
+		--theme-btn-border-color: var(--theme-color-primary);
+		--theme-link-color: var(--theme-color-primary);
+		--theme-link-hover-color: var(--theme-color-secondary);
+	}
+	
+	&.h-light {
+		color: var(--theme-color-primary-contrast);
+		background-color: transparent;
+		--theme-btn-border-color: var(--theme-color-primary-contrast);
+	}
+
+	// hollow button hover
+	&.h-dark,
+	&.h-light {
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--theme-color-secondary);
+			background-color: transparent;
+			--theme-btn-border-color: var(--theme-color-secondary);
+		}
+	}
+	
+	// text link
+	&.t-dark,
+	&.t-light {
+		// padding: var(--theme-btn-padding-y) 0;
+		padding: 15px 0;
+		font-weight: 600;
+		min-width: 0;
+		line-height: 1;
+		font-size: px-to-rem(18px);
+
+		&:not(:last-child) {
+			margin-right: 1rem;
+		}
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			height: 2px;
+
+			bottom: .25rem;
+			transition: $transition;
+		}
+		&:before {
+			left: 0;
+			width: 0;
+			// background-color: var(--theme-color-secondary);
+		}
+		&:after {
+			right: 0;
+			width: 100%;
+		}
+	}
+
+	&.t-dark {
+		color: var(--theme-color-primary);
+		--theme-link-color : var(--theme-color-primary);
+
+		&:before {
+			// background-color: var(--theme-color-primary);
+		}
+		&:after {
+			background-color: var(--theme-color-secondary);
+		}
+	}
+	
+	&.t-light {
+		color: var(--theme-color-primary-contrast);
+		--theme-link-color : var(--theme-color-primary-contrast);
+
+		&:after{
+			background-color: var(--theme-color-primary-contrast);
+		}
+	}
+	
+
+	// hollow button hover
+	&.t-dark,
+	&.t-light {
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--theme-color-secondary);
+
+			&:before {
+				width: 100%;
+			}
+			&:after {
+				width: 0;
+			}
+		}
+	}
+
+	// background swipe left
+	&.sw-left {
+		&.t-dark,
+		&.t-light {
+			&:before {
+				left: 0;
+				width: 100%;
+			}
+			&:after {
+				right: 0;
+				width: 0;
+				background-color: var(--theme-color-secondary);
+			}
+			
+			&:hover,
+			&:focus,
+			&:active {
+				&:before {
+					width: 0;
+				}
+				&:after {
+					width: 100%;
+				}
+			}
+		}
+
+		&.t-dark {
+			&:before{
+				background-color: var(--theme-color-primary);
+			}
+		}		
+		&.t-light {
+			&:before{
+				background-color: var(--theme-color-primary-contrast);
+			}
+		}
+	}
+
+	// tagline
+	&.t-tagline {
+		color: var(--theme-color-primary);
+		--theme-link-color : var(--theme-color-primary);
+		font-size: 1rem;
+    font-family: $font-family-accent;
+		line-height: 1;
+		font-weight: normal;
+		overflow: visible;
+		padding-bottom: 12px;
+		min-width: 0;
+
+		&:after {
+			display: none;
+		}
+
+		&:before {
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: calc(50% - 15px);
+			right: 0;
+			// right: 100%;
+			height: 5px;
+			background-image: svg-uri($svg-underline);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-color: transparent !important;
+			content: '';
+			transform-origin: 100%;
+			transition: transform 0.15s ease;
+			animation: none;
+
+			transform: none;
+		}
+
+
+		// &:after{
+		// 	background-color: var(--theme-color-primary);
+		// }
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--theme-color-secondary);
+
+			&:before {
+				transform: scaleX(0);
+			}
+		}
+
+	}
+	
+
+	// Button Size, medium is the default size
+	&.small {
+		--theme-btn-padding-x: #{$btn-padding-sm-x};
+		--theme-btn-padding-y: #{$btn-padding-sm-y};
+	}
+	&.large {
+		--theme-btn-padding-x: #{$btn-padding-lg-x};
+		--theme-btn-padding-y: #{$btn-padding-lg-y};
+	}
+	&.xlarge {
+		--theme-btn-padding-x: #{$btn-padding-xl-x};
+		--theme-btn-padding-y: #{$btn-padding-xl-y};
+	}
+
+	// Button Icon
+
+
+	// button disabled
+	&.disabled,
+	&:disabled {
+		color: var(--theme-btn-disabled-color);
+		background-color: var(--theme-btn-disabled-bg-color);
+		border-color: var(--theme-btn-disabled-border-color);
+	}
+
+}
+
+// Button's text needs bottom padding because the font has spacing at the top on Windows.
+// This is for vertical alignment purposes.
+.windows-os .link-text {
+	// padding-bottom: $btn-text-padding-bottom;
+	padding-bottom: var(--theme-windows-offset-half);
+}
+
+@keyframes buttonSwipe {
+	from {left: 0; right: 100%;}
+	to {left: 0; right: 0;}
+}
+@keyframes buttonSwipeLeft {
+	from { left: 100%; right: 0; }
+	to { left: 0; right: 0; }
+}
+
+
+
+// exceptions
+// for .intro-text-cta, which has theme bg color lime, fix button hover color
+.intro-text-cta {
+	.btn.dark,
+	.btn.light {
+		&:hover {
+			color: var(--theme-color-primary);
+			&:before {
+				background-color: #fff;
+			}
+		}
+	}
+}

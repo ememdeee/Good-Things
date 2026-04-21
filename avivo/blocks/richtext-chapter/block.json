@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/richtext-chapter",
+	"title": "Rich Text with Chapter",
+	"description": "A rich text with chapter",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["content", "text"],
+	"editorStyle":  "file:./css/richtext-chapter-editor.css",
+	"style":  "file:./css/richtext-chapter.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/richtext-chapter/richtext-chapter.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Rich Text with Chapter Preview"
+		}
+	},
+	"render": "/blocks/richtext-chapter/richtext-chapter.php"
+}

@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/logo-slider",
+	"title": "Logo Slider",
+	"description": "A Logo Slider with image, caption, and link.",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["logo", "slider"],
+	"editorScript": "file:./js/logo-slider-editor.min.js",
+	"editorStyle":  "file:./css/logo-slider-editor.css",
+	"viewScript": "file:./js/logo-slider.min.js",
+	"viewStyle":  "file:./css/logo-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/logo-slider/logo-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Logo slider Preview"
+		}
+	},
+	"render": "/blocks/logo-slider/logo-slider.php"
+}

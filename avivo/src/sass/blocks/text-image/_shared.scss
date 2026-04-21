@@ -1,0 +1,123 @@
+//-----------------------------------
+// Rich Text & Image Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-text_image {
+	.cdb-text_image {}
+
+	.text-image__content-container {
+		display: flex;
+		flex-direction: column;
+
+		@include media-breakpoint-up(lg) {
+			flex-direction: row;
+			// align-items: center;
+		}
+	}
+
+	.cdb-text_image--image-right {
+		@include media-breakpoint-up(lg) {
+			.text-image__content {
+				order: 1;
+				// padding-left: 30px;
+				// padding-right: 0;
+			}
+
+			.text-image__image {
+				order: 2;
+				// // margin-bottom: 0;
+				// padding-right: 30px;
+				// padding-left: 0;
+			}
+		}
+
+	}
+
+	.text-image__image {
+		width: 100%;
+		// margin-bottom: 50px;
+		position: relative;
+		// height: 300px;
+
+		@include media-breakpoint-up(lg) {
+			width: 50%;
+			height: auto;
+			// margin-bottom: 0;
+		}
+
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			aspect-ratio: 515 / 406;
+			@include media-breakpoint-up(lg) {
+				position: absolute;
+				left: 0;
+				top: 0;
+				aspect-ratio: auto;
+			}
+
+		}
+	}
+
+	.text-image__content {
+		width: 100%;
+
+		@include media-breakpoint-up(lg) {
+			width: 50%;
+		}
+
+	}
+
+	.cdb-text_image--style-simple {
+		.text-image__image {
+			margin-bottom: var(--theme-spacing-lg);
+        @include media-breakpoint-up(lg) {
+						margin-bottom: 0;
+        }
+
+		}
+		.text-image__content {
+			@include media-breakpoint-up(lg) {
+				padding-right: 0;
+				padding-left: var(--theme-spacing-lg);
+			}
+		}
+
+		&.cdb-text_image--image-right {
+			.text-image__content {
+				@include media-breakpoint-up(lg) {
+					padding-right: var(--theme-spacing-lg);
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	.cdb-text_image--style-boxed {
+
+		&.sc-default {
+			background-color: var(--theme-color-base-dark);
+		}
+
+		.text-image__content {
+			padding: var(--theme-spacing-lg) var(--theme-spacing-xl);
+		}
+	} 
+
+	.cdb-text_image--with-quote {
+		// border: solid 1px fuchsia;
+		.text-image__quote {
+			margin-bottom: 20px;
+		}
+	}
+}

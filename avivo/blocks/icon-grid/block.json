@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/icon-grid",
+	"title": "Icon Grid",
+	"description": "An icon grid with title, text, and button for each item.",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["icon", "grid", "content"],
+	"editorStyle": "file:./css/icon-grid-editor.css",
+	"viewStyle": "file:./css/icon-grid.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/icon-grid/icon-grid.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Icon Grid Preview"
+		}
+	},
+	"render": "/blocks/icon-grid/icon-grid.php"
+}

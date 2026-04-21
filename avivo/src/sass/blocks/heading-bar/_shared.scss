@@ -1,0 +1,22 @@
+//-----------------------------------
+// Heading Bar Block Shared CSS
+//-----------------------------------
+@import "../../theme/theme_variables";
+@mixin cdb-heading_bar {
+	.cdb-heading_bar {
+		.heading_bar-container {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+		.title_wrapper {
+			margin-bottom: 0;
+		}
+		.title {
+			font-family: $font-family-base;
+			font-size: $font-size-base;
+			color: var(--theme-text-color);
+			text-align: center;
+			padding-bottom: .25rem;
+		}
+	}
+}

@@ -1,0 +1,3 @@
+#adminmenu .menu-counter, #adminmenu .awaiting-mod, #adminmenu .update-plugins {
+    display: none;
+}

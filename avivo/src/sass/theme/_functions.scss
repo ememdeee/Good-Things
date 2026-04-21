@@ -1,0 +1,233 @@
+@function cd-image-url($url) {
+    @return url($img-path + '/' + $url);
+}
+
+@function cd-font-url($url) {
+    @return url($font-path + $url);
+}
+
+
+@mixin cd-base-font($weight: 'regular') {
+  font-family: $font-family-base;
+  @if ($weight == 'light') {
+    font-weight: 300;
+  } @else if ($weight == 'regular') {
+    font-weight: 400;
+  } @else if ($weight == 'medium') {
+    font-weight: 500;
+  } @else if ($weight == 'book') {
+    font-weight: 600;
+  } @else if ($weight == 'bold') {
+    font-weight: 700;
+  } @else {
+    font-weight: 400;
+  }
+}
+
+@mixin cd-heading-font($weight: 'bold') {
+  font-family: $headings-font-family;
+  @if ($weight == 'medium') {
+    font-weight: 500;
+  } @else if ($weight == 'bold') {
+    font-weight: 600;
+  } @else {
+    font-weight: 400;
+  }  
+}
+
+// @mixin section-heading() {
+//   @include cd-heading-font('bold');
+
+//   // font-size: 48px;
+//   line-height: 120%;  
+//   @include media-breakpoint-up(md) {
+//     // font-size: 46px;
+//   }
+
+//   strong {
+//     color: $primary;
+//   }
+// }
+
+@mixin section-base-margin() {
+	margin-bottom: 3rem;
+
+	@include media-breakpoint-up(md) {
+		margin-bottom: px-to-rem(80px);
+	}
+
+  // inside main content
+  .inner-container .inner-content & {
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: px-to-rem(50px);
+    }
+
+  }
+
+}
+
+
+/// A small function allowing skipping base64 encoding
+/// and simply pasting the SVG markup right in the CSS.
+/// @author Jakob Eriksen
+/// @link http://codepen.io/jakob-e/pen/doMoML
+/// @param {String} $svg - SVG image to encode
+/// @return {String} - Encoded SVG data uri
+@function svg-uri($svg) {
+  $encoded: '';
+  $slice: 2000;
+  $index: 0;
+  $loops: ceil(str-length($svg) / $slice);
+
+  @for $i from 1 through $loops {
+      $chunk: str-slice($svg, $index, $index + $slice - 1);
+      $chunk: str-replace($chunk, '"', "'");
+      $chunk: str-replace($chunk, '<', '%3C');
+      $chunk: str-replace($chunk, '>', '%3E');
+      $chunk: str-replace($chunk, '&', '%26');
+      $chunk: str-replace($chunk, '#', '%23');
+      $encoded: #{$encoded}#{$chunk};
+      $index: $index + $slice;
+  }
+
+  @return url("data:image/svg+xml;charset=utf8,#{$encoded}");
+}
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @link http://sassmeister.com/gist/1b4f2da5527830088e4d
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+      @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin list-unstyled() {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+	  padding: 0;
+	  margin: 0;
+	  &:before {
+		  content: '';
+		  display: none;
+	  }
+  }
+}
+
+@mixin cd-subtitle() {
+  margin-bottom: 11px;
+  font-size: 1rem;
+  @include cd-heading-font('bold');
+  color: $secondary;
+  
+  letter-spacing: 0.05em;
+  text-transform: uppercase;  
+}
+
+@function px-to-rem($px) {
+  @return ($px / 16px) * 1rem;
+}
+
+
+// filters
+$cd-colors-name: (
+    'primary' : ( 
+        'color': #DB2E65,
+        'filter': invert(23%) sepia(72%) saturate(2958%) hue-rotate(324deg) brightness(92%) contrast(86%)
+        ),
+    'secondary' : ( 
+        'color': #601664,
+        'filter': invert(12%) sepia(31%) saturate(6445%) hue-rotate(283deg) brightness(95%) contrast(96%)
+        ),
+    'tertiary' : ( 
+        'color': #D64D00,
+        'filter': invert(31%) sepia(47%) saturate(3490%) hue-rotate(13deg) brightness(95%) contrast(101%) 
+        ),       
+    'white' : ( 
+        'color': #ffffff,
+        'filter': brightness(0) invert(1)
+        ),
+    'black' : ( 
+        'color': #000000,
+        'filter': brightness(0) saturate(100%)
+        ),
+    'lighpurple': ( 
+        'color': #F6CAEF,
+        'filter': invert(100%) sepia(87%) saturate(969%) hue-rotate(273deg) brightness(94%) contrast(106%)
+        ),
+    'lightorange': (
+        'color': #F7DBCC,
+        'filter': invert(99%) sepia(45%) saturate(1509%) hue-rotate(296deg) brightness(104%) contrast(94%)
+        ),
+    'lightpink': (
+        'color': #F8D5E0,
+        'filter': invert(75%) sepia(36%) saturate(138%) hue-rotate(293deg) brightness(111%) contrast(95%)
+        )
+);
+
+@function cd-get-filter($color-key: 'primary') {
+    $color: map-get($cd-colors-name, $color-key);
+    @return map-get($color, 'filter');
+}
+
+
+
+
+
+
+
+// responsive
+// mobile - tablet - laptop - desktop
+
+// means tablet and up
+@mixin navbar-tablet-up() {
+	@include media-breakpoint-up(md) {
+		@content;
+	}
+}
+
+// desktop and up
+@mixin navbar-desktop-up() {
+	// @include media-breakpoint-up(lg) {
+	// 	@content;
+	// }
+	@media only screen and (min-width: $desktop-lg-nav ) {
+		@content;
+	}
+}
+
+// widescreen and up
+@mixin navbar-widescreen-up() {
+	@include media-breakpoint-up(xxl) {
+		@content;
+	}
+}
+
+// tablet and down
+@mixin navbar-tablet-down() {
+	// @include media-breakpoint-down(lg) {
+	// 	@content;
+	// }
+	@media only screen and (max-width: ($desktop-lg-nav - .02)) {
+		@content;
+	}
+}
+// mobile and down
+@mixin navbar-mobile-down() {
+	@include media-breakpoint-down(md) {
+		@content;
+	}
+}

@@ -1,0 +1,76 @@
+//-----------------------------------
+// Images
+//-----------------------------------
+:root {
+
+	// svg, icon
+	--theme-icon-search					: url('../img/svg/ic-search.svg');
+	--theme-icon-close					: url('../img/svg/ic-close.svg');
+	--theme-icon-calendar				: url('../img/svg/calendar.svg');
+	--theme-icon-phone				: url('../img/svg/phone.svg');
+	--theme-icon-scroll					: url('../img/svg/ic-scroll.svg');
+	--theme-arrow-right					: url('../img/svg/arrow-right.svg');
+	--theme-arrow-left					: url('../img/svg/arrow-left.svg');
+	--theme-arrow-right-white					: url('../img/svg/arrow-right-w.svg');
+
+	--theme-arr-dropdown				: url('../img/svg/arrow-dropdown.svg');
+	--theme-arr-dropdown-black			: url('../img/svg/arrow-dropdown-k.svg');
+	--theme-arr-next					: url('../img/svg/arrow-next.svg');
+
+	// menu icons
+	--theme-icon-book-small				: url('../img/svg/icon-book-small.svg');
+	--theme-icon-hands-small			: url('../img/svg/icon-hands-small.svg');
+	--theme-icon-invoice-small			: url('../img/svg/icon-invoice-small.svg');
+	--theme-icon-users-small			: url('../img/svg/icon-users-small.svg');
+
+	--theme-star-full					: url('../img/svg/star.svg');
+	--theme-star-half					: url('../img/svg/star-half.svg');
+	--theme-star-empty					: url('../img/svg/star-empty.svg');
+
+	// social
+	--theme-logo-facebook				: url('../img/svg/logo-facebook.svg');
+	--theme-logo-instagram				: url('../img/svg/logo-instagram.svg');
+	--theme-logo-linkedin				: url('../img/svg/logo-linkedin.svg');
+	--theme-logo-tiktok					: url('../img/svg/logo-tiktok.svg');
+}
+
+.cube {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 150px;
+	height: 150px;
+	transform-style: preserve-3d;
+	animation: rotateCube 20s infinite linear;
+}
+
+.cube div {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	border: 1px solid var(--theme-text-color); /* Wireframe effect */
+	opacity: .1;
+	box-sizing: border-box;
+	background: transparent;
+}
+
+/* Position each face of the cube */
+.cube .front { transform: translateZ(75px); }
+.cube .back { transform: rotateY(180deg) translateZ(75px); }
+.cube .right { transform: rotateY(90deg) translateZ(75px); }
+.cube .left { transform: rotateY(-90deg) translateZ(75px); }
+.cube .top { transform: rotateX(90deg) translateZ(75px); }
+.cube .bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+/* Animation for rotating the cube */
+@keyframes rotateCube {
+	0% {
+		transform: scale(1.5) rotateX(0deg) rotateY(0deg);
+	}
+	50% {
+		transform: scale(2.5) rotateX(360deg) rotateY(360deg);
+	}
+	100% {
+		transform: scale(1.5) rotateX(0deg) rotateY(0deg);
+	}
+}

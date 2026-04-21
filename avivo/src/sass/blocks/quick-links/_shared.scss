@@ -1,0 +1,20 @@
+//-----------------------------------
+// Section Quick Links Block Shared CSS
+//-----------------------------------
+@mixin cdb-quick_links {
+	.cdb-quick_links {
+		.section-heading__icon-list {
+			overflow: hidden;
+			margin-top: 0;
+			&:last-child {
+				.nav-iconlist {
+					margin-bottom: -15px !important;
+					li {
+					}
+				}
+			}
+		}
+	}
+
+
+}

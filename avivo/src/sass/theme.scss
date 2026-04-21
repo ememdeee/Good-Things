@@ -1,0 +1,33 @@
+@import "theme/functions";
+@import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
+@import "assets/bootstrap5";      // <-------- Loads Bootstrap4
+
+//---------------------------------------------------------------
+// That's where you can add your own design. Thats your part!
+//---------------------------------------------------------------
+
+//nav
+// @import 'assets/nav/hc-offcanvas-nav.clue'; // moved to nav
+
+// Plugins
+// @import './plugins/slick';
+// @import './plugins/slick-theme';
+@import './plugins/aos';
+
+// Theme
+@import 'theme/css-variables';
+@import 'theme/images';
+@import 'theme/type';
+@import 'theme/buttons';
+@import 'theme/icons';
+@import 'theme/forms';
+@import 'theme/layout';
+@import 'theme/cards';
+@import 'theme/nav-shared';
+@import 'theme/header';
+@import 'theme/footer';
+@import 'theme/animations';
+// @import 'theme/nav'; // moved to nav
+//  @import 'theme/modules';
+//	@import 'theme/categories';
+//	@import 'theme/custom';

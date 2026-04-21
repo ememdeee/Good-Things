@@ -1,0 +1,53 @@
+// header & page animations
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes headerIn {
+   0% {
+      -webkit-transform: translate3d(0, -100%, 0);
+      -ms-transform: translate3d(0 -100%, 0);
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+   }
+   100% {
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none;
+      opacity: 1;
+   }
+}
+
+/* ONLY RUN ANIMATIONS ON DESKTOP */
+@media (min-width: 992px) {
+	div.wrapper, #wrapper-navbar  {
+		-webkit-transition-timing-function: ease-in;
+		transition-timing-function: ease-in;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+
+	div.wrapper {
+		-webkit-animation-duration: 1s;
+		animation-duration: 1s;
+		-webkit-animation-name: fadeIn;
+		animation-name: fadeIn;
+		-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+	}
+
+	#wrapper-navbar {
+		-webkit-animation-duration: 0.5s;
+		animation-duration: 0.5s;
+		-webkit-animation-name: headerIn;
+		animation-name: headerIn;
+		-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+	//    animation-timing-function: ease 0s;
+	}
+}

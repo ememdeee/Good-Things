@@ -1,0 +1,59 @@
+{
+    "key": "group_66d69b07c1769",
+    "title": "Layout - Columns (Small)",
+    "fields": [
+        {
+            "key": "field_66d69b07c9d2d",
+            "label": "Number of Column",
+            "name": "section_column",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2 columns",
+                "3": "3 columns",
+                "4": "4 columns",
+                "5": "5 columns",
+                "6": "6 columns",
+                "7": "7 columns",
+                "8": "8 columns",
+                "9": "9 columns",
+                "10": "10 columns"
+            },
+            "default_value": 5,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1728952246
+}

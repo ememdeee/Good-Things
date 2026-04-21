@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/button-row",
+	"title": "Button Row",
+	"description": "Button Row block with title, text, and button.",
+	"category": "theme-blocks",
+	"icon": "button",
+	"keywords": ["content", "text", "intro"],
+	"editorStyle":  "file:./css/button-row-editor.css",
+	"style":  "file:./css/button-row.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/button-row/button-row.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Button Row Preview"
+		}
+	},
+	"render": "/blocks/button-row/button-row.php"
+}

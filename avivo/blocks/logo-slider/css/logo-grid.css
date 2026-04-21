@@ -1,0 +1,12 @@
+.cdb-logo_grid .grid-item a {
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.cdb-logo_grid .grid-item a::before {
+  display: none;
+}
+
+/*# sourceMappingURL=logo-grid.css.map */

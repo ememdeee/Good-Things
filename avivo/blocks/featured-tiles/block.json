@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/featured-tiles",
+	"title": "Featured Tiles",
+	"description": "A Featured Tiles with title, text, and button on each slide.",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["slider", "content", "text"],
+	"editorStyle":  "file:./css/featured-tiles-editor.css",
+	"viewStyle":  "file:./css/featured-tiles.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/featured-tiles/featured-tiles.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Featured Tiles Preview"
+		}
+	},
+	"render": "/blocks/featured-tiles/featured-tiles.php"
+}

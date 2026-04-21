@@ -1,0 +1,189 @@
+//-----------------------------------
+// Tab Group Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-tab_group {
+        .cdb-tab_group {
+            /* Base styles for the tab component container */
+            // margin-bottom: 2rem; /* Example spacing between multiple tab groups */
+            // border: 1px solid #e0e0e0;
+            // border-radius: 0.5rem;
+            // overflow: hidden; /* Ensures rounded corners are respected */
+            // background-color: #fff;
+            // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            // max-width: 800px; /* Max width for readability */
+        }
+
+        .tab-group__tabs {
+            /* Container for the tab list */
+            // background-color: #f5f5f5;
+            // border-bottom: 1px solid #e0e0e0;
+            padding: 0 1.5rem; /* Padding for the tab area */
+
+            @include media-breakpoint-down(md) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+        }
+
+        .tab-group__tab-list {
+            /* The actual ul element for tabs */
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; /* Allow tabs to wrap if many */
+            justify-content: center;
+
+            // mobile
+            @include media-breakpoint-down(md) {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                justify-content: flex-start;
+            }
+            
+        }
+
+        .tab-group__tab-item {
+            /* Each li element */
+            /* No margin-right here, gap handled by button padding */
+        }
+
+        .tab-group__tab-button {
+            /* The button inside each li */
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            // font-weight: 500;
+            color: var(--theme-color-grey);
+            // border-bottom: 3px solid transparent; /* For active indicator */
+            transition: all 0.3s ease-in-out;
+            white-space: nowrap; /* Prevent text wrapping in tabs */
+            // border-radius: 0.25rem 0.25rem 0 0; /* Rounded top corners */
+            font-family: $font-family-accent;
+            position: relative;
+
+            @include media-breakpoint-down(md) {
+                font-size: 18px;
+            }
+
+
+            &:before {
+              display: block;
+              position: absolute;
+              left: 1.5rem;
+              bottom: calc(50% - 18px);
+              right: 1.5rem;
+              // right: 100%;
+              height: 5px;
+              background-image: svg-uri($svg-underline);
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              background-color: transparent !important;
+              content: '';
+              transform: scaleX(0);
+              transform-origin: 36%;
+              transition: transform 0.15s ease;
+            }
+
+        }
+
+        .tab-group__tab-heading {
+            margin: 0;
+        }
+
+        .tab-group__tab-button:hover:not([aria-selected="true"]) {
+            color: var(--theme-color-secondary);
+            // background-color: #e9e9e9;
+        }
+
+        .tab-group__tab-button[aria-selected="true"] {
+            color: var(--theme-color-primary);
+            // border-color: #007bff; /* Active tab indicator */
+            // background-color: #fff;
+            // font-weight: 600;
+            // box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow for active tab */
+
+            &:before {
+              right: 1.5rem;
+              transform: none;
+            }
+
+        }
+
+        .tab-group__tab-button:focus {
+            outline: 2px solid var(--theme-color-primary);
+            outline-offset: 2px;
+            border-radius: 0.25rem;
+        }
+
+        .tab-group__content {
+            /* Container for tab panels */
+            // padding: 1.5rem;
+            // background-color: #fff;
+            position: relative; /* For positioning panels for fade effect */
+            min-height: 150px; /* Ensure content area has a minimum height */
+        }
+
+        .cdb-tab_panel {
+            /* Each tab panel */
+            opacity: 0;
+            position: absolute; /* To prevent CLS and allow fade effect */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Take full height of content area */
+            visibility: hidden; /* Hide completely when not active */
+            transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s; /* Delay visibility change */
+            box-sizing: border-box; /* Include padding in width/height */
+            // padding: 1.5rem; /* Match parent padding */
+        }
+
+        .tab-panel--active {
+            opacity: 1;
+            position: relative; /* Bring back into flow when active */
+            visibility: visible;
+            transition: opacity 0.3s ease-in-out; /* No delay for visibility when active */
+        }
+
+        /* Initial state for CLS prevention:
+           All panels are hidden by default. JS will show the active one. */
+        .cdb-tab_group .cdb-tab_panel {
+            display: none; /* Hide all panels by default to prevent CLS */
+        }
+
+        .cdb-tab_group .cdb-tab_panel.tab-panel--active {
+            display: block; /* Show the active panel */
+        }
+
+        // /* Utility classes for content within panels */
+        // .wpdblock {
+        //     margin-bottom: 1rem;
+        // }
+
+        // .panel-heading {
+        //     font-size: 1.25rem; /* text-xl */
+        //     font-weight: 600; /* font-semibold */
+        //     margin-bottom: 0.5rem; /* mb-2 */
+        // }
+
+        // .panel-list {
+        //     list-style: disc; /* list-disc */
+        //     list-style-position: inside; /* list-inside */
+        //     margin-left: 1rem; /* ml-4 */
+        // }
+
+}

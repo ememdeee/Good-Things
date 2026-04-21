@@ -1,0 +1,20 @@
+@import './mixins';
+
+.hc-nav-trigger {
+	@include hc-hamburger;
+
+	$hamburger-top: 23px;
+	position: fixed;
+	left: auto;
+	right: 20px;
+	top: $hamburger-top;
+	z-index: 10000;
+
+	.admin-bar & {
+		top: calc(46px + $hamburger-top);
+
+		@media screen and (min-width:768px) {
+			top: calc(32px + $hamburger-top);
+		}
+	}
+}

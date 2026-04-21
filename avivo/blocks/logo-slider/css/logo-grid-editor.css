@@ -1,0 +1,12 @@
+.editor-visual-editor .block-editor-block-list__layout .cdb-logo_grid .grid-item a {
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.editor-visual-editor .block-editor-block-list__layout .cdb-logo_grid .grid-item a::before {
+  display: none;
+}
+
+/*# sourceMappingURL=logo-grid-editor.css.map */

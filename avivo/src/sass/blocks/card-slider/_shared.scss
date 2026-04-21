@@ -1,0 +1,168 @@
+//-----------------------------------
+// Card Slider Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+
+@mixin cdb-card_slider {
+	.cdb-card_slider {
+		overflow: hidden;
+
+		--heading-bottom-margin: 3rem;
+
+		// slider settings
+		.cdb-slider__arrows {
+			position: absolute;
+			bottom: -30px - 40px;
+			width: 100%;
+
+			@media (max-width: 768px) {
+				display: none;
+			}
+
+			.splide__arrow {
+				position: relative;
+				top: auto;
+				transform: none;
+
+				&.splide__arrow--prev {
+					left: auto;
+				}
+
+				&.splide__arrow--next {
+					right: auto;
+				}
+			}
+		}
+
+		.splide__arrows_container {
+			display: flex;
+			gap: 1rem;
+			justify-content: space-between;
+		}
+
+		.single-page .cdb-slider__arrows {
+			display: none;
+		}
+
+		.splide__pagination {
+			// display: none;
+			bottom: -57px;
+		}
+
+		.splide__track {
+			overflow: visible;
+		}
+
+		.splide__slide {
+			overflow: hidden;
+		}
+		
+		.splide__pagination__page:not(.is-active) {
+			background-color: rgba(255,255,255,0.2);
+		}
+	}
+
+	.card-slider__heading {
+		// @media (min-width: 768px) {
+		// 	max-width: min(910px, calc(100% - 8rem));
+		// }
+
+		// margin-bottom: var(--heading-bottom-margin);
+	}
+
+	.card-slide__link {
+		display: block;
+		text-wrap: wrap !important;
+		color: inherit !important;
+
+		&:before {
+			display: none;
+		}
+
+		@media (min-width: 768px) {
+
+			&:hover,
+			&:focus {
+				.card-slide__image img {
+					transform: scale(1.05);
+				}
+
+				.card-slide__overlay {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.card-slider__slider {
+		margin-bottom: 70px;
+	}
+
+	.card-slide__image {
+		position: relative;
+		overflow: hidden;
+		border: 1px solid var(--theme-bg-color); // ClueEdit: fix webkit rendering issue
+		border-radius: 18px;
+
+		&:before {
+			content: '';
+			position: relative;
+			display: block;
+			width: 100%;
+			padding-bottom: 125%;
+			z-index: 1;
+
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 68.4%, rgba(0, 0, 0, 0.7) 100%);
+		}
+
+		img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			display: block;
+			object-fit: cover;
+			transition: all 2s ease 0s;
+		}
+	}
+
+	.card-slide__content {
+		position: absolute;
+		bottom: 0;
+		left: 24px;
+		right: 24px;
+		bottom: 30px;
+		z-index: 2;
+		padding-right: 50px;
+
+		&:after {
+			background-image: svg-uri($svg-arrow-right-circle);
+			background-size: 36px 36px;
+			display: block;
+			position: absolute;
+			content: '';
+			width: 36px;
+			height: 36px;
+			// top: 50%;
+			right: 0;
+			bottom: -3px;
+			// transform: translate(0, -50%);
+		}
+
+	}
+
+	.card-slide__title {
+		color: var(--theme-color-primary-contrast);
+		font-size: 21px;
+		font-weight: 900;
+		text-wrap: wrap !important;
+		line-height: 1.2;
+	}
+
+	.card-slider__heading {
+		margin-bottom: 60px;
+	}
+}

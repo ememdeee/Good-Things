@@ -1,0 +1,121 @@
+//-----------------------------------
+// Clue Splide Slider Theme
+//-----------------------------------
+$main: #BCCF00 !default;
+$main-light: rgba(188, 207, 0, 0.29) !default;
+
+@use '../../template/default/foundation/colors' with (
+	$main: $main,
+	$sub01: $main,
+	$sub02: $main,
+	$background: #ccc,
+	$background-active: $main,
+	$focus: $main,
+);
+
+@use '../../template/default/object/modifiers/nav' with (
+	$opacity: .7,
+	$opacity-active: 1,
+);
+
+@use '../../template/default/object/objects/arrow' with (
+	$size: 3rem,
+	$opacity: false,
+	$opacity-hover: false,
+	$fill-hover: $main-light,
+	$transition: fill .2s linear,
+	$button-size: 3rem,
+	$button-border-radius: 0,
+	$button-background: transparent,
+);
+
+@use '../../template/default/object/objects/pagination' with (
+	$dot-width: 20px,
+	$dot-height: 5px,
+	$dot-opacity: false,
+	$dot-border-radius: 2.5px,
+	$dot-transition: background-color .2s linear,
+	$dot-background-hover: $main-light,
+	$dot-transform-active: false,
+);
+
+@forward '../../template/default';
+
+//-----------------------------------
+// Slider Customization
+//-----------------------------------
+@import "../../../../theme/functions";
+@import "../../../../theme/theme_variables";
+
+.cdb-slider__arrows {
+
+	.splide__arrow {
+		// border: 1px solid var(--theme-slider-arrow-border-color);
+		transition: $transition;
+		background-color: var(--theme-color-secondary);
+		border-radius: 50px;
+		width: 40px;
+		height: 40px;
+
+		&::before {
+			content: '';
+			width: 1rem;
+			height: .75rem;
+			background-color: var(--theme-slider-arrow-color);
+			display: block;
+			mask: center center / contain no-repeat;
+			transition: $transition;
+		}
+		&.splide__arrow--prev {
+			&::before { mask-image:  url('../img/svg/arrow-left-chevron.svg');	}
+		}
+		&.splide__arrow--next {
+			&::before { mask-image:  url('../img/svg/arrow-right-chevron.svg');	}
+		}
+
+		&:hover {
+			border-color: var(--theme-slider-arrow-hover-border-color);
+			&::before {
+				// background-color: var(--theme-slider-arrow-hover-color);
+			}
+			&.splide__arrow--prev {
+				// &::before { transform: translateX(-.3rem);	}
+			}
+			&.splide__arrow--next {
+				// &::before { transform: translateX(.3rem);	}
+			}
+		}
+
+		// arrow disabled
+		&:disabled {
+			opacity: 1;
+			cursor: default;
+			border-color: var(--theme-slider-arrow-disabled-border-color);
+			&::before {
+				background-color: var(--theme-slider-arrow-disabled-color);
+			}
+			&.splide__arrow--prev,
+			&.splide__arrow--next {
+				&::before { transform: none;	}
+			}
+		}
+	}
+
+}
+
+.splide__pagination {
+	bottom: 40px - 6px;
+}
+	.splide__pagination__page {
+		height: 8px;
+		width: 8px;
+		border-radius: 30px;
+		// background-color: #fff;
+		transition: all 0.3s ease 0s;
+		margin: 7px;
+
+		&.is-active {
+			width: 14px;
+			height: 14px;
+		}
+	}

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/featured-image",
+	"title": "Featured Image",
+	"description": "Section Featured Image with adjustable height.",
+	"category": "theme-blocks",
+	"icon": "cover-image",
+	"keywords": ["featured", "image"],
+	"editorStyle":  "file:./css/featured-image-editor.css",
+	"style":  "file:./css/featured-image.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/featured-image/featured-image.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Featured Image Preview"
+		}
+	},
+	"render": "/blocks/featured-image/featured-image.php"
+}

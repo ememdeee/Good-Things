@@ -1,0 +1,30 @@
+//-----------------------------------
+// Calendly Form Block Shared CSS
+//-----------------------------------
+@mixin cdb-calendly_form {
+	.cdb-calendly_form {
+		.content-container {
+			display: grid;
+
+			@media (max-width: 991.98px) {
+				gap: 2rem;
+				.text-container {
+					// border-top: 1px solid var(--theme-border-color);
+				}
+			}
+					
+			// Media query for large screen devices
+			@media (min-width: 992px) {
+				grid-template-columns: 4fr 7fr; // 1:2 proportion
+				.text-container {
+					max-width: 460px;
+				}
+			}
+		}
+		
+		.calendly-inline-widget {
+			height: calc(100vh -  var(--theme-mainmenu-height) - var(--theme-wp-admin-bar-height)) !important;
+		}
+
+	}
+}

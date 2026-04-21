@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/tab-panel",
+	"title": "Tab Panel",
+	"description": "A single tab panel within a tab group.",
+	"category": "theme-blocks",
+	"icon": "align-wide",
+	"keywords": ["tab", "panel", "content", "wrapper"],
+	"editorStyle":  "file:./css/tab-panel-editor.css",
+	"style":  "file:./css/tab-panel.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/tab-panel/tab-panel.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"parent": [ "acf/tab-group" ],
+	"innerBlocks": {
+		"allowedBlocks": [],
+			"template": [
+            [ "core/paragraph", {
+                "placeholder": "Add content for this tab panel here..."
+            } ]
+        ]		
+	}
+}

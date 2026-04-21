@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/hero-animation",
+	"title": "Hero Animation",
+	"description": "A Hero Animation with background image, title, text, and button",
+	"category": "theme-blocks",
+	"icon": "cover-image",
+	"keywords": ["slider", "content", "text", "hero"],
+	"editorScript": "file:./js/hero-animation-editor.min.js",
+	"editorStyle":  "file:./css/hero-animation-editor.css",
+	"viewScript": "file:./js/hero-animation.min.js",
+	"style":  "file:./css/hero-animation.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/hero-animation/hero-animation.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Hero Animation Preview"
+		}
+	},
+	"render": "/blocks/hero-animation/hero-animation.php"
+}

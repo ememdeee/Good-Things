@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/hero-banner",
+	"title": "Hero Banner",
+	"description": "Section Hero Banner block.",
+	"category": "theme-blocks",
+	"icon": "align-right",
+	"keywords": ["hero", "banner", "hero banner"],
+	"editorStyle":  "file:./css/hero-banner-editor.css",
+	"style":  "file:./css/hero-banner.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/hero-banner/hero-banner.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Hero Banner Preview"
+		}
+	},
+	"render": "/blocks/hero-banner/hero-banner.php"
+}

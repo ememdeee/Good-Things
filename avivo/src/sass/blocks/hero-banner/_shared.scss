@@ -1,0 +1,55 @@
+//-----------------------------------
+// Hero Banner Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+@mixin cdb-hero_banner {
+	.cdb-hero_banner {
+		
+		.content-container {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			
+			@media (min-width: 992px) {
+				gap: var(--theme-column-spacing);
+			}
+		}
+		.image-container {
+			img {
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
+		}
+		
+		&.imagefirst {
+			.text-container {
+				order: 2;
+			}
+		}
+
+		@media (min-width: 992px) {
+			.content-container {
+				flex-direction: unset;
+				align-items: center;
+			}
+
+			.text-container {
+				width: 45%;
+				flex-shrink: 0;
+			}
+		}
+
+		// for transparent menu add padding top
+		.menu-clear &,
+		.menu-clear-b & {
+			&:first-child {
+			//	.text-container {
+					padding-top: var(--theme-mainmenu-height);
+			//	}
+			}
+		}
+
+	}
+}

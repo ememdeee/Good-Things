@@ -1,0 +1,11 @@
+.cdb-featured_image {
+  position: relative;
+  min-height: 10vh;
+  overflow: hidden;
+}
+.cdb-featured_image.ss-boxed .content-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*# sourceMappingURL=featured-image.css.map */

@@ -1,0 +1,40 @@
+//-----------------------------------
+// Logo Slider Block Shared CSS
+//-----------------------------------
+@import "../../theme/theme_variables";
+@mixin cdb-logo_slider {
+    .cdb-logo_slider {
+        overflow: hidden;
+        .splide__slide {
+        }
+        
+        .splide__track {
+            overflow: visible;
+        }
+    }
+    .logo-slide {
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            height: 8px;
+            width: 8px;
+            position: absolute;
+            top: 50%;
+            right: -34px;
+            background-color: #fff;
+            border-radius: 8px;
+            transform: translate(0,-50%);
+        }
+    }
+
+    .logo-slide__title {
+        font-family: $font-family-accent;
+        font-size: 24px;
+    }
+}

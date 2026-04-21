@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/intro-text",
+	"title": "Section Intro Text",
+	"description": "Section Intro Text block with title, text, and button.",
+	"category": "theme-blocks",
+	"icon": "align-wide",
+	"keywords": ["content", "text", "intro"],
+	"editorStyle":  "file:./css/intro-text-editor.css",
+	"style":  ["file:../../css/elements/image-blob.css", "file:./css/intro-text.css", "file:../../css/elements/nav-icon-list.css"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/intro-text/intro-text.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Intro Text Preview"
+		}
+	},
+	"render": "/blocks/intro-text/intro-text.php"
+}

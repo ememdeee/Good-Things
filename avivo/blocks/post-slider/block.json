@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/post-slider",
+	"title": "Post Slider",
+	"description": "A Post Slider",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["content", "text"],
+	"editorScript": "file:./js/post-slider-editor.min.js",
+	"editorStyle":  "file:./css/post-slider-editor.css",
+	"viewScript": "file:./js/post-slider.min.js",
+	"viewStyle":  "file:./css/post-slider.css",
+	"style": [ "file:../../css/archives.css" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/post-slider/post-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Post Slider Preview"
+		}
+	},
+	"render": "/blocks/post-slider/post-slider.php"
+}

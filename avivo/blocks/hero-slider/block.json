@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/hero-slider",
+	"title": "Hero Slider",
+	"description": "A Hero Slider with background image, title, text, and button on each slide.",
+	"category": "theme-blocks",
+	"icon": "cover-image",
+	"keywords": ["slider", "content", "text", "hero"],
+	"editorScript": "file:./js/hero-slider-editor.min.js",
+	"editorStyle":  "file:./css/hero-slider-editor.css",
+	"viewScript": "file:./js/hero-slider.min.js",
+	"style":  "file:./css/hero-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/hero-slider/hero-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Hero Slider Preview"
+		}
+	},
+	"render": "/blocks/hero-slider/hero-slider.php"
+}

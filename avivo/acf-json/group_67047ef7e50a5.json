@@ -1,0 +1,52 @@
+{
+    "key": "group_67047ef7e50a5",
+    "title": "Layout - Image Size",
+    "fields": [
+        {
+            "key": "field_67047ef7f3274",
+            "label": "Image Size",
+            "name": "section_bgimage_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "fit": "Contain \/ Scale to fit in the space",
+                "fill": "Cover \/ Stretch to fill up the space"
+            },
+            "default_value": "fill",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1728349004
+}

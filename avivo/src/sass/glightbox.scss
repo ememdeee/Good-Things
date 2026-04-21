@@ -1,0 +1,77 @@
+@import "theme/functions";
+@import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
+
+// @import "assets/bootstrap5";
+@import "assets/bootstrap5/functions";
+@import "assets/bootstrap5/variables";
+@import "assets/bootstrap5/maps";
+@import "assets/bootstrap5/mixins";
+
+@import './plugins/glightbox';
+
+
+// generic modal
+.modal-lightbox {
+    .gslide-inline {
+        background-color: transparent;
+        padding: 1rem;
+        box-shadow: none;
+        .ginlined-content {
+            padding: 0;
+        }
+    }
+
+
+}
+
+.modal-box {
+    background-color: #fff;
+}
+
+.modal-box__header {
+    padding: 1.5rem;
+    position: relative;
+    padding-right: 30px;
+    background: var(--theme-color-secondary);
+    color: var(--theme-color-secondary-contrast);
+}
+
+.modal-box__title {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: inherit;
+}
+
+.modal-box__close {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    font-size: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+
+    // X icon
+    &::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url('../img/svg/ic-close.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        filter: invert(1);
+    }
+}
+
+.modal-box__content {
+    padding: 1.5rem;
+}
+
+.modal-box__ctas {
+    .btn {
+        width: 100%;
+    }
+}

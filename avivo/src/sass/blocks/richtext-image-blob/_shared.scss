@@ -1,0 +1,161 @@
+//-----------------------------------
+// Hero Animation Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+
+@mixin cdb-richtext_image_blob {
+  .cdb-richtext_image_blob {
+    // overflow: hidden;
+
+    .content-container {}
+
+    .image-container {}
+
+
+
+  }
+
+  .richtext-imageblob__content-container {
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+  }
+
+  .richtext-imageblob__content {
+
+    // order: 2;
+    @include media-breakpoint-up(lg) {
+      width: 50%;
+      padding-left: 40px;
+      padding-right: 0;
+      // padding-right: 30px;
+      // order: 1;
+
+      // inner page with sidebar
+      .content-sidebar__content & {
+        width: 55%;
+      }
+
+    }
+
+    @include media-breakpoint-up(xl) {
+      // width: 46%;
+      // padding-right: 60px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      // padding-top: 30px;
+      // padding-bottom: 30px;
+    }
+
+    .content__description--bottom {
+      margin-top: 30px;
+    }
+  }
+
+  .richtext-imageblob__image {
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 15px;
+
+    // order: 1;
+    // margin-bottom: 30px;
+    // display: flex;
+    // justify-content: center;
+    @include media-breakpoint-up(lg) {
+      width: 50%;
+      padding-bottom: 0;
+      padding-right: 40px;
+      padding-left: 0;
+      // order: 2;
+      // margin-bottom: 0;
+
+      // inner page with sidebar
+      .content-sidebar__content & {
+        width: 45%;
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      // width: 54%;
+    }
+
+  }
+
+
+  .btn-row.richtext-imageblob__cta {
+    .btn {
+
+      @include media-breakpoint-up(xl) {
+        flex: 1 1 0;
+      }
+
+    }
+  }
+
+  .richtext-imageblob__title.title_wrapper {
+    margin-bottom: 1.8rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2.3rem;
+
+      .inner-wrapper & {
+        margin-bottom: 1rem;
+      }
+    }
+
+  }
+
+  .richtext-imageblob__icon-list {
+    // margin-bottom: -10px;
+    margin-top: 30px;
+  }
+
+
+  .cdb-richtext_image_blob--image-right {
+        @include media-breakpoint-up(lg) {
+          .richtext-imageblob__content {
+            order: 1;
+            padding-right: 40px;
+            padding-left: 0;
+          }
+          .richtext-imageblob__image {
+            order: 2;
+            // // margin-bottom: 0;
+            padding-left: 40px;
+            padding-right: 0;
+          }
+        }
+        
+  }
+
+
+  // has toggle list, can't align items center
+  .cdb-richtext_image_blob--list-toggle-list,
+  .cdb-richtext_image_blob--list-numbered-toggle {
+    .richtext-imageblob__content-container {
+      @include media-breakpoint-up(lg) {
+        align-items: flex-start;
+
+        .richtext-imageblob__image {
+          margin-top: 15px;
+        }
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/content-sidebar",
+	"title": "Content & Sidebar",
+	"description": "A content & sidebar block",
+	"category": "theme-blocks",
+	"icon": "align-wide",
+	"keywords": ["panel", "content", "wrapper"],
+	"editorScript": "file:./js/content-sidebar-editor.min.js",
+	"editorStyle":  "file:./css/content-sidebar-editor.css",
+	"viewScript": "file:./js/content-sidebar.min.js",
+	"style":  "file:./css/content-sidebar.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/content-sidebar/content-sidebar.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"innerBlocks": {
+		"allowedBlocks": [],
+			"template": [
+            [ "core/paragraph", {
+                "placeholder": "Add content block here..."
+            } ]
+        ]		
+	}
+}

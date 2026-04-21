@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/featured-faq",
+	"title": "Toggle List",
+	"description": "A Toggle List with title and description. Toggle to open and close.",
+	"category": "theme-blocks",
+	"icon": "list-view",
+	"keywords": ["accordion", "toggle"],
+	"editorScript": "file:./js/featured-faq-editor.min.js",
+	"editorStyle":  "file:./css/featured-faq-editor.css",
+	"viewScript": "file:./js/featured-faq.min.js",
+	"viewStyle":  "file:./css/featured-faq.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/featured-faq/featured-faq.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Toggle List Preview"
+		}
+	},
+	"render": "/blocks/featured-faq/featured-faq.php"
+}

@@ -1,0 +1,15 @@
+//-----------------------------------
+// Featured Image Block Shared CSS
+//-----------------------------------
+@mixin cdb-featured_image {
+	.cdb-featured_image {
+		position: relative;
+		min-height: 10vh;
+		overflow: hidden;
+		
+		&.ss-boxed .content-container {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}

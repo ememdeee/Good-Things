@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/richtext-featured-tiles",
+	"title": "Rich Text & Featured Tiles",
+	"description": "Rich Text & Featured Tiles, two column.",
+	"category": "theme-blocks",
+	"icon": "align-left",
+	"keywords": ["rich text", "content", "text", "featured"],
+	"editorScript": "file:./js/richtext-featured-tiles-editor.min.js",
+	"editorStyle":  "file:./css/richtext-featured-tiles-editor.css",
+	"viewScript": "file:./js/richtext-featured-tiles.min.js",
+	"style":  "file:./css/richtext-featured-tiles.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/richtext-featured-tiles/richtext-featured-tiles.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Rich Text & Featured Tiles Preview"
+		}
+	},
+	"render": "/blocks/richtext-featured-tiles/richtext-featured-tiles.php"
+}

@@ -1,0 +1,139 @@
+//-----------------------------------
+// Hero Slider Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-hero_slider {
+	.cdb-hero_slider {
+		min-height: 800px;
+
+        @include media-breakpoint-down(sm) {
+			min-height: 500px;
+        }
+
+
+		.section-container,
+		.slider-container,
+		.splide__track {
+			height: 100%;
+		}
+
+		.splide {
+			padding: 0;
+		}
+
+		&,
+		.section-container,
+		.content-outer,
+		.slider-container,
+		.splide__track {
+			position: relative;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.cdb-bgimage {
+			// left: -25%;
+			//	width: calc(100% + 5rem);
+		}
+
+		.splide__list {
+			flex-grow: 1;
+		}
+
+		.splide__slide {
+			.is-active {
+				z-index: 1;
+			}
+
+			.is-next {
+				.cdb-bgimage {
+					// left: -25rem;
+					z-index: 0;
+				}
+			}
+		}
+	}
+
+	.hero_slider__title {
+		margin-bottom: 10px !important;
+	}
+
+	.hero_slider__cta {
+		margin-top: 30px;
+	}
+
+	.hero_slider__slide_content {
+		position: relative;
+		z-index: 10;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@media (min-width: 1470px) {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+	.hero_slider__slide_inner_container {
+		max-width: 780px + 60px;
+		padding-left: 30px;
+		padding-right: 30px;
+		text-align: center;
+
+		font-size: px-to-rem(18px);
+
+        @include media-breakpoint-down(sm) {
+			padding-left: 0;
+			padding-right: 0;
+			font-size: 1rem;
+        }
+
+
+		.btn {
+			@include media-breakpoint-up(xl) {
+				// min-width: 246px;
+			}
+		}
+	}
+
+	.cdb-hero_slider--style-gradient-dark {
+		--theme-subtitle-color: var(--theme-color-primary-contrast);
+		.content-container {
+			padding-top: 90px;
+			padding-bottom: 90px;
+
+			@include media-breakpoint-down(sm) {
+				padding-top: 50px;
+				padding-bottom: 70px;
+			}
+
+		}
+		.hero_slider__slide_content {
+			align-items: flex-end;
+		}
+		.cdb-bgimage {
+			&:after {
+				opacity: 1;
+				// background: linear-gradient(to top, var(--theme-btn-bg-color), transparent);
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 34.5%, rgba(0, 0, 0, 0.8) 100%);
+
+				@include media-breakpoint-down(sm) {
+					background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 34.5%, rgba(0, 0, 0, 0.8) 100%);
+					
+        }
+
+			}
+		}
+	}
+}

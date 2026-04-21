@@ -1,0 +1,151 @@
+//-----------------------------------
+// Rich Text & Form Block Shared CSS
+//-----------------------------------
+@mixin cdb-richtext_form {
+	.cdb-richtext_form {
+		.content-container {
+			display: grid;
+			gap: 4rem;
+
+			.form-container {
+				order: 2;
+			}
+
+			@media (max-width: 991.98px) {
+				.text-container {
+					// padding-top: 2rem;
+					// border-top: 1px solid var(--theme-border-color);
+				}
+			}
+					
+			// Media query for large screen devices
+			@media (min-width: 992px) {
+				grid-template-columns: 4fr 7fr; // 1:2 proportion
+				gap: 7rem;
+
+				.text-container {
+					max-width: 460px;
+				}
+				// .form-container {
+				// 	order: 2;
+				// }
+			}
+
+			&.with-content-below-form {
+				@media (max-width: 991.98px) {
+					gap: 2rem;
+
+					.content__below-form {
+						margin-top: 4rem;
+					}
+				}
+	
+			}
+		}
+
+		
+		//-------------------------------------
+		// nouislider customization
+		//-------------------------------------
+		.noUi-target {
+			background: var(--theme-bg-color);
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
+		}
+		.noUi-horizontal {
+			height: 2px;
+			margin-top: 4.5rem;
+
+			.noUi-handle {
+				border: 2px solid var(--theme-text-color);
+				border-radius: 5rem;
+				width: 1rem;
+				height: 1rem;
+				top: revert;
+				right: 0;
+				transform: translate(100%, -50%);
+				box-shadow: none;
+			}
+
+			.noUi-tooltip {
+				line-height: 1;
+				border-radius: var(--theme-input-border-radius);
+				border-color: var(--theme-color-secondary);
+				padding: .5rem;
+				bottom: 1.5rem;
+				background: var(--theme-color-secondary);
+				color: var(--theme-color-secondary-contrast);
+				font-size: 0.75rem;
+				font-weight: 600;
+				letter-spacing: 0.05em;
+	
+				.windows-os & {
+					padding-bottom: 12px;
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					bottom: calc(-1rem + 1px);
+					left: 50%;
+					display: block;
+					width: 1rem;
+					height: 1rem;
+					border-style: solid;
+					border-width: .5rem .5rem 0 .5rem;
+					border-color: var(--theme-color-secondary) transparent transparent transparent;
+					transform: translateX(-50%);
+				}
+			}
+		}
+		.noUi-connects {
+			border-radius: 0;
+			background: var(--theme-border-color);
+		}
+		.noUi-connect {
+			background: var(--theme-text-color);
+		}
+		.noUi-handle:after, .noUi-handle:before {
+			display: none;
+		}
+		#budgetSlider{
+			margin-right: 1rem;
+		}
+
+		.form-container {
+			&.is-loading {
+				.gform-footer {
+					// background: fuchsia;
+					cursor: not-allowed;
+				}
+				.gform_button {
+					pointer-events: none !important;
+				}
+			}
+		}
+
+		&.cdb-richtext_form--1col {
+			.container {
+				max-width: 800px;
+			}
+			.content-container {
+				grid-template-columns: 1fr;
+				gap: 3rem;
+			}
+			.text-container {
+				text-align: center;
+				width: 100%;
+				max-width: none;
+			}
+
+			.subtitle {
+				justify-content: center;
+
+				&:before {
+					display: none !important;
+				}
+			}
+		}
+	}
+}

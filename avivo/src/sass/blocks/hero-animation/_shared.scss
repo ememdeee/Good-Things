@@ -1,0 +1,161 @@
+//-----------------------------------
+// Hero Animation Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+
+@mixin cdb-hero_animation {
+    .cdb-hero_animation {
+        overflow: hidden;
+
+        .content-container {}
+
+        .image-container {}
+
+
+    }
+
+    .hero-animation__content-container {
+        display: flex;
+        flex-direction: column;
+
+        @include media-breakpoint-up(lg) {
+            flex-direction: row;
+            align-items: center;
+        }
+
+    }
+
+    .hero-animation__content {
+        order: 2;
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+            padding-right: 30px;
+            order: 1;
+        }
+        @include media-breakpoint-up(xl) {
+            width: 62%;
+            padding-right: 60px;
+        }
+
+        @include media-breakpoint-down(lg) {
+            padding-top: 30px;
+            // padding-bottom: 30px;
+        }
+        
+    }
+
+    .hero-animation__image {
+        order: 1;
+        // margin-bottom: 30px;
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+            order: 2;
+            // margin-bottom: 0;
+        }
+        @include media-breakpoint-up(xl) {
+            width: 38%;
+        }
+
+    }
+
+    .hero-animation__animation {
+        // width: 142%;
+        // @include media-breakpoint-up(xl) {
+        //     width: 132%;
+        // }
+    }
+
+    .animation-container {
+        position: relative;
+        // background-color: var(--theme-color-base);
+        // box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: all 0.5s ease-out;
+
+        padding-bottom: 60%;
+        /* Default, will be adjusted by JS */
+        height: 0;
+    }
+
+    .animation-container--animate {}
+
+    .animation-container--done {}
+
+    .animated-svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* The base path template can be hidden via CSS now that it's just a template */
+    .animated-svg #basePathTemplate {
+        display: none;
+    }
+
+    /* Generated paths will be controlled by JS for opacity */
+    /* #solidStrokePath, #imageStrokePath { fill: none; opacity: 0; } */
+
+
+    .cdb-hero_animation--curve-size-large {
+        .hero-animation__content {
+            order: 2;
+            @include media-breakpoint-up(lg) {
+                width: 50%;
+                padding-right: 30px;
+                order: 1;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 46%;
+                padding-right: 60px;
+            }
+
+            @include media-breakpoint-down(lg) {
+                padding-top: 30px;
+                // padding-bottom: 30px;
+            }
+            
+        }
+
+        .hero-animation__image {
+            order: 1;
+            // margin-bottom: 30px;
+            @include media-breakpoint-up(lg) {
+                width: 50%;
+                order: 2;
+                // margin-bottom: 0;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 54%;
+            }
+
+        }
+
+    }
+
+    .hero-animation__icon-list {
+        .nav-iconlist {
+            @include media-breakpoint-up(sm) {
+                justify-content: flex-start;
+            }
+
+        }
+
+        &:last-child {
+            .nav-iconlist {
+                margin-bottom: -15px;
+                li {
+                }
+            }
+        }
+    }
+}

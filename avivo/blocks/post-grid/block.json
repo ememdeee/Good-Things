@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/post-grid",
+	"title": "Post Grid",
+	"description": "A Post Grid with image and description on each card.",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["grid", "card", "blog", "post"],
+	"editorScript": "file:./js/post-grid-editor.min.js",
+	"editorStyle":  "file:./css/post-grid-editor.css",
+	"viewScript": "file:./js/post-grid.min.js",
+	"viewStyle":  "file:./css/post-grid.css",
+	"style": [ "file:../../css/archives.css" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/post-grid/post-grid.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Post Grid Preview"
+		}
+	},
+	"render": "/blocks/post-grid/post-grid.php"
+}

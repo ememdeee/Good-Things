@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/featured-statement",
+	"title": "Featured Statement",
+	"description": "Section Featured Statement block with title, text, button and background image.",
+	"category": "theme-blocks",
+	"icon": "align-wide",
+	"keywords": ["content", "text", "featured", "statement"],
+	"editorStyle":  "file:./css/featured-statement-editor.css",
+	"style":  "file:./css/featured-statement.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/featured-statement/featured-statement.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Featured Statement Preview"
+		}
+	},
+	"render": "/blocks/featured-statement/featured-statement.php"
+}

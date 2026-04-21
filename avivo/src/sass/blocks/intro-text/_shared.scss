@@ -1,0 +1,23 @@
+//-----------------------------------
+// Section Intro Text Block Shared CSS
+//-----------------------------------
+@mixin cdb-intro_text {
+	.cdb-intro_text {
+		.subtitle {
+			// margin-left: auto;
+			// margin-right: auto;
+			justify-content: center;
+
+			&::before {
+				display: none !important;
+			}
+		}
+		.section-heading__description {
+			.content__description {
+				margin-top: 20px;
+			}
+		}
+	}
+
+
+}

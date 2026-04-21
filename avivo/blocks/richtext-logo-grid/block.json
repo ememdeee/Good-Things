@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/richtext-logo-grid",
+	"title": "Rich Text & Logo Grid",
+	"description": "Rich Text & Logo Grid, two column.",
+	"category": "theme-blocks",
+	"icon": "align-left",
+	"keywords": ["rich text", "content", "text", "featured"],
+	"editorStyle":  "file:./css/richtext-logo-grid-editor.css",
+	"style":  "file:./css/richtext-logo-grid.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/richtext-logo-grid/richtext-logo-grid.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Rich Text & Logo Grid Preview"
+		}
+	},
+	"render": "/blocks/richtext-logo-grid/richtext-logo-grid.php"
+}

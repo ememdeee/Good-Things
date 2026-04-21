@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/heading-bar",
+	"title": "Heading Bar",
+	"description": "Section Heading Bar with H1 tag for page title.",
+	"category": "theme-blocks",
+	"icon": "heading",
+	"keywords": ["heading", "title"],
+	"editorStyle":  "file:./css/heading-bar-editor.css",
+	"style":  "file:./css/heading-bar.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/heading-bar/heading-bar.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Section Heading Bar Preview"
+		}
+	},
+	"render": "/blocks/heading-bar/heading-bar.php"
+}

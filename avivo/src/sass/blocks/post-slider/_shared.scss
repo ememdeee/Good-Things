@@ -1,0 +1,107 @@
+//-----------------------------------
+// Post Slider Block Shared CSS
+//-----------------------------------
+// @import "../../theme/functions";
+// @import "../../theme/theme_variables";
+
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+
+@mixin cdb-post_slider {
+	.cdb-post_slider {
+		overflow: hidden;
+		
+		--heading-bottom-margin: 3rem;
+		.post-slider__heading {
+			// @media (min-width: 768px) {
+			// 	max-width: min(910px, calc(100% - 8rem));
+			// }
+			// margin-bottom: var(--heading-bottom-margin);
+			z-index: 1;
+			position: relative;
+			margin-bottom: 60px;
+		}
+
+		
+		.splide {
+			padding: 0;
+		}
+
+		// slider settings
+		.cdb-slider__arrows {
+			position: absolute;
+			bottom: 0px;
+			width: 100%;
+			max-width: 350px;
+			left: 50%;
+			transform: translateX(-50%);
+
+			@media (max-width: 768px) {
+				display: none;
+			}
+
+			.splide__arrow {
+				position: relative;
+				top: auto;
+				transform: none;
+				border: solid 1px var(--theme-color-border);
+				background-color: transparent;
+
+				&.splide__arrow--prev {
+					left: auto;
+				}
+
+				&.splide__arrow--next {
+					right: auto;
+				}
+			}
+		}
+
+		.splide__arrows_container {
+			display: flex;
+			gap: 1rem;
+			justify-content: end;
+		}
+
+		.single-slide .cdb-slider__arrows {
+			display: none;
+		}
+
+		.splide__pagination {
+			display: none !important;
+			bottom: 0px;
+
+			@include media-breakpoint-down(sm) {
+				// display: none;
+			}
+
+		}
+
+		.splide__track {
+			overflow: visible;
+		}
+
+		.splide__slide {
+			overflow: hidden;
+		}
+		
+		.splide__pagination__page:not(.is-active) {
+			background-color: rgba(12, 103, 189, 0.15);
+		}
+
+		// default bg (light), has background image
+		&.sc-default {
+      background: url(../../../img/svg/background-blog.svg) no-repeat center;
+			background-position: center center;
+			background-size: cover;
+		}
+	}
+
+}

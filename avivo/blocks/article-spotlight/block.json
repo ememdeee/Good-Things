@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/article-spotlight",
+	"title": "Article Spotlight",
+	"description": "A section that highlights a featured article.",
+	"category": "theme-blocks",
+	"icon": "star-filled",
+	"keywords": ["spotlight", "article", "featured", "content"],
+	"editorScript": "file:./js/article-spotlight-editor.min.js",
+	"editorStyle":  "file:./css/article-spotlight-editor.css",
+	"viewScript": "file:./js/article-spotlight.min.js",
+	"style":  "file:./css/article-spotlight.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/article-spotlight/article-spotlight.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Article Spotlight Preview"
+		}
+	},
+	"render": "/blocks/article-spotlight/article-spotlight.php"
+}

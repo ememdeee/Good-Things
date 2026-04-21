@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/tab-group",
+	"title": "Tab Group",
+	"description": "A container for multiple tab panels.",
+	"category": "theme-blocks",
+	"icon": "menu",
+	"keywords": ["tabs", "group", "container"],
+	"editorScript": "file:./js/tab-group-editor.min.js",
+	"editorStyle":  "file:./css/tab-group-editor.css",
+	"viewScript": "file:./js/tab-group.min.js",
+	"style":  "file:./css/tab-group.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/tab-group/tab-group.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"innerBlocks" : {
+			"allowedBlocks": [ "acf/tab-panel", "acf/intro-text" ],
+        "template": [
+            [ "acf/tab-panel", {
+                "section_title": "Tab 1"
+            } ]
+        ]			
+	}
+}

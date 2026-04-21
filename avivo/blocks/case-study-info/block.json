@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/case-study-info",
+	"title": "Case Study Info",
+	"description": "A case study info",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["content", "text"],
+	"editorStyle":  "file:./css/case-study-info-editor.css",
+	"viewStyle":  "file:./css/case-study-info.css",
+	"style": [ "file:../richtext-chapter/css/richtext-chapter.css" ],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/case-study-info/case-study-info.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Case Study Info Preview"
+		}
+	},
+	"render": "/blocks/case-study-info/case-study-info.php"
+}

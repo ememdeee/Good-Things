@@ -1,0 +1,55 @@
+{
+    "key": "group_66fb6a4faa592",
+    "title": "Layout - Grid Style",
+    "fields": [
+        {
+            "key": "field_66fb6a4fb5180",
+            "label": "Grid Style",
+            "name": "section_grid_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "sgl-rnd": "Boxed Tile (default)",
+                "sgl-mnl": "Minimal",
+                "sgl-mno": "Minimal - No Border"
+            },
+            "default_value": "sgl-rnd",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1758174225
+}

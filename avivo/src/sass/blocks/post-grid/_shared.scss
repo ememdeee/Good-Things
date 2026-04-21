@@ -1,0 +1,27 @@
+//-----------------------------------
+// Post Grid Block Shared CSS
+//-----------------------------------
+
+
+@mixin cdb-post_grid {
+	.cdb-post_grid {
+		.section-container {
+			overflow: hidden;
+		}
+
+		.post-grid__posts  {
+			// margin-bottom: 4rem;
+		}
+		.post-card {
+			overflow: hidden;
+		}
+		.post-grid__loader {
+			text-align: center;
+			padding-top: 3rem;
+		}
+		.post-grid__nav-more {
+			text-align: center;
+		}
+	}
+
+}

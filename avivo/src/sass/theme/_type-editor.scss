@@ -1,0 +1,17 @@
+//------------------------------------------------
+// Fonts, basic elemnent settings for the Editor
+//------------------------------------------------
+@import "type-shared";
+@include cdt-fonts;
+
+.editor-visual-editor .block-editor-block-list__layout{
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	font-weight: $font-weight-base;
+
+	p { line-height: 1.5 !important; }
+
+	@include cdt-base_settings;
+	// @include cdt-links;
+
+}

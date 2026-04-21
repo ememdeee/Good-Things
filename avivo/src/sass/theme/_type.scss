@@ -1,0 +1,14 @@
+//------------------------------------------------
+// Fonts, basic elemnent settings
+//------------------------------------------------
+@import "type-shared";
+@include cdt-fonts;
+
+html { scroll-behavior: smooth;	}
+body { -webkit-font-smoothing: antialiased; }
+
+@include cdt-base_settings;
+
+main {
+	// @include cdt-links;
+}

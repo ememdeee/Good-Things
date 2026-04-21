@@ -1,0 +1,220 @@
+@import "../theme/functions";
+@import "../theme/theme_variables";
+
+// @import "../assets/bootstrap5";
+@import "../assets/bootstrap5/functions";
+@import "../assets/bootstrap5/variables";
+@import "../assets/bootstrap5/maps";
+@import "../assets/bootstrap5/mixins";
+  
+  
+  .imageblob {
+    // margin-left: auto;
+    // margin-right: auto;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .imageblob__image-wrapper {
+    position: relative;
+    width: 100%;
+    /* Maintain aspect ratio - adjust as needed for your desired shape proportion */
+    padding-bottom: 100%;
+    /* 4:3 aspect ratio (height is 75% of width) */
+    overflow: hidden;
+    /* Important for clipping */
+    display: flex;
+    /* Use flex to center image if needed, though object-fit handles most */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth hover effect */
+    // background-color: #dedede;
+
+    // &:hover {
+    //   transform: translateY(-5px);
+    //   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    // }
+
+    .imageblob__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Ensures the image covers the entire area without distortion */
+      object-position: center;
+      /* Centers the image within the frame */
+      transition: transform 0.3s ease;
+      /* Smooth hover effect for image */
+    }
+  }
+
+
+  .imageblob__accent {
+    position: absolute;
+    // bottom: -3%;
+    // right: -10%;
+    // width: 30%;
+    // // height: 100%;
+    object-fit: contain;
+  }
+
+  /* Modifier classes for different clip-path shapes, referencing SVG IDs */
+
+  .imageblob--shape1 {
+    // .imageblob__img {
+    //   // clip-path: url(#clipShape1);
+    //   clip-path: url(#clippath1);
+    // }
+
+    .imageblob__image-wrapper {
+      padding-bottom: 70% !important;
+    }
+
+    .imageblob__accent {
+      bottom: 12%;
+      right: 24%;
+      width: 20%;      
+    }
+  }
+
+  .imageblob--shape2 {
+    // 546x624
+    max-width: 600px;
+
+    .imageblob__image-wrapper {
+      // padding-bottom: 114.27% !important;
+      // padding-bottom: 100% !important;
+    }
+
+    // .imageblob__img {
+    //   clip-path: url(#clippath2);
+    // }
+    .imageblob__accent {
+      top: 6%;
+      right: -2%;
+      width: 21%;            
+    }
+  }
+
+  .imageblob--shape3 {
+    max-width: 600px;
+
+    // 690x508
+    .imageblob__image-wrapper {
+      // padding-bottom: 73.62% !important;
+    }
+
+    // .imageblob__img {
+    //   clip-path: url(#clippath3);
+    // }
+    .imageblob__accent {
+      bottom: -2%;
+      right: -4%;
+      width: 30%;      
+    }
+  }
+
+  .imageblob--shape4 {
+
+    // 690x537
+    .imageblob__image-wrapper {
+      // padding-bottom: 77.83% !important;
+    }
+
+    // .imageblob__img {
+    //   clip-path: url(#clippath4);
+    // }
+    .imageblob__accent {
+      bottom: 0%;
+      right: -10%;
+      width: 30%;      
+    }
+  }
+
+  .imageblob--shape5 {
+
+    // 183x162
+    .imageblob__image-wrapper {
+      // padding-bottom: 88.52% !important;
+      padding-bottom: 70% !important;
+    }
+
+    // .imageblob__img {
+    //   clip-path: url(#clippath5);
+    // }
+    .imageblob__accent {
+      top: 19%;
+      right: -9%;
+      width: 30%;            
+    }
+  }
+
+  .imageblob--shape6 {
+
+    // 750x571
+    .imageblob__image-wrapper {
+      // padding-bottom: 76.13% !important;
+    }
+
+    // .imageblob__img {
+    //   clip-path: url(#clippath6);
+    // }
+  }
+
+  .imageblob--shape7 {
+
+    // 719x499
+    .imageblob__image-wrapper {
+      // padding-bottom: 69.42% !important;
+    }
+
+    // .imageblob__img {
+    //   clip-path: url(#clippath7);
+    // }
+  }
+
+
+// journey downloads
+.cdb-richtext_image_blob--download {
+  background-image: url(../../img/svg/background-download.svg);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+
+  .richtext-imageblob__image {
+    @include media-breakpoint-up(xl) {
+      max-width: 432px;
+    }
+  }
+  .richtext-imageblob__content {
+        @include media-breakpoint-up(xl) {
+          flex-grow: 1;
+        }
+
+  }
+  .imageblob__image-wrapper {
+    position: relative;
+        &:after {
+            background: url(../../img/svg/shape-download-accent.svg) no-repeat center
+                center;
+            background-size: contain;
+            width: 95%;
+            height: 95%;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            // filter: var(--theme-filter);
+            // z-index: 1;
+        }
+
+  }
+}
+

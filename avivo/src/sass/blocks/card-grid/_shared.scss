@@ -1,0 +1,64 @@
+//-----------------------------------
+// Card Grid Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+
+@mixin cdb-card_grid {
+    .cdb-card_grid {
+
+        .content-container {}
+
+        .image-container {}
+
+
+    }
+    .card-grid {
+    }
+
+    .card-grid__items {
+        display: grid;
+        // mobile/default is 1 column
+        grid-template-columns: repeat(1, 1fr);
+        gap: var(--theme-spacing-lg);
+        row-gap: var(--theme-spacing-xxl);
+        // tablet
+        @include media-breakpoint-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        // desktop
+        @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+    }
+
+    .card-grid__item {
+
+    }
+
+    .card-grid__item-image {
+        aspect-ratio: 310 / 232;
+        margin-bottom: 15px;
+        img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    .card-grid__item-title {
+        margin-bottom: 10px;
+    }
+
+    .card-grid__item-link {
+        margin-top: 20px;
+    }
+}

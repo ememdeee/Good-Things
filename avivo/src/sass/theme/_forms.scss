@@ -1,0 +1,310 @@
+//-----------------------------------
+// Form & budget slider (noUiSlider)
+//-----------------------------2-----
+html {
+	.gform-theme--framework {
+		--gf-form-gap-y: 20px;
+		.gform-field-label {
+			font-size: 1rem;
+			font-weight: bold;
+			color: #000;
+			margin-bottom: 0.5em;
+			margin-top: .25em;
+			cursor: default;
+
+			.gfield_required {
+				color: var(--theme-input-color);
+				font-size: $font-size-small;
+				margin-left: -.25em;
+				
+				&:after {
+					content: "*";
+				}
+
+				.gfield_required_text {
+					display: none;
+				}
+
+				
+			}
+		}
+		.gfield--type-choice {
+			.gfield_checkbox,
+			.gfield_radio {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				column-gap: 2rem;
+				row-gap: .5rem;
+
+				@media (min-width:640px) {
+					grid-template-columns: repeat(3, 1fr);
+				}
+
+				.gform-field-label {
+					font-size: 0.9rem; //$font-size-base;
+					font-weight: $font-weight-base;
+					text-transform: initial;
+					color: var(--theme-input-label-color);
+					margin-bottom: 0;
+					display: flex;
+					align-items: center;
+				}
+			}
+
+			&.cd-gcheckbox-2-cols {
+				.gfield_checkbox,
+				.gfield_radio {
+					grid-template-columns: repeat(1, 1fr);
+					@media (min-width:640px) {
+						grid-template-columns: repeat(2, 1fr);
+					}	
+				}				
+			}
+		}
+
+		.gfield--type-section {
+			border-bottom: none;
+		}
+
+		.gfield--type-choice {
+			legend.gform-field-label {
+				margin-bottom: 2em;
+			}
+		}
+
+		.gfield--input-type-datepicker {
+			input.datepicker {
+				flex-grow: 1;
+			}
+		}
+
+		.gfield--type-section {
+			.gsection_title {
+				margin-bottom: 0;
+				margin-top: 1rem;
+			}
+			.gsection_description {
+				margin-top: 1.25rem;
+				margin-bottom: 0;
+			}
+		}
+		
+		input[type],
+		select,
+		textarea {
+			font-size: $font-size-base;
+			color: var(--theme-input-color);
+			background: var(--theme-input-bg-color);
+			border-color: var(--theme-input-border-color);
+			border-width: var(--theme-input-border-size);
+			box-shadow: var(--theme-input-box-shadow);
+
+			&::placeholder {
+				color: var(--theme-input-placeholder-color);
+			}
+			&:focus {
+				border-color: var(--theme-input-focus-border-color);
+				box-shadow: var(--theme-input-focus-box-shadow);
+			}
+		}
+		input[type]:not(input[type="checkbox"]):not(input[type="radio"]),
+		select,
+		textarea {
+			padding: var(--theme-input-padding-y) var(--theme-input-padding-x);
+			border-radius: var(--theme-input-border-radius);
+			// height: auto;
+		}
+		input[type="checkbox"],
+		input[type="radio"] {
+			width: 1.75rem;
+			height: 1.75rem;
+
+			&:checked {
+				border-color: var(--theme-color-secondary);
+				background: var(--theme-color-secondary);
+			}
+		}
+		input[type="checkbox"] {
+			border-radius: var(--theme-input-border-radius);
+
+			&::before {
+				font-size: 1.25rem;
+				color: var(--theme-color-primary-contrast);
+			}
+		}
+		input[type="radio"] {
+			&::before {
+				width: .75rem;
+				height: .75rem;
+				background-color: var(--theme-color-primary-contrast);
+			}
+		}
+
+		select {
+			background: var(--theme-input-bg-color) no-repeat calc(100% - 1rem) center;
+			background-image: var(--theme-arr-dropdown-black);
+			padding-right: 4rem;
+			-webkit-appearance: none;
+			line-height: 1.85em;
+		}
+
+		.gfield_error {
+			input[type],
+			select,
+			textarea {
+				border-color: var(--theme-input-error-color);
+				
+				&:focus {
+					box-shadow: var(--theme-input-error-focus-box-shadow);
+				}
+			}
+			select {
+				background-image: var(--theme-arr-dropdown);
+			}
+		}
+		.gform_validation_errors,
+		.gfield_validation_message {
+			color: var(--theme-input-error-color);
+
+			.gform_submission_error {
+				color: var(--theme-input-error-color);
+			}
+
+			ol a {
+				color: var(--theme-input-error-color);
+				text-wrap: wrap;
+				text-decoration: none;
+
+				&::before {
+					display: none;
+				}
+			}
+		}
+	}
+
+	// Gravity Form button
+	.form-container .gform-theme.gform-theme--framework.gform_wrapper .gform_button.button,
+	.gform-theme.gform-theme--framework.gform_wrapper .gform_footer .gform_button.button {
+		--gf-local-font-size	: #{$btn-font-size};
+		--gf-local-font-weight	: #{$btn-font-weight};
+		--gf-local-color		: var(--theme-btn-color);
+		--gf-local-bg-color		: var(--theme-btn-bg-color);
+		--gf-local-line-height	: var(--bs-body-line-height);
+
+		text-decoration: none;
+		text-transform: uppercase;
+		letter-spacing: .03em;
+		line-height: 1;
+		position: relative;
+
+		border: none;
+		padding: calc(var(--theme-btn-padding-y) + 2px) var(--theme-btn-padding-x);
+		border-radius: $btn-border-radius;
+		box-shadow: none;
+
+		&:before{
+			content: '';
+			position: absolute;
+			left: 100%;
+			top: 0;
+			right: 0;
+			height: 100%;
+			background-color: var(--theme-color-secondary);
+			transition: $transition;
+			z-index: 0;
+		}
+
+		.link-text {
+			position: relative;
+			display: flex;
+			align-items: center;
+			gap: .5rem;
+			transition: $transition;
+			z-index: 1;
+			
+			&::after {
+				content: '';
+				height: .75rem;
+				background-color: var(--theme-accent-color);
+				display: inline-block;
+				transition: $transition;
+
+				width: 1rem;
+				mask: center center / contain no-repeat  url('../img/svg/arrow-right.svg');
+			}
+		}
+
+		// button hover
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--theme-btn-hover-color);
+			background-color: var(--theme-btn-hover-bg-color);
+			border-color: var(--theme-btn-hover-border-color);
+
+			&:before{
+				left: 0;
+				animation: buttonSwipe 0.3s ease-in-out;
+			}
+			.link-text {
+				&::after {
+					transform: translateX(.5rem);
+					background-color: var(--theme-btn-hover-color);
+				}
+			}
+		}
+	}
+
+		// use native gravity form submit button
+		.gform-theme--framework {
+			.gform-footer {
+				.gform_button.button {
+					background-color: var(--theme-btn-bg-color) !important;
+					color: var(--theme-btn-color) !important;
+					border-radius: 0 !important;
+					// text-transform: uppercase !important;
+					// font-size: 12px !important;
+					font-weight: 700 !important;
+					height: 54px !important;
+					letter-spacing: 0.03em !important;
+					// background-image: var(--theme-arrow-right) !important;
+					// background-position: center right 24px !important;
+					// background-repeat: no-repeat !important;
+					// padding-right: 55px !important;
+					width: 100% !important;
+	
+					&:hover,
+					&:focus {
+						background-color: var(--theme-btn-hover-bg-color) !important;
+						color: var(--theme-btn-hover-color) !important;
+						// background-image: var(--theme-arrow-right-white) !important;
+						// background-position: center right 18px !important;
+						outline: none !important;
+					}
+	
+	
+				}
+			}
+		}
+	.windows-os {
+		.gform-theme--framework {
+			.gform-field-label {
+				margin-top: 0;
+			}
+		}
+		
+		.form-container .gform-theme.gform-theme--framework.gform_wrapper .gform_button.button,
+		.gform-theme.gform-theme--framework.gform_wrapper .gform_footer .gform_button.button {
+			// padding: calc(var(--theme-btn-padding-y) - var(--theme-windows-offset-half)) var(--theme-btn-padding-x);
+			padding-left: var(--theme-btn-padding-x);
+			padding-right: var(--theme-btn-padding-x);
+			border-radius: 50px !important;
+
+			.link-text {
+				&::after {
+					margin-top: 4px;
+				}
+			}
+		}
+	}
+}

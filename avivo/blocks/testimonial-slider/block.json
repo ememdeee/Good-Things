@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/testimonial-slider",
+	"title": "Testimonial Slider",
+	"description": "A Testimonial Slider with testimonial, author, and image on each slide.",
+	"category": "theme-blocks",
+	"icon": "format-chat",
+	"keywords": ["slider", "testimonial", "text"],
+	"editorScript": "file:./js/testimonial-slider-editor.min.js",
+	"editorStyle":  "file:./css/testimonial-slider-editor.css",
+	"viewScript": "file:./js/testimonial-slider.min.js",
+	"viewStyle":  "file:./css/testimonial-slider.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/testimonial-slider/testimonial-slider.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Testimonial Slider Preview"
+		}
+	},
+	"render": "/blocks/testimonial-slider/testimonial-slider.php"
+}

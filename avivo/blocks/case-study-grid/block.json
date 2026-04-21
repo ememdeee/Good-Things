@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/case-study-grid",
+	"title": "Case Study Grid",
+	"description": "A Case Study Grid with image and description on each card.",
+	"category": "theme-blocks",
+	"icon": "schedule",
+	"keywords": ["grid", "card", "case study", "case studies", "text"],
+	"editorScript": "file:./js/case-study-grid-editor.min.js",
+	"editorStyle":  "file:./css/case-study-grid-editor.css",
+	"viewScript": "file:./js/case-study-grid.min.js",
+	"viewStyle":  "file:./css/case-study-grid.css",
+	"script": [ "file:../../js/shuffle.min.js" ],	
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/case-study-grid/case-study-grid.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Case Study Grid Preview"
+		}
+	},
+	"render": "/blocks/case-study-grid/case-study-grid.php"
+}

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/flip-cards",
+	"title": "Flip Cards",
+	"description": "A Flip Cards block with title, text, and button on each card.",
+	"category": "theme-blocks",
+	"icon": "screenoptions",
+	"keywords": ["slider", "content", "text"],
+	"editorStyle":  "file:./css/flip-cards-editor.css",
+	"viewStyle":  "file:./css/flip-cards.css",
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/flip-cards/flip-cards.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Flip Cards Preview"
+		}
+	},
+	"render": "/blocks/flip-cards/flip-cards.php"
+}

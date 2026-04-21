@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "acf/video-lightbox",
+	"title": "Video Lightbox",
+	"description": "A section that displays a video in a lightbox.",
+	"category": "theme-blocks",
+	"icon": "format-video",
+	"keywords": ["video", "lightbox", "popup", "media"],
+	"editorScript": "file:./js/video-lightbox-editor.min.js",
+	"editorStyle":  "file:./css/video-lightbox-editor.css",
+	"viewScript": ["glightbox-script","file:./js/video-lightbox.min.js"],
+	"style":  ["glightbox-style","file:./css/video-lightbox.css"],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "/blocks/video-lightbox/video-lightbox.php"
+	},
+	"supports": {
+		"align": false,
+		"mode": true,
+		"customClassName": false
+	},
+	"example": {
+		"attributes": {
+			"title_text": "Video Lightbox Preview"
+		}
+	},
+	"render": "/blocks/video-lightbox/video-lightbox.php"
+}

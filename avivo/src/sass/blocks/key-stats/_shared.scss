@@ -1,0 +1,107 @@
+//-----------------------------------
+// Featured Posts Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+$svg-triangle-up: '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" fill="#32E682" d="M7 0l7 11H0L7 0z"/></svg>';
+$svg-triangle-down: '<svg version="1.2" xmlns="http://www.w3.org/2000/svg" width="14" height="11"><path fill-rule="evenodd" d="M7 11 0 0h14z" fill="#ed4e47"/></svg>';
+
+@mixin cdb-key_stats {
+	.cdb-key_stats {}
+
+	.key-stats {}
+
+	.key-stats__content {
+
+		.wrapper:not(#single-wrapper) & {
+			@include media-breakpoint-up(lg) {
+				padding-left: 230px;
+				padding-right: 130px;
+			}
+			@include media-breakpoint-up(xxl) {
+				padding-left: 330px;
+				padding-right: 330px;
+				flex-grow: 1;
+			}	
+		}
+
+
+	}
+
+	.key-stats__stats {
+		display: flex;
+		list-style: none !important;
+		padding-left: 0 !important;
+		margin-left: 0 !important;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: -30px !important;
+
+		@include media-breakpoint-up(md) {
+		}
+
+	}
+
+	.key-stat {
+		padding-left: 15px !important;
+		padding-right: 15px;
+		margin-bottom: 30px;
+		text-align: center;
+		width: 50%;
+		flex-grow: 1;
+
+		@include media-breakpoint-up(md) {
+			width: 33.33%;
+		}
+
+
+
+		strong {
+			font-size: 27px;
+			font-weight: 500;
+			line-height: 1.2;
+			display: inline-block;
+			color: var(--theme-title-color);
+			margin-bottom: 0;
+			background: no-repeat right center;
+
+			@include media-breakpoint-up(sm) {
+				font-size: 45px;
+			}
+
+			.windows-os & {
+					padding-bottom: var(--theme-windows-offset);
+			}			
+		}
+
+		span {
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 11px;
+			display: block;
+			color: #b2b2b2;
+		}
+
+		&.key-stat--icon-increase {
+			strong {
+				padding-right: 20px;
+				background-image: svg-uri($svg-triangle-up);
+			}
+		}
+		&.key-stat--icon-decrease {
+			strong {
+				padding-right: 20px;
+				background-image: svg-uri($svg-triangle-down);
+			}
+		}
+	}
+
+}

@@ -1,0 +1,195 @@
+//-----------------------------------
+// Timeline Slider Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+@mixin cdb-timeline_slider {
+	.cdb-timeline_slider {
+		overflow: hidden;
+		
+		--heading-bottom-margin: 4rem;
+		--shading_width: 100%;
+		--shading_fade_width: 40px;
+		--shading_overlap: 50px;
+		
+		.timeline_slider__heading {
+			@media (min-width: 768px) {
+				max-width: min(900px, calc(100% - 8rem));
+			}
+			margin-bottom: var(--heading-bottom-margin);
+		}
+		
+		.splide {
+			padding: 0;
+		}
+
+		// slider settings
+		.cdb-slider__arrows {
+			position: absolute;
+			bottom: calc(100% + var(--heading-bottom-margin));
+			width: 100%;
+			z-index: 2;
+			
+			@media (max-width: 768px) {
+				display: none;
+			}
+			
+			.splide__arrow {
+				position: relative;
+				top: auto;
+				transform: none;
+
+				&.splide__arrow--prev {
+					left: auto;
+				}
+					
+				&.splide__arrow--next {
+					right: auto;
+				}
+			}			
+		}
+
+		.splide__arrows_container {
+			display: flex;
+			gap: 1rem;
+			justify-content: end;
+		}
+
+		.single-slide .cdb-slider__arrows {
+			display: none;
+		}
+
+		.splide__track {
+			overflow: visible;
+		}
+		.splide__list{
+			flex-grow: 1;
+		}
+		.splide__slide:last-child:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			border-top: 1px solid var(--theme-border-color);
+			left: 100%;
+		}
+
+		&,
+		.section-container,
+		.slider-container,
+		.splide__track {
+			position: relative;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.section-container {
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				
+				z-index: 1;
+				pointer-events: none;
+			}
+			
+			&::before {
+				width: calc(var(--shading_width) + 20px);
+				left: calc(var(--shading_width) * -1); /* Shift left outside the container */
+				background: linear-gradient(to right, var(--theme-bg-color) calc(100% - var(--shading_fade_width)), transparent 100%);
+			}
+			
+			&::after {
+				width: calc(var(--shading_width) + var(--shading_overlap));
+				right: calc(var(--shading_width) * -1); /* Shift right outside the container */
+				background: linear-gradient(to left, var(--theme-bg-color) calc(100% - var(--shading_fade_width)), transparent 100%);
+			}
+		}
+
+		@media (min-width:992px) {
+			--shading_fade_width: 80px;
+			--shading_overlap: 100px;
+		}
+		@media (min-width:1600px) {
+			--shading_fade_width: 120px;
+		}
+		@media (min-width:1900px) {
+			--shading_fade_width: 200px;
+		}
+		@media (min-width:2200px) {
+			--shading_fade_width: 280px;
+		}
+		@media (min-width:2500px) {
+			--shading_fade_width: 360px;
+		}
+			
+		.content-container {
+			max-width: 100%;
+			flex-grow: 1;
+			width: 100%;
+		}
+		.slider-container {
+			padding-top: 2rem;
+		}
+		.title_wrapper {
+			margin-bottom: px-to-rem(18px);
+
+			.subtitle {
+				font-weight: 500;
+			}
+		}
+		.timeline-slider__slide_content {
+			padding-right: 15%;
+			
+			@media (min-width:768px) {
+				padding-right: 30%;
+			}
+
+			.title_wrapper {
+				display: flex;
+				flex-direction: column;
+			}
+		//	.title {
+		//		font-size: 28px;
+		//	}
+			.subtitle.above {
+				position: absolute;
+				top: -36px;
+				margin-bottom: 0;
+			}
+			.title_icon_top {
+				border-radius: 5px;
+				overflow: hidden;
+				width: 80px;
+				height: 80px;
+				margin-bottom: 20px;
+			}
+			.title_icon_top img {
+				max-height: 100%;
+				max-width: 100%;
+			}
+			
+		}
+		.timeline-slider__slide_border {
+			border-top: 1px solid var(--theme-title-color);
+			margin-bottom: 2rem;
+			opacity: .3;
+
+			&::before {
+				content: '';
+				position: absolute;
+				width: 7px;
+				height: 7px;
+			//	border-radius: .5rem;
+				display: block;
+				top: -3px;
+				background-color: var(--theme-title-color);
+			}
+		}
+	}
+
+}

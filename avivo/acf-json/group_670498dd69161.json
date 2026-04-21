@@ -1,0 +1,59 @@
+{
+    "key": "group_670498dd69161",
+    "title": "Layout - Two Column Section Style",
+    "fields": [
+        {
+            "key": "field_670498dd72616",
+            "label": "Layout Style",
+            "name": "section_layout_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "fw1": "Fullwidth",
+                "fw2": "Fullwidth - Large Image",
+                "fw5": "Fullwidth - Regular Image",
+                "fw3": "Fullwidth w\/ alt. background",
+                "fw4": "Fullwidth w\/ alt. background - Large Image",
+                "fw6": "Fullwidth w\/ alt. background - Regular Image",
+                "bx1": "Boxed",
+                "bx2": "Boxed - Large Image",
+                "bx3": "Boxed - Regular Image"
+            },
+            "default_value": "fw2",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1732253110
+}

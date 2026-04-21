@@ -1,0 +1,112 @@
+@import "theme/functions";
+@import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
+
+@import "assets/bootstrap5/functions";
+@import "assets/bootstrap5/variables";
+@import "assets/bootstrap5/maps";
+@import "assets/bootstrap5/mixins";
+@import "assets/bootstrap5/utilities";
+//@import "assets/bootstrap5/reboot";
+@import "assets/bootstrap5/containers";
+
+//---------------------------------------------------------------
+// That's where you can add your own design. Thats your part!
+//---------------------------------------------------------------
+// Theme
+@import 'theme/css-variables';
+@import 'theme/images';
+@import 'theme/type-editor';
+@import 'theme/buttons';
+@import 'theme/icons';
+@import 'theme/forms';
+@import 'theme/layout';
+@import 'theme/cards';
+
+// variables use in the wp gutenberg editor
+$editor_width		   : 1440px;
+$editor_sidebar_width   : 400px;
+
+:root {
+	--theme-grid-base-width : 1440px;
+}
+
+.edit-post-visual-editor {
+ //   max-width: 1400px; /* Adjust to your desired width */
+}
+html {
+	:where(.wp-block) {
+		max-width: $editor_width;
+	}
+	:where(.acf-block-component, .is-reusable) {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+} 
+
+/* Style the title field in the Gutenberg editor */
+.edit-post-header__post-title {
+	font-size: 1.5em; /* Adjust the font size */
+}
+.editor-visual-editor__post-title-wrapper {
+	margin-bottom: 2em;
+}
+.wp-block-post-title {
+	font-size: 1.5em;
+	font-weight: 500;
+	position: relative;
+	font-family: var(--bs-body-font-family);
+
+	&:before {
+		content: "Page Title";
+		position: absolute;
+		top: -1.5em;
+		font-size: .7em;
+		font-family: var(--bs-body-font-family);
+		font-weight: normal;
+		color: #666;
+	}
+}
+.edit-post-sidebar {
+	width: 300px; /* Adjust the width to your desired value */
+}
+.interface-complementary-area,
+.interface-complementary-area__fill {
+	width: $editor_sidebar_width !important;
+}
+.container {
+	padding-left: 0;
+	padding-right: 0;
+}
+.interface-interface-skeleton__content {
+//	overflow-x: clip;
+}
+
+/* Adjust when sidebar is open */
+.block-editor-page .section {
+	position: relative;
+	
+	&:not(.ss-boxed) {
+		width: calc(100vw - #{$editor_sidebar_width});			 // Adjust for sidebar width
+		left: 50%;
+		right: 50%;
+		margin-left: calc((50vw - (#{$editor_sidebar_width}/2)) * -1 );	// Negative margin to offset the width
+		margin-right: calc((50vw - (#{$editor_sidebar_width}/2)) * -1 );	// Negative margin to offset the width
+	}
+
+	&, * {
+		box-sizing: border-box;
+	}
+}
+.block-editor-page .section .container {
+	max-width: $editor_width;
+}
+/* Mobile adjustments */
+@media (max-width: 782px) {
+	.block-editor-page .section {
+		width: 100vw; /* Full viewport width for smaller screens */
+	}
+}
+
+.wp-block-pullquote {
+	font-size: 1.5em;
+}

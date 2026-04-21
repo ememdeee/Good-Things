@@ -1,0 +1,153 @@
+//-----------------------------------
+// Icons and social media
+//-----------------------------------
+// variables
+
+// icon size
+.cdb-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px; //1.5em; //.5em;
+	transition: $transition;
+
+	footer & {
+		// gap: .75em;
+	}
+
+	i {
+		height: .75rem;
+		background-color: var(--theme-link-icon-color);
+		display: inline-block;
+		transition: $transition;
+	}
+
+	&:hover,
+	&:focus,
+	&:active  {
+		i {
+			background-color: var(--theme-link-hover-color);
+		}
+		// .ic-arr-next { transform: translateX(5px);		}
+		// .ic-arr-prev { transform: translateX(-5px);		}
+		// .ic-arrow-right { transform: translateX(.5rem);	}
+		// .ic-arrow-left { transform: translateX(-.5rem);	}
+		// .ic-calendar { transform: translatey(-2px);	}
+	}
+
+// 	.ic-arr-next {
+// 		width: .5rem;
+// 		mask: center center / contain no-repeat var(--theme-arr-next);
+// 	}
+// 	.ic-arr-prev {
+// 		width: .5rem;
+// 		mask: center center / contain no-repeat var(--theme-arr-prev);
+// 	}
+
+// 	.ic-arrow-right {
+// //		margin-top: 0; //0.2rem;
+// 		width: 14px;
+// 		height: 10px;
+// 		mask: center center / contain no-repeat var(--theme-arrow-right);
+// 	}
+// 	.ic-arrow-left {
+// //		margin-top: 0; //0.2rem;
+// 		width: 14px;
+// 		height: 10px;
+// 		mask: center center / contain no-repeat var(--theme-arrow-left);
+// 	}
+// 	.ic-calendar {
+// //		margin-top: 0;
+// 		width: 1rem;
+// 		height: 1rem;
+// 		mask: center center / contain no-repeat var(--theme-icon-calendar);
+// 	}
+// 	.ic-scroll {
+// 		width: .75rem;
+// 		height: 1.5rem;
+// 		mask: center center / contain no-repeat var(--theme-icon-scroll);
+// 	}
+	.ic-phone {
+		width: 1em;
+		height: 1em;
+		mask: center center / contain no-repeat var(--theme-icon-phone);
+		transform: scale(1.5);
+		transform-origin: right center;
+	}
+
+	&.btn.secondary {
+		.ic-phone {
+			filter: var(--theme-filter-white);
+		}
+	}
+
+	.ic-facebook,
+	.ic-instagram,
+	.ic-linkedin,
+	.ic-tiktok
+	{
+		width: .75rem;
+		mask: center center / contain no-repeat;
+
+		.windows-os & {
+			margin-top: calc(var(--theme-windows-offset) + 1);
+		}
+	}
+	.ic-facebook {
+		mask-image: var(--theme-logo-facebook);
+	}
+	.ic-instagram {
+		mask-image: var(--theme-logo-instagram);
+	}
+	.ic-linkedin {
+		mask-image: var(--theme-logo-linkedin);
+	}
+	.ic-tiktok {
+		mask-image: var(--theme-logo-tiktok);
+	}
+}
+
+
+// social mmedia
+.cdb-socmed {
+    list-style: none;
+    padding: 0;
+
+	.cdb-icon {
+		--theme-link-color: var(--theme-text-color);
+
+		&::before {
+			display: none;
+		}
+	}
+}
+
+// star rating
+.starRating {
+    display: inline-flex;
+    gap: .25rem; /* Adjust spacing between stars */
+	margin-bottom: 1rem;
+
+	> span {
+		width: 1rem;
+		height: 1rem;
+
+		&::before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	}
+}
+
+.sFull::before {
+	background: center center / contain no-repeat var(--theme-star-full);
+}
+
+.sHalf::before {
+	background: center center / contain no-repeat var(--theme-star-half);
+}
+
+.sEmpty::before {
+	background: center center / contain no-repeat var(--theme-star-empty);
+}

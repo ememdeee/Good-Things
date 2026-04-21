@@ -1,0 +1,163 @@
+//-----------------------------------
+// Featured List Block Shared CSS
+//-----------------------------------
+@import "../../theme/functions";
+@import "../../theme/theme_variables";
+
+// @import "../../assets/bootstrap5";
+@import "../../assets/bootstrap5/functions";
+@import "../../assets/bootstrap5/variables";
+@import "../../assets/bootstrap5/maps";
+@import "../../assets/bootstrap5/mixins";
+
+@mixin cdb-featured_list {
+    .cdb-featured_list {
+    }
+
+    .featured-list__list {
+        list-style: none;
+        padding-left: 0;
+        // border-top: 1px solid var(--theme-color-border);
+        padding-top: 10px;
+        margin-bottom: -20px !important;
+    }
+
+    .featured-list__item {
+        display: flex;
+        //padding-top: 30px;
+        padding-bottom: 20px;
+        // border-bottom: 1px solid var(--theme-color-border);
+        // flex-direction: column;
+        position: relative;
+        
+        &:first-child {
+            //padding-top: 20px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            // flex-direction: row;
+            // padding-top: 50px;
+            // padding-bottom: 50px;
+        }
+
+        &:before {
+            display: block;
+            left: 15px;
+            bottom: 20px;
+            top: 64px + 10px;
+            left: 32px;
+            width: 3px;
+            background-color: var(--theme-color-lavender);
+            content: "";
+            position: absolute;
+        }
+
+        @include media-breakpoint-down(md) {
+            &:before {
+                left: 25px;
+                top: 50px + 10px;
+            }
+        }
+
+    }
+
+    .featured-list__item-content {
+        background-color: var(--theme-color-softlime);
+        padding: var(--theme-spacing-sm);
+        flex-grow: 1;
+
+        table {
+            margin-bottom: 1rem;
+            tr {
+                td, th {
+                    padding: 5px 10px;
+                    border: 1px solid var(--theme-color-primary);
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+
+    .featured-list__item-title {
+        margin-bottom: 0.5rem !important;
+    }
+
+    .featured-list__item-description {
+        ul {
+            // bullet style is solid circle
+            list-style-type: disc;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+
+        p,
+        ul,
+        ol {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .featured-list__item-number {
+        flex-shrink: 0;
+        width: 64px;
+        height: 64px;
+        margin-right: 12px;
+
+        font-weight: bold;
+        font-size: 20px;
+        color: #fff;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+
+        /* &:before {
+            content: "";
+            display: block;
+            width: 64px;
+            height: 64px;
+            background-color: var(--theme-color-lavender);
+            border-radius: 64px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        } */
+
+        &:before {
+            background: url(../../../img/svg/icon-list-bg1.svg) no-repeat center
+                center;
+            background-size: contain;
+            width: 64px;
+            height: 64px;
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            filter: var(--theme-filter);
+            z-index: -1;
+        }
+
+        @include media-breakpoint-down(md) {
+            font-size: 1rem;
+            width: 50px;
+            height: 50px;
+            &:before {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+    }
+
+    .cdb-featured_list--style-numbered {
+    }
+}

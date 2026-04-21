@@ -1,0 +1,25 @@
+//-----------------------------------
+// Rich Text & Toggle Block Editor CSS
+//-----------------------------------
+@import "shared";
+
+.editor-visual-editor .block-editor-block-list__layout {
+	@include cdb-richtext_toggle;
+/*
+	.cdb-richtext_toggle {
+		
+		.richtext-toggle__description {
+			display: none;
+		}
+		
+		.richtext-toggle__item {
+			
+			&.active {
+				.richtext-toggle__description {
+					display: block;
+				}
+			}
+		}
+	}
+*/
+}

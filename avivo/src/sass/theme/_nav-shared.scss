@@ -1,0 +1,64 @@
+//-----------------------------------
+// Navigation / Menu
+//-----------------------------------
+// variables
+$box-shadow					: 0px 4px 8px 0px rgba(0, 0, 0, 0.06);
+
+// logo
+$logo-width					: px-to-rem(150px);
+$logo-height				: px-to-rem(60px);
+$logo-height-sm				: px-to-rem(40px);
+$logo-margin-top			: px-to-rem(0px);
+$logo-margin-bottom			: px-to-rem(0px);
+
+// menu - 1st level
+$nav-font-size				: $font-size-base;
+$nav-font-weight			: 600;
+
+$menuitem-pad-left			: 1.5rem;	// li > a
+$menuitem-pad-right			: 1.5rem;
+$menuitem-pad-left-sm		: 0.5rem;
+$menuitem-pad-right-sm		: 1rem;
+
+$menuitem-has-border		: false;
+$menuitem-border			: solid 1px var(--theme-border-color);
+
+// menu drop item - 2nd level
+$dropmenu-min-width			: 320px;	// 2nd & 3rd level
+$dropmenu-pad-top			: 1rem;		// ul
+$dropmenu-pad-bottom		: 1rem;
+$dropmenu-has-pad-top		: false;
+$dropmenu-has-pad-bottom	: false;
+
+$dropitem-pad-top			: 1rem;		// li > a
+$dropitem-pad-bottom		: 1rem;
+$dropitem-pad-top-sm		: .75rem;
+$dropitem-pad-bottom-sm		: .75rem;
+
+$dropitem-has-border		: true;
+$dropitem-border			: none; //solid 1px var(--theme-border-color);
+
+// menu drop item - 3rd level
+$dropmenu3-pad-top			: 1rem;
+$dropmenu3-pad-bottom		: 1rem;
+
+$dropitem3-pad-top			: .5rem;
+$dropitem3-pad-bottom		: .75rem;
+$dropitem3-pad-top-sm		: .25rem;
+$dropitem3-pad-bottom-sm	: .5rem;
+$dropmenu3-has-pad-top		: false;
+$dropmenu3-has-pad-bottom	: false;
+
+$dropitem3-has-border		: false;
+$dropitem3-border			: solid 1px var(--theme-border-color);
+
+// megamenu
+
+
+// mobile menu
+$mobile-menu-width			: 430px;
+$mobile-logo-width			: px-to-rem(100px);
+$mobile-logo-height			: px-to-rem(50px);
+
+// search
+$search-icon-size			: 1.5rem;
