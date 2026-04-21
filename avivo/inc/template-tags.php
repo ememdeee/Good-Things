@@ -261,7 +261,12 @@ function cd_display_image_blob($imageblob) {
 
 	$output = '<div class="imageblob imageblob--' . esc_attr($imageblob_shape) . '">';
 	$output .= '<div class="imageblob__image-wrapper">';
-	$output .= wp_get_attachment_image($imageblob_image, 'full', false, array('class' => 'imageblob__img', 'style' => 'clip-path: url(#' . $clippath_id . ');'));
+	$output .= wp_get_attachment_image($imageblob_image, 'large', false, array(
+		'class'         => 'imageblob__img',
+		'style'         => 'clip-path: url(#' . $clippath_id . ');',
+		'sizes'         => '(max-width: 767px) calc(100vw - 32px), (max-width: 1199px) 50vw, 512px',
+		'fetchpriority' => 'high',
+	));
 	$output .= '</div>';
 
 	if ($imageblob_shape === 'shape1') {

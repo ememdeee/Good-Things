@@ -59,7 +59,7 @@ $section_button_row['section_buttons_class']	= 'availability_finder__cta';			// 
 
 						<div class="availability-finder__results">
 							<div class="availability-finder__result availability-finder__result--supported sc-softlime" role="status" aria-live="polite" style="display: none;">
-								<span class="availability-finder__result-title h3" style="margin-bottom: 20px;"></span>
+								<h3 class="availability-finder__result-title"></h3>
 								<?php 
 									echo cd_print_richtext( $section_description_supported,'<div class="availability-finder__result-description">','</div>' );
 									if (isset($section_button_row_supported) && is_array($section_button_row_supported)) {
@@ -69,7 +69,7 @@ $section_button_row['section_buttons_class']	= 'availability_finder__cta';			// 
 							</div>
 
 							<div class="availability-finder__result availability-finder__result--notsupported sc-softlime" role="status" aria-live="polite" style="display: none;">
-								<span class="availability-finder__result-title h3" style="margin-bottom: 20px;"></span>
+								<h3 class="availability-finder__result-title"></h3>
 								<?php 
 									echo cd_print_richtext( $section_description_notsupported,'<div class="availability-finder__result-description">','</div>' );
 									if (isset($section_button_row_notsupported) && is_array($section_button_row_notsupported)) {
@@ -79,7 +79,7 @@ $section_button_row['section_buttons_class']	= 'availability_finder__cta';			// 
 							</div>
 
 							<div class="availability-finder__result availability-finder__result--notfound sc-softlime" role="status" aria-live="polite" style="display: none;">
-								<span class="availability-finder__result-title h3" style="margin-bottom: 20px;"></span>
+								<h3 class="availability-finder__result-title"></h3>
 								<?php 
 									echo cd_print_richtext( $section_description_notfound,'<div class="availability-finder__result-description">','</div>' );
 								?>

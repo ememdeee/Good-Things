@@ -281,8 +281,8 @@
             "endpoint": 0
         },
         {
-            "key": "field_699254ad52649",
-            "label": "No Stacking Effect",
+            "key": "field_699255f0aa525",
+            "label": "No Stacking Effects",
             "name": "section_no_stacking",
             "aria-label": "",
             "type": "true_false",
@@ -365,5 +365,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771197646
+    "modified": 1771197965
 }

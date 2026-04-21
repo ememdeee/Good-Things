@@ -29,6 +29,7 @@ $understrap_includes = array(
 	'/shortcodes.php',						// shortcodes
 	'/acf.php',								// ACF
 	'/gutenberg-blocks.php',				// gutenberg custom section blocks and settings
+	'/performance.php',						// Performance: async CSS, mobile image sizes
 );
 
 // Load Jetpack compatibility file if Jetpack is activiated.

@@ -133,13 +133,10 @@ if (!function_exists('cd_theme_assets')) {
 		wp_enqueue_style('theme-styles');
 
 		wp_enqueue_script('theme-scripts');
+		wp_script_add_data('theme-scripts', 'defer', true);
+
 		wp_enqueue_script('nav-scripts');
-
-		// Optionally, remove WordPress block editor CSS if not needed
-		// wp_dequeue_style('wp-block-library');
-
-		// // Optionally, enqueue jQuery if needed
-		// wp_enqueue_script('jquery');
+		wp_script_add_data('nav-scripts', 'defer', true);
 
 	}
 
@@ -150,4 +147,11 @@ if (!function_exists('cd_theme_assets')) {
 
 	add_action('wp_enqueue_scripts', 'cd_theme_assets');
 	add_action('get_footer', 'cd_theme_assets_footer');
+
+	// Remove render-blocking WordPress core block CSS — theme uses its own block CSS via block.json
+	add_action('wp_enqueue_scripts', function () {
+		wp_dequeue_style('wp-block-library');
+		wp_dequeue_style('wp-block-library-theme');
+		wp_dequeue_style('classic-theme-styles');
+	}, 100);
 }

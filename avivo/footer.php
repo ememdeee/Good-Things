@@ -274,7 +274,7 @@ defined( 'ABSPATH' ) || exit;
 	$site_name = esc_html(get_bloginfo('name'));
 	if ($site_logo_url) {
 		// $site_identity = '<span class="mobile-brand__logo" style="mask-image:url('.esc_url($site_logo_url).');-webkit-mask-image:url('.esc_url($site_logo_url).');">'.$site_name.'</span>';
-		$site_identity = '<img class="mobile-brand__logo" src="'.esc_url($site_logo_url).'" alt="'.esc_attr($site_name).'">';
+		$site_identity = wp_get_attachment_image($site_logo, 'full', false, array('class' => 'mobile-brand__logo', 'alt' => esc_attr($site_name)));
 	} else {
 		$site_identity = $site_name;
 	}

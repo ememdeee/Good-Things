@@ -52,6 +52,22 @@ if (!empty($secondary_menu)) {
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+	<!-- Preconnect to third-party origins to reduce connection latency -->
+	<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+	<link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+	<link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+	<link rel="preconnect" href="https://static.hotjar.com" crossorigin>
+
+	<!-- Preload critical fonts to reduce LCP -->
+	<link rel="preload" as="font" type="font/woff2" crossorigin
+		href="<?php echo get_template_directory_uri(); ?>/fonts/montserrat/montserrat-v30-latin-regular.woff2">
+	<link rel="preload" as="font" type="font/woff2" crossorigin
+		href="<?php echo get_template_directory_uri(); ?>/fonts/montserrat/montserrat-v30-latin-600.woff2">
+	<link rel="preload" as="font" type="font/woff2" crossorigin
+		href="<?php echo get_template_directory_uri(); ?>/fonts/montserrat/montserrat-v30-latin-700.woff2">
+	<link rel="preload" as="font" type="font/woff2" crossorigin
+		href="<?php echo get_template_directory_uri(); ?>/fonts/montserrat/montserrat-v30-latin-900.woff2">
+
 	<?php
 	// Check for custom favicon in the Theme Config Settings
 	$favicon_id = get_field('site_favicon', 'option');

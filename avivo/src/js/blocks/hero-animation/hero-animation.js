@@ -19,10 +19,11 @@
 
 // @prepros-prepend "hero-animation-common.js";
 
-// Wait until DOM loaded
+// Wait until DOM loaded, then defer init to browser idle time to reduce TBT
 document.addEventListener('DOMContentLoaded', function () {
-
-    // Call initializeHeroAnimation() right after DOM is loaded
-    initializeHeroAnimation();
-
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(initializeHeroAnimation, { timeout: 2000 });
+    } else {
+        setTimeout(initializeHeroAnimation, 200);
+    }
 });

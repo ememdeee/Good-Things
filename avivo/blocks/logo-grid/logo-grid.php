@@ -80,7 +80,6 @@ if (is_admin() && !$has_items) {
 
 						echo '<div class="grid-item logo_grid__tile">';
 							echo $link_open_tag;
-							echo '<div class="logo_grid__tile_image">';
 
 							$bgImage = cd_bgimage(array(
 								'image_desktop'	=> $item_image,
@@ -88,13 +87,14 @@ if (is_admin() && !$has_items) {
 								'image_class'	=> ''		// Custom class name
 							));
 							echo $bgImage;
-							echo '</div>';
 							
-							// Check if item_title exists and is not empty
-							if (!empty($item_title)) {
-								echo '<div class="logo_grid__tile_content">';
-								echo cd_print_wrap_tags($item_title,'','');
-								echo '</div>';
+							if (empty($bgImage)) {
+								// Check if item_title exists and is not empty
+								if (!empty($item_title)) {
+									echo '<div class="logo_grid__tile_content">';
+									echo esc_html($item_title);
+									echo '</div>';
+								}
 							}
 
 							echo $link_close_tag;
